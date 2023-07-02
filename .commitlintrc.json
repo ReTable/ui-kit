@@ -1,5 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/commitlintrc.json",
 
-  "extends": ["@commitlint/config-conventional"]
+  "extends": ["@commitlint/config-conventional", "@commitlint/config-pnpm-scopes"]
 }
