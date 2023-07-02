@@ -1,0 +1,26 @@
+{
+  "name": "@tabula/ui-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reusable packages designed for Retable Inc. products",
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "packageManager": "pnpm@8.6.5",
+  "engines": {
+    "node": "20.3.1",
+    "pnpm": "8.6.5"
+  }
+}
