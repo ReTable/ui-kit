@@ -27,6 +27,7 @@
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@commitlint/config-pnpm-scopes": "^17.5.0",
+    "@tabula/prettier-config": "workspace:*",
     "lefthook": "^1.4.3",
     "prettier": "^2.8.8"
   }

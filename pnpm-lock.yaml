@@ -17,6 +17,9 @@ importers:
       '@commitlint/config-pnpm-scopes':
         specifier: ^17.5.0
         version: 17.5.0
+      '@tabula/prettier-config':
+        specifier: workspace:*
+        version: link:configs/prettier-config
       lefthook:
         specifier: ^1.4.3
         version: 1.4.3
