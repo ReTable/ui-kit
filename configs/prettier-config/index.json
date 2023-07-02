@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "all",
+
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+
+  "importOrder": [
+    "^node:.*$",
+    "^(react|react-dom)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@tabula/.*",
+    "\\.module\\.(css|pcss|sass|scss)$",
+    "\\.svg",
+    "\\.(bmp|gif|ico|jpeg|jpg|png|webp)",
+    "\\.(eot|otf|ttf|woff|woff2)",
+    "\\.(css|pcss|scss)$",
+    "\\.css\\.ts$",
+    "^(../../../)",
+    "^(../../)",
+    "^(../)",
+    "^./"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": true
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@tabula/prettier-config",
+  "version": "0.0.0",
+  "description": "Configuration for the Prettier",
+  "exports": {
+    ".": {
+      "default": "./index.json"
+    }
+  },
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "config",
+    "prettier",
+    "preset"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/configs/prettier-config#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "configs/prettier-config"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "prettier": "^2.8.8"
+  }
+}
