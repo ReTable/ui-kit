@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/eslintrc.json",
+
+  "extends": ["./base.json", "prettier"],
+
+  "parserOptions": {
+    "ecmaVersion": 10
+  },
+
+  "env": {
+    "node": true,
+    "es2019": true
+  },
+
+  "rules": {
+    "no-console": "off",
+
+    "unicorn/no-new-buffer": "error",
+    "unicorn/no-process-exit": "off",
+    "unicorn/prefer-event-target": "error",
+    "unicorn/prefer-json-parse-buffer": "error",
+    "unicorn/prefer-node-protocol": "error",
+    "unicorn/prefer-top-level-await": "error",
+    "unicorn/text-encoding-identifier-case": "error"
+  }
+}

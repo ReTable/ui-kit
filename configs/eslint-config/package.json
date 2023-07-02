@@ -1,0 +1,51 @@
+{
+  "name": "@tabula/eslint-config",
+  "version": "0.0.0",
+  "description": "Configuration for the ESLint",
+  "exports": {
+    "./node": {
+      "default": "./node.json"
+    },
+    "./browser": {
+      "default": "./browser.json"
+    }
+  },
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "config",
+    "eslint",
+    "preset"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/configs/eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "configs/eslint-config"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "base.json",
+    "browser.json",
+    "node.json"
+  ],
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.11.0",
+    "eslint-plugin-unicorn": "^47.0.0",
+    "typescript": "^5.1.6"
+  }
+}
