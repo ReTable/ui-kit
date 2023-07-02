@@ -1,0 +1,11 @@
+# IDEs and editors
+
+.idea
+
+# Node.js
+
+node_modules
+
+# Lock files
+
+pnpm-lock.yaml
