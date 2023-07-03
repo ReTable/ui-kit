@@ -2,6 +2,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { camelCase, paramCase, pascalCase } from 'change-case';
+import { execa } from 'execa';
 
 // region Constants
 
@@ -74,6 +75,16 @@ function appendAddFileActions({ actions, data, files, outDir, templatesDir }) {
   }
 }
 
+function appendRunActions({ actions, commands, cwd }) {
+  for (const command of commands) {
+    actions.push({
+      type: command,
+
+      cwd,
+    });
+  }
+}
+
 // endregion
 
 // region Helpers
@@ -84,6 +95,45 @@ function currentYear() {
 
 function eq(left, right) {
   return left === right;
+}
+
+// endregion
+
+// region Actions
+
+async function install(_, config) {
+  await execa('pnpm', ['install'], {
+    cwd: config.cwd,
+    stdio: 'inherit',
+  });
+}
+
+async function format(_, config) {
+  await execa('pnpm', ['prettier', '--write', '.'], {
+    cwd: config.cwd,
+    stdio: 'inherit',
+  });
+}
+
+async function build(_, config) {
+  await execa('pnpm', ['build'], {
+    cwd: config.cwd,
+    stdio: 'inherit',
+  });
+}
+
+async function lint(_, config) {
+  await execa('pnpm', ['lint'], {
+    cwd: config.cwd,
+    stdio: 'inherit',
+  });
+}
+
+async function test(_, config) {
+  await execa('pnpm', ['test'], {
+    cwd: config.cwd,
+    stdio: 'inherit',
+  });
 }
 
 // endregion
@@ -100,6 +150,16 @@ export default (plop) => {
   plop.setHelper('eq', eq);
 
   // endregion Helpers
+
+  // region Actions
+
+  plop.setActionType('install', install);
+  plop.setActionType('format', format);
+  plop.setActionType('build', build);
+  plop.setActionType('lint', lint);
+  plop.setActionType('test', test);
+
+  // endregion
 
   // region Component
 
@@ -188,12 +248,20 @@ export default (plop) => {
         }
       }
 
+      const outDir = join(rootDir, `components/${packageName}`);
+
       appendAddFileActions({
         actions,
         data,
         files,
-        outDir: join(rootDir, `components/${packageName}`),
+        outDir,
         templatesDir: join(rootDir, `.scaffold/component`),
+      });
+
+      appendRunActions({
+        actions,
+        commands: ['install', 'format', 'build', 'lint', 'test'],
+        cwd: outDir,
       });
 
       return actions;
@@ -259,12 +327,20 @@ export default (plop) => {
         [`tests/${hookName}.test.ts`, `tests/useHook.test.ts`],
       ];
 
+      const outDir = join(rootDir, `hooks/${packageName}`);
+
       appendAddFileActions({
         actions,
         data,
         files,
-        outDir: join(rootDir, `hooks/${packageName}`),
+        outDir,
         templatesDir: join(rootDir, `.scaffold/hook`),
+      });
+
+      appendRunActions({
+        actions,
+        commands: ['install', 'format', 'build', 'lint', 'test'],
+        cwd: outDir,
       });
 
       return actions;
