@@ -35,6 +35,15 @@
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
     "@commitlint/config-pnpm-scopes": "^17.5.0",
+    "@storybook/addon-essentials": "^7.0.24",
+    "@storybook/addon-interactions": "^7.0.24",
+    "@storybook/addon-links": "^7.0.24",
+    "@storybook/blocks": "^7.0.24",
+    "@storybook/manager-api": "^7.0.24",
+    "@storybook/react": "^7.0.24",
+    "@storybook/react-vite": "^7.0.24",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@storybook/theming": "^7.0.24",
     "@tabula/eslint-config": "workspace:*",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
@@ -46,6 +55,10 @@
     "lefthook": "^1.4.3",
     "plop": "^3.1.2",
     "prettier": "^2.8.8",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.24",
     "vitest": "^0.32.3"
   }
 }
