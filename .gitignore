@@ -5,3 +5,9 @@ node_modules
 # macOS
 
 .DS_Store
+
+# Build
+
+lib
+tmp
+typings
