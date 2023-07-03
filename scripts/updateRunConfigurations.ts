@@ -23,6 +23,7 @@ const CONFIGURATIONS_DIR = join(ROOT_DIR, '.idea/runConfigurations');
 // region Render
 
 type Context = {
+  folder: string;
   name: string;
   path: string;
   script: string;
@@ -30,7 +31,7 @@ type Context = {
 
 const renderTemplate = handlebars.compile<Context>(`
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="{{name}}" type="js.build_tools.npm">
+  <configuration default="false" folderName="{{folder}}" name="{{name}}" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/{{path}}/package.json" />
     <command value="run" />
     <scripts>
@@ -106,10 +107,11 @@ async function* walkPackages() {
     const scripts = await parseScripts(packageDir);
 
     for (const script of scripts) {
+      const folder = entry.name;
       const name = `${entry.name}:${script}`;
       const path = join(relative(ROOT_DIR, entry.path), entry.name);
 
-      yield { name, path, script };
+      yield { folder, name, path, script };
     }
   }
 }
