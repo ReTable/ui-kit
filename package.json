@@ -51,7 +51,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.0.25",
     "@tabula/eslint-config": "workspace:*",
-    "@tabula/forge": "^0.1.0",
+    "@tabula/forge": "^0.1.1",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
     "@tabula/vitest-config": "workspace:*",
