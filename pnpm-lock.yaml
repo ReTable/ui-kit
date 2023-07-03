@@ -83,6 +83,9 @@ importers:
       '@vanilla-extract/css':
         specifier: ^1.12.0
         version: 1.12.0
+      ava:
+        specifier: ^5.3.1
+        version: 5.3.1
       change-case:
         specifier: ^4.1.2
         version: 4.1.2
@@ -119,6 +122,9 @@ importers:
       storybook:
         specifier: ^7.0.25
         version: 7.0.25
+      tsx:
+        specifier: ^3.12.7
+        version: 3.12.7
       turbo:
         specifier: ^1.10.7
         version: 1.10.7
@@ -265,12 +271,6 @@ importers:
       '@types/convert-source-map':
         specifier: ^2.0.0
         version: 2.0.0
-      ava:
-        specifier: ^5.3.1
-        version: 5.3.1
-      tsx:
-        specifier: ^3.12.7
-        version: 3.12.7
 
 packages:
 

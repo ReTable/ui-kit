@@ -42,9 +42,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@types/convert-source-map": "^2.0.0",
-    "ava": "^5.3.1",
-    "tsx": "^3.12.7"
+    "@types/convert-source-map": "^2.0.0"
   },
   "dependencies": {
     "@babel/core": "^7.22.5",
