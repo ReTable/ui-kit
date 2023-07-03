@@ -1,0 +1,21 @@
+import { FC } from 'react';
+
+{{#if (eq styles "css")}}
+import styles from './{{componentName}}.module.css';
+{{else if (eq styles "postcss")}}
+import styles from './{{componentName}}.module.pcss';
+{{else if (eq styles "sass")}}
+import styles from './{{componentName}}.module.scss';
+{{else}}
+import { root } from './{{componentName}}.css';
+{{/if}}
+
+export type Props = {
+  className?: string;
+};
+
+{{#if (eq styles "vanillaExtract")}}
+export const {{componentName}}: FC<Props> = ({ className = '' }) => <div className={`${root} ${className}`} />;
+{{else}}
+export const {{componentName}}: FC<Props> = ({ className = '' }) => <div className={`${styles.root} ${className}`} />;
+{{/if}}

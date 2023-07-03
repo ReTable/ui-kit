@@ -1,0 +1,39 @@
+{
+  "name": "@retable/{{packageName}}",
+  "version": "0.0.0",
+  "description": "{{{description}}}",
+  "type": "module",
+  "typings": "typings",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit"
+    "library"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/libraries/{{packageName}}#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "libraries/{{packageName}}"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge build browser --production",
+    "lint": "eslint .",
+    "test": "vitest run"
+  }
+}

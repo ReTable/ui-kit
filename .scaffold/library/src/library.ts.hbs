@@ -1,0 +1,15 @@
+type Listener<K extends keyof HTMLElementEventMap> = (event: HTMLElementEventMap[K]) => void;
+
+type Unsubscribe = () => void;
+
+export function subscribe<K extends keyof HTMLElementEventMap>(
+  target: HTMLElement,
+  type: K,
+  listener: Listener<K>
+): Unsubscribe {
+  target.addEventListener(type, listener);
+
+  return () => {
+    target.removeEventListener(type, listener);
+  };
+}
