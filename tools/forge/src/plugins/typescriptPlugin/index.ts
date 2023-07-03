@@ -1,1 +1,0 @@
-export { typescriptPlugin } from './typescriptPlugin';

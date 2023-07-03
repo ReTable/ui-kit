@@ -1,1 +1,0 @@
-export { readJson } from './readJson';

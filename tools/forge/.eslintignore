@@ -1,8 +1,0 @@
-lib
-
-tests/fixtures
-tests/tmp
-
-types
-
-ava.config.js

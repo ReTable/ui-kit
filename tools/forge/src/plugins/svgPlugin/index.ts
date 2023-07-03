@@ -1,1 +1,0 @@
-export { svgPlugin } from './svgPlugin';

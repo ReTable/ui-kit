@@ -1,1 +1,0 @@
-export { reactDocgenPlugin } from './reactDocgenPlugin';
