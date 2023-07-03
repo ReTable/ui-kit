@@ -30,6 +30,7 @@
     "@tabula/eslint-config": "workspace:*",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
+    "@types/node": "^20.3.3",
     "lefthook": "^1.4.3",
     "prettier": "^2.8.8"
   }

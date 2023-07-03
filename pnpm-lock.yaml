@@ -26,6 +26,9 @@ importers:
       '@tabula/typescript-config':
         specifier: workspace:*
         version: link:configs/typescript-config
+      '@types/node':
+        specifier: ^20.3.3
+        version: 20.3.3
       lefthook:
         specifier: ^1.4.3
         version: 1.4.3
