@@ -25,7 +25,7 @@
     "pnpm": "8.6.5"
   },
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "turbo build",
     "docs:build": "storybook build --output-dir docs",
     "docs:watch": "storybook dev -p 6006",
     "lint": "turbo lint",
