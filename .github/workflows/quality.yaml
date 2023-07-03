@@ -1,0 +1,27 @@
+name: Quality
+
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  quality:
+    name: Quality
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: ./.github/composite-actions/install-node
+
+      - name: Check quality
+        uses: ./.github/composite-actions/quality

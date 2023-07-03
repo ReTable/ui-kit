@@ -1,0 +1,15 @@
+name: 'Check source code quality'
+description: 'Runs build, linters and tests'
+
+runs:
+  using: composite
+
+  steps:
+    - name: Build
+      run: pnpm build
+
+    - name: Lint
+      run: pnpm lint
+
+    - name: Test
+      run: pnpm test

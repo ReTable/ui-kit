@@ -1,0 +1,45 @@
+name: Docs
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.repository == 'ReTable/ui-kit'
+
+    name: Docs
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: ./.github/composite-actions/install-node
+
+      - name: Build docs
+        run: pnpm build:docs
+
+      - name: Upload docs artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs
+
+      - name: Deploy docs to Github Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
