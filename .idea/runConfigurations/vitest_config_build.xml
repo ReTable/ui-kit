@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="vitest-config:build" type="js.build_tools.npm">
+  <configuration default="false" folderName="vitest-config" name="vitest-config:build" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/configs/vitest-config/package.json" />
     <command value="run" />
     <scripts>
