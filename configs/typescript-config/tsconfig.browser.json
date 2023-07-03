@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+
+  "display": "Browser",
+
+  "extends": "./tsconfig.base.json",
+
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2021",
+    "lib": ["DOM", "DOM.Iterable", "ES2021"],
+    "jsx": "react-jsx",
+
+    "moduleResolution": "Bundler",
+
+    /* CSS Modules */
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCaseOnly",
+          "customMatcher": "\\.module\\.(c|pc|sc)ss$"
+        }
+      }
+    ]
+  },
+
+  "files": ["./types/static.d.ts", "./types/css-modules.d.ts", "./types/svg.d.ts"]
+}

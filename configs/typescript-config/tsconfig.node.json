@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+
+  "display": "Node",
+
+  "extends": "./tsconfig.base.json",
+
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2021",
+    "lib": ["ES2021"]
+  }
+}

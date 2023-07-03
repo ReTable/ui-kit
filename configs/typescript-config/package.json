@@ -1,0 +1,42 @@
+{
+  "name": "@tabula/typescript-config",
+  "version": "0.0.0",
+  "description": "Configurations for the TypeScript",
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "config",
+    "typescript",
+    "preset"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/configs/typescript-config#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "configs/typescript-config"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.node.json",
+    "tsconfig.browser.json",
+    "types"
+  ],
+  "dependencies": {
+    "typescript-plugin-css-modules": "^5.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "optionalDependencies": {
+    "@types/react": "^18.2.14"
+  }
+}
