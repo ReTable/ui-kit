@@ -5,6 +5,14 @@ runs:
   using: composite
 
   steps:
+    - name: Build forge
+      shell: bash
+      run: cd tools/forge && pnpm build
+
+    - name: Install packages
+      shell: bash
+      run: pnpm install
+
     - name: Build
       shell: bash
       run: pnpm build
