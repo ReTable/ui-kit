@@ -16,7 +16,8 @@
     "ecmaFeatures": {
       "impliedStrict": true
     },
-    "sourceType": "module"
+    "sourceType": "module",
+    "warnOnUnsupportedTypeScriptVersion": false
   },
 
   "settings": {
