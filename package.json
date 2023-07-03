@@ -56,6 +56,7 @@
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
     "@types/react-test-renderer": "^18.0.0",
+    "@vanilla-extract/css": "^1.12.0",
     "change-case": "^4.1.2",
     "execa": "^7.1.1",
     "happy-dom": "^9.20.3",
