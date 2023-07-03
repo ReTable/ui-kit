@@ -161,6 +161,7 @@ export default (plop) => {
         'tsconfig.json',
         'src/index.ts',
         [`src/${componentName}.tsx`, 'src/UiComponent.tsx'],
+        [`stories/${componentName}.stories.tsx`, `stories/UiComponent.stories.tsx`],
         [`tests/${componentName}.test.tsx`, `tests/UiComponent.test.tsx`],
       ];
 
@@ -254,6 +255,7 @@ export default (plop) => {
         'tsconfig.json',
         'src/index.ts',
         [`src/${hookName}.ts`, 'src/useHook.ts'],
+        [`stories/${hookName}.stories.tsx`, `stories/useHook.stories.tsx`],
         [`tests/${hookName}.ts`, `tests/useHook.test.ts`],
       ];
 
