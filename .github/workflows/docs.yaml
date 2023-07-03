@@ -33,7 +33,7 @@ jobs:
         uses: ./.github/composite-actions/install-node
 
       - name: Build docs
-        run: pnpm build:docs
+        run: pnpm docs:build
 
       - name: Upload docs artifact
         uses: actions/upload-pages-artifact@v1
