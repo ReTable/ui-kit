@@ -47,6 +47,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@storybook/theming": "^7.0.24",
     "@tabula/eslint-config": "workspace:*",
+    "@tabula/forge": "workspace:*",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
     "@tabula/vitest-config": "workspace:*",

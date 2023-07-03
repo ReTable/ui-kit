@@ -53,6 +53,9 @@ importers:
       '@tabula/eslint-config':
         specifier: workspace:*
         version: link:configs/eslint-config
+      '@tabula/forge':
+        specifier: workspace:*
+        version: link:tools/forge
       '@tabula/prettier-config':
         specifier: workspace:*
         version: link:configs/prettier-config
@@ -11163,7 +11166,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /read-pkg-up@7.0.1:
     resolution: {integrity: sha512-zK0TB7Xd6JpCLmlLmufqykGE+/TlOePD6qKClNW7hHDKFh/J7/7gCWGR7joEQEW1bKq3a3yUZSObOoWLFQ4ohg==}
