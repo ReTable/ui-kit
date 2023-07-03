@@ -12,3 +12,7 @@ docs
 lib
 tmp
 typings
+
+# Turbo
+
+.turbo
