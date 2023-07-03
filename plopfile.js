@@ -256,7 +256,7 @@ export default (plop) => {
         'src/index.ts',
         [`src/${hookName}.ts`, 'src/useHook.ts'],
         [`stories/${hookName}.stories.tsx`, `stories/useHook.stories.tsx`],
-        [`tests/${hookName}.ts`, `tests/useHook.test.ts`],
+        [`tests/${hookName}.test.ts`, `tests/useHook.test.ts`],
       ];
 
       appendAddFileActions({
@@ -325,7 +325,7 @@ export default (plop) => {
         'tsconfig.json',
         'src/index.ts',
         [`src/${entryName}.ts`, 'src/library.ts'],
-        [`tests/${entryName}.ts`, `tests/library.test.ts`],
+        [`tests/${entryName}.test.ts`, `tests/library.test.ts`],
       ];
 
       appendAddFileActions({
