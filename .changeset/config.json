@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.3.1/schema.json",
+
+  "changelog": [
+    "@changesets/changelog-github",
+    {
+      "repo": "ReTable/ui-kit"
+    }
+  ],
+  "access": "public",
+  "baseBranch": "main",
+  "commit": false,
+  "updateInternalDependencies": "patch",
+  "bumpVersionsWithWorkspaceProtocolOnly": true,
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "updateInternalDependents": "always"
+  }
+}
