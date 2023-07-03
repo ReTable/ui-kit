@@ -30,9 +30,6 @@
   "dependencies": {
     "typescript-plugin-css-modules": "^5.0.1"
   },
-  "devDependencies": {
-    "typescript": "^5.1.6"
-  },
   "peerDependencies": {
     "typescript": "^5.1.6"
   },
