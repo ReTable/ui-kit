@@ -29,6 +29,7 @@
     "docs:build": "storybook build --output-dir docs",
     "docs:watch": "storybook dev -p 6006",
     "lint": "turbo lint",
+    "release": "changeset publish",
     "scaffold:component": "plop component",
     "scaffold:hook": "plop hook",
     "scaffold:library": "plop library",
