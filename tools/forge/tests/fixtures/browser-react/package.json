@@ -1,0 +1,17 @@
+{
+  "name": "browser-react",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}

@@ -1,0 +1,5 @@
+@use 'mixins';
+
+.scssModule ul {
+  @include mixins.horizontal-list;
+}

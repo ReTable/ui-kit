@@ -1,0 +1,14 @@
+{
+  "name": "node-clean",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "lib/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib"
+  ]
+}

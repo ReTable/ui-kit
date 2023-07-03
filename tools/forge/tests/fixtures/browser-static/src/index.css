@@ -1,0 +1,52 @@
+.bmp {
+  background-image: url(./assets/css/image.bmp);
+}
+
+.gif {
+  background-image: url(./assets/css/image.gif);
+}
+
+.ico {
+  background-image: url(./assets/css/image.ico);
+}
+
+.jpeg {
+  background-image: url(./assets/css/image.jpeg);
+}
+
+.jpg {
+  background-image: url(./assets/css/image.jpg);
+}
+
+.png {
+  background-image: url(./assets/css/image.png);
+}
+
+.webp {
+  background-image: url(./assets/css/image.webp);
+}
+
+@font-face {
+  font-family: eot;
+  src: url(./assets/css/font.eot);
+}
+
+@font-face {
+  font-family: otf;
+  src: url(./assets/css/font.otf);
+}
+
+@font-face {
+  font-family: ttf;
+  src: url(./assets/css/font.ttf);
+}
+
+@font-face {
+  font-family: woff;
+  src: url(./assets/css/font.woff);
+}
+
+@font-face {
+  font-family: woff2;
+  src: url(./assets/css/font.woff2);
+}

@@ -1,0 +1,5 @@
+@use 'mixins';
+
+.scssRoot ul {
+  @include mixins.horizontal-list;
+}

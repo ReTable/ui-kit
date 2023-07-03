@@ -1,0 +1,71 @@
+{
+  "name": "@tabula/forge",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The bundler for packages for Node.js and browser with support of various tools",
+  "type": "module",
+  "bin": {
+    "forge": "lib/index.js"
+  },
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "browser",
+    "bundler",
+    "esbuild",
+    "node",
+    "postcss",
+    "react",
+    "sass",
+    "svgr",
+    "typescript",
+    "vanilla-extract"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/scripts/forge#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "scripts/forge"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsx src/index.ts build node --production --no-typings",
+    "test": "NODE_OPTIONS='--no-warnings --loader tsx' ava",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/convert-source-map": "^2.0.0",
+    "ava": "^5.3.1",
+    "tsx": "^3.12.7"
+  },
+  "dependencies": {
+    "@babel/core": "^7.22.5",
+    "@svgr/core": "^8.0.0",
+    "@svgr/plugin-jsx": "^8.0.1",
+    "@vanilla-extract/esbuild-plugin": "^2.2.2",
+    "autoprefixer": "^10.4.14",
+    "clipanion": "^3.2.1",
+    "convert-source-map": "^2.0.0",
+    "esbuild": "^0.18.11",
+    "find-up": "^6.3.0",
+    "postcss": "^8.4.24",
+    "postcss-load-config": "^4.0.1",
+    "postcss-modules": "^6.0.0",
+    "react-docgen": "^6.0.1",
+    "react-docgen-typescript": "^2.2.2",
+    "read-pkg-up": "^9.1.0",
+    "sass": "^1.63.6",
+    "source-map": "^0.7.4",
+    "svgo": "^3.0.2",
+    "typanion": "^3.13.0",
+    "typescript": "^5.1.6"
+  }
+}

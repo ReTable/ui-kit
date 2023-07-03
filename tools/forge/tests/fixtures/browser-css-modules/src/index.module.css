@@ -1,0 +1,19 @@
+.root {
+  background: red;
+}
+
+.camelCase {
+  background: green;
+}
+
+.snake_case {
+  background: blue;
+}
+
+.PascalCase {
+  background: yellow;
+}
+
+.param-case {
+  background: magenta;
+}
