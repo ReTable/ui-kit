@@ -404,12 +404,20 @@ export default (plop) => {
         [`tests/${entryName}.test.ts`, `tests/library.test.ts`],
       ];
 
+      const outDir = join(rootDir, `libraries/${packageName}`);
+
       appendAddFileActions({
         actions,
         data,
         files,
-        outDir: join(rootDir, `libraries/${packageName}`),
+        outDir,
         templatesDir: join(rootDir, `.scaffold/library`),
+      });
+
+      appendRunActions({
+        actions,
+        commands: ['install', 'format', 'build', 'lint', 'test'],
+        cwd: outDir,
       });
 
       return actions;
