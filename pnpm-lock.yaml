@@ -206,7 +206,7 @@ importers:
         version: 0.32.3(happy-dom@9.20.3)
     devDependencies:
       '@tabula/forge':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../tools/forge
 
   tools/forge:
