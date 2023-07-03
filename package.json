@@ -32,9 +32,12 @@
     "@tabula/eslint-config": "workspace:*",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
+    "@tabula/vitest-config": "workspace:*",
     "@types/node": "^20.3.3",
     "@types/react": "^18.2.14",
+    "happy-dom": "^9.20.3",
     "lefthook": "^1.4.3",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "vitest": "^0.32.3"
   }
 }
