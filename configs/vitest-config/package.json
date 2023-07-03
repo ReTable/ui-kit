@@ -1,0 +1,46 @@
+{
+  "name": "@tabula/vitest-config",
+  "version": "0.0.0",
+  "description": "Configuration for the Vitest",
+  "type": "module",
+  "typings": "typings",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    }
+  },
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "config",
+    "vitest",
+    "preset"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/configs/vitest-config#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "configs/vitest-config"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge build node --production",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "happy-dom": "^9.20.3",
+    "vitest": "^0.32.3"
+  },
+  "devDependencies": {
+    "@tabula/forge": "workspace:*"
+  }
+}
