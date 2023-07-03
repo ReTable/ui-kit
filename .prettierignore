@@ -2,6 +2,10 @@
 
 .idea
 
+# Scaffold
+
+.scaffold
+
 # Node.js
 
 node_modules
