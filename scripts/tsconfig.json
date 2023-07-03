@@ -1,0 +1,3 @@
+{
+  "extends": "@tabula/typescript-config/tsconfig.node.json"
+}
