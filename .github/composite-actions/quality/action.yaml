@@ -6,10 +6,13 @@ runs:
 
   steps:
     - name: Build
+      shell: bash
       run: pnpm build
 
     - name: Lint
+      shell: bash
       run: pnpm lint
 
     - name: Test
+      shell: bash
       run: pnpm test
