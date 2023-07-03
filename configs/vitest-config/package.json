@@ -39,8 +39,5 @@
   "peerDependencies": {
     "happy-dom": "^9.20.3",
     "vitest": "^0.32.3"
-  },
-  "devDependencies": {
-    "@tabula/forge": "workspace:*"
   }
 }
