@@ -25,11 +25,14 @@
     "pnpm": "8.6.5"
   },
   "scripts": {
+    "build": "turbo build",
     "docs:build": "storybook build --output-dir docs",
+    "docs:watch": "storybook dev -p 6006",
+    "lint": "turbo lint",
     "scaffold:component": "plop component",
     "scaffold:hook": "plop hook",
     "scaffold:library": "plop library",
-    "docs:watch": "storybook dev -p 6006"
+    "test": "turbo test"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
