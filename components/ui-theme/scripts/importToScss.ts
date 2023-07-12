@@ -57,7 +57,7 @@ function generateSassTokens(tokens: Tokens): string {
       const variableName = nameOf(key, current.context);
 
       if (typeof value === 'string') {
-        buffer.push(`$${variableName}: var(--${variableName});`);
+        buffer.push(`$${variableName}: var(--tbl--${variableName});`);
       } else {
         queue.push({ context: `${variableName}`, tokens: value });
       }
