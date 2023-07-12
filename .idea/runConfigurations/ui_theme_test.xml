@@ -1,10 +1,26 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" folderName="ui-theme" name="ui-theme:test" type="JavaScriptTestRunnerVitest">
+  <configuration
+    default="false"
+    folderName="ui-theme"
+    name="ui-theme:test"
+    type="JavaScriptTestRunnerVitest"
+  >
     <node-interpreter value="project" />
     <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
     <working-dir value="$PROJECT_DIR$/components/ui-theme" />
     <envs />
     <scope-kind value="ALL" />
-    <method v="2" />
+    <method v="2">
+      <option name="NpmBeforeRunTask" enabled="true">
+        <package-json value="$PROJECT_DIR$/package.json" />
+        <command value="run" />
+        <scripts>
+          <script value="build" />
+        </scripts>
+        <arguments value="--filter @tabula/ui-theme" />
+        <node-interpreter value="project" />
+        <envs />
+      </option>
+    </method>
   </configuration>
 </component>
