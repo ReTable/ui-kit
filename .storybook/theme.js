@@ -5,7 +5,7 @@ export const theme = create({
 
   brandTitle: 'Tabula UI',
   brandUrl: 'https://tabula.io',
-  brandImage: '/tabula.svg',
+  brandImage: 'tabula.svg',
   brandTarget: '_blank',
 
   appBg: '#f8f8f8',

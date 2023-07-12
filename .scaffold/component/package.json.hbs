@@ -7,7 +7,8 @@
   "typings": "typings",
   "exports": {
     ".": {
-      "default": "./lib/index.js"
+      "default": "./lib/index.js",
+      "types": "./typings/index.d.ts"
     }
   },
   "sideEffects": false,
@@ -39,6 +40,10 @@
     "test": "vitest run"
   },
   "peerDependencies": {
+    "@tabula/ui-theme": "workspace:*",
     "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:*",
   }
 }

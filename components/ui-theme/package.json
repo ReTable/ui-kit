@@ -1,0 +1,60 @@
+{
+  "name": "@tabula/ui-theme",
+  "version": "0.0.0",
+  "description": "Theme provider for the UI kit",
+  "type": "module",
+  "sass": "sass/theme.scss",
+  "style": "lib/index.css",
+  "typings": "typings",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./typings/index.d.ts"
+    }
+  },
+  "sideEffects": true,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-theme#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-theme"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "sass",
+    "typings"
+  ],
+  "scripts": {
+    "build:sources": "forge build browser --production",
+    "build:tokens": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts build",
+    "build": "run-p build:sources build:tokens",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "watch:sources": "forge watch browser --storybook",
+    "watch:tokens": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts watch",
+    "watch": "run-p watch:sources watch:tokens"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "clipanion": "^3.2.1",
+    "node-watch": "^0.7.3",
+    "npm-run-all": "^4.1.5",
+    "ora": "^6.3.1",
+    "tempy": "^3.1.0",
+    "typanion": "^3.13.0"
+  }
+}

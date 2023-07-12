@@ -1,3 +1,12 @@
+# Documentation
+
+docs
+
+# Build results
+
+lib
+typings
+
 # Node.js
 
 node_modules
@@ -5,13 +14,6 @@ node_modules
 # macOS
 
 .DS_Store
-
-# Build
-
-docs
-lib
-tmp
-typings
 
 # Turbo
 

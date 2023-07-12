@@ -22,21 +22,38 @@ const CONFIGURATIONS_DIR = join(ROOT_DIR, '.idea/runConfigurations');
 
 // region Render
 
-type NpmContext = {
-  folder: string;
-  name: string;
-  path: string;
-  script: string;
+handlebars.registerHelper('configuration', function configurationHelper(this: TemplateContext) {
+  const [, name] = this.packageName.split('/');
+
+  return `${name}:${this.scriptName}`;
+});
+
+handlebars.registerHelper('folder', function folderHelper(this: TemplateContext) {
+  const [, name] = this.packageName.split('/');
+
+  return name;
+});
+
+type TemplateContext = {
+  packageName: string;
+  packageDir: string;
+  scriptName: string;
 };
 
-const renderNpmConfiguration = handlebars.compile<NpmContext>(`
+const renderNpmConfiguration = handlebars.compile<TemplateContext>(`
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" folderName="{{folder}}" name="{{name}}" type="js.build_tools.npm">
-    <package-json value="$PROJECT_DIR$/{{path}}/package.json" />
+  <configuration
+    default="false"
+    folderName="{{folder}}"
+    name="{{configuration}}"
+    type="js.build_tools.npm"
+  >
+    <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="{{script}}" />
+      <script value="{{scriptName}}" />
     </scripts>
+    <arguments value="--filter {{packageName}}" />
     <node-interpreter value="project" />
     <envs />
     <method v="2" />
@@ -44,29 +61,40 @@ const renderNpmConfiguration = handlebars.compile<NpmContext>(`
 </component>
 `);
 
-type VitestContext = {
-  folder: string;
-  name: string;
-  path: string;
-};
-
-const renderVitestConfiguration = handlebars.compile<VitestContext>(`
+const renderVitestConfiguration = handlebars.compile<TemplateContext>(`
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" folderName="{{folder}}" name="{{name}}" type="JavaScriptTestRunnerVitest">
+  <configuration
+    default="false"
+    folderName="{{folder}}"
+    name="{{configuration}}"
+    type="JavaScriptTestRunnerVitest"
+  >
     <node-interpreter value="project" />
     <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
-    <working-dir value="$PROJECT_DIR$/{{path}}" />
+    <working-dir value="$PROJECT_DIR$/{{packageDir}}" />
     <envs />
     <scope-kind value="ALL" />
-    <method v="2" />
+    <method v="2">
+      <option name="NpmBeforeRunTask" enabled="true">
+        <package-json value="$PROJECT_DIR$/package.json" />
+        <command value="run" />
+        <scripts>
+          <script value="build" />
+        </scripts>
+        <arguments value="--filter {{packageName}}" />
+        <node-interpreter value="project" />
+        <envs />
+      </option>
+    </method>
   </configuration>
 </component>
 `);
 
-type Context = ({ type: 'npm' } & NpmContext) | ({ type: 'vitest' } & VitestContext);
+type Context = TemplateContext & { type: 'npm' | 'vitest' };
 
 async function renderConfiguration(context: Context) {
-  const fileName = context.name.replace(/[-:]/g, '_');
+  const [, packageName] = context.packageName.split('/');
+  const fileName = `${packageName}:${context.scriptName}`.replace(/[-:]/g, '_');
   const filePath = join(CONFIGURATIONS_DIR, `${fileName}.xml`);
 
   let content = '';
@@ -120,36 +148,35 @@ async function* walkPackageDirs() {
 }
 
 type PackageJson = {
+  name: string;
   scripts?: Record<string, string>;
 };
 
-async function parseScripts(dir: string) {
+async function parsePackageJson(dir: string) {
   const content = await readFile(join(dir, 'package.json'), 'utf-8');
   const packageJson: PackageJson = JSON.parse(content);
 
-  if (packageJson.scripts == null) {
-    return [];
-  }
+  const scripts = Object.keys(packageJson.scripts ?? []).filter((it) => SCRIPTS.has(it));
 
-  return Object.keys(packageJson.scripts).filter((it) => SCRIPTS.has(it));
+  return { name: packageJson.name, scripts };
 }
 
 async function* walkPackages(): AsyncGenerator<Context> {
   for await (const entry of walkPackageDirs()) {
     const packageDir = join(entry.path, entry.name);
 
-    const scripts = await parseScripts(packageDir);
+    const { name: packageName, scripts } = await parsePackageJson(packageDir);
 
-    for (const script of scripts) {
-      const folder = entry.name;
-      const name = `${entry.name}:${script}`;
-      const path = join(relative(ROOT_DIR, entry.path), entry.name);
+    for (const scriptName of scripts) {
+      const packageDir = join(relative(ROOT_DIR, entry.path), entry.name);
 
-      if (script === 'test') {
-        yield { type: 'vitest', folder, name, path };
-      } else {
-        yield { type: 'npm', folder, name, path, script };
-      }
+      yield {
+        type: scriptName === 'test' ? 'vitest' : 'npm',
+
+        packageName,
+        packageDir,
+        scriptName,
+      };
     }
   }
 }
