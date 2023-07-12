@@ -8,7 +8,8 @@
   "typings": "typings",
   "exports": {
     ".": {
-      "default": "./lib/index.js"
+      "default": "./lib/index.js",
+      "types": "./typings/index.d.ts"
     }
   },
   "sideEffects": true,
