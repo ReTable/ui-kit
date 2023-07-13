@@ -46,6 +46,12 @@ manually or use [asdf](https://asdf-vm.com/).
    pnpm install
    ```
 
+4. Build all packages.
+
+   ```shell
+   pnpm build
+   ```
+
 ## Making a pull request
 
 Before you make a pull request read the following information.
