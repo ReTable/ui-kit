@@ -9,7 +9,9 @@
 <br />
 
 <p align="center">
-  <img alt="Github Checks" src="https://badgen.net/github/checks/ReTable/ui-kit/main"/>
+  <a href="https://github.com/ReTable/ui-kit/actions/workflows/release.yaml">
+    <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/ReTable/ui-kit/release.yaml">
+  </a>
   <a href="https://github.com/ReTable/ui-kit/blob/main/LICENSE">
     <img alt="ISC License" src="https://img.shields.io/github/license/ReTable/ui-kit"/>
   </a>
