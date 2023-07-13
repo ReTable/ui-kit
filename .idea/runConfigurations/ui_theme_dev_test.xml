@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-theme" name="ui-theme:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="ui-theme:build:watch" type="js.build_tools.npm" />
+    <toRun name="ui-theme:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>

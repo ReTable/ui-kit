@@ -1,12 +1,16 @@
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { camelCase, paramCase, pascalCase } from 'change-case';
+import { camelCase, paramCase, pascalCase, snakeCase } from 'change-case';
 import { execa } from 'execa';
 
 // region Constants
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
+
+const runConfigurationsDir = join(rootDir, '.idea/runConfigurations');
+
+const runConfigurationsTemplatesDir = join(rootDir, '.scaffold/runConfigurations');
 
 const STYLES = {
   css: 'Plain CSS',
@@ -51,6 +55,12 @@ function libraryNameOf(raw) {
   return { entryName, packageName };
 }
 
+function runConfigurationPathOf(packageName, script) {
+  const baseName = snakeCase(`${packageName}:${script}`);
+
+  return join(runConfigurationsDir, `${baseName}.xml`);
+}
+
 function appendAddFileActions({ actions, data, files, outDir, templatesDir }) {
   for (const file of files) {
     let path;
@@ -73,6 +83,89 @@ function appendAddFileActions({ actions, data, files, outDir, templatesDir }) {
       data,
     });
   }
+}
+
+function appendRunConfigurationActions({ actions, packageName, packageDir }) {
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'build'),
+    templateFile: join(runConfigurationsTemplatesDir, 'npm_build.xml.hbs'),
+
+    data: {
+      packageName,
+    },
+  });
+
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'build:watch'),
+    templateFile: join(runConfigurationsTemplatesDir, 'npm_build_watch.xml.hbs'),
+
+    data: {
+      packageName,
+    },
+  });
+
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'lint'),
+    templateFile: join(runConfigurationsTemplatesDir, 'npm_lint.xml.hbs'),
+
+    data: {
+      packageName,
+    },
+  });
+
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'test'),
+    templateFile: join(runConfigurationsTemplatesDir, 'vitest_test.xml.hbs'),
+
+    data: {
+      packageName,
+      packageDir,
+    },
+  });
+
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'test:watch'),
+    templateFile: join(runConfigurationsTemplatesDir, 'vitest_test_watch.xml.hbs'),
+
+    data: {
+      packageName,
+      packageDir,
+    },
+  });
+
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'dev:test'),
+    templateFile: join(runConfigurationsTemplatesDir, 'compound_dev_test.xml.hbs'),
+
+    data: {
+      packageName,
+      packageDir,
+    },
+  });
+
+  actions.push({
+    type: 'add',
+
+    path: runConfigurationPathOf(packageName, 'dev:server'),
+    templateFile: join(runConfigurationsTemplatesDir, 'compound_dev_server.xml.hbs'),
+
+    data: {
+      packageName,
+      packageDir,
+    },
+  });
 }
 
 function appendRunActions({ actions, commands, cwd }) {
@@ -258,6 +351,12 @@ export default (plop) => {
         templatesDir: join(rootDir, `.scaffold/component`),
       });
 
+      appendRunConfigurationActions({
+        actions,
+        packageName,
+        packageDir: `components/${packageName}`,
+      });
+
       appendRunActions({
         actions,
         commands: ['install', 'format', 'build', 'lint', 'test'],
@@ -337,6 +436,12 @@ export default (plop) => {
         templatesDir: join(rootDir, `.scaffold/hook`),
       });
 
+      appendRunConfigurationActions({
+        actions,
+        packageName,
+        packageDir: `hooks/${packageName}`,
+      });
+
       appendRunActions({
         actions,
         commands: ['install', 'format', 'build', 'lint', 'test'],
@@ -412,6 +517,12 @@ export default (plop) => {
         files,
         outDir,
         templatesDir: join(rootDir, `.scaffold/library`),
+      });
+
+      appendRunConfigurationActions({
+        actions,
+        packageName,
+        packageDir: `libraries/${packageName}`,
       });
 
       appendRunActions({

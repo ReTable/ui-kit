@@ -1,16 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration
-    default="false"
-    folderName="ui-theme"
-    name="ui-theme:watch"
-    type="js.build_tools.npm"
-  >
+  <configuration default="false" folderName="vitest-config" name="vitest-config:build:watch" type="js.build_tools.npm">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="watch" />
+      <script value="build:watch" />
     </scripts>
-    <arguments value="--filter @tabula/ui-theme" />
+    <arguments value="--filter @tabula/vitest-config" />
     <node-interpreter value="project" />
     <envs />
     <method v="2" />

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="docs:watch" type="js.build_tools.npm" folderName="docs" nameIsGenerated="true">
+  <configuration default="false" name="docs:watch" type="js.build_tools.npm" folderName="docs">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
@@ -8,7 +8,7 @@
     <node-interpreter value="project" />
     <envs />
     <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="build" run_configuration_type="js.build_tools.npm" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="npm:build" run_configuration_type="js.build_tools.npm" />
     </method>
   </configuration>
 </component>
