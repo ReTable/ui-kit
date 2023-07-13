@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/ReTable/ui-kit">
-    <img src="https://raw.githubusercontent.com/ReTable/ui-kit/main/.storybook/public/tabula.svg?raw=true" alt="Chakra logo" width="300" />
+    <img src="https://raw.githubusercontent.com/ReTable/ui-kit/main/media/logo.svg?raw=true" alt="Chakra logo" width="300" />
   </a>
 </p>
 
