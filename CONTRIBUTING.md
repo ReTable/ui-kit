@@ -1,6 +1,7 @@
 # Contributing Guide
 
 - [Set up the project](#set-up-the-project)
+- [Development](#development)
 - [Making a pull request](#making-a-pull-request)
 - [Creating a new package](#creating-a-new-package)
 
@@ -51,6 +52,38 @@ manually or use [asdf](https://asdf-vm.com/).
    ```shell
    pnpm build
    ```
+
+## Development
+
+### Intellij Idea run configurations
+
+We provide various run configurations for Intellij Idea.
+
+### Global run configurations
+
+- `build`: builds all packages;
+- `lint`: lints all packages;
+- `test`: tests all packages;
+
+- `docs:build`: builds docs;
+- `docs:watch`: builds docs in watch mode;
+
+- `scaffold:component`: scaffolds a component package;
+- `scaffold:hook`: scaffolds a hook package;
+- `scaffold:library`: scaffolds a library package.
+
+### Package run configurations
+
+- `<package-name>:build`: builds a package;
+- `<package-name>:lint`: lints a package;
+- `<package-name>:test`: tests a package;
+- `<package-name>:dev:test`: runs build and tests in watch mode in parallel;
+- `<package-name>:dev:server`: builds package and docs in watch mode in parallel.
+
+Also we have additional run configurations which used in compound run configurations:
+
+- `<package-name>:build:watch`: builds a package in watch mode;
+- `<package-name>:test:watch`: tests a package in watch mode.
 
 ## Making a pull request
 
@@ -105,7 +138,8 @@ pnpm scaffold:<type>
 Generates a new React component package:
 
 - package will have `ui-` prefix;
-- package will be placed to the `components` directory.
+- package will be placed to the `components` directory;
+- adds run configurations for Intellij Idea.
 
 You can select type of styles which will use your package: plain CSS, [PostCSS](https://postcss.org/),
 [Sass](https://sass-lang.com/), or [vanilla-extract](https://vanilla-extract.style/).
@@ -118,14 +152,16 @@ step will generate you different files.
 Generates a new React hook package:
 
 - package will have `use-` prefix;
-- package will be placed to the `hooks` directory.
+- package will be placed to the `hooks` directory;
+- adds run configurations for Intellij Idea.
 
 #### `scaffold:library`
 
 Generates a new library package:
 
 - package will have no additional prefix;
-- package will be placed to the `libraries` directory.
+- package will be placed to the `libraries` directory;
+- adds run configurations for Intellij Idea.
 
 ### Templates
 
