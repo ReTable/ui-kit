@@ -181,7 +181,7 @@ export default (plop) => {
         type: 'list',
         name: 'styles',
         message: 'Which tools will be used for component?',
-        default: 'sass',
+        default: Object.keys(STYLES).findIndex((it) => it === 'vanillaExtract'),
         choices: Object.entries(STYLES).map(([value, name]) => ({ name, value })),
       },
       {
