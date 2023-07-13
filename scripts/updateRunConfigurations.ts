@@ -69,6 +69,7 @@ const renderVitestConfiguration = handlebars.compile<TemplateContext>(`
     name="{{configuration}}"
     type="JavaScriptTestRunnerVitest"
   >
+    <config value="$PROJECT_DIR$/vitest.config.ts" />
     <node-interpreter value="project" />
     <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
     <working-dir value="$PROJECT_DIR$/{{packageDir}}" />
