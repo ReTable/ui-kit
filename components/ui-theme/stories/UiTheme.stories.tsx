@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { UiTheme } from '../';
+import { UiTheme } from '~';
 
 export default {
   component: UiTheme,
