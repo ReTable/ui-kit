@@ -3,6 +3,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { capitalCase } from 'change-case';
+import { mergeConfig } from 'vite';
 
 const ROOT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '../');
 
@@ -57,4 +58,17 @@ export default {
   staticDirs: ['./public'],
 
   stories: [...searchStories('components'), ...searchStories('hooks')],
+
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      resolve: {
+        alias: [
+          {
+            find: /~(.*)$/,
+            replacement: `../lib/$1`,
+          },
+        ],
+      },
+    });
+  },
 };
