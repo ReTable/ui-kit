@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
-import { UiTheme, uiLayers, uiTheme, useUiTheme } from '../';
+import { UiTheme, uiLayers, uiTheme, useUiTheme } from '~';
 
 describe('UiTheme', () => {
   it('provides layers and vars through context', () => {

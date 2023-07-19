@@ -2,7 +2,9 @@ import { readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { capitalCase } from 'change-case';
+import { mergeConfig } from 'vite';
 
 const ROOT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '../');
 
@@ -42,10 +44,6 @@ export default {
     disableTelemetry: true,
   },
 
-  docs: {
-    autodocs: true,
-  },
-
   framework: {
     name: '@storybook/react-vite',
 
@@ -57,4 +55,18 @@ export default {
   staticDirs: ['./public'],
 
   stories: [...searchStories('components'), ...searchStories('hooks')],
+
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      plugins: [vanillaExtractPlugin()],
+      resolve: {
+        alias: [
+          {
+            find: /~(.*)$/,
+            replacement: `../lib/$1`,
+          },
+        ],
+      },
+    });
+  },
 };

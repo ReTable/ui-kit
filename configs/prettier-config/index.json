@@ -12,6 +12,7 @@
     "^(react|react-dom)$",
     "<THIRD_PARTY_MODULES>",
     "^@tabula/.*",
+    "~",
     "\\.module\\.(css|pcss|sass|scss)$",
     "\\.svg",
     "\\.(bmp|gif|ico|jpeg|jpg|png|webp)",

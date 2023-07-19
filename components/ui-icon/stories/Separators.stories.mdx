@@ -1,0 +1,60 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { UiTabIcon } from '~/separators';
+
+<Meta title="Separators/Docs" />
+
+# Import
+
+```tsx
+import { UiTabIcon } from '@tabula/ui-icon/separators';
+```
+
+# Default
+
+Data types icons has `16x16` size by default.
+
+<Canvas layout="centered">
+  <UiTabIcon />
+</Canvas>
+
+# Styling
+
+You can style icons with CSS.
+
+## Color
+
+All data types icons inherit `currentColor` property.
+
+<Canvas layout="centered">
+  <div style={{ color: 'blue' }}>
+    <UiTabIcon />
+  </div>
+</Canvas>
+
+## Size with class
+
+You can provide `className` property.
+
+<Canvas layout="centered">
+  <div>
+    <style>
+      {`
+        .ui-comma-icon {
+          width: 32px;
+          height: 32px;
+        }
+      `}
+    </style>
+
+    <UiTabIcon className='ui-comma-icon' />
+  </div>
+</Canvas>
+
+## Size with style
+
+You can provide `style` property.
+
+<Canvas layout="centered">
+  <UiTabIcon style={{ width: '32px', height: '32px' }} />
+</Canvas>
