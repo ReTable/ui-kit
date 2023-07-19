@@ -144,6 +144,12 @@ importers:
         specifier: ^0.32.4
         version: 0.32.4(happy-dom@9.20.3)
 
+  components/ui-icon:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   components/ui-theme:
     dependencies:
       react:

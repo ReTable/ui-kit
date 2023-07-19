@@ -1,0 +1,48 @@
+{
+  "name": "@tabula/ui-icon",
+  "version": "0.0.0",
+  "description": "Sets of various icons",
+  "type": "module",
+  "typings": "typings",
+  "exports": {
+    "./dataTypes": {
+      "default": "./lib/dataTypes.js",
+      "types": "./typings/dataTypes/index.d.ts"
+    },
+    "./separators": {
+      "default": "./lib/separators.js",
+      "types": "./typings/separators/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-icon#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-icon"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge build browser --production --entry dataTypes --entry separators",
+    "build:watch": "forge watch browser --storybook --entry dataTypes --entry separators",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}

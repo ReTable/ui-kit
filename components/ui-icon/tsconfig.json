@@ -1,0 +1,11 @@
+{
+  "extends": "@tabula/typescript-config/tsconfig.browser.json",
+
+  "compilerOptions": {
+    "paths": {
+      "~*": ["./typings*"]
+    }
+  },
+
+  "include": ["src", "stories", "tests"]
+}

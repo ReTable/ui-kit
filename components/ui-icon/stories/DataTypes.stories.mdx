@@ -1,0 +1,60 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { UiStringIcon } from '~/dataTypes';
+
+<Meta title="Data Types/Docs" />
+
+# Import
+
+```tsx
+import { UiStringIcon } from '@tabula/ui-icon/dataTypes';
+```
+
+# Default
+
+Data types icons has `16x16` size by default.
+
+<Canvas layout="centered">
+  <UiStringIcon />
+</Canvas>
+
+# Styling
+
+You can style icons with CSS.
+
+## Color
+
+All data types icons inherit `currentColor` property.
+
+<Canvas layout="centered">
+  <div style={{ color: 'blue' }}>
+    <UiStringIcon />
+  </div>
+</Canvas>
+
+## Size with class
+
+You can provide `className` property.
+
+<Canvas layout="centered">
+  <div>
+    <style>
+      {`
+        .ui-string-icon {
+          width: 32px;
+          height: 32px;
+        }
+      `}
+    </style>
+
+    <UiStringIcon className='ui-string-icon' />
+  </div>
+</Canvas>
+
+## Size with style
+
+You can provide `style` property.
+
+<Canvas layout="centered">
+  <UiStringIcon style={{ width: '32px', height: '32px' }} />
+</Canvas>
