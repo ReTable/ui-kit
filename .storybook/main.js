@@ -44,10 +44,6 @@ export default {
     disableTelemetry: true,
   },
 
-  docs: {
-    autodocs: true,
-  },
-
   framework: {
     name: '@storybook/react-vite',
 
