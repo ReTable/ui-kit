@@ -2,6 +2,7 @@ import { readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { capitalCase } from 'change-case';
 import { mergeConfig } from 'vite';
 
@@ -61,6 +62,7 @@ export default {
 
   async viteFinal(config) {
     return mergeConfig(config, {
+      plugins: [vanillaExtractPlugin()],
       resolve: {
         alias: [
           {
