@@ -33,7 +33,7 @@
     "typings"
   ],
   "scripts": {
-    "build": "forge build node --production",
+    "build": "forge",
     "lint": "eslint ."
   },
   "peerDependencies": {
