@@ -307,6 +307,7 @@ export default (plop) => {
       const files = [
         '.eslintignore',
         '.eslintrc.json',
+        '.forgerc',
         'LICENSE',
         'package.json',
         'README.md',
@@ -415,6 +416,7 @@ export default (plop) => {
       const files = [
         '.eslintignore',
         '.eslintrc.json',
+        '.forgerc',
         'LICENSE',
         'package.json',
         'README.md',
@@ -499,6 +501,7 @@ export default (plop) => {
       const files = [
         '.eslintignore',
         '.eslintrc.json',
+        '.forgerc',
         'LICENSE',
         'package.json',
         'README.md',
