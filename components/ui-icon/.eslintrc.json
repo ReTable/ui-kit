@@ -2,6 +2,6 @@
   "extends": "@tabula/eslint-config/browser",
 
   "parserOptions": {
-    "project": ["tsconfig.json"]
+    "project": true
   }
 }
