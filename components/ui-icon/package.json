@@ -7,11 +7,11 @@
   "exports": {
     "./dataTypes": {
       "default": "./lib/dataTypes.js",
-      "types": "./typings/dataTypes/index.d.ts"
+      "types": "./typings/dataTypes.d.ts"
     },
     "./separators": {
       "default": "./lib/separators.js",
-      "types": "./typings/separators/index.d.ts"
+      "types": "./typings/separators.d.ts"
     }
   },
   "sideEffects": false,
