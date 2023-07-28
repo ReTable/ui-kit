@@ -1,5 +1,11 @@
 # @tabula/ui-icon
 
+## 0.1.2
+
+### Patch Changes
+
+- [#13](https://github.com/ReTable/ui-kit/pull/13) [`b42e88b`](https://github.com/ReTable/ui-kit/commit/b42e88beb7f64033c7d7d963c9b1373ce6e1325d) Thanks [@demiazz](https://github.com/demiazz)! - fix typings export
+
 ## 0.1.1
 
 ### Patch Changes
