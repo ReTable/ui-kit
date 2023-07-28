@@ -37,12 +37,8 @@
     "typings"
   ],
   "scripts": {
-    "build": "run-p build:sources build:tokens",
-    "build:sources": "forge build browser --production",
-    "build:tokens": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts build",
-    "build:watch": "run-p build:watch:sources build:watch:tokens",
-    "build:watch:sources": "forge watch browser --storybook",
-    "build:watch:tokens": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts watch",
+    "build": "forge",
+    "build:watch": "forge --watch",
     "lint": "eslint .",
     "test": "vitest run"
   },
@@ -51,7 +47,6 @@
   },
   "devDependencies": {
     "clipanion": "^3.2.1",
-    "node-watch": "^0.7.3",
     "npm-run-all": "^4.1.5",
     "ora": "^6.3.1",
     "tempy": "^3.1.0",

@@ -38,8 +38,8 @@
     "typings"
   ],
   "scripts": {
-    "build": "forge build browser --production --entry dataTypes --entry separators",
-    "build:watch": "forge watch browser --storybook --entry dataTypes --entry separators",
+    "build": "forge",
+    "build:watch": "forge --watch",
     "lint": "eslint ."
   },
   "peerDependencies": {
