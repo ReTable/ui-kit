@@ -3,7 +3,6 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { Builtins, Cli, Command } from 'clipanion';
-import watch from 'node-watch';
 import { oraPromise } from 'ora';
 import { temporaryDirectoryTask } from 'tempy';
 
@@ -25,8 +24,6 @@ type Queue = Array<{
 // region Paths
 
 const rootDir = resolve(fileURLToPath(import.meta.url), '../../');
-
-const srcDir = join(rootDir, 'src');
 
 const outDir = join(rootDir, 'sass');
 
@@ -116,7 +113,7 @@ class Build extends Command {
   public static override readonly paths = [['build'], Command.Default];
 
   public static override readonly usage = Command.Usage({
-    description: 'build Sass modules',
+    description: 'Build Sass modules.',
   });
 
   public override async execute() {
@@ -125,30 +122,6 @@ class Build extends Command {
 }
 
 // endregion
-
-// region Watch
-
-class Watch extends Command {
-  public static override readonly paths = [['watch']];
-
-  public static override readonly usage = Command.Usage({
-    description: 'watch changes and build Sass modules',
-  });
-
-  public override async execute() {
-    await exportTokens();
-
-    watch(srcDir, { filter: /vars.css.ts/ }, async (changes) => {
-      if (changes === 'remove') {
-        return;
-      }
-
-      await exportTokens();
-    });
-  }
-}
-
-// endregion Watch
 
 // region CLI
 
@@ -159,7 +132,6 @@ const cli = new Cli({
 });
 
 cli.register(Build);
-cli.register(Watch);
 cli.register(Builtins.HelpCommand);
 cli.register(Builtins.VersionCommand);
 

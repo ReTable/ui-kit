@@ -37,12 +37,8 @@
     "typings"
   ],
   "scripts": {
-    "build": "run-p build:sources build:tokens",
-    "build:sources": "forge build browser --production",
-    "build:tokens": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts build",
-    "build:watch": "run-p build:watch:sources build:watch:tokens",
-    "build:watch:sources": "forge watch browser --storybook",
-    "build:watch:tokens": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts watch",
+    "build": "forge",
+    "build:watch": "forge --watch",
     "lint": "eslint .",
     "test": "vitest run"
   },

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://github.com/ReTable/forge/blob/main/schemas/forgerc.json",
+  "target": "browser",
+  "entry": "index",
+  "check": true,
+  "typings": true,
+  "postBuild": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts",
+  "build": {
+    "production": true
+  },
+  "watch": {
+    "production": false,
+    "storybook": true
+  }
+}
