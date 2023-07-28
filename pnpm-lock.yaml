@@ -159,9 +159,6 @@ importers:
       clipanion:
         specifier: ^3.2.1
         version: 3.2.1(typanion@3.13.0)
-      node-watch:
-        specifier: ^0.7.3
-        version: 0.7.3
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -9569,11 +9566,6 @@ packages:
 
   /node-releases@2.0.12:
     resolution: {integrity: sha512-QzsYKWhXTWx8h1kIvqfnC++o0pEmpRQA/aenALsL2F4pqNVr7YzcdMlDij5WBnwftRbJCNJL/O7zdKaxKPHqgQ==}
-    dev: true
-
-  /node-watch@0.7.3:
-    resolution: {integrity: sha512-3l4E8uMPY1HdMMryPRUAl+oIHtXtyiTlIiESNSVSNxcPfzAFzeTbXFQkZfAwBbo0B1qMSG8nUABx+Gd+YrbKrQ==}
-    engines: {node: '>=6'}
     dev: true
 
   /nofilter@3.1.0:
