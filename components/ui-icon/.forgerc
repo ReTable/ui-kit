@@ -4,6 +4,12 @@
   "entries": ["dataTypes", "separators"],
   "check": true,
   "typings": true,
+  "postBuild": [
+    "mv typings/dataTypes/index.d.ts typings/dataTypes.d.ts",
+    "rm -R typings/dataTypes",
+    "mv typings/separators/index.d.ts typings/separators.d.ts",
+    "rm -R typings/separators"
+  ],
   "build": {
     "production": true
   },
