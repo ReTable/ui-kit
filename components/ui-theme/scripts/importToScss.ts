@@ -2,7 +2,6 @@ import { cp, mkdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { Builtins, Cli, Command } from 'clipanion';
 import { oraPromise } from 'ora';
 import { temporaryDirectoryTask } from 'tempy';
 
@@ -107,34 +106,6 @@ async function exportTokens() {
 
 // endregion
 
-// region Build
+// region Run
 
-class Build extends Command {
-  public static override readonly paths = [['build'], Command.Default];
-
-  public static override readonly usage = Command.Usage({
-    description: 'Build Sass modules.',
-  });
-
-  public override async execute() {
-    return exportTokens();
-  }
-}
-
-// endregion
-
-// region CLI
-
-const cli = new Cli({
-  binaryLabel: 'importToScss',
-  binaryName: `tsx scripts/importToScss.ts`,
-  binaryVersion: '1.0.0',
-});
-
-cli.register(Build);
-cli.register(Builtins.HelpCommand);
-cli.register(Builtins.VersionCommand);
-
-await cli.runExit(process.argv.slice(2));
-
-// endregion
+await exportTokens();

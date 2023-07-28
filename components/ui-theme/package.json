@@ -46,10 +46,7 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "clipanion": "^3.2.1",
-    "npm-run-all": "^4.1.5",
     "ora": "^6.3.1",
-    "tempy": "^3.1.0",
-    "typanion": "^3.13.0"
+    "tempy": "^3.1.0"
   }
 }
