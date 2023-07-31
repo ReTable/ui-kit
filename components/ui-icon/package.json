@@ -12,6 +12,10 @@
     "./separators": {
       "default": "./lib/separators.js",
       "types": "./typings/separators.d.ts"
+    },
+    "./transformations": {
+      "default": "./lib/transformations.js",
+      "types": "./typings/transformations.d.ts"
     }
   },
   "sideEffects": false,

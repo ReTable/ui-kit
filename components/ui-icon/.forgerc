@@ -1,14 +1,16 @@
 {
   "$schema": "https://github.com/ReTable/forge/blob/main/schemas/forgerc.json",
   "target": "browser",
-  "entries": ["dataTypes", "separators"],
+  "entries": ["dataTypes", "separators", "transformations"],
   "check": true,
   "typings": true,
   "postBuild": [
     "mv typings/dataTypes/index.d.ts typings/dataTypes.d.ts",
     "rm -R typings/dataTypes",
     "mv typings/separators/index.d.ts typings/separators.d.ts",
-    "rm -R typings/separators"
+    "rm -R typings/separators",
+    "mv typings/transformations/index.d.ts typings/transformations.d.ts",
+    "rm -R typings/transformations"
   ],
   "build": {
     "production": true
