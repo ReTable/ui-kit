@@ -1,4 +1,5 @@
 export { ReactComponent as UiAiColumnSIcon } from './aiColumn/aiColumn.small.svg';
+export { ReactComponent as UiApiSIcon } from './api/api.small.svg';
 export { ReactComponent as UiAscSortSIcon } from './ascSort/ascSort.small.svg';
 export { ReactComponent as UiChangeTypeSIcon } from './changeType/changeType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
@@ -7,11 +8,12 @@ export { ReactComponent as UiConditionsSIcon } from './conditions/conditions.sma
 export { ReactComponent as UiCrossJoinSIcon } from './crossJoin/crossJoin.small.svg';
 export { ReactComponent as UiCsvSourceSIcon } from './csvSource/csvSource.small.svg';
 export { ReactComponent as UiDescSortSIcon } from './descSort/descSort.small.svg';
-export { ReactComponent as UiEditableSourceSIcon } from './editableSource/editableSource.small.svg';
 export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.small.svg';
+export { ReactComponent as UiEditableSourceSIcon } from './editableSource/editableSource.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
 export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
+export { ReactComponent as UiJsonSIcon } from './json/json.small.svg';
 export { ReactComponent as UiLeftJoinSIcon } from './leftJoin/leftJoin.small.svg';
 export { ReactComponent as UiMacrosSIcon } from './macros/macros.small.svg';
 export { ReactComponent as UiMatchSIcon } from './match/match.small.svg';
@@ -27,6 +29,7 @@ export { ReactComponent as UiReplaceSIcon } from './replace/replace.small.svg';
 export { ReactComponent as UiRightJoinSIcon } from './rightJoin/rightJoin.small.svg';
 export { ReactComponent as UiSnowflakeSourceSIcon } from './snowflakeSource/snowflakeSource.small.svg';
 export { ReactComponent as UiSplitSIcon } from './split/split.small.svg';
+export { ReactComponent as UiSqlSIcon } from './sql/sql.small.svg';
 export { ReactComponent as UiTransposeSIcon } from './transpose/transpose.small.svg';
 export { ReactComponent as UiUnionSIcon } from './union/union.small.svg';
 export { ReactComponent as UiUnknownSourceSIcon } from './unknownSource/unknownSource.small.svg';
