@@ -1,3 +1,4 @@
+export { ReactComponent as UiAiColumnSIcon } from './aiColumn/aiColumn.small.svg';
 export { ReactComponent as UiAscSortSIcon } from './ascSort/ascSort.small.svg';
 export { ReactComponent as UiChangeTypeSIcon } from './changeType/changeType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
