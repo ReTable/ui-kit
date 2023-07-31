@@ -1,5 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="9" y="17" width="13" height="5" rx="2" fill="#B7D8FD"/>
-  <rect x="9" y="11" width="13" height="5" rx="2" fill="#A0CCFD"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4C2.89543 4 2 4.89543 2 6V7C2 7.17265 2.02188 7.34019 2.06301 7.5H2V13.5V17.5C2 19.1569 3.34315 20.5 5 20.5H8V18.5H5C4.44772 18.5 4 18.0523 4 17.5V14.5H8V12.5H4L4 9H20C21.1046 9 22 8.10457 22 7V6C22 4.89543 21.1046 4 20 4H4Z" fill="#127FF9"/>
+  <rect x="9" y="17" width="13" height="5" rx="2" fill="var(--tbl--colors--icons--transformation--tertiary)"/>
+  <rect x="9" y="11" width="13" height="5" rx="2" fill="var(--tbl--colors--icons--transformation--secondary)"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M4 4C2.89543 4 2 4.89543 2 6V7C2 7.17265 2.02188 7.34019 2.06301 7.5H2V13.5V17.5C2 19.1569 3.34315 20.5 5 20.5H8V18.5H5C4.44772 18.5 4 18.0523 4 17.5V14.5H8V12.5H4L4 9H20C21.1046 9 22 8.10457 22 7V6C22 4.89543 21.1046 4 20 4H4Z" fill="var(--tbl--colors--icons--transformation--primary)"/>
 </svg>

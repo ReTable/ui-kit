@@ -146,6 +146,9 @@ importers:
 
   components/ui-icon:
     dependencies:
+      '@tabula/ui-theme':
+        specifier: workspace:^
+        version: link:../ui-theme
       react:
         specifier: ^18.2.0
         version: 18.2.0
