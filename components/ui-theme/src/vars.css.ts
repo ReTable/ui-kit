@@ -10,33 +10,37 @@ export const layers = ['reset', 'components'] as const;
 
 export const tokens = {
   colors: {
+    brand: {
+      postgres: '#38609b',
+      snowflake: '#29b5e8',
+    },
     icons: {
       ai: {
         primary: {
-          from: '#02b7a4', // var(--tbl--colors--icons--ai--primary--from)
-          to: '#3595ff', // var(--tbl--colors--icons--ai--primary--to)
+          from: '#02b7a4',
+          to: '#3595ff',
         },
         secondary: {
-          from: '#b2eae4', // var(--tbl--colors--icons--ai--secondary--from)
-          to: '#bfe8fa', // var(--tbl--colors--icons--ai--secondary--to)
+          from: '#b2eae4',
+          to: '#bfe8fa',
         },
       },
       clean: {
-        primary: '#00b7a2', // var(--tbl--colors--icons--clean--primary)
-        secondary: '#b2e9e3', // var(--tbl--colors--icons--clean--secondary)
+        primary: '#00b7a2',
+        secondary: '#b2e9e3',
       },
       output: {
-        primary: '#616986', // var(--tbl--colors--icons--output--primary)
-        secondary: '#d8dee3', // var(--tbl--colors--icons--output--secondary)
+        primary: '#616986',
+        secondary: '#d8dee3',
       },
       source: {
-        primary: '#616986', // var(--tbl--colors--icons--source--primary)
-        secondary: '#d8dee3', // var(--tbl--colors--icons--source--secondary)
+        primary: '#616986',
+        secondary: '#d8dee3',
       },
       transformation: {
-        primary: '#127ff9', // var(--tbl--colors--icons--transformation--primary)
-        secondary: '#a0ccfd', // var(--tbl--colors--icons--transformation--secondary)
-        tertiary: '#b7d8fd', // var(--tbl--colors--icons--transformation--tertiary)
+        primary: '#127ff9',
+        secondary: '#a0ccfd',
+        tertiary: '#b7d8fd',
       },
     },
   },
