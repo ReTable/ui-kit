@@ -1,0 +1,7 @@
+{
+  "extends": "@tabula/eslint-config/browser",
+
+  "parserOptions": {
+    "project": true
+  }
+}

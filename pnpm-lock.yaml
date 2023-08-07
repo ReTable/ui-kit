@@ -144,6 +144,12 @@ importers:
         specifier: ^0.34.1
         version: 0.34.1(happy-dom@10.8.0)
 
+  components/ui-data-type-icon:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   components/ui-icon:
     dependencies:
       '@tabula/ui-theme':

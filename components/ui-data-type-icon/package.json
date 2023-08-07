@@ -1,0 +1,46 @@
+{
+  "name": "@tabula/ui-data-type-icon",
+  "version": "0.0.0",
+  "description": "Icons for data types",
+  "type": "module",
+  "style": "lib/index.css",
+  "typings": "typings",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./typings/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "icon",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-data-type-icon#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-data-type-icon"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:watch": "forge --watch",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}
