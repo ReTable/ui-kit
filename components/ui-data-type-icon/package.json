@@ -17,8 +17,8 @@
     "tomat.ai",
     "ui-kit",
     "component",
-    "icon",
-    "react"
+    "react",
+    "icon"
   ],
   "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-data-type-icon#readme",
   "bugs": {
