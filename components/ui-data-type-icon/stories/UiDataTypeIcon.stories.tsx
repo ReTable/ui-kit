@@ -38,7 +38,7 @@ export default meta;
 
 // region Stories
 
-export const Icons: FC<Args> = ({ currentColor, search }) => {
+export const Icons: FC<Args> = ({ currentColor, search = '' }) => {
   const icons = Object.entries(Components)
     .filter(([iconName]) => iconName.includes(search))
     .map(([iconName, Icon]) => (
