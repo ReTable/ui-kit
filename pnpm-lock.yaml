@@ -159,6 +159,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  components/ui-separator-icon:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   components/ui-theme:
     dependencies:
       react:

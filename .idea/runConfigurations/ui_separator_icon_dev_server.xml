@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-separator-icon" name="ui-separator-icon:dev:server" type="CompoundRunConfigurationType">
+    <toRun name="docs:watch" type="js.build_tools.npm" />
+    <toRun name="ui-separator-icon:build:watch" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
