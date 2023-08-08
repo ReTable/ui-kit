@@ -2,4 +2,4 @@
 '@tabula/ui-theme': minor
 ---
 
-add icon colors
+add brand and icon colors
