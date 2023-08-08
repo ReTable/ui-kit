@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiNodeIcon > works 1`] = `
+<div
+  className="UiNodeIcon_root__6zuftr0 "
+/>
+`;
