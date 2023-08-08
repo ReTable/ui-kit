@@ -42,6 +42,10 @@ export const tokens = {
         secondary: '#a0ccfd',
         tertiary: '#b7d8fd',
       },
+      disabled: {
+        primary: '#b3b3b3',
+        secondary: '#ebebeb',
+      },
     },
   },
 };
