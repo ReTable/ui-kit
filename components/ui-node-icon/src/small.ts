@@ -13,6 +13,7 @@ export { ReactComponent as UiEditableSourceSIcon } from './editableSource/editab
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
 export { ReactComponent as UiFileSIcon } from './file/file.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
+export { ReactComponent as UiFolderSIcon } from './folder/folder.small.svg';
 export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
 export { ReactComponent as UiJsonSIcon } from './json/json.small.svg';
