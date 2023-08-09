@@ -12,6 +12,7 @@ import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColum
 import { ReactComponent as UiEditableSourceMIconInner } from './editableSource/editableSource.medium.svg';
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
+import { ReactComponent as UiGoldenMIconInner } from './golden/golden.medium.svg';
 import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.svg';
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
 import { ReactComponent as UiJsonMIconInner } from './json/json.medium.svg';
@@ -86,6 +87,8 @@ export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, clean, 'UiEd
 export const UiExtractMIcon = createIcon(UiExtractMIconInner, clean, 'UiExtractMIcon');
 
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, clean, 'UiFilterMIcon');
+
+export const UiGoldenMIcon = createIcon(UiGoldenMIconInner, clean, 'UiGoldenMIcon');
 
 export const UiMacrosMIcon = createIcon(UiMacrosMIconInner, clean, 'UiMacrosMIcon');
 
