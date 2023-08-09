@@ -26,6 +26,7 @@ import { ReactComponent as UiNewColumnLIconInner } from './newColumn/newColumn.l
 import { ReactComponent as UiOuterJoinLIconInner } from './outerJoin/outerJoin.large.svg';
 import { ReactComponent as UiOutputLIconInner } from './output/output.large.svg';
 import { ReactComponent as UiPivotLIconInner } from './pivot/pivot.large.svg';
+import { ReactComponent as UiPostgresOutputLIconInner } from './postgresOutput/postgresOutput.large.svg';
 import { ReactComponent as UiPostgresSourceLIconInner } from './postgresSource/postgresSource.large.svg';
 import { ReactComponent as UiRemoveDuplicatesLIconInner } from './removeDuplicates/removeDuplicates.large.svg';
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
@@ -78,6 +79,11 @@ export const UiNewColumnLIcon = createIcon(UiNewColumnLIconInner, icon, 'UiNewCo
 export const UiOuterJoinLIcon = createIcon(UiOuterJoinLIconInner, icon, 'UiOuterJoinLIcon');
 export const UiOutputLIcon = createIcon(UiOutputLIconInner, icon, 'UiOutputLIcon');
 export const UiPivotLIcon = createIcon(UiPivotLIconInner, icon, 'UiPivotLIcon');
+export const UiPostgresOutputLIcon = createIcon(
+  UiPostgresOutputLIconInner,
+  icon,
+  'UiPostgresOutputLIcon',
+);
 export const UiPostgresSourceLIcon = createIcon(
   UiPostgresSourceLIconInner,
   icon,
