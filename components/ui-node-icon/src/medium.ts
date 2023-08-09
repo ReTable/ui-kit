@@ -43,166 +43,71 @@ import { ReactComponent as UiUnpivotMIconInner } from './unpivot/unpivot.medium.
 import { ReactComponent as UiWindowFunctionsMIconInner } from './windowFunctions/windowFunctions.medium.svg';
 import { ReactComponent as UiXlsSourceMIconInner } from './xlsSource/xlsSource.medium.svg';
 
-import { ai, brand, clean, output, source, transformation } from './style.css';
+import { icon } from './style.css';
 
 import { createIcon } from './utils';
 
-// region AI
-
-export const UiAiColumnMIcon = createIcon(UiAiColumnMIconInner, ai, 'UiAiColumnMIcon');
-
-// endregion
-
-// region Brand
-
-export const UiPostgresSourceMIcon = createIcon(
-  UiPostgresSourceMIconInner,
-  brand,
-  'UiPostgresSourceMIcon',
-);
-
-export const UiSnowflakeSourceMIcon = createIcon(
-  UiSnowflakeSourceMIconInner,
-  brand,
-  'UiSnowflakeSourceMIcon',
-);
-
-// endregion
-
-// region Clean
-
-export const UiApiMIcon = createIcon(UiApiMIconInner, clean, 'UiApiMIcon');
-
-export const UiAscSortMIcon = createIcon(UiAscSortMIconInner, clean, 'UiAscSortMIcon');
-
-export const UiChangeTypeMIcon = createIcon(UiChangeTypeMIconInner, clean, 'UiChangeTypeMIcon');
-
-export const UiCleanMIcon = createIcon(UiCleanMIconInner, clean, 'UiCleanMIcon');
-
-export const UiConditionsMIcon = createIcon(UiConditionsMIconInner, clean, 'UiConditionsMIcon');
-
-export const UiDescSortMIcon = createIcon(UiDescSortMIconInner, clean, 'UiDescSortMIcon');
-
-export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, clean, 'UiEditColumnMIcon');
-
-export const UiExtractMIcon = createIcon(UiExtractMIconInner, clean, 'UiExtractMIcon');
-
-export const UiFilterMIcon = createIcon(UiFilterMIconInner, clean, 'UiFilterMIcon');
-
-export const UiGoldenMIcon = createIcon(UiGoldenMIconInner, clean, 'UiGoldenMIcon');
-
-export const UiMacrosMIcon = createIcon(UiMacrosMIconInner, clean, 'UiMacrosMIcon');
-
-export const UiMatchMIcon = createIcon(UiMatchMIconInner, clean, 'UiMatchMIcon');
-
-export const UiMergeMIcon = createIcon(UiMergeMIconInner, clean, 'UiMergeMIcon');
-
-export const UiNestMIcon = createIcon(UiNestMIconInner, clean, 'UiNestMIcon');
-
-export const UiNewColumnMIcon = createIcon(UiNewColumnMIconInner, clean, 'UiNewColumnMIcon');
-
-export const UiRecipeMIcon = createIcon(UiRecipeMIconInner, clean, 'UiRecipeMIcon');
-
-export const UiRemoveDuplicatesMIcon = createIcon(
-  UiRemoveDuplicatesMIconInner,
-  clean,
-  'UiRemoveDuplicatesMIcon',
-);
-
-export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, clean, 'UiReplaceMIcon');
-
-export const UiSplitMIcon = createIcon(UiSplitMIconInner, clean, 'UiSplitMIcon');
-
-export const UiStandartizeMIcon = createIcon(UiStandartizeMIconInner, clean, 'UiStandartizeMIcon');
-
-export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, clean, 'UiUnnestMIcon');
-
-export const UiWindowFunctionsMIcon = createIcon(
-  UiWindowFunctionsMIconInner,
-  clean,
-  'UiWindowFunctionsMIcon',
-);
-
-export const UiXlsSourceMIcon = createIcon(UiXlsSourceMIconInner, clean, 'UiXlsSourceMIcon');
-
-// endregion
-
-// region Output
-
-export const UiChartMIcon = createIcon(UiChartMIconInner, output, 'UiChartMIcon');
-
-export const UiOutputMIcon = createIcon(UiOutputMIconInner, output, 'UiOutputMIcon');
-
-// endregion
-
-// region Source
-
-export const UiSourceMIcon = createIcon(UiSourceMIconInner, source, 'UiSourceMIcon');
-
-// endregion
-
-// region Transformation
-
-export const UiCrossJoinMIcon = createIcon(
-  UiCrossJoinMIconInner,
-  transformation,
-  'UiCrossJoinMIcon',
-);
-
-export const UiCsvOutputMIcon = createIcon(
-  UiCsvOutputMIconInner,
-  transformation,
-  'UiCsvOutputMIcon',
-);
-
-export const UiCsvSourceMIcon = createIcon(
-  UiCsvSourceMIconInner,
-  transformation,
-  'UiCsvSourceMIcon',
-);
-
+export const UiAiColumnMIcon = createIcon(UiAiColumnMIconInner, icon, 'UiAiColumnMIcon');
+export const UiApiMIcon = createIcon(UiApiMIconInner, icon, 'UiApiMIcon');
+export const UiAscSortMIcon = createIcon(UiAscSortMIconInner, icon, 'UiAscSortMIcon');
+export const UiChangeTypeMIcon = createIcon(UiChangeTypeMIconInner, icon, 'UiChangeTypeMIcon');
+export const UiChartMIcon = createIcon(UiChartMIconInner, icon, 'UiChartMIcon');
+export const UiCleanMIcon = createIcon(UiCleanMIconInner, icon, 'UiCleanMIcon');
+export const UiConditionsMIcon = createIcon(UiConditionsMIconInner, icon, 'UiConditionsMIcon');
+export const UiCrossJoinMIcon = createIcon(UiCrossJoinMIconInner, icon, 'UiCrossJoinMIcon');
+export const UiCsvOutputMIcon = createIcon(UiCsvOutputMIconInner, icon, 'UiCsvOutputMIcon');
+export const UiCsvSourceMIcon = createIcon(UiCsvSourceMIconInner, icon, 'UiCsvSourceMIcon');
+export const UiDescSortMIcon = createIcon(UiDescSortMIconInner, icon, 'UiDescSortMIcon');
+export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, icon, 'UiEditColumnMIcon');
 export const UiEditableSourceMIcon = createIcon(
   UiEditableSourceMIconInner,
-  transformation,
+  icon,
   'UiEditableSourceMIcon',
 );
-
-export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, transformation, 'UiGroupByMIcon');
-
-export const UiInnerJoinMIcon = createIcon(
-  UiInnerJoinMIconInner,
-  transformation,
-  'UiInnerJoinMIcon',
+export const UiExtractMIcon = createIcon(UiExtractMIconInner, icon, 'UiExtractMIcon');
+export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon, 'UiFilterMIcon');
+export const UiGoldenMIcon = createIcon(UiGoldenMIconInner, icon, 'UiGoldenMIcon');
+export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMIcon');
+export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
+export const UiJsonMIcon = createIcon(UiJsonMIconInner, icon, 'UiJsonMIcon');
+export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, icon, 'UiLeftJoinMIcon');
+export const UiMacrosMIcon = createIcon(UiMacrosMIconInner, icon, 'UiMacrosMIcon');
+export const UiMatchMIcon = createIcon(UiMatchMIconInner, icon, 'UiMatchMIcon');
+export const UiMergeMIcon = createIcon(UiMergeMIconInner, icon, 'UiMergeMIcon');
+export const UiNestMIcon = createIcon(UiNestMIconInner, icon, 'UiNestMIcon');
+export const UiNewColumnMIcon = createIcon(UiNewColumnMIconInner, icon, 'UiNewColumnMIcon');
+export const UiOuterJoinMIcon = createIcon(UiOuterJoinMIconInner, icon, 'UiOuterJoinMIcon');
+export const UiOutputMIcon = createIcon(UiOutputMIconInner, icon, 'UiOutputMIcon');
+export const UiPivotMIcon = createIcon(UiPivotMIconInner, icon, 'UiPivotMIcon');
+export const UiPostgresSourceMIcon = createIcon(
+  UiPostgresSourceMIconInner,
+  icon,
+  'UiPostgresSourceMIcon',
 );
-
-export const UiJsonMIcon = createIcon(UiJsonMIconInner, transformation, 'UiJsonMIcon');
-
-export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, transformation, 'UiLeftJoinMIcon');
-
-export const UiOuterJoinMIcon = createIcon(
-  UiOuterJoinMIconInner,
-  transformation,
-  'UiOuterJoinMIcon',
+export const UiRecipeMIcon = createIcon(UiRecipeMIconInner, icon, 'UiRecipeMIcon');
+export const UiRemoveDuplicatesMIcon = createIcon(
+  UiRemoveDuplicatesMIconInner,
+  icon,
+  'UiRemoveDuplicatesMIcon',
 );
-
-export const UiPivotMIcon = createIcon(UiPivotMIconInner, transformation, 'UiPivotMIcon');
-
-export const UiRightJoinMIcon = createIcon(
-  UiRightJoinMIconInner,
-  transformation,
-  'UiRightJoinMIcon',
+export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, icon, 'UiReplaceMIcon');
+export const UiRightJoinMIcon = createIcon(UiRightJoinMIconInner, icon, 'UiRightJoinMIcon');
+export const UiSnowflakeSourceMIcon = createIcon(
+  UiSnowflakeSourceMIconInner,
+  icon,
+  'UiSnowflakeSourceMIcon',
 );
-
-export const UiSqlMIcon = createIcon(UiSqlMIconInner, transformation, 'UiSqlMIcon');
-
-export const UiTransposeMIcon = createIcon(
-  UiTransposeMIconInner,
-  transformation,
-  'UiTransposeMIcon',
+export const UiSourceMIcon = createIcon(UiSourceMIconInner, icon, 'UiSourceMIcon');
+export const UiSplitMIcon = createIcon(UiSplitMIconInner, icon, 'UiSplitMIcon');
+export const UiSqlMIcon = createIcon(UiSqlMIconInner, icon, 'UiSqlMIcon');
+export const UiStandartizeMIcon = createIcon(UiStandartizeMIconInner, icon, 'UiStandartizeMIcon');
+export const UiTransposeMIcon = createIcon(UiTransposeMIconInner, icon, 'UiTransposeMIcon');
+export const UiUnionMIcon = createIcon(UiUnionMIconInner, icon, 'UiUnionMIcon');
+export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, icon, 'UiUnnestMIcon');
+export const UiUnpivotMIcon = createIcon(UiUnpivotMIconInner, icon, 'UiUnpivotMIcon');
+export const UiWindowFunctionsMIcon = createIcon(
+  UiWindowFunctionsMIconInner,
+  icon,
+  'UiWindowFunctionsMIcon',
 );
-
-export const UiUnionMIcon = createIcon(UiUnionMIconInner, transformation, 'UiUnionMIcon');
-
-export const UiUnpivotMIcon = createIcon(UiUnpivotMIconInner, transformation, 'UiUnpivotMIcon');
-
-// endregion
+export const UiXlsSourceMIcon = createIcon(UiXlsSourceMIconInner, icon, 'UiXlsSourceMIcon');
