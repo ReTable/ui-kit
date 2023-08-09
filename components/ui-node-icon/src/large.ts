@@ -1,4 +1,4 @@
-import { ReactComponent as UiAiColumnLIconInner } from './aiColumn/aiColumn.large.svg';
+import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
 import { ReactComponent as UiAiTableLIconInner } from './aiTable/aiTable.large.svg';
 import { ReactComponent as UiApiLIconInner } from './api/api.large.svg';
 import { ReactComponent as UiAscSortLIconInner } from './ascSort/ascSort.large.svg';
@@ -54,7 +54,11 @@ import { icon } from './style.css';
 
 import { createIcon } from './utils';
 
-export const UiAiColumnLIcon = createIcon(UiAiColumnLIconInner, icon, 'UiAiColumnLIcon');
+export const UiAddGPTColumnLIcon = createIcon(
+  UiAddGPTColumnLIconInner,
+  icon,
+  'UiAddGPTColumnLIcon',
+);
 export const UiAiTableLIcon = createIcon(UiAiTableLIconInner, icon, 'UiAiTableLIcon');
 export const UiApiLIcon = createIcon(UiApiLIconInner, icon, 'UiApiLIcon');
 export const UiAscSortLIcon = createIcon(UiAscSortLIconInner, icon, 'UiAscSortLIcon');
