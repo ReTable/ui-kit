@@ -2,7 +2,7 @@
 
 exports[`UiNodeLIcon > renders a basic icon 1`] = `
 <svg
-  className="style_override__17wdnl26"
+  className="style_icon__17wdnl21"
   fill="none"
   height={32}
   viewBox="0 0 32 32"
@@ -26,7 +26,7 @@ exports[`UiNodeLIcon > renders a basic icon 1`] = `
 
 exports[`UiNodeLIcon > renders a disabled icon if property is provided 1`] = `
 <svg
-  className="style_override__17wdnl26 style_disabled__17wdnl20"
+  className="style_icon__17wdnl21 style_disabled__17wdnl20"
   fill="none"
   height={32}
   viewBox="0 0 32 32"
@@ -50,7 +50,7 @@ exports[`UiNodeLIcon > renders a disabled icon if property is provided 1`] = `
 
 exports[`UiNodeMIcon > renders a basic icon 1`] = `
 <svg
-  className="style_override__17wdnl26"
+  className="style_icon__17wdnl21"
   fill="none"
   height={24}
   viewBox="0 0 24 24"
@@ -74,7 +74,7 @@ exports[`UiNodeMIcon > renders a basic icon 1`] = `
 
 exports[`UiNodeMIcon > renders a disabled icon if property is provided 1`] = `
 <svg
-  className="style_override__17wdnl26 style_disabled__17wdnl20"
+  className="style_icon__17wdnl21 style_disabled__17wdnl20"
   fill="none"
   height={24}
   viewBox="0 0 24 24"
