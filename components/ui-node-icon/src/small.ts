@@ -64,7 +64,7 @@ export { ReactComponent as UiOutputSIcon } from './output/output.small.svg';
 
 // region Source
 
-export { ReactComponent as UiUnknownSourceSIcon } from './unknownSource/unknownSource.small.svg';
+export { ReactComponent as UiSourceSIcon } from './source/source.small.svg';
 
 // endregion
 

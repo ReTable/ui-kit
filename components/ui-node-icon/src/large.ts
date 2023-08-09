@@ -27,11 +27,11 @@ import { ReactComponent as UiRemoveDuplicatesLIconInner } from './removeDuplicat
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
+import { ReactComponent as UiSourceLIconInner } from './source/source.large.svg';
 import { ReactComponent as UiSplitLIconInner } from './split/split.large.svg';
 import { ReactComponent as UiSqlLIconInner } from './sql/sql.large.svg';
 import { ReactComponent as UiTransposeLIconInner } from './transpose/transpose.large.svg';
 import { ReactComponent as UiUnionLIconInner } from './union/union.large.svg';
-import { ReactComponent as UiUnknownSourceLIconInner } from './unknownSource/unknownSource.large.svg';
 import { ReactComponent as UiUnnestLIconInner } from './unnest/unnest.large.svg';
 import { ReactComponent as UiUnpivotLIconInner } from './unpivot/unpivot.large.svg';
 import { ReactComponent as UiWindowFunctionsLIconInner } from './windowFunctions/windowFunctions.large.svg';
@@ -121,11 +121,7 @@ export const UiOutputLIcon = createIcon(UiOutputLIconInner, output, 'UiOutputLIc
 
 // region Source
 
-export const UiUnknownSourceLIcon = createIcon(
-  UiUnknownSourceLIconInner,
-  source,
-  'UiUnknownSourceLIcon',
-);
+export const UiSourceLIcon = createIcon(UiSourceLIconInner, source, 'UiSourceLIcon');
 
 // endregion
 
