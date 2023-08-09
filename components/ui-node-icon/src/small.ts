@@ -1,5 +1,4 @@
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
-export { ReactComponent as UiAscSortSIcon } from './ascSort/ascSort.small.svg';
 export { ReactComponent as UiChangeTypeSIcon } from './changeType/changeType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
 export { ReactComponent as UiCleanSIcon } from './clean/clean.small.svg';
@@ -31,6 +30,7 @@ export { ReactComponent as UiRemoveDuplicatesSIcon } from './removeDuplicates/re
 export { ReactComponent as UiReplaceSIcon } from './replace/replace.small.svg';
 export { ReactComponent as UiRightJoinSIcon } from './rightJoin/rightJoin.small.svg';
 export { ReactComponent as UiSnowflakeSourceSIcon } from './snowflakeSource/snowflakeSource.small.svg';
+export { ReactComponent as UiSortByAscendingSIcon } from './sortByAscending/sortByAscending.small.svg';
 export { ReactComponent as UiSourceSIcon } from './source/source.small.svg';
 export { ReactComponent as UiSplitSIcon } from './split/split.small.svg';
 export { ReactComponent as UiSqlSIcon } from './sql/sql.small.svg';

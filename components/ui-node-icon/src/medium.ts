@@ -1,6 +1,5 @@
 import { ReactComponent as UiAddGPTColumnMIconInner } from './addGPTColumn/addGPTColumn.medium.svg';
 import { ReactComponent as UiApiColumnMIconInner } from './apiColumn/apiColumn.medium.svg';
-import { ReactComponent as UiAscSortMIconInner } from './ascSort/ascSort.medium.svg';
 import { ReactComponent as UiChangeTypeMIconInner } from './changeType/changeType.medium.svg';
 import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
 import { ReactComponent as UiCleanMIconInner } from './clean/clean.medium.svg';
@@ -39,6 +38,7 @@ import { ReactComponent as UiReplaceMIconInner } from './replace/replace.medium.
 import { ReactComponent as UiRightJoinMIconInner } from './rightJoin/rightJoin.medium.svg';
 import { ReactComponent as UiSnowflakeOutputMIconInner } from './snowflakeOutput/snowflakeOutput.medium.svg';
 import { ReactComponent as UiSnowflakeSourceMIconInner } from './snowflakeSource/snowflakeSource.medium.svg';
+import { ReactComponent as UiSortByAscendingMIconInner } from './sortByAscending/sortByAscending.medium.svg';
 import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg';
 import { ReactComponent as UiSplitMIconInner } from './split/split.medium.svg';
 import { ReactComponent as UiSqlMIconInner } from './sql/sql.medium.svg';
@@ -60,7 +60,6 @@ export const UiAddGPTColumnMIcon = createIcon(
   'UiAddGPTColumnMIcon',
 );
 export const UiApiColumnMIcon = createIcon(UiApiColumnMIconInner, icon, 'UiApiColumnMIcon');
-export const UiAscSortMIcon = createIcon(UiAscSortMIconInner, icon, 'UiAscSortMIcon');
 export const UiChangeTypeMIcon = createIcon(UiChangeTypeMIconInner, icon, 'UiChangeTypeMIcon');
 export const UiChartMIcon = createIcon(UiChartMIconInner, icon, 'UiChartMIcon');
 export const UiCleanMIcon = createIcon(UiCleanMIconInner, icon, 'UiCleanMIcon');
@@ -122,6 +121,11 @@ export const UiSnowflakeSourceMIcon = createIcon(
   UiSnowflakeSourceMIconInner,
   icon,
   'UiSnowflakeSourceMIcon',
+);
+export const UiSortByAscendingMIcon = createIcon(
+  UiSortByAscendingMIconInner,
+  icon,
+  'UiSortByAscendingMIcon',
 );
 export const UiSourceMIcon = createIcon(UiSourceMIconInner, icon, 'UiSourceMIcon');
 export const UiSplitMIcon = createIcon(UiSplitMIconInner, icon, 'UiSplitMIcon');

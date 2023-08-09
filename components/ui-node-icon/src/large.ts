@@ -1,6 +1,5 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
 import { ReactComponent as UiApiColumnLIconInner } from './apiColumn/apiColumn.large.svg';
-import { ReactComponent as UiAscSortLIconInner } from './ascSort/ascSort.large.svg';
 import { ReactComponent as UiChangeTypeLIconInner } from './changeType/changeType.large.svg';
 import { ReactComponent as UiChartLIconInner } from './chart/chart.large.svg';
 import { ReactComponent as UiCleanLIconInner } from './clean/clean.large.svg';
@@ -39,6 +38,7 @@ import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.s
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
 import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput/snowflakeOutput.large.svg';
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
+import { ReactComponent as UiSortByAscendingLIconInner } from './sortByAscending/sortByAscending.large.svg';
 import { ReactComponent as UiSourceLIconInner } from './source/source.large.svg';
 import { ReactComponent as UiSplitLIconInner } from './split/split.large.svg';
 import { ReactComponent as UiSqlLIconInner } from './sql/sql.large.svg';
@@ -60,7 +60,6 @@ export const UiAddGPTColumnLIcon = createIcon(
   'UiAddGPTColumnLIcon',
 );
 export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon, 'UiApiColumnLIcon');
-export const UiAscSortLIcon = createIcon(UiAscSortLIconInner, icon, 'UiAscSortLIcon');
 export const UiChangeTypeLIcon = createIcon(UiChangeTypeLIconInner, icon, 'UiChangeTypeLIcon');
 export const UiChartLIcon = createIcon(UiChartLIconInner, icon, 'UiChartLIcon');
 export const UiCleanLIcon = createIcon(UiCleanLIconInner, icon, 'UiCleanLIcon');
@@ -123,6 +122,11 @@ export const UiSnowflakeSourceLIcon = createIcon(
   UiSnowflakeSourceLIconInner,
   icon,
   'UiSnowflakeSourceLIcon',
+);
+export const UiSortByAscendingLIcon = createIcon(
+  UiSortByAscendingLIconInner,
+  icon,
+  'UiSortByAscendingLIcon',
 );
 export const UiSourceLIcon = createIcon(UiSourceLIconInner, icon, 'UiSourceLIcon');
 export const UiSplitLIcon = createIcon(UiSplitLIconInner, icon, 'UiSplitLIcon');
