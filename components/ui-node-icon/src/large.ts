@@ -1,5 +1,4 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
-import { ReactComponent as UiAiTableLIconInner } from './aiTable/aiTable.large.svg';
 import { ReactComponent as UiApiLIconInner } from './api/api.large.svg';
 import { ReactComponent as UiAscSortLIconInner } from './ascSort/ascSort.large.svg';
 import { ReactComponent as UiChangeTypeLIconInner } from './changeType/changeType.large.svg';
@@ -16,6 +15,7 @@ import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.s
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
 import { ReactComponent as UiFolderLIconInner } from './folder/folder.large.svg';
 import { ReactComponent as UiGoldenLIconInner } from './golden/golden.large.svg';
+import { ReactComponent as UiGPTNodeLIconInner } from './gptNode/gptNode.large.svg';
 import { ReactComponent as UiGroupLIconInner } from './group/group.large.svg';
 import { ReactComponent as UiGroupByLIconInner } from './groupBy/groupBy.large.svg';
 import { ReactComponent as UiInnerJoinLIconInner } from './innerJoin/innerJoin.large.svg';
@@ -59,7 +59,6 @@ export const UiAddGPTColumnLIcon = createIcon(
   icon,
   'UiAddGPTColumnLIcon',
 );
-export const UiAiTableLIcon = createIcon(UiAiTableLIconInner, icon, 'UiAiTableLIcon');
 export const UiApiLIcon = createIcon(UiApiLIconInner, icon, 'UiApiLIcon');
 export const UiAscSortLIcon = createIcon(UiAscSortLIconInner, icon, 'UiAscSortLIcon');
 export const UiChangeTypeLIcon = createIcon(UiChangeTypeLIconInner, icon, 'UiChangeTypeLIcon');
@@ -81,6 +80,7 @@ export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon, 'UiExtractLI
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon, 'UiFilterLIcon');
 export const UiFolderLIcon = createIcon(UiFolderLIconInner, icon, 'UiFolderLIcon');
 export const UiGoldenLIcon = createIcon(UiGoldenLIconInner, icon, 'UiGoldenLIcon');
+export const UiGPTNodeLIcon = createIcon(UiGPTNodeLIconInner, icon, 'UiGPTNodeLIcon');
 export const UiGroupLIcon = createIcon(UiGroupLIconInner, icon, 'UiGroupLIcon');
 export const UiGroupByLIcon = createIcon(UiGroupByLIconInner, icon, 'UiGroupByLIcon');
 export const UiInnerJoinLIcon = createIcon(UiInnerJoinLIconInner, icon, 'UiInnerJoinLIcon');

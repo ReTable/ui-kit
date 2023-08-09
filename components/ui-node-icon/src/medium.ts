@@ -1,5 +1,4 @@
 import { ReactComponent as UiAddGPTColumnMIconInner } from './addGPTColumn/addGPTColumn.medium.svg';
-import { ReactComponent as UiAiTableMIconInner } from './aiTable/aiTable.medium.svg';
 import { ReactComponent as UiApiMIconInner } from './api/api.medium.svg';
 import { ReactComponent as UiAscSortMIconInner } from './ascSort/ascSort.medium.svg';
 import { ReactComponent as UiChangeTypeMIconInner } from './changeType/changeType.medium.svg';
@@ -17,6 +16,7 @@ import { ReactComponent as UiFileMIconInner } from './file/file.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
 import { ReactComponent as UiFolderMIconInner } from './folder/folder.medium.svg';
 import { ReactComponent as UiGoldenMIconInner } from './golden/golden.medium.svg';
+import { ReactComponent as UiGPTNodeMIconInner } from './gptNode/gptNode.medium.svg';
 import { ReactComponent as UiGroupMIconInner } from './group/group.medium.svg';
 import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.svg';
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
@@ -59,7 +59,6 @@ export const UiAddGPTColumnMIcon = createIcon(
   icon,
   'UiAddGPTColumnMIcon',
 );
-export const UiAiTableMIcon = createIcon(UiAiTableMIconInner, icon, 'UiAiTableMIcon');
 export const UiApiMIcon = createIcon(UiApiMIconInner, icon, 'UiApiMIcon');
 export const UiAscSortMIcon = createIcon(UiAscSortMIconInner, icon, 'UiAscSortMIcon');
 export const UiChangeTypeMIcon = createIcon(UiChangeTypeMIconInner, icon, 'UiChangeTypeMIcon');
@@ -81,6 +80,7 @@ export const UiFileMIcon = createIcon(UiFileMIconInner, icon, 'UiFileMIcon');
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon, 'UiFilterMIcon');
 export const UiFolderMIcon = createIcon(UiFolderMIconInner, icon, 'UiFolderMIcon');
 export const UiGoldenMIcon = createIcon(UiGoldenMIconInner, icon, 'UiGoldenMIcon');
+export const UiGPTNodeMIcon = createIcon(UiGPTNodeMIconInner, icon, 'UiGPTNodeMIcon');
 export const UiGroupMIcon = createIcon(UiGroupMIconInner, icon, 'UiGroupMIcon');
 export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMIcon');
 export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
