@@ -32,6 +32,7 @@ import { ReactComponent as UiPostgresSourceLIconInner } from './postgresSource/p
 import { ReactComponent as UiRemoveDuplicatesLIconInner } from './removeDuplicates/removeDuplicates.large.svg';
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
+import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput/snowflakeOutput.large.svg';
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
 import { ReactComponent as UiSourceLIconInner } from './source/source.large.svg';
 import { ReactComponent as UiSplitLIconInner } from './split/split.large.svg';
@@ -60,6 +61,7 @@ export const UiCsvOutputLIcon = createIcon(UiCsvOutputLIconInner, icon, 'UiCsvOu
 export const UiCsvSourceLIcon = createIcon(UiCsvSourceLIconInner, icon, 'UiCsvSourceLIcon');
 export const UiDescSortLIcon = createIcon(UiDescSortLIconInner, icon, 'UiDescSortLIcon');
 export const UiEditColumnLIcon = createIcon(UiEditColumnLIconInner, icon, 'UiEditColumnLIcon');
+
 export const UiEditableSourceLIcon = createIcon(
   UiEditableSourceLIconInner,
   icon,
@@ -98,6 +100,11 @@ export const UiRemoveDuplicatesLIcon = createIcon(
 );
 export const UiReplaceLIcon = createIcon(UiReplaceLIconInner, icon, 'UiReplaceLIcon');
 export const UiRightJoinLIcon = createIcon(UiRightJoinLIconInner, icon, 'UiRightJoinLIcon');
+export const UiSnowflakeOutputLIcon = createIcon(
+  UiSnowflakeOutputLIconInner,
+  icon,
+  'UiSnowflakeOutputLIcon',
+);
 export const UiSnowflakeSourceLIcon = createIcon(
   UiSnowflakeSourceLIconInner,
   icon,

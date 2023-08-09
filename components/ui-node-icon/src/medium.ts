@@ -33,6 +33,7 @@ import { ReactComponent as UiRecipeMIconInner } from './recipe/recipe.medium.svg
 import { ReactComponent as UiRemoveDuplicatesMIconInner } from './removeDuplicates/removeDuplicates.medium.svg';
 import { ReactComponent as UiReplaceMIconInner } from './replace/replace.medium.svg';
 import { ReactComponent as UiRightJoinMIconInner } from './rightJoin/rightJoin.medium.svg';
+import { ReactComponent as UiSnowflakeOutputMIconInner } from './snowflakeOutput/snowflakeOutput.medium.svg';
 import { ReactComponent as UiSnowflakeSourceMIconInner } from './snowflakeSource/snowflakeSource.medium.svg';
 import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg';
 import { ReactComponent as UiSplitMIconInner } from './split/split.medium.svg';
@@ -100,6 +101,11 @@ export const UiRemoveDuplicatesMIcon = createIcon(
 );
 export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, icon, 'UiReplaceMIcon');
 export const UiRightJoinMIcon = createIcon(UiRightJoinMIconInner, icon, 'UiRightJoinMIcon');
+export const UiSnowflakeOutputMIcon = createIcon(
+  UiSnowflakeOutputMIconInner,
+  icon,
+  'UiSnowflakeOutputMIcon',
+);
 export const UiSnowflakeSourceMIcon = createIcon(
   UiSnowflakeSourceMIconInner,
   icon,
