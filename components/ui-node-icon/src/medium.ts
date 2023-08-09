@@ -14,6 +14,7 @@ import { ReactComponent as UiEditableSourceMIconInner } from './editableSource/e
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
 import { ReactComponent as UiGoldenMIconInner } from './golden/golden.medium.svg';
+import { ReactComponent as UiGroupMIconInner } from './group/group.medium.svg';
 import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.svg';
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
 import { ReactComponent as UiJsonMIconInner } from './json/json.medium.svg';
@@ -68,6 +69,7 @@ export const UiEditableSourceMIcon = createIcon(
 export const UiExtractMIcon = createIcon(UiExtractMIconInner, icon, 'UiExtractMIcon');
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon, 'UiFilterMIcon');
 export const UiGoldenMIcon = createIcon(UiGoldenMIconInner, icon, 'UiGoldenMIcon');
+export const UiGroupMIcon = createIcon(UiGroupMIconInner, icon, 'UiGroupMIcon');
 export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMIcon');
 export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
 export const UiJsonMIcon = createIcon(UiJsonMIconInner, icon, 'UiJsonMIcon');

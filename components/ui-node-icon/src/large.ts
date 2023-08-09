@@ -14,6 +14,7 @@ import { ReactComponent as UiEditableSourceLIconInner } from './editableSource/e
 import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
 import { ReactComponent as UiGoldenLIconInner } from './golden/golden.large.svg';
+import { ReactComponent as UiGroupLIconInner } from './group/group.large.svg';
 import { ReactComponent as UiGroupByLIconInner } from './groupBy/groupBy.large.svg';
 import { ReactComponent as UiInnerJoinLIconInner } from './innerJoin/innerJoin.large.svg';
 import { ReactComponent as UiJsonLIconInner } from './json/json.large.svg';
@@ -67,6 +68,7 @@ export const UiEditableSourceLIcon = createIcon(
 export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon, 'UiExtractLIcon');
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon, 'UiFilterLIcon');
 export const UiGoldenLIcon = createIcon(UiGoldenLIconInner, icon, 'UiGoldenLIcon');
+export const UiGroupLIcon = createIcon(UiGroupLIconInner, icon, 'UiGroupLIcon');
 export const UiGroupByLIcon = createIcon(UiGroupByLIconInner, icon, 'UiGroupByLIcon');
 export const UiInnerJoinLIcon = createIcon(UiInnerJoinLIconInner, icon, 'UiInnerJoinLIcon');
 export const UiJsonLIcon = createIcon(UiJsonLIconInner, icon, 'UiJsonLIcon');
