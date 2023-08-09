@@ -24,6 +24,7 @@ import { ReactComponent as UiLeftJoinLIconInner } from './leftJoin/leftJoin.larg
 import { ReactComponent as UiMacrosLIconInner } from './macros/macros.large.svg';
 import { ReactComponent as UiMatchLIconInner } from './match/match.large.svg';
 import { ReactComponent as UiMergeLIconInner } from './merge/merge.large.svg';
+import { ReactComponent as UiMultiSourceLIconInner } from './multiSource/multiSource.large.svg';
 import { ReactComponent as UiNestLIconInner } from './nest/nest.large.svg';
 import { ReactComponent as UiNewColumnLIconInner } from './newColumn/newColumn.large.svg';
 import { ReactComponent as UiNoNodeLIconInner } from './noNode/noNode.large.svg';
@@ -84,6 +85,7 @@ export const UiLeftJoinLIcon = createIcon(UiLeftJoinLIconInner, icon, 'UiLeftJoi
 export const UiMacrosLIcon = createIcon(UiMacrosLIconInner, icon, 'UiMacrosLIcon');
 export const UiMatchLIcon = createIcon(UiMatchLIconInner, icon, 'UiMatchLIcon');
 export const UiMergeLIcon = createIcon(UiMergeLIconInner, icon, 'UiMergeLIcon');
+export const UiMultiSourceLIcon = createIcon(UiMultiSourceLIconInner, icon, 'UiMultiSourceLIcon');
 export const UiNestLIcon = createIcon(UiNestLIconInner, icon, 'UiNestLIcon');
 export const UiNewColumnLIcon = createIcon(UiNewColumnLIconInner, icon, 'UiNewColumnLIcon');
 export const UiNoNodeLIcon = createIcon(UiNoNodeLIconInner, icon, 'UiNoNodeLIcon');
