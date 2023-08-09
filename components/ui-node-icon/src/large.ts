@@ -1,5 +1,5 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
-import { ReactComponent as UiApiLIconInner } from './api/api.large.svg';
+import { ReactComponent as UiApiColumnLIconInner } from './apiColumn/apiColumn.large.svg';
 import { ReactComponent as UiAscSortLIconInner } from './ascSort/ascSort.large.svg';
 import { ReactComponent as UiChangeTypeLIconInner } from './changeType/changeType.large.svg';
 import { ReactComponent as UiChartLIconInner } from './chart/chart.large.svg';
@@ -59,7 +59,7 @@ export const UiAddGPTColumnLIcon = createIcon(
   icon,
   'UiAddGPTColumnLIcon',
 );
-export const UiApiLIcon = createIcon(UiApiLIconInner, icon, 'UiApiLIcon');
+export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon, 'UiApiColumnLIcon');
 export const UiAscSortLIcon = createIcon(UiAscSortLIconInner, icon, 'UiAscSortLIcon');
 export const UiChangeTypeLIcon = createIcon(UiChangeTypeLIconInner, icon, 'UiChangeTypeLIcon');
 export const UiChartLIcon = createIcon(UiChartLIconInner, icon, 'UiChartLIcon');

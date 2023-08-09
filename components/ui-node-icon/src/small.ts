@@ -1,4 +1,4 @@
-export { ReactComponent as UiApiSIcon } from './api/api.small.svg';
+export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
 export { ReactComponent as UiAscSortSIcon } from './ascSort/ascSort.small.svg';
 export { ReactComponent as UiChangeTypeSIcon } from './changeType/changeType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
