@@ -10,6 +10,7 @@ import { ReactComponent as UiCsvSourceLIconInner } from './csvSource/csvSource.l
 import { ReactComponent as UiDescSortLIconInner } from './descSort/descSort.large.svg';
 import { ReactComponent as UiEditColumnLIconInner } from './editColumn/editColumn.large.svg';
 import { ReactComponent as UiEditableSourceLIconInner } from './editableSource/editableSource.large.svg';
+import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
 import { ReactComponent as UiGroupByLIconInner } from './groupBy/groupBy.large.svg';
 import { ReactComponent as UiInnerJoinLIconInner } from './innerJoin/innerJoin.large.svg';
@@ -78,6 +79,8 @@ export const UiConditionsLIcon = createIcon(UiConditionsLIconInner, clean, 'UiCo
 export const UiDescSortLIcon = createIcon(UiDescSortLIconInner, clean, 'UiDescSortLIcon');
 
 export const UiEditColumnLIcon = createIcon(UiEditColumnLIconInner, clean, 'UiEditColumnLIcon');
+
+export const UiExtractLIcon = createIcon(UiExtractLIconInner, clean, 'UiExtractLIcon');
 
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, clean, 'UiFilterLIcon');
 

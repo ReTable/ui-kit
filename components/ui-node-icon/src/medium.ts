@@ -10,6 +10,7 @@ import { ReactComponent as UiCsvSourceMIconInner } from './csvSource/csvSource.m
 import { ReactComponent as UiDescSortMIconInner } from './descSort/descSort.medium.svg';
 import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColumn.medium.svg';
 import { ReactComponent as UiEditableSourceMIconInner } from './editableSource/editableSource.medium.svg';
+import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
 import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.svg';
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
@@ -79,6 +80,8 @@ export const UiConditionsMIcon = createIcon(UiConditionsMIconInner, clean, 'UiCo
 export const UiDescSortMIcon = createIcon(UiDescSortMIconInner, clean, 'UiDescSortMIcon');
 
 export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, clean, 'UiEditColumnMIcon');
+
+export const UiExtractMIcon = createIcon(UiExtractMIconInner, clean, 'UiExtractMIcon');
 
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, clean, 'UiFilterMIcon');
 

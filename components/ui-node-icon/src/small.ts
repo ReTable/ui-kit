@@ -28,6 +28,8 @@ export { ReactComponent as UiDescSortSIcon } from './descSort/descSort.small.svg
 
 export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.small.svg';
 
+export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
+
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
 
 export { ReactComponent as UiMacrosSIcon } from './macros/macros.small.svg';
