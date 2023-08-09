@@ -6,6 +6,7 @@ import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
 import { ReactComponent as UiCleanMIconInner } from './clean/clean.medium.svg';
 import { ReactComponent as UiConditionsMIconInner } from './conditions/conditions.medium.svg';
 import { ReactComponent as UiCrossJoinMIconInner } from './crossJoin/crossJoin.medium.svg';
+import { ReactComponent as UiCsvOutputMIconInner } from './csvOutput/csvOutput.medium.svg';
 import { ReactComponent as UiCsvSourceMIconInner } from './csvSource/csvSource.medium.svg';
 import { ReactComponent as UiDescSortMIconInner } from './descSort/descSort.medium.svg';
 import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColumn.medium.svg';
@@ -146,6 +147,12 @@ export const UiCrossJoinMIcon = createIcon(
   UiCrossJoinMIconInner,
   transformation,
   'UiCrossJoinMIcon',
+);
+
+export const UiCsvOutputMIcon = createIcon(
+  UiCsvOutputMIconInner,
+  transformation,
+  'UiCsvOutputMIcon',
 );
 
 export const UiCsvSourceMIcon = createIcon(
