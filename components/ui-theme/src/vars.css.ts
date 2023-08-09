@@ -29,6 +29,14 @@ export const tokens = {
         primary: '#00b7a2',
         secondary: '#b2e9e3',
       },
+      disabled: {
+        primary: '#b3b3b3',
+        secondary: '#ebebeb',
+      },
+      group: {
+        clean: '#aae5df',
+        transformation: '#c2d8ef',
+      },
       output: {
         primary: '#616986',
         secondary: '#d8dee3',
@@ -41,10 +49,6 @@ export const tokens = {
         primary: '#127ff9',
         secondary: '#a0ccfd',
         tertiary: '#b7d8fd',
-      },
-      disabled: {
-        primary: '#b3b3b3',
-        secondary: '#ebebeb',
       },
     },
   },
