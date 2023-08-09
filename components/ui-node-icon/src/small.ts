@@ -1,5 +1,5 @@
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
-export { ReactComponent as UiChangeTypeSIcon } from './changeType/changeType.small.svg';
+export { ReactComponent as UiChangeDataTypeSIcon } from './changeDataType/changeDataType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
 export { ReactComponent as UiCleanSIcon } from './clean/clean.small.svg';
 export { ReactComponent as UiConditionsSIcon } from './conditions/conditions.small.svg';

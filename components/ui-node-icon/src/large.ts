@@ -1,6 +1,6 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
 import { ReactComponent as UiApiColumnLIconInner } from './apiColumn/apiColumn.large.svg';
-import { ReactComponent as UiChangeTypeLIconInner } from './changeType/changeType.large.svg';
+import { ReactComponent as UiChangeDataTypeLIconInner } from './changeDataType/changeDataType.large.svg';
 import { ReactComponent as UiChartLIconInner } from './chart/chart.large.svg';
 import { ReactComponent as UiCleanLIconInner } from './clean/clean.large.svg';
 import { ReactComponent as UiConditionsLIconInner } from './conditions/conditions.large.svg';
@@ -60,7 +60,11 @@ export const UiAddGPTColumnLIcon = createIcon(
   'UiAddGPTColumnLIcon',
 );
 export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon, 'UiApiColumnLIcon');
-export const UiChangeTypeLIcon = createIcon(UiChangeTypeLIconInner, icon, 'UiChangeTypeLIcon');
+export const UiChangeDataTypeLIcon = createIcon(
+  UiChangeDataTypeLIconInner,
+  icon,
+  'UiChangeDataTypeLIcon',
+);
 export const UiChartLIcon = createIcon(UiChartLIconInner, icon, 'UiChartLIcon');
 export const UiCleanLIcon = createIcon(UiCleanLIconInner, icon, 'UiCleanLIcon');
 export const UiConditionsLIcon = createIcon(UiConditionsLIconInner, icon, 'UiConditionsLIcon');
