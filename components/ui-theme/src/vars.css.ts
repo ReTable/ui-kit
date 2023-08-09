@@ -37,6 +37,9 @@ export const tokens = {
         clean: '#aae5df',
         transformation: '#c2d8ef',
       },
+      misc: {
+        folder: '#5cb9ed',
+      },
       output: {
         primary: '#616986',
         secondary: '#d8dee3',
