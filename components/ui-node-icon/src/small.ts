@@ -50,6 +50,8 @@ export { ReactComponent as UiReplaceSIcon } from './replace/replace.small.svg';
 
 export { ReactComponent as UiSplitSIcon } from './split/split.small.svg';
 
+export { ReactComponent as UiStandartizeSIcon } from './standartize/standartize.small.svg';
+
 export { ReactComponent as UiUnnestSIcon } from './unnest/unnest.small.svg';
 
 export { ReactComponent as UiWindowFunctionsSIcon } from './windowFunctions/windowFunctions.small.svg';

@@ -33,6 +33,7 @@ import { ReactComponent as UiSnowflakeSourceMIconInner } from './snowflakeSource
 import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg';
 import { ReactComponent as UiSplitMIconInner } from './split/split.medium.svg';
 import { ReactComponent as UiSqlMIconInner } from './sql/sql.medium.svg';
+import { ReactComponent as UiStandartizeMIconInner } from './standartize/standartize.medium.svg';
 import { ReactComponent as UiTransposeMIconInner } from './transpose/transpose.medium.svg';
 import { ReactComponent as UiUnionMIconInner } from './union/union.medium.svg';
 import { ReactComponent as UiUnnestMIconInner } from './unnest/unnest.medium.svg';
@@ -107,6 +108,8 @@ export const UiRemoveDuplicatesMIcon = createIcon(
 export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, clean, 'UiReplaceMIcon');
 
 export const UiSplitMIcon = createIcon(UiSplitMIconInner, clean, 'UiSplitMIcon');
+
+export const UiStandartizeMIcon = createIcon(UiStandartizeMIconInner, clean, 'UiStandartizeMIcon');
 
 export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, clean, 'UiUnnestMIcon');
 
