@@ -36,6 +36,8 @@ export { ReactComponent as UiMacrosSIcon } from './macros/macros.small.svg';
 
 export { ReactComponent as UiMatchSIcon } from './match/match.small.svg';
 
+export { ReactComponent as UiMergeSIcon } from './merge/merge.small.svg';
+
 export { ReactComponent as UiNestSIcon } from './nest/nest.small.svg';
 
 export { ReactComponent as UiNewColumnSIcon } from './newColumn/newColumn.small.svg';

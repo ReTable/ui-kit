@@ -18,6 +18,7 @@ import { ReactComponent as UiJsonMIconInner } from './json/json.medium.svg';
 import { ReactComponent as UiLeftJoinMIconInner } from './leftJoin/leftJoin.medium.svg';
 import { ReactComponent as UiMacrosMIconInner } from './macros/macros.medium.svg';
 import { ReactComponent as UiMatchMIconInner } from './match/match.medium.svg';
+import { ReactComponent as UiMergeMIconInner } from './merge/merge.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
 import { ReactComponent as UiNewColumnMIconInner } from './newColumn/newColumn.medium.svg';
 import { ReactComponent as UiOuterJoinMIconInner } from './outerJoin/outerJoin.medium.svg';
@@ -88,6 +89,8 @@ export const UiFilterMIcon = createIcon(UiFilterMIconInner, clean, 'UiFilterMIco
 export const UiMacrosMIcon = createIcon(UiMacrosMIconInner, clean, 'UiMacrosMIcon');
 
 export const UiMatchMIcon = createIcon(UiMatchMIconInner, clean, 'UiMatchMIcon');
+
+export const UiMergeMIcon = createIcon(UiMergeMIconInner, clean, 'UiMergeMIcon');
 
 export const UiNestMIcon = createIcon(UiNestMIconInner, clean, 'UiNestMIcon');
 
