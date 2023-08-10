@@ -26,6 +26,7 @@ import { ReactComponent as UiLocalFileMIconInner } from './localFile/localFile.m
 import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/mergeColumns.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
+import { ReactComponent as UiNewBlankTableMIconInner } from './newBlankTable/newBlankTable.medium.svg';
 import { ReactComponent as UiOuterJoinMIconInner } from './outerJoin/outerJoin.medium.svg';
 import { ReactComponent as UiOutputMIconInner } from './output/output.medium.svg';
 import { ReactComponent as UiPivotMIconInner } from './pivot/pivot.medium.svg';
@@ -106,6 +107,11 @@ export const UiMergeColumnsMIcon = createIcon(
 );
 export const UiMultiSourceMIcon = createIcon(UiMultiSourceMIconInner, icon, 'UiMultiSourceMIcon');
 export const UiNestMIcon = createIcon(UiNestMIconInner, icon, 'UiNestMIcon');
+export const UiNewBlankTableMIcon = createIcon(
+  UiNewBlankTableMIconInner,
+  icon,
+  'UiNewBlankTableMIcon',
+);
 export const UiOuterJoinMIcon = createIcon(UiOuterJoinMIconInner, icon, 'UiOuterJoinMIcon');
 export const UiOutputMIcon = createIcon(UiOutputMIconInner, icon, 'UiOutputMIcon');
 export const UiPivotMIcon = createIcon(UiPivotMIconInner, icon, 'UiPivotMIcon');
