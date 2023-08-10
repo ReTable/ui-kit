@@ -34,7 +34,7 @@ export { ReactComponent as UiSortByAscendingSIcon } from './sortByAscending/sort
 export { ReactComponent as UiSourceSIcon } from './source/source.small.svg';
 export { ReactComponent as UiSplitSIcon } from './split/split.small.svg';
 export { ReactComponent as UiSqlSIcon } from './sql/sql.small.svg';
-export { ReactComponent as UiStandartizeSIcon } from './standartize/standartize.small.svg';
+export { ReactComponent as UiStandardizeSIcon } from './standardize/standardize.small.svg';
 export { ReactComponent as UiTransposeSIcon } from './transpose/transpose.small.svg';
 export { ReactComponent as UiUnionSIcon } from './union/union.small.svg';
 export { ReactComponent as UiUnnestSIcon } from './unnest/unnest.small.svg';

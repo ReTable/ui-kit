@@ -42,7 +42,7 @@ import { ReactComponent as UiSortByAscendingLIconInner } from './sortByAscending
 import { ReactComponent as UiSourceLIconInner } from './source/source.large.svg';
 import { ReactComponent as UiSplitLIconInner } from './split/split.large.svg';
 import { ReactComponent as UiSqlLIconInner } from './sql/sql.large.svg';
-import { ReactComponent as UiStandartizeLIconInner } from './standartize/standartize.large.svg';
+import { ReactComponent as UiStandardizeLIconInner } from './standardize/standardize.large.svg';
 import { ReactComponent as UiTransposeLIconInner } from './transpose/transpose.large.svg';
 import { ReactComponent as UiUnionLIconInner } from './union/union.large.svg';
 import { ReactComponent as UiUnnestLIconInner } from './unnest/unnest.large.svg';
@@ -135,7 +135,7 @@ export const UiSortByAscendingLIcon = createIcon(
 export const UiSourceLIcon = createIcon(UiSourceLIconInner, icon, 'UiSourceLIcon');
 export const UiSplitLIcon = createIcon(UiSplitLIconInner, icon, 'UiSplitLIcon');
 export const UiSqlLIcon = createIcon(UiSqlLIconInner, icon, 'UiSqlLIcon');
-export const UiStandartizeLIcon = createIcon(UiStandartizeLIconInner, icon, 'UiStandartizeLIcon');
+export const UiStandardizeLIcon = createIcon(UiStandardizeLIconInner, icon, 'UiStandardizeLIcon');
 export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon, 'UiTransposeLIcon');
 export const UiUnionLIcon = createIcon(UiUnionLIconInner, icon, 'UiUnionLIcon');
 export const UiUnnestLIcon = createIcon(UiUnnestLIconInner, icon, 'UiUnnestLIcon');

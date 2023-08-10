@@ -42,7 +42,7 @@ import { ReactComponent as UiSortByAscendingMIconInner } from './sortByAscending
 import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg';
 import { ReactComponent as UiSplitMIconInner } from './split/split.medium.svg';
 import { ReactComponent as UiSqlMIconInner } from './sql/sql.medium.svg';
-import { ReactComponent as UiStandartizeMIconInner } from './standartize/standartize.medium.svg';
+import { ReactComponent as UiStandardizeMIconInner } from './standardize/standardize.medium.svg';
 import { ReactComponent as UiTransposeMIconInner } from './transpose/transpose.medium.svg';
 import { ReactComponent as UiUnionMIconInner } from './union/union.medium.svg';
 import { ReactComponent as UiUnnestMIconInner } from './unnest/unnest.medium.svg';
@@ -134,7 +134,7 @@ export const UiSortByAscendingMIcon = createIcon(
 export const UiSourceMIcon = createIcon(UiSourceMIconInner, icon, 'UiSourceMIcon');
 export const UiSplitMIcon = createIcon(UiSplitMIconInner, icon, 'UiSplitMIcon');
 export const UiSqlMIcon = createIcon(UiSqlMIconInner, icon, 'UiSqlMIcon');
-export const UiStandartizeMIcon = createIcon(UiStandartizeMIconInner, icon, 'UiStandartizeMIcon');
+export const UiStandardizeMIcon = createIcon(UiStandardizeMIconInner, icon, 'UiStandardizeMIcon');
 export const UiTransposeMIcon = createIcon(UiTransposeMIconInner, icon, 'UiTransposeMIcon');
 export const UiUnionMIcon = createIcon(UiUnionMIconInner, icon, 'UiUnionMIcon');
 export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, icon, 'UiUnnestMIcon');
