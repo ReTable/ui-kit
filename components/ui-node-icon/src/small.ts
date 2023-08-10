@@ -19,7 +19,7 @@ export { ReactComponent as UiJsonSIcon } from './json/json.small.svg';
 export { ReactComponent as UiLeftJoinSIcon } from './leftJoin/leftJoin.small.svg';
 export { ReactComponent as UiMacrosSIcon } from './macros/macros.small.svg';
 export { ReactComponent as UiMatchSIcon } from './match/match.small.svg';
-export { ReactComponent as UiMergeSIcon } from './merge/merge.small.svg';
+export { ReactComponent as UiMergeColumnsSIcon } from './mergeColumns/mergeColumns.small.svg';
 export { ReactComponent as UiNestSIcon } from './nest/nest.small.svg';
 export { ReactComponent as UiOuterJoinSIcon } from './outerJoin/outerJoin.small.svg';
 export { ReactComponent as UiOutputSIcon } from './output/output.small.svg';
