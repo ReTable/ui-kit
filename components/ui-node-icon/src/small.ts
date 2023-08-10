@@ -1,5 +1,6 @@
 export { ReactComponent as UiAddNewColumnSIcon } from './addNewColumn/addNewColumn.small.svg';
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
+export { ReactComponent as UiByExampleSIcon } from './byExample/byExample.small.svg';
 export { ReactComponent as UiChangeDataTypeSIcon } from './changeDataType/changeDataType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
 export { ReactComponent as UiCleanSIcon } from './clean/clean.small.svg';
@@ -16,7 +17,6 @@ export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
 export { ReactComponent as UiJsonSIcon } from './json/json.small.svg';
 export { ReactComponent as UiLeftJoinSIcon } from './leftJoin/leftJoin.small.svg';
-export { ReactComponent as UiMacrosSIcon } from './macros/macros.small.svg';
 export { ReactComponent as UiMatchSIcon } from './match/match.small.svg';
 export { ReactComponent as UiMergeColumnsSIcon } from './mergeColumns/mergeColumns.small.svg';
 export { ReactComponent as UiNestSIcon } from './nest/nest.small.svg';

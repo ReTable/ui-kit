@@ -1,6 +1,7 @@
 import { ReactComponent as UiAddGPTColumnMIconInner } from './addGPTColumn/addGPTColumn.medium.svg';
 import { ReactComponent as UiAddNewColumnMIconInner } from './addNewColumn/addNewColumn.medium.svg';
 import { ReactComponent as UiApiColumnMIconInner } from './apiColumn/apiColumn.medium.svg';
+import { ReactComponent as UiByExampleMIconInner } from './byExample/byExample.medium.svg';
 import { ReactComponent as UiChangeDataTypeMIconInner } from './changeDataType/changeDataType.medium.svg';
 import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
 import { ReactComponent as UiCleanMIconInner } from './clean/clean.medium.svg';
@@ -21,7 +22,6 @@ import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
 import { ReactComponent as UiJsonMIconInner } from './json/json.medium.svg';
 import { ReactComponent as UiLeftJoinMIconInner } from './leftJoin/leftJoin.medium.svg';
-import { ReactComponent as UiMacrosMIconInner } from './macros/macros.medium.svg';
 import { ReactComponent as UiMatchMIconInner } from './match/match.medium.svg';
 import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/mergeColumns.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
@@ -65,6 +65,7 @@ export const UiAddNewColumnMIcon = createIcon(
   'UiAddNewColumnMIcon',
 );
 export const UiApiColumnMIcon = createIcon(UiApiColumnMIconInner, icon, 'UiApiColumnMIcon');
+export const UiByExampleMIcon = createIcon(UiByExampleMIconInner, icon, 'UiByExampleMIcon');
 export const UiChangeDataTypeMIcon = createIcon(
   UiChangeDataTypeMIconInner,
   icon,
@@ -93,7 +94,6 @@ export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMI
 export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
 export const UiJsonMIcon = createIcon(UiJsonMIconInner, icon, 'UiJsonMIcon');
 export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, icon, 'UiLeftJoinMIcon');
-export const UiMacrosMIcon = createIcon(UiMacrosMIconInner, icon, 'UiMacrosMIcon');
 export const UiMatchMIcon = createIcon(UiMatchMIconInner, icon, 'UiMatchMIcon');
 export const UiMergeColumnsMIcon = createIcon(
   UiMergeColumnsMIconInner,
