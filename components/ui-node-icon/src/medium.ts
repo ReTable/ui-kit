@@ -1,6 +1,7 @@
 import { ReactComponent as UiAddGPTColumnMIconInner } from './addGPTColumn/addGPTColumn.medium.svg';
 import { ReactComponent as UiAddNewColumnMIconInner } from './addNewColumn/addNewColumn.medium.svg';
 import { ReactComponent as UiApiColumnMIconInner } from './apiColumn/apiColumn.medium.svg';
+import { ReactComponent as UiBlankTableMIconInner } from './blankTable/blankTable.medium.svg';
 import { ReactComponent as UiByExampleMIconInner } from './byExample/byExample.medium.svg';
 import { ReactComponent as UiChangeDataTypeMIconInner } from './changeDataType/changeDataType.medium.svg';
 import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
@@ -11,7 +12,6 @@ import { ReactComponent as UiCrossJoinMIconInner } from './crossJoin/crossJoin.m
 import { ReactComponent as UiCsvFileMIconInner } from './csvFile/csvFile.medium.svg';
 import { ReactComponent as UiCsvOutputMIconInner } from './csvOutput/csvOutput.medium.svg';
 import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColumn.medium.svg';
-import { ReactComponent as UiEditableSourceMIconInner } from './editableSource/editableSource.medium.svg';
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
 import { ReactComponent as UiFolderSourceMIconInner } from './folderSource/folderSource.medium.svg';
@@ -65,6 +65,7 @@ export const UiAddNewColumnMIcon = createIcon(
   'UiAddNewColumnMIcon',
 );
 export const UiApiColumnMIcon = createIcon(UiApiColumnMIconInner, icon, 'UiApiColumnMIcon');
+export const UiBlankTableMIcon = createIcon(UiBlankTableMIconInner, icon, 'UiBlankTableMIcon');
 export const UiByExampleMIcon = createIcon(UiByExampleMIconInner, icon, 'UiByExampleMIcon');
 export const UiChangeDataTypeMIcon = createIcon(
   UiChangeDataTypeMIconInner,
@@ -83,11 +84,6 @@ export const UiCrossJoinMIcon = createIcon(UiCrossJoinMIconInner, icon, 'UiCross
 export const UiCsvFileMIcon = createIcon(UiCsvFileMIconInner, icon, 'UiCsvFileMIcon');
 export const UiCsvOutputMIcon = createIcon(UiCsvOutputMIconInner, icon, 'UiCsvOutputMIcon');
 export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, icon, 'UiEditColumnMIcon');
-export const UiEditableSourceMIcon = createIcon(
-  UiEditableSourceMIconInner,
-  icon,
-  'UiEditableSourceMIcon',
-);
 export const UiExtractMIcon = createIcon(UiExtractMIconInner, icon, 'UiExtractMIcon');
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon, 'UiFilterMIcon');
 export const UiFolderSourceMIcon = createIcon(

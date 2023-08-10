@@ -1,5 +1,6 @@
 export { ReactComponent as UiAddNewColumnSIcon } from './addNewColumn/addNewColumn.small.svg';
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
+export { ReactComponent as UiBlankTableSIcon } from './blankTable/blankTable.small.svg';
 export { ReactComponent as UiByExampleSIcon } from './byExample/byExample.small.svg';
 export { ReactComponent as UiChangeDataTypeSIcon } from './changeDataType/changeDataType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
@@ -9,7 +10,6 @@ export { ReactComponent as UiCountMatchesSIcon } from './countMatches/countMatch
 export { ReactComponent as UiCrossJoinSIcon } from './crossJoin/crossJoin.small.svg';
 export { ReactComponent as UiCsvFileSIcon } from './csvFile/csvFile.small.svg';
 export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.small.svg';
-export { ReactComponent as UiEditableSourceSIcon } from './editableSource/editableSource.small.svg';
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
 export { ReactComponent as UiFolderSourceSIcon } from './folderSource/folderSource.small.svg';

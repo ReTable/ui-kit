@@ -1,6 +1,7 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
 import { ReactComponent as UiAddNewColumnLIconInner } from './addNewColumn/addNewColumn.large.svg';
 import { ReactComponent as UiApiColumnLIconInner } from './apiColumn/apiColumn.large.svg';
+import { ReactComponent as UiBlankTableLIconInner } from './blankTable/blankTable.large.svg';
 import { ReactComponent as UiByExampleLIconInner } from './byExample/byExample.large.svg';
 import { ReactComponent as UiChangeDataTypeLIconInner } from './changeDataType/changeDataType.large.svg';
 import { ReactComponent as UiChartLIconInner } from './chart/chart.large.svg';
@@ -11,7 +12,6 @@ import { ReactComponent as UiCrossJoinLIconInner } from './crossJoin/crossJoin.l
 import { ReactComponent as UiCsvFileLIconInner } from './csvFile/csvFile.large.svg';
 import { ReactComponent as UiCsvOutputLIconInner } from './csvOutput/csvOutput.large.svg';
 import { ReactComponent as UiEditColumnLIconInner } from './editColumn/editColumn.large.svg';
-import { ReactComponent as UiEditableSourceLIconInner } from './editableSource/editableSource.large.svg';
 import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
 import { ReactComponent as UiFolderSourceLIconInner } from './folderSource/folderSource.large.svg';
@@ -65,6 +65,7 @@ export const UiAddNewColumnLIcon = createIcon(
   'UiAddNewColumnLIcon',
 );
 export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon, 'UiApiColumnLIcon');
+export const UiBlankTableLIcon = createIcon(UiBlankTableLIconInner, icon, 'UiBlankTableLIcon');
 export const UiByExampleLIcon = createIcon(UiByExampleLIconInner, icon, 'UiByExampleLIcon');
 export const UiChangeDataTypeLIcon = createIcon(
   UiChangeDataTypeLIconInner,
@@ -83,12 +84,6 @@ export const UiCrossJoinLIcon = createIcon(UiCrossJoinLIconInner, icon, 'UiCross
 export const UiCsvFileLIcon = createIcon(UiCsvFileLIconInner, icon, 'UiCsvFileLIcon');
 export const UiCsvOutputLIcon = createIcon(UiCsvOutputLIconInner, icon, 'UiCsvOutputLIcon');
 export const UiEditColumnLIcon = createIcon(UiEditColumnLIconInner, icon, 'UiEditColumnLIcon');
-
-export const UiEditableSourceLIcon = createIcon(
-  UiEditableSourceLIconInner,
-  icon,
-  'UiEditableSourceLIcon',
-);
 export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon, 'UiExtractLIcon');
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon, 'UiFilterLIcon');
 export const UiFolderSourceLIcon = createIcon(
