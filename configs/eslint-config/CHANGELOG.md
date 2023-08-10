@@ -1,5 +1,11 @@
 # @tabula/eslint-config
 
+## 0.0.3
+
+### Patch Changes
+
+- [#15](https://github.com/ReTable/ui-kit/pull/15) [`82db344`](https://github.com/ReTable/ui-kit/commit/82db34478868cc495baee9c9ab3ae4afef9e8a3a) Thanks [@demiazz](https://github.com/demiazz)! - disable `@typescript-eslint/strict-boolean-expressions` rule
+
 ## 0.0.2
 
 ### Patch Changes
