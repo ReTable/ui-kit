@@ -14,7 +14,7 @@ import { ReactComponent as UiEditColumnLIconInner } from './editColumn/editColum
 import { ReactComponent as UiEditableSourceLIconInner } from './editableSource/editableSource.large.svg';
 import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
-import { ReactComponent as UiFolderLIconInner } from './folder/folder.large.svg';
+import { ReactComponent as UiFolderSourceLIconInner } from './folderSource/folderSource.large.svg';
 import { ReactComponent as UiGoldenLIconInner } from './golden/golden.large.svg';
 import { ReactComponent as UiGPTNodeLIconInner } from './gptNode/gptNode.large.svg';
 import { ReactComponent as UiGroupLIconInner } from './group/group.large.svg';
@@ -91,7 +91,11 @@ export const UiEditableSourceLIcon = createIcon(
 );
 export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon, 'UiExtractLIcon');
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon, 'UiFilterLIcon');
-export const UiFolderLIcon = createIcon(UiFolderLIconInner, icon, 'UiFolderLIcon');
+export const UiFolderSourceLIcon = createIcon(
+  UiFolderSourceLIconInner,
+  icon,
+  'UiFolderSourceLIcon',
+);
 export const UiGoldenLIcon = createIcon(UiGoldenLIconInner, icon, 'UiGoldenLIcon');
 export const UiGPTNodeLIcon = createIcon(UiGPTNodeLIconInner, icon, 'UiGPTNodeLIcon');
 export const UiGroupLIcon = createIcon(UiGroupLIconInner, icon, 'UiGroupLIcon');

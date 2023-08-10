@@ -12,7 +12,7 @@ export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.sma
 export { ReactComponent as UiEditableSourceSIcon } from './editableSource/editableSource.small.svg';
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
-export { ReactComponent as UiFolderSIcon } from './folder/folder.small.svg';
+export { ReactComponent as UiFolderSourceSIcon } from './folderSource/folderSource.small.svg';
 export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
 export { ReactComponent as UiJsonFileSIcon } from './jsonFile/jsonFile.small.svg';
