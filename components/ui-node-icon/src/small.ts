@@ -39,5 +39,5 @@ export { ReactComponent as UiTransposeSIcon } from './transpose/transpose.small.
 export { ReactComponent as UiUnionSIcon } from './union/union.small.svg';
 export { ReactComponent as UiUnnestSIcon } from './unnest/unnest.small.svg';
 export { ReactComponent as UiUnpivotSIcon } from './unpivot/unpivot.small.svg';
-export { ReactComponent as UiWindowFunctionsSIcon } from './windowFunctions/windowFunctions.small.svg';
+export { ReactComponent as UiWinFuncSIcon } from './winFunc/winFunc.small.svg';
 export { ReactComponent as UiXlsFileSIcon } from './xlsFile/xlsFile.small.svg';

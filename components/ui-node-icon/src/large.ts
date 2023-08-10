@@ -47,7 +47,7 @@ import { ReactComponent as UiTransposeLIconInner } from './transpose/transpose.l
 import { ReactComponent as UiUnionLIconInner } from './union/union.large.svg';
 import { ReactComponent as UiUnnestLIconInner } from './unnest/unnest.large.svg';
 import { ReactComponent as UiUnpivotLIconInner } from './unpivot/unpivot.large.svg';
-import { ReactComponent as UiWindowFunctionsLIconInner } from './windowFunctions/windowFunctions.large.svg';
+import { ReactComponent as UiWinFuncLIconInner } from './winFunc/winFunc.large.svg';
 import { ReactComponent as UiXlsFileLIconInner } from './xlsFile/xlsFile.large.svg';
 
 import { icon } from './style.css';
@@ -164,9 +164,5 @@ export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon, 'UiTrans
 export const UiUnionLIcon = createIcon(UiUnionLIconInner, icon, 'UiUnionLIcon');
 export const UiUnnestLIcon = createIcon(UiUnnestLIconInner, icon, 'UiUnnestLIcon');
 export const UiUnpivotLIcon = createIcon(UiUnpivotLIconInner, icon, 'UiUnpivotLIcon');
-export const UiWindowFunctionsLIcon = createIcon(
-  UiWindowFunctionsLIconInner,
-  icon,
-  'UiWindowFunctionsLIcon',
-);
+export const UiWinFuncLIcon = createIcon(UiWinFuncLIconInner, icon, 'UiWinFuncLIcon');
 export const UiXlsFileLIcon = createIcon(UiXlsFileLIconInner, icon, 'UiXlsFileLIcon');
