@@ -8,7 +8,6 @@ import { ReactComponent as UiConditionMIconInner } from './condition/condition.m
 import { ReactComponent as UiCrossJoinMIconInner } from './crossJoin/crossJoin.medium.svg';
 import { ReactComponent as UiCsvOutputMIconInner } from './csvOutput/csvOutput.medium.svg';
 import { ReactComponent as UiCsvSourceMIconInner } from './csvSource/csvSource.medium.svg';
-import { ReactComponent as UiDescSortMIconInner } from './descSort/descSort.medium.svg';
 import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColumn.medium.svg';
 import { ReactComponent as UiEditableSourceMIconInner } from './editableSource/editableSource.medium.svg';
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
@@ -39,6 +38,7 @@ import { ReactComponent as UiRightJoinMIconInner } from './rightJoin/rightJoin.m
 import { ReactComponent as UiSnowflakeOutputMIconInner } from './snowflakeOutput/snowflakeOutput.medium.svg';
 import { ReactComponent as UiSnowflakeSourceMIconInner } from './snowflakeSource/snowflakeSource.medium.svg';
 import { ReactComponent as UiSortByAscendingMIconInner } from './sortByAscending/sortByAscending.medium.svg';
+import { ReactComponent as UiSortByDescendingMIconInner } from './sortByDescending/sortByDescending.medium.svg';
 import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg';
 import { ReactComponent as UiSplitColumnsMIconInner } from './splitColumns/splitColumns.medium.svg';
 import { ReactComponent as UiSqlMIconInner } from './sql/sql.medium.svg';
@@ -76,7 +76,6 @@ export const UiConditionMIcon = createIcon(UiConditionMIconInner, icon, 'UiCondi
 export const UiCrossJoinMIcon = createIcon(UiCrossJoinMIconInner, icon, 'UiCrossJoinMIcon');
 export const UiCsvOutputMIcon = createIcon(UiCsvOutputMIconInner, icon, 'UiCsvOutputMIcon');
 export const UiCsvSourceMIcon = createIcon(UiCsvSourceMIconInner, icon, 'UiCsvSourceMIcon');
-export const UiDescSortMIcon = createIcon(UiDescSortMIconInner, icon, 'UiDescSortMIcon');
 export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, icon, 'UiEditColumnMIcon');
 export const UiEditableSourceMIcon = createIcon(
   UiEditableSourceMIconInner,
@@ -138,6 +137,11 @@ export const UiSortByAscendingMIcon = createIcon(
   UiSortByAscendingMIconInner,
   icon,
   'UiSortByAscendingMIcon',
+);
+export const UiSortByDescendingMIcon = createIcon(
+  UiSortByDescendingMIconInner,
+  icon,
+  'UiSortByDescendingMIcon',
 );
 export const UiSourceMIcon = createIcon(UiSourceMIconInner, icon, 'UiSourceMIcon');
 export const UiSplitColumnsMIcon = createIcon(
