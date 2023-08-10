@@ -25,7 +25,7 @@ export { ReactComponent as UiOutputSIcon } from './output/output.small.svg';
 export { ReactComponent as UiPivotSIcon } from './pivot/pivot.small.svg';
 export { ReactComponent as UiPostgresSourceSIcon } from './postgresSource/postgresSource.small.svg';
 export { ReactComponent as UiRecipeSIcon } from './recipe/recipe.small.svg';
-export { ReactComponent as UiRemoveDuplicatesSIcon } from './removeDuplicates/removeDuplicates.small.svg';
+export { ReactComponent as UiRemoveDuplicateRowsSIcon } from './removeDuplicateRows/removeDuplicateRows.small.svg';
 export { ReactComponent as UiReplaceSIcon } from './replace/replace.small.svg';
 export { ReactComponent as UiRightJoinSIcon } from './rightJoin/rightJoin.small.svg';
 export { ReactComponent as UiSnowflakeSourceSIcon } from './snowflakeSource/snowflakeSource.small.svg';

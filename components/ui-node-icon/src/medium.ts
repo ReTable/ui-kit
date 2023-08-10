@@ -32,7 +32,7 @@ import { ReactComponent as UiPivotMIconInner } from './pivot/pivot.medium.svg';
 import { ReactComponent as UiPostgresOutputMIconInner } from './postgresOutput/postgresOutput.medium.svg';
 import { ReactComponent as UiPostgresSourceMIconInner } from './postgresSource/postgresSource.medium.svg';
 import { ReactComponent as UiRecipeMIconInner } from './recipe/recipe.medium.svg';
-import { ReactComponent as UiRemoveDuplicatesMIconInner } from './removeDuplicates/removeDuplicates.medium.svg';
+import { ReactComponent as UiRemoveDuplicateRowsMIconInner } from './removeDuplicateRows/removeDuplicateRows.medium.svg';
 import { ReactComponent as UiReplaceMIconInner } from './replace/replace.medium.svg';
 import { ReactComponent as UiRightJoinMIconInner } from './rightJoin/rightJoin.medium.svg';
 import { ReactComponent as UiSnowflakeOutputMIconInner } from './snowflakeOutput/snowflakeOutput.medium.svg';
@@ -120,10 +120,10 @@ export const UiPostgresSourceMIcon = createIcon(
   'UiPostgresSourceMIcon',
 );
 export const UiRecipeMIcon = createIcon(UiRecipeMIconInner, icon, 'UiRecipeMIcon');
-export const UiRemoveDuplicatesMIcon = createIcon(
-  UiRemoveDuplicatesMIconInner,
+export const UiRemoveDuplicateRowsMIcon = createIcon(
+  UiRemoveDuplicateRowsMIconInner,
   icon,
-  'UiRemoveDuplicatesMIcon',
+  'UiRemoveDuplicateRowsMIcon',
 );
 export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, icon, 'UiReplaceMIcon');
 export const UiRightJoinMIcon = createIcon(UiRightJoinMIconInner, icon, 'UiRightJoinMIcon');

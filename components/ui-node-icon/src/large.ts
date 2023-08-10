@@ -32,7 +32,7 @@ import { ReactComponent as UiPivotLIconInner } from './pivot/pivot.large.svg';
 import { ReactComponent as UiPostgresOutputLIconInner } from './postgresOutput/postgresOutput.large.svg';
 import { ReactComponent as UiPostgresSourceLIconInner } from './postgresSource/postgresSource.large.svg';
 import { ReactComponent as UiPostgresSqlLIconInner } from './postgresSql/postgresSql.large.svg';
-import { ReactComponent as UiRemoveDuplicatesLIconInner } from './removeDuplicates/removeDuplicates.large.svg';
+import { ReactComponent as UiRemoveDuplicateRowsLIconInner } from './removeDuplicateRows/removeDuplicateRows.large.svg';
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
 import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput/snowflakeOutput.large.svg';
@@ -121,10 +121,10 @@ export const UiPostgresSourceLIcon = createIcon(
   'UiPostgresSourceLIcon',
 );
 export const UiPostgresSqlLIcon = createIcon(UiPostgresSqlLIconInner, icon, 'UiPostgresSqlLIcon');
-export const UiRemoveDuplicatesLIcon = createIcon(
-  UiRemoveDuplicatesLIconInner,
+export const UiRemoveDuplicateRowsLIcon = createIcon(
+  UiRemoveDuplicateRowsLIconInner,
   icon,
-  'UiRemoveDuplicatesLIcon',
+  'UiRemoveDuplicateRowsLIcon',
 );
 export const UiReplaceLIcon = createIcon(UiReplaceLIconInner, icon, 'UiReplaceLIcon');
 export const UiRightJoinLIcon = createIcon(UiRightJoinLIconInner, icon, 'UiRightJoinLIcon');
