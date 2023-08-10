@@ -1,4 +1,5 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
+import { ReactComponent as UiAddNewColumnLIconInner } from './addNewColumn/addNewColumn.large.svg';
 import { ReactComponent as UiApiColumnLIconInner } from './apiColumn/apiColumn.large.svg';
 import { ReactComponent as UiChangeDataTypeLIconInner } from './changeDataType/changeDataType.large.svg';
 import { ReactComponent as UiChartLIconInner } from './chart/chart.large.svg';
@@ -25,7 +26,6 @@ import { ReactComponent as UiMatchLIconInner } from './match/match.large.svg';
 import { ReactComponent as UiMergeLIconInner } from './merge/merge.large.svg';
 import { ReactComponent as UiMultiSourceLIconInner } from './multiSource/multiSource.large.svg';
 import { ReactComponent as UiNestLIconInner } from './nest/nest.large.svg';
-import { ReactComponent as UiNewColumnLIconInner } from './newColumn/newColumn.large.svg';
 import { ReactComponent as UiNoNodeLIconInner } from './noNode/noNode.large.svg';
 import { ReactComponent as UiOuterJoinLIconInner } from './outerJoin/outerJoin.large.svg';
 import { ReactComponent as UiOutputLIconInner } from './output/output.large.svg';
@@ -58,6 +58,11 @@ export const UiAddGPTColumnLIcon = createIcon(
   UiAddGPTColumnLIconInner,
   icon,
   'UiAddGPTColumnLIcon',
+);
+export const UiAddNewColumnLIcon = createIcon(
+  UiAddNewColumnLIconInner,
+  icon,
+  'UiAddNewColumnLIcon',
 );
 export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon, 'UiApiColumnLIcon');
 export const UiChangeDataTypeLIcon = createIcon(
@@ -94,7 +99,6 @@ export const UiMatchLIcon = createIcon(UiMatchLIconInner, icon, 'UiMatchLIcon');
 export const UiMergeLIcon = createIcon(UiMergeLIconInner, icon, 'UiMergeLIcon');
 export const UiMultiSourceLIcon = createIcon(UiMultiSourceLIconInner, icon, 'UiMultiSourceLIcon');
 export const UiNestLIcon = createIcon(UiNestLIconInner, icon, 'UiNestLIcon');
-export const UiNewColumnLIcon = createIcon(UiNewColumnLIconInner, icon, 'UiNewColumnLIcon');
 export const UiNoNodeLIcon = createIcon(UiNoNodeLIconInner, icon, 'UiNoNodeLIcon');
 export const UiOuterJoinLIcon = createIcon(UiOuterJoinLIconInner, icon, 'UiOuterJoinLIcon');
 export const UiOutputLIcon = createIcon(UiOutputLIconInner, icon, 'UiOutputLIcon');

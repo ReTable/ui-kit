@@ -1,4 +1,5 @@
 import { ReactComponent as UiAddGPTColumnMIconInner } from './addGPTColumn/addGPTColumn.medium.svg';
+import { ReactComponent as UiAddNewColumnMIconInner } from './addNewColumn/addNewColumn.medium.svg';
 import { ReactComponent as UiApiColumnMIconInner } from './apiColumn/apiColumn.medium.svg';
 import { ReactComponent as UiChangeDataTypeMIconInner } from './changeDataType/changeDataType.medium.svg';
 import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
@@ -26,7 +27,6 @@ import { ReactComponent as UiMatchMIconInner } from './match/match.medium.svg';
 import { ReactComponent as UiMergeMIconInner } from './merge/merge.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
-import { ReactComponent as UiNewColumnMIconInner } from './newColumn/newColumn.medium.svg';
 import { ReactComponent as UiOuterJoinMIconInner } from './outerJoin/outerJoin.medium.svg';
 import { ReactComponent as UiOutputMIconInner } from './output/output.medium.svg';
 import { ReactComponent as UiPivotMIconInner } from './pivot/pivot.medium.svg';
@@ -58,6 +58,11 @@ export const UiAddGPTColumnMIcon = createIcon(
   UiAddGPTColumnMIconInner,
   icon,
   'UiAddGPTColumnMIcon',
+);
+export const UiAddNewColumnMIcon = createIcon(
+  UiAddNewColumnMIconInner,
+  icon,
+  'UiAddNewColumnMIcon',
 );
 export const UiApiColumnMIcon = createIcon(UiApiColumnMIconInner, icon, 'UiApiColumnMIcon');
 export const UiChangeDataTypeMIcon = createIcon(
@@ -94,7 +99,6 @@ export const UiMatchMIcon = createIcon(UiMatchMIconInner, icon, 'UiMatchMIcon');
 export const UiMergeMIcon = createIcon(UiMergeMIconInner, icon, 'UiMergeMIcon');
 export const UiMultiSourceMIcon = createIcon(UiMultiSourceMIconInner, icon, 'UiMultiSourceMIcon');
 export const UiNestMIcon = createIcon(UiNestMIconInner, icon, 'UiNestMIcon');
-export const UiNewColumnMIcon = createIcon(UiNewColumnMIconInner, icon, 'UiNewColumnMIcon');
 export const UiOuterJoinMIcon = createIcon(UiOuterJoinMIconInner, icon, 'UiOuterJoinMIcon');
 export const UiOutputMIcon = createIcon(UiOutputMIconInner, icon, 'UiOutputMIcon');
 export const UiPivotMIcon = createIcon(UiPivotMIconInner, icon, 'UiPivotMIcon');
