@@ -27,6 +27,7 @@ import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/merge
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
 import { ReactComponent as UiNewBlankTableMIconInner } from './newBlankTable/newBlankTable.medium.svg';
+import { ReactComponent as UiNewChartMIconInner } from './newChart/newChart.medium.svg';
 import { ReactComponent as UiOuterJoinMIconInner } from './outerJoin/outerJoin.medium.svg';
 import { ReactComponent as UiOutputMIconInner } from './output/output.medium.svg';
 import { ReactComponent as UiPivotMIconInner } from './pivot/pivot.medium.svg';
@@ -112,6 +113,7 @@ export const UiNewBlankTableMIcon = createIcon(
   icon,
   'UiNewBlankTableMIcon',
 );
+export const UiNewChartMIcon = createIcon(UiNewChartMIconInner, icon, 'UiNewChartMIcon');
 export const UiOuterJoinMIcon = createIcon(UiOuterJoinMIconInner, icon, 'UiOuterJoinMIcon');
 export const UiOutputMIcon = createIcon(UiOutputMIconInner, icon, 'UiOutputMIcon');
 export const UiPivotMIcon = createIcon(UiPivotMIconInner, icon, 'UiPivotMIcon');

@@ -1,0 +1,5 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11 2C11.5523 2 12 2.44772 12 3L12 23L7 23C7 15.1391 7 10.5885 7 3.00211C7 2.44983 7.44772 2 8 2L11 2Z" fill="var(--tbl--colors--icons--output--primary)"/>
+  <path opacity="0.5" fill-rule="evenodd" clip-rule="evenodd" d="M17 6C17 5.44772 16.5523 5 16 5H12V23H17L17 6ZM7 23L7 15H3C2.44772 15 2 15.4477 2 16V23H7Z" fill="var(--tbl--colors--icons--output--primary)"/>
+  <path d="M21 8C21.5523 8 22 8.44772 22 9L22 23L17 23C17 17.1421 17 13.8579 17 8L21 8Z" fill="var(--tbl--colors--icons--output--secondary)"/>
+</svg>
