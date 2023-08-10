@@ -50,7 +50,11 @@ export const IconsTable: FC = () => {
   const rows = useMemo(() => {
     const nodes: ReactNode[] = [];
 
-    for (const [key, icon] of icons.entries()) {
+    const allIcons = [...icons.entries()];
+
+    allIcons.sort(([left], [right]) => left.localeCompare(right));
+
+    for (const [key, icon] of allIcons) {
       const { small: Small, medium: Medium, large: Large } = icon;
 
       nodes.push(
