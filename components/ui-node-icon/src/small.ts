@@ -2,7 +2,7 @@ export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.
 export { ReactComponent as UiChangeDataTypeSIcon } from './changeDataType/changeDataType.small.svg';
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
 export { ReactComponent as UiCleanSIcon } from './clean/clean.small.svg';
-export { ReactComponent as UiConditionsSIcon } from './conditions/conditions.small.svg';
+export { ReactComponent as UiConditionSIcon } from './condition/condition.small.svg';
 export { ReactComponent as UiCrossJoinSIcon } from './crossJoin/crossJoin.small.svg';
 export { ReactComponent as UiCsvSourceSIcon } from './csvSource/csvSource.small.svg';
 export { ReactComponent as UiDescSortSIcon } from './descSort/descSort.small.svg';

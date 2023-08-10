@@ -3,7 +3,7 @@ import { ReactComponent as UiApiColumnMIconInner } from './apiColumn/apiColumn.m
 import { ReactComponent as UiChangeDataTypeMIconInner } from './changeDataType/changeDataType.medium.svg';
 import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
 import { ReactComponent as UiCleanMIconInner } from './clean/clean.medium.svg';
-import { ReactComponent as UiConditionsMIconInner } from './conditions/conditions.medium.svg';
+import { ReactComponent as UiConditionMIconInner } from './condition/condition.medium.svg';
 import { ReactComponent as UiCrossJoinMIconInner } from './crossJoin/crossJoin.medium.svg';
 import { ReactComponent as UiCsvOutputMIconInner } from './csvOutput/csvOutput.medium.svg';
 import { ReactComponent as UiCsvSourceMIconInner } from './csvSource/csvSource.medium.svg';
@@ -67,7 +67,7 @@ export const UiChangeDataTypeMIcon = createIcon(
 );
 export const UiChartMIcon = createIcon(UiChartMIconInner, icon, 'UiChartMIcon');
 export const UiCleanMIcon = createIcon(UiCleanMIconInner, icon, 'UiCleanMIcon');
-export const UiConditionsMIcon = createIcon(UiConditionsMIconInner, icon, 'UiConditionsMIcon');
+export const UiConditionMIcon = createIcon(UiConditionMIconInner, icon, 'UiConditionMIcon');
 export const UiCrossJoinMIcon = createIcon(UiCrossJoinMIconInner, icon, 'UiCrossJoinMIcon');
 export const UiCsvOutputMIcon = createIcon(UiCsvOutputMIconInner, icon, 'UiCsvOutputMIcon');
 export const UiCsvSourceMIcon = createIcon(UiCsvSourceMIconInner, icon, 'UiCsvSourceMIcon');
