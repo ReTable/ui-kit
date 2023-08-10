@@ -1,5 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect opacity="0.1" x="3" y="4" width="26" height="24" rx="3" fill="var(--tbl--colors--icons--transformation--primary)"/>
-  <path d="M3 7C3 5.34315 4.34315 4 6 4H26C27.6569 4 29 5.34315 29 7V8H3V7Z" fill="var(--tbl--colors--icons--transformation--primary)"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 25C3 26.6569 4.34315 28 6 28H7L7 22L14 22V28H15V22H22V28H23V22H29V21H23V15L29 15V14L23 14V8H22V14L15 14V8H14V14L7 14L7 8H3V14V15V21V22V25ZM7 15L7 21L14 21V15L7 15ZM15 15L22 15V21L15 21V15Z" fill="var(--tbl--colors--icons--transformation--tertiary)"/>
-</svg>

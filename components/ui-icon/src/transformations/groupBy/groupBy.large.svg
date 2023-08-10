@@ -1,5 +1,0 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M10 26C10 24.3431 11.3431 23 13 23H26C27.6569 23 29 24.3431 29 26V27C29 28.6569 27.6569 30 26 30H13C11.3431 30 10 28.6569 10 27V26Z" fill="var(--tbl--colors--icons--transformation--tertiary)"/>
-  <path d="M10 17C10 15.3431 11.3431 14 13 14H26C27.6569 14 29 15.3431 29 17V18C29 19.6569 27.6569 21 26 21H13C11.3431 21 10 19.6569 10 18V17Z" fill="var(--tbl--colors--icons--transformation--secondary)"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M6 5C4.34315 5 3 6.34315 3 8V9.5V12V18V24C3 25.6569 4.34315 27 6 27H8.5V25H6C5.44772 25 5 24.5523 5 24V19H8.5V17H5V12H26C27.6569 12 29 10.6569 29 9V8C29 6.34315 27.6569 5 26 5H6Z" fill="var(--tbl--colors--icons--transformation--primary)"/>
-</svg>

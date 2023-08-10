@@ -12,22 +12,6 @@
     "./separators": {
       "default": "./lib/separators.js",
       "types": "./typings/separators.d.ts"
-    },
-    "./transformations": {
-      "default": "./lib/transformations.js",
-      "types": "./typings/transformations/index.d.ts"
-    },
-    "./transformations/small": {
-      "default": "./lib/transformations/small.js",
-      "types": "./typings/transformations/small.d.ts"
-    },
-    "./transformations/medium": {
-      "default": "./lib/transformations/medium.js",
-      "types": "./typings/transformations/medium.d.ts"
-    },
-    "./transformations/large": {
-      "default": "./lib/transformations/large.js",
-      "types": "./typings/transformations/large.d.ts"
     }
   },
   "sideEffects": false,
