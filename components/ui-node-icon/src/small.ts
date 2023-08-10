@@ -32,7 +32,7 @@ export { ReactComponent as UiRightJoinSIcon } from './rightJoin/rightJoin.small.
 export { ReactComponent as UiSnowflakeSourceSIcon } from './snowflakeSource/snowflakeSource.small.svg';
 export { ReactComponent as UiSortByAscendingSIcon } from './sortByAscending/sortByAscending.small.svg';
 export { ReactComponent as UiSourceSIcon } from './source/source.small.svg';
-export { ReactComponent as UiSplitSIcon } from './split/split.small.svg';
+export { ReactComponent as UiSplitColumnsSIcon } from './splitColumns/splitColumns.small.svg';
 export { ReactComponent as UiSqlSIcon } from './sql/sql.small.svg';
 export { ReactComponent as UiStandardizeSIcon } from './standardize/standardize.small.svg';
 export { ReactComponent as UiTransposeSIcon } from './transpose/transpose.small.svg';

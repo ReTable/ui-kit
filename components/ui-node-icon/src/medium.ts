@@ -40,7 +40,7 @@ import { ReactComponent as UiSnowflakeOutputMIconInner } from './snowflakeOutput
 import { ReactComponent as UiSnowflakeSourceMIconInner } from './snowflakeSource/snowflakeSource.medium.svg';
 import { ReactComponent as UiSortByAscendingMIconInner } from './sortByAscending/sortByAscending.medium.svg';
 import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg';
-import { ReactComponent as UiSplitMIconInner } from './split/split.medium.svg';
+import { ReactComponent as UiSplitColumnsMIconInner } from './splitColumns/splitColumns.medium.svg';
 import { ReactComponent as UiSqlMIconInner } from './sql/sql.medium.svg';
 import { ReactComponent as UiStandardizeMIconInner } from './standardize/standardize.medium.svg';
 import { ReactComponent as UiTransposeMIconInner } from './transpose/transpose.medium.svg';
@@ -136,7 +136,11 @@ export const UiSortByAscendingMIcon = createIcon(
   'UiSortByAscendingMIcon',
 );
 export const UiSourceMIcon = createIcon(UiSourceMIconInner, icon, 'UiSourceMIcon');
-export const UiSplitMIcon = createIcon(UiSplitMIconInner, icon, 'UiSplitMIcon');
+export const UiSplitColumnsMIcon = createIcon(
+  UiSplitColumnsMIconInner,
+  icon,
+  'UiSplitColumnsMIcon',
+);
 export const UiSqlMIcon = createIcon(UiSqlMIconInner, icon, 'UiSqlMIcon');
 export const UiStandardizeMIcon = createIcon(UiStandardizeMIconInner, icon, 'UiStandardizeMIcon');
 export const UiTransposeMIcon = createIcon(UiTransposeMIconInner, icon, 'UiTransposeMIcon');

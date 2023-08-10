@@ -40,7 +40,7 @@ import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
 import { ReactComponent as UiSortByAscendingLIconInner } from './sortByAscending/sortByAscending.large.svg';
 import { ReactComponent as UiSourceLIconInner } from './source/source.large.svg';
-import { ReactComponent as UiSplitLIconInner } from './split/split.large.svg';
+import { ReactComponent as UiSplitColumnsLIconInner } from './splitColumns/splitColumns.large.svg';
 import { ReactComponent as UiSqlLIconInner } from './sql/sql.large.svg';
 import { ReactComponent as UiStandardizeLIconInner } from './standardize/standardize.large.svg';
 import { ReactComponent as UiTransposeLIconInner } from './transpose/transpose.large.svg';
@@ -137,7 +137,11 @@ export const UiSortByAscendingLIcon = createIcon(
   'UiSortByAscendingLIcon',
 );
 export const UiSourceLIcon = createIcon(UiSourceLIconInner, icon, 'UiSourceLIcon');
-export const UiSplitLIcon = createIcon(UiSplitLIconInner, icon, 'UiSplitLIcon');
+export const UiSplitColumnsLIcon = createIcon(
+  UiSplitColumnsLIconInner,
+  icon,
+  'UiSplitColumnsLIcon',
+);
 export const UiSqlLIcon = createIcon(UiSqlLIconInner, icon, 'UiSqlLIcon');
 export const UiStandardizeLIcon = createIcon(UiStandardizeLIconInner, icon, 'UiStandardizeLIcon');
 export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon, 'UiTransposeLIcon');
