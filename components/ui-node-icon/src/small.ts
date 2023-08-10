@@ -16,7 +16,7 @@ export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
 export { ReactComponent as UiFolderSIcon } from './folder/folder.small.svg';
 export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
-export { ReactComponent as UiJsonSIcon } from './json/json.small.svg';
+export { ReactComponent as UiJsonFileSIcon } from './jsonFile/jsonFile.small.svg';
 export { ReactComponent as UiLeftJoinSIcon } from './leftJoin/leftJoin.small.svg';
 export { ReactComponent as UiMergeColumnsSIcon } from './mergeColumns/mergeColumns.small.svg';
 export { ReactComponent as UiNestSIcon } from './nest/nest.small.svg';

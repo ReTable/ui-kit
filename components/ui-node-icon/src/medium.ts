@@ -21,7 +21,7 @@ import { ReactComponent as UiGPTNodeMIconInner } from './gptNode/gptNode.medium.
 import { ReactComponent as UiGroupMIconInner } from './group/group.medium.svg';
 import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.svg';
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
-import { ReactComponent as UiJsonMIconInner } from './json/json.medium.svg';
+import { ReactComponent as UiJsonFileMIconInner } from './jsonFile/jsonFile.medium.svg';
 import { ReactComponent as UiLeftJoinMIconInner } from './leftJoin/leftJoin.medium.svg';
 import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/mergeColumns.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
@@ -97,7 +97,7 @@ export const UiGPTNodeMIcon = createIcon(UiGPTNodeMIconInner, icon, 'UiGPTNodeMI
 export const UiGroupMIcon = createIcon(UiGroupMIconInner, icon, 'UiGroupMIcon');
 export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMIcon');
 export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
-export const UiJsonMIcon = createIcon(UiJsonMIconInner, icon, 'UiJsonMIcon');
+export const UiJsonFileMIcon = createIcon(UiJsonFileMIconInner, icon, 'UiJsonFileMIcon');
 export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, icon, 'UiLeftJoinMIcon');
 export const UiMergeColumnsMIcon = createIcon(
   UiMergeColumnsMIconInner,
