@@ -40,4 +40,4 @@ export { ReactComponent as UiUnionSIcon } from './union/union.small.svg';
 export { ReactComponent as UiUnnestSIcon } from './unnest/unnest.small.svg';
 export { ReactComponent as UiUnpivotSIcon } from './unpivot/unpivot.small.svg';
 export { ReactComponent as UiWindowFunctionsSIcon } from './windowFunctions/windowFunctions.small.svg';
-export { ReactComponent as UiXlsSourceSIcon } from './xlsSource/xlsSource.small.svg';
+export { ReactComponent as UiXlsFileSIcon } from './xlsFile/xlsFile.small.svg';

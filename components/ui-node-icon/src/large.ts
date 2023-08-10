@@ -48,7 +48,7 @@ import { ReactComponent as UiUnionLIconInner } from './union/union.large.svg';
 import { ReactComponent as UiUnnestLIconInner } from './unnest/unnest.large.svg';
 import { ReactComponent as UiUnpivotLIconInner } from './unpivot/unpivot.large.svg';
 import { ReactComponent as UiWindowFunctionsLIconInner } from './windowFunctions/windowFunctions.large.svg';
-import { ReactComponent as UiXlsSourceLIconInner } from './xlsSource/xlsSource.large.svg';
+import { ReactComponent as UiXlsFileLIconInner } from './xlsFile/xlsFile.large.svg';
 
 import { icon } from './style.css';
 
@@ -165,4 +165,4 @@ export const UiWindowFunctionsLIcon = createIcon(
   icon,
   'UiWindowFunctionsLIcon',
 );
-export const UiXlsSourceLIcon = createIcon(UiXlsSourceLIconInner, icon, 'UiXlsSourceLIcon');
+export const UiXlsFileLIcon = createIcon(UiXlsFileLIconInner, icon, 'UiXlsFileLIcon');
