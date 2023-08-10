@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" fill="none" viewBox="0 0 32 33">
+  <path fill="var(--tbl--colors--icons--transformation--primary)" fill-rule="evenodd" d="M2.908 4.513A3 3 0 0 0 .787 8.188l5.176 19.318a3 3 0 0 0 3.674 2.122l15.455-4.142a3 3 0 0 0 2.121-3.674l-4.4-16.42-7.348-4.243L18.369.37a3.22 3.22 0 0 0-.006.001L2.908 4.513Z" clip-rule="evenodd"/>
+  <path fill="#fff" fill-opacity=".5" d="m16.5 5.013-1.035-3.864 7.348 4.243-3.863 1.035a2 2 0 0 1-2.45-1.414Z"/>
+  <path fill="var(--tbl--colors--icons--clean--primary)" fill-rule="evenodd" d="M10 6a3 3 0 0 0-3 3v20a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V12l-6-6h3.007H10Z" clip-rule="evenodd"/>
+  <path fill="#fff" fill-opacity=".5" d="M23 10V6l6 6h-4a2 2 0 0 1-2-2Z"/>
+  <g filter="url(#a)">
+    <path fill="#fff" fill-rule="evenodd" d="M17.5 16H13a1 1 0 0 0-1 1v3h5.5v-4Zm0-1H23a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h4.5Zm1 10H23a1 1 0 0 0 1-1v-3h-5.5v4Zm-1-4v4H13a1 1 0 0 1-1-1v-3h5.5Zm1-1H24v-3a1 1 0 0 0-1-1h-4.5v4Z" clip-rule="evenodd"/>
+  </g>
+  <defs>
+    <filter id="a" width="22" height="19" x="7" y="11" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feGaussianBlur in="BackgroundImageFix" stdDeviation="2"/>
+      <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1545_395"/>
+      <feBlend in="SourceGraphic" in2="effect1_backgroundBlur_1545_395" result="shape"/>
+    </filter>
+  </defs>
+</svg>

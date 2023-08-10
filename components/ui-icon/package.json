@@ -43,6 +43,7 @@
     "lint": "eslint ."
   },
   "peerDependencies": {
+    "@tabula/ui-theme": "workspace:^",
     "react": "^18.2.0"
   }
 }

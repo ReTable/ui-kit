@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+  <circle cx="21" cy="16" r="11" fill="var(--tbl--colors--icons--transformation--tertiary)"/>
+  <circle cx="11" cy="16" r="11" fill="var(--tbl--colors--icons--transformation--primary)"/>
+  <path fill="#fff" fill-opacity=".2" fill-rule="evenodd" d="M16 25.8a11 11 0 0 0 6-9.8 11 11 0 0 0-6-9.8 11 11 0 0 0-6 9.8 11 11 0 0 0 6 9.8Z" clip-rule="evenodd"/>
+</svg>

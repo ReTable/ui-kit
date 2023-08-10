@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+  <rect width="10" height="10" x="5" y="5" fill="var(--tbl--colors--icons--group--transformation)" rx="5"/>
+  <rect width="10" height="10" x="5" y="17" fill="var(--tbl--colors--icons--clean--primary)" rx="5"/>
+  <rect width="10" height="10" x="17" y="5" fill="var(--tbl--colors--icons--transformation--primary)" rx="5"/>
+  <rect width="10" height="10" x="17" y="17" fill="var(--tbl--colors--icons--group--clean)" rx="5"/>
+</svg>

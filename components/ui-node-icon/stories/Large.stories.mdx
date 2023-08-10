@@ -1,0 +1,108 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { UiInnerJoinLIcon } from '~';
+
+<Meta title="Large/Docs" />
+
+# Import
+
+You can import a single icon the following way:
+
+```tsx
+import { UiInnerJoinLIcon } from '@tabula/ui-node-icon';
+```
+
+Or you can import all icons another way:
+
+```tsx
+import { UiNodeMIcons } from '@tabula/ui-node-icon';
+
+const ComponentWithIcon = () => <UiNodeMIcons.UiInnerJoinLIcon />;
+```
+
+# Default
+
+Data types icons has `24x24` size by default.
+
+<Canvas layout="centered">
+  <UiInnerJoinLIcon />
+</Canvas>
+
+# Styling
+
+You can style icons with CSS.
+
+## Color
+
+All data types icons inherit `currentColor` property.
+
+<Canvas layout="centered">
+  <div style={{ color: 'blue' }}>
+    <UiInnerJoinLIcon />
+  </div>
+</Canvas>
+
+## Size with class
+
+You can provide `className` property.
+
+<Canvas layout="centered">
+  <div>
+    <style>
+      {`
+        .ui-inner-join-icon {
+          width: 32px;
+          height: 32px;
+        }
+      `}
+    </style>
+
+    <UiInnerJoinLIcon className='ui-inner-join-icon' />
+  </div>
+</Canvas>
+
+## Size with style
+
+You can provide `style` property.
+
+<Canvas layout="centered">
+  <UiInnerJoinLIcon style={{ width: '32px', height: '32px' }} />
+</Canvas>
+
+# Disabled State
+
+Icons has disabled state, and it can be activated with two ways.
+
+## Parent is disabled
+
+For example, if an icon located inside disabled control, then an icon will have disabled colors automatically.
+
+<Canvas layout="centered">
+  <div>
+    <style>
+      {`
+        .disabled-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 64px;
+          background: transparent;
+          border-width: 1px;
+        }
+      `}
+    </style>
+
+    <button className="disabled-button" disabled type="button">
+      <UiInnerJoinLIcon />
+    </button>
+  </div>
+</Canvas>
+
+## Providing `isDisabled` property.
+
+Alternative way is using of `isDisabled` property.
+
+<Canvas layout="centered">
+  <UiInnerJoinLIcon isDisabled />
+</Canvas>

@@ -1,0 +1,15 @@
+export { ReactComponent as UiArrayIcon } from './array.svg';
+export { ReactComponent as UiBooleanIcon } from './boolean.svg';
+export { ReactComponent as UiDateIcon } from './date.svg';
+export { ReactComponent as UiDateTimeIcon } from './dateTime.svg';
+export { ReactComponent as UiDecimalIcon } from './decimal.svg';
+export { ReactComponent as UiEmptyIcon } from './empty.svg';
+export { ReactComponent as UiEnumIcon } from './enum.svg';
+export { ReactComponent as UiFunctionIcon } from './function.svg';
+export { ReactComponent as UiIntegerIcon } from './integer.svg';
+export { ReactComponent as UiNullIcon } from './null.svg';
+export { ReactComponent as UiObjectIcon } from './object.svg';
+export { ReactComponent as UiStringIcon } from './string.svg';
+export { ReactComponent as UiTargetIcon } from './target.svg';
+export { ReactComponent as UiTimeIcon } from './time.svg';
+export { ReactComponent as UiUnknownIcon } from './unknown.svg';

@@ -52,7 +52,7 @@
     "@storybook/testing-library": "^0.2.0",
     "@storybook/theming": "^7.2.1",
     "@tabula/eslint-config": "workspace:*",
-    "@tabula/forge": "^1.0.2",
+    "@tabula/forge": "^1.1.1",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
     "@tabula/vitest-config": "workspace:*",
@@ -80,7 +80,7 @@
     "tsx": "^3.12.7",
     "turbo": "^1.10.12",
     "typescript": "^5.1.6",
-    "vite": "^4.4.8",
+    "vite": "^4.4.9",
     "vitest": "^0.34.1"
   }
 }

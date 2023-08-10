@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="var(--tbl--colors--icons--transformation--primary)" fill-rule="evenodd" d="M12 18.93a8 8 0 1 1 0-13.86 8 8 0 1 1 0 13.86Z" clip-rule="evenodd"/>
+  <path fill="#fff" fill-opacity=".2" fill-rule="evenodd" d="M12 18.93A7.997 7.997 0 0 0 16 12a7.997 7.997 0 0 0-4-6.93A7.997 7.997 0 0 0 8 12a7.997 7.997 0 0 0 4 6.93Z" clip-rule="evenodd"/>
+</svg>

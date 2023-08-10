@@ -3,7 +3,7 @@ import { style } from '@vanilla-extract/css';
 export const root = style({
   display: 'grid',
   gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr',
-  gap: '16px',
+  gap: '8px',
 });
 
 export const container = style({

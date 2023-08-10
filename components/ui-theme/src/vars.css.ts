@@ -8,6 +8,53 @@ export const layers = ['reset', 'components'] as const;
 
 // region Tokens
 
-export const tokens = {};
+export const tokens = {
+  colors: {
+    brand: {
+      postgres: '#38609b',
+      snowflake: '#29b5e8',
+    },
+    icons: {
+      ai: {
+        primary: {
+          from: '#02b7a4',
+          to: '#3595ff',
+        },
+        secondary: {
+          from: '#b2eae4',
+          to: '#bfe8fa',
+        },
+      },
+      clean: {
+        primary: '#00b7a2',
+        secondary: '#b2e9e3',
+      },
+      disabled: {
+        primary: '#b3b3b3',
+        secondary: '#ebebeb',
+      },
+      group: {
+        clean: '#aae5df',
+        transformation: '#c2d8ef',
+      },
+      misc: {
+        folder: '#5cb9ed',
+      },
+      output: {
+        primary: '#616986',
+        secondary: '#d8dee3',
+      },
+      source: {
+        primary: '#616986',
+        secondary: '#d8dee3',
+      },
+      transformation: {
+        primary: '#127ff9',
+        secondary: '#a0ccfd',
+        tertiary: '#b7d8fd',
+      },
+    },
+  },
+};
 
 // endregion

@@ -1,0 +1,97 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UiNodeLIcon > renders a basic icon 1`] = `
+<svg
+  className="style_icon__17wdnl21"
+  fill="none"
+  height={32}
+  viewBox="0 0 32 32"
+  width={32}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clipRule="evenodd"
+    d="M11 27C4.925 27 0 22.075 0 16S4.925 5 11 5c1.8 0 3.5.433 5 1.2 1.5-.767 3.2-1.2 5-1.2 6.075 0 11 4.925 11 11s-4.925 11-11 11c-1.8 0-3.5-.433-5-1.2-1.5.767-3.2 1.2-5 1.2Z"
+    fill="var(--tbl--colors--icons--transformation--secondary)"
+    fillRule="evenodd"
+  />
+  <path
+    clipRule="evenodd"
+    d="M16 25.8a11 11 0 0 1-6-9.8 11 11 0 0 1 6-9.8 11 11 0 0 1 6 9.8 11 11 0 0 1-6 9.8Z"
+    fill="var(--tbl--colors--icons--transformation--primary)"
+    fillRule="evenodd"
+  />
+</svg>
+`;
+
+exports[`UiNodeLIcon > renders a disabled icon if property is provided 1`] = `
+<svg
+  className="style_icon__17wdnl21 style_disabled__17wdnl20"
+  fill="none"
+  height={32}
+  viewBox="0 0 32 32"
+  width={32}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clipRule="evenodd"
+    d="M11 27C4.925 27 0 22.075 0 16S4.925 5 11 5c1.8 0 3.5.433 5 1.2 1.5-.767 3.2-1.2 5-1.2 6.075 0 11 4.925 11 11s-4.925 11-11 11c-1.8 0-3.5-.433-5-1.2-1.5.767-3.2 1.2-5 1.2Z"
+    fill="var(--tbl--colors--icons--transformation--secondary)"
+    fillRule="evenodd"
+  />
+  <path
+    clipRule="evenodd"
+    d="M16 25.8a11 11 0 0 1-6-9.8 11 11 0 0 1 6-9.8 11 11 0 0 1 6 9.8 11 11 0 0 1-6 9.8Z"
+    fill="var(--tbl--colors--icons--transformation--primary)"
+    fillRule="evenodd"
+  />
+</svg>
+`;
+
+exports[`UiNodeMIcon > renders a basic icon 1`] = `
+<svg
+  className="style_icon__17wdnl21"
+  fill="none"
+  height={24}
+  viewBox="0 0 24 24"
+  width={24}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clipRule="evenodd"
+    d="M12 18.93a8 8 0 1 1 0-13.86 8 8 0 1 1 0 13.86Z"
+    fill="var(--tbl--colors--icons--transformation--tertiary)"
+    fillRule="evenodd"
+  />
+  <path
+    clipRule="evenodd"
+    d="M12 18.93A7.997 7.997 0 0 0 16 12a7.997 7.997 0 0 0-4-6.93A7.997 7.997 0 0 0 8 12a7.997 7.997 0 0 0 4 6.93Z"
+    fill="var(--tbl--colors--icons--transformation--primary)"
+    fillRule="evenodd"
+  />
+</svg>
+`;
+
+exports[`UiNodeMIcon > renders a disabled icon if property is provided 1`] = `
+<svg
+  className="style_icon__17wdnl21 style_disabled__17wdnl20"
+  fill="none"
+  height={24}
+  viewBox="0 0 24 24"
+  width={24}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    clipRule="evenodd"
+    d="M12 18.93a8 8 0 1 1 0-13.86 8 8 0 1 1 0 13.86Z"
+    fill="var(--tbl--colors--icons--transformation--tertiary)"
+    fillRule="evenodd"
+  />
+  <path
+    clipRule="evenodd"
+    d="M12 18.93A7.997 7.997 0 0 0 16 12a7.997 7.997 0 0 0-4-6.93A7.997 7.997 0 0 0 8 12a7.997 7.997 0 0 0 4 6.93Z"
+    fill="var(--tbl--colors--icons--transformation--primary)"
+    fillRule="evenodd"
+  />
+</svg>
+`;

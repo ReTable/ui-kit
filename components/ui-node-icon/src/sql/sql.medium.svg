@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="var(--tbl--colors--icons--transformation--primary)" fill-rule="evenodd" d="M6 4a4 4 0 0 0-4 4v7a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H6Zm-1 6a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2 .5.5 0 0 1-1 0 1 1 0 0 0-1-1H7a1 1 0 0 0 0 2h1a2 2 0 1 1 0 4H7a2 2 0 0 1-2-2 .5.5 0 0 1 1 0 1 1 0 0 0 1 1h1a1 1 0 1 0 0-2H7a2 2 0 0 1-2-2Zm6 0a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v3a2 2 0 0 1-1.261 1.86l.208.416a.5.5 0 1 1-.894.448L13.69 15H13a2 2 0 0 1-2-2v-3Zm4 3a1 1 0 0 1-.712.958l-.34-.682a.5.5 0 1 0-.895.448l.138.276H13a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3Zm3-4.5a.5.5 0 0 0-1 0V15h3a.5.5 0 0 0 0-1h-2V8.5Z" clip-rule="evenodd"/>
+</svg>

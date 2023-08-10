@@ -1,0 +1,51 @@
+{
+  "name": "@tabula/ui-node-icon",
+  "version": "0.0.0",
+  "description": "Icons for nodes",
+  "type": "module",
+  "style": "lib/index.css",
+  "typings": "typings",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./typings/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react",
+    "icon"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-node-icon#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-node-icon"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:watch": "forge --watch",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@tabula/ui-theme": "workspace:*",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:*"
+  }
+}

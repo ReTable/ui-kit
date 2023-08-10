@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="var(--tbl--colors--icons--transformation--tertiary)" fill-rule="evenodd" d="M21 3h-3v5h3a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM8 21v-3H3v3a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2Z" clip-rule="evenodd"/>
+  <path fill="var(--tbl--colors--icons--transformation--secondary)" fill-rule="evenodd" d="M13 3h5v5h-5V3ZM8 13V8h5v3a2 2 0 0 1-2 2H8Zm0 0v5H3v-5h5Z" clip-rule="evenodd"/>
+  <path fill="var(--tbl--colors--icons--transformation--primary)" fill-rule="evenodd" d="M3 13V8h5V3h5v5H8v5H3Z" clip-rule="evenodd" opacity=".5"/>
+  <path fill="var(--tbl--colors--icons--transformation--primary)" fill-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h3v5H3V5Zm14.076 8.383a1 1 0 0 1 .217-1.09l2-2a1 1 0 0 1 1.414 0l2 2A1 1 0 0 1 22 14h-1.214c-.298 1.306-.904 2.396-1.788 3.228C17.704 18.445 15.934 19 14 19v1a1 1 0 0 1-1.707.707l-2-2a1 1 0 0 1 0-1.414l2-2A1 1 0 0 1 14 16v1c1.565 0 2.795-.445 3.627-1.228.467-.44.847-1.023 1.088-1.772H18a1 1 0 0 1-.924-.617Z" clip-rule="evenodd"/>
+</svg>

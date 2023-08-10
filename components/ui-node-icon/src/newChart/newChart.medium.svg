@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <path fill="var(--tbl--colors--icons--output--primary)" d="M11 2a1 1 0 0 1 1 1v20H7V3.002C7 2.45 7.448 2 8 2h3Z"/>
+  <path fill="var(--tbl--colors--icons--output--primary)" fill-rule="evenodd" d="M17 6a1 1 0 0 0-1-1h-4v18h5V6ZM7 23v-8H3a1 1 0 0 0-1 1v7h5Z" clip-rule="evenodd" opacity=".5"/>
+  <path fill="var(--tbl--colors--icons--output--secondary)" d="M21 8a1 1 0 0 1 1 1v14h-5V8h4Z"/>
+</svg>

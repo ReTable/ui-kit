@@ -1,0 +1,80 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { UiInnerJoinSIcon, UiPostgresSourceSIcon } from '~';
+
+<Meta title="Small/Docs" />
+
+# Import
+
+You can import a single icon the following way:
+
+```tsx
+import { UiInnerJoinSIcon } from '@tabula/ui-node-icon';
+```
+
+Or you can import all icons another way:
+
+```tsx
+import { UiNodeSIcons } from '@tabula/ui-node-icon';
+
+const ComponentWithIcon = () => <UiNodeSIcons.UiInnerJoinSIcon />;
+```
+
+# Default
+
+Data types icons has `16x16` size by default.
+
+<Canvas layout="centered">
+  <UiInnerJoinSIcon />
+</Canvas>
+
+# Styling
+
+You can style icons with CSS.
+
+## Color
+
+All data types icons inherit `currentColor` property.
+
+<Canvas layout="centered">
+  <div style={{ color: 'blue' }}>
+    <UiInnerJoinSIcon />
+  </div>
+</Canvas>
+
+### Branded icons
+
+Some icons have predefined colors which can't be changed.
+
+<Canvas layout="centered">
+  <div style={{ color: 'blue' }}>
+    <UiPostgresSourceSIcon />
+  </div>
+</Canvas>
+
+## Size with class
+
+You can provide `className` property.
+
+<Canvas layout="centered">
+  <div>
+    <style>
+      {`
+        .ui-inner-join-icon {
+          width: 32px;
+          height: 32px;
+        }
+      `}
+    </style>
+
+    <UiInnerJoinSIcon className='ui-inner-join-icon' />
+  </div>
+</Canvas>
+
+## Size with style
+
+You can provide `style` property.
+
+<Canvas layout="centered">
+  <UiInnerJoinSIcon style={{ width: '32px', height: '32px' }} />
+</Canvas>
