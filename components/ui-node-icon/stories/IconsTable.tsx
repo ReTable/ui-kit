@@ -14,8 +14,6 @@ type Icons = Map<string, Icon>;
 
 // region Icons
 
-//UiAddGPTColumnLIcon
-
 const icons: Icons = new Map();
 
 for (const [iconName, Icon] of Object.entries(UiNodeSIcons)) {
