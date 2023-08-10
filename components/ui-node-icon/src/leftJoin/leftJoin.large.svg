@@ -1,5 +1,5 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
   <circle cx="21" cy="16" r="11" fill="var(--tbl--colors--icons--transformation--tertiary)"/>
   <circle cx="11" cy="16" r="11" fill="var(--tbl--colors--icons--transformation--primary)"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M16 25.8005C19.5617 23.9798 22 20.2746 22 15.9999C22 11.7252 19.5617 8.02006 16 6.19934C12.4383 8.02004 10 11.7252 10 15.9999C10 20.2746 12.4383 23.9798 16 25.8005Z" fill="white" fill-opacity="0.2"/>
+  <path fill="#fff" fill-opacity=".2" fill-rule="evenodd" d="M16 25.8a11 11 0 0 0 6-9.8 11 11 0 0 0-6-9.8 11 11 0 0 0-6 9.8 11 11 0 0 0 6 9.8Z" clip-rule="evenodd"/>
 </svg>

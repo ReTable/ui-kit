@@ -1,4 +1,4 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M10 10H8C5.79086 10 4 11.7909 4 14V24C4 26.2091 5.79086 28 8 28H18C20.2091 28 22 26.2091 22 24V22H14C11.7909 22 10 20.2091 10 18V10Z" fill="var(--tbl--colors--icons--clean--secondary)"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M14 4C11.7909 4 10 5.79086 10 8V18C10 20.2091 11.7909 22 14 22H24C26.2091 22 28 20.2091 28 18V8C28 5.79086 26.2091 4 24 4H14ZM14 9C14 8.44772 14.4477 8 15 8H23C23.5523 8 24 8.44772 24 9C24 9.55228 23.5523 10 23 10H20V17C20 17.5523 19.5523 18 19 18C18.4477 18 18 17.5523 18 17V10H15C14.4477 10 14 9.55228 14 9Z" fill="var(--tbl--colors--icons--clean--primary)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+  <path fill="var(--tbl--colors--icons--clean--secondary)" fill-rule="evenodd" d="M10 10H8a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4v-2h-8a4 4 0 0 1-4-4v-8Z" clip-rule="evenodd"/>
+  <path fill="var(--tbl--colors--icons--clean--primary)" fill-rule="evenodd" d="M14 4a4 4 0 0 0-4 4v10a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V8a4 4 0 0 0-4-4H14Zm0 5a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2h-3v7a1 1 0 1 1-2 0v-7h-3a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
 </svg>
