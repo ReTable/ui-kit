@@ -20,3 +20,14 @@ export const icon = style({
   display: 'block',
   marginRight: '16px',
 });
+
+export const iconsTable = style({
+  width: '100%',
+});
+
+export const iconsTableItem = style([
+  iconContainer,
+  {
+    justifyContent: 'center',
+  },
+]);
