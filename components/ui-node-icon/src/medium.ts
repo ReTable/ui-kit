@@ -13,7 +13,6 @@ import { ReactComponent as UiCsvOutputMIconInner } from './csvOutput/csvOutput.m
 import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColumn.medium.svg';
 import { ReactComponent as UiEditableSourceMIconInner } from './editableSource/editableSource.medium.svg';
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
-import { ReactComponent as UiFileMIconInner } from './file/file.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
 import { ReactComponent as UiFolderMIconInner } from './folder/folder.medium.svg';
 import { ReactComponent as UiGoldenMIconInner } from './golden/golden.medium.svg';
@@ -23,6 +22,7 @@ import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
 import { ReactComponent as UiJsonFileMIconInner } from './jsonFile/jsonFile.medium.svg';
 import { ReactComponent as UiLeftJoinMIconInner } from './leftJoin/leftJoin.medium.svg';
+import { ReactComponent as UiLocalFileMIconInner } from './localFile/localFile.medium.svg';
 import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/mergeColumns.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
@@ -89,7 +89,6 @@ export const UiEditableSourceMIcon = createIcon(
   'UiEditableSourceMIcon',
 );
 export const UiExtractMIcon = createIcon(UiExtractMIconInner, icon, 'UiExtractMIcon');
-export const UiFileMIcon = createIcon(UiFileMIconInner, icon, 'UiFileMIcon');
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon, 'UiFilterMIcon');
 export const UiFolderMIcon = createIcon(UiFolderMIconInner, icon, 'UiFolderMIcon');
 export const UiGoldenMIcon = createIcon(UiGoldenMIconInner, icon, 'UiGoldenMIcon');
@@ -99,6 +98,7 @@ export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMI
 export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
 export const UiJsonFileMIcon = createIcon(UiJsonFileMIconInner, icon, 'UiJsonFileMIcon');
 export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, icon, 'UiLeftJoinMIcon');
+export const UiLocalFileMIcon = createIcon(UiLocalFileMIconInner, icon, 'UiLocalFileMIcon');
 export const UiMergeColumnsMIcon = createIcon(
   UiMergeColumnsMIconInner,
   icon,
