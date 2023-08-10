@@ -5,6 +5,7 @@ export { ReactComponent as UiChangeDataTypeSIcon } from './changeDataType/change
 export { ReactComponent as UiChartSIcon } from './chart/chart.small.svg';
 export { ReactComponent as UiCleanSIcon } from './clean/clean.small.svg';
 export { ReactComponent as UiConditionSIcon } from './condition/condition.small.svg';
+export { ReactComponent as UiCountMatchesSIcon } from './countMatches/countMatches.small.svg';
 export { ReactComponent as UiCrossJoinSIcon } from './crossJoin/crossJoin.small.svg';
 export { ReactComponent as UiCsvSourceSIcon } from './csvSource/csvSource.small.svg';
 export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.small.svg';
@@ -17,7 +18,6 @@ export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
 export { ReactComponent as UiJsonSIcon } from './json/json.small.svg';
 export { ReactComponent as UiLeftJoinSIcon } from './leftJoin/leftJoin.small.svg';
-export { ReactComponent as UiMatchSIcon } from './match/match.small.svg';
 export { ReactComponent as UiMergeColumnsSIcon } from './mergeColumns/mergeColumns.small.svg';
 export { ReactComponent as UiNestSIcon } from './nest/nest.small.svg';
 export { ReactComponent as UiOuterJoinSIcon } from './outerJoin/outerJoin.small.svg';

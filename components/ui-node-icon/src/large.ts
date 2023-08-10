@@ -6,6 +6,7 @@ import { ReactComponent as UiChangeDataTypeLIconInner } from './changeDataType/c
 import { ReactComponent as UiChartLIconInner } from './chart/chart.large.svg';
 import { ReactComponent as UiCleanLIconInner } from './clean/clean.large.svg';
 import { ReactComponent as UiConditionLIconInner } from './condition/condition.large.svg';
+import { ReactComponent as UiCountMatchesLIconInner } from './countMatches/countMatches.large.svg';
 import { ReactComponent as UiCrossJoinLIconInner } from './crossJoin/crossJoin.large.svg';
 import { ReactComponent as UiCsvOutputLIconInner } from './csvOutput/csvOutput.large.svg';
 import { ReactComponent as UiCsvSourceLIconInner } from './csvSource/csvSource.large.svg';
@@ -21,7 +22,6 @@ import { ReactComponent as UiGroupByLIconInner } from './groupBy/groupBy.large.s
 import { ReactComponent as UiInnerJoinLIconInner } from './innerJoin/innerJoin.large.svg';
 import { ReactComponent as UiJsonLIconInner } from './json/json.large.svg';
 import { ReactComponent as UiLeftJoinLIconInner } from './leftJoin/leftJoin.large.svg';
-import { ReactComponent as UiMatchLIconInner } from './match/match.large.svg';
 import { ReactComponent as UiMergeColumnsLIconInner } from './mergeColumns/mergeColumns.large.svg';
 import { ReactComponent as UiMultiSourceLIconInner } from './multiSource/multiSource.large.svg';
 import { ReactComponent as UiNestLIconInner } from './nest/nest.large.svg';
@@ -74,6 +74,11 @@ export const UiChangeDataTypeLIcon = createIcon(
 export const UiChartLIcon = createIcon(UiChartLIconInner, icon, 'UiChartLIcon');
 export const UiCleanLIcon = createIcon(UiCleanLIconInner, icon, 'UiCleanLIcon');
 export const UiConditionLIcon = createIcon(UiConditionLIconInner, icon, 'UiConditionLIcon');
+export const UiCountMatchesLIcon = createIcon(
+  UiCountMatchesLIconInner,
+  icon,
+  'UiCountMatchesLIcon',
+);
 export const UiCrossJoinLIcon = createIcon(UiCrossJoinLIconInner, icon, 'UiCrossJoinLIcon');
 export const UiCsvOutputLIcon = createIcon(UiCsvOutputLIconInner, icon, 'UiCsvOutputLIcon');
 export const UiCsvSourceLIcon = createIcon(UiCsvSourceLIconInner, icon, 'UiCsvSourceLIcon');
@@ -94,7 +99,6 @@ export const UiGroupByLIcon = createIcon(UiGroupByLIconInner, icon, 'UiGroupByLI
 export const UiInnerJoinLIcon = createIcon(UiInnerJoinLIconInner, icon, 'UiInnerJoinLIcon');
 export const UiJsonLIcon = createIcon(UiJsonLIconInner, icon, 'UiJsonLIcon');
 export const UiLeftJoinLIcon = createIcon(UiLeftJoinLIconInner, icon, 'UiLeftJoinLIcon');
-export const UiMatchLIcon = createIcon(UiMatchLIconInner, icon, 'UiMatchLIcon');
 export const UiMergeColumnsLIcon = createIcon(
   UiMergeColumnsLIconInner,
   icon,

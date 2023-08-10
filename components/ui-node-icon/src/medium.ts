@@ -6,6 +6,7 @@ import { ReactComponent as UiChangeDataTypeMIconInner } from './changeDataType/c
 import { ReactComponent as UiChartMIconInner } from './chart/chart.medium.svg';
 import { ReactComponent as UiCleanMIconInner } from './clean/clean.medium.svg';
 import { ReactComponent as UiConditionMIconInner } from './condition/condition.medium.svg';
+import { ReactComponent as UiCountMatchesMIconInner } from './countMatches/countMatches.medium.svg';
 import { ReactComponent as UiCrossJoinMIconInner } from './crossJoin/crossJoin.medium.svg';
 import { ReactComponent as UiCsvOutputMIconInner } from './csvOutput/csvOutput.medium.svg';
 import { ReactComponent as UiCsvSourceMIconInner } from './csvSource/csvSource.medium.svg';
@@ -22,7 +23,6 @@ import { ReactComponent as UiGroupByMIconInner } from './groupBy/groupBy.medium.
 import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.medium.svg';
 import { ReactComponent as UiJsonMIconInner } from './json/json.medium.svg';
 import { ReactComponent as UiLeftJoinMIconInner } from './leftJoin/leftJoin.medium.svg';
-import { ReactComponent as UiMatchMIconInner } from './match/match.medium.svg';
 import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/mergeColumns.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
@@ -74,6 +74,11 @@ export const UiChangeDataTypeMIcon = createIcon(
 export const UiChartMIcon = createIcon(UiChartMIconInner, icon, 'UiChartMIcon');
 export const UiCleanMIcon = createIcon(UiCleanMIconInner, icon, 'UiCleanMIcon');
 export const UiConditionMIcon = createIcon(UiConditionMIconInner, icon, 'UiConditionMIcon');
+export const UiCountMatchesMIcon = createIcon(
+  UiCountMatchesMIconInner,
+  icon,
+  'UiCountMatchesMIcon',
+);
 export const UiCrossJoinMIcon = createIcon(UiCrossJoinMIconInner, icon, 'UiCrossJoinMIcon');
 export const UiCsvOutputMIcon = createIcon(UiCsvOutputMIconInner, icon, 'UiCsvOutputMIcon');
 export const UiCsvSourceMIcon = createIcon(UiCsvSourceMIconInner, icon, 'UiCsvSourceMIcon');
@@ -94,7 +99,6 @@ export const UiGroupByMIcon = createIcon(UiGroupByMIconInner, icon, 'UiGroupByMI
 export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInnerJoinMIcon');
 export const UiJsonMIcon = createIcon(UiJsonMIconInner, icon, 'UiJsonMIcon');
 export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, icon, 'UiLeftJoinMIcon');
-export const UiMatchMIcon = createIcon(UiMatchMIconInner, icon, 'UiMatchMIcon');
 export const UiMergeColumnsMIcon = createIcon(
   UiMergeColumnsMIconInner,
   icon,
