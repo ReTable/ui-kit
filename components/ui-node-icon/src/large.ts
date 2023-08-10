@@ -8,8 +8,8 @@ import { ReactComponent as UiCleanLIconInner } from './clean/clean.large.svg';
 import { ReactComponent as UiConditionLIconInner } from './condition/condition.large.svg';
 import { ReactComponent as UiCountMatchesLIconInner } from './countMatches/countMatches.large.svg';
 import { ReactComponent as UiCrossJoinLIconInner } from './crossJoin/crossJoin.large.svg';
+import { ReactComponent as UiCsvFileLIconInner } from './csvFile/csvFile.large.svg';
 import { ReactComponent as UiCsvOutputLIconInner } from './csvOutput/csvOutput.large.svg';
-import { ReactComponent as UiCsvSourceLIconInner } from './csvSource/csvSource.large.svg';
 import { ReactComponent as UiEditColumnLIconInner } from './editColumn/editColumn.large.svg';
 import { ReactComponent as UiEditableSourceLIconInner } from './editableSource/editableSource.large.svg';
 import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
@@ -80,8 +80,8 @@ export const UiCountMatchesLIcon = createIcon(
   'UiCountMatchesLIcon',
 );
 export const UiCrossJoinLIcon = createIcon(UiCrossJoinLIconInner, icon, 'UiCrossJoinLIcon');
+export const UiCsvFileLIcon = createIcon(UiCsvFileLIconInner, icon, 'UiCsvFileLIcon');
 export const UiCsvOutputLIcon = createIcon(UiCsvOutputLIconInner, icon, 'UiCsvOutputLIcon');
-export const UiCsvSourceLIcon = createIcon(UiCsvSourceLIconInner, icon, 'UiCsvSourceLIcon');
 export const UiEditColumnLIcon = createIcon(UiEditColumnLIconInner, icon, 'UiEditColumnLIcon');
 
 export const UiEditableSourceLIcon = createIcon(

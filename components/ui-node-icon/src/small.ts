@@ -7,7 +7,7 @@ export { ReactComponent as UiCleanSIcon } from './clean/clean.small.svg';
 export { ReactComponent as UiConditionSIcon } from './condition/condition.small.svg';
 export { ReactComponent as UiCountMatchesSIcon } from './countMatches/countMatches.small.svg';
 export { ReactComponent as UiCrossJoinSIcon } from './crossJoin/crossJoin.small.svg';
-export { ReactComponent as UiCsvSourceSIcon } from './csvSource/csvSource.small.svg';
+export { ReactComponent as UiCsvFileSIcon } from './csvFile/csvFile.small.svg';
 export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.small.svg';
 export { ReactComponent as UiEditableSourceSIcon } from './editableSource/editableSource.small.svg';
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
