@@ -1,5 +1,12 @@
 # @tabula/ui-node-icon
 
+## 1.1.0
+
+### Minor Changes
+
+- [#21](https://github.com/ReTable/ui-kit/pull/21) [`433711b`](https://github.com/ReTable/ui-kit/commit/433711b23040cccb599f63292d2679074ab79561) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - - update large icons of `groupBy`, `pivot` and `unpivot`
+  - add `xlsOutput` icon
+
 ## 1.0.1
 
 ### Patch Changes
