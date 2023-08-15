@@ -51,6 +51,7 @@ import { ReactComponent as UiUnnestMIconInner } from './unnest/unnest.medium.svg
 import { ReactComponent as UiUnpivotMIconInner } from './unpivot/unpivot.medium.svg';
 import { ReactComponent as UiWinFuncMIconInner } from './winFunc/winFunc.medium.svg';
 import { ReactComponent as UiXlsFileMIconInner } from './xlsFile/xlsFile.medium.svg';
+import { ReactComponent as UiXlsOutputMIconInner } from './xlsOutput/xlsOutput.medium.svg';
 
 import { icon } from './style.css';
 
@@ -169,3 +170,4 @@ export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, icon, 'UiUnnestMIcon
 export const UiUnpivotMIcon = createIcon(UiUnpivotMIconInner, icon, 'UiUnpivotMIcon');
 export const UiWinFuncMIcon = createIcon(UiWinFuncMIconInner, icon, 'UiWinFuncMIcon');
 export const UiXlsFileMIcon = createIcon(UiXlsFileMIconInner, icon, 'UiXlsFileMIcon');
+export const UiXlsOutputMIcon = createIcon(UiXlsOutputMIconInner, icon, 'UiXlsOutputMIcon');
