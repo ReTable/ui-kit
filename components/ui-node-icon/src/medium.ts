@@ -23,6 +23,7 @@ import { ReactComponent as UiInnerJoinMIconInner } from './innerJoin/innerJoin.m
 import { ReactComponent as UiJsonFileMIconInner } from './jsonFile/jsonFile.medium.svg';
 import { ReactComponent as UiLeftJoinMIconInner } from './leftJoin/leftJoin.medium.svg';
 import { ReactComponent as UiLocalFileMIconInner } from './localFile/localFile.medium.svg';
+import { ReactComponent as UiLocalOutputMIconInner } from './localOutput/localOutput.medium.svg';
 import { ReactComponent as UiMergeColumnsMIconInner } from './mergeColumns/mergeColumns.medium.svg';
 import { ReactComponent as UiMultiSourceMIconInner } from './multiSource/multiSource.medium.svg';
 import { ReactComponent as UiNestMIconInner } from './nest/nest.medium.svg';
@@ -102,6 +103,7 @@ export const UiInnerJoinMIcon = createIcon(UiInnerJoinMIconInner, icon, 'UiInner
 export const UiJsonFileMIcon = createIcon(UiJsonFileMIconInner, icon, 'UiJsonFileMIcon');
 export const UiLeftJoinMIcon = createIcon(UiLeftJoinMIconInner, icon, 'UiLeftJoinMIcon');
 export const UiLocalFileMIcon = createIcon(UiLocalFileMIconInner, icon, 'UiLocalFileMIcon');
+export const UiLocalOutputMIcon = createIcon(UiLocalOutputMIconInner, icon, 'UiLocalOutputMIcon');
 export const UiMergeColumnsMIcon = createIcon(
   UiMergeColumnsMIconInner,
   icon,
