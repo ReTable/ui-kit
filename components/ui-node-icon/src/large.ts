@@ -22,6 +22,7 @@ import { ReactComponent as UiGroupByLIconInner } from './groupBy/groupBy.large.s
 import { ReactComponent as UiInnerJoinLIconInner } from './innerJoin/innerJoin.large.svg';
 import { ReactComponent as UiJsonFileLIconInner } from './jsonFile/jsonFile.large.svg';
 import { ReactComponent as UiLeftJoinLIconInner } from './leftJoin/leftJoin.large.svg';
+import { ReactComponent as UiLocalFileLIconInner } from './localFile/localFile.large.svg';
 import { ReactComponent as UiLocalOutputLIconInner } from './localOutput/localOutput.large.svg';
 import { ReactComponent as UiMergeColumnsLIconInner } from './mergeColumns/mergeColumns.large.svg';
 import { ReactComponent as UiMultiSourceLIconInner } from './multiSource/multiSource.large.svg';
@@ -100,6 +101,7 @@ export const UiGroupByLIcon = createIcon(UiGroupByLIconInner, icon, 'UiGroupByLI
 export const UiInnerJoinLIcon = createIcon(UiInnerJoinLIconInner, icon, 'UiInnerJoinLIcon');
 export const UiJsonFileLIcon = createIcon(UiJsonFileLIconInner, icon, 'UiJsonFileLIcon');
 export const UiLeftJoinLIcon = createIcon(UiLeftJoinLIconInner, icon, 'UiLeftJoinLIcon');
+export const UiLocalFileLIcon = createIcon(UiLocalFileLIconInner, icon, 'UiLocalFileLIcon');
 export const UiLocalOutputLIcon = createIcon(UiLocalOutputLIconInner, icon, 'UiLocalOutputLIcon');
 export const UiMergeColumnsLIcon = createIcon(
   UiMergeColumnsLIconInner,
