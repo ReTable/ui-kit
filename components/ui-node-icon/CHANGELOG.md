@@ -1,5 +1,14 @@
 # @tabula/ui-node-icon
 
+## 1.2.0
+
+### Minor Changes
+
+- [#23](https://github.com/ReTable/ui-kit/pull/23) [`f180a62`](https://github.com/ReTable/ui-kit/commit/f180a620e6dd01689cf7a640d945b6ea6a4440b4) Thanks [@demiazz](https://github.com/demiazz)! - - add small variant of the `addGPTColumn` icon
+  - add small variant of the `gptNode` icon
+  - add large variant of the `localFile` icon
+  - add `localOutput` icon
+
 ## 1.1.0
 
 ### Minor Changes
