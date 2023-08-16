@@ -1,3 +1,4 @@
+export { ReactComponent as UiAddGPTColumnSIcon } from './addGPTColumn/addGPTColumn.small.svg';
 export { ReactComponent as UiAddNewColumnSIcon } from './addNewColumn/addNewColumn.small.svg';
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
 export { ReactComponent as UiBlankTableSIcon } from './blankTable/blankTable.small.svg';
@@ -13,6 +14,7 @@ export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.sma
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
 export { ReactComponent as UiFolderSourceSIcon } from './folderSource/folderSource.small.svg';
+export { ReactComponent as UiGPTNodeSIcon } from './gptNode/gptNode.small.svg';
 export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
 export { ReactComponent as UiJsonFileSIcon } from './jsonFile/jsonFile.small.svg';
