@@ -2,12 +2,24 @@ import { cp, mkdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { paramCase } from 'change-case';
 import { oraPromise } from 'ora';
 import { temporaryDirectoryTask } from 'tempy';
 
 // region Types
 
 type Layers = string[];
+
+type Font = {
+  font: string;
+  letterSpacing?: string;
+  textTransform?: string;
+};
+
+type Fonts = {
+  sansSerif: Record<string, Font>;
+  monospace: Record<string, Font>;
+};
 
 type Tokens = {
   [index: string]: Tokens | string;
@@ -31,6 +43,8 @@ const varsInput = join(rootDir, 'src/vars.css.ts');
 const layersOutput = join(outDir, 'layers.scss');
 
 const tokensOutput = join(outDir, 'tokens.scss');
+
+const fontsMixinsOutput = join(outDir, 'fonts.scss');
 
 // endregion
 
@@ -79,6 +93,43 @@ function generateSassLayers(layers: Layers) {
   return buffer.join('\n');
 }
 
+function fontMixin(family: string, variant: string, font: Font) {
+  const weight = variant.slice(0, -2);
+  const size = variant.slice(-2);
+
+  const mixinName = `font-${paramCase(family)}-${weight}-${size}`;
+
+  const buffer = [`@mixin ${mixinName} {`];
+
+  buffer.push(`  font: var(--tbl--fonts--${family}--${weight}${size}--font);`);
+
+  if (font.letterSpacing != null) {
+    buffer.push(`  letter-spacing: var(--tbl--fonts--${family}--${weight}${size}--letterSpacing);`);
+  }
+
+  if (font.textTransform != null) {
+    buffer.push(`  text-transform: var(--tbl--fonts--${family}--${weight}${size}--textTransform);`);
+  }
+
+  buffer.push('}');
+
+  return buffer.join('\n');
+}
+
+function generateSassFontMixins(fonts: Fonts) {
+  const buffer: string[] = [];
+
+  for (const [variantName, variant] of Object.entries(fonts.sansSerif)) {
+    buffer.push(fontMixin('sansSerif', variantName, variant));
+  }
+
+  for (const [variantName, variant] of Object.entries(fonts.monospace)) {
+    buffer.push(fontMixin('monospace', variantName, variant));
+  }
+
+  return buffer.join('\n\n');
+}
+
 async function exportTokens() {
   await oraPromise(async () => {
     await mkdir(outDir, { recursive: true });
@@ -97,9 +148,11 @@ async function exportTokens() {
 
       const layersContent = generateSassLayers(layers);
       const tokensContent = generateSassTokens(tokens);
+      const fontsMixinsContent = generateSassFontMixins(tokens.fonts as Fonts);
 
       await writeFile(layersOutput, layersContent, 'utf-8');
       await writeFile(tokensOutput, tokensContent, 'utf-8');
+      await writeFile(fontsMixinsOutput, fontsMixinsContent, 'utf-8');
     });
   }, 'Exporting tokens');
 }
