@@ -26,8 +26,8 @@ export const tokens = {
       },
       semiBold10: {
         font: `normal 600 10px/16px ${sansSerif}`,
-        letterSpacing: `0.08em`,
-        textTransform: `uppercase`,
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
       },
 
       medium32: {
@@ -36,7 +36,7 @@ export const tokens = {
       },
       medium24: {
         font: `normal 500 24px/32px ${sansSerif}`,
-        letterSpacing: `-0.015em`,
+        letterSpacing: '-0.015em',
       },
       medium18: {
         font: `normal 500 18px/24px ${sansSerif}`,
