@@ -4,9 +4,11 @@
   "description": "Configuration for the ESLint",
   "exports": {
     "./node": {
+      "import": "./node.json",
       "default": "./node.json"
     },
     "./browser": {
+      "import": "./browser.json",
       "default": "./browser.json"
     }
   },
