@@ -10,7 +10,8 @@
     "./browser": {
       "import": "./browser.json",
       "default": "./browser.json"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "keywords": [
     "tabula.io",
