@@ -3,6 +3,7 @@
   "version": "0.1.1",
   "description": "Icons for separators",
   "type": "module",
+  "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
