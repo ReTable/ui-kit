@@ -166,7 +166,7 @@ importers:
         version: 18.2.0
     devDependencies:
       '@tabula/ui-theme':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../ui-theme
 
   components/ui-separator-icon:

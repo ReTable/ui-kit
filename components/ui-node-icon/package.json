@@ -43,10 +43,10 @@
     "test": "vitest run"
   },
   "peerDependencies": {
-    "@tabula/ui-theme": "workspace:*",
+    "@tabula/ui-theme": "workspace:^",
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@tabula/ui-theme": "workspace:*"
+    "@tabula/ui-theme": "workspace:^"
   }
 }
