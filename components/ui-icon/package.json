@@ -15,7 +15,8 @@
       "module": "./lib/separators.js",
       "import": "./lib/separators.js",
       "default": "./lib/separators.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
   "keywords": [
