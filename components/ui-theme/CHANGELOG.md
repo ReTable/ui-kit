@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 0.4.0
+
+### Minor Changes
+
+- [#30](https://github.com/ReTable/ui-kit/pull/30) [`ca899ca`](https://github.com/ReTable/ui-kit/commit/ca899ca597b7a1080409b29f3eea47167317c021) Thanks [@demiazz](https://github.com/demiazz)! - add bold sans serif font face
+
 ## 0.3.1
 
 ### Patch Changes
