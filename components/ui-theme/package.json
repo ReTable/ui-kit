@@ -12,6 +12,11 @@
       "import": "./lib/index.js",
       "default": "./lib/index.js"
     },
+    "./sass": {
+      "module": "./sass/theme.scss",
+      "import": "./sass/theme.scss",
+      "default": "./sass/theme.scss"
+    },
     "./package.json": "./package.json"
   },
   "sideEffects": true,
