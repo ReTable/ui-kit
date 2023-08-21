@@ -1,5 +1,37 @@
 # @tabula/ui-theme
 
+## 0.3.0
+
+### Minor Changes
+
+- [#25](https://github.com/ReTable/ui-kit/pull/25) [`a9fdcdd`](https://github.com/ReTable/ui-kit/commit/a9fdcdd3916cd737a63eb427d8278a5b7c303769) Thanks [@demiazz](https://github.com/demiazz)! - Add font presets.
+
+  You can use them through `vanilla-extract` variants:
+
+  ```typescript
+  import { style } from '@vanilla-extract/css';
+
+  import { uiFonts } from '@tabula/ui-theme';
+
+  export const root = style([uiFonts.sansSerif.regular24], {
+    /* Your styles here. */
+  });
+  ```
+
+  Or you can use them through Sass:
+
+  ```scss
+  @use '~@tabula/ui-theme' as theme;
+
+  .root {
+    @include theme.font-sans-serif-medium-24();
+  }
+  ```
+
+### Patch Changes
+
+- [#27](https://github.com/ReTable/ui-kit/pull/27) [`feade8b`](https://github.com/ReTable/ui-kit/commit/feade8b2f8e51fc2cf5f7805526808f310d66e07) Thanks [@demiazz](https://github.com/demiazz)! - update conditional exports
+
 ## 0.2.0
 
 ### Minor Changes
