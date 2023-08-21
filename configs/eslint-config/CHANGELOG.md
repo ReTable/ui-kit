@@ -1,5 +1,11 @@
 # @tabula/eslint-config
 
+## 0.0.4
+
+### Patch Changes
+
+- [#27](https://github.com/ReTable/ui-kit/pull/27) [`feade8b`](https://github.com/ReTable/ui-kit/commit/feade8b2f8e51fc2cf5f7805526808f310d66e07) Thanks [@demiazz](https://github.com/demiazz)! - update conditional exports
+
 ## 0.0.3
 
 ### Patch Changes
