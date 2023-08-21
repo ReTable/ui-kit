@@ -6,7 +6,8 @@
     ".": {
       "import": "./index.json",
       "default": "./index.json"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "keywords": [
     "tabula.io",
