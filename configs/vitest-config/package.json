@@ -8,7 +8,8 @@
       "types": "./typings/index.d.ts",
       "import": "./lib/index.js",
       "default": "./lib/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "keywords": [
     "tabula.io",
