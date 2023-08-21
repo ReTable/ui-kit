@@ -14,6 +14,10 @@ export const monospace = `${JSON.stringify('IBM Plex Mono')}, monospace`;
 export const tokens = {
   fonts: {
     sansSerif: {
+      bold10: {
+        font: `normal 700 10px/12px ${sansSerif}`,
+      },
+
       semiBold18: {
         font: `normal 600 18px/24px ${sansSerif}`,
         letterSpacing: '-0.015em',
