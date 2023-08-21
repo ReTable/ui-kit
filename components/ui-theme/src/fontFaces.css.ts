@@ -134,6 +134,20 @@ globalFontFaces(INTER, 600, {
 
 // endregion
 
+// region Inter Bold
+
+globalFontFaces(INTER, 700, {
+  latin: './fonts/Inter-Bold/Inter-Bold.latin.woff2',
+  latinExt: './fonts/Inter-Bold/Inter-Bold.latin-ext.woff2',
+  cyrillic: './fonts/Inter-Bold/Inter-Bold.cyrillic.woff2',
+  cyrillicExt: './fonts/Inter-Bold/Inter-Bold.cyrillic-ext.woff2',
+  greek: './fonts/Inter-Bold/Inter-Bold.greek.woff2',
+  greekExt: './fonts/Inter-Bold/Inter-Bold.greek-ext.woff2',
+  vietnamese: './fonts/Inter-Bold/Inter-Bold.vietnamese.woff2',
+});
+
+// endregion
+
 // region IBM Plex Mono Regular
 
 globalFontFaces(IBM_PLEX_MONO, 'normal', {
