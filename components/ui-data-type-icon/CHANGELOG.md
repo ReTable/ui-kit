@@ -1,5 +1,11 @@
 # @tabula/ui-data-type-icon
 
+## 0.1.2
+
+### Patch Changes
+
+- [#28](https://github.com/ReTable/ui-kit/pull/28) [`b66aaf3`](https://github.com/ReTable/ui-kit/commit/b66aaf3a180fe9d1ca27a8d00f166761fb9745b6) Thanks [@demiazz](https://github.com/demiazz)! - restore `typings` field in the `package.json`
+
 ## 0.1.1
 
 ### Patch Changes
