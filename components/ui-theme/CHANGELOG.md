@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 0.4.1
+
+### Patch Changes
+
+- [#32](https://github.com/ReTable/ui-kit/pull/32) [`342334d`](https://github.com/ReTable/ui-kit/commit/342334dbb1c0b10d890f4daa3bff0899498470b4) Thanks [@demiazz](https://github.com/demiazz)! - add conditional export for Sass files
+
 ## 0.4.0
 
 ### Minor Changes
