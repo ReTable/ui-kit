@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "Sets of various icons",
   "type": "module",
-  "typings": "typings",
   "exports": {
     "./dataTypes": {
-      "default": "./lib/dataTypes.js",
-      "types": "./typings/dataTypes.d.ts"
+      "types": "./typings/dataTypes.d.ts",
+      "module": "./lib/dataTypes.js",
+      "import": "./lib/dataTypes.js",
+      "default": "./lib/dataTypes.js"
     },
     "./separators": {
-      "default": "./lib/separators.js",
-      "types": "./typings/separators.d.ts"
+      "types": "./typings/separators.d.ts",
+      "module": "./lib/separators.js",
+      "import": "./lib/separators.js",
+      "default": "./lib/separators.js"
     }
   },
   "sideEffects": false,
