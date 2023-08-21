@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "description": "Icons for separators",
   "type": "module",
-  "style": "lib/index.css",
-  "typings": "typings",
   "exports": {
     ".": {
-      "default": "./lib/index.js",
-      "types": "./typings/index.d.ts"
-    }
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": false,
   "keywords": [

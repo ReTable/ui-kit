@@ -4,8 +4,10 @@
   "description": "Configuration for the Prettier",
   "exports": {
     ".": {
+      "import": "./index.json",
       "default": "./index.json"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "keywords": [
     "tabula.io",

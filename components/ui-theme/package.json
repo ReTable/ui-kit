@@ -4,13 +4,14 @@
   "description": "Theme provider for the UI kit",
   "type": "module",
   "sass": "sass/theme.scss",
-  "style": "lib/index.css",
-  "typings": "typings",
   "exports": {
     ".": {
-      "default": "./lib/index.js",
-      "types": "./typings/index.d.ts"
-    }
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "sideEffects": true,
   "keywords": [
