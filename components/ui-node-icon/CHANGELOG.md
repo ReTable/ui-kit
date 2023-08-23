@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 2.0.2
+
+### Patch Changes
+
+- [#34](https://github.com/ReTable/ui-kit/pull/34) [`ccf1925`](https://github.com/ReTable/ui-kit/commit/ccf1925b67d696d8c27bb9e4758b4567f1d241b5) Thanks [@demiazz](https://github.com/demiazz)! - fix `addGPTColumn` middle sized icon
+
 ## 2.0.1
 
 ### Patch Changes
