@@ -1,14 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
-  <path fill="url(#gpt_node_l_secondary)" fill-rule="evenodd" d="M28 7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v16a3 3 0 0 0 3 3h13.007a6.139 6.139 0 0 0-5.578-3.571 2.429 2.429 0 0 1 0-4.858 6.143 6.143 0 0 0 6.142-6.142 2.429 2.429 0 0 1 4.858 0A6.143 6.143 0 0 0 28 17.007V7Zm0 11.093v3.814A7.142 7.142 0 0 0 23.907 26h-3.814a7.142 7.142 0 0 0-6.664-4.571 1.429 1.429 0 1 1 0-2.858 7.142 7.142 0 0 0 7.142-7.142 1.429 1.429 0 1 1 2.858 0A7.142 7.142 0 0 0 28 18.093ZM24.993 26A6.139 6.139 0 0 1 28 22.993V23a3 3 0 0 1-3 3h-.007Z" clip-rule="evenodd"/>
-  <path fill="url(#gpt_node_l_primary)" fill-rule="evenodd" d="M6 3a3 3 0 0 0-3 3v1h25V6a3 3 0 0 0-3-3H6Zm25.582 18.01a1.429 1.429 0 0 0-1.01-2.439 7.142 7.142 0 0 1-7.143-7.142 1.429 1.429 0 1 0-2.858 0 7.142 7.142 0 0 1-7.142 7.142 1.429 1.429 0 1 0 0 2.858 7.142 7.142 0 0 1 7.142 7.142 1.429 1.429 0 1 0 2.858 0 7.142 7.142 0 0 1 7.142-7.142c.38 0 .743-.15 1.01-.419Z" clip-rule="evenodd"/>
+  <path fill="var(--tbl--ui-node-icon--gpt-node-l-secondary)" fill-rule="evenodd" d="M28 7a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v16a3 3 0 0 0 3 3h13.007a6.139 6.139 0 0 0-5.578-3.571 2.429 2.429 0 0 1 0-4.858 6.143 6.143 0 0 0 6.142-6.142 2.429 2.429 0 0 1 4.858 0A6.143 6.143 0 0 0 28 17.007V7Zm0 11.093v3.814A7.142 7.142 0 0 0 23.907 26h-3.814a7.142 7.142 0 0 0-6.664-4.571 1.429 1.429 0 1 1 0-2.858 7.142 7.142 0 0 0 7.142-7.142 1.429 1.429 0 1 1 2.858 0A7.142 7.142 0 0 0 28 18.093ZM24.993 26A6.139 6.139 0 0 1 28 22.993V23a3 3 0 0 1-3 3h-.007Z" clip-rule="evenodd"/>
+  <path fill="var(--tbl--ui-node-icon--add-gpt-column-l-primary)" fill-rule="evenodd" d="M6 3a3 3 0 0 0-3 3v1h25V6a3 3 0 0 0-3-3H6Zm25.582 18.01a1.429 1.429 0 0 0-1.01-2.439 7.142 7.142 0 0 1-7.143-7.142 1.429 1.429 0 1 0-2.858 0 7.142 7.142 0 0 1-7.142 7.142 1.429 1.429 0 1 0 0 2.858 7.142 7.142 0 0 1 7.142 7.142 1.429 1.429 0 1 0 2.858 0 7.142 7.142 0 0 1 7.142-7.142c.38 0 .743-.15 1.01-.419Z" clip-rule="evenodd"/>
   <defs>
-    <linearGradient id="gpt_node_l_secondary" x1="15.5" x2="15.5" y1="4" y2="26" gradientUnits="userSpaceOnUse">
+    <linearGradient id="tbl--ui-node-icon--gpt-node-l--primary" x1="17.5" x2="17.5" y1="3" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-l--primary-disabled" x1="17.5" x2="17.5" y1="3" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--disabled--primary)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--primary)"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-l--secondary" x1="15.5" x2="15.5" y1="4" y2="26" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--ai--secondary--from)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--ai--secondary--to)"/>
     </linearGradient>
-    <linearGradient id="gpt_node_l_primary" x1="17.5" x2="17.5" y1="3" y2="30" gradientUnits="userSpaceOnUse">
-      <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
-      <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-l--secondary-disabled" x1="15.5" x2="15.5" y1="4" y2="26" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
     </linearGradient>
   </defs>
 </svg>
