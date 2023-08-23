@@ -1,19 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path fill="url(#gpt_node_m_secondary)" fill-rule="evenodd" d="M22 5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10.873A4 4 0 0 0 11 18a2 2 0 1 1 0-4 4 4 0 0 0 4-4 2 2 0 1 1 4 0 4 4 0 0 0 3 3.873V5Zm0 9.899v2.202A5 5 0 0 0 18.101 21h-2.202A5 5 0 0 0 11 17a1 1 0 0 1 0-2 5 5 0 0 0 5-5 1 1 0 0 1 2 0 5 5 0 0 0 4 4.899ZM19.127 21A4 4 0 0 1 22 18.127V19a2 2 0 0 1-2 2h-.873Z" clip-rule="evenodd"/>
-  <path fill="url(#gpt_node_m_primary_1)" d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1H2V5Z"/>
-  <path fill="url(#gpt_node_m_primary_2)" d="M24 16a1 1 0 0 1-1 1 5 5 0 0 0-5 5 1 1 0 0 1-2 0 5 5 0 0 0-5-5 1 1 0 0 1 0-2 5 5 0 0 0 5-5 1 1 0 0 1 2 0 5 5 0 0 0 5 5 1 1 0 0 1 1 1Z"/>
+  <path fill="var(--tbl--ui-node-icon--gpt-node-m-secondary)" fill-rule="evenodd" d="M22 5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10.873A4 4 0 0 0 11 18a2 2 0 1 1 0-4 4 4 0 0 0 4-4 2 2 0 1 1 4 0 4 4 0 0 0 3 3.873V5Zm0 9.899v2.202A5 5 0 0 0 18.101 21h-2.202A5 5 0 0 0 11 17a1 1 0 0 1 0-2 5 5 0 0 0 5-5 1 1 0 0 1 2 0 5 5 0 0 0 4 4.899ZM19.127 21A4 4 0 0 1 22 18.127V19a2 2 0 0 1-2 2h-.873Z" clip-rule="evenodd"/>
+  <path fill="var(--tbl--ui-node-icon--gpt-node-m-primary-1)" d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1H2V5Z"/>
+  <path fill="var(--tbl--ui-node-icon--gpt-node-m-primary-2)" d="M24 16a1 1 0 0 1-1 1 5 5 0 0 0-5 5 1 1 0 0 1-2 0 5 5 0 0 0-5-5 1 1 0 0 1 0-2 5 5 0 0 0 5-5 1 1 0 0 1 2 0 5 5 0 0 0 5 5 1 1 0 0 1 1 1Z"/>
   <defs>
-    <linearGradient id="gpt_node_m_secondary" x1="12" x2="12" y1="3" y2="21" gradientUnits="userSpaceOnUse">
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-1" x1="2" x2="22" y1="6" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-1-disabled" x1="2" x2="22" y1="6" y2="6" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--disabled--primary)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--primary)"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-2" x1="10" x2="24" y1="23" y2="23" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-2-disabled" x1="10" x2="24" y1="23" y2="23" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--disabled--primary)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--primary)"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--secondary" x1="12" x2="12" y1="3" y2="21" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--ai--secondary--from)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--ai--secondary--to)"/>
     </linearGradient>
-    <linearGradient id="gpt_node_m_primary_1" x1="2" x2="22" y1="6" y2="6" gradientUnits="userSpaceOnUse">
-      <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
-      <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
-    </linearGradient>
-    <linearGradient id="gpt_node_m_primary_2" x1="10" x2="24" y1="23" y2="23" gradientUnits="userSpaceOnUse">
-      <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
-      <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--secondary-disabled" x1="12" x2="12" y1="3" y2="21" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
+      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
     </linearGradient>
   </defs>
 </svg>
