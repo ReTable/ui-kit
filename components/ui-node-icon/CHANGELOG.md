@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 2.0.3
+
+### Patch Changes
+
+- [#36](https://github.com/ReTable/ui-kit/pull/36) [`1c4ccde`](https://github.com/ReTable/ui-kit/commit/1c4ccde6e9e23bd3a8108cc96869bad2ac051716) Thanks [@demiazz](https://github.com/demiazz)! - fix id clashing in `addGPTColumn` and `gptNode` icons
+
 ## 2.0.2
 
 ### Patch Changes
