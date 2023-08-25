@@ -1,4 +1,21 @@
 // IMPORTANT: Do not require any modules. It can be a problem for tokens export to Sass.
+
+// region Helpers
+
+function font(family: string, weight: number | string, size: number, lineHeight: number) {
+  return `normal ${weight} ${size}px/${lineHeight}px ${family}`;
+}
+
+function sansSerif(weight: 700 | 600 | 500 | 400, size: number, lineHeight: number) {
+  return font(`${JSON.stringify('Inter')}, sans-serif`, weight, size, lineHeight);
+}
+
+function monospace(weight: 700 | 500 | 'normal', size: number, lineHeight: number) {
+  return font(`${JSON.stringify('IBM Plex Mono')}, monospace`, weight, size, lineHeight);
+}
+
+// endregion
+
 // region Layers
 
 export const layers = ['reset', 'components'] as const;
@@ -7,88 +24,84 @@ export const layers = ['reset', 'components'] as const;
 
 // region Tokens
 
-export const sansSerif = `${JSON.stringify('Inter')}, sans-serif`;
-
-export const monospace = `${JSON.stringify('IBM Plex Mono')}, monospace`;
-
 export const tokens = {
   fonts: {
     sansSerif: {
       bold10: {
-        font: `normal 700 10px/12px ${sansSerif}`,
+        font: sansSerif(700, 10, 12),
       },
 
       semiBold18: {
-        font: `normal 600 18px/24px ${sansSerif}`,
+        font: sansSerif(600, 18, 24),
         letterSpacing: '-0.015em',
       },
       semiBold14: {
-        font: `normal 600 14px/22px ${sansSerif}`,
+        font: sansSerif(600, 14, 22),
       },
       semiBold12: {
-        font: `normal 600 12px/16px ${sansSerif}`,
+        font: sansSerif(600, 12, 16),
       },
       semiBold10: {
-        font: `normal 600 10px/16px ${sansSerif}`,
+        font: sansSerif(600, 10, 16),
         letterSpacing: '0.08em',
         textTransform: 'uppercase',
       },
 
       medium32: {
-        font: `normal 500 32px/40px ${sansSerif}`,
+        font: sansSerif(500, 32, 40),
         letterSpacing: '-0.015em',
       },
       medium24: {
-        font: `normal 500 24px/32px ${sansSerif}`,
+        font: sansSerif(500, 24, 32),
         letterSpacing: '-0.015em',
       },
       medium18: {
-        font: `normal 500 18px/24px ${sansSerif}`,
+        font: sansSerif(500, 18, 24),
       },
       medium14: {
-        font: `normal 500 14px/22px ${sansSerif}`,
+        font: sansSerif(500, 14, 22),
       },
       medium12: {
-        font: `normal 500 12px/16px ${sansSerif}`,
+        font: sansSerif(500, 12, 16),
       },
       medium10: {
-        font: `normal 500 10px/12px ${sansSerif}`,
+        font: sansSerif(500, 10, 12),
       },
 
       regular24: {
-        font: `normal 400 24px/32px ${sansSerif}`,
+        font: sansSerif(400, 24, 32),
       },
       regular18: {
-        font: `normal 400 18px/24px ${sansSerif}`,
+        font: sansSerif(400, 18, 24),
       },
       regular14: {
-        font: `normal 400 14px/22px ${sansSerif}`,
+        font: sansSerif(400, 14, 22),
       },
       regular12: {
-        font: `normal 400 12px/16px ${sansSerif}`,
+        font: sansSerif(400, 12, 16),
       },
     },
 
     monospace: {
       bold12: {
-        font: `normal 700 12px/16px ${monospace}`,
+        font: monospace(700, 12, 16),
       },
       bold10: {
-        font: `normal 700 10px/12px ${monospace}`,
+        font: monospace(700, 10, 12),
       },
 
       semiBold14: {
-        font: `normal 500 14px/20px ${monospace}`,
+        font: monospace(500, 14, 20),
       },
       semiBold12: {
-        font: `normal 500 12px/16px ${monospace}`,
+        font: monospace(500, 12, 16),
       },
 
       regular12: {
-        font: `normal normal 12px/16px ${monospace}`,
+        font: monospace('normal', 12, 16),
       },
       regular10: {
-        font: `normal normal 10px/16px ${monospace}`,
+        font: monospace('normal', 10, 16),
       },
     },
   },
