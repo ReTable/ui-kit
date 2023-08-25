@@ -10,25 +10,9 @@ import { temporaryDirectoryTask } from 'tempy';
 
 type Layers = string[];
 
-type Font = {
-  font: string;
-  letterSpacing?: string;
-  textTransform?: string;
-};
-
-type Fonts = {
-  sansSerif: Record<string, Font>;
-  monospace: Record<string, Font>;
-};
-
 type Tokens = {
   [index: string]: Tokens | string;
 };
-
-type Queue = Array<{
-  context: string;
-  tokens: Tokens;
-}>;
 
 // endregion
 
@@ -48,86 +32,121 @@ const fontsMixinsOutput = join(outDir, 'fonts.scss');
 
 // endregion
 
-// region Export
+// region Variables
 
-function nameOf(key: string, context: string) {
-  return context === '' ? key : `${context}--${key}`;
+function fontNameOf(path: string[]) {
+  return path
+    .map((it) => {
+      const segment = paramCase(it);
+
+      return /\d+$/.test(segment) ? `${segment.slice(0, -2)}-${segment.slice(-2)}` : segment;
+    })
+    .join('--');
 }
 
-function generateSassTokens(tokens: Tokens): string {
-  const buffer: string[] = [];
+function colorNameOf(path: string[]) {
+  let isAlpha = false;
 
-  const queue: Queue = [{ context: '', tokens }];
+  return path
+    .map((it) => {
+      const segment = paramCase(it);
 
-  let current = queue.pop();
+      if (segment.endsWith('-alpha')) {
+        isAlpha = true;
 
-  while (current != null) {
-    for (const key in current.tokens) {
-      const value = current.tokens[key];
-      const variableName = nameOf(key, current.context);
-
-      if (typeof value === 'string') {
-        buffer.push(`$${variableName}: var(--tbl--${variableName});`);
-      } else {
-        queue.push({ context: `${variableName}`, tokens: value });
+        return segment.slice(0, -6);
+      } else if (/^\d+$/.test(it) && isAlpha) {
+        return `A${segment}`;
       }
+
+      return segment;
+    })
+    .join('--')
+    .replace(/(?<left>[a-z]+)(?<right>\d+)$/, '$<left>-$<right>');
+}
+
+function nameOf(path: string[]) {
+  return path[0] === 'fonts' ? fontNameOf(path) : colorNameOf(path);
+}
+
+function collectVariables(tokens: Tokens) {
+  const queue = Object.entries(tokens).map<[string[], Tokens | string]>(([key, value]) => [
+    [key],
+    value,
+  ]);
+
+  const variables: string[] = [];
+
+  while (queue.length > 0) {
+    const item = queue.pop();
+
+    if (item == null) {
+      break;
     }
 
-    if (current.context !== '') {
-      buffer.push('');
+    const [path, scoped] = item;
+
+    if (typeof scoped === 'string') {
+      variables.push(nameOf(path));
+
+      continue;
     }
 
-    current = queue.pop();
+    for (const [key, value] of Object.entries(scoped)) {
+      queue.push([[...path, key], value]);
+    }
   }
 
-  return buffer.join('\n');
+  return variables;
+}
+
+// endregion
+
+// region Export
+
+function generateSassTokens(variables: string[]): string {
+  return variables.map((it) => `$${it}: var(--tbl--${it});`).join('\n');
 }
 
 function generateSassLayers(layers: Layers) {
+  return layers.map((it) => `$layer--${it}: ${it};`).join('\n');
+}
+
+function generateSassFontMixins(variables: string[]) {
   const buffer: string[] = [];
 
-  for (const layer of layers) {
-    buffer.push(`$layer--${layer}: ${layer};`);
+  const fontVariables = new Set(variables.filter((it) => it.startsWith('fonts--')));
+
+  for (const variable of fontVariables) {
+    if (!variable.endsWith('--font')) {
+      continue;
+    }
+
+    const mixinName = variable
+      .split('--')
+      .slice(1, -1)
+      .map((it) => paramCase(it))
+      .join('--')
+      .replace('_', '-');
+
+    buffer.push(`@mixin ${mixinName} {`, `  font: var(--tbl--${variable});`);
+
+    const letterSpacing = variable.replace(/--font$/, '--letter-spacing');
+
+    if (fontVariables.has(letterSpacing)) {
+      buffer.push(`  letter-spacing: var(--tbl--${letterSpacing});`);
+    }
+
+    const textTransform = variable.replace(/--font$/, '--text-transform');
+
+    if (fontVariables.has(textTransform)) {
+      buffer.push(`  text-transform: var(--tbl--${textTransform});`);
+    }
+
+    buffer.push('}\n');
   }
 
   return buffer.join('\n');
-}
-
-function fontMixin(family: string, variant: string, font: Font) {
-  const weight = variant.slice(0, -2);
-  const size = variant.slice(-2);
-
-  const mixinName = `font-${paramCase(family)}-${weight}-${size}`;
-
-  const buffer = [`@mixin ${mixinName} {`];
-
-  buffer.push(`  font: var(--tbl--fonts--${family}--${weight}${size}--font);`);
-
-  if (font.letterSpacing != null) {
-    buffer.push(`  letter-spacing: var(--tbl--fonts--${family}--${weight}${size}--letterSpacing);`);
-  }
-
-  if (font.textTransform != null) {
-    buffer.push(`  text-transform: var(--tbl--fonts--${family}--${weight}${size}--textTransform);`);
-  }
-
-  buffer.push('}');
-
-  return buffer.join('\n');
-}
-
-function generateSassFontMixins(fonts: Fonts) {
-  const buffer: string[] = [];
-
-  for (const [variantName, variant] of Object.entries(fonts.sansSerif)) {
-    buffer.push(fontMixin('sansSerif', variantName, variant));
-  }
-
-  for (const [variantName, variant] of Object.entries(fonts.monospace)) {
-    buffer.push(fontMixin('monospace', variantName, variant));
-  }
-
-  return buffer.join('\n\n');
 }
 
 async function exportTokens() {
@@ -146,9 +165,11 @@ async function exportTokens() {
         tokens: Tokens;
       };
 
+      const variables = collectVariables(tokens);
+
       const layersContent = generateSassLayers(layers);
-      const tokensContent = generateSassTokens(tokens);
-      const fontsMixinsContent = generateSassFontMixins(tokens.fonts as Fonts);
+      const tokensContent = generateSassTokens(variables);
+      const fontsMixinsContent = generateSassFontMixins(variables);
 
       await writeFile(layersOutput, layersContent, 'utf-8');
       await writeFile(tokensOutput, tokensContent, 'utf-8');
