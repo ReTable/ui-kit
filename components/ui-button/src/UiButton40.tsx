@@ -1,16 +1,15 @@
-import { ComponentType, FC, MouseEventHandler, PropsWithChildren } from 'react';
+import { ComponentType, FC } from 'react';
 
 import clsx from 'clsx';
 
 import { variants, withIcon } from './UiButton40.css';
 
-export type Props = PropsWithChildren<{
-  className?: string;
+import { UiButton, Props as UiButtonProps } from './UiButton';
+
+export type Props = UiButtonProps & {
   icon?: ComponentType;
-  isDisabled?: boolean;
-  onClick?: MouseEventHandler;
   variant: keyof typeof variants;
-}>;
+};
 
 export const UiButton40: FC<Props> = ({
   children,
@@ -20,13 +19,12 @@ export const UiButton40: FC<Props> = ({
   onClick,
   variant,
 }) => (
-  <button
+  <UiButton
     className={clsx(className, variants[variant], Icon != null && withIcon)}
-    disabled={isDisabled}
+    isDisabled={isDisabled}
     onClick={onClick}
-    type="button"
   >
     {Icon && <Icon />}
     {children}
-  </button>
+  </UiButton>
 );
