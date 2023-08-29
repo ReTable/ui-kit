@@ -22,16 +22,18 @@ export const root = style({
           boxShadow: outline,
           outline: 'unset',
         },
-
-        '&:disabled': {
-          backgroundColor: uiTheme.colors.fillControl.btnDisabled,
-          borderColor: 'transparent',
-          color: uiTheme.colors.content.disabled,
-          cursor: 'default',
-        },
       },
     },
   },
+});
+
+export const disabled = style({
+  backgroundColor: uiTheme.colors.fillControl.btnDisabled,
+  borderColor: 'transparent',
+  color: uiTheme.colors.content.disabled,
+  boxShadow: 'unset',
+  cursor: 'default',
+  pointerEvents: 'none',
 });
 
 export const frozen = style({

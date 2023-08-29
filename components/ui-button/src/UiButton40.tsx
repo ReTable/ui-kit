@@ -11,21 +11,8 @@ export type Props = UiButtonProps & {
   variant: keyof typeof variants;
 };
 
-export const UiButton40: FC<Props> = ({
-  children,
-  className,
-  icon: Icon,
-  isDisabled,
-  isFrozen,
-  onClick,
-  variant,
-}) => (
-  <UiButton
-    className={clsx(className, variants[variant], Icon != null && withIcon)}
-    isDisabled={isDisabled}
-    isFrozen={isFrozen}
-    onClick={onClick}
-  >
+export const UiButton40: FC<Props> = ({ children, className, icon: Icon, variant, ...props }) => (
+  <UiButton className={clsx(className, variants[variant], Icon != null && withIcon)} {...props}>
     {Icon && <Icon />}
     {children}
   </UiButton>

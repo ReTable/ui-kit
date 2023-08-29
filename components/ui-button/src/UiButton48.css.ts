@@ -52,14 +52,12 @@ function buildStateProperties({ background, border, boxShadow }: StateStyle) {
   return stateStyle;
 }
 
-function buildDefaultProperties(color: string, stateStyle: StateStyle): StyleRule['selectors'] {
+function buildDefaultProperties(color: string, stateStyle: StateStyle): StyleRule {
   const properties = buildStateProperties(stateStyle);
 
   properties.color = color;
 
-  return {
-    '&:not(:disabled)': properties,
-  };
+  return properties;
 }
 
 function buildHoverProperties(stateStyle: StateStyle): StyleRule['selectors'] {
@@ -67,7 +65,7 @@ function buildHoverProperties(stateStyle: StateStyle): StyleRule['selectors'] {
 
   if (stateStyle.boxShadow == null) {
     return {
-      '&:not(:disabled):focus, &:not(:disabled):hover': hoverProperties,
+      '&:focus, &:hover': hoverProperties,
     };
   }
 
@@ -78,14 +76,14 @@ function buildHoverProperties(stateStyle: StateStyle): StyleRule['selectors'] {
   };
 
   return {
-    '&:not(:disabled):focus, &:not(:disabled):hover': hoverProperties,
-    '&:not(:disabled):focus': focusProperties,
+    '&:focus, &:hover': hoverProperties,
+    '&:focus': focusProperties,
   };
 }
 
 function buildPressedProperties(stateStyle: StateStyle): StyleRule['selectors'] {
   return {
-    '&:not(:disabled):active': buildStateProperties(stateStyle),
+    '&:active': buildStateProperties(stateStyle),
   };
 }
 
@@ -96,10 +94,11 @@ function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
     {
       '@layer': {
         [uiLayers.components]: {
+          ...buildDefaultProperties(variant.color, variant.default),
+
           ...variant.overrides,
 
           selectors: {
-            ...buildDefaultProperties(variant.color, variant.default),
             ...buildHoverProperties(variant.hover),
             ...buildPressedProperties(variant.pressed),
           },
