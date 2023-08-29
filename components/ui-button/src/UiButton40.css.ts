@@ -142,6 +142,7 @@ const variantStyles = {
     },
     pressed: {
       background: uiTheme.colors.fillControl.btnPrimaryPressed,
+      boxShadow: outline,
     },
   },
 
