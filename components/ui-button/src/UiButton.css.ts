@@ -33,3 +33,12 @@ export const root = style({
     },
   },
 });
+
+export const frozen = style({
+  '@layer': {
+    [uiLayers.components]: {
+      cursor: 'default',
+      pointerEvents: 'none',
+    },
+  },
+});

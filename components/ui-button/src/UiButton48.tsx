@@ -16,12 +16,14 @@ export const UiButton48: FC<Props> = ({
   className,
   icon: Icon,
   isDisabled,
+  isFrozen,
   onClick,
   variant,
 }) => (
   <UiButton
     className={clsx(className, variants[variant], Icon != null && withIcon)}
     isDisabled={isDisabled}
+    isFrozen={isFrozen}
     onClick={onClick}
   >
     {children}
