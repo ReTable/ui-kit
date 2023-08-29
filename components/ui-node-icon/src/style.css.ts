@@ -70,6 +70,7 @@ createGlobalTheme(':root', gradients, {
 const overrides = {
   ...assignVars(uiTheme.colors.brand, {
     postgres: uiTheme.colors.icons.disabled.primary,
+    salesforce: uiTheme.colors.icons.disabled.primary,
     snowflake: uiTheme.colors.icons.disabled.primary,
   }),
   ...assignVars(uiTheme.colors.icons.clean, {
