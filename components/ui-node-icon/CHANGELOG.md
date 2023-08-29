@@ -1,5 +1,12 @@
 # @tabula/ui-node-icon
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`a2ef75d`](https://github.com/ReTable/ui-kit/commit/a2ef75d8d712bff6ea520792eb96f0c1889030a5)]:
+  - @tabula/ui-theme@1.0.1
+
 ## 3.0.0
 
 ### Patch Changes
