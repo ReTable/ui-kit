@@ -1,6 +1,6 @@
 {
   "name": "@tabula/typescript-config",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Configurations for the TypeScript",
   "keywords": [
     "tabula.io",
