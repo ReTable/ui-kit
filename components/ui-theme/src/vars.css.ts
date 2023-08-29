@@ -230,6 +230,22 @@ export const tokens = {
         from: '#01b7a3',
         to: '#3595ff',
       },
+      aiPrimaryHover: {
+        from: '#14d1bc',
+        to: '#1bb8ea',
+      },
+      aiSecondaryHover: {
+        from: '#a27bf4',
+        to: '#7291ff',
+      },
+      aiPrimaryPressed: {
+        from: '#02aa97',
+        to: '#0095c4',
+      },
+      aiSecondaryPressed: {
+        from: '#8157dd',
+        to: '#3a66ff',
+      },
       btnDanger: '#e55d5d',
       btnDangerHover: '#f27373',
       btnDangerPressed: '#d22e2e',
