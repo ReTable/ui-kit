@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 1.0.1
+
+### Patch Changes
+
+- [#46](https://github.com/ReTable/ui-kit/pull/46) [`a2ef75d`](https://github.com/ReTable/ui-kit/commit/a2ef75d8d712bff6ea520792eb96f0c1889030a5) Thanks [@demiazz](https://github.com/demiazz)! - add new accent alpha color, status and column menu colors
+
 ## 1.0.0
 
 ### Major Changes
