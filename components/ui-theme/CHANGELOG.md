@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 1.0.2
+
+### Patch Changes
+
+- [#48](https://github.com/ReTable/ui-kit/pull/48) [`aa911c0`](https://github.com/ReTable/ui-kit/commit/aa911c095dbfd7666b19e68997e229a10df5329e) Thanks [@demiazz](https://github.com/demiazz)! - add ai hover and pressed colors
+
 ## 1.0.1
 
 ### Patch Changes
