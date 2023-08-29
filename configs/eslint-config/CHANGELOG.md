@@ -1,5 +1,11 @@
 # @tabula/eslint-config
 
+## 0.0.5
+
+### Patch Changes
+
+- [#41](https://github.com/ReTable/ui-kit/pull/41) [`b9059d7`](https://github.com/ReTable/ui-kit/commit/b9059d7c81830838517b2d6de5f949670ea436c0) Thanks [@demiazz](https://github.com/demiazz)! - disable `name` global variable
+
 ## 0.0.4
 
 ### Patch Changes
