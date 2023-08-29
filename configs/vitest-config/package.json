@@ -1,6 +1,6 @@
 {
   "name": "@tabula/vitest-config",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Configuration for the Vitest",
   "type": "module",
   "typings": "./typings/index.d.ts",
