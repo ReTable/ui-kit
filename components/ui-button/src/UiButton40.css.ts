@@ -12,8 +12,6 @@ import { outline } from './UiButton.css';
 
 // region Types
 
-type State = 'default' | 'hover' | 'pressed';
-
 type StateStyle = {
   background?: string;
   border?: string;
@@ -24,9 +22,11 @@ type VariantStyle = {
   font: string;
 
   color: string;
-} & Record<State, StateStyle>;
 
-type Variant = 'primary' | 'secondary' | 'secondaryBlue' | 'secondaryFilled';
+  default: StateStyle;
+  hover: StateStyle;
+  pressed: StateStyle;
+};
 
 // endregion
 
@@ -128,7 +128,7 @@ export const withIcon = style({
 
 // region Variants
 
-const variantStyles: Record<Variant, VariantStyle> = {
+const variantStyles = {
   primary: {
     font: uiFonts.sansSerif.semiBold14,
     color: uiTheme.colors.content.contrast,
