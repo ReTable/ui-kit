@@ -8,6 +8,8 @@ import {
 
 import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
 
+import { outline } from './UiButton.css';
+
 // region Types
 
 type State = 'default' | 'hover' | 'pressed';
@@ -25,12 +27,6 @@ type VariantStyle = {
 } & Record<State, StateStyle>;
 
 type Variant = 'primary' | 'secondary' | 'secondaryBlue' | 'secondaryFilled';
-
-// endregion
-
-// region Constants
-
-const outlineShadow = `0 0 0 3px ${uiTheme.colors.borderControl.focus2}`;
 
 // endregion
 
@@ -76,7 +72,7 @@ function buildHoverProperties(stateStyle: StateStyle): StyleRule['selectors'] {
   delete hoverProperties.boxShadow;
 
   const focusProperties = {
-    boxShadow: `${outlineShadow}, ${stateStyle.boxShadow}`,
+    boxShadow: `${outline}, ${stateStyle.boxShadow}`,
   };
 
   return {
@@ -116,33 +112,10 @@ function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
 const base = style({
   '@layer': {
     [uiLayers.components]: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
       gap: '8px',
       height: '40px',
       padding: '0 24px',
-      backgroundColor: 'transparent',
-      border: '1px solid transparent',
       borderRadius: '20px',
-      cursor: 'pointer',
-      whiteSpace: 'nowrap',
-      userSelect: 'none',
-
-      selectors: {
-        '&:focus': {
-          boxShadow: outlineShadow,
-          outline: 'unset',
-        },
-
-        '&:disabled': {
-          backgroundColor: uiTheme.colors.fillControl.btnDisabled,
-          borderColor: 'transparent',
-          color: uiTheme.colors.content.disabled,
-          cursor: 'default',
-        },
-      },
     },
   },
 });
