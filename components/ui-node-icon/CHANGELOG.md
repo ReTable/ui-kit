@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 2.0.4
+
+### Patch Changes
+
+- [#39](https://github.com/ReTable/ui-kit/pull/39) [`c02462e`](https://github.com/ReTable/ui-kit/commit/c02462eabb681b5584f6dfeebb0209dc17b3901f) Thanks [@demiazz](https://github.com/demiazz)! - fix large `gptNode` icon
+
 ## 2.0.3
 
 ### Patch Changes
