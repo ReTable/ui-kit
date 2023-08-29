@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-icon",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Sets of various icons",
   "type": "module",
   "exports": {

@@ -1,5 +1,14 @@
 # @tabula/ui-node-icon
 
+## 3.0.0
+
+### Patch Changes
+
+- [#38](https://github.com/ReTable/ui-kit/pull/38) [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9) Thanks [@demiazz](https://github.com/demiazz)! - fix brand colors overriding for disabled state
+
+- Updated dependencies [[`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9), [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9), [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9), [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9), [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9)]:
+  - @tabula/ui-theme@1.0.0
+
 ## 2.0.4
 
 ### Patch Changes

@@ -1,5 +1,56 @@
 # @tabula/ui-theme
 
+## 1.0.0
+
+### Major Changes
+
+- [#38](https://github.com/ReTable/ui-kit/pull/38) [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9) Thanks [@demiazz](https://github.com/demiazz)! - change font variables names format:
+
+  - `--tbl--fonts--sansSerif--semiBold10--letterSpacing` to `--tbl--fonts--sans-serif--semi-bold-10--letter-spacing`;
+  - `$fonts--sansSerif--semiBold10--letterSpacing` to `$fonts--sans-serif--semi-bold-10--letter-spacing`
+
+- [#38](https://github.com/ReTable/ui-kit/pull/38) [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9) Thanks [@demiazz](https://github.com/demiazz)! - change font mixins names format:
+
+  - `font-sans-serif-semiBold-10` to `sans-serif--semi-bold-10`
+
+### Minor Changes
+
+- [#38](https://github.com/ReTable/ui-kit/pull/38) [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9) Thanks [@demiazz](https://github.com/demiazz)! - add brand color for SalesForce
+
+- [#38](https://github.com/ReTable/ui-kit/pull/38) [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9) Thanks [@demiazz](https://github.com/demiazz)! - add following color namespaces:
+
+  - `accentAlpha`
+  - `accentSecondaryGray`
+  - `accentShades`
+  - `accent`
+  - `background`
+  - `borderControl`
+  - `codeColumns`
+  - `code`
+  - `content`
+  - `fillControl`
+  - `indexed`
+  - `neutralAlpha`
+  - `neutral`
+  - `table`
+  - `whiteAlpha`
+
+- [#38](https://github.com/ReTable/ui-kit/pull/38) [`d58761d`](https://github.com/ReTable/ui-kit/commit/d58761d645ba87164ba6f5be936d808b0527f3b9) Thanks [@demiazz](https://github.com/demiazz)! - change color variables names format.
+
+  If a color variable is alpha, then we replace `-alpha--<X>` with `--A<X>`:
+
+  - `uiTheme.colors.accentAlpha[60]` to `--tbl--colors--accent--A60`
+
+  If a color variable is ended with `--<word><number>`, then we join them with `-`:
+
+  - `uiTheme.colors.accentShades.secondary1` to `--tbl--colors--accent-shades--secondary-1`
+
+  And doesn't change variable if it's ended with `--<number>`:
+
+  - `uiTheme.colors.accentSecondaryGrey[800]` to `$colors--accent-secondary-grey--800`
+
+  This changes doesn't affect existing color variables.
+
 ## 0.4.1
 
 ### Patch Changes
