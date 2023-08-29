@@ -117,6 +117,7 @@ export const tokens = {
       60: 'rgba(18, 127, 249, 0.6)',
       40: 'rgba(18, 127, 249, 0.4)',
       15: 'rgba(18, 127, 249, 0.15)',
+      10: 'rgba(18, 127, 249, 0.1)',
     },
 
     accentSecondaryGrey: {
@@ -140,6 +141,13 @@ export const tokens = {
       panels: '#f8f8f8',
       primaryContent: '#fff',
       table: '#f8f8f8',
+    },
+
+    status: {
+      error: 'rgba(229, 93, 93, 0.1)',
+      idle: 'rgba(0, 0, 0, 0.05)',
+      running: 'rgba(18, 127, 249, 0.1)',
+      success: 'rgba(0, 183, 162, 0.1)',
     },
 
     borderControl: {
@@ -185,6 +193,11 @@ export const tokens = {
       4: '#982b4c',
       5: '#2a4bba',
       6: '#864902',
+    },
+
+    columnMenu: {
+      press: 'rgba(18, 127, 249, 0.2)',
+      hover: 'rgba(18, 127, 249, 0.15)',
     },
 
     content: {
