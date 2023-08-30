@@ -2,7 +2,7 @@ import { CSSProperties, ComplexStyleRule, StyleRule, style } from '@vanilla-extr
 
 import { uiLayers } from '@tabula/ui-theme';
 
-import { disabled } from './marks.css';
+import { hasIcon, isDisabled } from './modifiers.css';
 
 // region Types
 
@@ -46,8 +46,13 @@ export function wrap(styleRule: StyleRule): StyleRule {
 
 // region Root Styles
 
-export function buildRootStyles(rootStyle: RootStyle): [string, string] {
-  const base = style(
+export function buildRootStyles(rootStyle: RootStyle): string {
+  const icon =
+    'paddingLeft' in rootStyle.withIcon
+      ? { paddingLeft: `${rootStyle.withIcon.paddingLeft}px` }
+      : { paddingRight: `${rootStyle.withIcon.paddingRight}px` };
+
+  return style(
     wrap({
       gap: `${rootStyle.base.gap}px`,
       height: `${rootStyle.base.height}px`,
@@ -58,18 +63,11 @@ export function buildRootStyles(rootStyle: RootStyle): [string, string] {
         '&:focus': {
           outlineWidth: `${rootStyle.base.outlineWidth}px`,
         },
+
+        [`&${hasIcon}`]: icon,
       },
     }),
   );
-
-  const icon =
-    'paddingLeft' in rootStyle.withIcon
-      ? { paddingLeft: `${rootStyle.withIcon.paddingLeft}px` }
-      : { paddingRight: `${rootStyle.withIcon.paddingRight}px` };
-
-  const withIcon = style(wrap(icon));
-
-  return [base, withIcon];
 }
 
 // endregion
@@ -80,19 +78,19 @@ export function buildVariant(root: string, variant: VariantStyle): ComplexStyleR
   const selectors: StyleRule['selectors'] = {};
 
   if (variant.default) {
-    selectors[`&:not(:disabled, ${disabled})`] = variant.default;
+    selectors[`&:not(:disabled, ${isDisabled})`] = variant.default;
   }
 
   if (variant.hover) {
-    selectors[`&:not(:disabled, ${disabled}):hover`] = variant.hover;
+    selectors[`&:not(:disabled, ${isDisabled}):hover`] = variant.hover;
   }
 
   if (variant.active) {
-    selectors[`&:not(:disabled, ${disabled}):active`] = variant.active;
+    selectors[`&:not(:disabled, ${isDisabled}):active`] = variant.active;
   }
 
   if (variant.focus) {
-    selectors[`&:not(:disabled, ${disabled}):focus`] = variant.focus;
+    selectors[`&:not(:disabled, ${isDisabled}):focus`] = variant.focus;
   }
 
   return [root, variant.font, wrap({ selectors })];

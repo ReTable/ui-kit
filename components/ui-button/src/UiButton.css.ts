@@ -2,9 +2,8 @@ import { style } from '@vanilla-extract/css';
 
 import { uiTheme } from '@tabula/ui-theme';
 
-import { disabled } from './marks.css';
-
-import { wrap } from './helpers';
+import { wrap } from './helpers.css';
+import { isDisabled } from './modifiers.css';
 
 export const root = style(
   wrap({
@@ -24,7 +23,7 @@ export const root = style(
         outlineColor: uiTheme.colors.borderControl.focus2,
       },
 
-      [`&${disabled}`]: {
+      [`&${isDisabled}`]: {
         background: uiTheme.colors.fillControl.btnDisabled,
         borderColor: 'transparent',
         color: uiTheme.colors.content.disabled,

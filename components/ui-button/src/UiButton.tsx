@@ -3,10 +3,11 @@ import { FC, MouseEventHandler, PropsWithChildren } from 'react';
 import clsx from 'clsx';
 
 import { frozen, root } from './UiButton.css';
-import { disabled } from './marks.css';
+import { hasIcon as hasIconModifier, isDisabled as isDisabledModifier } from './modifiers.css';
 
 type CommonProps = PropsWithChildren<{
   className?: string;
+  hasIcon?: boolean;
   isDisabled?: boolean;
   isFrozen?: boolean;
 }>;
@@ -28,11 +29,18 @@ export type Props = ButtonProps | LinkProps;
 export const UiButton: FC<Props> = ({
   children,
   className,
+  hasIcon,
   isDisabled,
   isFrozen,
   ...props
 }: Props) => {
-  const finalClassName = clsx(root, isFrozen && frozen, isDisabled && disabled, className);
+  const finalClassName = clsx(
+    root,
+    hasIcon && hasIconModifier,
+    isFrozen && frozen,
+    isDisabled && isDisabledModifier,
+    className,
+  );
 
   switch (props.as) {
     case 'link': {

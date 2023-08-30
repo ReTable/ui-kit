@@ -2,11 +2,11 @@ import { styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { buildRootStyles, buildVariant } from './helpers';
+import { buildRootStyles, buildVariant } from './helpers.css';
 
 // region Styles
 
-const [base, withIcon] = buildRootStyles({
+const base = buildRootStyles({
   base: {
     gap: 16,
     height: 48,
@@ -19,8 +19,6 @@ const [base, withIcon] = buildRootStyles({
   },
 });
 
-export { withIcon };
-
 // endregion
 
 // region Variants
@@ -31,12 +29,12 @@ const variantStyles = {
     default: {
       background: uiTheme.colors.accent['100'],
       color: uiTheme.colors.content.contrast,
-      boxShadow: '0px 5px 10px 0px rgba(77, 152, 236, 0.2)',
+      boxShadow: '0 5px 10px 0 rgba(77, 152, 236, 0.2)',
     },
     hover: {
       // TODO(demiazz): This color must be in the palette.
       background: '#3192fe',
-      boxShadow: '0px 5px 10px 0px rgba(77, 152, 236, 0.2)',
+      boxShadow: '0 5px 10px 0 rgba(77, 152, 236, 0.2)',
     },
     active: {
       // TODO(demiazz): This color must be in the palette.

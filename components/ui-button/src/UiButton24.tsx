@@ -2,7 +2,7 @@ import { ComponentType, FC } from 'react';
 
 import clsx from 'clsx';
 
-import { variants, withIcon } from './UiButton24.css';
+import { variants } from './UiButton24.css';
 
 import { UiButton, Props as UiButtonProps } from './UiButton';
 
@@ -12,7 +12,7 @@ export type Props = UiButtonProps & {
 };
 
 export const UiButton24: FC<Props> = ({ children, className, icon: Icon, variant, ...props }) => (
-  <UiButton className={clsx(className, variants[variant], Icon != null && withIcon)} {...props}>
+  <UiButton className={clsx(className, variants[variant])} hasIcon={Icon != null} {...props}>
     {Icon && <Icon />}
     {children}
   </UiButton>
