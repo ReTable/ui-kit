@@ -21,6 +21,7 @@ export const root = style(
       '&:focus': {
         outlineStyle: 'solid',
         outlineColor: uiTheme.colors.borderControl.focus2,
+        outlineOffset: '0',
       },
 
       [`&${isDisabled}`]: {
