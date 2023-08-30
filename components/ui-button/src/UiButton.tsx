@@ -2,7 +2,8 @@ import { FC, MouseEventHandler, PropsWithChildren } from 'react';
 
 import clsx from 'clsx';
 
-import { disabled, frozen, root } from './UiButton.css';
+import { frozen, root } from './UiButton.css';
+import { disabled } from './marks.css';
 
 type CommonProps = PropsWithChildren<{
   className?: string;

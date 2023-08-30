@@ -2,6 +2,8 @@ import { CSSProperties, ComplexStyleRule, StyleRule, style } from '@vanilla-extr
 
 import { uiLayers } from '@tabula/ui-theme';
 
+import { disabled } from './marks.css';
+
 // region Types
 
 type BaseStyle = {
@@ -73,16 +75,20 @@ export function buildRootStyles(rootStyle: RootStyle): [string, string] {
 export function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
   const selectors: StyleRule['selectors'] = {};
 
+  if (variant.default) {
+    selectors[`&:not(:disabled, ${disabled})`] = variant.default;
+  }
+
   if (variant.hover) {
-    selectors['&:hover'] = variant.hover;
+    selectors[`&:not(:disabled, ${disabled}):hover`] = variant.hover;
   }
 
   if (variant.active) {
-    selectors['&:active'] = variant.active;
+    selectors[`&:not(:disabled, ${disabled}):active`] = variant.active;
   }
 
   if (variant.focus) {
-    selectors['&:focus'] = variant.focus;
+    selectors[`&:not(:disabled, ${disabled}):focus`] = variant.focus;
   }
 
   return [
@@ -90,7 +96,9 @@ export function buildVariant(root: string, variant: VariantStyle): ComplexStyleR
     variant.font,
     {
       '@layer': {
-        [uiLayers.components]: { ...variant.default, selectors },
+        [uiLayers.components]: {
+          selectors,
+        },
       },
     },
   ];

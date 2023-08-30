@@ -2,6 +2,8 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
+import { disabled } from './marks.css';
+
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
@@ -20,18 +22,18 @@ export const root = style({
           outlineStyle: 'solid',
           outlineColor: uiTheme.colors.borderControl.focus2,
         },
+
+        [`&${disabled}`]: {
+          background: uiTheme.colors.fillControl.btnDisabled,
+          borderColor: 'transparent',
+          color: uiTheme.colors.content.disabled,
+          boxShadow: 'unset',
+          cursor: 'default',
+          pointerEvents: 'none',
+        },
       },
     },
   },
-});
-
-export const disabled = style({
-  background: uiTheme.colors.fillControl.btnDisabled,
-  borderColor: 'transparent',
-  color: uiTheme.colors.content.disabled,
-  boxShadow: 'unset',
-  cursor: 'default',
-  pointerEvents: 'none',
 });
 
 export const frozen = style({

@@ -48,6 +48,7 @@ const variantStyles = {
   secondary: {
     font: uiFonts.sansSerif.regular18,
     default: {
+      gap: '32px',
       background: uiTheme.colors.accentShades.secondary1,
       color: uiTheme.colors.content.primary,
     },
@@ -56,9 +57,6 @@ const variantStyles = {
     },
     active: {
       background: uiTheme.colors.accentShades.secondary3,
-    },
-    overrides: {
-      gap: '32px',
     },
   },
 };
