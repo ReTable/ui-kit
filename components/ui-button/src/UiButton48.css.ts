@@ -3,8 +3,10 @@ import { style } from '@vanilla-extract/css';
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed } from './const.css';
-import { buildVariants, wrap } from './helpers.css';
 import { isDisabled } from './modifiers.css';
+import { buildVariants } from './variants.css';
+
+import { wrap } from './helpers';
 
 const rootStyle = {
   base: {

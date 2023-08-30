@@ -2,8 +2,9 @@ import { style } from '@vanilla-extract/css';
 
 import { uiTheme } from '@tabula/ui-theme';
 
-import { wrap } from './helpers.css';
 import { isDisabled } from './modifiers.css';
+
+import { wrap } from './helpers';
 
 export const root = style(
   wrap({

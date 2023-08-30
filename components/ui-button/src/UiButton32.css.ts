@@ -1,7 +1,7 @@
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed, primaryShadow } from './const.css';
-import { buildVariants } from './helpers.css';
+import { buildVariants } from './variants.css';
 
 const rootStyle = {
   base: {

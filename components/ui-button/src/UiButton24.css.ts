@@ -1,7 +1,9 @@
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { primaryShadow } from './const.css';
-import { buildVariants, gradient } from './helpers.css';
+import { buildVariants } from './variants.css';
+
+import { gradient } from './helpers';
 
 const rootStyle = {
   base: {
