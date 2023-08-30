@@ -3,7 +3,7 @@ import { styleVariants } from '@vanilla-extract/css';
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { primaryShadow } from './const.css';
-import { buildRootStyles, buildVariant } from './helpers.css';
+import { buildRootStyles, buildVariant, gradient } from './helpers.css';
 
 // region Styles
 
@@ -122,16 +122,16 @@ const variantStyles = {
   ai: {
     font: uiFonts.sansSerif.semiBold12,
     default: {
-      background: `linear-gradient(to right, ${uiTheme.colors.fillControl.ai.from} 0%, ${uiTheme.colors.fillControl.ai.to} 100%)`,
+      background: gradient(uiTheme.colors.fillControl.ai),
       color: uiTheme.colors.content.contrast,
       boxShadow: primaryShadow,
     },
     hover: {
-      background: `linear-gradient(to right, ${uiTheme.colors.fillControl.aiPrimaryHover.from} 0%, ${uiTheme.colors.fillControl.aiPrimaryHover.to} 100%)`,
+      background: gradient(uiTheme.colors.fillControl.aiPrimaryHover),
       boxShadow: primaryShadow,
     },
     active: {
-      background: `linear-gradient(to right, ${uiTheme.colors.fillControl.aiPrimaryPressed.from} 0%, ${uiTheme.colors.fillControl.aiPrimaryPressed.to} 100%)`,
+      background: gradient(uiTheme.colors.fillControl.aiPrimaryPressed),
       borderColor: uiTheme.colors.accentAlpha['60'],
     },
   },

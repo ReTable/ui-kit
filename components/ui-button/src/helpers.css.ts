@@ -42,6 +42,15 @@ export function wrap(styleRule: StyleRule): StyleRule {
   };
 }
 
+type GradientOptions = {
+  from: string;
+  to: string;
+};
+
+export function gradient({ from, to }: GradientOptions): string {
+  return `linear-gradient(to right, ${from} 0%, ${to} 100%)`;
+}
+
 // endregion
 
 // region Root Styles
