@@ -54,5 +54,3 @@ export const UiButton: FC<Props> = ({
     }
   }
 };
-
-export { type InnerProps as Props } from './types';
