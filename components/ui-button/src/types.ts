@@ -9,16 +9,21 @@ type CommonProps = PropsWithChildren<{
   trackId?: string;
 }>;
 
-type CommonAsButtonProps = {
+type ButtonProps = {
   as?: 'button';
   onClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
-type CommonAsLinkProps = {
+type LinkProps = {
   as: 'link';
   href?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement>;
   target?: string;
+};
+
+type VisualProps = {
+  as: 'visual';
+  onClick?: MouseEventHandler<HTMLDivElement>;
 };
 
 // endregion
@@ -31,8 +36,9 @@ type InnerBaseProps = CommonProps & {
 };
 
 export type InnerProps =
-  | (InnerBaseProps & CommonAsButtonProps)
-  | (InnerBaseProps & CommonAsLinkProps);
+  | (InnerBaseProps & ButtonProps)
+  | (InnerBaseProps & LinkProps)
+  | (InnerBaseProps & VisualProps);
 
 // endregion
 
@@ -46,7 +52,8 @@ type VariantBaseProps<Variant extends string> = CommonProps & {
 };
 
 export type VariantProps<Variant extends string> =
-  | (VariantBaseProps<Variant> & CommonAsButtonProps)
-  | (VariantBaseProps<Variant> & CommonAsLinkProps);
+  | (VariantBaseProps<Variant> & ButtonProps)
+  | (VariantBaseProps<Variant> & LinkProps)
+  | (VariantBaseProps<Variant> & VisualProps);
 
 // endregion

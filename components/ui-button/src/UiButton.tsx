@@ -42,6 +42,21 @@ export const UiButton: FC<Props> = ({
         </a>
       );
     }
+    case 'visual': {
+      return (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+        <div
+          aria-disabled={isDisabled}
+          className={finalClassName}
+          data-track-id={trackId}
+          onClick={props.onClick}
+          role="button"
+          tabIndex={isDisabled ? -1 : 0}
+        >
+          {children}
+        </div>
+      );
+    }
     default: {
       return (
         <button
