@@ -1,30 +1,11 @@
-import { FC, MouseEventHandler, PropsWithChildren } from 'react';
+import { FC } from 'react';
 
 import clsx from 'clsx';
 
 import { frozen, root } from './UiButton.css';
 import { hasIcon as hasIconModifier, isDisabled as isDisabledModifier } from './modifiers.css';
 
-type CommonProps = PropsWithChildren<{
-  className?: string;
-  hasIcon?: boolean;
-  isDisabled?: boolean;
-  isFrozen?: boolean;
-}>;
-
-type ButtonProps = CommonProps & {
-  as?: 'button';
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-};
-
-type LinkProps = CommonProps & {
-  as: 'link';
-  href?: string;
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
-  target?: string;
-};
-
-export type Props = ButtonProps | LinkProps;
+import { InnerProps as Props } from './types';
 
 export const UiButton: FC<Props> = ({
   children,
@@ -32,6 +13,7 @@ export const UiButton: FC<Props> = ({
   hasIcon,
   isDisabled,
   isFrozen,
+  variantClassName,
   ...props
 }: Props) => {
   const finalClassName = clsx(
@@ -39,6 +21,7 @@ export const UiButton: FC<Props> = ({
     hasIcon && hasIconModifier,
     isFrozen && frozen,
     isDisabled && isDisabledModifier,
+    variantClassName,
     className,
   );
 
@@ -71,3 +54,5 @@ export const UiButton: FC<Props> = ({
     }
   }
 };
+
+export { type InnerProps as Props } from './types';
