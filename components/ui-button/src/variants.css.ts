@@ -12,20 +12,15 @@ import { wrap } from './helpers';
 
 // region Types
 
-type BaseStyle = {
-  gap: number;
-  height: number;
-  padding: number;
-  borderRadius: number;
-  outlineWidth: number;
-};
+type RequiredProperties<Props extends keyof CSSProperties> = Required<Pick<CSSProperties, Props>>;
 
-type WithIconStyle = { paddingLeft: number } | { paddingRight: number };
+type BaseProperties = RequiredProperties<
+  'gap' | 'height' | 'padding' | 'borderRadius' | 'outlineWidth'
+>;
 
-type RootStyle = {
-  base: BaseStyle;
-  withIcon: WithIconStyle;
-};
+type IconProperties = RequiredProperties<'paddingLeft'> | RequiredProperties<'paddingRight'>;
+
+type RootStyle = BaseProperties & { icon: IconProperties };
 
 type VariantStyle = {
   font: string;
@@ -42,24 +37,19 @@ type VariantStyle = {
 // region Variants
 
 export function buildRootStyles(rootStyle: RootStyle): string {
-  const icon =
-    'paddingLeft' in rootStyle.withIcon
-      ? { paddingLeft: `${rootStyle.withIcon.paddingLeft}px` }
-      : { paddingRight: `${rootStyle.withIcon.paddingRight}px` };
-
   return style(
     wrap({
-      gap: `${rootStyle.base.gap}px`,
-      height: `${rootStyle.base.height}px`,
-      padding: `0 ${rootStyle.base.padding}px`,
-      borderRadius: `${rootStyle.base.borderRadius}px`,
+      gap: rootStyle.gap,
+      height: rootStyle.height,
+      padding: rootStyle.padding,
+      borderRadius: rootStyle.borderRadius,
 
       selectors: {
         '&:focus': {
-          outlineWidth: `${rootStyle.base.outlineWidth}px`,
+          outlineWidth: rootStyle.outlineWidth,
         },
 
-        [`&${hasIcon}`]: icon,
+        [`&${hasIcon}`]: rootStyle.icon,
       },
     }),
   );

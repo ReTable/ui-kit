@@ -9,15 +9,14 @@ import { buildVariants } from './variants.css';
 import { wrap } from './helpers';
 
 const rootStyle = {
-  base: {
-    gap: 16,
-    height: 48,
-    padding: 32,
-    borderRadius: 24,
-    outlineWidth: 3,
-  },
-  withIcon: {
-    paddingRight: 16,
+  gap: '16px',
+  height: '48px',
+  padding: '0 32px',
+  borderRadius: '24px',
+  outlineWidth: '3px',
+
+  icon: {
+    paddingRight: '16px',
   },
 };
 

@@ -6,15 +6,14 @@ import { buildVariants } from './variants.css';
 import { gradient } from './helpers';
 
 const rootStyle = {
-  base: {
-    gap: 4,
-    height: 24,
-    padding: 12,
-    borderRadius: 12,
-    outlineWidth: 2,
-  },
-  withIcon: {
-    paddingLeft: 8,
+  gap: '4px',
+  height: '24px',
+  padding: '0 12px',
+  borderRadius: '12px',
+  outlineWidth: '2px',
+
+  icon: {
+    paddingLeft: '8px',
   },
 };
 

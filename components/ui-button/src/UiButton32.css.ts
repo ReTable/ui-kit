@@ -4,15 +4,14 @@ import { accentHover, accentPressed, primaryShadow } from './const.css';
 import { buildVariants } from './variants.css';
 
 const rootStyle = {
-  base: {
-    gap: 6,
-    height: 32,
-    padding: 20,
-    borderRadius: 16,
-    outlineWidth: 2,
-  },
-  withIcon: {
-    paddingLeft: 16,
+  gap: '6px',
+  height: '32px',
+  padding: '0 20px',
+  borderRadius: '16px',
+  outlineWidth: '2px',
+
+  icon: {
+    paddingLeft: '16px',
   },
 };
 

@@ -3,15 +3,14 @@ import { uiFonts, uiTheme } from '@tabula/ui-theme';
 import { buildVariants } from './variants.css';
 
 const rootStyle = {
-  base: {
-    gap: 4,
-    height: 20,
-    padding: 12,
-    borderRadius: 6,
-    outlineWidth: 2,
-  },
-  withIcon: {
-    paddingLeft: 8,
+  gap: '4px',
+  height: '20px',
+  padding: '0 12px',
+  borderRadius: '6px',
+  outlineWidth: '2px',
+
+  icon: {
+    paddingLeft: '8px',
   },
 };
 

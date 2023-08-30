@@ -4,15 +4,14 @@ import { primaryShadow } from './const.css';
 import { buildVariants } from './variants.css';
 
 const rootStyle = {
-  base: {
-    gap: 8,
-    height: 40,
-    padding: 24,
-    borderRadius: 20,
-    outlineWidth: 3,
-  },
-  withIcon: {
-    paddingLeft: 16,
+  gap: '8px',
+  height: '40px',
+  padding: '0 24px',
+  borderRadius: '20px',
+  outlineWidth: '3px',
+
+  icon: {
+    paddingLeft: '16px',
   },
 };
 
