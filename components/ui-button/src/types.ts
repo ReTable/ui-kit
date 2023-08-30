@@ -37,8 +37,10 @@ export type InnerProps =
 
 // region Variant Props
 
+type Icon = ComponentType<{ className?: string }>;
+
 type VariantBaseProps<Variant extends string> = CommonProps & {
-  icon?: ComponentType;
+  icon?: Icon;
   variant: Variant;
 };
 

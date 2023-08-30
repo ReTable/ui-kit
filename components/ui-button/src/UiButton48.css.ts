@@ -1,9 +1,10 @@
-import { styleVariants } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed } from './const.css';
-import { buildRootStyles, buildVariant } from './helpers.css';
+import { buildRootStyles, buildVariant, wrap } from './helpers.css';
+import { isDisabled } from './modifiers.css';
 
 // region Styles
 
@@ -41,7 +42,6 @@ const variantStyles = {
     },
   },
 
-  // TODO: Icon must have different color instead of text color.
   secondary: {
     font: uiFonts.sansSerif.regular18,
     default: {
@@ -60,6 +60,28 @@ const variantStyles = {
 
 export const variants = styleVariants(variantStyles, (variantStyle) =>
   buildVariant(base, variantStyle),
+);
+
+// endregion
+
+// region Icon
+
+export const icon = style(
+  wrap({
+    selectors: {
+      [`${variants.secondary} &`]: {
+        color: uiTheme.colors.content.tertiary,
+      },
+
+      [`${variants.secondary}:hover &`]: {
+        color: uiTheme.colors.content.secondary,
+      },
+
+      [`${variants.secondary}:disabled &, ${variants.secondary}${isDisabled} &`]: {
+        color: uiTheme.colors.content.disabled,
+      },
+    },
+  }),
 );
 
 // endregion
