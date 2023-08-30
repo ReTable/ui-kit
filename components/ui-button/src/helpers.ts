@@ -1,10 +1,24 @@
-import { CSSProperties, ComplexStyleRule, StyleRule } from '@vanilla-extract/css';
+import { CSSProperties, ComplexStyleRule, StyleRule, style } from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
 import { outline } from './UiButton.css';
 
 // region Types
+
+type BaseStyle = {
+  gap: number;
+  height: number;
+  padding: number;
+  borderRadius: number;
+};
+
+type WithIconStyle = { paddingLeft: number } | { paddingRight: number };
+
+type RootStyle = {
+  base: BaseStyle;
+  withIcon: WithIconStyle;
+};
 
 type StateStyle = {
   background?: string;
@@ -24,7 +38,39 @@ type VariantStyle = {
 
 // endregion
 
-// Helpers
+// region Root Styles
+
+export function buildRootStyles(rootStyle: RootStyle): [string, string] {
+  const base = style({
+    '@layer': {
+      [uiLayers.components]: {
+        gap: `${rootStyle.base.gap}px`,
+        height: `${rootStyle.base.height}px`,
+        padding: `0 ${rootStyle.base.padding}px`,
+        borderRadius: `${rootStyle.base.borderRadius}px`,
+      },
+    },
+  });
+
+  const icon =
+    'paddingLeft' in rootStyle.withIcon
+      ? { paddingLeft: `${rootStyle.withIcon.paddingLeft}px` }
+      : { paddingRight: `${rootStyle.withIcon.paddingRight}px` };
+
+  const withIcon = style({
+    '@layer': {
+      [uiLayers.components]: {
+        ...icon,
+      },
+    },
+  });
+
+  return [base, withIcon];
+}
+
+// endregion
+
+// region Variants
 
 function buildStateProperties({ background, border, boxShadow }: StateStyle) {
   const stateStyle: CSSProperties = {};

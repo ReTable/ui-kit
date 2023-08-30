@@ -1,27 +1,26 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { styleVariants } from '@vanilla-extract/css';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { outline } from './UiButton.css';
 
-import { buildVariant } from './helpers';
+import { buildRootStyles, buildVariant } from './helpers';
 
 // region Styles
 
-const base = style({
-  '@layer': {
-    [uiLayers.components]: {
-      gap: '8px',
-      height: '40px',
-      padding: '0 24px',
-      borderRadius: '20px',
-    },
+const [base, withIcon] = buildRootStyles({
+  base: {
+    gap: 8,
+    height: 40,
+    padding: 24,
+    borderRadius: 20,
+  },
+  withIcon: {
+    paddingLeft: 16,
   },
 });
 
-export const withIcon = style({
-  paddingLeft: '16px',
-});
+export { withIcon };
 
 // endregion
 
