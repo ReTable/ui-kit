@@ -98,6 +98,9 @@ const variantStyles = {
     active: {
       background: uiTheme.colors.fillControl.btnDangerPressed,
     },
+    focus: {
+      outlineColor: uiTheme.colors.borderControl.dangerFocus,
+    },
   },
 
   shadowList: {
