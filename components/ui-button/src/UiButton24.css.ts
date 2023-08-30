@@ -45,12 +45,12 @@ const variantStyles = {
   secondary: {
     font: uiFonts.sansSerif.medium12,
     default: {
-      border: uiTheme.colors.borderControl.default,
+      borderColor: uiTheme.colors.borderControl.default,
       color: uiTheme.colors.content.secondary,
     },
     hover: {
       background: uiTheme.colors.neutralAlpha['7'],
-      border: uiTheme.colors.borderControl.hover,
+      borderColor: uiTheme.colors.borderControl.hover,
     },
     active: {
       background: uiTheme.colors.neutralAlpha['10'],
@@ -60,16 +60,16 @@ const variantStyles = {
   cancel: {
     font: uiFonts.sansSerif.medium12,
     default: {
-      border: uiTheme.colors.borderControl.default,
+      borderColor: uiTheme.colors.borderControl.default,
       color: uiTheme.colors.content.primary,
     },
     hover: {
       background: uiTheme.colors.neutralAlpha['7'],
-      border: uiTheme.colors.borderControl.hover,
+      borderColor: uiTheme.colors.borderControl.hover,
     },
     active: {
       background: uiTheme.colors.neutralAlpha['10'],
-      border: uiTheme.colors.borderControl.focus,
+      borderColor: uiTheme.colors.borderControl.focus,
     },
   },
 
@@ -90,32 +90,32 @@ const variantStyles = {
   edit: {
     font: uiFonts.sansSerif.medium12,
     default: {
-      border: uiTheme.colors.accentAlpha['40'],
+      borderColor: uiTheme.colors.accentAlpha['40'],
       color: uiTheme.colors.content.accentActive,
     },
     hover: {
       background: uiTheme.colors.accentAlpha['10'],
-      border: uiTheme.colors.accentAlpha['60'],
+      borderColor: uiTheme.colors.accentAlpha['60'],
     },
     active: {
       background: uiTheme.colors.accentAlpha['15'],
-      border: uiTheme.colors.accentAlpha['60'],
+      borderColor: uiTheme.colors.accentAlpha['60'],
     },
   },
 
   test: {
     font: uiFonts.sansSerif.semiBold12,
     default: {
-      border: uiTheme.colors.accentAlpha['40'],
+      borderColor: uiTheme.colors.accentAlpha['40'],
       color: uiTheme.colors.content.accentActive,
     },
     hover: {
       background: uiTheme.colors.accentAlpha['10'],
-      border: uiTheme.colors.accentAlpha['60'],
+      borderColor: uiTheme.colors.accentAlpha['60'],
     },
     active: {
       background: uiTheme.colors.accentAlpha['15'],
-      border: uiTheme.colors.accentAlpha['60'],
+      borderColor: uiTheme.colors.accentAlpha['60'],
     },
   },
 
@@ -132,7 +132,7 @@ const variantStyles = {
     },
     active: {
       background: `linear-gradient(to right, ${uiTheme.colors.fillControl.aiPrimaryPressed.from} 0%, ${uiTheme.colors.fillControl.aiPrimaryPressed.to} 100%)`,
-      border: uiTheme.colors.accentAlpha['60'],
+      borderColor: uiTheme.colors.accentAlpha['60'],
     },
   },
 };

@@ -116,7 +116,7 @@ const variantStyles = {
     },
     active: {
       background: uiTheme.colors.background.panels,
-      border: uiTheme.colors.neutralAlpha['10'],
+      borderColor: uiTheme.colors.neutralAlpha['10'],
     },
   },
 };

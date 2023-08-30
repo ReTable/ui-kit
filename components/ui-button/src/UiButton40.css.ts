@@ -45,12 +45,12 @@ const variantStyles = {
   secondary: {
     font: uiFonts.sansSerif.medium14,
     default: {
-      border: uiTheme.colors.borderControl.default,
+      borderColor: uiTheme.colors.borderControl.default,
       color: uiTheme.colors.content.primary,
     },
     hover: {
       background: uiTheme.colors.neutralAlpha['7'],
-      border: uiTheme.colors.borderControl.hover,
+      borderColor: uiTheme.colors.borderControl.hover,
     },
     active: {
       background: uiTheme.colors.neutralAlpha['10'],
@@ -60,12 +60,12 @@ const variantStyles = {
   secondaryBlue: {
     font: uiFonts.sansSerif.medium14,
     default: {
-      border: uiTheme.colors.accentAlpha['40'],
+      borderColor: uiTheme.colors.accentAlpha['40'],
       color: uiTheme.colors.accent['100'],
     },
     hover: {
       background: uiTheme.colors.accentAlpha['10'],
-      border: uiTheme.colors.accentAlpha['60'],
+      borderColor: uiTheme.colors.accentAlpha['60'],
     },
     active: {
       background: uiTheme.colors.accentAlpha['15'],
