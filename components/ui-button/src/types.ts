@@ -6,6 +6,7 @@ type CommonProps = PropsWithChildren<{
   className?: string;
   isDisabled?: boolean;
   isFrozen?: boolean;
+  trackId?: string;
 }>;
 
 type CommonAsButtonProps = {
