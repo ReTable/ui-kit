@@ -2,7 +2,7 @@ import { styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { primaryShadow } from './const.css';
+import { accentHover, accentPressed, primaryShadow } from './const.css';
 import { buildRootStyles, buildVariant } from './helpers.css';
 
 // region Styles
@@ -63,10 +63,10 @@ const variantStyles = {
       boxShadow: '0 4px 4px 0 rgba(18, 127, 249, 0.1)',
     },
     hover: {
-      background: '#3192fe',
+      background: accentHover,
     },
     active: {
-      background: '#0b72e4',
+      background: accentPressed,
       boxShadow: 'unset',
     },
   },

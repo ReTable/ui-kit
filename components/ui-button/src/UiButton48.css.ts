@@ -2,6 +2,7 @@ import { styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
+import { accentHover, accentPressed } from './const.css';
 import { buildRootStyles, buildVariant } from './helpers.css';
 
 // region Styles
@@ -32,12 +33,10 @@ const variantStyles = {
       boxShadow: '0 5px 10px 0 rgba(77, 152, 236, 0.2)',
     },
     hover: {
-      // TODO(demiazz): This color must be in the palette.
-      background: '#3192fe',
+      background: accentHover,
     },
     active: {
-      // TODO(demiazz): This color must be in the palette.
-      background: '#0b72e4',
+      background: accentPressed,
       boxShadow: 'unset',
     },
   },
