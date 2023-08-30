@@ -9,6 +9,7 @@ type BaseStyle = {
   height: number;
   padding: number;
   borderRadius: number;
+  outlineWidth: number;
 };
 
 type WithIconStyle = { paddingLeft: number } | { paddingRight: number };
@@ -39,6 +40,12 @@ export function buildRootStyles(rootStyle: RootStyle): [string, string] {
         height: `${rootStyle.base.height}px`,
         padding: `0 ${rootStyle.base.padding}px`,
         borderRadius: `${rootStyle.base.borderRadius}px`,
+
+        selectors: {
+          '&:focus': {
+            outlineWidth: `${rootStyle.base.outlineWidth}px`,
+          },
+        },
       },
     },
   });

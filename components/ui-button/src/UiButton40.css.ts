@@ -12,6 +12,7 @@ const [base, withIcon] = buildRootStyles({
     height: 40,
     padding: 24,
     borderRadius: 20,
+    outlineWidth: 3,
   },
   withIcon: {
     paddingLeft: 16,

@@ -17,7 +17,8 @@ export const root = style({
 
       selectors: {
         '&:focus': {
-          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
+          outlineStyle: 'solid',
+          outlineColor: uiTheme.colors.borderControl.focus2,
         },
       },
     },
