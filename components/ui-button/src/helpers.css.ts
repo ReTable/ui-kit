@@ -34,6 +34,7 @@ type VariantStyle = {
   hover?: CSSProperties;
   active?: CSSProperties;
   focus?: CSSProperties;
+  disabled?: CSSProperties;
 };
 
 // endregion
@@ -102,6 +103,10 @@ function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
 
   if (variant.focus) {
     selectors[`&:not(:disabled, ${isDisabled}):focus`] = variant.focus;
+  }
+
+  if (variant.disabled) {
+    selectors[`&:disabled:disabled, &${isDisabled}${isDisabled}`] = variant.disabled;
   }
 
   return [root, variant.font, wrap({ selectors })];

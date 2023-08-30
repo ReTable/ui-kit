@@ -24,7 +24,7 @@ export const root = style(
         outlineOffset: '0',
       },
 
-      [`&${isDisabled}`]: {
+      [`&:disabled, &${isDisabled}`]: {
         background: uiTheme.colors.fillControl.btnDisabled,
         borderColor: 'transparent',
         color: uiTheme.colors.content.disabled,
