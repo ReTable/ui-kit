@@ -64,10 +64,10 @@ const variantStyles = {
     },
     hover: {
       background: '#3192fe',
-      boxShadow: '0 4px 4px 0 rgba(18, 127, 249, 0.1)',
     },
     active: {
       background: '#0b72e4',
+      boxShadow: 'unset',
     },
   },
 
@@ -111,11 +111,11 @@ const variantStyles = {
     },
     hover: {
       color: uiTheme.colors.content.primary,
-      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 12px 0 rgba(0, 0, 0, 0.08)',
     },
     active: {
       background: uiTheme.colors.background.panels,
       borderColor: uiTheme.colors.neutralAlpha['10'],
+      boxShadow: 'unset',
     },
   },
 };

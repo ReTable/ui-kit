@@ -34,10 +34,10 @@ const variantStyles = {
     },
     hover: {
       background: uiTheme.colors.fillControl.btnPrimaryHover,
-      boxShadow: primaryShadow,
     },
     active: {
       background: uiTheme.colors.fillControl.btnPrimaryPressed,
+      boxShadow: 'unset',
     },
   },
 

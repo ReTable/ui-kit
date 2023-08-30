@@ -34,10 +34,10 @@ const variantStyles = {
     },
     hover: {
       background: uiTheme.colors.fillControl.btnPrimaryHover,
-      boxShadow: primaryShadow,
     },
     active: {
       background: uiTheme.colors.fillControl.btnPrimaryPressed,
+      boxShadow: 'unset',
     },
   },
 
@@ -128,11 +128,11 @@ const variantStyles = {
     },
     hover: {
       background: gradient(uiTheme.colors.fillControl.aiPrimaryHover),
-      boxShadow: primaryShadow,
     },
     active: {
       background: gradient(uiTheme.colors.fillControl.aiPrimaryPressed),
       borderColor: uiTheme.colors.accentAlpha['60'],
+      boxShadow: 'unset',
     },
   },
 };

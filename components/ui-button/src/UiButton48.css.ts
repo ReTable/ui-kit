@@ -34,11 +34,11 @@ const variantStyles = {
     hover: {
       // TODO(demiazz): This color must be in the palette.
       background: '#3192fe',
-      boxShadow: '0 5px 10px 0 rgba(77, 152, 236, 0.2)',
     },
     active: {
       // TODO(demiazz): This color must be in the palette.
       background: '#0b72e4',
+      boxShadow: 'unset',
     },
   },
 
