@@ -51,6 +51,7 @@ const variantStyles = {
     hover: {
       background: uiTheme.colors.neutralAlpha['7'],
       borderColor: uiTheme.colors.borderControl.hover,
+      color: uiTheme.colors.content.primary,
     },
     active: {
       background: uiTheme.colors.neutralAlpha['10'],
