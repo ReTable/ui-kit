@@ -107,10 +107,11 @@ const variantStyles = {
     font: uiFonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.background.primaryContent,
-      color: uiTheme.colors.content.primary,
+      color: uiTheme.colors.content.secondary,
       boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 12px 0px rgba(0, 0, 0, 0.08)',
     },
     hover: {
+      color: uiTheme.colors.content.primary,
       boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.06), 0px 1px 12px 0px rgba(0, 0, 0, 0.08)',
     },
     active: {
