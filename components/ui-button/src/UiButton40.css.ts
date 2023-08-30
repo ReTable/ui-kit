@@ -2,6 +2,7 @@ import { styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
+import { primaryShadow } from './const.css';
 import { buildRootStyles, buildVariant } from './helpers.css';
 
 // region Styles
@@ -29,11 +30,11 @@ const variantStyles = {
     default: {
       background: uiTheme.colors.fillControl.btnPrimary,
       color: uiTheme.colors.content.contrast,
-      boxShadow: '0 2px 6px 0 rgba(81, 106, 130, 0.2)',
+      boxShadow: primaryShadow,
     },
     hover: {
       background: uiTheme.colors.fillControl.btnPrimaryHover,
-      boxShadow: '0 2px 6px 0 rgba(81, 106, 130, 0.2)',
+      boxShadow: primaryShadow,
     },
     active: {
       background: uiTheme.colors.fillControl.btnPrimaryPressed,
