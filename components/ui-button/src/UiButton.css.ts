@@ -11,7 +11,7 @@ export const root = style({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: 'transparent',
+      background: 'transparent',
       border: '1px solid transparent',
       cursor: 'pointer',
       whiteSpace: 'nowrap',
@@ -28,7 +28,7 @@ export const root = style({
 });
 
 export const disabled = style({
-  backgroundColor: uiTheme.colors.fillControl.btnDisabled,
+  background: uiTheme.colors.fillControl.btnDisabled,
   borderColor: 'transparent',
   color: uiTheme.colors.content.disabled,
   boxShadow: 'unset',
