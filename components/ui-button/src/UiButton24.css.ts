@@ -1,13 +1,9 @@
-import { styleVariants } from '@vanilla-extract/css';
-
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { primaryShadow } from './const.css';
-import { buildRootStyles, buildVariant, gradient } from './helpers.css';
+import { buildVariants, gradient } from './helpers.css';
 
-// region Styles
-
-const base = buildRootStyles({
+const rootStyle = {
   base: {
     gap: 4,
     height: 24,
@@ -18,11 +14,7 @@ const base = buildRootStyles({
   withIcon: {
     paddingLeft: 8,
   },
-});
-
-// endregion
-
-// region Variants
+};
 
 const variantStyles = {
   primary: {
@@ -137,8 +129,4 @@ const variantStyles = {
   },
 };
 
-export const variants = styleVariants(variantStyles, (variantStyle) =>
-  buildVariant(base, variantStyle),
-);
-
-// endregion
+export const variants = buildVariants(rootStyle, variantStyles);

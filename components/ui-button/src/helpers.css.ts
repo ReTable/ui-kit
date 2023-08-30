@@ -1,4 +1,10 @@
-import { CSSProperties, ComplexStyleRule, StyleRule, style } from '@vanilla-extract/css';
+import {
+  CSSProperties,
+  ComplexStyleRule,
+  StyleRule,
+  style,
+  styleVariants,
+} from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
@@ -53,7 +59,7 @@ export function gradient({ from, to }: GradientOptions): string {
 
 // endregion
 
-// region Root Styles
+// region Variants
 
 export function buildRootStyles(rootStyle: RootStyle): string {
   const icon =
@@ -79,11 +85,7 @@ export function buildRootStyles(rootStyle: RootStyle): string {
   );
 }
 
-// endregion
-
-// region Variants
-
-export function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
+function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
   const selectors: StyleRule['selectors'] = {};
 
   if (variant.default) {
@@ -103,6 +105,15 @@ export function buildVariant(root: string, variant: VariantStyle): ComplexStyleR
   }
 
   return [root, variant.font, wrap({ selectors })];
+}
+
+export function buildVariants<VariantStyles extends Record<string, VariantStyle>>(
+  rootStyle: RootStyle,
+  variantStyles: VariantStyles,
+): Record<keyof VariantStyles, string> {
+  const root = buildRootStyles(rootStyle);
+
+  return styleVariants(variantStyles, (variantStyle) => buildVariant(root, variantStyle));
 }
 
 // endregion

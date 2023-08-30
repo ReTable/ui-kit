@@ -1,14 +1,12 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed } from './const.css';
-import { buildRootStyles, buildVariant, wrap } from './helpers.css';
+import { buildVariants, wrap } from './helpers.css';
 import { isDisabled } from './modifiers.css';
 
-// region Styles
-
-const base = buildRootStyles({
+const rootStyle = {
   base: {
     gap: 16,
     height: 48,
@@ -19,11 +17,7 @@ const base = buildRootStyles({
   withIcon: {
     paddingRight: 16,
   },
-});
-
-// endregion
-
-// region Variants
+};
 
 const variantStyles = {
   primary: {
@@ -58,13 +52,7 @@ const variantStyles = {
   },
 };
 
-export const variants = styleVariants(variantStyles, (variantStyle) =>
-  buildVariant(base, variantStyle),
-);
-
-// endregion
-
-// region Icon
+export const variants = buildVariants(rootStyle, variantStyles);
 
 export const icon = style(
   wrap({
@@ -83,5 +71,3 @@ export const icon = style(
     },
   }),
 );
-
-// endregion
