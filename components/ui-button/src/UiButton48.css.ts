@@ -2,8 +2,6 @@ import { styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { outline } from './UiButton.css';
-
 import { buildRootStyles, buildVariant } from './helpers';
 
 // region Styles
@@ -42,7 +40,6 @@ const variantStyles = {
     pressed: {
       // TODO(demiazz): This color must be in the palette.
       background: '#0b72e4',
-      boxShadow: outline,
     },
   },
 

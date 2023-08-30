@@ -2,8 +2,6 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
-export const outline = `0 0 0 3px ${uiTheme.colors.borderControl.focus2}`;
-
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
@@ -19,8 +17,7 @@ export const root = style({
 
       selectors: {
         '&:focus': {
-          boxShadow: outline,
-          outline: 'unset',
+          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
         },
       },
     },

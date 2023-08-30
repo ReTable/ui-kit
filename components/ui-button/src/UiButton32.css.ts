@@ -2,8 +2,6 @@ import { styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { outline } from './UiButton.css';
-
 import { buildRootStyles, buildVariant } from './helpers';
 
 // region Styles
@@ -40,7 +38,6 @@ const variantStyles = {
     },
     pressed: {
       background: uiTheme.colors.fillControl.btnPrimaryPressed,
-      boxShadow: outline,
     },
   },
 
@@ -115,7 +112,6 @@ const variantStyles = {
     pressed: {
       background: uiTheme.colors.background.panels,
       border: uiTheme.colors.neutralAlpha['10'],
-      boxShadow: outline,
     },
   },
 };

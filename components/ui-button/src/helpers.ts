@@ -2,8 +2,6 @@ import { CSSProperties, ComplexStyleRule, StyleRule, style } from '@vanilla-extr
 
 import { uiLayers } from '@tabula/ui-theme';
 
-import { outline } from './UiButton.css';
-
 // region Types
 
 type BaseStyle = {
@@ -99,23 +97,8 @@ function buildDefaultProperties(color: string, stateStyle: StateStyle): StyleRul
 }
 
 function buildHoverProperties(stateStyle: StateStyle): StyleRule['selectors'] {
-  const hoverProperties = buildStateProperties(stateStyle);
-
-  if (stateStyle.boxShadow == null) {
-    return {
-      [`&:focus, &:hover`]: hoverProperties,
-    };
-  }
-
-  delete hoverProperties.boxShadow;
-
-  const focusProperties = {
-    boxShadow: `${outline}, ${stateStyle.boxShadow}`,
-  };
-
   return {
-    [`&:focus, &:hover`]: hoverProperties,
-    [`&:focus`]: focusProperties,
+    [`&:hover`]: buildStateProperties(stateStyle),
   };
 }
 
