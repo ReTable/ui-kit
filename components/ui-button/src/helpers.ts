@@ -18,20 +18,13 @@ type RootStyle = {
   withIcon: WithIconStyle;
 };
 
-type StateStyle = {
-  background?: string;
-  border?: string;
-  boxShadow?: string;
-};
-
 type VariantStyle = {
   font: string;
 
-  color: string;
-
-  default: StateStyle;
-  hover: StateStyle;
-  pressed: StateStyle;
+  default?: CSSProperties;
+  hover?: CSSProperties;
+  active?: CSSProperties;
+  focus?: CSSProperties;
 };
 
 // endregion
@@ -70,58 +63,27 @@ export function buildRootStyles(rootStyle: RootStyle): [string, string] {
 
 // region Variants
 
-function buildStateProperties({ background, border, boxShadow }: StateStyle) {
-  const stateStyle: CSSProperties = {};
-
-  if (background) {
-    stateStyle.background = background;
-  }
-
-  if (border) {
-    stateStyle.borderColor = border;
-  }
-
-  if (boxShadow) {
-    stateStyle.boxShadow = boxShadow;
-  }
-
-  return stateStyle;
-}
-
-function buildDefaultProperties(color: string, stateStyle: StateStyle): StyleRule {
-  const properties = buildStateProperties(stateStyle);
-
-  properties.color = color;
-
-  return properties;
-}
-
-function buildHoverProperties(stateStyle: StateStyle): StyleRule['selectors'] {
-  return {
-    [`&:hover`]: buildStateProperties(stateStyle),
-  };
-}
-
-function buildPressedProperties(stateStyle: StateStyle): StyleRule['selectors'] {
-  return {
-    [`&:active`]: buildStateProperties(stateStyle),
-  };
-}
-
 export function buildVariant(root: string, variant: VariantStyle): ComplexStyleRule {
+  const selectors: StyleRule['selectors'] = {};
+
+  if (variant.hover) {
+    selectors['&:hover'] = variant.hover;
+  }
+
+  if (variant.active) {
+    selectors['&:active'] = variant.active;
+  }
+
+  if (variant.focus) {
+    selectors['&:focus'] = variant.focus;
+  }
+
   return [
     root,
     variant.font,
     {
       '@layer': {
-        [uiLayers.components]: {
-          ...buildDefaultProperties(variant.color, variant.default),
-
-          selectors: {
-            ...buildHoverProperties(variant.hover),
-            ...buildPressedProperties(variant.pressed),
-          },
-        },
+        [uiLayers.components]: { ...variant.default, selectors },
       },
     },
   ];

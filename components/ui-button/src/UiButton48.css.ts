@@ -27,9 +27,9 @@ export { withIcon };
 const variantStyles = {
   primary: {
     font: uiFonts.sansSerif.medium18,
-    color: uiTheme.colors.content.contrast,
     default: {
       background: uiTheme.colors.accent['100'],
+      color: uiTheme.colors.content.contrast,
       boxShadow: '0px 5px 10px 0px rgba(77, 152, 236, 0.2)',
     },
     hover: {
@@ -37,7 +37,7 @@ const variantStyles = {
       background: '#3192fe',
       boxShadow: '0px 5px 10px 0px rgba(77, 152, 236, 0.2)',
     },
-    pressed: {
+    active: {
       // TODO(demiazz): This color must be in the palette.
       background: '#0b72e4',
     },
@@ -46,14 +46,14 @@ const variantStyles = {
   // TODO: Icon must have different color instead of text color.
   secondary: {
     font: uiFonts.sansSerif.regular18,
-    color: uiTheme.colors.content.primary,
     default: {
       background: uiTheme.colors.accentShades.secondary1,
+      color: uiTheme.colors.content.primary,
     },
     hover: {
       background: uiTheme.colors.accentShades.secondary2,
     },
-    pressed: {
+    active: {
       background: uiTheme.colors.accentShades.secondary3,
     },
     overrides: {
