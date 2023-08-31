@@ -2,13 +2,9 @@ import { ComponentType, MouseEventHandler, PropsWithChildren } from 'react';
 
 // region Base Props
 
+export type Type = 'button' | 'link' | 'visual';
+
 type CommonProps = PropsWithChildren<{
-  /**
-   * The type of button to use. Supported `button`, `link` and `visual` values.
-   *
-   * @default button
-   */
-  as?: string;
   className?: string;
   /**
    * If `true`, the component is disabled.
@@ -28,30 +24,37 @@ type CommonProps = PropsWithChildren<{
    * If provided, will be added as `data-track-id` attribute for analytics purposes.
    */
   trackId?: string;
+  /**
+   * The type of button to use. Supported `button`, `link` and `visual` values.
+   *
+   * @default button
+   */
+  type?: Type;
 }>;
 
 type ButtonProps = {
-  as?: 'button';
+  type?: 'button';
 };
 
 type LinkProps = {
-  as: 'link';
+  type: 'link';
+
   /**
    * The link's URL.
    *
-   * Available only when `as` property is `link`.
+   * Available only when `type` property is `link`.
    */
   href?: string;
   /**
    * The link's target.
    *
-   * Available only when `as` property is `link`.
+   * Available only when `type` property is `link`.
    */
   target?: string;
 };
 
 type VisualProps = {
-  as: 'visual';
+  type: 'visual';
 };
 
 // endregion

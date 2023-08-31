@@ -24,7 +24,7 @@ export const UiButton: FC<Props> = ({
     className,
   );
 
-  switch (props.as) {
+  switch (props.type) {
     case 'link': {
       return (
         <a
