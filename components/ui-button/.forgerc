@@ -4,6 +4,7 @@
   "entry": "index",
   "check": true,
   "typings": true,
+  "cssClassPrefix": "[name]__",
   "build": {
     "production": true
   },
