@@ -44,6 +44,7 @@ const root = style(
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    maxWidth: 'fit-content',
     background: 'transparent',
     border: '1px solid transparent',
     cursor: 'pointer',
