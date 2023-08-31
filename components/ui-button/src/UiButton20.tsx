@@ -5,7 +5,9 @@ import { variants } from './UiButton20.css';
 import { UiButton } from './UiButton';
 import { VariantProps } from './types';
 
-export type Props = VariantProps<keyof typeof variants>;
+export type Variant = keyof typeof variants;
+
+export type Props = VariantProps<Variant>;
 
 export const UiButton20: FC<Props> = ({ children, className, icon: Icon, variant, ...props }) => (
   <UiButton hasIcon={Icon != null} variantClassName={variants[variant]} {...props}>
