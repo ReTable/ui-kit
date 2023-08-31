@@ -23,6 +23,7 @@ type CommonProps = PropsWithChildren<{
    */
   isFrozen?: boolean;
   onClick?: MouseEventHandler;
+  testId?: string;
   /**
    * If provided, will be added as `data-track-id` attribute for analytics purposes.
    */

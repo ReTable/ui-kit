@@ -12,6 +12,7 @@ export const UiButton: FC<Props> = ({
   hasIcon,
   isDisabled,
   isFrozen,
+  testId,
   trackId,
   variantClassName,
   ...props
@@ -29,6 +30,7 @@ export const UiButton: FC<Props> = ({
         <a
           aria-disabled={isDisabled}
           className={finalClassName}
+          data-testid={testId}
           data-track-id={trackId}
           href={props.href}
           onClick={props.onClick}
@@ -45,6 +47,7 @@ export const UiButton: FC<Props> = ({
         <div
           aria-disabled={isDisabled}
           className={finalClassName}
+          data-testid={testId}
           data-track-id={trackId}
           onClick={props.onClick}
           role="button"
@@ -58,6 +61,7 @@ export const UiButton: FC<Props> = ({
       return (
         <button
           className={finalClassName}
+          data-testid={testId}
           data-track-id={trackId}
           disabled={isDisabled}
           onClick={props.onClick}
