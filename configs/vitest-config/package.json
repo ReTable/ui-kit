@@ -10,6 +10,11 @@
       "import": "./lib/index.js",
       "default": "./lib/index.js"
     },
+    "./browserSetup": {
+      "types": "./typings/browserSetup.d.ts",
+      "import": "./lib/browserSetup.js",
+      "default": "./lib/browserSetup.js"
+    },
     "./package.json": "./package.json"
   },
   "keywords": [
@@ -39,8 +44,12 @@
     "build": "forge",
     "lint": "eslint ."
   },
+  "optionalDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.1.2",
+    "happy-dom": "^10.11.1"
+  },
   "peerDependencies": {
-    "happy-dom": "^10.11.1",
     "vitest": "^0.34.3"
   }
 }
