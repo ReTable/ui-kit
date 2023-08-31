@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "turbo build",
+    "build:docs": "turbo build:docs",
     "build:watch": "turbo build:watch",
     "docs:build": "storybook build --output-dir docs",
     "docs:watch": "storybook dev -p 6006",

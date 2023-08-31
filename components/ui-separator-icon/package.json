@@ -39,6 +39,7 @@
   ],
   "scripts": {
     "build": "forge",
+    "build:docs": "forge --storybook",
     "build:watch": "forge --watch",
     "lint": "eslint ."
   },
