@@ -23,6 +23,9 @@ importers:
       '@commitlint/config-pnpm-scopes':
         specifier: ^17.7.0
         version: 17.7.0
+      '@ngneat/falso':
+        specifier: ^7.1.0
+        version: 7.1.0
       '@storybook/addon-essentials':
         specifier: ^7.4.0
         version: 7.4.0(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)
@@ -3192,6 +3195,13 @@ packages:
       gunzip-maybe: 1.4.2
       pump: 3.0.0
       tar-fs: 2.1.1
+    dev: true
+
+  /@ngneat/falso@7.1.0:
+    resolution: {integrity: sha512-ihJZmLxLYjiJA6QdW1S+DyDP61EH9/76oaFRGziT7uiAQDWg8SfBit0M0coLPps8x+8v1y+bs+mrX95zZBuW6A==}
+    dependencies:
+      seedrandom: 3.0.5
+      uuid: 8.3.2
     dev: true
 
   /@nodelib/fs.scandir@2.1.5:
@@ -11924,6 +11934,10 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
+  /seedrandom@3.0.5:
+    resolution: {integrity: sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==}
+    dev: true
+
   /semver@5.7.1:
     resolution: {integrity: sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==}
     hasBin: true
@@ -13144,6 +13158,11 @@ packages:
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
     engines: {node: '>= 0.4.0'}
+    dev: true
+
+  /uuid@8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
     dev: true
 
   /uuid@9.0.0:
