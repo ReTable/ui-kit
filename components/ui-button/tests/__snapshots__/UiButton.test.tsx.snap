@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`UiButton > works 1`] = `
-<div
-  className="UiButton_root__1w7vco90 "
-/>
-`;
