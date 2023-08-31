@@ -44,7 +44,7 @@ type LinkProps = {
    *
    * Available only when `type` property is `link`.
    */
-  href?: string;
+  href: string;
   /**
    * The link's target.
    *
