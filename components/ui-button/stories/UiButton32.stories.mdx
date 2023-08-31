@@ -20,7 +20,7 @@ The component supports are many options.
 
 ### As
 
-The components supports three modes: `button`, `link` and `visual`. By default, the `button` mode is used.
+The components support three types: `button`, `link` and `visual`. By default, the `button` type is used.
 
 #### Button
 
@@ -28,24 +28,24 @@ By default, the component renders generic button:
 
 <Canvas>
   <UiButton32 variant="primaryDesign">Default</UiButton32>
-  <UiButton32 as="button"  variant="primaryDesign">Button</UiButton32>
+  <UiButton32 type="button" variant="primaryDesign">Button</UiButton32>
 </Canvas>
 
 #### Link
 
-You can use button as link providing `as="link"` property, and additionally `href` and optionally `target`:
+You can use button as link providing `type="link"` property, and additionally `href` and optionally `target`:
 
 <Canvas>
-  <UiButton32 as="link" href="#" variant="primaryDesign">Link</UiButton32>
-  <UiButton32 as="link" href="#" target="_blank" variant="primaryDesign">Link with target</UiButton32>
+  <UiButton32 href="#" type="link" variant="primaryDesign">Link</UiButton32>
+  <UiButton32 href="#" target="_blank" type="link" variant="primaryDesign">Link with target</UiButton32>
 </Canvas>
 
 #### Visual
 
-You can render button as `div` element providing `as="visual"` for rare cases when you can't use `button` element:
+You can render button as `div` element providing `type="visual"` for rare cases when you can't use `button` element:
 
 <Canvas>
-  <UiButton32 as="visual" variant="primaryDesign">Visual</UiButton32>
+  <UiButton32 type="visual" variant="primaryDesign">Visual</UiButton32>
 </Canvas>
 
 ### Variant
@@ -66,9 +66,9 @@ There are 6 variants:
 All buttons supports `isDisabled` property:
 
 <Canvas>
-  <UiButton32 as="button" isDisabled variant="primaryDesign">Button</UiButton32>
-  <UiButton32 as="link" isDisabled href="#" variant="primaryDesign">Link</UiButton32>
-  <UiButton32 as="visual" isDisabled variant="primaryDesign">Visual</UiButton32>
+  <UiButton32 isDisabled type="button" variant="primaryDesign">Button</UiButton32>
+  <UiButton32 href="#" isDisabled type="link" variant="primaryDesign">Link</UiButton32>
+  <UiButton32 isDisabled type="visual" variant="primaryDesign">Visual</UiButton32>
 </Canvas>
 
 ### Frozen
@@ -77,9 +77,9 @@ Along with `isDisabled` option, the component supports `isFrozen` option. In tha
 style, but will not react on user interactions.
 
 <Canvas>
-  <UiButton32 as="button" isFrozen variant="primaryDesign">Button</UiButton32>
-  <UiButton32 as="link" isFrozen href="#" variant="primaryDesign">Link</UiButton32>
-  <UiButton32 as="visual" isFrozen variant="primaryDesign">Visual</UiButton32>
+  <UiButton32 isFrozen type="button" variant="primaryDesign">Button</UiButton32>
+  <UiButton32 href="#" isFrozen type="link" variant="primaryDesign">Link</UiButton32>
+  <UiButton32 isFrozen type="visual" variant="primaryDesign">Visual</UiButton32>
 </Canvas>
 
 ### Icon
@@ -97,7 +97,7 @@ You can provide an icon component:
 
 We recommend use icons with size of `16x16`.
 
-An icon component should supports `className` property.
+An icon component should support `className` property.
 
 ### Analytics
 
@@ -105,7 +105,7 @@ Also, the component supports the `trackId` property. It's adds `data-track-id` p
 purposes.
 
 <Canvas>
-  <UiButton32 as="button" trackId="my-track-id" variant="primaryDesign">Tracked</UiButton32>
+  <UiButton32 trackId="my-track-id" type="button" variant="primaryDesign">Tracked</UiButton32>
 </Canvas>
 
 ## Properties

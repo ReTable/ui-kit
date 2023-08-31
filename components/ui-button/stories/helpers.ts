@@ -5,12 +5,12 @@ import { AddIcon } from './AddIcon';
 // region Types
 
 type BaseProps = {
-  as?: string;
+  type?: string;
   variant: string;
 };
 
 export type ArgsOf<Props extends BaseProps> = {
-  as?: Props['as'];
+  type?: Props['type'];
   href?: string;
   icon?: boolean;
   isDisabled?: boolean;
@@ -27,8 +27,8 @@ export type ArgsOf<Props extends BaseProps> = {
 // region Meta
 
 export const argTypes = {
-  as: {
-    name: 'As',
+  type: {
+    name: 'Type',
     control: 'select',
     options: ['button', 'link', 'visual'],
   },
@@ -83,7 +83,6 @@ export const argTypes = {
 // region Helpers
 
 export function toProps<Props extends BaseProps>({
-  as,
   href,
   icon,
   isDisabled,
@@ -92,15 +91,16 @@ export function toProps<Props extends BaseProps>({
   onClick,
   target,
   trackId,
-  variant = 'contract',
+  type,
+  variant,
 }: ArgsOf<Props>): Props {
   const props: Record<string, unknown> = {
-    as,
     children,
     isDisabled,
     isFrozen,
     onClick,
     trackId,
+    type,
     variant,
   };
 

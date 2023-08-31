@@ -19,9 +19,9 @@ Buttons allow users to take actions, and make choices. Simple example:
 
 The component supports are many options.
 
-### As
+### Type
 
-The components supports three modes: `button`, `link` and `visual`. By default, the `button` mode is used.
+The component supports three types: `button`, `link` and `visual`. By default, the `button` type is used.
 
 #### Button
 
@@ -29,24 +29,24 @@ By default, the component renders generic button:
 
 <Canvas className={contractBackground}>
   <UiButton20 variant="contract">Default</UiButton20>
-  <UiButton20 as="button"  variant="contract">Button</UiButton20>
+  <UiButton20 type="button" variant="contract">Button</UiButton20>
 </Canvas>
 
 #### Link
 
-You can use button as link providing `as="link"` property, and additionally `href` and optionally `target`:
+You can use button as link providing `type="link"` property, and additionally `href` and optionally `target`:
 
 <Canvas className={contractBackground}>
-  <UiButton20 as="link" href="#" variant="contract">Link</UiButton20>
-  <UiButton20 as="link" href="#" target="_blank" variant="contract">Link with target</UiButton20>
+  <UiButton20 href="#" type="link" variant="contract">Link</UiButton20>
+  <UiButton20 href="#" target="_blank" type="link" variant="contract">Link with target</UiButton20>
 </Canvas>
 
 #### Visual
 
-You can render button as `div` element providing `as="visual"` for rare cases when you can't use `button` element:
+You can render button as `div` element providing `type="visual"` for rare cases when you can't use `button` element:
 
 <Canvas className={contractBackground}>
-  <UiButton20 as="visual" variant="contract">Visual</UiButton20>
+  <UiButton20 type="visual" variant="contract">Visual</UiButton20>
 </Canvas>
 
 ### Variant
@@ -62,9 +62,9 @@ There is single variant:
 All buttons supports `isDisabled` property:
 
 <Canvas className={contractBackground}>
-  <UiButton20 as="button" isDisabled variant="contract">Button</UiButton20>
-  <UiButton20 as="link" isDisabled href="#" variant="contract">Link</UiButton20>
-  <UiButton20 as="visual" isDisabled variant="contract">Visual</UiButton20>
+  <UiButton20 isDisabled type="button" variant="contract">Button</UiButton20>
+  <UiButton20 href="#" isDisabled type="link" variant="contract">Link</UiButton20>
+  <UiButton20 isDisabled type="visual" variant="contract">Visual</UiButton20>
 </Canvas>
 
 ### Frozen
@@ -73,9 +73,9 @@ Along with `isDisabled` option, the component supports `isFrozen` option. In tha
 style, but will not react on user interactions.
 
 <Canvas className={contractBackground}>
-  <UiButton20 as="button" isFrozen variant="contract">Button</UiButton20>
-  <UiButton20 as="link" isFrozen href="#" variant="contract">Link</UiButton20>
-  <UiButton20 as="visual" isFrozen variant="contract">Visual</UiButton20>
+  <UiButton20 isFrozen type="button" variant="contract">Button</UiButton20>
+  <UiButton20 href="#" isFrozen type="link" variant="contract">Link</UiButton20>
+  <UiButton20 isFrozen type="visual" variant="contract">Visual</UiButton20>
 </Canvas>
 
 ### Icon
@@ -88,7 +88,7 @@ You can provide an icon component:
 
 We recommend use icons with size of `16x16`.
 
-An icon component should supports `className` property.
+An icon component should support `className` property.
 
 ### Analytics
 
@@ -96,7 +96,7 @@ Also, the component supports the `trackId` property. It's adds `data-track-id` p
 purposes.
 
 <Canvas className={contractBackground}>
-  <UiButton20 as="button" trackId="my-track-id" variant="contract">Tracked</UiButton20>
+  <UiButton20 trackId="my-track-id" type="button" variant="contract">Tracked</UiButton20>
 </Canvas>
 
 ## Properties
