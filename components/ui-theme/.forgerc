@@ -4,6 +4,7 @@
   "entry": "index",
   "check": true,
   "typings": true,
+  "cssClassPrefix": "[name]__",
   "postBuild": "NODE_OPTIONS='--no-warnings' tsx scripts/importToScss.ts",
   "build": {
     "production": true
