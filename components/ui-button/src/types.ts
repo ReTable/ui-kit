@@ -11,19 +11,19 @@ type CommonProps = PropsWithChildren<{
 
 type ButtonProps = {
   as?: 'button';
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  onClick?: MouseEventHandler;
 };
 
 type LinkProps = {
   as: 'link';
   href?: string;
-  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  onClick?: MouseEventHandler;
   target?: string;
 };
 
 type VisualProps = {
   as: 'visual';
-  onClick?: MouseEventHandler<HTMLDivElement>;
+  onClick?: MouseEventHandler;
 };
 
 // endregion
