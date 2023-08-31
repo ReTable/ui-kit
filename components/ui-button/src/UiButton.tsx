@@ -2,11 +2,7 @@ import { FC } from 'react';
 
 import clsx from 'clsx';
 
-import {
-  hasIcon as hasIconModifier,
-  isDisabled as isDisabledModifier,
-  isFrozen as isFrozenModifier,
-} from './modifiers.css';
+import { hasIcon as hasIconModifier, isFrozen as isFrozenModifier } from './modifiers.css';
 
 import { InnerProps as Props } from './types';
 
@@ -23,7 +19,6 @@ export const UiButton: FC<Props> = ({
   const finalClassName = clsx(
     hasIcon && hasIconModifier,
     isFrozen && isFrozenModifier,
-    isDisabled && isDisabledModifier,
     variantClassName,
     className,
   );

@@ -3,7 +3,6 @@ import { style } from '@vanilla-extract/css';
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed } from './const.css';
-import { isDisabled } from './modifiers.css';
 import { buildVariants } from './variants.css';
 
 import { wrap } from './helpers';
@@ -66,7 +65,7 @@ export const icon = style(
         color: uiTheme.colors.content.secondary,
       },
 
-      [`${variants.secondary}:disabled &, ${variants.secondary}${isDisabled} &`]: {
+      [`${variants.secondary}:disabled &, ${variants.secondary}[aria-disabled="true"] &`]: {
         color: uiTheme.colors.content.disabled,
       },
     },

@@ -8,7 +8,7 @@ import {
 
 import { uiTheme } from '@tabula/ui-theme';
 
-import { hasIcon, isDisabled } from './modifiers.css';
+import { hasIcon } from './modifiers.css';
 
 import { wrap } from './helpers';
 
@@ -57,7 +57,7 @@ const root = style(
         outlineOffset: '0',
       },
 
-      [`&:disabled, &${isDisabled}`]: {
+      ['&:disabled, &[aria-disabled="true"]']: {
         background: uiTheme.colors.fillControl.btnDisabled,
         borderColor: 'transparent',
         color: uiTheme.colors.content.disabled,
@@ -93,23 +93,23 @@ function buildVariant(base: string, variant: VariantStyle): ComplexStyleRule {
   const selectors: StyleRule['selectors'] = {};
 
   if (variant.default) {
-    selectors[`&:not(:disabled, ${isDisabled})`] = variant.default;
+    selectors['&:not(:disabled, [aria-disabled="true"])'] = variant.default;
   }
 
   if (variant.hover) {
-    selectors[`&:not(:disabled, ${isDisabled}):hover`] = variant.hover;
+    selectors['&:not(:disabled, [aria-disabled="true"]):hover'] = variant.hover;
   }
 
   if (variant.active) {
-    selectors[`&:not(:disabled, ${isDisabled}):active`] = variant.active;
+    selectors['&:not(:disabled, [aria-disabled="true"]):active'] = variant.active;
   }
 
   if (variant.focus) {
-    selectors[`&:not(:disabled, ${isDisabled}):focus`] = variant.focus;
+    selectors['&:not(:disabled, [aria-disabled="true"]):focus'] = variant.focus;
   }
 
   if (variant.disabled) {
-    selectors[`&:disabled, &${isDisabled}`] = variant.disabled;
+    selectors['&:disabled, &[aria-disabled="true"]'] = variant.disabled;
   }
 
   return [root, base, variant.font, wrap({ selectors })];
