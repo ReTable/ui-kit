@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import { ReactElement } from 'react';
+
+import { StoryObj } from '@storybook/react';
 
 import { UiButton20, UiButton20Props } from '~';
 
@@ -20,8 +22,25 @@ const meta = {
     label: 'Press me!',
     variant: argTypes.variant.options[0],
   },
+
+  parameters: {
+    backgrounds: {
+      default: 'dark',
+    },
+  },
 };
 
 export default meta;
 
-export const Default: FC<Args> = (args) => <UiButton20 {...toProps(args)} />;
+function render(args: Args): ReactElement {
+  return <UiButton20 {...toProps(args)} />;
+}
+
+type Story = StoryObj<Args>;
+
+export const Contract: Story = {
+  args: {
+    variant: 'contract',
+  },
+  render,
+};

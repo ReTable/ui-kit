@@ -1,4 +1,6 @@
-import { FC } from 'react';
+import { ReactElement } from 'react';
+
+import { StoryObj } from '@storybook/react';
 
 import { UiButton40, UiButton40Props } from '~';
 
@@ -24,4 +26,36 @@ const meta = {
 
 export default meta;
 
-export const Default: FC<Args> = (args) => <UiButton40 {...toProps(args)} />;
+function render(args: Args): ReactElement {
+  return <UiButton40 {...toProps(args)} />;
+}
+
+type Story = StoryObj<Args>;
+
+export const Primary: Story = {
+  args: {
+    variant: 'primary',
+  },
+  render,
+};
+
+export const Secondary: Story = {
+  args: {
+    variant: 'secondary',
+  },
+  render,
+};
+
+export const SecondaryBlue: Story = {
+  args: {
+    variant: 'secondaryBlue',
+  },
+  render,
+};
+
+export const SecondaryFilled: Story = {
+  args: {
+    variant: 'secondaryFilled',
+  },
+  render,
+};
