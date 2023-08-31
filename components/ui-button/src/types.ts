@@ -8,7 +8,7 @@ type CommonProps = PropsWithChildren<{
    *
    * @default button
    */
-  as: string;
+  as?: string;
   className?: string;
   /**
    * If `true`, the component is disabled.
