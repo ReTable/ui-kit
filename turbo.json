@@ -9,7 +9,7 @@
     },
     "build:docs": {
       "dependsOn": ["^build:docs"],
-      "inputs": ["src/**", "tsconfig.forge.json"],
+      "inputs": ["src/**", ".forgerc", "tsconfig.json", "tsconfig.forge.json"],
       "outputs": ["lib/**", "typings/**"]
     },
     "build:watch": {
@@ -21,7 +21,7 @@
       "inputs": ["src/**", "stories/**", "tests/**", ".eslintignore", ".eslintrc.json"]
     },
     "test": {
-      "dependsOn": ["build"],
+      "dependsOn": ["build", "@tabula/vitest-config#build"],
       "inputs": ["src/**", "tests/**"]
     }
   }
