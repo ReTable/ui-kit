@@ -114,7 +114,7 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).not.toBeEnabled();
-      expect(button).toHaveAttribute('tabIndex', '-1');
+      expect(button).not.toHaveAttribute('tabIndex');
     });
 
     it('allows to freeze button', () => {
@@ -127,7 +127,7 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).not.toBeEnabled();
-      expect(button).toHaveAttribute('tabIndex', '-1');
+      expect(button).not.toHaveAttribute('tabIndex');
     });
 
     it('has different classes for disabled and frozen states', () => {
@@ -222,7 +222,7 @@ describe('UiButton48', () => {
 
       expect(button).not.toHaveAttribute('href');
       expect(button).toHaveAttribute('aria-disabled', 'true');
-      expect(button).toHaveAttribute('tabIndex', '-1');
+      expect(button).not.toHaveAttribute('tabIndex');
     });
 
     it('allows to freeze button', () => {
@@ -236,7 +236,7 @@ describe('UiButton48', () => {
 
       expect(button).not.toHaveAttribute('href');
       expect(button).toHaveAttribute('aria-disabled', 'true');
-      expect(button).toHaveAttribute('tabIndex', '-1');
+      expect(button).not.toHaveAttribute('tabIndex');
     });
 
     it('has different classes for disabled and frozen states', () => {
@@ -399,7 +399,7 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveAttribute('aria-disabled', 'true');
-      expect(button).toHaveAttribute('tabIndex', '-1');
+      expect(button).not.toHaveAttribute('tabIndex');
     });
 
     it('allows to freeze button', () => {
@@ -412,7 +412,7 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveAttribute('aria-disabled', 'true');
-      expect(button).toHaveAttribute('tabIndex', '-1');
+      expect(button).not.toHaveAttribute('tabIndex');
     });
 
     it('has different classes for disabled and frozen states', () => {
