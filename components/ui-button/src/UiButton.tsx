@@ -29,7 +29,7 @@ export const UiButton: FC<Props> = ({
     className,
   );
 
-  const tabIndex = isDisabled || isFrozen ? -1 : 0;
+  const tabIndex = isDisabled || isFrozen ? undefined : 0;
 
   switch (props.type) {
     case 'link': {
