@@ -1,5 +1,11 @@
 # @tabula/vitest-config
 
+## 0.1.0
+
+### Minor Changes
+
+- [#50](https://github.com/ReTable/ui-kit/pull/50) [`61b5399`](https://github.com/ReTable/ui-kit/commit/61b5399bc55fa146cf4fdda1e7273cfb26a1d187) Thanks [@demiazz](https://github.com/demiazz)! - added integration with `@testing-library` for browser
+
 ## 0.0.5
 
 ### Patch Changes

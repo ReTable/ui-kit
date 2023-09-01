@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 1.0.3
+
+### Patch Changes
+
+- [#50](https://github.com/ReTable/ui-kit/pull/50) [`61b5399`](https://github.com/ReTable/ui-kit/commit/61b5399bc55fa146cf4fdda1e7273cfb26a1d187) Thanks [@demiazz](https://github.com/demiazz)! - used short class names in production build
+
 ## 1.0.2
 
 ### Patch Changes
