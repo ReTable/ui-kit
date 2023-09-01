@@ -37,7 +37,7 @@ export const UiButton: FC<Props> = ({
       return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-          aria-disabled={isDisabled || isFrozen}
+          aria-disabled={isDisabled || isFrozen ? true : undefined}
           className={finalClassName}
           data-testid={testId}
           data-track-id={trackId}
@@ -56,7 +56,7 @@ export const UiButton: FC<Props> = ({
       return (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
-          aria-disabled={isDisabled || isFrozen}
+          aria-disabled={isDisabled || isFrozen ? true : undefined}
           className={finalClassName}
           data-testid={testId}
           data-track-id={trackId}
