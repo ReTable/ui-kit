@@ -42,9 +42,14 @@ describe('UiButton48', () => {
     const button = screen.getByTestId('subject');
 
     expect(button.nodeName).toBe('BUTTON');
+
+    expect(button).toBeEnabled();
+
     expect(button).toHaveAttribute('tabIndex', '0');
     expect(button).toHaveAttribute('type', 'button');
     expect(button).toHaveTextContent('Button');
+
+    expect(button).not.toHaveAttribute('data-track-id');
   });
 
   describe('button', () => {
@@ -58,9 +63,14 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button.nodeName).toBe('BUTTON');
+
+      expect(button).toBeEnabled();
+
       expect(button).toHaveAttribute('tabIndex', '0');
       expect(button).toHaveAttribute('type', 'button');
       expect(button).toHaveTextContent('Button');
+
+      expect(button).not.toHaveAttribute('data-track-id');
     });
 
     it('allows render an icon', () => {
@@ -88,6 +98,39 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveClass(className);
+    });
+
+    it('uses children as title by default', () => {
+      const title = randWord();
+
+      render(
+        <UiButton48 testId="subject" type="button" variant={variant}>
+          {title}
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('title', title);
+
+      expect(button).toHaveTextContent(title);
+    });
+
+    it('allows to provide title', () => {
+      const label = randWord();
+      const title = randWord();
+
+      render(
+        <UiButton48 testId="subject" title={title} type="button" variant={variant}>
+          {label}
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('title', title);
+
+      expect(button).toHaveTextContent(label);
     });
 
     it('allows to provide track id', () => {
@@ -166,7 +209,14 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button.nodeName).toBe('A');
+
       expect(button).toHaveAttribute('tabIndex', '0');
+
+      expect(button).not.toHaveAttribute('aria-disabled');
+      expect(button).not.toHaveAttribute('data-track-id');
+      expect(button).not.toHaveAttribute('rel');
+      expect(button).not.toHaveAttribute('target');
+
       expect(button).toHaveTextContent('Button');
     });
 
@@ -195,6 +245,39 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveClass(className);
+    });
+
+    it('uses children as title by default', () => {
+      const title = randWord();
+
+      render(
+        <UiButton48 href="#" testId="subject" type="link" variant={variant}>
+          {title}
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('title', title);
+
+      expect(button).toHaveTextContent(title);
+    });
+
+    it('allows to provide title', () => {
+      const label = randWord();
+      const title = randWord();
+
+      render(
+        <UiButton48 href="#" testId="subject" title={title} type="link" variant={variant}>
+          {label}
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('title', title);
+
+      expect(button).toHaveTextContent(label);
     });
 
     it('allows to provide track id', () => {
@@ -277,18 +360,6 @@ describe('UiButton48', () => {
       expect(button).toHaveAttribute('href', href);
     });
 
-    it('have no target by default', () => {
-      render(
-        <UiButton48 href="#" testId="subject" type="link" variant={variant}>
-          Button
-        </UiButton48>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).not.toHaveAttribute('target');
-    });
-
     it('allows to provide target', () => {
       render(
         <UiButton48 href="#" target="_blank" testId="subject" type="link" variant={variant}>
@@ -299,18 +370,6 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveAttribute('target', '_blank');
-    });
-
-    it('have no rel by default', () => {
-      render(
-        <UiButton48 href="#" testId="subject" type="link" variant={variant}>
-          Button
-        </UiButton48>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).not.toHaveAttribute('rel');
     });
 
     it('allows to provide rel', () => {
@@ -343,8 +402,13 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button.nodeName).toBe('DIV');
+
       expect(button).toHaveAttribute('role', 'button');
       expect(button).toHaveAttribute('tabIndex', '0');
+
+      expect(button).not.toHaveAttribute('aria-disabled');
+      expect(button).not.toHaveAttribute('data-track-id');
+
       expect(button).toHaveTextContent('Button');
     });
 
@@ -373,6 +437,39 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveClass(className);
+    });
+
+    it('uses children as title by default', () => {
+      const title = randWord();
+
+      render(
+        <UiButton48 testId="subject" type="visual" variant={variant}>
+          {title}
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('title', title);
+
+      expect(button).toHaveTextContent(title);
+    });
+
+    it('allows to provide title', () => {
+      const label = randWord();
+      const title = randWord();
+
+      render(
+        <UiButton48 testId="subject" title={title} type="visual" variant={variant}>
+          {label}
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('title', title);
+
+      expect(button).toHaveTextContent(label);
     });
 
     it('allows to provide track id', () => {
