@@ -7,13 +7,13 @@ export type Type = 'button' | 'link' | 'visual';
 type CommonProps = PropsWithChildren<{
   className?: string;
   /**
-   * If `true`, the component is disabled.
+   * Whether the button is disabled.
    *
    * @default false
    */
   isDisabled?: boolean;
   /**
-   * If `true`, the component is frozen.
+   * Whether the button is frozen.
    *
    * @default false
    */
@@ -40,13 +40,13 @@ type LinkProps = {
   type: 'link';
 
   /**
-   * The link's URL.
+   * A URL to link to.
    *
    * Available only when `type` property is `link`.
    */
   href: string;
   /**
-   * The link's target.
+   * The target window for the link.
    *
    * Available only when `type` property is `link`.
    */
@@ -87,7 +87,7 @@ type VariantBaseProps<Variant extends string> = CommonProps & {
    */
   icon?: Icon;
   /**
-   * The color scheme variant.
+   * The visual style of the button.
    */
   variant: Variant;
 };
