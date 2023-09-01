@@ -220,6 +220,7 @@ describe('UiButton48', () => {
 
       const button = screen.getByTestId('subject');
 
+      expect(button).not.toHaveAttribute('href');
       expect(button).toHaveAttribute('aria-disabled', 'true');
       expect(button).toHaveAttribute('tabIndex', '-1');
     });
@@ -233,6 +234,7 @@ describe('UiButton48', () => {
 
       const button = screen.getByTestId('subject');
 
+      expect(button).not.toHaveAttribute('href');
       expect(button).toHaveAttribute('aria-disabled', 'true');
       expect(button).toHaveAttribute('tabIndex', '-1');
     });
@@ -297,6 +299,36 @@ describe('UiButton48', () => {
       const button = screen.getByTestId('subject');
 
       expect(button).toHaveAttribute('target', '_blank');
+    });
+
+    it('have no rel by default', () => {
+      render(
+        <UiButton48 href="#" testId="subject" type="link" variant={variant}>
+          Button
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).not.toHaveAttribute('rel');
+    });
+
+    it('allows to provide rel', () => {
+      render(
+        <UiButton48
+          href="#"
+          rel="noreferrer noopener"
+          testId="subject"
+          type="link"
+          variant={variant}
+        >
+          Button
+        </UiButton48>,
+      );
+
+      const button = screen.getByTestId('subject');
+
+      expect(button).toHaveAttribute('rel', 'noreferrer noopener');
     });
   });
 
