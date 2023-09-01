@@ -26,7 +26,6 @@ export const UiButton: FC<Props> = ({
     isDisabled && !isFrozen && isDisabledModifier,
     isFrozen && isFrozenModifier,
     hasIcon && hasIconModifier,
-    variantClassName,
     className,
   );
 
