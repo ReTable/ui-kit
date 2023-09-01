@@ -82,6 +82,16 @@ style, but will not react on user interactions.
   <UiButton32 isFrozen type="visual" variant="primaryDesign">Visual</UiButton32>
 </Canvas>
 
+### Disabled and frozen
+
+The `isDisabled` has priority when you use `isDisabled` and `isFrozen` together.
+
+<Canvas>
+  <UiButton32 isDisabled isFrozen type="button" variant="primaryDesign">Button</UiButton32>
+  <UiButton32 isDisabled isFrozen href="#" type="link" variant="primaryDesign">Link</UiButton32>
+  <UiButton32 isDisabled isFrozen type="visual" variant="primaryDesign">Visual</UiButton32>
+</Canvas>
+
 ### Icon
 
 You can provide an icon component:

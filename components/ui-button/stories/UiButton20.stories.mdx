@@ -78,6 +78,16 @@ style, but will not react on user interactions.
   <UiButton20 isFrozen type="visual" variant="contract">Visual</UiButton20>
 </Canvas>
 
+### Disabled and frozen
+
+The `isDisabled` has priority when you use `isDisabled` and `isFrozen` together.
+
+<Canvas className={contractBackground}>
+  <UiButton20 isDisabled isFrozen type="button" variant="contract">Button</UiButton20>
+  <UiButton20 isDisabled isFrozen href="#" type="link" variant="contract">Link</UiButton20>
+  <UiButton20 isDisabled isFrozen type="visual" variant="contract">Visual</UiButton20>
+</Canvas>
+
 ### Icon
 
 You can provide an icon component:
