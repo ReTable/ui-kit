@@ -17,6 +17,7 @@ export const UiButton: FC<Props> = ({
   isDisabled = false,
   isFrozen = false,
   testId,
+  title,
   trackId,
   variantClassName,
   ...props
@@ -34,6 +35,7 @@ export const UiButton: FC<Props> = ({
   switch (props.type) {
     case 'link': {
       return (
+        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
           aria-disabled={isDisabled || isFrozen}
           className={finalClassName}
@@ -44,6 +46,7 @@ export const UiButton: FC<Props> = ({
           rel={props.rel}
           tabIndex={tabIndex}
           target={props.target}
+          title={title}
         >
           {children}
         </a>
@@ -60,6 +63,7 @@ export const UiButton: FC<Props> = ({
           onClick={props.onClick}
           role="button"
           tabIndex={tabIndex}
+          title={title}
         >
           {children}
         </div>
@@ -74,6 +78,7 @@ export const UiButton: FC<Props> = ({
           disabled={isDisabled || isFrozen}
           onClick={props.onClick}
           tabIndex={tabIndex}
+          title={title}
           type="button"
         >
           {children}

@@ -20,6 +20,7 @@ type CommonProps = {
   isFrozen?: boolean;
   onClick?: MouseEventHandler;
   testId?: string;
+  title?: string;
   /**
    * If provided, will be added as `data-track-id` attribute for analytics purposes.
    */
@@ -90,7 +91,7 @@ export type InnerProps =
 type Icon = ComponentType<{ className?: string }>;
 
 type VariantBaseProps<Variant extends string> = CommonProps & {
-  children: string;
+  children?: string;
   /**
    * The icon component.
    *

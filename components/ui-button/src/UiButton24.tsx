@@ -9,8 +9,13 @@ export type Variant = keyof typeof variants;
 
 export type Props = VariantProps<Variant>;
 
-export const UiButton24: FC<Props> = ({ children, icon: Icon, variant, ...props }) => (
-  <UiButton hasIcon={Icon != null} variantClassName={variants[variant]} {...props}>
+export const UiButton24: FC<Props> = ({ children, icon: Icon, title, variant, ...props }) => (
+  <UiButton
+    hasIcon={Icon != null}
+    title={title ?? children}
+    variantClassName={variants[variant]}
+    {...props}
+  >
     {Icon && <Icon />}
     {children}
   </UiButton>
