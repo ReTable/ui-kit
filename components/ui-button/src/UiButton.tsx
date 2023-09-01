@@ -23,8 +23,8 @@ export const UiButton: FC<Props> = ({
 }: Props) => {
   const finalClassName = clsx(
     variantClassName,
-    isDisabled && !isFrozen && isDisabledModifier,
     isFrozen && isFrozenModifier,
+    isDisabled && isDisabledModifier,
     hasIcon && hasIconModifier,
     className,
   );

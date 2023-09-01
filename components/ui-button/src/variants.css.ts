@@ -8,7 +8,7 @@ import {
 
 import { uiTheme } from '@tabula/ui-theme';
 
-import { hasIcon, isDisabled } from './modifiers.css';
+import { hasIcon, isDisabled, isFrozen } from './modifiers.css';
 
 import { wrap } from './helpers';
 
@@ -58,13 +58,16 @@ const root = style(
         outlineOffset: '0',
       },
 
+      [`&${isFrozen}, &${isDisabled}`]: {
+        cursor: 'default',
+        pointerEvents: 'none',
+      },
+
       [`&${isDisabled}`]: {
         background: uiTheme.colors.fillControl.btnDisabled,
         borderColor: 'transparent',
         color: uiTheme.colors.content.disabled,
         boxShadow: 'unset',
-        cursor: 'default',
-        pointerEvents: 'none',
       },
     },
   }),
