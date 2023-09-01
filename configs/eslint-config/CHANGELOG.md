@@ -1,5 +1,11 @@
 # @tabula/eslint-config
 
+## 0.0.7
+
+### Patch Changes
+
+- [#50](https://github.com/ReTable/ui-kit/pull/50) [`61b5399`](https://github.com/ReTable/ui-kit/commit/61b5399bc55fa146cf4fdda1e7273cfb26a1d187) Thanks [@demiazz](https://github.com/demiazz)! - disabled `react/jsx-props-no-spreading` rule
+
 ## 0.0.6
 
 ### Patch Changes
