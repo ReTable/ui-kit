@@ -41,6 +41,7 @@ export const UiButton: FC<Props> = ({
           data-track-id={trackId}
           href={props.href}
           onClick={props.onClick}
+          rel={props.rel}
           tabIndex={tabIndex}
           target={props.target}
         >

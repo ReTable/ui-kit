@@ -25,7 +25,7 @@ type CommonProps = PropsWithChildren<{
    */
   trackId?: string;
   /**
-   * The type of button to use. Supported `button`, `link` and `visual` values.
+   * The type of button to use. Supported `"button"`, `"link"` and `"visual"` values.
    *
    * @default button
    */
@@ -42,13 +42,23 @@ type LinkProps = {
   /**
    * A URL to link to.
    *
-   * Available only when `type` property is `link`.
+   * Available only when `type` property is `"link"`.
    */
   href: string;
   /**
+   * The relationship between the linked resource and the current page.
+   *
+   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).
+   *
+   * Available only when `type` property is `"link"`.
+   */
+  rel?: string;
+  /**
    * The target window for the link.
    *
-   * Available only when `type` property is `link`.
+   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/target).
+   *
+   * Available only when `type` property is `"link"`.
    */
   target?: string;
 };
