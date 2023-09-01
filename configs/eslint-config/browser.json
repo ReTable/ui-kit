@@ -167,15 +167,7 @@
     "react/jsx-fragments": ["error", "syntax"],
     "react/state-in-constructor": ["error", "always"],
     "react/static-property-placement": ["error", "property assignment"],
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "html": "enforce",
-        "custom": "enforce",
-        "explicitSpread": "ignore",
-        "exceptions": []
-      }
-    ],
+    "react/jsx-props-no-spreading": "off",
     "react/jsx-no-script-url": "error",
     "react/jsx-no-useless-fragment": "error",
     "react/jsx-no-constructed-context-values": "error",

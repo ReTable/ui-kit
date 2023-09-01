@@ -1,7 +1,7 @@
 {
   "$schema": "https://github.com/ReTable/forge/blob/main/schemas/forgerc.json",
   "target": "node",
-  "entry": "index",
+  "entries": ["index", "browserSetup"],
   "check": true,
   "typings": true,
   "build": {

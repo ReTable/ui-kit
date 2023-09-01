@@ -1,9 +1,12 @@
 import { ComponentType, HTMLProps, memo } from 'react';
 
+import clsx from 'clsx';
+
 import { disabled } from './style.css';
 
 type Props = HTMLProps<SVGSVGElement> & {
   isDisabled?: boolean;
+  testId?: string;
 };
 
 export function createIcon(
@@ -11,15 +14,13 @@ export function createIcon(
   iconClassName: string,
   displayName: string,
 ): ComponentType<Props> {
-  const StyledIcon = memo<Props>(({ className: userClassName, isDisabled, ...props }) => {
-    const className = [iconClassName, isDisabled && disabled, userClassName]
-      .filter(Boolean)
-      .join(' ');
-
+  const StyledIcon = memo<Props>(({ className, isDisabled, testId, ...props }) => {
     return (
-      // NOTE: We provide all other properties as is.
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      <Icon className={className} {...props} />
+      <Icon
+        className={clsx(iconClassName, isDisabled && disabled, className)}
+        data-testid={testId}
+        {...props}
+      />
     );
   });
 

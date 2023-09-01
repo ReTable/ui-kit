@@ -25,5 +25,10 @@
     ]
   },
 
-  "files": ["./types/static.d.ts", "./types/css-modules.d.ts", "./types/svg.d.ts"]
+  "files": [
+    "./types/static.d.ts",
+    "./types/css-modules.d.ts",
+    "./types/svg.d.ts",
+    "./types/jest-dom.d.ts"
+  ]
 }

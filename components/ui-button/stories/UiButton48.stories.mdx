@@ -1,0 +1,116 @@
+import {ArgsTable, Canvas, Controls, Meta} from '@storybook/blocks';
+
+import { UiButton48 } from '~';
+
+import { AddIcon } from "./AddIcon";
+import { ChevronRightIcon } from "./ChevronIcon";
+
+<Meta title="UiButton48/Docs" />
+
+# UiButton48
+
+Buttons allow users to take actions, and make choices. Simple example:
+
+<Canvas>
+  <UiButton48 variant="primary">Clickable Button</UiButton48>
+</Canvas>
+
+## Demos
+
+The component supports are many options.
+
+### As
+
+The components support three types: `button`, `link` and `visual`. By default, the `button` type is used.
+
+#### Button
+
+By default, the component renders generic button:
+
+<Canvas>
+  <UiButton48 variant="primary">Default</UiButton48>
+  <UiButton48 type="button" variant="primary">Button</UiButton48>
+</Canvas>
+
+#### Link
+
+You can use button as link providing `type="link"` property, and additionally `href`. Also, you can provide `rel` and `target`:
+
+<Canvas>
+  <UiButton48 href="#" type="link" variant="primary">Link</UiButton48>
+  <UiButton48 href="#" rel="noreferrer noopener" target="_blank" type="link" variant="primary">Link with target and rel</UiButton48>
+</Canvas>
+
+#### Visual
+
+You can render button as `div` element providing `type="visual"` for rare cases when you can't use `button` element:
+
+<Canvas>
+  <UiButton48 type="visual" variant="primary">Visual</UiButton48>
+</Canvas>
+
+### Variant
+
+There are 2 variants:
+
+<Canvas>
+  <UiButton48 variant="primary">Primary</UiButton48>
+  <UiButton48 variant="secondary">Secondary</UiButton48>
+</Canvas>
+
+### Disabled
+
+All buttons supports `isDisabled` property:
+
+<Canvas>
+  <UiButton48 isDisabled type="button" variant="primary">Button</UiButton48>
+  <UiButton48 isDisabled href="#" type="link" variant="primary">Link</UiButton48>
+  <UiButton48 isDisabled type="visual" variant="primary">Visual</UiButton48>
+</Canvas>
+
+### Frozen
+
+Along with `isDisabled` option, the component supports `isFrozen` option. In that case, button will have enabled visual
+style, but will not react on user interactions.
+
+<Canvas>
+  <UiButton48 isFrozen type="button" variant="primary">Button</UiButton48>
+  <UiButton48 isFrozen href="#" type="link" variant="primary">Link</UiButton48>
+  <UiButton48 isFrozen type="visual" variant="primary">Visual</UiButton48>
+</Canvas>
+
+### Disabled and frozen
+
+The `isDisabled` has priority when you use `isDisabled` and `isFrozen` together.
+
+<Canvas>
+  <UiButton48 isDisabled isFrozen type="button" variant="primary">Button</UiButton48>
+  <UiButton48 isDisabled isFrozen href="#" type="link" variant="primary">Link</UiButton48>
+  <UiButton48 isDisabled isFrozen type="visual" variant="primary">Visual</UiButton48>
+</Canvas>
+
+### Icon
+
+You can provide an icon component:
+
+<Canvas>
+  <UiButton48 icon={AddIcon} variant="primary">Button</UiButton48>
+  <UiButton48 icon={ChevronRightIcon} variant="secondary">Button</UiButton48>
+</Canvas>
+
+We recommend use icons with size of `16x16`.
+
+An icon component should support `className` property.
+
+### Analytics
+
+Also, the component supports the `trackId` property. It's adds `data-track-id` attribute to component for analytics
+purposes.
+
+<Canvas>
+  <UiButton48 trackId="my-track-id" type="button" variant="primary">Tracked</UiButton48>
+</Canvas>
+
+## Properties
+
+<ArgsTable of={UiButton48} />

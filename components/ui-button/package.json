@@ -1,7 +1,7 @@
 {
-  "name": "@tabula/ui-node-icon",
-  "version": "3.0.2",
-  "description": "Icons for nodes",
+  "name": "@tabula/ui-button",
+  "version": "0.0.0",
+  "description": "Button components which are used to initialize an action",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
@@ -19,17 +19,16 @@
     "tomat.ai",
     "ui-kit",
     "component",
-    "react",
-    "icon"
+    "react"
   ],
-  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-node-icon#readme",
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-button#readme",
   "bugs": {
     "url": "https://github.com/ReTable/ui-kit/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ReTable/ui-kit.git",
-    "directory": "components/ui-node-icon"
+    "directory": "components/ui-button"
   },
   "author": "Retable Inc.",
   "license": "ISC",
