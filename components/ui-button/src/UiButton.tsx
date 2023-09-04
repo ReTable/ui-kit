@@ -16,7 +16,6 @@ export const UiButton: FC<Props> = ({
   hasIcon,
   isDisabled = false,
   isFrozen = false,
-  testId,
   title,
   trackId,
   variantClassName,
@@ -34,52 +33,54 @@ export const UiButton: FC<Props> = ({
 
   switch (props.as) {
     case 'a': {
+      const { href, ...rest } = props;
+
       return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
           aria-disabled={isDisabled || isFrozen ? true : undefined}
           className={finalClassName}
-          data-testid={testId}
           data-track-id={trackId}
-          href={isDisabled || isFrozen ? undefined : props.href}
-          onClick={props.onClick}
-          rel={props.rel}
+          href={isDisabled || isFrozen ? undefined : href}
           tabIndex={tabIndex}
-          target={props.target}
           title={title}
+          {...rest}
         >
           {children}
         </a>
       );
     }
     case 'div': {
+      const { role = 'button', ...rest } = props;
+
       return (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
           aria-disabled={isDisabled || isFrozen ? true : undefined}
           className={finalClassName}
-          data-testid={testId}
           data-track-id={trackId}
-          onClick={props.onClick}
-          role="button"
+          role={role}
           tabIndex={tabIndex}
           title={title}
+          {...rest}
         >
           {children}
         </div>
       );
     }
     default: {
+      const { type = 'button', ...rest } = props;
+
       return (
         <button
           className={finalClassName}
-          data-testid={testId}
           data-track-id={trackId}
           disabled={isDisabled || isFrozen}
-          onClick={props.onClick}
           tabIndex={tabIndex}
           title={title}
-          type="button"
+          // eslint-disable-next-line react/button-has-type
+          type={type}
+          {...rest}
         >
           {children}
         </button>
