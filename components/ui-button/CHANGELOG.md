@@ -1,5 +1,11 @@
 # @tabula/ui-button
 
+## 0.1.1
+
+### Patch Changes
+
+- [#55](https://github.com/ReTable/ui-kit/pull/55) [`ebc29b8`](https://github.com/ReTable/ui-kit/commit/ebc29b8a538f2b55e29404dfa98ce5d97144b1c3) Thanks [@demiazz](https://github.com/demiazz)! - use `ReactNode` instead of `string` as button children
+
 ## 0.1.0
 
 ### Minor Changes
