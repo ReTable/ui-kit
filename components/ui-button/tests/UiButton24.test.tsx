@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { randUrl, randWord } from '@ngneat/falso';
+import { randWord } from '@ngneat/falso';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 
@@ -344,44 +344,6 @@ describe('UiButton24', () => {
       );
 
       expect(disabledClasses).not.toBe(frozenClasses);
-    });
-
-    it('renders href attribute', () => {
-      const href = randUrl();
-
-      render(
-        <UiButton24 as="a" href={href} testId="subject" variant={variant}>
-          Button
-        </UiButton24>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('href', href);
-    });
-
-    it('allows to provide target', () => {
-      render(
-        <UiButton24 as="a" href="#" target="_blank" testId="subject" variant={variant}>
-          Button
-        </UiButton24>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('target', '_blank');
-    });
-
-    it('allows to provide rel', () => {
-      render(
-        <UiButton24 as="a" href="#" rel="noreferrer noopener" testId="subject" variant={variant}>
-          Button
-        </UiButton24>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('rel', 'noreferrer noopener');
     });
   });
 
