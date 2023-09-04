@@ -17,7 +17,6 @@ export const UiButton: FC<Props> = ({
   isDisabled = false,
   isFrozen = false,
   title,
-  trackId,
   variantClassName,
   ...props
 }: Props) => {
@@ -40,7 +39,6 @@ export const UiButton: FC<Props> = ({
         <a
           aria-disabled={isDisabled || isFrozen ? true : undefined}
           className={finalClassName}
-          data-track-id={trackId}
           href={isDisabled || isFrozen ? undefined : href}
           tabIndex={tabIndex}
           title={title}
@@ -58,7 +56,6 @@ export const UiButton: FC<Props> = ({
         <div
           aria-disabled={isDisabled || isFrozen ? true : undefined}
           className={finalClassName}
-          data-track-id={trackId}
           role={role}
           tabIndex={tabIndex}
           title={title}
@@ -74,7 +71,6 @@ export const UiButton: FC<Props> = ({
       return (
         <button
           className={finalClassName}
-          data-track-id={trackId}
           disabled={isDisabled || isFrozen}
           tabIndex={tabIndex}
           title={title}

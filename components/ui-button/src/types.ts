@@ -31,10 +31,6 @@ type CommonProps = PropsWithChildren<{
    * @default false
    */
   isFrozen?: boolean;
-  /**
-   * If provided, will be added as `data-track-id` attribute for analytics purposes.
-   */
-  trackId?: string;
 }>;
 
 type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, RestrictedProps> & {

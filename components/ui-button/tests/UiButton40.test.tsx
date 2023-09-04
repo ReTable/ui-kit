@@ -133,20 +133,6 @@ describe('UiButton40', () => {
       expect(button).toHaveTextContent(label);
     });
 
-    it('allows to provide track id', () => {
-      const trackId = randWord();
-
-      render(
-        <UiButton40 data-testid="subject" trackId={trackId} type="button" variant={variant}>
-          Button
-        </UiButton40>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('data-track-id', trackId);
-    });
-
     it('allows to disable button', () => {
       render(
         <UiButton40 isDisabled data-testid="subject" type="button" variant={variant}>
@@ -278,20 +264,6 @@ describe('UiButton40', () => {
       expect(button).toHaveAttribute('title', title);
 
       expect(button).toHaveTextContent(label);
-    });
-
-    it('allows to provide track id', () => {
-      const trackId = randWord();
-
-      render(
-        <UiButton40 as="a" href="#" data-testid="subject" trackId={trackId} variant={variant}>
-          Button
-        </UiButton40>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('data-track-id', trackId);
     });
 
     it('allows to disable button', () => {
@@ -426,20 +398,6 @@ describe('UiButton40', () => {
       expect(button).toHaveAttribute('title', title);
 
       expect(button).toHaveTextContent(label);
-    });
-
-    it('allows to provide track id', () => {
-      const trackId = randWord();
-
-      render(
-        <UiButton40 as="div" data-testid="subject" trackId={trackId} variant={variant}>
-          Button
-        </UiButton40>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('data-track-id', trackId);
     });
 
     it('allows to disable button', () => {
