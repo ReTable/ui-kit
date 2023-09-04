@@ -8,7 +8,7 @@ import {
 
 export type Element = 'button' | 'a' | 'div';
 
-type RestrictedProps = 'disabled';
+type RestrictedProps = 'aria-disabled' | 'disabled';
 
 // region Base Props
 
