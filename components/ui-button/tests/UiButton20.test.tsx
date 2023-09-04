@@ -199,7 +199,7 @@ describe('UiButton20', () => {
   });
 
   describe('a', () => {
-    it('renders link when `as` is `link`', () => {
+    it('renders link when `as` is `a`', () => {
       render(
         <UiButton20 as="a" href="#" data-testid="subject" variant={variant}>
           Button
@@ -348,7 +348,7 @@ describe('UiButton20', () => {
   });
 
   describe('div', () => {
-    it('renders div when `as` is `visual`', () => {
+    it('renders div when `as` is `div`', () => {
       render(
         <UiButton20 as="div" data-testid="subject" variant={variant}>
           Button
