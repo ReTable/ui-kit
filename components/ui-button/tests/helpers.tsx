@@ -1,11 +1,17 @@
 import { ComponentType, FC } from 'react';
 
-import { randWord } from '@ngneat/falso';
+import { randNumber, randUrl, randWord } from '@ngneat/falso';
 import { render, screen } from '@testing-library/react';
-import { randomInt } from 'crypto';
 import { describe, expect, it } from 'vitest';
 
-import { UiButton20Props, UiButtonElement } from '~';
+import {
+  UiButton20Props,
+  UiButton24Props,
+  UiButton32Props,
+  UiButton40Props,
+  UiButton48Props,
+  UiButtonElement,
+} from '~';
 
 function getDisabledAndFrozenClasses(
   enabledId: string,
@@ -31,14 +37,22 @@ const Icon: FC<{ className?: string }> = ({ className }) => (
 );
 
 type BaseButtonProps = Pick<
-  UiButton20Props,
-  'as' | 'children' | 'className' | 'icon' | 'isDisabled' | 'isFrozen' | 'tabIndex' | 'title'
+  UiButton20Props | UiButton24Props | UiButton32Props | UiButton40Props | UiButton48Props,
+  | 'as'
+  | 'children'
+  | 'className'
+  | 'icon'
+  | 'isDisabled'
+  | 'isFrozen'
+  | 'role'
+  | 'tabIndex'
+  | 'title'
 > & {
   testId?: string;
 };
 
 export type ButtonProps =
-  | (BaseButtonProps & { as?: 'button' })
+  | (BaseButtonProps & { as?: 'button'; type?: 'button' | 'submit' | 'reset' })
   | (BaseButtonProps & { as: 'a'; href?: string })
   | (BaseButtonProps & { as: 'div' });
 
@@ -61,6 +75,24 @@ export function suiteOf(Button: ButtonComponent): void {
 
   for (const element of ['button', 'a', 'div'] as UiButtonElement[]) {
     describe(element, () => {
+      it('renders provided element', () => {
+        render(<Button as={element}>Button</Button>);
+
+        const button = screen.getByTestId('subject');
+
+        expect(button.nodeName).toBe(element.toUpperCase());
+      });
+
+      it('renders provided label', () => {
+        const label = randWord();
+
+        render(<Button as={element}>{label}</Button>);
+
+        const button = screen.getByTestId('subject');
+
+        expect(button).toHaveTextContent(label);
+      });
+
       it('allows render an icon', () => {
         render(
           <Button as={element} icon={Icon}>
@@ -74,31 +106,41 @@ export function suiteOf(Button: ButtonComponent): void {
         expect(button).toContainElement(icon);
       });
 
-      it('has different classes for disabled and frozen states', () => {
-        render(
-          <>
-            <Button as={element} testId="enabled-subject">
-              Button
-            </Button>
-            <Button as={element} isDisabled testId="disabled-subject">
-              Button
-            </Button>
-            <Button as={element} isFrozen testId="frozen-subject">
-              Button
-            </Button>
-          </>,
-        );
-
-        const [disabledClasses, frozenClasses] = getDisabledAndFrozenClasses(
-          'enabled-subject',
-          'disabled-subject',
-          'frozen-subject',
-        );
-
-        expect(disabledClasses).not.toBe(frozenClasses);
-      });
-
       describe('attributes', () => {
+        describe('aria-disabled', () => {
+          it('not exists by default', () => {
+            render(<Button as={element}>Button</Button>);
+
+            const button = screen.getByTestId('subject');
+
+            expect(button).not.toHaveAttribute('aria-disabled');
+          });
+
+          it('equals to `true` if button is frozen', () => {
+            render(
+              <Button as={element} isFrozen>
+                Button
+              </Button>,
+            );
+
+            const button = screen.getByTestId('subject');
+
+            expect(button).toHaveAttribute('aria-disabled', 'true');
+          });
+
+          it('equals to `true` if button is disabled', () => {
+            render(
+              <Button as={element} isDisabled>
+                Button
+              </Button>,
+            );
+
+            const button = screen.getByTestId('subject');
+
+            expect(button).toHaveAttribute('aria-disabled', 'true');
+          });
+        });
+
         describe('class', () => {
           it('can be provided', () => {
             const className = randWord();
@@ -113,6 +155,52 @@ export function suiteOf(Button: ButtonComponent): void {
 
             expect(button).toHaveClass(className);
           });
+
+          it('has different classes for disabled and frozen states', () => {
+            render(
+              <>
+                <Button as={element} testId="enabled-subject">
+                  Button
+                </Button>
+                <Button as={element} isDisabled testId="disabled-subject">
+                  Button
+                </Button>
+                <Button as={element} isFrozen testId="frozen-subject">
+                  Button
+                </Button>
+              </>,
+            );
+
+            const [disabledClasses, frozenClasses] = getDisabledAndFrozenClasses(
+              'enabled-subject',
+              'disabled-subject',
+              'frozen-subject',
+            );
+
+            expect(disabledClasses).not.toBe(frozenClasses);
+          });
+        });
+
+        describe('role', () => {
+          it('equals to `button` by default', () => {
+            render(<Button as={element}>Button</Button>);
+
+            const button = screen.getByTestId('subject');
+
+            expect(button).toHaveAttribute('role', 'button');
+          });
+
+          it('can be provided', () => {
+            render(
+              <Button as={element} role="link">
+                Button
+              </Button>,
+            );
+
+            const button = screen.getByTestId('subject');
+
+            expect(button).toHaveAttribute('role', 'link');
+          });
         });
 
         describe('tabIndex', () => {
@@ -125,7 +213,7 @@ export function suiteOf(Button: ButtonComponent): void {
           });
 
           it('can be provided', () => {
-            const tabIndex = randomInt(1, 5);
+            const tabIndex = randNumber({ min: 1, max: 5 });
 
             render(
               <Button as={element} tabIndex={tabIndex}>
@@ -139,7 +227,7 @@ export function suiteOf(Button: ButtonComponent): void {
           });
 
           it('is removed if button is frozen', () => {
-            const tabIndex = randomInt(1, 5);
+            const tabIndex = randNumber({ min: 1, max: 5 });
 
             render(
               <>
@@ -160,7 +248,7 @@ export function suiteOf(Button: ButtonComponent): void {
           });
 
           it('is removed if button is disabled', () => {
-            const tabIndex = randomInt(1, 5);
+            const tabIndex = randNumber({ min: 1, max: 5 });
 
             render(
               <>
@@ -225,129 +313,110 @@ export function suiteOf(Button: ButtonComponent): void {
   }
 
   describe('button', () => {
-    it('renders button when `as` is `button`', () => {
-      render(<Button as="button">Button</Button>);
+    describe('attributes', () => {
+      describe('disabled', () => {
+        it('not existed by default', () => {
+          render(<Button as="button">Button</Button>);
 
-      const button = screen.getByTestId('subject');
+          const button = screen.getByTestId('subject');
 
-      expect(button.nodeName).toBe('BUTTON');
+          expect(button).toBeEnabled();
+        });
 
-      expect(button).toBeEnabled();
+        it('equals to `true` when button is frozen', () => {
+          render(
+            <Button as="button" isFrozen>
+              Button
+            </Button>,
+          );
 
-      expect(button).toHaveAttribute('type', 'button');
-      expect(button).toHaveTextContent('Button');
-    });
+          const button = screen.getByTestId('subject');
 
-    it('allows to disable button', () => {
-      render(
-        <Button as="button" isDisabled>
-          Button
-        </Button>,
-      );
+          expect(button).not.toBeEnabled();
+        });
 
-      const button = screen.getByTestId('subject');
+        it('equals to `true` when button is disabled', () => {
+          render(
+            <Button as="button" isDisabled>
+              Button
+            </Button>,
+          );
 
-      expect(button).not.toBeEnabled();
-    });
+          const button = screen.getByTestId('subject');
 
-    it('allows to freeze button', () => {
-      render(
-        <Button as="button" isFrozen>
-          Button
-        </Button>,
-      );
+          expect(button).not.toBeEnabled();
+        });
+      });
 
-      const button = screen.getByTestId('subject');
+      describe('type', () => {
+        it('equals to `button` by default', () => {
+          render(<Button as="button">Button</Button>);
 
-      expect(button).not.toBeEnabled();
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('type', 'button');
+        });
+
+        it('can be provided', () => {
+          render(
+            <Button as="button" type="reset">
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('type', 'reset');
+        });
+      });
     });
   });
 
   describe('a', () => {
-    it('renders link when `as` is `a`', () => {
-      render(
-        <Button as="a" href="#">
-          Button
-        </Button>,
-      );
+    describe('attributes', () => {
+      describe('href', () => {
+        it('can be provided', () => {
+          const url = randUrl();
 
-      const button = screen.getByTestId('subject');
+          render(
+            <Button as="a" href={url}>
+              Button
+            </Button>,
+          );
 
-      expect(button.nodeName).toBe('A');
+          const button = screen.getByTestId('subject');
 
-      expect(button).toHaveAttribute('href', '#');
+          expect(button).toHaveAttribute('href', url);
+        });
 
-      expect(button).not.toHaveAttribute('aria-disabled');
+        it('is removed when button is frozen', () => {
+          const url = randUrl();
 
-      expect(button).toHaveTextContent('Button');
-    });
+          render(
+            <Button as="a" href={url} isFrozen>
+              Button
+            </Button>,
+          );
 
-    it('allows to disable button', () => {
-      render(
-        <Button as="a" href="#" isDisabled>
-          Button
-        </Button>,
-      );
+          const button = screen.getByTestId('subject');
 
-      const button = screen.getByTestId('subject');
+          expect(button).not.toHaveAttribute('href');
+        });
 
-      expect(button).toHaveAttribute('aria-disabled', 'true');
+        it('is removed when button is disabled', () => {
+          const url = randUrl();
 
-      expect(button).not.toHaveAttribute('href');
-    });
+          render(
+            <Button as="a" href={url} isDisabled>
+              Button
+            </Button>,
+          );
 
-    it('allows to freeze button', () => {
-      render(
-        <Button as="a" href="#" isFrozen>
-          Button
-        </Button>,
-      );
+          const button = screen.getByTestId('subject');
 
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('aria-disabled', 'true');
-
-      expect(button).not.toHaveAttribute('href');
-    });
-  });
-
-  describe('div', () => {
-    it('renders div when `as` is `div`', () => {
-      render(<Button as="div">Button</Button>);
-
-      const button = screen.getByTestId('subject');
-
-      expect(button.nodeName).toBe('DIV');
-
-      expect(button).toHaveAttribute('role', 'button');
-
-      expect(button).not.toHaveAttribute('aria-disabled');
-
-      expect(button).toHaveTextContent('Button');
-    });
-
-    it('allows to disable button', () => {
-      render(
-        <Button as="div" isDisabled>
-          Button
-        </Button>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('aria-disabled', 'true');
-    });
-
-    it('allows to freeze button', () => {
-      render(
-        <Button as="div" isFrozen>
-          Button
-        </Button>,
-      );
-
-      const button = screen.getByTestId('subject');
-
-      expect(button).toHaveAttribute('aria-disabled', 'true');
+          expect(button).not.toHaveAttribute('href');
+        });
+      });
     });
   });
 }

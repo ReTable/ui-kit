@@ -12,27 +12,36 @@ const Button: FC<ButtonProps> = ({
   icon,
   isDisabled,
   isFrozen,
+  role,
   tabIndex,
   testId = 'subject',
   title,
   ...props
 }) => {
-  return (
-    <UiButton32
-      as={props.as}
-      className={className}
-      data-testid={testId}
-      href={props.as === 'a' ? props.href : undefined}
-      icon={icon}
-      isDisabled={isDisabled}
-      isFrozen={isFrozen}
-      tabIndex={tabIndex}
-      title={title}
-      variant="primaryDesign"
-    >
-      {children}
-    </UiButton32>
-  );
+  const baseProps = {
+    children,
+    className,
+    'data-testid': testId,
+    icon,
+    isDisabled,
+    isFrozen,
+    role,
+    tabIndex,
+    title,
+    variant: 'primaryDesign',
+  } as const;
+
+  switch (props.as) {
+    case 'a': {
+      return <UiButton32 as="a" href={props.href} {...baseProps} />;
+    }
+    case 'div': {
+      return <UiButton32 as="div" {...baseProps} />;
+    }
+    default: {
+      return <UiButton32 as={props.as} type={props.type} {...baseProps} />;
+    }
+  }
 };
 
 describe('UiButton32', () => {

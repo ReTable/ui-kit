@@ -16,6 +16,7 @@ export const UiButton: FC<Props> = ({
   hasIcon,
   isDisabled = false,
   isFrozen = false,
+  role = 'button',
   tabIndex = 0,
   title,
   variantClassName,
@@ -29,18 +30,19 @@ export const UiButton: FC<Props> = ({
     className,
   );
 
-  const controlledTabIndex = isDisabled || isFrozen ? undefined : tabIndex;
+  const [controlledAriaDisabled, controlledTabIndex] =
+    isDisabled || isFrozen ? [true, undefined] : [undefined, tabIndex];
 
   switch (props.as) {
     case 'a': {
       const { href, ...rest } = props;
 
       return (
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-          aria-disabled={isDisabled || isFrozen ? true : undefined}
+          aria-disabled={controlledAriaDisabled}
           className={finalClassName}
           href={isDisabled || isFrozen ? undefined : href}
+          role={role}
           tabIndex={controlledTabIndex}
           title={title}
           {...rest}
@@ -50,12 +52,11 @@ export const UiButton: FC<Props> = ({
       );
     }
     case 'div': {
-      const { role = 'button', ...rest } = props;
+      const { ...rest } = props;
 
       return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
-          aria-disabled={isDisabled || isFrozen ? true : undefined}
+          aria-disabled={controlledAriaDisabled}
           className={finalClassName}
           role={role}
           tabIndex={controlledTabIndex}
@@ -71,8 +72,10 @@ export const UiButton: FC<Props> = ({
 
       return (
         <button
+          aria-disabled={controlledAriaDisabled}
           className={finalClassName}
           disabled={isDisabled || isFrozen}
+          role={role}
           tabIndex={controlledTabIndex}
           title={title}
           // eslint-disable-next-line react/button-has-type
