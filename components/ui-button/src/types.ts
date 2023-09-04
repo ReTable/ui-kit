@@ -1,11 +1,18 @@
-import { ComponentType, MouseEventHandler, PropsWithChildren } from 'react';
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ComponentType,
+  HTMLAttributes,
+  PropsWithChildren,
+} from 'react';
+
+export type Type = ButtonHTMLAttributes<HTMLButtonElement>['type'] | 'link' | 'visual';
+
+type RestrictedProps = 'disabled';
 
 // region Base Props
 
-export type Type = 'button' | 'link' | 'visual';
-
 type CommonProps = PropsWithChildren<{
-  className?: string;
   /**
    * Whether the button is disabled.
    *
@@ -18,53 +25,26 @@ type CommonProps = PropsWithChildren<{
    * @default false
    */
   isFrozen?: boolean;
-  onClick?: MouseEventHandler;
   testId?: string;
-  title?: string;
   /**
    * If provided, will be added as `data-track-id` attribute for analytics purposes.
    */
   trackId?: string;
   /**
-   * The type of button to use. Supported `"button"`, `"link"` and `"visual"` values.
+   * The type of button to use. Supported `"button"`, `"submit"`, `"reset"`, `"link"` and `"visual"` values.
    *
    * @default button
    */
-  type?: Type;
+  type: Type;
 }>;
 
-type ButtonProps = {
-  type?: 'button';
-};
+type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, RestrictedProps>;
 
-type LinkProps = {
+type AnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, RestrictedProps> & {
   type: 'link';
-
-  /**
-   * A URL to link to.
-   *
-   * Available only when `type` property is `"link"`.
-   */
-  href: string;
-  /**
-   * The relationship between the linked resource and the current page.
-   *
-   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).
-   *
-   * Available only when `type` property is `"link"`.
-   */
-  rel?: string;
-  /**
-   * The target window for the link.
-   *
-   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/target).
-   *
-   * Available only when `type` property is `"link"`.
-   */
-  target?: string;
 };
 
-type VisualProps = {
+type DivProps = Omit<HTMLAttributes<HTMLDivElement>, RestrictedProps> & {
   type: 'visual';
 };
 
@@ -79,8 +59,8 @@ type InnerBaseProps = CommonProps & {
 
 export type InnerProps =
   | (InnerBaseProps & ButtonProps)
-  | (InnerBaseProps & LinkProps)
-  | (InnerBaseProps & VisualProps);
+  | (InnerBaseProps & AnchorProps)
+  | (InnerBaseProps & DivProps);
 
 // endregion
 
@@ -105,7 +85,7 @@ type VariantBaseProps<Variant extends string> = CommonProps & {
 
 export type VariantProps<Variant extends string> =
   | (VariantBaseProps<Variant> & ButtonProps)
-  | (VariantBaseProps<Variant> & LinkProps)
-  | (VariantBaseProps<Variant> & VisualProps);
+  | (VariantBaseProps<Variant> & AnchorProps)
+  | (VariantBaseProps<Variant> & DivProps);
 
 // endregion
