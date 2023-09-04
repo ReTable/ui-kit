@@ -31,7 +31,6 @@ type CommonProps = PropsWithChildren<{
    * @default false
    */
   isFrozen?: boolean;
-  testId?: string;
   /**
    * If provided, will be added as `data-track-id` attribute for analytics purposes.
    */

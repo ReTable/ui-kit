@@ -34,7 +34,7 @@ describe('UiButton20', () => {
 
   it('renders button by default', () => {
     render(
-      <UiButton20 testId="subject" variant={variant}>
+      <UiButton20 data-testid="subject" variant={variant}>
         Button
       </UiButton20>,
     );
@@ -55,7 +55,7 @@ describe('UiButton20', () => {
   describe('button', () => {
     it('renders button when `as` is `button`', () => {
       render(
-        <UiButton20 testId="subject" type="button" variant={variant}>
+        <UiButton20 data-testid="subject" type="button" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -75,7 +75,7 @@ describe('UiButton20', () => {
 
     it('allows render an icon', () => {
       render(
-        <UiButton20 icon={Icon} testId="subject" type="button" variant={variant}>
+        <UiButton20 icon={Icon} data-testid="subject" type="button" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -90,7 +90,7 @@ describe('UiButton20', () => {
       const className = randWord();
 
       render(
-        <UiButton20 className={className} testId="subject" type="button" variant={variant}>
+        <UiButton20 className={className} data-testid="subject" type="button" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -104,7 +104,7 @@ describe('UiButton20', () => {
       const title = randWord();
 
       render(
-        <UiButton20 testId="subject" type="button" variant={variant}>
+        <UiButton20 data-testid="subject" type="button" variant={variant}>
           {title}
         </UiButton20>,
       );
@@ -121,7 +121,7 @@ describe('UiButton20', () => {
       const title = randWord();
 
       render(
-        <UiButton20 testId="subject" title={title} type="button" variant={variant}>
+        <UiButton20 data-testid="subject" title={title} type="button" variant={variant}>
           {label}
         </UiButton20>,
       );
@@ -137,7 +137,7 @@ describe('UiButton20', () => {
       const trackId = randWord();
 
       render(
-        <UiButton20 testId="subject" trackId={trackId} type="button" variant={variant}>
+        <UiButton20 data-testid="subject" trackId={trackId} type="button" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -149,7 +149,7 @@ describe('UiButton20', () => {
 
     it('allows to disable button', () => {
       render(
-        <UiButton20 isDisabled testId="subject" type="button" variant={variant}>
+        <UiButton20 isDisabled data-testid="subject" type="button" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -162,7 +162,7 @@ describe('UiButton20', () => {
 
     it('allows to freeze button', () => {
       render(
-        <UiButton20 isFrozen testId="subject" type="button" variant={variant}>
+        <UiButton20 isFrozen data-testid="subject" type="button" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -176,13 +176,13 @@ describe('UiButton20', () => {
     it('has different classes for disabled and frozen states', () => {
       render(
         <>
-          <UiButton20 testId="enabled-subject" type="button" variant={variant}>
+          <UiButton20 data-testid="enabled-subject" type="button" variant={variant}>
             Button
           </UiButton20>
-          <UiButton20 isDisabled testId="disabled-subject" type="button" variant={variant}>
+          <UiButton20 isDisabled data-testid="disabled-subject" type="button" variant={variant}>
             Button
           </UiButton20>
-          <UiButton20 isFrozen testId="frozen-subject" type="button" variant={variant}>
+          <UiButton20 isFrozen data-testid="frozen-subject" type="button" variant={variant}>
             Button
           </UiButton20>
         </>,
@@ -201,7 +201,7 @@ describe('UiButton20', () => {
   describe('a', () => {
     it('renders link when `as` is `link`', () => {
       render(
-        <UiButton20 as="a" href="#" testId="subject" variant={variant}>
+        <UiButton20 as="a" href="#" data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -222,7 +222,7 @@ describe('UiButton20', () => {
 
     it('allows render an icon', () => {
       render(
-        <UiButton20 as="a" href="#" icon={Icon} testId="subject" variant={variant}>
+        <UiButton20 as="a" href="#" icon={Icon} data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -237,7 +237,7 @@ describe('UiButton20', () => {
       const className = randWord();
 
       render(
-        <UiButton20 as="a" className={className} href="#" testId="subject" variant={variant}>
+        <UiButton20 as="a" className={className} href="#" data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -251,7 +251,7 @@ describe('UiButton20', () => {
       const title = randWord();
 
       render(
-        <UiButton20 as="a" href="#" testId="subject" variant={variant}>
+        <UiButton20 as="a" href="#" data-testid="subject" variant={variant}>
           {title}
         </UiButton20>,
       );
@@ -268,7 +268,7 @@ describe('UiButton20', () => {
       const title = randWord();
 
       render(
-        <UiButton20 as="a" href="#" testId="subject" title={title} variant={variant}>
+        <UiButton20 as="a" href="#" data-testid="subject" title={title} variant={variant}>
           {label}
         </UiButton20>,
       );
@@ -284,7 +284,7 @@ describe('UiButton20', () => {
       const trackId = randWord();
 
       render(
-        <UiButton20 as="a" href="#" testId="subject" trackId={trackId} variant={variant}>
+        <UiButton20 as="a" href="#" data-testid="subject" trackId={trackId} variant={variant}>
           Button
         </UiButton20>,
       );
@@ -296,7 +296,7 @@ describe('UiButton20', () => {
 
     it('allows to disable button', () => {
       render(
-        <UiButton20 as="a" href="#" isDisabled testId="subject" variant={variant}>
+        <UiButton20 as="a" href="#" isDisabled data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -310,7 +310,7 @@ describe('UiButton20', () => {
 
     it('allows to freeze button', () => {
       render(
-        <UiButton20 as="a" href="#" isFrozen testId="subject" variant={variant}>
+        <UiButton20 as="a" href="#" isFrozen data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -325,13 +325,13 @@ describe('UiButton20', () => {
     it('has different classes for disabled and frozen states', () => {
       render(
         <>
-          <UiButton20 as="a" href="#" testId="enabled-subject" variant={variant}>
+          <UiButton20 as="a" href="#" data-testid="enabled-subject" variant={variant}>
             Button
           </UiButton20>
-          <UiButton20 as="a" href="#" isDisabled testId="disabled-subject" variant={variant}>
+          <UiButton20 as="a" href="#" isDisabled data-testid="disabled-subject" variant={variant}>
             Button
           </UiButton20>
-          <UiButton20 as="a" href="#" isFrozen testId="frozen-subject" variant={variant}>
+          <UiButton20 as="a" href="#" isFrozen data-testid="frozen-subject" variant={variant}>
             Button
           </UiButton20>
         </>,
@@ -350,7 +350,7 @@ describe('UiButton20', () => {
   describe('div', () => {
     it('renders div when `as` is `visual`', () => {
       render(
-        <UiButton20 as="div" testId="subject" variant={variant}>
+        <UiButton20 as="div" data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -370,7 +370,7 @@ describe('UiButton20', () => {
 
     it('allows render an icon', () => {
       render(
-        <UiButton20 as="div" icon={Icon} testId="subject" variant={variant}>
+        <UiButton20 as="div" icon={Icon} data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -385,7 +385,7 @@ describe('UiButton20', () => {
       const className = randWord();
 
       render(
-        <UiButton20 as="div" className={className} testId="subject" variant={variant}>
+        <UiButton20 as="div" className={className} data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -399,7 +399,7 @@ describe('UiButton20', () => {
       const title = randWord();
 
       render(
-        <UiButton20 as="div" testId="subject" variant={variant}>
+        <UiButton20 as="div" data-testid="subject" variant={variant}>
           {title}
         </UiButton20>,
       );
@@ -416,7 +416,7 @@ describe('UiButton20', () => {
       const title = randWord();
 
       render(
-        <UiButton20 as="div" testId="subject" title={title} variant={variant}>
+        <UiButton20 as="div" data-testid="subject" title={title} variant={variant}>
           {label}
         </UiButton20>,
       );
@@ -432,7 +432,7 @@ describe('UiButton20', () => {
       const trackId = randWord();
 
       render(
-        <UiButton20 as="div" testId="subject" trackId={trackId} variant={variant}>
+        <UiButton20 as="div" data-testid="subject" trackId={trackId} variant={variant}>
           Button
         </UiButton20>,
       );
@@ -444,7 +444,7 @@ describe('UiButton20', () => {
 
     it('allows to disable button', () => {
       render(
-        <UiButton20 as="div" isDisabled testId="subject" variant={variant}>
+        <UiButton20 as="div" isDisabled data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -457,7 +457,7 @@ describe('UiButton20', () => {
 
     it('allows to freeze button', () => {
       render(
-        <UiButton20 as="div" isFrozen testId="subject" variant={variant}>
+        <UiButton20 as="div" isFrozen data-testid="subject" variant={variant}>
           Button
         </UiButton20>,
       );
@@ -471,13 +471,13 @@ describe('UiButton20', () => {
     it('has different classes for disabled and frozen states', () => {
       render(
         <>
-          <UiButton20 as="div" testId="enabled-subject" variant={variant}>
+          <UiButton20 as="div" data-testid="enabled-subject" variant={variant}>
             Button
           </UiButton20>
-          <UiButton20 as="div" isDisabled testId="disabled-subject" variant={variant}>
+          <UiButton20 as="div" isDisabled data-testid="disabled-subject" variant={variant}>
             Button
           </UiButton20>
-          <UiButton20 as="div" isFrozen testId="frozen-subject" variant={variant}>
+          <UiButton20 as="div" isFrozen data-testid="frozen-subject" variant={variant}>
             Button
           </UiButton20>
         </>,
