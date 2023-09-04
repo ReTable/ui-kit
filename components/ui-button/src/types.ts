@@ -4,7 +4,7 @@ import { ComponentType, MouseEventHandler, PropsWithChildren } from 'react';
 
 export type Type = 'button' | 'link' | 'visual';
 
-type CommonProps = {
+type CommonProps = PropsWithChildren<{
   className?: string;
   /**
    * Whether the button is disabled.
@@ -31,7 +31,7 @@ type CommonProps = {
    * @default button
    */
   type?: Type;
-};
+}>;
 
 type ButtonProps = {
   type?: 'button';
@@ -72,12 +72,10 @@ type VisualProps = {
 
 // region Inner Props
 
-type InnerBaseProps = PropsWithChildren<
-  CommonProps & {
-    hasIcon?: boolean;
-    variantClassName: string;
-  }
->;
+type InnerBaseProps = CommonProps & {
+  hasIcon?: boolean;
+  variantClassName: string;
+};
 
 export type InnerProps =
   | (InnerBaseProps & ButtonProps)
@@ -91,7 +89,6 @@ export type InnerProps =
 type Icon = ComponentType<{ className?: string }>;
 
 type VariantBaseProps<Variant extends string> = CommonProps & {
-  children?: string;
   /**
    * The icon component.
    *
