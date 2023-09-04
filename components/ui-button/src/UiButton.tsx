@@ -32,8 +32,8 @@ export const UiButton: FC<Props> = ({
 
   const tabIndex = isDisabled || isFrozen ? undefined : 0;
 
-  switch (props.type) {
-    case 'link': {
+  switch (props.as) {
+    case 'a': {
       return (
         // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
@@ -52,7 +52,7 @@ export const UiButton: FC<Props> = ({
         </a>
       );
     }
-    case 'visual': {
+    case 'div': {
       return (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div

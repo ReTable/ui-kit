@@ -6,13 +6,19 @@ import {
   PropsWithChildren,
 } from 'react';
 
-export type Type = ButtonHTMLAttributes<HTMLButtonElement>['type'] | 'link' | 'visual';
+export type Element = 'button' | 'a' | 'div';
 
 type RestrictedProps = 'disabled';
 
 // region Base Props
 
 type CommonProps = PropsWithChildren<{
+  /**
+   * The HTML element which will be used for button rendering. Supported `button`, `a` and `div`.
+   *
+   * @default button
+   */
+  as?: Element;
   /**
    * Whether the button is disabled.
    *
@@ -30,22 +36,18 @@ type CommonProps = PropsWithChildren<{
    * If provided, will be added as `data-track-id` attribute for analytics purposes.
    */
   trackId?: string;
-  /**
-   * The type of button to use. Supported `"button"`, `"submit"`, `"reset"`, `"link"` and `"visual"` values.
-   *
-   * @default button
-   */
-  type: Type;
 }>;
 
-type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, RestrictedProps>;
+type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, RestrictedProps> & {
+  as?: 'button';
+};
 
 type AnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, RestrictedProps> & {
-  type: 'link';
+  as: 'a';
 };
 
 type DivProps = Omit<HTMLAttributes<HTMLDivElement>, RestrictedProps> & {
-  type: 'visual';
+  as: 'div';
 };
 
 // endregion
