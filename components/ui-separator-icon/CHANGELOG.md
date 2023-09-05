@@ -1,5 +1,29 @@
 # @tabula/ui-separator-icon
 
+## 0.2.0
+
+### Minor Changes
+
+- [#57](https://github.com/ReTable/ui-kit/pull/57) [`cc71b60`](https://github.com/ReTable/ui-kit/commit/cc71b604ff6196348ea3badf03df01d3d0dbbe6e) Thanks [@demiazz](https://github.com/demiazz)! - added exports of SVG files
+
+  For example, you can export URL of files like this:
+
+  ```tsx
+  import { uiCommaIconUrl } from '@tabula/ui-separator-icon';
+  ```
+
+  It returns the string with relative path to the SVG file, which should be processed by yours bundler.
+
+  Also, you can import SVG files directly, from Sass for example:
+
+  ```scss
+  .awesome-component {
+    background-image: url('@tabula/ui-separator-icon/comma.svg');
+  }
+  ```
+
+  Example above should work with Vite bundler.
+
 ## 0.1.2
 
 ### Patch Changes
