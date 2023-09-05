@@ -10,7 +10,11 @@ export type Element = 'button' | 'a' | 'div' | 'link';
 
 type RestrictedProps = 'aria-disabled' | 'disabled';
 
-type IconComponent = ComponentType<{ className?: string }>;
+export type IconComponentProps = {
+  className?: string;
+};
+
+export type IconComponentType = ComponentType<IconComponentProps>;
 
 type RouterLinkPath = {
   /**
@@ -68,9 +72,9 @@ type LinkProps = {
   to: string | RouterLinkPath;
 };
 
-type LinkComponent = ComponentType<
-  Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & LinkProps
->;
+export type LinkComponentProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & LinkProps;
+
+export type LinkComponentType = ComponentType<LinkComponentProps>;
 
 // region Base Props
 
@@ -111,7 +115,7 @@ type RouterLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, RestrictedP
   LinkProps & {
     as: 'link';
 
-    component: LinkComponent;
+    component: LinkComponentType;
   };
 
 // endregion
@@ -120,8 +124,8 @@ type RouterLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, RestrictedP
 
 type InnerBaseProps = CommonProps & {
   iconClassName?: string;
-  leftIcon?: IconComponent;
-  rightIcon?: IconComponent;
+  leftIcon?: IconComponentType;
+  rightIcon?: IconComponentType;
   variantClassName: string;
 };
 
@@ -143,7 +147,7 @@ type VariantBaseProps<Variant extends string> = CommonProps & {
    *
    * Recommended to use `16x16` icon.
    */
-  icon?: IconComponent;
+  icon?: IconComponentType;
   /**
    * The visual style of the button.
    */
