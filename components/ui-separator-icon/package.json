@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-separator-icon",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Icons for separators",
   "type": "module",
   "typings": "./typings/index.d.ts",
