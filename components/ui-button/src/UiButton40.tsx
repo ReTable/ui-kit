@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { variants } from './UiButton40.css';
+import { icon } from './common.css';
 
 import { UiButton } from './UiButton';
 import { titleOf } from './helpers';
@@ -17,7 +18,7 @@ export const UiButton40: FC<Props> = ({ children, icon: Icon, title, variant, ..
     variantClassName={variants[variant]}
     {...props}
   >
-    {Icon && <Icon />}
+    {Icon && <Icon className={icon} />}
     {children}
   </UiButton>
 );

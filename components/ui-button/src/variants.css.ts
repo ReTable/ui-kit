@@ -8,7 +8,7 @@ import {
 
 import { uiTheme } from '@tabula/ui-theme';
 
-import { hasIcon, isDisabled, isFrozen } from './modifiers.css';
+import { hasIcon, isDisabled, isFrozen } from './common.css';
 
 import { wrap } from './helpers';
 

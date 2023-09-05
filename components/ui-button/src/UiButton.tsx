@@ -6,7 +6,7 @@ import {
   hasIcon as hasIconModifier,
   isDisabled as isDisabledModifier,
   isFrozen as isFrozenModifier,
-} from './modifiers.css';
+} from './common.css';
 
 import { InnerProps as Props } from './types';
 
