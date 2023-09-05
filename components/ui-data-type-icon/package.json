@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-data-type-icon",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Icons for data types",
   "type": "module",
   "typings": "./typings/index.d.ts",

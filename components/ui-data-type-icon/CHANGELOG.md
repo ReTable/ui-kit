@@ -1,5 +1,11 @@
 # @tabula/ui-data-type-icon
 
+## 0.2.1
+
+### Patch Changes
+
+- [#60](https://github.com/ReTable/ui-kit/pull/60) [`1e873ca`](https://github.com/ReTable/ui-kit/commit/1e873ca1bff322bd5caaddf3d0c096279bb0020f) Thanks [@demiazz](https://github.com/demiazz)! - update docs
+
 ## 0.2.0
 
 ### Minor Changes
