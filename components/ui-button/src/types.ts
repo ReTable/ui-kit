@@ -1,11 +1,90 @@
-import { ComponentType, MouseEventHandler, PropsWithChildren } from 'react';
+import {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  ComponentType,
+  HTMLAttributes,
+  PropsWithChildren,
+} from 'react';
+
+export type Element = 'button' | 'a' | 'div' | 'link';
+
+type RestrictedProps = 'aria-disabled' | 'disabled';
+
+export type IconComponentProps = {
+  className?: string;
+};
+
+export type IconComponentType = ComponentType<IconComponentProps>;
+
+type RouterLinkPath = {
+  /**
+   * A URL pathname, beginning with a /.
+   */
+  pathname?: string;
+
+  /**
+   * A URL search string, beginning with a ?.
+   */
+  search?: string;
+
+  /**
+   * A URL fragment identifier, beginning with a #.
+   */
+  hash?: string;
+};
+
+type LinkProps = {
+  /**
+   * See [React Router docs](https://reactrouter.com/en/main/components/link#preventscrollreset).
+   *
+   * Available only if `as` equals to `link`.
+   */
+  preventScrollReset?: boolean;
+  /**
+   * See [React Router docs](https://reactrouter.com/en/main/components/link#relative).
+   *
+   * Available only if `as` equals to `link`.
+   */
+  relative?: 'route' | 'path';
+  /**
+   * See [React Router docs](https://reactrouter.com/en/main/components/link#reloaddocument).
+   *
+   * Available only if `as` equals to `link`.
+   */
+  reloadDocument?: boolean;
+  /**
+   * See [React Router docs](https://reactrouter.com/en/main/components/link#replace).
+   *
+   * Available only if `as` equals to `link`.
+   */
+  replace?: boolean;
+  /**
+   * See [React Router docs](https://reactrouter.com/en/main/components/link#state).
+   *
+   * Available only if `as` equals to `link`.
+   */
+  state?: unknown;
+  /**
+   * See [React Router docs](https://reactrouter.com/en/main/components/link).
+   *
+   * Available only if `as` equals to `link`.
+   */
+  to: string | RouterLinkPath;
+};
+
+export type LinkComponentProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & LinkProps;
+
+export type LinkComponentType = ComponentType<LinkComponentProps>;
 
 // region Base Props
 
-export type Type = 'button' | 'link' | 'visual';
-
 type CommonProps = PropsWithChildren<{
-  className?: string;
+  /**
+   * The HTML element which will be used for button rendering. Supported `button`, `a` and `div`.
+   *
+   * @default button
+   */
+  as?: Element;
   /**
    * Whether the button is disabled.
    *
@@ -18,75 +97,47 @@ type CommonProps = PropsWithChildren<{
    * @default false
    */
   isFrozen?: boolean;
-  onClick?: MouseEventHandler;
-  testId?: string;
-  title?: string;
-  /**
-   * If provided, will be added as `data-track-id` attribute for analytics purposes.
-   */
-  trackId?: string;
-  /**
-   * The type of button to use. Supported `"button"`, `"link"` and `"visual"` values.
-   *
-   * @default button
-   */
-  type?: Type;
 }>;
 
-type ButtonProps = {
-  type?: 'button';
+type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, RestrictedProps> & {
+  as?: 'button';
 };
 
-type LinkProps = {
-  type: 'link';
-
-  /**
-   * A URL to link to.
-   *
-   * Available only when `type` property is `"link"`.
-   */
-  href: string;
-  /**
-   * The relationship between the linked resource and the current page.
-   *
-   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).
-   *
-   * Available only when `type` property is `"link"`.
-   */
-  rel?: string;
-  /**
-   * The target window for the link.
-   *
-   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/target).
-   *
-   * Available only when `type` property is `"link"`.
-   */
-  target?: string;
+type AnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, RestrictedProps> & {
+  as: 'a';
 };
 
-type VisualProps = {
-  type: 'visual';
+type DivProps = Omit<HTMLAttributes<HTMLDivElement>, RestrictedProps> & {
+  as: 'div';
 };
+
+type RouterLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, RestrictedProps | 'href'> &
+  LinkProps & {
+    as: 'link';
+
+    component: LinkComponentType;
+  };
 
 // endregion
 
 // region Inner Props
 
 type InnerBaseProps = CommonProps & {
-  hasIcon?: boolean;
+  iconClassName?: string;
+  leftIcon?: IconComponentType;
+  rightIcon?: IconComponentType;
   variantClassName: string;
 };
 
 export type InnerProps =
   | (InnerBaseProps & ButtonProps)
-  | (InnerBaseProps & LinkProps)
-  | (InnerBaseProps & VisualProps);
+  | (InnerBaseProps & AnchorProps)
+  | (InnerBaseProps & DivProps)
+  | (InnerBaseProps & RouterLinkProps);
 
 // endregion
 
 // region Variant Props
-
-type Icon = ComponentType<{ className?: string }>;
 
 type VariantBaseProps<Variant extends string> = CommonProps & {
   /**
@@ -96,7 +147,7 @@ type VariantBaseProps<Variant extends string> = CommonProps & {
    *
    * Recommended to use `16x16` icon.
    */
-  icon?: Icon;
+  icon?: IconComponentType;
   /**
    * The visual style of the button.
    */
@@ -105,7 +156,8 @@ type VariantBaseProps<Variant extends string> = CommonProps & {
 
 export type VariantProps<Variant extends string> =
   | (VariantBaseProps<Variant> & ButtonProps)
-  | (VariantBaseProps<Variant> & LinkProps)
-  | (VariantBaseProps<Variant> & VisualProps);
+  | (VariantBaseProps<Variant> & AnchorProps)
+  | (VariantBaseProps<Variant> & DivProps)
+  | (VariantBaseProps<Variant> & RouterLinkProps);
 
 // endregion

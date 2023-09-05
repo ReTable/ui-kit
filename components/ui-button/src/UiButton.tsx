@@ -4,21 +4,25 @@ import clsx from 'clsx';
 
 import {
   hasIcon as hasIconModifier,
+  icon,
   isDisabled as isDisabledModifier,
   isFrozen as isFrozenModifier,
-} from './modifiers.css';
+} from './common.css';
 
+import { titleOf } from './helpers';
 import { InnerProps as Props } from './types';
 
 export const UiButton: FC<Props> = ({
   children,
   className,
-  hasIcon,
+  iconClassName,
   isDisabled = false,
   isFrozen = false,
-  testId,
-  title,
-  trackId,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
+  role,
+  tabIndex: providedTabIndex = 0,
+  title: providedTitle,
   variantClassName,
   ...props
 }: Props) => {
@@ -26,62 +30,90 @@ export const UiButton: FC<Props> = ({
     variantClassName,
     isFrozen && isFrozenModifier,
     isDisabled && isDisabledModifier,
-    hasIcon && hasIconModifier,
+    (LeftIcon != null || RightIcon != null) && hasIconModifier,
     className,
   );
 
-  const tabIndex = isDisabled || isFrozen ? undefined : 0;
+  const [ariaDisabled, tabIndex] =
+    isDisabled || isFrozen ? [true, -1] : [undefined, providedTabIndex];
 
-  switch (props.type) {
-    case 'link': {
+  const content = (
+    <>
+      {LeftIcon != null && <LeftIcon className={clsx(icon, iconClassName)} />}
+      {children}
+      {RightIcon != null && <RightIcon className={clsx(icon, iconClassName)} />}
+    </>
+  );
+
+  const title = titleOf(providedTitle, children);
+
+  switch (props.as) {
+    case 'a': {
+      const { as, href, ...rest } = props;
+
       return (
-        // eslint-disable-next-line jsx-a11y/anchor-is-valid
         <a
-          aria-disabled={isDisabled || isFrozen ? true : undefined}
+          aria-disabled={ariaDisabled}
           className={finalClassName}
-          data-testid={testId}
-          data-track-id={trackId}
-          href={isDisabled || isFrozen ? undefined : props.href}
-          onClick={props.onClick}
-          rel={props.rel}
+          href={href}
+          role={role ?? 'link'}
           tabIndex={tabIndex}
-          target={props.target}
           title={title}
+          {...rest}
         >
-          {children}
+          {content}
         </a>
       );
     }
-    case 'visual': {
+    case 'div': {
+      const { as, ...rest } = props;
+
       return (
-        // eslint-disable-next-line jsx-a11y/click-events-have-key-events
         <div
-          aria-disabled={isDisabled || isFrozen ? true : undefined}
+          aria-disabled={ariaDisabled}
           className={finalClassName}
-          data-testid={testId}
-          data-track-id={trackId}
-          onClick={props.onClick}
-          role="button"
+          role={role ?? 'button'}
           tabIndex={tabIndex}
           title={title}
+          {...rest}
         >
-          {children}
+          {content}
         </div>
       );
     }
-    default: {
+    case 'link': {
+      const { as, component: Link, to, ...rest } = props;
+
       return (
-        <button
+        <Link
+          aria-disabled={ariaDisabled}
           className={finalClassName}
-          data-testid={testId}
-          data-track-id={trackId}
-          disabled={isDisabled || isFrozen}
-          onClick={props.onClick}
+          role={role ?? 'link'}
           tabIndex={tabIndex}
           title={title}
-          type="button"
+          to={to}
+          {...rest}
         >
-          {children}
+          {content}
+        </Link>
+      );
+    }
+    default: {
+      const { as, type = 'button', ...rest } = props;
+
+      return (
+        <button
+          aria-disabled={ariaDisabled}
+          className={finalClassName}
+          disabled={isDisabled || isFrozen}
+          role={role ?? 'button'}
+          tabIndex={tabIndex}
+          title={title}
+          // eslint-disable-next-line react/button-has-type
+          type={type}
+          {...rest}
+        >
+          {content}
         </button>
       );
     }

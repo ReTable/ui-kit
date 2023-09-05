@@ -1,25 +1,23 @@
 import { FC } from 'react';
 
-import { icon, variants } from './UiButton48.css';
+import { icon as iconClassName, variants } from './UiButton48.css';
 
 import { UiButton } from './UiButton';
-import { titleOf } from './helpers';
 import { VariantProps } from './types';
 
 export type Variant = keyof typeof variants;
 
 export type Props = VariantProps<Variant>;
 
-export const UiButton48: FC<Props> = ({ children, icon: Icon, title, variant, ...props }) => {
+export const UiButton48: FC<Props> = ({ children, icon, variant, ...props }) => {
   return (
     <UiButton
-      hasIcon={Icon != null}
-      title={titleOf(title, children)}
+      iconClassName={iconClassName}
+      rightIcon={icon}
       variantClassName={variants[variant]}
       {...props}
     >
       {children}
-      {Icon && <Icon className={icon} />}
     </UiButton>
   );
 };
