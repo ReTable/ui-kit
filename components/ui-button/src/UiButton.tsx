@@ -4,21 +4,25 @@ import clsx from 'clsx';
 
 import {
   hasIcon as hasIconModifier,
+  icon,
   isDisabled as isDisabledModifier,
   isFrozen as isFrozenModifier,
 } from './common.css';
 
+import { titleOf } from './helpers';
 import { InnerProps as Props } from './types';
 
 export const UiButton: FC<Props> = ({
   children,
   className,
-  hasIcon,
+  iconClassName,
   isDisabled = false,
   isFrozen = false,
+  leftIcon: LeftIcon,
+  rightIcon: RightIcon,
   role = 'button',
   tabIndex = 0,
-  title,
+  title: providedTitle,
   variantClassName,
   ...props
 }: Props) => {
@@ -26,12 +30,22 @@ export const UiButton: FC<Props> = ({
     variantClassName,
     isFrozen && isFrozenModifier,
     isDisabled && isDisabledModifier,
-    hasIcon && hasIconModifier,
+    (LeftIcon != null || RightIcon != null) && hasIconModifier,
     className,
   );
 
   const [controlledAriaDisabled, controlledTabIndex] =
     isDisabled || isFrozen ? [true, undefined] : [undefined, tabIndex];
+
+  const content = (
+    <>
+      {LeftIcon != null && <LeftIcon className={clsx(icon, iconClassName)} />}
+      {children}
+      {RightIcon != null && <RightIcon className={clsx(icon, iconClassName)} />}
+    </>
+  );
+
+  const title = titleOf(providedTitle, children);
 
   switch (props.as) {
     case 'a': {
@@ -47,7 +61,7 @@ export const UiButton: FC<Props> = ({
           title={title}
           {...rest}
         >
-          {children}
+          {content}
         </a>
       );
     }
@@ -63,7 +77,7 @@ export const UiButton: FC<Props> = ({
           title={title}
           {...rest}
         >
-          {children}
+          {content}
         </div>
       );
     }
@@ -82,7 +96,7 @@ export const UiButton: FC<Props> = ({
           type={type}
           {...rest}
         >
-          {children}
+          {content}
         </button>
       );
     }

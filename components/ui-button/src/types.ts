@@ -10,6 +10,8 @@ export type Element = 'button' | 'a' | 'div';
 
 type RestrictedProps = 'aria-disabled' | 'disabled';
 
+type Icon = ComponentType<{ className?: string }>;
+
 // region Base Props
 
 type CommonProps = PropsWithChildren<{
@@ -50,7 +52,9 @@ type DivProps = Omit<HTMLAttributes<HTMLDivElement>, RestrictedProps> & {
 // region Inner Props
 
 type InnerBaseProps = CommonProps & {
-  hasIcon?: boolean;
+  iconClassName?: string;
+  leftIcon?: Icon;
+  rightIcon?: Icon;
   variantClassName: string;
 };
 
@@ -62,8 +66,6 @@ export type InnerProps =
 // endregion
 
 // region Variant Props
-
-type Icon = ComponentType<{ className?: string }>;
 
 type VariantBaseProps<Variant extends string> = CommonProps & {
   /**
