@@ -22,34 +22,72 @@ We provide five different button sizes with own visual styles:
 - `UiButton40`
 - `UiButton48`
 
-### Type
-
-Each button component can have one of three types:
-
-- `button`: a button element will be rendered (it's default behaviour);
-- `link`: an anchor element will be rendered (you should provide `href` too);
-- `visual`: a div element will be rendered (it's useful when you can't to use button element for any reasons).
+Import required component and render it with one of supported variants:
 
 ```tsx
+import { FC, MouseEventHandler, PropsWithChildren } from 'react';
+
 import { UiButton24 } from '@tabula/ui-button';
 
-// A button will be rendered.
-<UiButton24 variant='primary'>Default</UiButton24>
-// A button will be rendered too.
-<UiButton24 type='button' variant='primary'>Button</UiButton24>
+type Props = PropsWithChildren<{
+  onClick: MouseEventHandler<HTMLButtonElement>;
+}>;
 
-// An anchor will be rendered.
-<UiButton24 href='#' type='link' variant='primary'>Link</UiButton24>
-// An anchor will be rendered too.
-<UiButton24 href='#' rel='noreferrer noopener' target='_blank' type='link' variant='primary'>Link with target and rel</UiButton24>
-
-// A div will be rendered.
-<UiButton24 type='visual' variant='primary'>Visual</UiButton24>
+const Action: FC<Props> = ({ children, onClick }) => (
+  <UiButton24 onClick={onClick} variant='primary'>{children}</UiButton24>
+)
 ```
 
-### Variant
+## Types
 
-Each button component has its own variants list, which can be used:
+The component supports four types: `button`, `a`, `div` and `link`. By default, the `button` type is used.
+
+### Button
+
+By default, the component renders generic button:
+
+```tsx
+<UiButton24 variant="primary">Default</UiButton24>
+```
+
+You can provide `as="button"` explicitly:
+
+```tsx
+<UiButton24 as="button" variant="primary">Button</UiButton24>
+```
+
+### Anchor
+
+You can render `a` element with providing `as="button"`:
+
+```tsx
+  <UiButton24 as="a" href="#" target="_blank" variant="primary">Anchor</UiButton24>
+```
+
+### Div
+
+In rare cases, you can render `div` element with providing `as="div"`:
+
+```tsx
+<UiButton24 as="div" variant="primary">Div</UiButton24>
+```
+
+### Link
+
+You can use `as="link"` and provide `component` property to use `react-router`'s `Link` component:
+
+```tsx
+import { Link } from 'react-router-dom';
+
+<UiButton24 as="link" component={Link} target="_blank" to="#" variant="contract">Link</UiButton24>
+```
+
+It can be useful, when you want to have `div` element with button appearance. For example, to render it inside
+another `button` element.
+
+## Variants
+
+Each button component has its own appearance variants list, which you can use:
 
 - `UiButton20`: `contract`;
 - `UiButton24`: `primary`, `secondary`, `cancel`, `cancelFilled`, `edit`, `test` and `ai`;
@@ -57,52 +95,59 @@ Each button component has its own variants list, which can be used:
 - `UiButton40`: `primary`, `secondary`, `secondaryBlue` and `secondaryFilled`;
 - `UiButton48`: `primary` and `secondary`;
 
-### Disabled
+## Options
 
-All buttons supports `isDisabled` property:
+The component supports a few options.
+
+### `isDisabled`
+
+This property allows to disable button:
 
 ```tsx
-<UiButton24 isDisabled type='button' variant='primary'>Button</UiButton24>
-<UiButton24 href='#' isDisabled type='link' variant='primary'>Link</UiButton24>
-<UiButton24 isDisabled type='visual' variant='primary'>Visual</UiButton24>
+<UiButton24 isDisabled variant="primary">Button</UiButton24>
 ```
 
-### Frozen
+### `isFrozen`
 
-Along with `isDisabled` option, the component supports `isFrozen` option. In that case, button will have enabled visual
-style, but will not react on user interactions.
+This property allows to disable button, but keep enabled look and feel:
 
 ```tsx
-<UiButton24 isFrozen type='button' variant='primary'>Button</UiButton24>
-<UiButton24 href='#' isFrozen type='link' variant='primary'>Link</UiButton24>
-<UiButton24 isFrozen type='visual' variant='primary'>Visual</UiButton24>
+<UiButton24 isFrozen variant="primary">Button</UiButton24>
 ```
 
-### Disabled and frozen
+### `isDisabled` and `isFrozen`
 
-The `isDisabled` has priority when you use `isDisabled` and `isFrozen` together.
-
-### Icon
-
-You can provide an `icon` component:
+The `isDisabled` styles has priority over `isFrozen` when they're used together.
 
 ```tsx
-const Icon: FC<{ className?: string }> = () => // ...
+<UiButton24 isDisabled isFrozen variant="primary">Button</UiButton24>
+```
 
-<UiButton24 icon={Icon} variant='primary'>Button</UiButton24>
+### `icon`
+
+You can provide an icon component:
+
+```tsx
+import { UiDateIcon } from '@tabula/ui-data-type-icon';
+
+<UiButton24 icon={UiDateIcon} variant="primary">Open calendar</UiButton24>
 ```
 
 We recommend use icons with size of `16x16`.
 
 An icon component should support `className` property.
 
-### Analytics
+## Attributes
 
-Also, the component supports the `trackId` property. It's adds `data-track-id` attribute to component for analytics
-purposes.
+All component types supports relevant HTML attributes, excluding `aria-disabled` and `disabled`. This attributes are
+controlled by the component itself.
+
+Also `href` attribute is restricted `link` type.
+
+For example, you can provide `data-*` attribute for analytics purposes:
 
 ```tsx
-<UiButton24 trackId='my-track-id' type='button' variant='primary'>Tracked</UiButton24>
+  <UiButton24 data-track-id="button" variant="primary">Button</UiButton24>
 ```
 
 ## License
