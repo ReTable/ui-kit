@@ -1,23 +1,13 @@
 import { AnchorHTMLAttributes, FC } from 'react';
 
-type Path = {
-  pathname?: string;
-  search?: string;
-  hash?: string;
-};
+import { UiButtonLinkComponentProps } from '~';
 
-export type LinkProps = {
-  preventScrollReset?: boolean;
-  relative?: 'route' | 'path';
-  reloadDocument?: boolean;
-  replace?: boolean;
-  state?: unknown;
-  to: string | Path;
-};
+export type LinkProps = Omit<
+  UiButtonLinkComponentProps,
+  keyof AnchorHTMLAttributes<HTMLAnchorElement>
+>;
 
-type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & LinkProps;
-
-export const Link: FC<Props> = ({
+export const Link: FC<UiButtonLinkComponentProps> = ({
   children,
   preventScrollReset,
   relative,
