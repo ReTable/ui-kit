@@ -25,7 +25,7 @@ const meta = {
   argTypes,
 
   args: {
-    type: 'button',
+    as: 'button',
     label: 'Press me!',
     variant: argTypes.variant.options[0],
   },

@@ -5,20 +5,18 @@ import { AddIcon } from './AddIcon';
 // region Types
 
 type BaseProps = {
-  type?: string;
+  as?: string;
   variant: string;
 };
 
 export type ArgsOf<Props extends BaseProps> = {
-  type?: Props['type'];
+  as?: Props['as'];
   href?: string;
   icon?: boolean;
   isDisabled?: boolean;
   isFrozen?: boolean;
   label?: string;
   onClick?: MouseEventHandler;
-  target?: string;
-  trackId?: string;
   variant?: Props['variant'];
 };
 
@@ -27,10 +25,10 @@ export type ArgsOf<Props extends BaseProps> = {
 // region Meta
 
 export const argTypes = {
-  type: {
-    name: 'Type',
+  as: {
+    name: 'As',
     control: 'select',
-    options: ['button', 'link', 'visual'],
+    options: ['button', 'a', 'div'],
   },
   icon: {
     name: 'Has icon?',
@@ -49,7 +47,7 @@ export const argTypes = {
     control: 'text',
     if: {
       arg: 'as',
-      eq: 'link',
+      eq: 'a',
     },
   },
   label: {
@@ -58,18 +56,6 @@ export const argTypes = {
   },
   onClick: {
     action: 'onClick',
-  },
-  target: {
-    name: 'Target',
-    control: 'text',
-    if: {
-      arg: 'as',
-      eq: 'link',
-    },
-  },
-  trackId: {
-    name: 'Track ID',
-    control: 'text',
   },
   variant: {
     name: 'Variant',
@@ -83,30 +69,26 @@ export const argTypes = {
 // region Helpers
 
 export function toProps<Props extends BaseProps>({
+  as,
   href,
   icon,
   isDisabled,
   isFrozen,
   label: children,
   onClick,
-  target,
-  trackId,
-  type,
   variant,
 }: ArgsOf<Props>): Props {
   const props: Record<string, unknown> = {
+    as,
     children,
     isDisabled,
     isFrozen,
     onClick,
-    trackId,
-    type,
     variant,
   };
 
-  if (props.as === 'link') {
+  if (props.as === 'a') {
     props.href = href;
-    props.target = target;
   }
 
   if (icon) {
