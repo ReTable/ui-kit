@@ -1,6 +1,7 @@
 import { MouseEventHandler } from 'react';
 
 import { AddIcon } from './AddIcon';
+import { Link } from './Link';
 
 // region Types
 
@@ -17,6 +18,7 @@ export type ArgsOf<Props extends BaseProps> = {
   isFrozen?: boolean;
   label?: string;
   onClick?: MouseEventHandler;
+  to?: string;
   variant?: Props['variant'];
 };
 
@@ -28,7 +30,7 @@ export const argTypes = {
   as: {
     name: 'As',
     control: 'select',
-    options: ['button', 'a', 'div'],
+    options: ['button', 'a', 'div', 'link'],
   },
   icon: {
     name: 'Has icon?',
@@ -57,6 +59,14 @@ export const argTypes = {
   onClick: {
     action: 'onClick',
   },
+  to: {
+    name: 'URL',
+    control: 'text',
+    if: {
+      arg: 'as',
+      eq: 'link',
+    },
+  },
   variant: {
     name: 'Variant',
     control: 'select',
@@ -76,6 +86,7 @@ export function toProps<Props extends BaseProps>({
   isFrozen,
   label: children,
   onClick,
+  to,
   variant,
 }: ArgsOf<Props>): Props {
   const props: Record<string, unknown> = {
@@ -89,6 +100,11 @@ export function toProps<Props extends BaseProps>({
 
   if (props.as === 'a') {
     props.href = href;
+  }
+
+  if (props.as === 'link') {
+    props.component = Link;
+    props.to = to;
   }
 
   if (icon) {
