@@ -49,7 +49,7 @@ export const UiButton: FC<Props> = ({
 
   switch (props.as) {
     case 'a': {
-      const { href, ...rest } = props;
+      const { as, href, ...rest } = props;
 
       return (
         <a
@@ -66,6 +66,8 @@ export const UiButton: FC<Props> = ({
       );
     }
     case 'div': {
+      const { as, ...rest } = props;
+
       return (
         <div
           aria-disabled={ariaDisabled}
@@ -73,14 +75,14 @@ export const UiButton: FC<Props> = ({
           role={role ?? 'button'}
           tabIndex={tabIndex}
           title={title}
-          {...props}
+          {...rest}
         >
           {content}
         </div>
       );
     }
     case 'link': {
-      const { component: Link, to, ...rest } = props;
+      const { as, component: Link, to, ...rest } = props;
 
       return (
         <Link
@@ -97,7 +99,7 @@ export const UiButton: FC<Props> = ({
       );
     }
     default: {
-      const { type = 'button', ...rest } = props;
+      const { as, type = 'button', ...rest } = props;
 
       return (
         <button
