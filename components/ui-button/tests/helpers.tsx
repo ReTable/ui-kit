@@ -1,4 +1,4 @@
-import { ComponentType, FC } from 'react';
+import { ComponentType } from 'react';
 
 import { randNumber, randUrl, randWord } from '@ngneat/falso';
 import { render, screen } from '@testing-library/react';
@@ -12,6 +12,9 @@ import {
   UiButton48Props,
   UiButtonElement,
 } from '~';
+
+import { Icon } from './Icon';
+import { LinkProps } from './Link';
 
 function getDisabledAndFrozenClasses(
   enabledId: string,
@@ -32,10 +35,6 @@ function getDisabledAndFrozenClasses(
   return [disabledClasses, frozenClasses];
 }
 
-const Icon: FC<{ className?: string }> = ({ className }) => (
-  <svg className={className} data-testid="icon" />
-);
-
 type BaseButtonProps = Pick<
   UiButton20Props | UiButton24Props | UiButton32Props | UiButton40Props | UiButton48Props,
   | 'as'
@@ -54,7 +53,8 @@ type BaseButtonProps = Pick<
 export type ButtonProps =
   | (BaseButtonProps & { as?: 'button'; type?: 'button' | 'submit' | 'reset' })
   | (BaseButtonProps & { as: 'a'; href?: string })
-  | (BaseButtonProps & { as: 'div' });
+  | (BaseButtonProps & { as: 'div' })
+  | ((BaseButtonProps & { as: 'link' }) & Partial<LinkProps>);
 
 type ButtonComponent = ComponentType<ButtonProps>;
 
@@ -73,14 +73,14 @@ export function suiteOf(Button: ButtonComponent): void {
     expect(button).toHaveTextContent('Button');
   });
 
-  for (const element of ['button', 'a', 'div'] as UiButtonElement[]) {
+  for (const element of ['button', 'a', 'div', 'link'] as UiButtonElement[]) {
     describe(element, () => {
       it('renders provided element', () => {
         render(<Button as={element}>Button</Button>);
 
         const button = screen.getByTestId('subject');
 
-        expect(button.nodeName).toBe(element.toUpperCase());
+        expect(button.nodeName).toBe(element === 'link' ? 'A' : element.toUpperCase());
       });
 
       it('renders provided label', () => {
@@ -415,6 +415,158 @@ export function suiteOf(Button: ButtonComponent): void {
           const button = screen.getByTestId('subject');
 
           expect(button).not.toHaveAttribute('href');
+        });
+      });
+    });
+  });
+
+  describe('link', () => {
+    describe('properties', () => {
+      describe('preventScrollReset', () => {
+        it("doesn't provided by default", () => {
+          render(<Button as="link">Button</Button>);
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).not.toHaveAttribute('data-prevent-scroll-reset');
+        });
+
+        it('can be provided', () => {
+          render(
+            <Button as="link" preventScrollReset>
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-prevent-scroll-reset', 'true');
+        });
+      });
+
+      describe('relative', () => {
+        it("doesn't provided by default", () => {
+          render(<Button as="link">Button</Button>);
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).not.toHaveAttribute('data-relative');
+        });
+
+        it('can be provided', () => {
+          render(
+            <Button as="link" relative="route">
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-relative', 'route');
+        });
+      });
+
+      describe('reloadDocument', () => {
+        it("doesn't provided by default", () => {
+          render(<Button as="link">Button</Button>);
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).not.toHaveAttribute('data-reload-document');
+        });
+
+        it('can be provided', () => {
+          render(
+            <Button as="link" reloadDocument>
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-reload-document', 'true');
+        });
+      });
+
+      describe('replace', () => {
+        it("doesn't provided by default", () => {
+          render(<Button as="link">Button</Button>);
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).not.toHaveAttribute('data-replace');
+        });
+
+        it('can be provided', () => {
+          render(
+            <Button as="link" replace>
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-replace', 'true');
+        });
+      });
+
+      describe('state', () => {
+        it("doesn't provided by default", () => {
+          render(<Button as="link">Button</Button>);
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).not.toHaveAttribute('data-state');
+        });
+
+        it('can be provided', () => {
+          const state = {
+            key: 'value',
+          };
+
+          render(
+            <Button as="link" state={state}>
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-state', JSON.stringify(state));
+        });
+      });
+
+      describe('to', () => {
+        it('can be provided as string', () => {
+          const url = randUrl();
+
+          render(
+            <Button as="link" to={url}>
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-to', url);
+        });
+
+        it('can be provided as object', () => {
+          const url = {
+            pathname: '/search',
+            search: 'query',
+            hash: 'results',
+          };
+
+          render(
+            <Button as="link" to={url}>
+              Button
+            </Button>,
+          );
+
+          const button = screen.getByTestId('subject');
+
+          expect(button).toHaveAttribute('data-to', JSON.stringify(url));
         });
       });
     });

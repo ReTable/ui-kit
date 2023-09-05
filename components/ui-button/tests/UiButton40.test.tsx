@@ -4,6 +4,7 @@ import { describe } from 'vitest';
 
 import { UiButton40 } from '~';
 
+import { Link } from './Link';
 import { ButtonProps, suiteOf } from './helpers';
 
 const Button: FC<ButtonProps> = ({
@@ -37,6 +38,23 @@ const Button: FC<ButtonProps> = ({
     }
     case 'div': {
       return <UiButton40 as="div" {...baseProps} />;
+    }
+    case 'link': {
+      const { preventScrollReset, relative, reloadDocument, replace, state, to = '' } = props;
+
+      return (
+        <UiButton40
+          as="link"
+          component={Link}
+          preventScrollReset={preventScrollReset}
+          relative={relative}
+          reloadDocument={reloadDocument}
+          replace={replace}
+          state={state}
+          to={to}
+          {...baseProps}
+        />
+      );
     }
     default: {
       return <UiButton40 as={props.as} type={props.type} {...baseProps} />;
