@@ -182,13 +182,23 @@ export function suiteOf(Button: ButtonComponent): void {
         });
 
         describe('role', () => {
-          it('equals to `button` by default', () => {
-            render(<Button as={element}>Button</Button>);
+          if (element === 'button' || element === 'div') {
+            it('equals to `button` by default', () => {
+              render(<Button as={element}>Button</Button>);
 
-            const button = screen.getByTestId('subject');
+              const button = screen.getByTestId('subject');
 
-            expect(button).toHaveAttribute('role', 'button');
-          });
+              expect(button).toHaveAttribute('role', 'button');
+            });
+          } else {
+            it('equals to `link` by default', () => {
+              render(<Button as={element}>Button</Button>);
+
+              const button = screen.getByTestId('subject');
+
+              expect(button).toHaveAttribute('role', 'link');
+            });
+          }
 
           it('can be provided', () => {
             render(

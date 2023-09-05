@@ -20,7 +20,7 @@ export const UiButton: FC<Props> = ({
   isFrozen = false,
   leftIcon: LeftIcon,
   rightIcon: RightIcon,
-  role = 'button',
+  role,
   tabIndex = 0,
   title: providedTitle,
   variantClassName,
@@ -56,7 +56,7 @@ export const UiButton: FC<Props> = ({
           aria-disabled={controlledAriaDisabled}
           className={finalClassName}
           href={isDisabled || isFrozen ? undefined : href}
-          role={role}
+          role={role ?? 'link'}
           tabIndex={controlledTabIndex}
           title={title}
           {...rest}
@@ -70,7 +70,7 @@ export const UiButton: FC<Props> = ({
         <div
           aria-disabled={controlledAriaDisabled}
           className={finalClassName}
-          role={role}
+          role={role ?? 'button'}
           tabIndex={controlledTabIndex}
           title={title}
           {...props}
@@ -86,7 +86,7 @@ export const UiButton: FC<Props> = ({
         <Link
           aria-disabled={controlledAriaDisabled}
           className={finalClassName}
-          role={role}
+          role={role ?? 'link'}
           tabIndex={controlledTabIndex}
           title={title}
           to={isDisabled || isFrozen ? '' : to}
@@ -104,7 +104,7 @@ export const UiButton: FC<Props> = ({
           aria-disabled={controlledAriaDisabled}
           className={finalClassName}
           disabled={isDisabled || isFrozen}
-          role={role}
+          role={role ?? 'button'}
           tabIndex={controlledTabIndex}
           title={title}
           // eslint-disable-next-line react/button-has-type
