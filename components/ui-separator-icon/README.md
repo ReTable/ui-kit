@@ -22,6 +22,20 @@ function ComponentWithIcon() {
 }
 ```
 
+Or you can import icon URL which should be resolved by yours bundler:
+
+```tsx
+import { uiCommaIconUrl } from "@tabula/ui-separator-icon";
+```
+
+Also, if you use Vite, you can use icon in your styles too:
+
+```scss
+.awesome-component {
+  background-image: url('@tabula/ui-separator-icon/comma.svg');
+}
+```
+
 ## License
 
 This project is [ISC](https://choosealicense.com/licenses/isc/) licensed.

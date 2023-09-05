@@ -4,13 +4,21 @@ import { UiCommaIcon } from '~';
 
 <Meta title="Docs" />
 
-# Import
+# Component
+
+We provide icons as React components.
+
+## Import
+
+<br />
 
 ```tsx
 import { UiCommaIcon } from '@tabula/ui-separator-icon';
 ```
 
-# Default
+<br />
+
+## Default
 
 Data types icons has `16x16` size by default.
 
@@ -18,11 +26,11 @@ Data types icons has `16x16` size by default.
   <UiCommaIcon />
 </Canvas>
 
-# Styling
+## Styling
 
 You can style icons with CSS.
 
-## Color
+### Color
 
 All data types icons inherit `currentColor` property.
 
@@ -32,7 +40,7 @@ All data types icons inherit `currentColor` property.
   </div>
 </Canvas>
 
-## Size with class
+### Size with class
 
 You can provide `className` property.
 
@@ -51,10 +59,34 @@ You can provide `className` property.
   </div>
 </Canvas>
 
-## Size with style
+### Size with style
 
 You can provide `style` property.
 
 <Canvas layout="centered">
   <UiCommaIcon style={{ width: '32px', height: '32px' }} />
 </Canvas>
+
+# Image URL
+
+Also, we provide icons as static images.
+
+## Import
+
+<br />
+
+```ts
+import { uiCommaIconUrl } from "@tabula/ui-separator-icon";
+```
+
+<br />
+
+## CSS / Sass
+
+If you use a Vite bundler, you can use icons in your styles like this:
+
+```scss
+.awesome-component {
+  background-image: url('@tabula/ui-separator-icon/comma.svg');
+}
+```

@@ -40,7 +40,7 @@ export default meta;
 
 export const Icons: FC<Args> = ({ currentColor, search = '' }) => {
   const icons = Object.entries(Components)
-    .filter(([iconName]) => iconName.includes(search))
+    .filter(([iconName]) => !iconName.endsWith('Url') && iconName.includes(search))
     .map(([iconName, Icon]) => (
       <div className={container} key={iconName}>
         <Icon className={icon} />
