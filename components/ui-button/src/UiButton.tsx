@@ -21,7 +21,7 @@ export const UiButton: FC<Props> = ({
   leftIcon: LeftIcon,
   rightIcon: RightIcon,
   role,
-  tabIndex = 0,
+  tabIndex: providedTabIndex = 0,
   title: providedTitle,
   variantClassName,
   ...props
@@ -34,8 +34,8 @@ export const UiButton: FC<Props> = ({
     className,
   );
 
-  const [controlledAriaDisabled, controlledTabIndex] =
-    isDisabled || isFrozen ? [true, undefined] : [undefined, tabIndex];
+  const [ariaDisabled, tabIndex] =
+    isDisabled || isFrozen ? [true, -1] : [undefined, providedTabIndex];
 
   const content = (
     <>
@@ -53,11 +53,11 @@ export const UiButton: FC<Props> = ({
 
       return (
         <a
-          aria-disabled={controlledAriaDisabled}
+          aria-disabled={ariaDisabled}
           className={finalClassName}
-          href={isDisabled || isFrozen ? undefined : href}
+          href={href}
           role={role ?? 'link'}
-          tabIndex={controlledTabIndex}
+          tabIndex={tabIndex}
           title={title}
           {...rest}
         >
@@ -68,10 +68,10 @@ export const UiButton: FC<Props> = ({
     case 'div': {
       return (
         <div
-          aria-disabled={controlledAriaDisabled}
+          aria-disabled={ariaDisabled}
           className={finalClassName}
           role={role ?? 'button'}
-          tabIndex={controlledTabIndex}
+          tabIndex={tabIndex}
           title={title}
           {...props}
         >
@@ -84,12 +84,12 @@ export const UiButton: FC<Props> = ({
 
       return (
         <Link
-          aria-disabled={controlledAriaDisabled}
+          aria-disabled={ariaDisabled}
           className={finalClassName}
           role={role ?? 'link'}
-          tabIndex={controlledTabIndex}
+          tabIndex={tabIndex}
           title={title}
-          to={isDisabled || isFrozen ? '' : to}
+          to={to}
           {...rest}
         >
           {content}
@@ -101,11 +101,11 @@ export const UiButton: FC<Props> = ({
 
       return (
         <button
-          aria-disabled={controlledAriaDisabled}
+          aria-disabled={ariaDisabled}
           className={finalClassName}
           disabled={isDisabled || isFrozen}
           role={role ?? 'button'}
-          tabIndex={controlledTabIndex}
+          tabIndex={tabIndex}
           title={title}
           // eslint-disable-next-line react/button-has-type
           type={type}

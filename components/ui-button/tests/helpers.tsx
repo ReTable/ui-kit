@@ -236,7 +236,7 @@ export function suiteOf(Button: ButtonComponent): void {
             expect(button).toHaveAttribute('tabIndex', tabIndex.toString());
           });
 
-          it('is removed if button is frozen', () => {
+          it('equals to `-1` if button is frozen', () => {
             const tabIndex = randNumber({ min: 1, max: 5 });
 
             render(
@@ -253,11 +253,11 @@ export function suiteOf(Button: ButtonComponent): void {
             const defaultButton = screen.getByTestId('default-subject');
             const customButton = screen.getByTestId('custom-subject');
 
-            expect(defaultButton).not.toHaveAttribute('tabIndex');
-            expect(customButton).not.toHaveAttribute('tabIndex');
+            expect(defaultButton).toHaveAttribute('tabIndex', '-1');
+            expect(customButton).toHaveAttribute('tabIndex', '-1');
           });
 
-          it('is removed if button is disabled', () => {
+          it('equals to `-1`  if button is disabled', () => {
             const tabIndex = randNumber({ min: 1, max: 5 });
 
             render(
@@ -274,8 +274,8 @@ export function suiteOf(Button: ButtonComponent): void {
             const defaultButton = screen.getByTestId('default-subject');
             const customButton = screen.getByTestId('custom-subject');
 
-            expect(defaultButton).not.toHaveAttribute('tabIndex');
-            expect(customButton).not.toHaveAttribute('tabIndex');
+            expect(defaultButton).toHaveAttribute('tabIndex', '-1');
+            expect(customButton).toHaveAttribute('tabIndex', '-1');
           });
         });
 
@@ -397,34 +397,6 @@ export function suiteOf(Button: ButtonComponent): void {
           const button = screen.getByTestId('subject');
 
           expect(button).toHaveAttribute('href', url);
-        });
-
-        it('is removed when button is frozen', () => {
-          const url = randUrl();
-
-          render(
-            <Button as="a" href={url} isFrozen>
-              Button
-            </Button>,
-          );
-
-          const button = screen.getByTestId('subject');
-
-          expect(button).not.toHaveAttribute('href');
-        });
-
-        it('is removed when button is disabled', () => {
-          const url = randUrl();
-
-          render(
-            <Button as="a" href={url} isDisabled>
-              Button
-            </Button>,
-          );
-
-          const button = screen.getByTestId('subject');
-
-          expect(button).not.toHaveAttribute('href');
         });
       });
     });
