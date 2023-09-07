@@ -25,87 +25,6 @@ export const layers = ['reset', 'components'] as const;
 // region Tokens
 
 export const tokens = {
-  fonts: {
-    sansSerif: {
-      bold10: {
-        font: sansSerif(700, 10, 12),
-      },
-
-      semiBold18: {
-        font: sansSerif(600, 18, 24),
-        letterSpacing: '-0.015em',
-      },
-      semiBold14: {
-        font: sansSerif(600, 14, 22),
-      },
-      semiBold12: {
-        font: sansSerif(600, 12, 16),
-      },
-      semiBold10: {
-        font: sansSerif(600, 10, 16),
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-      },
-
-      medium32: {
-        font: sansSerif(500, 32, 40),
-        letterSpacing: '-0.015em',
-      },
-      medium24: {
-        font: sansSerif(500, 24, 32),
-        letterSpacing: '-0.015em',
-      },
-      medium18: {
-        font: sansSerif(500, 18, 24),
-      },
-      medium14: {
-        font: sansSerif(500, 14, 22),
-      },
-      medium12: {
-        font: sansSerif(500, 12, 16),
-      },
-      medium10: {
-        font: sansSerif(500, 10, 12),
-      },
-
-      regular24: {
-        font: sansSerif(400, 24, 32),
-      },
-      regular18: {
-        font: sansSerif(400, 18, 24),
-      },
-      regular14: {
-        font: sansSerif(400, 14, 22),
-      },
-      regular12: {
-        font: sansSerif(400, 12, 16),
-      },
-    },
-
-    monospace: {
-      bold12: {
-        font: monospace(700, 12, 16),
-      },
-      bold10: {
-        font: monospace(700, 10, 12),
-      },
-
-      semiBold14: {
-        font: monospace(500, 14, 20),
-      },
-      semiBold12: {
-        font: monospace(500, 12, 16),
-      },
-
-      regular12: {
-        font: monospace('normal', 12, 16),
-      },
-      regular10: {
-        font: monospace('normal', 10, 16),
-      },
-    },
-  },
-
   colors: {
     accent: {
       100: '#127ff9',
@@ -366,6 +285,117 @@ export const tokens = {
       20: 'rgba(255, 255, 255, 0.2)',
       15: 'rgba(255, 255, 255, 0.15)',
       10: 'rgba(255, 255, 255, 0.1)',
+    },
+  },
+
+  duration: {
+    fast: {
+      1: '70ms',
+      2: '110ms',
+    },
+    moderate: {
+      1: '150ms',
+      2: '240ms',
+    },
+    slow: {
+      1: '400ms',
+      2: '700ms',
+    },
+  },
+
+  easing: {
+    standard: {
+      productive: 'cubic-bezier(0.2, 0, 0.38, 0.9)',
+      expressive: 'cubic-bezier(0.4, 0.14, 0.3, 1)',
+    },
+    entrance: {
+      productive: 'cubic-bezier(0, 0, 0.38, 0.9)',
+      expressive: 'cubic-bezier(0, 0, 0.3, 1)',
+    },
+    exit: {
+      productive: 'cubic-bezier(0.2, 0, 1, 0.9)',
+      expressive: 'cubic-bezier(0.4, 0.14, 1, 1)',
+    },
+  },
+
+  fonts: {
+    sansSerif: {
+      bold10: {
+        font: sansSerif(700, 10, 12),
+      },
+
+      semiBold18: {
+        font: sansSerif(600, 18, 24),
+        letterSpacing: '-0.015em',
+      },
+      semiBold14: {
+        font: sansSerif(600, 14, 22),
+      },
+      semiBold12: {
+        font: sansSerif(600, 12, 16),
+      },
+      semiBold10: {
+        font: sansSerif(600, 10, 16),
+        letterSpacing: '0.08em',
+        textTransform: 'uppercase',
+      },
+
+      medium32: {
+        font: sansSerif(500, 32, 40),
+        letterSpacing: '-0.015em',
+      },
+      medium24: {
+        font: sansSerif(500, 24, 32),
+        letterSpacing: '-0.015em',
+      },
+      medium18: {
+        font: sansSerif(500, 18, 24),
+      },
+      medium14: {
+        font: sansSerif(500, 14, 22),
+      },
+      medium12: {
+        font: sansSerif(500, 12, 16),
+      },
+      medium10: {
+        font: sansSerif(500, 10, 12),
+      },
+
+      regular24: {
+        font: sansSerif(400, 24, 32),
+      },
+      regular18: {
+        font: sansSerif(400, 18, 24),
+      },
+      regular14: {
+        font: sansSerif(400, 14, 22),
+      },
+      regular12: {
+        font: sansSerif(400, 12, 16),
+      },
+    },
+
+    monospace: {
+      bold12: {
+        font: monospace(700, 12, 16),
+      },
+      bold10: {
+        font: monospace(700, 10, 12),
+      },
+
+      semiBold14: {
+        font: monospace(500, 14, 20),
+      },
+      semiBold12: {
+        font: monospace(500, 12, 16),
+      },
+
+      regular12: {
+        font: monospace('normal', 12, 16),
+      },
+      regular10: {
+        font: monospace('normal', 10, 16),
+      },
     },
   },
 };
