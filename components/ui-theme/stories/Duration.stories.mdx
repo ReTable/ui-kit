@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/blocks';
+
+import { uiTheme } from '~';
+
+import { Duration } from "./Duration";
+
+<Meta title="Duration" />
+
+# Duration
+
+<br />
+
+## Fast 01
+
+Micro-interactions such as button and toggle.
+
+<Duration duration={uiTheme.duration.fast['1']} />
+
+## Fast 02
+
+Micro-interactions such as fade.
+
+<Duration duration={uiTheme.duration.fast['2']} />
+
+## Moderate 01
+
+Micro-interactions, small expansion, short distance movements.
+
+<Duration duration={uiTheme.duration.moderate['1']} />
+
+## Moderate 02
+
+Expansion, system communication, toast.
+
+<Duration duration={uiTheme.duration.moderate['2']} />
+
+## Slow 01
+
+Large expansion, important system notifications.
+
+<Duration duration={uiTheme.duration.slow['1']} />
+
+## Slow 02
+
+Background dimming.
+
+<Duration duration={uiTheme.duration.slow['2']} />
