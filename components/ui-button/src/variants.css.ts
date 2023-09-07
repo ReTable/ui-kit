@@ -50,12 +50,17 @@ const root = style(
     cursor: 'pointer',
     whiteSpace: 'nowrap',
     userSelect: 'none',
+    transition: `${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
 
     selectors: {
       '&:focus': {
         outlineStyle: 'solid',
         outlineColor: uiTheme.colors.borderControl.focus2,
         outlineOffset: '0',
+      },
+
+      '&:active': {
+        transition: 'none',
       },
 
       [`&${isFrozen}, &${isDisabled}`]: {
