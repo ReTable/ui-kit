@@ -1,5 +1,11 @@
 # @tabula/ui-button
 
+## 1.0.2
+
+### Patch Changes
+
+- [#66](https://github.com/ReTable/ui-kit/pull/66) [`10614d4`](https://github.com/ReTable/ui-kit/commit/10614d4e4cf69750ce383860cd198a8a6bd4127b) Thanks [@demiazz](https://github.com/demiazz)! - add transitions support
+
 ## 1.0.1
 
 ### Patch Changes
