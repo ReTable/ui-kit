@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 1.1.0
+
+### Minor Changes
+
+- [#64](https://github.com/ReTable/ui-kit/pull/64) [`f63c447`](https://github.com/ReTable/ui-kit/commit/f63c447e7e39a408bdb2a9db6340211fe317f715) Thanks [@demiazz](https://github.com/demiazz)! - add duration and easing variables
+
 ## 1.0.3
 
 ### Patch Changes
