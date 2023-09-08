@@ -1,5 +1,11 @@
 # @tabula/vitest-config
 
+## 0.1.1
+
+### Patch Changes
+
+- [#72](https://github.com/ReTable/ui-kit/pull/72) [`672aa93`](https://github.com/ReTable/ui-kit/commit/672aa938a71b10a16b44156754a0818caa9ca015) Thanks [@demiazz](https://github.com/demiazz)! - update `@testing-library/dom`, `happy-dom` and `vitest` dependencies
+
 ## 0.1.0
 
 ### Minor Changes

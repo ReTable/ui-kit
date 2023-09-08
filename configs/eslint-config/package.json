@@ -1,6 +1,6 @@
 {
   "name": "@tabula/eslint-config",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Configuration for the ESLint",
   "exports": {
     "./node": {

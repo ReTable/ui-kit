@@ -1,5 +1,13 @@
 # @tabula/eslint-config
 
+## 0.0.8
+
+### Patch Changes
+
+- [#72](https://github.com/ReTable/ui-kit/pull/72) [`672aa93`](https://github.com/ReTable/ui-kit/commit/672aa938a71b10a16b44156754a0818caa9ca015) Thanks [@demiazz](https://github.com/demiazz)! - update `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser` dependencies
+
+- [#70](https://github.com/ReTable/ui-kit/pull/70) [`b98c770`](https://github.com/ReTable/ui-kit/commit/b98c770ce08941aa5fd902199ac82fe1705d4dd9) Thanks [@demiazz](https://github.com/demiazz)! - fix files patterns for stories and tests in the `browser` config
+
 ## 0.0.7
 
 ### Patch Changes
