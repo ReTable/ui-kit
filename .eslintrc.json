@@ -1,0 +1,28 @@
+{
+  "overrides": [
+    {
+      "files": ["{components,hooks,libraries}/*/{src,tests}/**/*.{ts,tsx}"],
+
+      "extends": ["@tabula/eslint-config/browser"],
+
+      "parserOptions": {
+        "sourceType": "module",
+        "project": [
+          "components/**/tsconfig.json",
+          "hooks/**/tsconfig.json",
+          "libraries/**/tsconfig.json"
+        ]
+      }
+    },
+    {
+      "files": ["configs/*/{src,tests}/**/*.ts"],
+
+      "extends": ["@tabula/eslint-config/node"],
+
+      "parserOptions": {
+        "sourceType": "module",
+        "project": ["configs/**/tsconfig.json"]
+      }
+    }
+  ]
+}

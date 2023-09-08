@@ -1,0 +1,10 @@
+plopfile.js
+components/**/lib
+components/**/typings
+hooks/**/lib
+hooks/**/typings
+libraries/**/lib
+libraries/**/typings
+configs/**/lib
+configs/**/typings
+configs/typescript-config/types
