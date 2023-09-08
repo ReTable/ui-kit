@@ -13,9 +13,15 @@ runs:
       shell: bash
       run: pnpm build
 
+    - name: Configure ESLint cache
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/eslint
+        key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml', '.eslintrc.json', '.eslintignore') }}
+
     - name: Lint
       shell: bash
-      run: pnpm lint
+      run: pnpm lint --cache --cache-strategy content --cache-location ~/.cache/eslint
 
     - name: Test
       shell: bash
