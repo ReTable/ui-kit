@@ -1,6 +1,5 @@
 ---
-'@tabula/prettier-config': patch
-'@tabula/typescript-config': patch
+'@tabula/eslint-config': patch
 ---
 
-use repo wide `eslint` configuration
+fix files patterns for stories and tests in the `browser` config

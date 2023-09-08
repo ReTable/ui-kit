@@ -45,10 +45,10 @@
   },
   "optionalDependencies": {
     "@testing-library/react": "^14.0.0",
-    "@testing-library/jest-dom": "^6.1.2",
-    "happy-dom": "^10.11.1"
+    "@testing-library/jest-dom": "^6.1.3",
+    "happy-dom": "^11.0.2"
   },
   "peerDependencies": {
-    "vitest": "^0.34.3"
+    "vitest": "^0.34.4"
   }
 }
