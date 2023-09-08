@@ -44,8 +44,7 @@
   "scripts": {
     "build": "forge",
     "build:docs": "forge --storybook",
-    "build:watch": "forge --watch",
-    "lint": "eslint ."
+    "build:watch": "forge --watch"
   },
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",

@@ -1,7 +1,0 @@
-{
-  "extends": "@tabula/eslint-config/node",
-
-  "parserOptions": {
-    "project": true
-  }
-}

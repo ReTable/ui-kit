@@ -75,7 +75,6 @@ We provide various run configurations for Intellij Idea.
 ### Package run configurations
 
 - `<package-name>:build`: builds a package;
-- `<package-name>:lint`: lints a package;
 - `<package-name>:test`: tests a package;
 - `<package-name>:dev:test`: runs build and tests in watch mode in parallel;
 - `<package-name>:dev:server`: builds package and docs in watch mode in parallel.

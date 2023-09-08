@@ -111,17 +111,6 @@ function appendRunConfigurationActions({ actions, packageName, packageDir }) {
   actions.push({
     type: 'add',
 
-    path: runConfigurationPathOf(packageName, 'lint'),
-    templateFile: join(runConfigurationsTemplatesDir, 'npm_lint.xml.hbs'),
-
-    data: {
-      packageName,
-    },
-  });
-
-  actions.push({
-    type: 'add',
-
     path: runConfigurationPathOf(packageName, 'test'),
     templateFile: join(runConfigurationsTemplatesDir, 'vitest_test.xml.hbs'),
 
@@ -215,13 +204,6 @@ async function build(_, config) {
   });
 }
 
-async function lint(_, config) {
-  await execa('pnpm', ['lint'], {
-    cwd: config.cwd,
-    stdio: 'inherit',
-  });
-}
-
 async function test(_, config) {
   await execa('pnpm', ['test'], {
     cwd: config.cwd,
@@ -249,7 +231,6 @@ export default (plop) => {
   plop.setActionType('install', install);
   plop.setActionType('format', format);
   plop.setActionType('build', build);
-  plop.setActionType('lint', lint);
   plop.setActionType('test', test);
 
   // endregion
@@ -305,8 +286,6 @@ export default (plop) => {
       };
 
       const files = [
-        '.eslintignore',
-        '.eslintrc.json',
         '.forgerc',
         'LICENSE',
         'package.json',
@@ -360,7 +339,7 @@ export default (plop) => {
 
       appendRunActions({
         actions,
-        commands: ['install', 'format', 'build', 'lint', 'test'],
+        commands: ['install', 'format', 'build', 'test'],
         cwd: outDir,
       });
 
@@ -414,8 +393,6 @@ export default (plop) => {
       };
 
       const files = [
-        '.eslintignore',
-        '.eslintrc.json',
         '.forgerc',
         'LICENSE',
         'package.json',
@@ -446,7 +423,7 @@ export default (plop) => {
 
       appendRunActions({
         actions,
-        commands: ['install', 'format', 'build', 'lint', 'test'],
+        commands: ['install', 'format', 'build', 'test'],
         cwd: outDir,
       });
 
@@ -499,8 +476,6 @@ export default (plop) => {
       };
 
       const files = [
-        '.eslintignore',
-        '.eslintrc.json',
         '.forgerc',
         'LICENSE',
         'package.json',
@@ -530,7 +505,7 @@ export default (plop) => {
 
       appendRunActions({
         actions,
-        commands: ['install', 'format', 'build', 'lint', 'test'],
+        commands: ['install', 'format', 'build', 'test'],
         cwd: outDir,
       });
 
