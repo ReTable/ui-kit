@@ -1,17 +1,12 @@
 {
   "overrides": [
     {
-      "files": ["{components,hooks,libraries}/*/{src,tests}/**/*.{ts,tsx}"],
+      "files": ["{components,hooks,libraries}/*/{src,stories,tests}/**/*.{ts,tsx}"],
 
       "extends": ["@tabula/eslint-config/browser"],
 
       "parserOptions": {
-        "sourceType": "module",
-        "project": [
-          "components/**/tsconfig.json",
-          "hooks/**/tsconfig.json",
-          "libraries/**/tsconfig.json"
-        ]
+        "project": true
       }
     },
     {
@@ -20,8 +15,14 @@
       "extends": ["@tabula/eslint-config/node"],
 
       "parserOptions": {
-        "sourceType": "module",
-        "project": ["configs/**/tsconfig.json"]
+        "project": true
+      }
+    },
+    {
+      "files": ["components/ui-icon/stories/*.stories.tsx"],
+
+      "rules": {
+        "import/extensions": "off"
       }
     }
   ]
