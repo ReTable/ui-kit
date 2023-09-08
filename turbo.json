@@ -1,6 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
 
+  "globalDependencies": [".eslintrc", ".eslintignore"],
+
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
@@ -16,9 +18,6 @@
       "dependsOn": ["^build"],
       "cache": false,
       "persistent": true
-    },
-    "lint": {
-      "inputs": ["src/**", "stories/**", "tests/**", ".eslintignore", ".eslintrc.json"]
     },
     "test": {
       "dependsOn": ["build", "@tabula/vitest-config#build"],
