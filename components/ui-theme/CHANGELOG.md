@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 1.2.0
+
+### Minor Changes
+
+- [#74](https://github.com/ReTable/ui-kit/pull/74) [`47dfbfb`](https://github.com/ReTable/ui-kit/commit/47dfbfb7925c056a012d3ef6da93172a3b936bc3) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - add sans-serif 12 bold font
+
 ## 1.1.0
 
 ### Minor Changes
