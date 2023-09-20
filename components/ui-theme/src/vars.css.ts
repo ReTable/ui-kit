@@ -320,6 +320,9 @@ export const tokens = {
 
   fonts: {
     sansSerif: {
+      bold12: {
+        font: sansSerif(700, 12, 16),
+      },
       bold10: {
         font: sansSerif(700, 10, 12),
       },
