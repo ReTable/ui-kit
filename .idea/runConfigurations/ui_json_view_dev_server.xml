@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-json-view" name="ui-json-view:dev:server" type="CompoundRunConfigurationType">
+    <toRun name="docs:watch" type="js.build_tools.npm" />
+    <toRun name="ui-json-view:build:watch" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
