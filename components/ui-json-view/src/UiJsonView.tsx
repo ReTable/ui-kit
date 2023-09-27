@@ -22,11 +22,11 @@ export const UiJsonView: FC<Props> = ({
   // Step 1: Convert source string to the render lines.
   const allLines = useMemo(() => toLines(source), [source]);
   // Step 2: Initiate collapsed keys service.
-  const [collapsedKeys] = useCollapsedKeys(allLines, collapsed);
+  const [collapsedKeys, toggle] = useCollapsedKeys(allLines, collapsed);
   const lines = useCollapsedLines(allLines, collapsedKeys);
 
   return (
-    <UiJsonViewOptions showServiceData={showServiceData}>
+    <UiJsonViewOptions showServiceData={showServiceData} toggle={toggle}>
       <div className={className}>
         {lines.map((line) => {
           const isCollapsed = isOpenLine(line) && collapsedKeys.has(line.key);

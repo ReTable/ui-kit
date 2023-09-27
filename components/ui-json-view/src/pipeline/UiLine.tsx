@@ -35,6 +35,7 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
       return (
         <UiOpenArray
           isCollapsed={isCollapsed}
+          lineKey={line.key}
           level={line.level}
           parentKey={line.parentKey}
           size={line.size}
@@ -48,6 +49,7 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
       return (
         <UiOpenObject
           isCollapsed={isCollapsed}
+          lineKey={line.key}
           level={line.level}
           parentKey={line.parentKey}
           size={line.size}

@@ -1,10 +1,12 @@
 import { FC, PropsWithChildren, createContext, useContext, useMemo } from 'react';
 
-import { JsonViewOptions } from './types';
+import { JsonViewOptions, ToggleFn } from './types';
 
 // region Types
 
-type Value = JsonViewOptions;
+type Value = JsonViewOptions & {
+  toggle: ToggleFn;
+};
 
 // endregion
 
@@ -12,6 +14,8 @@ type Value = JsonViewOptions;
 
 const defaultValue: Value = {
   showServiceData: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  toggle: () => {},
 };
 
 const Context = createContext<Value>(defaultValue);
@@ -23,12 +27,14 @@ const Context = createContext<Value>(defaultValue);
 export const UiJsonViewOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   children,
   showServiceData = defaultValue.showServiceData,
+  toggle = defaultValue.toggle,
 }) => {
   const value = useMemo<Value>(
     () => ({
       showServiceData,
+      toggle,
     }),
-    [showServiceData],
+    [showServiceData, toggle],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
