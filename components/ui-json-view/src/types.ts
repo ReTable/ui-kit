@@ -16,3 +16,13 @@ export type JsonViewOptions = {
 };
 
 // endregion
+
+// region Service
+
+export type CollapsedKeys = {
+  has: (key: string) => boolean;
+};
+
+export type ToggleFn = (key: string) => void;
+
+// endregion
