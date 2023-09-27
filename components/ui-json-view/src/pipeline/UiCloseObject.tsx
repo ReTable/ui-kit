@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { root } from './UiCloseArray.css';
+import { line } from './style.css';
 
 type Props = {
   level: number;
@@ -8,7 +8,7 @@ type Props = {
 
 export const UiCloseObject: FC<Props> = ({ level }) => {
   return (
-    <pre className={root}>
+    <pre className={line.boundary}>
       {''.padStart(level * 2)}
       {'}'}
     </pre>

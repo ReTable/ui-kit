@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { root } from './UiOpenObject.css';
+import { line, toggleButton } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
 
-import { UiParentKey } from './UiParentKey';
+import { UiProperty } from './UiProperty';
 import { UiSize } from './UiSize';
 
 type Props = {
@@ -25,9 +25,9 @@ export const UiOpenObject: FC<Props> = ({ lineKey, isCollapsed, level, parentKey
   const collapseLabel = isCollapsed ? '+' : '-';
 
   return (
-    <pre className={root}>
+    <pre className={line.boundary}>
       {''.padStart(level * 2)}
-      {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
+      {parentKey != null && <UiProperty>{parentKey}</UiProperty>}
       {isCollapsed ? (
         <>
           {'{ ... }'}{' '}
@@ -36,7 +36,7 @@ export const UiOpenObject: FC<Props> = ({ lineKey, isCollapsed, level, parentKey
               <UiSize>{size}</UiSize>{' '}
             </>
           )}
-          <button onClick={handleToggle} type="button">
+          <button className={toggleButton} onClick={handleToggle} type="button">
             {collapseLabel}
           </button>
         </>
@@ -48,7 +48,7 @@ export const UiOpenObject: FC<Props> = ({ lineKey, isCollapsed, level, parentKey
               <UiSize>{size}</UiSize>{' '}
             </>
           )}
-          <button onClick={handleToggle} type="button">
+          <button className={toggleButton} onClick={handleToggle} type="button">
             {collapseLabel}
           </button>
         </>

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { root } from './UiNumber.css';
+import { line } from './style.css';
 
-import { UiParentKey } from './UiParentKey';
+import { UiProperty } from './UiProperty';
 
 type Props = {
   level: number;
@@ -11,9 +11,9 @@ type Props = {
 
 export const UiNull: FC<Props> = ({ level, parentKey }) => {
   return (
-    <pre className={root}>
+    <pre className={line.null}>
       {''.padStart(level * 2)}
-      {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
+      {parentKey != null && <UiProperty>{parentKey}</UiProperty>}
       null
     </pre>
   );

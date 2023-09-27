@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { root } from './UiBoolean.css';
+import { line } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
 
-import { UiParentKey } from './UiParentKey';
+import { UiProperty } from './UiProperty';
 import { UiType } from './UiType';
 
 type Props = {
@@ -17,9 +17,9 @@ export const UiBoolean: FC<Props> = ({ level, parentKey, value }) => {
   const { showDataTypes } = useJsonViewOptions();
 
   return (
-    <pre className={root}>
+    <pre className={line.boolean}>
       {''.padStart(level * 2)}
-      {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
+      {parentKey != null && <UiProperty>{parentKey}</UiProperty>}
       {showDataTypes && <UiType>bool </UiType>}
       {value.toString()}
     </pre>

@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { root } from './UiNumber.css';
+import { line } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
 
-import { UiParentKey } from './UiParentKey';
+import { UiProperty } from './UiProperty';
 import { UiType } from './UiType';
 
 type Props = {
@@ -17,9 +17,9 @@ export const UiNumber: FC<Props> = ({ level, parentKey, value }) => {
   const { showDataTypes } = useJsonViewOptions();
 
   return (
-    <pre className={root}>
+    <pre className={line.number}>
       {''.padStart(level * 2)}
-      {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
+      {parentKey != null && <UiProperty>{parentKey}</UiProperty>}
       {showDataTypes && <UiType>{Number.isInteger(value) ? 'int' : 'float'} </UiType>}
       {value}
     </pre>
