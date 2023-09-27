@@ -1,12 +1,16 @@
 import { useCallback, useState } from 'react';
 
-import { Line, LineType } from '../toLines';
+import { Line, isOpenLine } from '../toLines';
 import { CollapsedKeys, ToggleFn } from '../types';
 
 // region Registry
 
 class Registry implements CollapsedKeys {
   public constructor(private readonly keys: Set<string> = new Set()) {}
+
+  public get isEmpty(): boolean {
+    return this.keys.size === 0;
+  }
 
   public has(key: string): boolean {
     return this.keys.has(key);
@@ -34,13 +38,7 @@ function initCollapsedKeys(lines: Line[], collapsed: boolean | number): Registry
     const minLevel = collapsed === true ? 0 : collapsed;
 
     for (const line of lines) {
-      const isOpen = line.type === LineType.ArrayOpen || line.type === LineType.ObjectOpen;
-
-      if (!isOpen) {
-        continue;
-      }
-
-      if (line.level >= minLevel) {
+      if (isOpenLine(line) && line.level >= minLevel) {
         keys.add(line.key);
       }
     }

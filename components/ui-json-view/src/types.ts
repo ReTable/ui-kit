@@ -20,6 +20,8 @@ export type JsonViewOptions = {
 // region Service
 
 export type CollapsedKeys = {
+  isEmpty: boolean;
+
   has: (key: string) => boolean;
 };
 
