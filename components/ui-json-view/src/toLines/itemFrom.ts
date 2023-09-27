@@ -7,6 +7,7 @@ import {
   JsonPath,
   LineItem,
   LineType,
+  OpenLine,
   ParentKey,
   PrimitiveValue,
   ValueItem,
@@ -89,19 +90,20 @@ export function openItemFrom({
   type,
   size,
 }: OpenItemFromOptions): LineItem {
-  return {
-    isLine: true,
+  const line: OpenLine = {
+    jsonPath: jp.stringify(jsonPath),
+    key: `${key}`,
+    level,
 
-    line: {
-      jsonPath: jp.stringify(jsonPath),
-      key: `${key}.0`,
-      level,
-
-      parentKey,
-      type,
-      size,
-    },
+    type,
+    size,
   };
+
+  if (parentKey != null) {
+    line.parentKey = parentKey;
+  }
+
+  return { isLine: true, line };
 }
 
 type CloseItemFromOptions = {
@@ -117,7 +119,7 @@ export function closeItemFrom({ key, level, size, type }: CloseItemFromOptions):
 
     line: {
       // NOTE: If size is 0, then an empty placeholder will be added, and size will be 1.
-      key: `${key}.${Math.max(size, 1) + 1}`,
+      key: `${key}.${Math.max(size, 1)}`,
       level,
 
       type,
@@ -139,7 +141,7 @@ export function emptyItemFrom({ key, level }: EmptyItemFromOptions): Item {
     isLine: true,
 
     line: {
-      key: `${key}.1`,
+      key: `${key}.0`,
       level: level + 1,
 
       type: LineType.Empty,
@@ -172,7 +174,7 @@ export function valueItemFrom({
     isLine: false,
 
     jsonPath: [...jsonPath, property],
-    key: `${key}.${index + 1}`,
+    key: `${key}.${index}`,
     level: level + 1,
 
     parentKey: property,
