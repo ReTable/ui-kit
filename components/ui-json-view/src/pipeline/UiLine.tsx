@@ -2,15 +2,10 @@ import { FC } from 'react';
 
 import { Line, LineType } from '../lines';
 
-import { UiBoolean } from './UiBoolean';
-import { UiCloseArray } from './UiCloseArray';
-import { UiCloseObject } from './UiCloseObject';
-import { UiEmpty } from './UiEmpty';
-import { UiNull } from './UiNull';
-import { UiNumber } from './UiNumber';
-import { UiOpenArray } from './UiOpenArray';
-import { UiOpenObject } from './UiOpenObject';
-import { UiString } from './UiString';
+import { UiClose } from './UiClose';
+import { UiOpen } from './UiOpen';
+import { UiPlaceholder } from './UiPlaceholder';
+import { UiPrimitive } from './UiPrimitive';
 
 type Props = {
   isCollapsed: boolean;
@@ -19,48 +14,31 @@ type Props = {
 
 export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
   switch (line.type) {
-    case LineType.Boolean: {
-      return <UiBoolean level={line.level} parentKey={line.parentKey} value={line.value} />;
-    }
-    case LineType.Null: {
-      return <UiNull level={line.level} parentKey={line.parentKey} />;
-    }
-    case LineType.Number: {
-      return <UiNumber level={line.level} parentKey={line.parentKey} value={line.value} />;
-    }
+    case LineType.Boolean:
+    case LineType.Null:
+    case LineType.Number:
     case LineType.String: {
-      return <UiString level={line.level} parentKey={line.parentKey} value={line.value} />;
+      return <UiPrimitive level={line.level} parentKey={line.parentKey} value={line.value} />;
     }
-    case LineType.ArrayOpen: {
-      return (
-        <UiOpenArray
-          isCollapsed={isCollapsed}
-          lineKey={line.key}
-          level={line.level}
-          parentKey={line.parentKey}
-          size={line.size}
-        />
-      );
-    }
-    case LineType.ArrayClose: {
-      return <UiCloseArray level={line.level} />;
-    }
+    case LineType.ArrayOpen:
     case LineType.ObjectOpen: {
       return (
-        <UiOpenObject
+        <UiOpen
           isCollapsed={isCollapsed}
-          lineKey={line.key}
           level={line.level}
+          lineKey={line.key}
           parentKey={line.parentKey}
           size={line.size}
+          type={line.type}
         />
       );
     }
+    case LineType.ArrayClose:
     case LineType.ObjectClose: {
-      return <UiCloseObject level={line.level} />;
+      return <UiClose level={line.level} type={line.type} />;
     }
     case LineType.Empty: {
-      return <UiEmpty level={line.level} />;
+      return <UiPlaceholder level={line.level} type={line.type} />;
     }
   }
 };

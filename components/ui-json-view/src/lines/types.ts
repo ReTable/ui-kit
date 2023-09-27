@@ -11,8 +11,6 @@ export type JsonPath = Array<number | string>;
 //       If parent value is an object, then key will be a key.
 export type ParentKey = number | string;
 
-export type PrimitiveValue = boolean | null | number | string;
-
 // region Line
 
 /* eslint-disable @typescript-eslint/no-shadow */
@@ -32,6 +30,18 @@ export enum LineType {
   Empty,
 }
 /* eslint-enable */
+
+export type PrimitiveLineType =
+  | LineType.Boolean
+  | LineType.Null
+  | LineType.Number
+  | LineType.String;
+
+export type OpenLineType = LineType.ArrayOpen | LineType.ObjectOpen;
+
+export type CloseLineType = LineType.ArrayClose | LineType.ObjectClose;
+
+export type PlaceholderLineType = LineType.Empty;
 
 type BaseLine<Type extends LineType> = {
   // NOTE: Key of item.

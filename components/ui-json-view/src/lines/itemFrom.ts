@@ -1,6 +1,6 @@
 import jp from 'jsonpath';
 
-import { JsonValue } from '../types';
+import { JsonPrimitiveValue, JsonValue } from '../types';
 
 import {
   Item,
@@ -9,7 +9,6 @@ import {
   LineType,
   OpenLine,
   ParentKey,
-  PrimitiveValue,
   ValueItem,
   ValueLine,
 } from './types';
@@ -22,7 +21,7 @@ type TypedValue =
   | { type: LineType.Number; value: number }
   | { type: LineType.String; value: string };
 
-function primitiveValueWithType(value: PrimitiveValue): TypedValue {
+function primitiveValueWithType(value: JsonPrimitiveValue): TypedValue {
   if (value == null) {
     return { type: LineType.Null, value: null };
   }
@@ -48,7 +47,7 @@ type ValueLineItemFromOptions = {
 };
 
 export function valueLineItemFrom(
-  source: PrimitiveValue,
+  source: JsonPrimitiveValue,
   { jsonPath: jsonPathComponents, key, level, parentKey }: ValueLineItemFromOptions,
 ): LineItem {
   // Step 1: Convert JSON Path components to string.

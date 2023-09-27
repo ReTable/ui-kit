@@ -1,8 +1,6 @@
-import { JsonValue } from '../types';
+import { JsonPrimitiveValue, JsonValue } from '../types';
 
-import { PrimitiveValue } from './types';
-
-export function isPrimitiveValue(value: JsonValue): value is PrimitiveValue {
+export function isPrimitiveValue(value: JsonValue): value is JsonPrimitiveValue {
   if (value == null) {
     return true;
   }
