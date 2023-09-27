@@ -1,24 +1,23 @@
-import { FC, Fragment, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 
-import { UiJsonViewOptions, UiLine } from './pipeline';
+import { UiJsonViewOptions } from './UiJsonViewOptions';
+import { UiLine } from './pipeline';
 import { toLines } from './toLines';
+import { JsonViewOptions } from './types';
 
-export type Props = {
+export type Props = Partial<JsonViewOptions> & {
   className?: string;
-  showType?: boolean;
   source: string;
 };
 
-export const UiJsonView: FC<Props> = ({ className = '', showType = true, source }) => {
+export const UiJsonView: FC<Props> = ({ className = '', showServiceData, source }) => {
   const lines = useMemo(() => toLines(source), [source]);
 
   return (
-    <UiJsonViewOptions showType={showType}>
+    <UiJsonViewOptions showServiceData={showServiceData}>
       <div className={className}>
         {lines.map((line) => (
-          <Fragment key={line.key}>
-            <UiLine isCollapsed={false} line={line} />
-          </Fragment>
+          <UiLine key={line.key} isCollapsed={false} line={line} />
         ))}
       </div>
     </UiJsonViewOptions>

@@ -2,7 +2,8 @@ import { FC } from 'react';
 
 import { root } from './UiBoolean.css';
 
-import { useUiJsonViewOptions } from './UiJsonViewOptions';
+import { useJsonViewOptions } from '../UiJsonViewOptions';
+
 import { UiParentKey } from './UiParentKey';
 import { UiType } from './UiType';
 
@@ -13,13 +14,13 @@ type Props = {
 };
 
 export const UiBoolean: FC<Props> = ({ level, parentKey, value }) => {
-  const { showType } = useUiJsonViewOptions();
+  const { showServiceData } = useJsonViewOptions();
 
   return (
     <pre className={root}>
       {''.padStart(level * 2)}
       {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
-      {showType && <UiType>bool </UiType>}
+      {showServiceData && <UiType>bool </UiType>}
       {value.toString()}
     </pre>
   );
