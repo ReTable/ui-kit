@@ -14,13 +14,13 @@ type Props = {
 };
 
 export const UiBoolean: FC<Props> = ({ level, parentKey, value }) => {
-  const { showServiceData } = useJsonViewOptions();
+  const { showDataTypes } = useJsonViewOptions();
 
   return (
     <pre className={root}>
       {''.padStart(level * 2)}
       {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
-      {showServiceData && <UiType>bool </UiType>}
+      {showDataTypes && <UiType>bool </UiType>}
       {value.toString()}
     </pre>
   );

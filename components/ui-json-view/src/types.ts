@@ -12,7 +12,8 @@ export type JsonValue = JsonArray | JsonObject | boolean | null | number | strin
 // region Options
 
 export type JsonViewOptions = {
-  showServiceData: boolean;
+  showDataTypes: boolean;
+  showObjectSize: boolean;
 };
 
 // endregion

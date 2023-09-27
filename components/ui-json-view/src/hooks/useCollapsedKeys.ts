@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { Line, isOpenLine } from '../toLines';
+import { Line, isOpenLine } from '../lines';
 import { CollapsedKeys, ToggleFn } from '../types';
 
 // region Registry

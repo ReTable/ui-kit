@@ -16,7 +16,7 @@ type Props = {
 };
 
 export const UiOpenObject: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size }) => {
-  const { toggle } = useJsonViewOptions();
+  const { showObjectSize, toggle } = useJsonViewOptions();
 
   const handleToggle = () => {
     toggle(lineKey);
@@ -30,14 +30,24 @@ export const UiOpenObject: FC<Props> = ({ lineKey, isCollapsed, level, parentKey
       {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
       {isCollapsed ? (
         <>
-          {'{ ... }'} <UiSize>{size}</UiSize>{' '}
+          {'{ ... }'}{' '}
+          {showObjectSize && (
+            <>
+              <UiSize>{size}</UiSize>{' '}
+            </>
+          )}
           <button onClick={handleToggle} type="button">
             {collapseLabel}
           </button>
         </>
       ) : (
         <>
-          {'{'} <UiSize>{size}</UiSize>{' '}
+          {'{'}{' '}
+          {showObjectSize && (
+            <>
+              <UiSize>{size}</UiSize>{' '}
+            </>
+          )}
           <button onClick={handleToggle} type="button">
             {collapseLabel}
           </button>

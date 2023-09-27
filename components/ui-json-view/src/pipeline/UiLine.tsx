@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Line, LineType } from '../toLines';
+import { Line, LineType } from '../lines';
 
 import { UiBoolean } from './UiBoolean';
 import { UiCloseArray } from './UiCloseArray';

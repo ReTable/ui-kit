@@ -13,7 +13,8 @@ type Value = JsonViewOptions & {
 // region Context
 
 const defaultValue: Value = {
-  showServiceData: false,
+  showDataTypes: false,
+  showObjectSize: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   toggle: () => {},
 };
@@ -26,15 +27,17 @@ const Context = createContext<Value>(defaultValue);
 
 export const UiJsonViewOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   children,
-  showServiceData = defaultValue.showServiceData,
+  showDataTypes = defaultValue.showDataTypes,
+  showObjectSize = defaultValue.showObjectSize,
   toggle = defaultValue.toggle,
 }) => {
   const value = useMemo<Value>(
     () => ({
-      showServiceData,
+      showDataTypes,
+      showObjectSize,
       toggle,
     }),
-    [showServiceData, toggle],
+    [showDataTypes, showObjectSize, toggle],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

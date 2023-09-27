@@ -14,13 +14,13 @@ type Props = {
 };
 
 export const UiNumber: FC<Props> = ({ level, parentKey, value }) => {
-  const { showServiceData } = useJsonViewOptions();
+  const { showDataTypes } = useJsonViewOptions();
 
   return (
     <pre className={root}>
       {''.padStart(level * 2)}
       {parentKey != null && <UiParentKey>{parentKey}</UiParentKey>}
-      {showServiceData && <UiType>{Number.isInteger(value) ? 'int' : 'float'} </UiType>}
+      {showDataTypes && <UiType>{Number.isInteger(value) ? 'int' : 'float'} </UiType>}
       {value}
     </pre>
   );

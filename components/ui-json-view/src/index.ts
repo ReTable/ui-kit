@@ -1,2 +1,2 @@
 export { UiJsonView } from './UiJsonView';
-export { toLines } from './toLines';
+export { toLines } from './lines';

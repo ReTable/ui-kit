@@ -1,10 +1,9 @@
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 
 import { UiJsonViewOptions } from './UiJsonViewOptions';
-import { useCollapsedKeys } from './hooks';
-import { useCollapsedLines } from './hooks/useCollapsedLines';
+import { useCollapsedKeys, useCollapsedLines, useLines } from './hooks';
+import { isOpenLine } from './lines';
 import { UiLine } from './pipeline';
-import { isOpenLine, toLines } from './toLines';
 import { JsonViewOptions } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
@@ -16,17 +15,23 @@ export type Props = Partial<JsonViewOptions> & {
 export const UiJsonView: FC<Props> = ({
   className = '',
   collapsed = false,
-  showServiceData,
+  showDataTypes,
+  showObjectSize,
   source,
 }) => {
   // Step 1: Convert source string to the render lines.
-  const allLines = useMemo(() => toLines(source), [source]);
+  const allLines = useLines(source);
   // Step 2: Initiate collapsed keys service.
   const [collapsedKeys, toggle] = useCollapsedKeys(allLines, collapsed);
+  // Step 3: Filter collapsed lines.
   const lines = useCollapsedLines(allLines, collapsedKeys);
 
   return (
-    <UiJsonViewOptions showServiceData={showServiceData} toggle={toggle}>
+    <UiJsonViewOptions
+      showDataTypes={showDataTypes}
+      showObjectSize={showObjectSize}
+      toggle={toggle}
+    >
       <div className={className}>
         {lines.map((line) => {
           const isCollapsed = isOpenLine(line) && collapsedKeys.has(line.key);
