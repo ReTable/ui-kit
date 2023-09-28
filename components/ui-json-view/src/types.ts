@@ -14,6 +14,7 @@ export type JsonValue = JsonArray | JsonObject | JsonPrimitiveValue;
 // region Options
 
 export type JsonViewOptions = {
+  isInteractive: boolean;
   showDataTypes: boolean;
   showObjectSize: boolean;
 };

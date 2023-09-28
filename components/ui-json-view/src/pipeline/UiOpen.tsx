@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size, type }) => {
-  const { showObjectSize, toggle } = useJsonViewOptions();
+  const { isInteractive, showObjectSize, toggle } = useJsonViewOptions();
   const style = useLevel(level);
 
   const [openSymbol, closeSymbol] = type === LineType.ArrayOpen ? ['[', ']'] : ['{', '}'];
@@ -39,18 +39,22 @@ export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size
     <div className={line.boundary} style={style}>
       {isCollapsed ? (
         <>
-          <button className={toggleButton} onClick={handleToggle} type="button">
-            {collapseLabel}
-          </button>
+          {isInteractive && (
+            <button className={toggleButton} onClick={handleToggle} type="button">
+              {collapseLabel}
+            </button>
+          )}
           {parentKey != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
           {openSymbol} ... {closeSymbol}{' '}
           {showObjectSize && <span className={meta}>&nbsp;{count}</span>}
         </>
       ) : (
         <>
-          <button className={toggleButton} onClick={handleToggle} type="button">
-            {collapseLabel}
-          </button>
+          {isInteractive && (
+            <button className={toggleButton} onClick={handleToggle} type="button">
+              {collapseLabel}
+            </button>
+          )}
           {parentKey != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
           {openSymbol} {showObjectSize && <span className={meta}>&nbsp;{count}</span>}
         </>

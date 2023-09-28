@@ -17,6 +17,7 @@ export type Props = Partial<JsonViewOptions> & {
 export const UiJsonView: FC<Props> = ({
   className = '',
   collapsed = false,
+  isInteractive,
   showDataTypes,
   showObjectSize,
   source,
@@ -28,15 +29,19 @@ export const UiJsonView: FC<Props> = ({
   // Step 3: Filter collapsed lines.
   const lines = useCollapsedLines(allLines, collapsedKeys);
 
-  const isPlain = lines.length === 0 || isValueLine(lines[0]);
+  const containerClassName =
+    lines.length === 0 || isValueLine(lines[0]) || !isInteractive
+      ? container.plain
+      : container.nested;
 
   return (
     <UiJsonViewOptions
+      isInteractive={isInteractive}
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
       toggle={toggle}
     >
-      <div className={clsx(isPlain ? container.plain : container.nested, className)}>
+      <div className={clsx(containerClassName, className)}>
         {lines.map((line) => {
           const isCollapsed = isOpenLine(line) && collapsedKeys.has(line.key);
 
