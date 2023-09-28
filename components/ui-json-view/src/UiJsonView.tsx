@@ -4,9 +4,9 @@ import { clsx } from 'clsx';
 
 import { container } from './style.css';
 
-import { UiJsonViewOptions } from './UiJsonViewOptions';
+import { UiLine } from './UiLine';
+import { UiOptions } from './UiOptions';
 import { useCollapsedKeys, useCollapsedLines, useLines } from './hooks';
-import { UiLine } from './pipeline';
 import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
@@ -36,7 +36,7 @@ export const UiJsonView: FC<Props> = ({
       : container.nested;
 
   return (
-    <UiJsonViewOptions
+    <UiOptions
       isInteractive={isInteractive}
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
@@ -49,6 +49,6 @@ export const UiJsonView: FC<Props> = ({
           return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} />;
         })}
       </div>
-    </UiJsonViewOptions>
+    </UiOptions>
   );
 };

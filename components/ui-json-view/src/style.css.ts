@@ -68,7 +68,7 @@ export const container = styleVariants(
   }),
 );
 
-export const line = styleVariants(
+export const lines = styleVariants(
   {
     bool: uiTheme.colors.code.function,
     null: uiTheme.colors.code.function,

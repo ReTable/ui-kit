@@ -26,7 +26,7 @@ const Context = createContext<Value>(defaultValue);
 
 // region Provider
 
-export const UiJsonViewOptions: FC<PropsWithChildren<Partial<Value>>> = ({
+export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   children,
   isInteractive = defaultValue.isInteractive,
   showDataTypes = defaultValue.showDataTypes,
@@ -46,11 +46,13 @@ export const UiJsonViewOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
+UiOptions.displayName = `UiJsonView(UiOptions)`;
+
 // endregion
 
 // region Hook
 
-export function useJsonViewOptions(): Value {
+export function useOptions(): Value {
   return useContext(Context);
 }
 
