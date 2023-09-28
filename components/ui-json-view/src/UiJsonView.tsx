@@ -2,9 +2,11 @@ import { FC } from 'react';
 
 import { clsx } from 'clsx';
 
+import { container } from './style.css';
+
 import { UiJsonViewOptions } from './UiJsonViewOptions';
 import { useCollapsedKeys, useCollapsedLines, useLines } from './hooks';
-import { UiLine, container } from './pipeline';
+import { UiLine } from './pipeline';
 import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {

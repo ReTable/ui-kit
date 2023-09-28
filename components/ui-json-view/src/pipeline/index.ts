@@ -1,2 +1,2 @@
 export { UiLine } from './UiLine';
-export { container } from './style.css';
+export { container } from '../style.css';

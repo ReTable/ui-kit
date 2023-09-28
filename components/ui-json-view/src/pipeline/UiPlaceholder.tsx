@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { line } from './style.css';
+import { line } from '../style.css';
 
 import { useLevel } from './useLevel';
 
