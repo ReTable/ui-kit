@@ -18,7 +18,7 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
     case LineType.Null:
     case LineType.Number:
     case LineType.String: {
-      return <UiPrimitive level={line.level} parentKey={line.parentKey} value={line.value} />;
+      return <UiPrimitive level={line.level} property={line.property} value={line.value} />;
     }
     case LineType.ArrayOpen:
     case LineType.ObjectOpen: {
@@ -27,7 +27,7 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
           isCollapsed={isCollapsed}
           level={line.level}
           lineKey={line.key}
-          parentKey={line.parentKey}
+          property={line.property}
           size={line.size}
           type={line.type}
         />

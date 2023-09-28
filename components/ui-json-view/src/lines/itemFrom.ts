@@ -8,7 +8,7 @@ import {
   LineItem,
   LineType,
   OpenLine,
-  ParentKey,
+  Property,
   ValueItem,
   ValueLine,
 } from './types';
@@ -43,12 +43,12 @@ type ValueLineItemFromOptions = {
   jsonPath: JsonPath;
   key: string;
   level: number;
-  parentKey?: ParentKey;
+  property?: Property;
 };
 
 export function valueLineItemFrom(
   source: JsonPrimitiveValue,
-  { jsonPath: jsonPathComponents, key, level, parentKey }: ValueLineItemFromOptions,
+  { jsonPath: jsonPathComponents, key, level, property }: ValueLineItemFromOptions,
 ): LineItem {
   // Step 1: Convert JSON Path components to string.
   const jsonPath = jp.stringify(jsonPathComponents);
@@ -59,9 +59,9 @@ export function valueLineItemFrom(
   // Step 3: Build a line object.
   const line: ValueLine = { jsonPath, key, level, ...valueWithType };
 
-  // Step 4: If parent key is represented, then add it to the line.
-  if (parentKey != null) {
-    line.parentKey = parentKey;
+  // Step 4: If property is represented, then add it to the line.
+  if (property != null) {
+    line.property = property;
   }
 
   // Step 5: Return a result.
@@ -76,7 +76,7 @@ type OpenItemFromOptions = {
   jsonPath: JsonPath;
   key: string;
   level: number;
-  parentKey?: ParentKey;
+  property?: Property;
   size: number;
   type: LineType.ArrayOpen | LineType.ObjectOpen;
 };
@@ -85,7 +85,7 @@ export function openItemFrom({
   jsonPath,
   key,
   level,
-  parentKey,
+  property,
   type,
   size,
 }: OpenItemFromOptions): LineItem {
@@ -98,8 +98,8 @@ export function openItemFrom({
     size,
   };
 
-  if (parentKey != null) {
-    line.parentKey = parentKey;
+  if (property != null) {
+    line.property = property;
   }
 
   return { isLine: true, line };
@@ -176,7 +176,7 @@ export function valueItemFrom({
     key: `${key}.${index}`,
     level: level + 1,
 
-    parentKey: property,
+    property,
 
     value,
   };

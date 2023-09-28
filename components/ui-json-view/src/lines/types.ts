@@ -9,7 +9,7 @@ export type JsonPath = Array<number | string>;
 //
 //       If parent value is an array, then key will be an index.
 //       If parent value is an object, then key will be a key.
-export type ParentKey = number | string;
+export type Property = number | string;
 
 // region Line
 
@@ -59,13 +59,13 @@ type BaseLine<Type extends LineType> = {
 };
 
 type BaseValueLine<Type extends LineType, Value = never> = BaseLine<Type> & {
-  parentKey?: ParentKey;
+  property?: Property;
   jsonPath: string;
   value: Value;
 };
 
 type BaseOpenLine<Type extends LineType> = BaseLine<Type> & {
-  parentKey?: ParentKey;
+  property?: Property;
   jsonPath: string;
   // NOTE: Number of items in an array or properties in an object.
   size: number;
@@ -116,7 +116,7 @@ export type ValueItem = {
 
   jsonPath: JsonPath;
 
-  parentKey?: number | string;
+  property?: number | string;
 
   value: JsonValue;
 };

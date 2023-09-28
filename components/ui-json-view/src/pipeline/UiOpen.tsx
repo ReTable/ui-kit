@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { line, meta, property, toggleButton } from './style.css';
+import { line, meta, property as propertyStyle, toggleButton } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
 import { LineType, OpenLineType } from '../lines';
@@ -11,12 +11,12 @@ type Props = {
   isCollapsed: boolean;
   level: number;
   lineKey: string;
-  parentKey?: number | string;
+  property?: number | string;
   size: number;
   type: OpenLineType;
 };
 
-export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size, type }) => {
+export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, property, size, type }) => {
   const { isInteractive, showObjectSize, toggle } = useJsonViewOptions();
   const style = useLevel(level);
 
@@ -31,8 +31,8 @@ export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size
 
   let propertyName: number | string | null = null;
 
-  if (parentKey != null) {
-    propertyName = typeof parentKey === 'number' ? parentKey : JSON.stringify(parentKey);
+  if (property != null) {
+    propertyName = typeof property === 'number' ? property : JSON.stringify(property);
   }
 
   return (
@@ -44,7 +44,7 @@ export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size
               {collapseLabel}
             </button>
           )}
-          {parentKey != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
+          {property != null && <span className={propertyStyle}>{propertyName}&nbsp;:&nbsp;</span>}
           {openSymbol} ... {closeSymbol}{' '}
           {showObjectSize && <span className={meta}>&nbsp;{count}</span>}
         </>
@@ -55,7 +55,7 @@ export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size
               {collapseLabel}
             </button>
           )}
-          {parentKey != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
+          {property != null && <span className={propertyStyle}>{propertyName}&nbsp;:&nbsp;</span>}
           {openSymbol} {showObjectSize && <span className={meta}>&nbsp;{count}</span>}
         </>
       )}

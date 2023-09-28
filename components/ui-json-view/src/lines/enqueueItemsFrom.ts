@@ -10,7 +10,7 @@ import {
 import { Item, LineType, ValueItem } from './types';
 
 export function enqueueItemsFrom(parent: ValueItem): void {
-  const { jsonPath, key, level, parentKey, value: source, next } = parent;
+  const { jsonPath, key, level, property, value: source, next } = parent;
 
   // Step 1: If source value is primitive value, then create line item immediately.
   if (isPrimitiveValue(source)) {
@@ -19,7 +19,7 @@ export function enqueueItemsFrom(parent: ValueItem): void {
       jsonPath,
       key,
       level,
-      parentKey,
+      property,
     });
 
     // Step 1.2: If parent is presented, then redirect references.
@@ -38,7 +38,7 @@ export function enqueueItemsFrom(parent: ValueItem): void {
     jsonPath,
     key,
     level,
-    parentKey,
+    property,
     size,
     type: Array.isArray(source) ? LineType.ArrayOpen : LineType.ObjectOpen,
   });
@@ -69,14 +69,14 @@ export function enqueueItemsFrom(parent: ValueItem): void {
     cursor.next = empty;
   } else {
     // Step 8.1: Iterate over children and convert them to items.
-    for (const [index, property, value] of children) {
+    for (const [index, childProperty, value] of children) {
       // Step 8.1.1: Create an item.
       const item = valueItemFrom({
         index,
         jsonPath,
         key,
         level,
-        property,
+        property: childProperty,
         value,
       });
 

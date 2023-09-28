@@ -9,7 +9,7 @@ import { useLevel } from './useLevel';
 
 type Props = {
   level: number;
-  parentKey?: number | string;
+  property?: number | string;
   value: JsonPrimitiveValue;
 };
 
@@ -35,7 +35,7 @@ function useRepresentation(value: JsonPrimitiveValue): Representation {
   }, [value]);
 }
 
-export const UiPrimitive: FC<Props> = ({ level, parentKey, value }) => {
+export const UiPrimitive: FC<Props> = ({ level, property, value }) => {
   const { showDataTypes } = useJsonViewOptions();
   const style = useLevel(level);
 
@@ -43,8 +43,8 @@ export const UiPrimitive: FC<Props> = ({ level, parentKey, value }) => {
 
   let propertyName: number | string | null = null;
 
-  if (parentKey != null) {
-    propertyName = typeof parentKey === 'number' ? parentKey : JSON.stringify(parentKey);
+  if (property != null) {
+    propertyName = typeof property === 'number' ? property : JSON.stringify(property);
   }
 
   return (
