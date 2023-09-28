@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { line, meta, property, toggleButton } from './style.css';
+import { line, meta, property } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
 import { LineType, OpenLineType } from '../lines';
@@ -16,35 +16,43 @@ type Props = {
   type: OpenLineType;
 };
 
-export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, parentKey, size, type }) => {
-  const { showObjectSize, toggle } = useJsonViewOptions();
+export const UiOpen: FC<Props> = ({ lineKey: _, isCollapsed, level, parentKey, size, type }) => {
+  const { showObjectSize } = useJsonViewOptions();
   const style = useLevel(level);
 
   const [openSymbol, closeSymbol] = type === LineType.ArrayOpen ? ['[', ']'] : ['{', '}'];
 
-  const handleToggle = () => {
-    toggle(lineKey);
-  };
+  // const handleToggle = () => {
+  //   toggle(lineKey);
+  // };
 
   const count = size === 1 ? '1 item' : `${size} items`;
-  const collapseLabel = isCollapsed ? '+' : '-';
+  // const collapseLabel = isCollapsed ? '+' : '-';
+
+  let propertyName: number | string | null = null;
+
+  if (parentKey != null) {
+    propertyName = typeof parentKey === 'number' ? parentKey : JSON.stringify(parentKey);
+  }
 
   return (
     <div className={line.boundary} style={style}>
-      {parentKey != null && <span className={property}>{parentKey} : </span>}
       {isCollapsed ? (
         <>
-          {openSymbol} ... {closeSymbol} {showObjectSize && <span className={meta}>{count} </span>}
-          <button className={toggleButton} onClick={handleToggle} type="button">
-            {collapseLabel}
-          </button>
+          {/*<button className={toggleButton} onClick={handleToggle} type="button">*/}
+          {/*  {collapseLabel}*/}
+          {/*</button>*/}
+          {parentKey != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
+          {openSymbol} ... {closeSymbol}{' '}
+          {showObjectSize && <span className={meta}>&nbsp;{count}</span>}
         </>
       ) : (
         <>
-          {openSymbol} {showObjectSize && <span className={meta}>{count} </span>}
-          <button className={toggleButton} onClick={handleToggle} type="button">
-            {collapseLabel}
-          </button>
+          {/*<button className={toggleButton} onClick={handleToggle} type="button">*/}
+          {/*  {collapseLabel}*/}
+          {/*</button>*/}
+          {parentKey != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
+          {openSymbol} {showObjectSize && <span className={meta}>&nbsp;{count}</span>}
         </>
       )}
     </div>

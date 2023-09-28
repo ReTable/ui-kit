@@ -1,17 +1,9 @@
-import { CSSProperties } from 'react';
+import { CSSProperties, useMemo } from 'react';
 
-const cache = new Map<number, CSSProperties>();
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+
+import { indentVar } from './style.css';
 
 export function useLevel(level: number): CSSProperties {
-  let style = cache.get(level);
-
-  if (style == null) {
-    style = {
-      paddingLeft: `${level * 16}px`,
-    };
-
-    cache.set(level, style);
-  }
-
-  return style;
+  return useMemo(() => assignInlineVars({ [indentVar]: `${level}` }), [level]);
 }
