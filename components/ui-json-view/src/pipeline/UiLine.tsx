@@ -26,7 +26,7 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
         <UiOpen
           isCollapsed={isCollapsed}
           level={line.level}
-          lineKey={line.key}
+          lineKey={line.path}
           property={line.property}
           size={line.size}
           type={line.type}

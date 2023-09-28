@@ -44,10 +44,10 @@ export type CloseLineType = LineType.ArrayClose | LineType.ObjectClose;
 export type PlaceholderLineType = LineType.Empty;
 
 type BaseLine<Type extends LineType> = {
-  // NOTE: Key of item.
+  // NOTE: Path of item.
   //
-  //       This key is hierarchical key of line for internal usage.
-  key: string;
+  //       This path is hierarchical key of line for internal usage.
+  path: string;
   // NOTE: Level of item in object.
   //
   //       This level doesn't represent level inside object, and used to build indentation when render the JSON tree.
@@ -59,14 +59,18 @@ type BaseLine<Type extends LineType> = {
 };
 
 type BaseValueLine<Type extends LineType, Value = never> = BaseLine<Type> & {
-  property?: Property;
   jsonPath: string;
+
+  property?: Property;
+
   value: Value;
 };
 
 type BaseOpenLine<Type extends LineType> = BaseLine<Type> & {
-  property?: Property;
   jsonPath: string;
+
+  property?: Property;
+
   // NOTE: Number of items in an array or properties in an object.
   size: number;
 };
@@ -111,10 +115,9 @@ export type ValueItem = {
 
   isLine: false;
 
-  key: string;
-  level: number;
-
   jsonPath: JsonPath;
+  level: number;
+  path: string;
 
   property?: number | string;
 

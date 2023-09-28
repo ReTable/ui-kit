@@ -10,14 +10,14 @@ import {
 import { Item, LineType, ValueItem } from './types';
 
 export function enqueueItemsFrom(parent: ValueItem): void {
-  const { jsonPath, key, level, property, value: source, next } = parent;
+  const { jsonPath, level, path, property, value: source, next } = parent;
 
   // Step 1: If source value is primitive value, then create line item immediately.
   if (isPrimitiveValue(source)) {
     // Step 1.1: Create an item.
     const item = valueLineItemFrom(source, {
       jsonPath,
-      key,
+      path,
       level,
       property,
     });
@@ -35,20 +35,25 @@ export function enqueueItemsFrom(parent: ValueItem): void {
 
   // Step 3: Create an open item.
   const open = openItemFrom({
-    jsonPath,
-    key,
-    level,
-    property,
-    size,
     type: Array.isArray(source) ? LineType.ArrayOpen : LineType.ObjectOpen,
+
+    jsonPath,
+    level,
+    path,
+
+    property,
+
+    size,
   });
 
   // Step 4: Create a close item.
   const close = closeItemFrom({
-    key,
-    level,
-    size,
     type: Array.isArray(source) ? LineType.ArrayClose : LineType.ObjectClose,
+
+    level,
+    path,
+
+    size,
   });
 
   // Step 5: Redirect references.
@@ -61,7 +66,7 @@ export function enqueueItemsFrom(parent: ValueItem): void {
 
   if (size === 0) {
     // Step 7.1: Create an empty item if source value has no children.
-    const empty = emptyItemFrom({ key, level });
+    const empty = emptyItemFrom({ path, level });
 
     // Step 7.2: Redirect references.
     empty.next = close;
@@ -72,11 +77,13 @@ export function enqueueItemsFrom(parent: ValueItem): void {
     for (const [index, childProperty, value] of children) {
       // Step 8.1.1: Create an item.
       const item = valueItemFrom({
-        index,
         jsonPath,
-        key,
         level,
+        path,
+
+        index,
         property: childProperty,
+
         value,
       });
 

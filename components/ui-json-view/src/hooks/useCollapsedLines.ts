@@ -15,15 +15,15 @@ export function useCollapsedLines(allLines: Line[], collapsedKeys: CollapsedKeys
 
     for (const line of allLines) {
       if (skip != null) {
-        if (line.key.startsWith(skip)) {
+        if (line.path.startsWith(skip)) {
           continue;
         } else {
           skip = null;
         }
       }
 
-      if (isOpenLine(line) && collapsedKeys.has(line.key)) {
-        skip = `${line.key}.`;
+      if (isOpenLine(line) && collapsedKeys.has(line.path)) {
+        skip = `${line.path}.`;
       }
 
       lines.push(line);

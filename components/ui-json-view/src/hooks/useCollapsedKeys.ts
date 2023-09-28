@@ -39,7 +39,7 @@ function initCollapsedKeys(lines: Line[], collapsed: boolean | number): Registry
 
     for (const line of lines) {
       if (isOpenLine(line) && line.level >= minLevel) {
-        keys.add(line.key);
+        keys.add(line.path);
       }
     }
   }

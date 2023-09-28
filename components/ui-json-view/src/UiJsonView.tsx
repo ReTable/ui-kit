@@ -43,9 +43,9 @@ export const UiJsonView: FC<Props> = ({
     >
       <div className={clsx(containerClassName, className)}>
         {lines.map((line) => {
-          const isCollapsed = isOpenLine(line) && collapsedKeys.has(line.key);
+          const isCollapsed = isOpenLine(line) && collapsedKeys.has(line.path);
 
-          return <UiLine key={line.key} isCollapsed={isCollapsed} line={line} />;
+          return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} />;
         })}
       </div>
     </UiJsonViewOptions>

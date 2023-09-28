@@ -12,8 +12,9 @@ export function toLines(source: string): Line[] {
     isLine: false,
 
     jsonPath: ['$'],
-    key: '0',
     level: 0,
+    path: '0',
+
     value: sourceValue,
   };
 

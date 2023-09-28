@@ -41,14 +41,15 @@ function primitiveValueWithType(value: JsonPrimitiveValue): TypedValue {
 
 type ValueLineItemFromOptions = {
   jsonPath: JsonPath;
-  key: string;
   level: number;
+  path: string;
+
   property?: Property;
 };
 
 export function valueLineItemFrom(
   source: JsonPrimitiveValue,
-  { jsonPath: jsonPathComponents, key, level, property }: ValueLineItemFromOptions,
+  { jsonPath: jsonPathComponents, level, path, property }: ValueLineItemFromOptions,
 ): LineItem {
   // Step 1: Convert JSON Path components to string.
   const jsonPath = jp.stringify(jsonPathComponents);
@@ -57,7 +58,7 @@ export function valueLineItemFrom(
   const valueWithType = primitiveValueWithType(source);
 
   // Step 3: Build a line object.
-  const line: ValueLine = { jsonPath, key, level, ...valueWithType };
+  const line: ValueLine = { jsonPath, path, level, ...valueWithType };
 
   // Step 4: If property is represented, then add it to the line.
   if (property != null) {
@@ -74,8 +75,8 @@ export function valueLineItemFrom(
 
 type OpenItemFromOptions = {
   jsonPath: JsonPath;
-  key: string;
   level: number;
+  path: string;
   property?: Property;
   size: number;
   type: LineType.ArrayOpen | LineType.ObjectOpen;
@@ -83,18 +84,19 @@ type OpenItemFromOptions = {
 
 export function openItemFrom({
   jsonPath,
-  key,
   level,
+  path,
   property,
-  type,
   size,
+  type,
 }: OpenItemFromOptions): LineItem {
   const line: OpenLine = {
-    jsonPath: jp.stringify(jsonPath),
-    key: `${key}`,
-    level,
-
     type,
+
+    jsonPath: jp.stringify(jsonPath),
+    level,
+    path,
+
     size,
   };
 
@@ -106,22 +108,22 @@ export function openItemFrom({
 }
 
 type CloseItemFromOptions = {
-  key: string;
   level: number;
+  path: string;
   size: number;
   type: LineType.ArrayClose | LineType.ObjectClose;
 };
 
-export function closeItemFrom({ key, level, size, type }: CloseItemFromOptions): LineItem {
+export function closeItemFrom({ level, path, size, type }: CloseItemFromOptions): LineItem {
   return {
     isLine: true,
 
     line: {
-      // NOTE: If size is 0, then an empty placeholder will be added, and size will be 1.
-      key: `${key}.${Math.max(size, 1)}`,
-      level,
-
       type,
+
+      level,
+      // NOTE: If size is 0, then an empty placeholder will be added, and size will be 1.
+      path: `${path}.${Math.max(size, 1)}`,
     },
   };
 }
@@ -131,19 +133,19 @@ export function closeItemFrom({ key, level, size, type }: CloseItemFromOptions):
 // region Placeholder
 
 type EmptyItemFromOptions = {
-  key: string;
   level: number;
+  path: string;
 };
 
-export function emptyItemFrom({ key, level }: EmptyItemFromOptions): Item {
+export function emptyItemFrom({ level, path }: EmptyItemFromOptions): Item {
   return {
     isLine: true,
 
     line: {
-      key: `${key}.0`,
-      level: level + 1,
-
       type: LineType.Empty,
+
+      level: level + 1,
+      path: `${path}.0`,
     },
   };
 }
@@ -155,8 +157,8 @@ export function emptyItemFrom({ key, level }: EmptyItemFromOptions): Item {
 type ValueItemFromOptions = {
   index: number;
   jsonPath: JsonPath;
-  key: string;
   level: number;
+  path: string;
   property: number | string;
   value: JsonValue;
 };
@@ -164,8 +166,8 @@ type ValueItemFromOptions = {
 export function valueItemFrom({
   index,
   jsonPath,
-  key,
   level,
+  path,
   property,
   value,
 }: ValueItemFromOptions): ValueItem {
@@ -173,8 +175,8 @@ export function valueItemFrom({
     isLine: false,
 
     jsonPath: [...jsonPath, property],
-    key: `${key}.${index}`,
     level: level + 1,
+    path: `${path}.${index}`,
 
     property,
 

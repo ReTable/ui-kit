@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 
-import { line, meta, property } from './style.css';
+import { line, meta, property as propertyStyle } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
 import { JsonPrimitiveValue } from '../types';
@@ -49,7 +49,7 @@ export const UiPrimitive: FC<Props> = ({ level, property, value }) => {
 
   return (
     <div className={className} style={style}>
-      {propertyName != null && <span className={property}>{propertyName}&nbsp;:&nbsp;</span>}
+      {propertyName != null && <span className={propertyStyle}>{propertyName}&nbsp;:&nbsp;</span>}
       {showDataTypes && type != null && <span className={meta}>{type}&nbsp;</span>}
       {representation}
     </div>
