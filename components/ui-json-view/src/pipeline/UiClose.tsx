@@ -2,21 +2,19 @@ import { FC } from 'react';
 
 import { line } from './style.css';
 
-import { CloseLineType, LineType } from '../lines';
-
 import { useLevel } from './useLevel';
 
 type Props = {
+  closeSymbol: string;
   level: number;
-  type: CloseLineType;
 };
 
-export const UiClose: FC<Props> = ({ level, type }) => {
+export const UiClose: FC<Props> = ({ closeSymbol, level }) => {
   const style = useLevel(level);
 
   return (
     <div className={line.boundary} style={style}>
-      {type === LineType.ArrayClose ? ']' : '}'}
+      {closeSymbol}
     </div>
   );
 };

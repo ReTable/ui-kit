@@ -3,27 +3,33 @@ import { FC } from 'react';
 import { line, meta, property as propertyStyle, toggleButton } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
-import { LineType, OpenLineType } from '../lines';
 
 import { useLevel } from './useLevel';
 
 type Props = {
+  closeSymbol: string;
   isCollapsed: boolean;
   level: number;
-  lineKey: string;
+  openSymbol: string;
+  path: string;
   property?: number | string;
   size: number;
-  type: OpenLineType;
 };
 
-export const UiOpen: FC<Props> = ({ lineKey, isCollapsed, level, property, size, type }) => {
+export const UiOpen: FC<Props> = ({
+  closeSymbol,
+  isCollapsed,
+  level,
+  openSymbol,
+  path,
+  property,
+  size,
+}) => {
   const { isInteractive, showObjectSize, toggle } = useJsonViewOptions();
   const style = useLevel(level);
 
-  const [openSymbol, closeSymbol] = type === LineType.ArrayOpen ? ['[', ']'] : ['{', '}'];
-
   const handleToggle = () => {
-    toggle(lineKey);
+    toggle(path);
   };
 
   const count = size === 1 ? '1 item' : `${size} items`;

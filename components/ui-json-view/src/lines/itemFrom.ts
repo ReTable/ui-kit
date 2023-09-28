@@ -74,28 +74,33 @@ export function valueLineItemFrom(
 // region Boundary
 
 type OpenItemFromOptions = {
+  closeSymbol: string;
   jsonPath: JsonPath;
   level: number;
+  openSymbol: string;
   path: string;
   property?: Property;
   size: number;
-  type: LineType.ArrayOpen | LineType.ObjectOpen;
 };
 
 export function openItemFrom({
+  closeSymbol,
   jsonPath,
   level,
+  openSymbol,
   path,
   property,
   size,
-  type,
 }: OpenItemFromOptions): LineItem {
   const line: OpenLine = {
-    type,
+    type: LineType.Open,
 
     jsonPath: jp.stringify(jsonPath),
     level,
     path,
+
+    openSymbol,
+    closeSymbol,
 
     size,
   };
@@ -108,22 +113,24 @@ export function openItemFrom({
 }
 
 type CloseItemFromOptions = {
+  closeSymbol: string;
   level: number;
   path: string;
   size: number;
-  type: LineType.ArrayClose | LineType.ObjectClose;
 };
 
-export function closeItemFrom({ level, path, size, type }: CloseItemFromOptions): LineItem {
+export function closeItemFrom({ closeSymbol, level, path, size }: CloseItemFromOptions): LineItem {
   return {
     isLine: true,
 
     line: {
-      type,
+      type: LineType.Close,
 
       level,
       // NOTE: If size is 0, then an empty placeholder will be added, and size will be 1.
       path: `${path}.${Math.max(size, 1)}`,
+
+      closeSymbol,
     },
   };
 }

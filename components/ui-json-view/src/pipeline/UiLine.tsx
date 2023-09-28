@@ -20,22 +20,21 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
     case LineType.String: {
       return <UiPrimitive level={line.level} property={line.property} value={line.value} />;
     }
-    case LineType.ArrayOpen:
-    case LineType.ObjectOpen: {
+    case LineType.Open: {
       return (
         <UiOpen
+          closeSymbol={line.closeSymbol}
           isCollapsed={isCollapsed}
           level={line.level}
-          lineKey={line.path}
+          openSymbol={line.openSymbol}
+          path={line.path}
           property={line.property}
           size={line.size}
-          type={line.type}
         />
       );
     }
-    case LineType.ArrayClose:
-    case LineType.ObjectClose: {
-      return <UiClose level={line.level} type={line.type} />;
+    case LineType.Close: {
+      return <UiClose closeSymbol={line.closeSymbol} level={line.level} />;
     }
     case LineType.Placeholder: {
       return <UiPlaceholder level={line.level} placeholder={line.placeholder} />;

@@ -1,11 +1,11 @@
 import { CloseLine, Line, LineType, OpenLine, ValueLine } from './types';
 
 export function isOpenLine(line: Line): line is OpenLine {
-  return line.type === LineType.ArrayOpen || line.type === LineType.ObjectOpen;
+  return line.type === LineType.Open;
 }
 
 export function isCloseLine(line: Line): line is CloseLine {
-  return line.type === LineType.ArrayClose || line.type === LineType.ObjectClose;
+  return line.type === LineType.Close;
 }
 
 export function isValueLine(line: Line): line is ValueLine {

@@ -20,12 +20,9 @@ export enum LineType {
   Null,
   Number,
   String,
-  // Array Boundaries
-  ArrayOpen,
-  ArrayClose,
-  // Object Boundaries
-  ObjectOpen,
-  ObjectClose,
+  // Boundary
+  Open,
+  Close,
   // Placeholder
   Placeholder,
 }
@@ -37,9 +34,9 @@ export type PrimitiveLineType =
   | LineType.Number
   | LineType.String;
 
-export type OpenLineType = LineType.ArrayOpen | LineType.ObjectOpen;
+export type OpenLineType = LineType.Open;
 
-export type CloseLineType = LineType.ArrayClose | LineType.ObjectClose;
+export type CloseLineType = LineType.Close;
 
 export type PlaceholderLineType = LineType.Placeholder;
 
@@ -66,26 +63,27 @@ type BaseValueLine<Type extends LineType, Value = never> = BaseLine<Type> & {
   value: Value;
 };
 
-type BaseOpenLine<Type extends LineType> = BaseLine<Type> & {
-  jsonPath: string;
-
-  property?: Property;
-
-  // NOTE: Number of items in an array or properties in an object.
-  size: number;
-};
-
-type BaseCloseLine<Type extends LineType> = BaseLine<Type>;
-
 export type ValueLine =
   | BaseValueLine<LineType.Boolean, boolean>
   | BaseValueLine<LineType.Null, null>
   | BaseValueLine<LineType.Number, number>
   | BaseValueLine<LineType.String, string>;
 
-export type OpenLine = BaseOpenLine<LineType.ArrayOpen> | BaseOpenLine<LineType.ObjectOpen>;
+export type OpenLine = BaseLine<LineType.Open> & {
+  jsonPath: string;
 
-export type CloseLine = BaseCloseLine<LineType.ArrayClose> | BaseCloseLine<LineType.ObjectClose>;
+  property?: Property;
+
+  openSymbol: string;
+  closeSymbol: string;
+
+  // NOTE: Number of items in an array or properties in an object.
+  size: number;
+};
+
+export type CloseLine = BaseLine<LineType.Close> & {
+  closeSymbol: string;
+};
 
 export type PlaceholderLine = BaseLine<LineType.Placeholder> & {
   placeholder: string;

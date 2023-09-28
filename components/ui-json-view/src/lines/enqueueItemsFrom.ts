@@ -7,7 +7,7 @@ import {
   valueItemFrom,
   valueLineItemFrom,
 } from './itemFrom';
-import { Item, LineType, ValueItem } from './types';
+import { Item, ValueItem } from './types';
 
 export function enqueueItemsFrom(parent: ValueItem): void {
   const { jsonPath, level, path, property, value: source, next } = parent;
@@ -30,28 +30,31 @@ export function enqueueItemsFrom(parent: ValueItem): void {
     return;
   }
 
+  const [openSymbol, closeSymbol] = Array.isArray(source) ? ['[', ']'] : ['{', '}'];
+
   // Step 2: Get a unified children of source value, because it can be an array or an object.
   const [children, size] = childrenOf(source);
 
   // Step 3: Create an open item.
   const open = openItemFrom({
-    type: Array.isArray(source) ? LineType.ArrayOpen : LineType.ObjectOpen,
-
     jsonPath,
     level,
     path,
 
     property,
 
+    openSymbol,
+    closeSymbol,
+
     size,
   });
 
   // Step 4: Create a close item.
   const close = closeItemFrom({
-    type: Array.isArray(source) ? LineType.ArrayClose : LineType.ObjectClose,
-
     level,
     path,
+
+    closeSymbol,
 
     size,
   });
