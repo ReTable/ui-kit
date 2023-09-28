@@ -4,9 +4,8 @@ import { clsx } from 'clsx';
 
 import { UiJsonViewOptions } from './UiJsonViewOptions';
 import { useCollapsedKeys, useCollapsedLines, useLines } from './hooks';
-import { isOpenLine, isValueLine } from './lines';
 import { UiLine, container } from './pipeline';
-import { JsonViewOptions } from './types';
+import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
   className?: string;
@@ -30,7 +29,7 @@ export const UiJsonView: FC<Props> = ({
   const lines = useCollapsedLines(allLines, collapsedKeys);
 
   const containerClassName =
-    lines.length === 0 || isValueLine(lines[0]) || !isInteractive
+    lines.length === 0 || lines[0].kind !== LineKind.Open || !isInteractive
       ? container.plain
       : container.nested;
 
@@ -43,7 +42,7 @@ export const UiJsonView: FC<Props> = ({
     >
       <div className={clsx(containerClassName, className)}>
         {lines.map((line) => {
-          const isCollapsed = isOpenLine(line) && collapsedKeys.has(line.path);
+          const isCollapsed = line.kind === LineKind.Open && collapsedKeys.has(line.path);
 
           return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} />;
         })}

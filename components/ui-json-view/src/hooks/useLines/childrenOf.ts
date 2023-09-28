@@ -1,4 +1,4 @@
-import { JsonArray, JsonObject, JsonValue } from '../types';
+import { JsonArray, JsonObject, JsonValue } from '../../types';
 
 // region Types
 

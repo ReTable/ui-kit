@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 
-import { Line, isOpenLine } from '../lines';
-import { CollapsedKeys } from '../types';
+import { CollapsedKeys, Line, LineKind } from '../types';
 
 export function useCollapsedLines(allLines: Line[], collapsedKeys: CollapsedKeys): Line[] {
   return useMemo(() => {
@@ -22,7 +21,7 @@ export function useCollapsedLines(allLines: Line[], collapsedKeys: CollapsedKeys
         }
       }
 
-      if (isOpenLine(line) && collapsedKeys.has(line.path)) {
+      if (line.kind === LineKind.Open && collapsedKeys.has(line.path)) {
         skip = `${line.path}.`;
       }
 

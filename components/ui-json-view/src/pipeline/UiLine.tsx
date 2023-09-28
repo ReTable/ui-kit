@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Line, LineKind } from '../lines';
+import { Line, LineKind } from '../types';
 
 import { UiClose } from './UiClose';
 import { UiOpen } from './UiOpen';

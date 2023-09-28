@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { line, meta, property as propertyStyle } from './style.css';
 
 import { useJsonViewOptions } from '../UiJsonViewOptions';
-import { ValueType } from '../lines';
+import { ValueType } from '../types';
 
 import { useLevel } from './useLevel';
 

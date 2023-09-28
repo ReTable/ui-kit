@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { Line, isOpenLine } from '../lines';
-import { CollapsedKeys, ToggleFn } from '../types';
+import { CollapsedKeys, Line, LineKind, ToggleFn } from '../types';
 
 // region Registry
 
@@ -38,7 +37,7 @@ function initCollapsedKeys(lines: Line[], collapsed: boolean | number): Registry
     const minLevel = collapsed === true ? 0 : collapsed;
 
     for (const line of lines) {
-      if (isOpenLine(line) && line.level >= minLevel) {
+      if (line.kind === LineKind.Open && line.level >= minLevel) {
         keys.add(line.path);
       }
     }

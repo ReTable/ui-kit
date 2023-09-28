@@ -1,18 +1,16 @@
 import jp from 'jsonpath';
 
-import { JsonPrimitiveValue, JsonValue } from '../types';
-
 import {
-  Item,
-  JsonPath,
-  LineItem,
+  JsonPrimitiveValue,
+  JsonValue,
   LineKind,
   OpenLine,
   Property,
-  ValueItem,
   ValueLine,
   ValueType,
-} from './types';
+} from '../../types';
+
+import { Item, JsonPath, LineItem, ValueItem } from './types';
 
 // region Value Line
 
