@@ -1,9 +1,13 @@
-import { FC } from 'react';
+import { memo } from 'react';
 
-import { UiClose } from './UiClose';
-import { UiOpen } from './UiOpen';
-import { UiPlaceholder } from './UiPlaceholder';
-import { UiValue } from './UiValue';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+
+import { levelVar, lines } from './style.css';
+
+import { UiProperty } from './UiProperty';
+import { UiSize } from './UiSize';
+import { UiToggle } from './UiToggle';
+import { UiType } from './UiType';
 import { Line, LineKind } from './types';
 
 type Props = {
@@ -11,21 +15,52 @@ type Props = {
   line: Line;
 };
 
-export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
+export const UiLine = memo<Props>(({ isCollapsed, line }) => {
+  const style = assignInlineVars({ [levelVar]: `${line.level}` });
+
   switch (line.kind) {
     case LineKind.Value: {
-      return <UiValue line={line} />;
+      const { property, type, value } = line;
+
+      return (
+        <div className={lines[type]} style={style}>
+          <UiProperty property={property} />
+          <UiType type={type} />
+          {value}
+        </div>
+      );
     }
     case LineKind.Open: {
-      return <UiOpen isCollapsed={isCollapsed} line={line} />;
+      const { closeSymbol, openSymbol, path, property, size } = line;
+
+      return (
+        <div className={lines.boundary} style={style}>
+          <UiToggle isCollapsed={isCollapsed} path={path} />
+          <UiProperty property={property} />
+          {isCollapsed ? `${openSymbol} ... ${closeSymbol}` : openSymbol}
+          <UiSize size={size} />
+        </div>
+      );
     }
     case LineKind.Close: {
-      return <UiClose line={line} />;
+      const { closeSymbol } = line;
+
+      return (
+        <div className={lines.boundary} style={style}>
+          {closeSymbol}
+        </div>
+      );
     }
     case LineKind.Placeholder: {
-      return <UiPlaceholder line={line} />;
+      const { placeholder } = line;
+
+      return (
+        <div className={lines.placeholder} style={style}>
+          {placeholder}
+        </div>
+      );
     }
   }
-};
+});
 
 UiLine.displayName = `UiJsonView(UiLine)`;
