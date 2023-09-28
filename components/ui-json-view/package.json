@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "@vanilla-extract/dynamic": "^2.0.3",
+    "clsx": "^2.0.0",
     "jsonpath": "^1.1.1"
   }
 }
