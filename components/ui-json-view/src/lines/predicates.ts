@@ -9,10 +9,5 @@ export function isCloseLine(line: Line): line is CloseLine {
 }
 
 export function isValueLine(line: Line): line is ValueLine {
-  return (
-    line.kind === LineKind.Boolean ||
-    line.kind === LineKind.Null ||
-    line.kind === LineKind.Number ||
-    line.kind === LineKind.String
-  );
+  return line.kind === LineKind.Value;
 }

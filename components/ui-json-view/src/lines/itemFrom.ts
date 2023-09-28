@@ -11,30 +11,25 @@ import {
   Property,
   ValueItem,
   ValueLine,
+  ValueType,
 } from './types';
 
 // region Value Line
 
-type TypedValue =
-  | { kind: LineKind.Boolean; value: boolean }
-  | { kind: LineKind.Null; value: null }
-  | { kind: LineKind.Number; value: number }
-  | { kind: LineKind.String; value: string };
-
-function primitiveValueWithType(value: JsonPrimitiveValue): TypedValue {
+function typedValueOf(value: JsonPrimitiveValue): [ValueType, string] {
   if (value == null) {
-    return { kind: LineKind.Null, value: null };
+    return ['null', 'null'];
   }
 
   switch (typeof value) {
     case 'boolean': {
-      return { kind: LineKind.Boolean, value };
+      return ['bool', value.toString()];
     }
     case 'number': {
-      return { kind: LineKind.Number, value };
+      return [Number.isInteger(value) ? 'int' : 'float', value.toString()];
     }
     default: {
-      return { kind: LineKind.String, value: JSON.stringify(value) };
+      return ['string', JSON.stringify(value)];
     }
   }
 }
@@ -55,10 +50,10 @@ export function valueLineItemFrom(
   const jsonPath = jp.stringify(jsonPathComponents);
 
   // Step 2: Match value with line type.
-  const valueWithType = primitiveValueWithType(source);
+  const [type, value] = typedValueOf(source);
 
   // Step 3: Build a line object.
-  const line: ValueLine = { jsonPath, path, level, ...valueWithType };
+  const line: ValueLine = { kind: LineKind.Value, jsonPath, path, level, type, value };
 
   // Step 4: If property is represented, then add it to the line.
   if (property != null) {

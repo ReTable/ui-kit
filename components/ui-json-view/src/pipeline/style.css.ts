@@ -70,9 +70,10 @@ export const container = styleVariants(
 
 export const line = styleVariants(
   {
-    boolean: uiTheme.colors.code.function,
+    bool: uiTheme.colors.code.function,
     null: uiTheme.colors.code.function,
-    number: uiTheme.colors.code.numbers,
+    int: uiTheme.colors.code.numbers,
+    float: uiTheme.colors.code.numbers,
     string: uiTheme.colors.code.stringLight,
     boundary: uiTheme.colors.content.primary,
     placeholder: uiTheme.colors.content.tertiary,

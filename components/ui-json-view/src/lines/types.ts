@@ -13,26 +13,18 @@ export type Property = number | string;
 
 // region Line
 
+export type ValueType = 'bool' | 'null' | 'int' | 'float' | 'string';
+
 /* eslint-disable @typescript-eslint/no-shadow */
 export enum LineKind {
-  // Primitive Values
-  Boolean,
-  Null,
-  Number,
-  String,
-  // Boundary
+  Value,
   Open,
   Close,
-  // Placeholder
   Placeholder,
 }
 /* eslint-enable */
 
-export type PrimitiveLineKind =
-  | LineKind.Boolean
-  | LineKind.Null
-  | LineKind.Number
-  | LineKind.String;
+export type PrimitiveLineKind = LineKind.Value;
 
 type BaseLine<Kind extends LineKind> = {
   // NOTE: Path of item.
@@ -49,19 +41,14 @@ type BaseLine<Kind extends LineKind> = {
   level: number;
 };
 
-type BaseValueLine<Type extends LineKind, Value = never> = BaseLine<Type> & {
+export type ValueLine = BaseLine<LineKind.Value> & {
   jsonPath: string;
 
   property?: Property;
 
-  value: Value;
+  type: ValueType;
+  value: string;
 };
-
-export type ValueLine =
-  | BaseValueLine<LineKind.Boolean, boolean>
-  | BaseValueLine<LineKind.Null, null>
-  | BaseValueLine<LineKind.Number, number>
-  | BaseValueLine<LineKind.String, string>;
 
 export type OpenLine = BaseLine<LineKind.Open> & {
   jsonPath: string;
