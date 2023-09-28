@@ -1,4 +1,4 @@
-export { isOpenLine, isCloseLine } from './predicates';
+export { isOpenLine, isCloseLine, isValueLine } from './predicates';
 export { toLines } from './toLines';
 export { LineType } from './types';
 

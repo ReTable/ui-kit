@@ -3,15 +3,29 @@ import { calc } from '@vanilla-extract/css-utils';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-export const indentVar = createVar();
+// region CSS Variables
+
+// NOTE: Used to toggle minimal padding for array/object values, because we can want to render expand/collapse buttons.
+export const basePaddingVar = createVar();
+
+// NOTE: Used to calculate padding sizes depends on the level.
+export const levelVar = createVar();
+
+// endregion
 
 // region Line
 
-const lineHeight = '24px';
+const height = '24px';
 
 const indentStepWidth = '4ch';
 
-const paddingLeft = calc.multiply(fallbackVar(indentVar, '0'), indentStepWidth);
+const level = fallbackVar(levelVar, '0');
+
+const basePadding = fallbackVar(basePaddingVar, '0');
+
+const indentWidth = calc.add(calc.multiply(level, indentStepWidth));
+
+const padding = calc.add(basePadding, indentWidth);
 
 const baseLine = style([
   uiFonts.monospace.semiBold12,
@@ -19,28 +33,40 @@ const baseLine = style([
     position: 'relative',
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'baseline',
     justifyContent: 'flex-start',
-    lineHeight: lineHeight,
-    height: lineHeight,
+    alignItems: 'baseline',
     margin: '0',
-    paddingLeft,
+    height,
+    paddingLeft: padding,
+    lineHeight: height,
 
     selectors: {
       '&::before': {
         position: 'absolute',
         top: '0',
-        left: '0',
+        left: basePadding,
         content: '',
         display: 'inline-block',
-        width: paddingLeft,
+        width: indentWidth,
         height: '100%',
         backgroundImage: `linear-gradient(to right, transparent 0px, transparent 2px, ${uiTheme.colors.borderControl.default} 3px, transparent 4px, transparent ${indentStepWidth})`,
-        backgroundSize: `${indentStepWidth} ${lineHeight}`,
+        backgroundSize: `${indentStepWidth} ${height}`,
       },
     },
   },
 ]);
+
+export const container = styleVariants(
+  {
+    plain: 0,
+    nested: 24,
+  },
+  (value) => ({
+    vars: {
+      [basePaddingVar]: `${value}px`,
+    },
+  }),
+);
 
 export const line = styleVariants(
   {
@@ -56,16 +82,19 @@ export const line = styleVariants(
 
 // endregion
 
+// region Actions & Controls
+
 export const toggleButton = style([
   uiFonts.monospace.regular12,
   {
+    position: 'absolute',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     width: '16px',
     height: '16px',
-    marginLeft: '-4px',
-    marginRight: '4px',
+    left: calc.subtract(padding, '19px'),
+    top: '4px',
     background: 'transparent',
     border: `1px solid ${uiTheme.colors.borderControl.default}`,
     borderRadius: '4px',
@@ -94,6 +123,8 @@ export const toggleButton = style([
     },
   },
 ]);
+
+// endregion
 
 // region Service
 
