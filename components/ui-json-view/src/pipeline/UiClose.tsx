@@ -16,7 +16,7 @@ export const UiClose: FC<Props> = ({ level, type }) => {
 
   return (
     <div className={line.boundary} style={style}>
-      {type === LineType.ArrayClose ? '[' : ']'}
+      {type === LineType.ArrayClose ? ']' : '}'}
     </div>
   );
 };
