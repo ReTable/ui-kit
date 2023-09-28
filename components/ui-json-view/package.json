@@ -52,6 +52,7 @@
     "@types/jsonpath": "^0.2.1"
   },
   "dependencies": {
+    "@vanilla-extract/dynamic": "^2.0.3",
     "jsonpath": "^1.1.1"
   }
 }

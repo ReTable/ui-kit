@@ -186,6 +186,9 @@ importers:
 
   components/ui-json-view:
     dependencies:
+      '@vanilla-extract/dynamic':
+        specifier: ^2.0.3
+        version: 2.0.3
       jsonpath:
         specifier: ^1.1.1
         version: 1.1.1
