@@ -142,10 +142,12 @@ export function emptyItemFrom({ level, path }: EmptyItemFromOptions): Item {
     isLine: true,
 
     line: {
-      type: LineType.Empty,
+      type: LineType.Placeholder,
 
       level: level + 1,
       path: `${path}.0`,
+
+      placeholder: 'empty',
     },
   };
 }

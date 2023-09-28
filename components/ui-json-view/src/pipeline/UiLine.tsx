@@ -37,8 +37,8 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
     case LineType.ObjectClose: {
       return <UiClose level={line.level} type={line.type} />;
     }
-    case LineType.Empty: {
-      return <UiPlaceholder level={line.level} type={line.type} />;
+    case LineType.Placeholder: {
+      return <UiPlaceholder level={line.level} placeholder={line.placeholder} />;
     }
   }
 };

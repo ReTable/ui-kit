@@ -26,8 +26,8 @@ export enum LineType {
   // Object Boundaries
   ObjectOpen,
   ObjectClose,
-  // Placeholders
-  Empty,
+  // Placeholder
+  Placeholder,
 }
 /* eslint-enable */
 
@@ -41,7 +41,7 @@ export type OpenLineType = LineType.ArrayOpen | LineType.ObjectOpen;
 
 export type CloseLineType = LineType.ArrayClose | LineType.ObjectClose;
 
-export type PlaceholderLineType = LineType.Empty;
+export type PlaceholderLineType = LineType.Placeholder;
 
 type BaseLine<Type extends LineType> = {
   // NOTE: Path of item.
@@ -87,14 +87,18 @@ export type OpenLine = BaseOpenLine<LineType.ArrayOpen> | BaseOpenLine<LineType.
 
 export type CloseLine = BaseCloseLine<LineType.ArrayClose> | BaseCloseLine<LineType.ObjectClose>;
 
+export type PlaceholderLine = BaseLine<LineType.Placeholder> & {
+  placeholder: string;
+};
+
 export type Line =
-  // Value Items
+  // Value
   | ValueLine
-  // Container Items
+  // Boundary
   | OpenLine
   | CloseLine
-  // Placeholder Items
-  | BaseLine<LineType.Empty>;
+  // Placeholder
+  | PlaceholderLine;
 
 // endregion
 
