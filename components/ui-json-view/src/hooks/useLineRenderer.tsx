@@ -4,11 +4,14 @@ import { UiLine } from '../UiLine';
 import { CollapsedKeys, Line, LineKind, LineRenderer } from '../types';
 
 export function useLineRenderer(lines: Line[], collapsedKeys: CollapsedKeys): LineRenderer {
-  return useCallback((index) => {
-    const line = lines[index];
+  return useCallback(
+    ({ index, style }) => {
+      const line = lines[index];
 
-    const isCollapsed = line.kind === LineKind.Open && collapsedKeys.has(line.path);
+      const isCollapsed = line.kind === LineKind.Open && collapsedKeys.has(line.path);
 
-    return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} />;
-  });
+      return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} style={style} />;
+    },
+    [lines, collapsedKeys],
+  );
 }

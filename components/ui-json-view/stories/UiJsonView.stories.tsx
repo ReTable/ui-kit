@@ -61,6 +61,7 @@ export default {
     isHeightAuto: false,
     width: 500,
     height: 500,
+    isVirtual: true,
   },
 };
 
