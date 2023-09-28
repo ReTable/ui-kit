@@ -1,18 +1,18 @@
-import { CloseLine, Line, LineType, OpenLine, ValueLine } from './types';
+import { CloseLine, Line, LineKind, OpenLine, ValueLine } from './types';
 
 export function isOpenLine(line: Line): line is OpenLine {
-  return line.type === LineType.Open;
+  return line.kind === LineKind.Open;
 }
 
 export function isCloseLine(line: Line): line is CloseLine {
-  return line.type === LineType.Close;
+  return line.kind === LineKind.Close;
 }
 
 export function isValueLine(line: Line): line is ValueLine {
   return (
-    line.type === LineType.Boolean ||
-    line.type === LineType.Null ||
-    line.type === LineType.Number ||
-    line.type === LineType.String
+    line.kind === LineKind.Boolean ||
+    line.kind === LineKind.Null ||
+    line.kind === LineKind.Number ||
+    line.kind === LineKind.String
   );
 }

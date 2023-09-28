@@ -6,7 +6,7 @@ import {
   Item,
   JsonPath,
   LineItem,
-  LineType,
+  LineKind,
   OpenLine,
   Property,
   ValueItem,
@@ -16,25 +16,25 @@ import {
 // region Value Line
 
 type TypedValue =
-  | { type: LineType.Boolean; value: boolean }
-  | { type: LineType.Null; value: null }
-  | { type: LineType.Number; value: number }
-  | { type: LineType.String; value: string };
+  | { kind: LineKind.Boolean; value: boolean }
+  | { kind: LineKind.Null; value: null }
+  | { kind: LineKind.Number; value: number }
+  | { kind: LineKind.String; value: string };
 
 function primitiveValueWithType(value: JsonPrimitiveValue): TypedValue {
   if (value == null) {
-    return { type: LineType.Null, value: null };
+    return { kind: LineKind.Null, value: null };
   }
 
   switch (typeof value) {
     case 'boolean': {
-      return { type: LineType.Boolean, value };
+      return { kind: LineKind.Boolean, value };
     }
     case 'number': {
-      return { type: LineType.Number, value };
+      return { kind: LineKind.Number, value };
     }
     default: {
-      return { type: LineType.String, value: JSON.stringify(value) };
+      return { kind: LineKind.String, value: JSON.stringify(value) };
     }
   }
 }
@@ -93,7 +93,7 @@ export function openItemFrom({
   size,
 }: OpenItemFromOptions): LineItem {
   const line: OpenLine = {
-    type: LineType.Open,
+    kind: LineKind.Open,
 
     jsonPath: jp.stringify(jsonPath),
     level,
@@ -124,7 +124,7 @@ export function closeItemFrom({ closeSymbol, level, path, size }: CloseItemFromO
     isLine: true,
 
     line: {
-      type: LineType.Close,
+      kind: LineKind.Close,
 
       level,
       // NOTE: If size is 0, then an empty placeholder will be added, and size will be 1.
@@ -149,7 +149,7 @@ export function emptyItemFrom({ level, path }: EmptyItemFromOptions): Item {
     isLine: true,
 
     line: {
-      type: LineType.Placeholder,
+      kind: LineKind.Placeholder,
 
       level: level + 1,
       path: `${path}.0`,

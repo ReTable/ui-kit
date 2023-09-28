@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Line, LineType } from '../lines';
+import { Line, LineKind } from '../lines';
 
 import { UiClose } from './UiClose';
 import { UiOpen } from './UiOpen';
@@ -13,14 +13,14 @@ type Props = {
 };
 
 export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
-  switch (line.type) {
-    case LineType.Boolean:
-    case LineType.Null:
-    case LineType.Number:
-    case LineType.String: {
+  switch (line.kind) {
+    case LineKind.Boolean:
+    case LineKind.Null:
+    case LineKind.Number:
+    case LineKind.String: {
       return <UiPrimitive level={line.level} property={line.property} value={line.value} />;
     }
-    case LineType.Open: {
+    case LineKind.Open: {
       return (
         <UiOpen
           closeSymbol={line.closeSymbol}
@@ -33,10 +33,10 @@ export const UiLine: FC<Props> = ({ isCollapsed, line }) => {
         />
       );
     }
-    case LineType.Close: {
+    case LineKind.Close: {
       return <UiClose closeSymbol={line.closeSymbol} level={line.level} />;
     }
-    case LineType.Placeholder: {
+    case LineKind.Placeholder: {
       return <UiPlaceholder level={line.level} placeholder={line.placeholder} />;
     }
   }

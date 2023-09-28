@@ -14,7 +14,7 @@ export type Property = number | string;
 // region Line
 
 /* eslint-disable @typescript-eslint/no-shadow */
-export enum LineType {
+export enum LineKind {
   // Primitive Values
   Boolean,
   Null,
@@ -28,28 +28,28 @@ export enum LineType {
 }
 /* eslint-enable */
 
-export type PrimitiveLineType =
-  | LineType.Boolean
-  | LineType.Null
-  | LineType.Number
-  | LineType.String;
+export type PrimitiveLineKind =
+  | LineKind.Boolean
+  | LineKind.Null
+  | LineKind.Number
+  | LineKind.String;
 
-type BaseLine<Type extends LineType> = {
+type BaseLine<Kind extends LineKind> = {
   // NOTE: Path of item.
   //
   //       This path is hierarchical key of line for internal usage.
   path: string;
+  // NOTE: Kind of line.
+  //
+  //       It used to select a way which line is rendered.
+  kind: Kind;
   // NOTE: Level of item in object.
   //
   //       This level doesn't represent level inside object, and used to build indentation when render the JSON tree.
   level: number;
-  // NOTE: Type of line.
-  //
-  //       It used to select a way which line is rendered.
-  type: Type;
 };
 
-type BaseValueLine<Type extends LineType, Value = never> = BaseLine<Type> & {
+type BaseValueLine<Type extends LineKind, Value = never> = BaseLine<Type> & {
   jsonPath: string;
 
   property?: Property;
@@ -58,12 +58,12 @@ type BaseValueLine<Type extends LineType, Value = never> = BaseLine<Type> & {
 };
 
 export type ValueLine =
-  | BaseValueLine<LineType.Boolean, boolean>
-  | BaseValueLine<LineType.Null, null>
-  | BaseValueLine<LineType.Number, number>
-  | BaseValueLine<LineType.String, string>;
+  | BaseValueLine<LineKind.Boolean, boolean>
+  | BaseValueLine<LineKind.Null, null>
+  | BaseValueLine<LineKind.Number, number>
+  | BaseValueLine<LineKind.String, string>;
 
-export type OpenLine = BaseLine<LineType.Open> & {
+export type OpenLine = BaseLine<LineKind.Open> & {
   jsonPath: string;
 
   property?: Property;
@@ -75,11 +75,11 @@ export type OpenLine = BaseLine<LineType.Open> & {
   size: number;
 };
 
-export type CloseLine = BaseLine<LineType.Close> & {
+export type CloseLine = BaseLine<LineKind.Close> & {
   closeSymbol: string;
 };
 
-export type PlaceholderLine = BaseLine<LineType.Placeholder> & {
+export type PlaceholderLine = BaseLine<LineKind.Placeholder> & {
   placeholder: string;
 };
 
