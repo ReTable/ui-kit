@@ -13,7 +13,7 @@ function parseJson(source: string): [true, JsonValue] | [false, null] {
   }
 }
 
-export function useLines(source: string): Line[] {
+export function useLines(source: string, maxNumberOfLines: number): Line[] {
   return useMemo(() => {
     // Step 1: Try to convert source value to the object.
     const [isJson, sourceValue] = parseJson(source);
@@ -53,11 +53,24 @@ export function useLines(source: string): Line[] {
         enqueueItemsFrom(cursor);
       }
 
+      if (lines.length === maxNumberOfLines) {
+        lines.push({
+          kind: LineKind.Placeholder,
+
+          level: 0,
+          path: `more`,
+
+          placeholder: '...',
+        });
+
+        break;
+      }
+
       // Step 4.3: Move to the next item in queue.
       cursor = cursor.next;
     }
 
     // Step 5: Return a result.
     return lines;
-  }, [source]);
+  }, [maxNumberOfLines, source]);
 }

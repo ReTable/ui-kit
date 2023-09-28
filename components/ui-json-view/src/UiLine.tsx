@@ -37,7 +37,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line }) => {
         <div className={lines.boundary} style={style}>
           <UiToggle isCollapsed={isCollapsed} path={path} />
           <UiProperty property={property} />
-          {isCollapsed ? `${openSymbol} ... ${closeSymbol}` : openSymbol}
+          {isCollapsed ? `${openSymbol} ${size === 0 ? '' : '...'} ${closeSymbol}` : openSymbol}
           <UiSize size={size} />
         </div>
       );

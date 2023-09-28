@@ -52,7 +52,7 @@ function initCollapsedKeys(lines: Line[], collapsed: boolean | number): Registry
 
 type Result = [CollapsedKeys, ToggleFn];
 
-export function useCollapsedKeys(lines: Line[], collapsed: boolean | number): Result {
+export function useCollapsedKeys(lines: Line[], collapsed: boolean | number = false): Result {
   const [keys, setKeys] = useState(() => initCollapsedKeys(lines, collapsed));
 
   const toggle = useCallback<ToggleFn>((key: string) => {
