@@ -15,7 +15,7 @@ export const levelVar = createVar();
 
 // region Line
 
-const height = '24px';
+export const height = 24;
 
 const indentStepWidth = '4ch';
 
@@ -36,9 +36,9 @@ const baseLine = style([
     justifyContent: 'flex-start',
     alignItems: 'baseline',
     margin: '0',
-    height,
+    height: `${height}px`,
     paddingLeft: padding,
-    lineHeight: height,
+    lineHeight: `${height}px`,
 
     selectors: {
       '&::before': {
@@ -50,22 +50,31 @@ const baseLine = style([
         width: indentWidth,
         height: '100%',
         backgroundImage: `linear-gradient(to right, transparent 0px, transparent 2px, ${uiTheme.colors.borderControl.default} 3px, transparent 4px, transparent ${indentStepWidth})`,
-        backgroundSize: `${indentStepWidth} ${height}`,
+        backgroundSize: `${indentStepWidth} ${height}px`,
       },
     },
   },
 ]);
+
+const containerBase = style({
+  width: '100%',
+  height: '100%',
+  overflow: 'auto',
+});
 
 export const container = styleVariants(
   {
     plain: 0,
     nested: 24,
   },
-  (value) => ({
-    vars: {
-      [basePaddingVar]: `${value}px`,
+  (value) => [
+    containerBase,
+    {
+      vars: {
+        [basePaddingVar]: `${value}px`,
+      },
     },
-  }),
+  ],
 );
 
 export const lines = styleVariants(

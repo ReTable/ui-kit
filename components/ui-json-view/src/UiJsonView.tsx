@@ -4,14 +4,16 @@ import { clsx } from 'clsx';
 
 import { container } from './style.css';
 
-import { UiLine } from './UiLine';
 import { UiOptions } from './UiOptions';
-import { useCollapsedKeys, useCollapsedLines, useLines } from './hooks';
+import { UiStaticView } from './UiStaticView';
+import { UiVirtualView } from './UiVirtualView';
+import { useCollapsedKeys, useCollapsedLines, useLineRenderer, useLines } from './hooks';
 import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
   className?: string;
   collapsed?: boolean | number;
+  isVirtual?: boolean;
   limit?: number;
   source: string;
 };
@@ -20,6 +22,7 @@ export const UiJsonView: FC<Props> = ({
   className = '',
   collapsed,
   isInteractive,
+  isVirtual,
   limit,
   showDataTypes,
   showObjectSize,
@@ -34,11 +37,15 @@ export const UiJsonView: FC<Props> = ({
   const [collapsedKeys, toggle] = useCollapsedKeys(allLines, allowInteractions ? collapsed : false);
   // Step 3: Filter collapsed lines.
   const lines = useCollapsedLines(allLines, collapsedKeys);
-
+  // Step 4: Detect container class for right paddings.
   const containerClassName =
     lines.length === 0 || lines[0].kind !== LineKind.Open || !allowInteractions
       ? container.plain
       : container.nested;
+  // Step 5: Detect view component based on virtualization option.
+  const View = isVirtual ? UiVirtualView : UiStaticView;
+  // Step 6: Create a line renderer.
+  const lineRenderer = useLineRenderer(lines, collapsedKeys);
 
   return (
     <UiOptions
@@ -47,13 +54,11 @@ export const UiJsonView: FC<Props> = ({
       showObjectSize={showObjectSize}
       toggle={toggle}
     >
-      <div className={clsx(containerClassName, className)}>
-        {lines.map((line) => {
-          const isCollapsed = line.kind === LineKind.Open && collapsedKeys.has(line.path);
-
-          return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} />;
-        })}
-      </div>
+      <View
+        className={clsx(containerClassName, className)}
+        count={lines.length}
+        lineRenderer={lineRenderer}
+      />
     </UiOptions>
   );
 };

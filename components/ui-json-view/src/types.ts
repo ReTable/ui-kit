@@ -1,4 +1,7 @@
 // region Json
+import { ComponentType } from 'react';
+
+import { ListChildComponentProps } from 'react-window';
 
 export type JsonPrimitiveValue = boolean | null | number | string;
 
@@ -102,5 +105,15 @@ export type CollapsedKeys = {
 };
 
 export type ToggleFn = (key: string) => void;
+
+export type LineRenderer = ComponentType<ListChildComponentProps<undefined>>;
+
+export type ViewProps = {
+  className: string;
+  count: number;
+  lineRenderer: LineRenderer;
+};
+
+export type ViewComponentType = ComponentType<ViewProps>;
 
 // endregion
