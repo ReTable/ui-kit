@@ -1,11 +1,30 @@
 import { JsonValue } from '../types';
 
 import { enqueueItemsFrom } from './enqueueItemsFrom';
-import { Item, Line } from './types';
+import { Item, Line, LineKind } from './types';
+
+function parseJson(source: string): [true, JsonValue] | [false, null] {
+  try {
+    return [true, JSON.parse(source) as JsonValue];
+  } catch {
+    return [false, null];
+  }
+}
 
 export function toLines(source: string): Line[] {
   // Step 1: Try to convert source value to the object.
-  const sourceValue = JSON.parse(source) as JsonValue;
+  const [isJson, sourceValue] = parseJson(source);
+
+  if (!isJson) {
+    return [
+      {
+        level: 0,
+        path: '0',
+        placeholder: 'Invalid JSON',
+        kind: LineKind.Placeholder,
+      },
+    ];
+  }
 
   // Step 2: Create an initial value and make it cursor.
   let cursor: Item | undefined = {
