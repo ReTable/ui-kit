@@ -34,12 +34,6 @@ export type PrimitiveLineType =
   | LineType.Number
   | LineType.String;
 
-export type OpenLineType = LineType.Open;
-
-export type CloseLineType = LineType.Close;
-
-export type PlaceholderLineType = LineType.Placeholder;
-
 type BaseLine<Type extends LineType> = {
   // NOTE: Path of item.
   //
