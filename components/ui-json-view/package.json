@@ -49,11 +49,13 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@types/jsonpath": "^0.2.1"
+    "@types/jsonpath": "^0.2.1",
+    "@types/react-window": "^1.8.6"
   },
   "dependencies": {
     "@vanilla-extract/dynamic": "^2.0.3",
     "clsx": "^2.0.0",
-    "jsonpath": "^1.1.1"
+    "jsonpath": "^1.1.1",
+    "react-window": "^1.8.9"
   }
 }

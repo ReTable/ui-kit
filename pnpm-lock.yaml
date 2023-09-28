@@ -198,6 +198,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-window:
+        specifier: ^1.8.9
+        version: 1.8.9(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@tabula/ui-theme':
         specifier: workspace:^
@@ -205,6 +208,9 @@ importers:
       '@types/jsonpath':
         specifier: ^0.2.1
         version: 0.2.1
+      '@types/react-window':
+        specifier: ^1.8.6
+        version: 1.8.6
 
   components/ui-node-icon:
     dependencies:
@@ -5332,6 +5338,12 @@ packages:
       '@types/react': 18.2.21
     dev: true
 
+  /@types/react-window@1.8.6:
+    resolution: {integrity: sha512-AVJr3A5rIO9dQQu5TwTN0lP2c1RtuqyyZGCt7PGP8e5gUpn1PuQRMJb/u3UpdbwTHh4wbEi33UMW5NI0IXt1Mg==}
+    dependencies:
+      '@types/react': 18.2.21
+    dev: true
+
   /@types/react@16.14.46:
     resolution: {integrity: sha512-Am4pyXMrr6cWWw/TN3oqHtEZl0j+G6Up/O8m65+xF/3ZaUgkv1GAtTPWw4yNRmH0HJXmur6xKCKoMo3rBGynuw==}
     dependencies:
@@ -10175,6 +10187,10 @@ packages:
       mimic-fn: 4.0.0
     dev: true
 
+  /memoize-one@5.2.1:
+    resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
+    dev: false
+
   /memoizerific@1.11.3:
     resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
     dependencies:
@@ -11629,6 +11645,19 @@ packages:
       react-shallow-renderer: 16.15.0(react@18.2.0)
       scheduler: 0.23.0
     dev: true
+
+  /react-window@1.8.9(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-+Eqx/fj1Aa5WnhRfj9dJg4VYATGwIUP2ItwItiJ6zboKWA6EX3lYDAXfGF2hyNqplEprhbtjbipiADEcwQ823Q==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.22.5
+      memoize-one: 5.2.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
