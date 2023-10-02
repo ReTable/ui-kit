@@ -2,7 +2,7 @@ import { CSSProperties, memo } from 'react';
 
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 
-import { levelVar, lines } from './style.css';
+import { controls, level, variants } from './UiLine.css';
 
 import { UiProperty } from './UiProperty';
 import { UiSize } from './UiSize';
@@ -17,14 +17,14 @@ type Props = {
 };
 
 export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
-  const rootStyle = { ...style, ...assignInlineVars({ [levelVar]: `${line.level}` }) };
+  const rootStyle = { ...style, ...assignInlineVars({ [level]: `${line.level}` }) };
 
   switch (line.kind) {
     case LineKind.Value: {
       const { property, type, value } = line;
 
       return (
-        <div className={lines[type]} style={rootStyle}>
+        <div className={variants[type]} style={rootStyle}>
           <UiProperty property={property} />
           <UiType type={type} />
           {value}
@@ -35,8 +35,8 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { closeSymbol, openSymbol, path, property, size } = line;
 
       return (
-        <div className={lines.boundary} style={rootStyle}>
-          <UiToggle isCollapsed={isCollapsed} path={path} />
+        <div className={variants.boundary} style={rootStyle}>
+          <UiToggle className={controls.toggle} isCollapsed={isCollapsed} path={path} />
           <UiProperty property={property} />
           {isCollapsed ? `${openSymbol} ${size === 0 ? '' : '...'} ${closeSymbol}` : openSymbol}
           <UiSize size={size} />
@@ -47,7 +47,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { closeSymbol } = line;
 
       return (
-        <div className={lines.boundary} style={rootStyle}>
+        <div className={variants.boundary} style={rootStyle}>
           {closeSymbol}
         </div>
       );
@@ -56,7 +56,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { placeholder } = line;
 
       return (
-        <div className={lines.placeholder} style={rootStyle}>
+        <div className={variants.placeholder} style={rootStyle}>
           {placeholder}
         </div>
       );
@@ -64,4 +64,4 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
   }
 });
 
-UiLine.displayName = `UiJsonView(UiLine)`;
+UiLine.displayName = 'UiLine';

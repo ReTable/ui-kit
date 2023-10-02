@@ -46,8 +46,6 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
-UiOptions.displayName = `UiJsonView(UiOptions)`;
-
 // endregion
 
 // region Hook

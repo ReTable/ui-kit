@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { meta } from './style.css';
+import { root } from './UiType.css';
 
 import { useOptions } from './UiOptions';
 import { ValueType } from './types';
@@ -16,7 +16,5 @@ export const UiType: FC<Props> = ({ type }) => {
     return null;
   }
 
-  return <span className={meta}>{type}&nbsp;</span>;
+  return <span className={root}>{type}&nbsp;</span>;
 };
-
-UiType.displayName = 'UiJsonView(UiType)';

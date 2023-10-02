@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { property as root } from './style.css';
+import { root } from './UiProperty.css';
 
 import { Property } from './types';
 
@@ -17,5 +17,3 @@ export const UiProperty: FC<Props> = ({ property }) => {
 
   return <span className={root}>{name}&nbsp;:&nbsp;</span>;
 };
-
-UiProperty.displayName = 'UiJsonView(UiProperty)';

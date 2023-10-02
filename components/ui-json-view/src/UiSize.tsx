@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { meta } from './style.css';
+import { root } from './UiSize.css';
 
 import { useOptions } from './UiOptions';
 
@@ -15,7 +15,5 @@ export const UiSize: FC<Props> = ({ size }) => {
     return null;
   }
 
-  return <span className={meta}>&nbsp;{size === 1 ? '1 item' : `${size} items`}</span>;
+  return <span className={root}>&nbsp;{size === 1 ? '1 item' : `${size} items`}</span>;
 };
-
-UiSize.displayName = 'UiJsonView(UiSize)';

@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { clsx } from 'clsx';
 
-import { container } from './style.css';
+import { variants } from './UiJsonView.css';
 
 import { UiOptions } from './UiOptions';
 import { UiStaticView } from './UiStaticView';
@@ -40,8 +40,8 @@ export const UiJsonView: FC<Props> = ({
   // Step 4: Detect container class for right paddings.
   const containerClassName =
     lines.length === 0 || lines[0].kind !== LineKind.Open || !allowInteractions
-      ? container.plain
-      : container.nested;
+      ? variants.static
+      : variants.interactive;
   // Step 5: Detect view component based on virtualization option.
   const View = isVirtual ? UiVirtualView : UiStaticView;
   // Step 6: Create a line renderer.

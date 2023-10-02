@@ -1,7 +1,7 @@
 import { useMeasure } from 'react-use';
 import { FixedSizeList } from 'react-window';
 
-import { height as lineHeight } from './style.css';
+import { height as lineHeight } from './UiLine.css';
 
 import { ViewComponentType } from './types';
 
@@ -23,5 +23,3 @@ export const UiVirtualView: ViewComponentType = ({ className, count, lineRendere
     </div>
   );
 };
-
-UiVirtualView.displayName = 'UiJsonView(UiVirtualView)';

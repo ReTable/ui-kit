@@ -1,15 +1,21 @@
 import { FC } from 'react';
 
-import { toggleButton } from './style.css';
+import { clsx } from 'clsx';
+
+import { ReactComponent as CollapseIcon } from './assets/collapse.svg';
+import { ReactComponent as ExpandIcon } from './assets/expand.svg';
+
+import { root } from './UiToggle.css';
 
 import { useOptions } from './UiOptions';
 
 type Props = {
+  className?: string;
   isCollapsed: boolean;
   path: string;
 };
 
-export const UiToggle: FC<Props> = ({ isCollapsed, path }) => {
+export const UiToggle: FC<Props> = ({ className, isCollapsed, path }) => {
   const { isInteractive, toggle } = useOptions();
 
   if (!isInteractive) {
@@ -21,10 +27,8 @@ export const UiToggle: FC<Props> = ({ isCollapsed, path }) => {
   };
 
   return (
-    <button className={toggleButton} onClick={handleClick} type="button">
-      {isCollapsed ? '+' : '-'}
+    <button className={clsx(root, className)} onClick={handleClick} type="button">
+      {isCollapsed ? <ExpandIcon /> : <CollapseIcon />}
     </button>
   );
 };
-
-UiToggle.displayName = 'UiJsonView(UiToggle)';
