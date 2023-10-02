@@ -36,7 +36,10 @@ export const UiJsonView: FC<Props> = ({
   // Step 2: Map JSON value to the lines for rendering pipeline.
   const allLines = useLines(value, isValid, maxNumberOfLines);
   // Step 3: Initiate collapsed keys service.
-  const [collapsedKeys, toggle] = useCollapsedKeys(allLines, allowInteractions ? collapsed : false);
+  const [collapsedKeys, onToggle] = useCollapsedKeys(
+    allLines,
+    allowInteractions ? collapsed : false,
+  );
   // Step 4: Filter collapsed lines.
   const lines = useCollapsedLines(allLines, collapsedKeys);
   // Step 5: Detect container class for right paddings.
@@ -54,7 +57,7 @@ export const UiJsonView: FC<Props> = ({
       isInteractive={allowInteractions}
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
-      toggle={toggle}
+      onToggle={onToggle}
     >
       <View
         className={clsx(containerClassName, className)}

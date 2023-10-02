@@ -104,7 +104,7 @@ export type CollapsedKeys = {
   has: (key: string) => boolean;
 };
 
-export type ToggleFn = (key: string) => void;
+export type OnToggleFn = (key: string) => void;
 
 export type LineRenderer = ComponentType<ListChildComponentProps<undefined>>;
 

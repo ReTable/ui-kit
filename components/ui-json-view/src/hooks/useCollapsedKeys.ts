@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { CollapsedKeys, Line, LineKind, ToggleFn } from '../types';
+import { CollapsedKeys, Line, LineKind, OnToggleFn } from '../types';
 
 // region Registry
 
@@ -50,16 +50,16 @@ function initCollapsedKeys(lines: Line[], collapsed: boolean | number): Registry
 
 // region Hook
 
-type Result = [CollapsedKeys, ToggleFn];
+type Result = [CollapsedKeys, OnToggleFn];
 
 export function useCollapsedKeys(lines: Line[], collapsed: boolean | number = false): Result {
   const [keys, setKeys] = useState(() => initCollapsedKeys(lines, collapsed));
 
-  const toggle = useCallback<ToggleFn>((key: string) => {
+  const onToggle = useCallback<OnToggleFn>((key: string) => {
     setKeys((current) => current.toggle(key));
   }, []);
 
-  return [keys, toggle];
+  return [keys, onToggle];
 }
 
 // endregion

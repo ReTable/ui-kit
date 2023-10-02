@@ -1,11 +1,11 @@
 import { FC, PropsWithChildren, createContext, useContext, useMemo } from 'react';
 
-import { JsonViewOptions, ToggleFn } from './types';
+import { JsonViewOptions, OnToggleFn } from './types';
 
 // region Types
 
 type Value = JsonViewOptions & {
-  toggle: ToggleFn;
+  onToggle: OnToggleFn;
 };
 
 // endregion
@@ -17,7 +17,7 @@ const defaultValue: Value = {
   showDataTypes: false,
   showObjectSize: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  toggle: () => {},
+  onToggle: () => {},
 };
 
 const Context = createContext<Value>(defaultValue);
@@ -31,16 +31,16 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   isInteractive = defaultValue.isInteractive,
   showDataTypes = defaultValue.showDataTypes,
   showObjectSize = defaultValue.showObjectSize,
-  toggle = defaultValue.toggle,
+  onToggle = defaultValue.onToggle,
 }) => {
   const value = useMemo<Value>(
     () => ({
       isInteractive,
       showDataTypes,
       showObjectSize,
-      toggle,
+      onToggle,
     }),
-    [isInteractive, showDataTypes, showObjectSize, toggle],
+    [isInteractive, showDataTypes, showObjectSize, onToggle],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

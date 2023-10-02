@@ -16,14 +16,14 @@ type Props = {
 };
 
 export const UiToggle: FC<Props> = ({ className, isCollapsed, path }) => {
-  const { isInteractive, toggle } = useOptions();
+  const { isInteractive, onToggle } = useOptions();
 
   if (!isInteractive) {
     return null;
   }
 
   const handleClick = () => {
-    toggle(path);
+    onToggle(path);
   };
 
   return (
