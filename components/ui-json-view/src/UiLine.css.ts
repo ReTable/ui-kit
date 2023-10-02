@@ -99,12 +99,28 @@ export const controls = styleVariants({
       '@layer': {
         [uiLayers.components]: {
           position: 'absolute',
-          left: calc.subtract(paddingExpr, '19px'),
+          left: calc.subtract(paddingExpr, '19.5px'),
           top: '4px',
         },
       },
     },
   ],
+
+  action: {
+    marginLeft: '1ch',
+    opacity: 0,
+    transition: `${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+
+    selectors: {
+      '& + &': {
+        marginLeft: '0.5ch',
+      },
+
+      [`${root}:hover &`]: {
+        opacity: 1,
+      },
+    },
+  },
 });
 
 // endregion
