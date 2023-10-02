@@ -14,16 +14,6 @@ export type JsonValue = JsonArray | JsonObject | JsonPrimitiveValue;
 
 // endregion
 
-// region Options
-
-export type JsonViewOptions = {
-  isInteractive: boolean;
-  showDataTypes: boolean;
-  showObjectSize: boolean;
-};
-
-// endregion
-
 // region Line
 
 // NOTE: Represents address of value inside the parent value.
@@ -115,6 +105,19 @@ export type QueryFn = (jsonPath: string) => Readonly<JsonValue>;
 export type ActionFn = (jsonPath: string, query: QueryFn) => void;
 
 export type OnActionFn = (jsonPath: string, action: ActionFn) => void;
+
+export type Actions = Record<string, ActionFn>;
+
+// endregion
+
+// region Options
+
+export type JsonViewOptions = {
+  actions: Actions;
+  isInteractive: boolean;
+  showDataTypes: boolean;
+  showObjectSize: boolean;
+};
 
 // endregion
 

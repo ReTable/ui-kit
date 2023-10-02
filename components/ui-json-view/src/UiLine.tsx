@@ -4,7 +4,7 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { controls, level, variants } from './UiLine.css';
 
-import { UiCopy } from './UiCopy';
+import { UiActions } from './UiActions';
 import { UiProperty } from './UiProperty';
 import { UiSize } from './UiSize';
 import { UiToggle } from './UiToggle';
@@ -29,7 +29,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
           <UiProperty property={property} />
           <UiType type={type} />
           {value}
-          <UiCopy className={controls.action} jsonPath={jsonPath} />
+          <UiActions className={controls.action} jsonPath={jsonPath} />
         </div>
       );
     }
@@ -42,7 +42,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
           <UiProperty property={property} />
           {isCollapsed ? `${openSymbol} ${size === 0 ? '' : '...'} ${closeSymbol}` : openSymbol}
           <UiSize size={size} />
-          <UiCopy className={controls.action} jsonPath={jsonPath} />
+          <UiActions className={controls.action} jsonPath={jsonPath} />
         </div>
       );
     }

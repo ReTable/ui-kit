@@ -26,6 +26,7 @@ export type Props = Partial<JsonViewOptions> & {
 };
 
 export const UiJsonView: FC<Props> = ({
+  actions,
   className = '',
   collapsed,
   isInteractive,
@@ -63,6 +64,7 @@ export const UiJsonView: FC<Props> = ({
 
   return (
     <UiOptions
+      actions={actions}
       isInteractive={allowInteractions}
       onAction={onAction}
       onToggle={onToggle}

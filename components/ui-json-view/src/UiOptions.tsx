@@ -17,6 +17,8 @@ type Value = JsonViewOptions & {
 const noop = () => {};
 
 const defaultValue: Value = {
+  actions: {},
+
   isInteractive: false,
   showDataTypes: false,
   showObjectSize: false,
@@ -32,22 +34,24 @@ const Context = createContext<Value>(defaultValue);
 // region Provider
 
 export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
+  actions = defaultValue.actions,
   children,
   isInteractive = defaultValue.isInteractive,
-  showDataTypes = defaultValue.showDataTypes,
-  showObjectSize = defaultValue.showObjectSize,
   onAction = defaultValue.onAction,
   onToggle = defaultValue.onToggle,
+  showDataTypes = defaultValue.showDataTypes,
+  showObjectSize = defaultValue.showObjectSize,
 }) => {
   const value = useMemo<Value>(
     () => ({
+      actions,
       isInteractive,
-      showDataTypes,
-      showObjectSize,
       onAction,
       onToggle,
+      showDataTypes,
+      showObjectSize,
     }),
-    [isInteractive, showDataTypes, showObjectSize, onAction, onToggle],
+    [actions, isInteractive, onAction, onToggle, showDataTypes, showObjectSize],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
