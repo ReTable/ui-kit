@@ -7,7 +7,7 @@ import { variants } from './UiJsonView.css';
 import { UiOptions } from './UiOptions';
 import { UiStaticView } from './UiStaticView';
 import { UiVirtualView } from './UiVirtualView';
-import { useCollapsedKeys, useCollapsedLines, useLineRenderer, useLines } from './hooks';
+import { useCollapsedKeys, useCollapsedLines, useLineRenderer, useLines, useValue } from './hooks';
 import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
@@ -31,13 +31,15 @@ export const UiJsonView: FC<Props> = ({
   const [allowInteractions, maxNumberOfLines] =
     limit != null && limit > 0 ? [false, limit] : [isInteractive, Number.POSITIVE_INFINITY];
 
-  // Step 1: Convert source string to the render lines.
-  const allLines = useLines(source, maxNumberOfLines);
-  // Step 2: Initiate collapsed keys service.
+  // Step 1: Try to parse source string to the JSON value.
+  const [isValid, value] = useValue(source);
+  // Step 2: Map JSON value to the lines for rendering pipeline.
+  const allLines = useLines(value, isValid, maxNumberOfLines);
+  // Step 3: Initiate collapsed keys service.
   const [collapsedKeys, toggle] = useCollapsedKeys(allLines, allowInteractions ? collapsed : false);
-  // Step 3: Filter collapsed lines.
+  // Step 4: Filter collapsed lines.
   const lines = useCollapsedLines(allLines, collapsedKeys);
-  // Step 4: Detect container class for right paddings.
+  // Step 5: Detect container class for right paddings.
   const containerClassName =
     lines.length === 0 || lines[0].kind !== LineKind.Open || !allowInteractions
       ? variants.static

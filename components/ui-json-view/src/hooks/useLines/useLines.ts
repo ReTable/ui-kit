@@ -5,20 +5,10 @@ import { JsonValue, Line, LineKind } from '../../types';
 import { enqueueItemsFrom } from './enqueueItemsFrom';
 import { Item } from './types';
 
-function parseJson(source: string): [true, JsonValue] | [false, null] {
-  try {
-    return [true, JSON.parse(source) as JsonValue];
-  } catch {
-    return [false, null];
-  }
-}
-
-export function useLines(source: string, maxNumberOfLines: number): Line[] {
+export function useLines(value: JsonValue, isValid: boolean, maxNumberOfLines: number): Line[] {
   return useMemo(() => {
-    // Step 1: Try to convert source value to the object.
-    const [isJson, sourceValue] = parseJson(source);
-
-    if (!isJson) {
+    // Step 1: If source value isn't valid JSON value, then return placeholder.
+    if (!isValid) {
       return [
         {
           level: 0,
@@ -37,7 +27,7 @@ export function useLines(source: string, maxNumberOfLines: number): Line[] {
       level: 0,
       path: '0',
 
-      value: sourceValue,
+      value,
     };
 
     // Step 3: Create lines container.
@@ -72,5 +62,5 @@ export function useLines(source: string, maxNumberOfLines: number): Line[] {
 
     // Step 5: Return a result.
     return lines;
-  }, [maxNumberOfLines, source]);
+  }, [value, isValid, maxNumberOfLines]);
 }
