@@ -96,7 +96,7 @@ export type Line =
 
 // endregion
 
-// region Service
+// region Collapse/Expand
 
 export type CollapsedKeys = {
   isEmpty: boolean;
@@ -105,6 +105,20 @@ export type CollapsedKeys = {
 };
 
 export type OnToggleFn = (key: string) => void;
+
+// endregion
+
+// region Actions
+
+export type QueryFn = (jsonPath: string) => Readonly<JsonValue>;
+
+export type ActionFn = (jsonPath: string, query: QueryFn) => void;
+
+export type OnActionFn = (jsonPath: string, action: ActionFn) => void;
+
+// endregion
+
+// region View
 
 export type LineRenderer = ComponentType<ListChildComponentProps<undefined>>;
 

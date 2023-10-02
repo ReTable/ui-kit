@@ -7,7 +7,14 @@ import { variants } from './UiJsonView.css';
 import { UiOptions } from './UiOptions';
 import { UiStaticView } from './UiStaticView';
 import { UiVirtualView } from './UiVirtualView';
-import { useCollapsedKeys, useCollapsedLines, useLineRenderer, useLines, useValue } from './hooks';
+import {
+  useActionHandler,
+  useCollapsedKeys,
+  useCollapsedLines,
+  useLineRenderer,
+  useLines,
+  useValue,
+} from './hooks';
 import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
@@ -32,7 +39,7 @@ export const UiJsonView: FC<Props> = ({
     limit != null && limit > 0 ? [false, limit] : [isInteractive, Number.POSITIVE_INFINITY];
 
   // Step 1: Try to parse source string to the JSON value.
-  const [isValid, value] = useValue(source);
+  const [value, isValid] = useValue(source);
   // Step 2: Map JSON value to the lines for rendering pipeline.
   const allLines = useLines(value, isValid, maxNumberOfLines);
   // Step 3: Initiate collapsed keys service.
@@ -51,13 +58,16 @@ export const UiJsonView: FC<Props> = ({
   const View = isVirtual ? UiVirtualView : UiStaticView;
   // Step 6: Create a line renderer.
   const lineRenderer = useLineRenderer(lines, collapsedKeys);
+  // Step 7: Create an action handler.
+  const onAction = useActionHandler(value, isValid);
 
   return (
     <UiOptions
       isInteractive={allowInteractions}
+      onAction={onAction}
+      onToggle={onToggle}
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
-      onToggle={onToggle}
     >
       <View
         className={clsx(containerClassName, className)}

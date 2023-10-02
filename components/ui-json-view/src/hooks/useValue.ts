@@ -1,21 +1,15 @@
 import { useMemo } from 'react';
 
-import jp from 'jsonpath';
+import { JsonValue } from '../types';
 
-import { JsonValue, ReadByPath } from '../types';
-
-type Result = [boolean, JsonValue, ReadByPath];
-
-export function useValue(source: string): Result {
-  return useMemo((): Result => {
+export function useValue(source: string): [JsonValue, boolean] {
+  return useMemo(() => {
     try {
       const value = JSON.parse(source) as JsonValue;
 
-      const readByPath: ReadByPath = (path) => jp.value(value, path) as JsonValue;
-
-      return [true, value, readByPath];
+      return [value, true];
     } catch {
-      return [false, null, () => null];
+      return [null, false];
     }
   }, [source]);
 }

@@ -4,14 +4,25 @@ import { clsx } from 'clsx';
 
 import { root } from './UiAction.css';
 
+import { useOptions } from './UiOptions';
+import { ActionFn } from './types';
+
 type Props = {
-  className?: string;
+  action: ActionFn;
   children: string;
+  className?: string;
+  jsonPath: string;
 };
 
-export const UiAction: FC<Props> = ({ className, children }) => {
+export const UiAction: FC<Props> = ({ action, className, children, jsonPath }) => {
+  const { onAction } = useOptions();
+
+  const handleClick = () => {
+    onAction(jsonPath, action);
+  };
+
   return (
-    <button className={clsx(root, className)} type="button">
+    <button className={clsx(root, className)} onClick={handleClick} type="button">
       {children}
     </button>
   );
