@@ -1,15 +1,8 @@
-import { ReactNode } from 'react';
-
+import { UiLine } from './UiLine';
 import { ViewComponentType } from './types';
 
-const style = {};
+export const UiStaticView: ViewComponentType = ({ className, lines }) => {
+  const children = lines.map((line) => <UiLine key={line.path} line={line} />);
 
-export const UiStaticView: ViewComponentType = ({ className, count, lineRenderer: Line }) => {
-  const lines: ReactNode[] = [];
-
-  for (let index = 0; index < count; index += 1) {
-    lines.push(<Line data={undefined} index={index} style={style} />);
-  }
-
-  return <div className={className}>{lines}</div>;
+  return <div className={className}>{children}</div>;
 };

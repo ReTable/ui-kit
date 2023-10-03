@@ -1,37 +1,53 @@
-import { useCallback } from 'react';
+import { ComponentType, useCallback } from 'react';
 
 import { useMeasure } from 'react-use';
-import { VariableSizeList } from 'react-window';
+import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { height as lineHeight, verticalPadding } from './UiLine.css';
 
-import { ViewComponentType } from './types';
+import { UiLine } from './UiLine';
+import { Line, ViewComponentType } from './types';
 
-export const UiVirtualView: ViewComponentType = ({ className, count, lineRenderer }) => {
+function itemKey(index: number, lines: Line[]) {
+  return lines[index].path;
+}
+
+const lineRenderer: ComponentType<ListChildComponentProps<Line[]>> = ({ index, data, style }) => {
+  const line = data[index];
+
+  return <UiLine line={line} style={style} />;
+};
+
+export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
   const [ref, { height }] = useMeasure<HTMLDivElement>();
 
   const itemSize = useCallback(
     (index: number) => {
-      if (index === 0 && count === 1) {
-        return verticalPadding + lineHeight + verticalPadding;
+      const { isFirst, isLast } = lines[index];
+
+      let size = lineHeight;
+
+      if (isFirst) {
+        size += verticalPadding;
       }
 
-      if (index === 0 || index === count - 1) {
-        return lineHeight + verticalPadding;
+      if (isLast) {
+        size += verticalPadding;
       }
 
-      return lineHeight;
+      return size;
     },
-    [count],
+    [lines],
   );
 
   return (
     <div className={className} ref={ref}>
-      <VariableSizeList
-        direction="vertical"
+      <VariableSizeList<Line[]>
         height={height}
-        itemCount={count}
+        itemCount={lines.length}
         itemSize={itemSize}
+        itemKey={itemKey}
+        itemData={lines}
         width="100%"
         overscanCount={Math.floor(height / lineHeight)}
       >

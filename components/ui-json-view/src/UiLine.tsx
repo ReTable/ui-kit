@@ -14,7 +14,7 @@ import { Line, LineKind } from './types';
 
 type Props = {
   line: Line;
-  style: CSSProperties;
+  style?: CSSProperties;
 };
 
 export const UiLine = memo<Props>(({ line, style }) => {

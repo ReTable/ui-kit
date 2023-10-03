@@ -7,14 +7,7 @@ import { variants } from './UiJsonView.css';
 import { UiOptions } from './UiOptions';
 import { UiStaticView } from './UiStaticView';
 import { UiVirtualView } from './UiVirtualView';
-import {
-  useActionHandler,
-  useCollapsedKeys,
-  useCollapsedLines,
-  useLineRenderer,
-  useLines,
-  useValue,
-} from './hooks';
+import { useActionHandler, useCollapsedKeys, useCollapsedLines, useLines, useValue } from './hooks';
 import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
@@ -55,12 +48,10 @@ export const UiJsonView: FC<Props> = ({
     lines.length === 0 || lines[0].kind !== LineKind.Open || !allowInteractions
       ? variants.static
       : variants.interactive;
-  // Step 5: Detect view component based on virtualization option.
-  const View = isVirtual ? UiVirtualView : UiStaticView;
-  // Step 6: Create a line renderer.
-  const lineRenderer = useLineRenderer(lines);
-  // Step 7: Create an action handler.
+  // Step 6: Create an action handler.
   const onAction = useActionHandler(value, isValid);
+  // Step 7: Detect view type based on `isVirtual` option.
+  const View = isVirtual ? UiVirtualView : UiStaticView;
 
   return (
     <UiOptions
@@ -71,11 +62,7 @@ export const UiJsonView: FC<Props> = ({
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
     >
-      <View
-        className={clsx(containerClassName, className)}
-        count={lines.length}
-        lineRenderer={lineRenderer}
-      />
+      <View className={clsx(containerClassName, className)} lines={lines} />
     </UiOptions>
   );
 };

@@ -128,12 +128,9 @@ export type JsonViewOptions = {
 
 // region View
 
-export type LineRenderer = ComponentType<ListChildComponentProps<undefined>>;
-
 export type ViewProps = {
   className: string;
-  count: number;
-  lineRenderer: LineRenderer;
+  lines: Line[];
 };
 
 export type ViewComponentType = ComponentType<ViewProps>;
