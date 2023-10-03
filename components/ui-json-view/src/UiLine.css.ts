@@ -60,6 +60,7 @@ const root = style([
         paddingLeft: paddingExpr,
         paddingRight: '16px',
         lineHeight: `${height}px`,
+        whiteSpace: 'nowrap',
 
         selectors: {
           '&::before': {
