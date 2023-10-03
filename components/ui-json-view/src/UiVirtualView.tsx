@@ -3,7 +3,7 @@ import { ComponentType, useCallback } from 'react';
 import { useMeasure } from 'react-use';
 import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
-import { height as lineHeight, verticalPadding } from './UiLine.css';
+import { basePadding, itemHeight } from './UiJsonView.css';
 import { root } from './UiVirtualView.css';
 
 import { UiLine } from './UiLine';
@@ -26,14 +26,14 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
     (index: number) => {
       const { isFirst, isLast } = lines[index];
 
-      let size = lineHeight;
+      let size = itemHeight;
 
       if (isFirst) {
-        size += verticalPadding;
+        size += basePadding;
       }
 
       if (isLast) {
-        size += verticalPadding;
+        size += basePadding;
       }
 
       return size;
@@ -50,7 +50,7 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
         itemData={lines}
         itemKey={itemKey}
         itemSize={itemSize}
-        overscanCount={Math.floor(height / lineHeight)}
+        overscanCount={Math.floor(height / itemHeight)}
         width="100%"
       >
         {lineRenderer}

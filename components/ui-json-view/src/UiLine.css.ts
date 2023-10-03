@@ -3,13 +3,9 @@ import { calc } from '@vanilla-extract/css-utils';
 
 import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
 
-import { padding } from './UiJsonView.css';
+import { basePadding, itemHeight, padding } from './UiJsonView.css';
 
 // region Constants
-
-export const height = 24;
-
-export const verticalPadding = 16;
 
 const indent = '4ch';
 
@@ -39,7 +35,7 @@ export const position = styleVariants(
   (paddingSide) => ({
     '@layer': {
       [uiLayers.components]: {
-        [paddingSide]: `${verticalPadding}px`,
+        [paddingSide]: `${basePadding}px`,
       },
     },
   }),
@@ -56,10 +52,10 @@ const root = style([
         justifyContent: 'flex-start',
         alignItems: 'baseline',
         margin: '0',
-        height: `${height}px`,
+        height: `${itemHeight}px`,
         paddingLeft: paddingExpr,
         paddingRight: '16px',
-        lineHeight: `${height}px`,
+        lineHeight: `${itemHeight}px`,
         whiteSpace: 'nowrap',
 
         selectors: {
@@ -70,17 +66,17 @@ const root = style([
             content: '',
             display: 'inline-block',
             width: indentExpr,
-            height: `${height}px`,
+            height: `${itemHeight}px`,
             backgroundImage: `linear-gradient(to right, transparent 0px, transparent 2px, ${uiTheme.colors.borderControl.default} 3px, transparent 4px, transparent ${indent})`,
-            backgroundSize: `${indent} ${height}px`,
+            backgroundSize: `${indent} ${itemHeight}px`,
           },
 
           [`${position.isFirst}&, ${position.isLast}&`]: {
-            height: `${height + verticalPadding}px`,
+            height: `${itemHeight + basePadding}px`,
           },
 
           [`${position.isFirst}${position.isLast}&`]: {
-            height: `${verticalPadding + height + verticalPadding}px`,
+            height: `${basePadding + itemHeight + basePadding}px`,
           },
         },
 

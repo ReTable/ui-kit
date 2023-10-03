@@ -2,6 +2,16 @@ import { createVar, style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
+// region Constants
+
+export const itemHeight = 24;
+
+export const basePadding = 16;
+
+export const controlPadding = 24;
+
+// endregion
+
 // region Variables
 
 export const padding = createVar();
@@ -26,8 +36,8 @@ const root = style({
 
 export const variants = styleVariants(
   {
-    static: 16,
-    interactive: 40,
+    static: basePadding,
+    interactive: basePadding + controlPadding,
   },
   (value) => [
     root,
