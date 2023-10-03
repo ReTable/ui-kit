@@ -9,6 +9,8 @@ import { padding } from './UiJsonView.css';
 
 export const height = 24;
 
+export const verticalPadding = 16;
+
 const indent = '4ch';
 
 // end
@@ -29,6 +31,20 @@ const paddingExpr = calc.add(padding, indentExpr);
 
 // region Root
 
+export const position = styleVariants(
+  {
+    isFirst: 'paddingTop',
+    isLast: 'paddingBottom',
+  },
+  (paddingSide) => ({
+    '@layer': {
+      [uiLayers.components]: {
+        [paddingSide]: `${verticalPadding}px`,
+      },
+    },
+  }),
+);
+
 const root = style([
   uiFonts.monospace.semiBold12,
   {
@@ -42,6 +58,7 @@ const root = style([
         margin: '0',
         height: `${height}px`,
         paddingLeft: paddingExpr,
+        paddingRight: '16px',
         lineHeight: `${height}px`,
 
         selectors: {
@@ -52,9 +69,17 @@ const root = style([
             content: '',
             display: 'inline-block',
             width: indentExpr,
-            height: '100%',
+            height: `${height}px`,
             backgroundImage: `linear-gradient(to right, transparent 0px, transparent 2px, ${uiTheme.colors.borderControl.default} 3px, transparent 4px, transparent ${indent})`,
             backgroundSize: `${indent} ${height}px`,
+          },
+
+          [`${position.isFirst}&, ${position.isLast}&`]: {
+            height: `${height + verticalPadding}px`,
+          },
+
+          [`${position.isFirst}${position.isLast}&`]: {
+            height: `${verticalPadding + height + verticalPadding}px`,
           },
         },
 
@@ -101,6 +126,12 @@ export const controls = styleVariants({
           position: 'absolute',
           left: calc.subtract(paddingExpr, '19.5px'),
           top: '4px',
+
+          selectors: {
+            [`${position.isFirst} &`]: {
+              top: '20px',
+            },
+          },
         },
       },
     },

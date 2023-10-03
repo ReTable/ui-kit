@@ -1,8 +1,9 @@
 import { CSSProperties, memo } from 'react';
 
 import { assignInlineVars } from '@vanilla-extract/dynamic';
+import { clsx } from 'clsx';
 
-import { controls, level, variants } from './UiLine.css';
+import { controls, level, position, variants } from './UiLine.css';
 
 import { UiActions } from './UiActions';
 import { UiProperty } from './UiProperty';
@@ -13,11 +14,15 @@ import { Line, LineKind } from './types';
 
 type Props = {
   isCollapsed: boolean;
+  isFirst: boolean;
+  isLast: boolean;
   line: Line;
   style: CSSProperties;
 };
 
-export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
+export const UiLine = memo<Props>(({ isCollapsed, isFirst, isLast, line, style }) => {
+  const positionClassName = clsx(isFirst && position.isFirst, isLast && position.isLast);
+
   const rootStyle = { ...style, ...assignInlineVars({ [level]: `${line.level}` }) };
 
   switch (line.kind) {
@@ -25,7 +30,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { jsonPath, property, type, value } = line;
 
       return (
-        <div className={variants[type]} style={rootStyle}>
+        <div className={clsx(variants[type], positionClassName)} style={rootStyle}>
           <UiProperty property={property} />
           <UiType type={type} />
           {value}
@@ -37,7 +42,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { closeSymbol, jsonPath, openSymbol, path, property, size } = line;
 
       return (
-        <div className={variants.boundary} style={rootStyle}>
+        <div className={clsx(variants.boundary, positionClassName)} style={rootStyle}>
           <UiToggle className={controls.toggle} isCollapsed={isCollapsed} path={path} />
           <UiProperty property={property} />
           {isCollapsed ? `${openSymbol} ${size === 0 ? '' : '...'} ${closeSymbol}` : openSymbol}
@@ -50,7 +55,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { closeSymbol } = line;
 
       return (
-        <div className={variants.boundary} style={rootStyle}>
+        <div className={clsx(variants.boundary, positionClassName)} style={rootStyle}>
           {closeSymbol}
         </div>
       );
@@ -59,7 +64,7 @@ export const UiLine = memo<Props>(({ isCollapsed, line, style }) => {
       const { placeholder } = line;
 
       return (
-        <div className={variants.placeholder} style={rootStyle}>
+        <div className={clsx(variants.placeholder, positionClassName)} style={rootStyle}>
           {placeholder}
         </div>
       );

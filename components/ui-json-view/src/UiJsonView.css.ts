@@ -26,8 +26,8 @@ const root = style({
 
 export const variants = styleVariants(
   {
-    static: 0,
-    interactive: 24,
+    static: 16,
+    interactive: 40,
   },
   (value) => [
     root,

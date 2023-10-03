@@ -9,8 +9,19 @@ export function useLineRenderer(lines: Line[], collapsedKeys: CollapsedKeys): Li
       const line = lines[index];
 
       const isCollapsed = line.kind === LineKind.Open && collapsedKeys.has(line.path);
+      const isFirst = index === 0;
+      const isLast = index === lines.length - 1;
 
-      return <UiLine key={line.path} isCollapsed={isCollapsed} line={line} style={style} />;
+      return (
+        <UiLine
+          key={line.path}
+          isCollapsed={isCollapsed}
+          isFirst={isFirst}
+          isLast={isLast}
+          line={line}
+          style={style}
+        />
+      );
     },
     [lines, collapsedKeys],
   );
