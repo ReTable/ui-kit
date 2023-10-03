@@ -186,6 +186,9 @@ importers:
 
   components/ui-json-view:
     dependencies:
+      '@tabula/ui-button':
+        specifier: workspace:^
+        version: link:../ui-button
       '@vanilla-extract/dynamic':
         specifier: ^2.0.3
         version: 2.0.3

@@ -1,11 +1,13 @@
 import { ComponentType, useCallback } from 'react';
 
+import { clsx } from 'clsx';
 import { useMeasure } from 'react-use';
 import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { basePadding, itemHeight } from './UiJsonView.css';
-import { root } from './UiVirtualView.css';
+import { controls, list, root } from './UiVirtualView.css';
 
+import { UiControls } from './UiControls';
 import { UiLine } from './UiLine';
 import { Line, ViewComponentType } from './types';
 
@@ -42,9 +44,10 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
   );
 
   return (
-    <div className={className} ref={ref}>
+    <div className={clsx(className, root)} ref={ref}>
+      <UiControls className={controls} />
       <VariableSizeList<Line[]>
-        className={root}
+        className={list}
         height={height}
         itemCount={lines.length}
         itemData={lines}

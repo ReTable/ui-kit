@@ -25,6 +25,8 @@ export const UiJsonView: FC<Props> = ({
   isInteractive,
   isVirtual,
   limit,
+  onToggleDataTypes,
+  onToggleObjectSize,
   showDataTypes,
   showObjectSize,
   source,
@@ -59,6 +61,8 @@ export const UiJsonView: FC<Props> = ({
       isInteractive={allowInteractions}
       onAction={onAction}
       onToggle={onToggle}
+      onToggleDataTypes={onToggleDataTypes}
+      onToggleObjectSize={onToggleObjectSize}
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
     >

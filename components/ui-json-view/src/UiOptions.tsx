@@ -41,6 +41,8 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   onToggle = defaultValue.onToggle,
   showDataTypes = defaultValue.showDataTypes,
   showObjectSize = defaultValue.showObjectSize,
+  onToggleObjectSize,
+  onToggleDataTypes,
 }) => {
   const value = useMemo<Value>(
     () => ({
@@ -48,10 +50,21 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
       isInteractive,
       onAction,
       onToggle,
+      onToggleDataTypes,
+      onToggleObjectSize,
       showDataTypes,
       showObjectSize,
     }),
-    [actions, isInteractive, onAction, onToggle, showDataTypes, showObjectSize],
+    [
+      actions,
+      isInteractive,
+      onAction,
+      onToggle,
+      onToggleDataTypes,
+      onToggleObjectSize,
+      showDataTypes,
+      showObjectSize,
+    ],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
