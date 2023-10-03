@@ -1,8 +1,6 @@
 // region Json
 import { ComponentType } from 'react';
 
-import { ListChildComponentProps } from 'react-window';
-
 export type JsonPrimitiveValue = boolean | null | number | string;
 
 export type JsonArray = JsonValue[];

@@ -4,6 +4,7 @@ import { useMeasure } from 'react-use';
 import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { height as lineHeight, verticalPadding } from './UiLine.css';
+import { root } from './UiVirtualView.css';
 
 import { UiLine } from './UiLine';
 import { Line, ViewComponentType } from './types';
@@ -43,13 +44,14 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
   return (
     <div className={className} ref={ref}>
       <VariableSizeList<Line[]>
+        className={root}
         height={height}
         itemCount={lines.length}
-        itemSize={itemSize}
-        itemKey={itemKey}
         itemData={lines}
-        width="100%"
+        itemKey={itemKey}
+        itemSize={itemSize}
         overscanCount={Math.floor(height / lineHeight)}
+        width="100%"
       >
         {lineRenderer}
       </VariableSizeList>
