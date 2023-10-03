@@ -44,6 +44,9 @@ type BaseLine<Kind extends LineKind> = {
   //
   //       This level doesn't represent level inside object, and used to build indentation when render the JSON tree.
   level: number;
+
+  isFirst?: boolean;
+  isLast?: boolean;
 };
 
 export type ValueLine = BaseLine<LineKind.Value> & {
@@ -65,6 +68,8 @@ export type OpenLine = BaseLine<LineKind.Open> & {
 
   // NOTE: Number of items in an array or properties in an object.
   size: number;
+
+  isCollapsed?: boolean;
 };
 
 export type CloseLine = BaseLine<LineKind.Close> & {

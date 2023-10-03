@@ -13,15 +13,12 @@ import { UiType } from './UiType';
 import { Line, LineKind } from './types';
 
 type Props = {
-  isCollapsed: boolean;
-  isFirst: boolean;
-  isLast: boolean;
   line: Line;
   style: CSSProperties;
 };
 
-export const UiLine = memo<Props>(({ isCollapsed, isFirst, isLast, line, style }) => {
-  const positionClassName = clsx(isFirst && position.isFirst, isLast && position.isLast);
+export const UiLine = memo<Props>(({ line, style }) => {
+  const positionClassName = clsx(line.isFirst && position.isFirst, line.isLast && position.isLast);
 
   const rootStyle = { ...style, ...assignInlineVars({ [level]: `${line.level}` }) };
 
@@ -39,7 +36,7 @@ export const UiLine = memo<Props>(({ isCollapsed, isFirst, isLast, line, style }
       );
     }
     case LineKind.Open: {
-      const { closeSymbol, jsonPath, openSymbol, path, property, size } = line;
+      const { closeSymbol, isCollapsed, jsonPath, openSymbol, path, property, size } = line;
 
       return (
         <div className={clsx(variants.boundary, positionClassName)} style={rootStyle}>

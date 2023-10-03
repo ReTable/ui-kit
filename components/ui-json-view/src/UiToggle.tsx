@@ -11,7 +11,7 @@ import { useOptions } from './UiOptions';
 
 type Props = {
   className?: string;
-  isCollapsed: boolean;
+  isCollapsed?: boolean;
   path: string;
 };
 

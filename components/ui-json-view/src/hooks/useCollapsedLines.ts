@@ -2,10 +2,26 @@ import { useMemo } from 'react';
 
 import { CollapsedKeys, Line, LineKind } from '../types';
 
+function markPositions(lines: Line[]) {
+  if (lines.length === 0) {
+    return;
+  }
+
+  lines[0] = { ...lines[0], isFirst: true };
+
+  const lastIndex = lines.length - 1;
+
+  lines[lastIndex] = { ...lines[lastIndex], isLast: true };
+}
+
 export function useCollapsedLines(allLines: Line[], collapsedKeys: CollapsedKeys): Line[] {
   return useMemo(() => {
     if (collapsedKeys.isEmpty) {
-      return allLines;
+      const lines = [...allLines];
+
+      markPositions(lines);
+
+      return lines;
     }
 
     const lines: Line[] = [];
@@ -23,10 +39,14 @@ export function useCollapsedLines(allLines: Line[], collapsedKeys: CollapsedKeys
 
       if (line.kind === LineKind.Open && collapsedKeys.has(line.path)) {
         skip = `${line.path}.`;
-      }
 
-      lines.push(line);
+        lines.push({ ...line, isCollapsed: true });
+      } else {
+        lines.push(line);
+      }
     }
+
+    markPositions(lines);
 
     return lines;
   }, [allLines, collapsedKeys]);

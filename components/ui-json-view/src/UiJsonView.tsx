@@ -58,7 +58,7 @@ export const UiJsonView: FC<Props> = ({
   // Step 5: Detect view component based on virtualization option.
   const View = isVirtual ? UiVirtualView : UiStaticView;
   // Step 6: Create a line renderer.
-  const lineRenderer = useLineRenderer(lines, collapsedKeys);
+  const lineRenderer = useLineRenderer(lines);
   // Step 7: Create an action handler.
   const onAction = useActionHandler(value, isValid);
 
