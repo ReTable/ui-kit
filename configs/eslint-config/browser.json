@@ -23,7 +23,11 @@
   },
 
   "globals": {
-    "name": "off"
+    "close": "off",
+    "length": "off",
+    "name": "off",
+    "open": "off",
+    "parent": "off"
   },
 
   "settings": {
