@@ -4,7 +4,7 @@ import { Actions } from '~';
 
 import { preview, root } from './Inspect.css';
 
-import { Inspection } from './Inspection';
+import { Inspection as InspectionView } from './Inspection';
 
 type RendererProps = {
   actions: Actions;
@@ -44,7 +44,7 @@ export const Inspect: FC<Props> = ({ children }) => {
     <div className={root}>
       {children({ actions })}
       {inspection && (
-        <Inspection
+        <InspectionView
           className={preview}
           jsonPath={inspection.jsonPath}
           onClose={handleClose}

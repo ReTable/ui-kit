@@ -10,7 +10,7 @@ export function useActionHandler(value: JsonValue, isValid: boolean): OnActionFn
       return () => null;
     }
 
-    const query: QueryFn = (jsonPath) => jp.value(value, jsonPath);
+    const query: QueryFn = (jsonPath) => jp.value(value, jsonPath) as JsonValue;
 
     return (jsonPath, action) => {
       action(jsonPath, query);
