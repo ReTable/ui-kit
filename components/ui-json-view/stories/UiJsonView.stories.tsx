@@ -70,6 +70,11 @@ export default {
         eq: 'custom',
       },
     },
+
+    shortStringAfterLength: {
+      control: 'number',
+      name: 'Short string after length',
+    },
   },
 
   args: {
@@ -90,6 +95,7 @@ type Props = {
   isVirtual: boolean;
   showDataTypes: boolean;
   showObjectSize: boolean;
+  shortStringAfterLength?: number;
   source: string;
 };
 
@@ -117,6 +123,8 @@ const StoryView: FC<Props> = ({ collapsedType, collapsedLevel, ...props }) => {
     }
     case 'none': {
       collapsed = false;
+
+      break;
     }
   }
 
