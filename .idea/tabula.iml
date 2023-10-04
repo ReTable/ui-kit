@@ -2,7 +2,36 @@
 <module type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-button/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-button/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-data-type-icon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-icon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-json-view/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-json-view/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-node-icon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-node-icon/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-separator-icon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-theme/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/components/ui-theme/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/configs/vitest-config/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-button/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-button/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-data-type-icon/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-data-type-icon/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-icon/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-icon/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-json-view/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-json-view/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-node-icon/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-node-icon/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-separator-icon/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-separator-icon/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-theme/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-theme/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/configs/vitest-config/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/configs/vitest-config/typings" />
+    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
