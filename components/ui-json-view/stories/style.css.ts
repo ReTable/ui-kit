@@ -4,8 +4,9 @@ export const height = createVar();
 
 export const width = createVar();
 
-export const container = style({
+export const root = style({
   width: fallbackVar(width, 'auto'),
   height: fallbackVar(height, 'auto'),
+
   border: '1px solid #909090',
 });

@@ -1,9 +1,12 @@
-import { FC } from 'react';
+import { CSSProperties, FC } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { StoryObj } from '@storybook/react';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { Actions, UiJsonView } from '~';
+
+import { height, root, width } from './style.css';
 
 import {
   PrimitiveType,
@@ -44,6 +47,24 @@ export default {
       name: 'Is virtualization used?',
     },
 
+    containerHeight: {
+      control: 'number',
+      name: 'Container height',
+      if: {
+        arg: 'isVirtual',
+        eq: true,
+      },
+    },
+
+    containerWidth: {
+      control: 'number',
+      name: 'Container width',
+      if: {
+        arg: 'isVirtual',
+        eq: true,
+      },
+    },
+
     limit: {
       control: 'number',
       name: 'Limit of visible lines',
@@ -80,6 +101,8 @@ export default {
   args: {
     collapsedLevel: 0,
     collapsedType: 'none',
+    containerHeight: 500,
+    containerWidth: 500,
     isInteractive: false,
     isVirtual: false,
     limit: 0,
@@ -91,11 +114,13 @@ export default {
 type Props = {
   collapsedLevel: number;
   collapsedType: CollapsedType;
+  containerHeight: number;
+  containerWidth: number;
   isInteractive: boolean;
   isVirtual: boolean;
+  shortStringAfterLength?: number;
   showDataTypes: boolean;
   showObjectSize: boolean;
-  shortStringAfterLength?: number;
   source: string;
 };
 
@@ -107,7 +132,13 @@ const onToggleDataTypes = action('on-toggle-data-types');
 
 const onToggleObjectSize = action('on-toggle-object-size');
 
-const StoryView: FC<Props> = ({ collapsedType, collapsedLevel, ...props }) => {
+const StoryView: FC<Props> = ({
+  collapsedLevel,
+  collapsedType,
+  containerHeight,
+  containerWidth,
+  ...props
+}) => {
   let collapsed: boolean | number = false;
 
   switch (collapsedType) {
@@ -128,14 +159,28 @@ const StoryView: FC<Props> = ({ collapsedType, collapsedLevel, ...props }) => {
     }
   }
 
+  const style: CSSProperties = {};
+
+  if (props.isVirtual) {
+    Object.assign(
+      style,
+      assignInlineVars({
+        [height]: `${containerHeight}px`,
+        [width]: `${containerWidth}px`,
+      }),
+    );
+  }
+
   return (
-    <UiJsonView
-      {...props}
-      actions={actions}
-      collapsed={collapsed}
-      onToggleDataTypes={onToggleDataTypes}
-      onToggleObjectSize={onToggleObjectSize}
-    />
+    <div className={root} style={style}>
+      <UiJsonView
+        {...props}
+        actions={actions}
+        collapsed={collapsed}
+        onToggleDataTypes={onToggleDataTypes}
+        onToggleObjectSize={onToggleObjectSize}
+      />
+    </div>
   );
 };
 
