@@ -1,5 +1,13 @@
 # @tabula/ui-json-view
 
+## 0.1.1
+
+### Patch Changes
+
+- [#78](https://github.com/ReTable/ui-kit/pull/78) [`b9269a1`](https://github.com/ReTable/ui-kit/commit/b9269a119074a1e079b8d71890cbf8790cd4f7db) Thanks [@demiazz](https://github.com/demiazz)! - fix option handlers
+
+- [#80](https://github.com/ReTable/ui-kit/pull/80) [`7ecf598`](https://github.com/ReTable/ui-kit/commit/7ecf598228d66ad515fda8092fd4681f427a1d43) Thanks [@demiazz](https://github.com/demiazz)! - fix styles of the `UiOption` component
+
 ## 0.1.0
 
 ### Minor Changes
