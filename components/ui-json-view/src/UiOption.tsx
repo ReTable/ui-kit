@@ -1,4 +1,4 @@
-import { FC, MouseEventHandler } from 'react';
+import { ChangeEventHandler, FC } from 'react';
 
 import { handle, indicator, input, root } from './UiOption.css';
 
@@ -9,13 +9,13 @@ type Props = {
 };
 
 export const UiOption: FC<Props> = ({ children, onChange, value }) => {
-  const handleClick: MouseEventHandler<HTMLInputElement> = ({ currentTarget }) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = ({ currentTarget }) => {
     onChange(currentTarget.checked);
   };
 
   return (
     <label className={root}>
-      <input checked={value} className={input} onClick={handleClick} type="checkbox" />
+      <input checked={value} className={input} onChange={handleChange} type="checkbox" />
       <div className={indicator}>
         <div className={handle} />
       </div>
