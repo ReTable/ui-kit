@@ -12,9 +12,29 @@ import { JsonViewOptions, LineKind } from './types';
 
 export type Props = Partial<JsonViewOptions> & {
   className?: string;
+  /**
+   * Allows to collapse arrays and objects after the given depth.
+   *
+   * If the `true` value is given, then all arrays and objects are collapsed.
+   *
+   * If the number value is given, then arrays and objects after the given level are collapsed.
+   *
+   * **NOTE**: requires `isInteractive` option is enabled.
+   */
   collapsed?: boolean | number;
+  /**
+   * Enables render with virtualization.
+   */
   isVirtual?: boolean;
+  /**
+   * Allow to render limited number of lines.
+   *
+   * This option disables expand/collapse controls and line actions.
+   */
   limit?: number;
+  /**
+   * JSON value in string representation.
+   */
   source: string;
 };
 

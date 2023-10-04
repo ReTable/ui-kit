@@ -116,12 +116,40 @@ export type Actions = Record<string, ActionFn>;
 // region Options
 
 export type JsonViewOptions = {
+  /**
+   * User defined actions.
+   */
   actions: Actions;
+  /**
+   * Enables expand/collapse controls for arrays and objects, and enables action buttons for each line instead of
+   * closing and placeholder lines.
+   */
   isInteractive: boolean;
+  /**
+   * Trigger which will be called when a user toggle option in UI.
+   *
+   * Enables option control in UI if provided.
+   */
   onToggleDataTypes?: (showDataTypes: boolean) => void;
+  /**
+   * Trigger which will be called when a user toggle option in UI.
+   *
+   * Enables option control in UI if provided.
+   */
   onToggleObjectSize?: (showObjectSize: boolean) => void;
+  /**
+   * Allows to trim long string values after the given length.
+   *
+   * A user can click by a string value to toggle between full and trimmed versions of the value.
+   */
   shortStringAfterLength?: number;
+  /**
+   * Enables showing a primitive type names near the values instead of `null`.
+   */
   showDataTypes: boolean;
+  /**
+   * Enables showing a size of arrays and objects near of open line.
+   */
   showObjectSize: boolean;
 };
 
