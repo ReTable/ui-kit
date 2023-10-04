@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { clsx } from 'clsx';
 
@@ -15,19 +15,39 @@ type Props = {
 export const UiControls: FC<Props> = ({ className }) => {
   const { onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize } = useOptions();
 
-  if (onToggleDataTypes == null && onToggleObjectSize == null) {
+  const handleToggleDataTypes = useMemo(() => {
+    if (onToggleDataTypes == null) {
+      return null;
+    }
+
+    return () => {
+      onToggleDataTypes(!showDataTypes);
+    };
+  }, [onToggleDataTypes, showDataTypes]);
+
+  const handleToggleObjectSize = useMemo(() => {
+    if (onToggleObjectSize == null) {
+      return null;
+    }
+
+    return () => {
+      onToggleObjectSize(!showObjectSize);
+    };
+  }, [onToggleObjectSize, showObjectSize]);
+
+  if (handleToggleDataTypes == null && handleToggleObjectSize == null) {
     return null;
   }
 
   return (
     <div className={clsx(root, className)}>
-      {onToggleDataTypes && (
-        <UiButton24 onClick={onToggleDataTypes} variant="secondary">
+      {handleToggleDataTypes && (
+        <UiButton24 onClick={handleToggleDataTypes} variant="secondary">
           {showDataTypes ? 'Hide types' : 'Show types'}
         </UiButton24>
       )}
-      {onToggleObjectSize && (
-        <UiButton24 onClick={onToggleObjectSize} variant="secondary">
+      {handleToggleObjectSize && (
+        <UiButton24 onClick={handleToggleObjectSize} variant="secondary">
           {showObjectSize ? 'Hide sizes' : 'Show sizes'}
         </UiButton24>
       )}

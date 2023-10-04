@@ -118,8 +118,8 @@ export type Actions = Record<string, ActionFn>;
 export type JsonViewOptions = {
   actions: Actions;
   isInteractive: boolean;
-  onToggleDataTypes?: () => void;
-  onToggleObjectSize?: () => void;
+  onToggleDataTypes?: (showDataTypes: boolean) => void;
+  onToggleObjectSize?: (showObjectSize: boolean) => void;
   showDataTypes: boolean;
   showObjectSize: boolean;
 };
