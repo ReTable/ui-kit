@@ -117,9 +117,9 @@ You can provide handlers to allow toggle `showDataTypes` and `showObjectSize` op
 
 We can't control which JSON we will render. Sometimes, it can contains a long strings in values.
 
-That option allows to trim long lines after the given length.
+That option allows to trim long string values after the given length.
 
-But a user can click by a line to toggle between full and trimmed versions of the value.
+But a user can click by a string value to toggle between full and trimmed versions of the value.
 
 <Canvas>
   <UiJsonView shortStringAfterLength={25} source={samples.shortStringAfterLength} />
@@ -127,7 +127,7 @@ But a user can click by a line to toggle between full and trimmed versions of th
 
 ### `collapsed`
 
-This is option allows to collapse arrays and object after the given depth.
+This is option allows to collapse arrays and objects after the given depth.
 
 **NOTE**: That option is working only when `isInteractive` option is enabled too.
 
