@@ -77,9 +77,9 @@ If no one of handlers is provided, then options controls is hidden.
 
 ### `shortStringAfterLength`
 
-That option allows to trim long lines after the given length.
+That option allows to trim long string values after the given length.
 
-But a user can click by a line to toggle between full and trimmed versions of the value.
+But a user can click by a string value to toggle between full and trimmed versions of the value.
 
 ### `collapsed`
 
