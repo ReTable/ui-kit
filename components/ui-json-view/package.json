@@ -52,7 +52,6 @@
     "@types/react-window": "^1.8.6"
   },
   "dependencies": {
-    "@tabula/ui-button": "workspace:^",
     "@vanilla-extract/dynamic": "^2.0.3",
     "clsx": "^2.0.0",
     "jsonpath": "^1.1.1",
