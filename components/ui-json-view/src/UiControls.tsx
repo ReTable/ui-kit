@@ -42,12 +42,12 @@ export const UiControls: FC<Props> = ({ className }) => {
   return (
     <div className={clsx(root, className)}>
       {handleToggleDataTypes && (
-        <UiButton24 onClick={handleToggleDataTypes} variant="secondary">
+        <UiButton24 onClick={handleToggleDataTypes} variant="cancel">
           {showDataTypes ? 'Hide types' : 'Show types'}
         </UiButton24>
       )}
       {handleToggleObjectSize && (
-        <UiButton24 onClick={handleToggleObjectSize} variant="secondary">
+        <UiButton24 onClick={handleToggleObjectSize} variant="cancel">
           {showObjectSize ? 'Hide sizes' : 'Show sizes'}
         </UiButton24>
       )}

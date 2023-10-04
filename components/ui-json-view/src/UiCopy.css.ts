@@ -1,7 +1,11 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 export const copied = style({
-  color: uiTheme.colors.content.success,
+  '@layer': {
+    [uiLayers.components]: {
+      color: uiTheme.colors.content.success,
+    },
+  },
 });

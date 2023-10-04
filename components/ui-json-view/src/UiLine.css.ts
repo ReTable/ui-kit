@@ -135,17 +135,21 @@ export const controls = styleVariants({
   ],
 
   action: {
-    marginLeft: '1ch',
-    opacity: 0,
-    transition: `${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+    '@layer': {
+      [uiLayers.components]: {
+        marginLeft: '1ch',
+        opacity: 0,
+        transition: `${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
 
-    selectors: {
-      '& + &': {
-        marginLeft: '0.5ch',
-      },
+        selectors: {
+          '& + &': {
+            marginLeft: '0.5ch',
+          },
 
-      [`${root}:hover &`]: {
-        opacity: 1,
+          [`${root}:hover &`]: {
+            opacity: 1,
+          },
+        },
       },
     },
   },

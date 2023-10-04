@@ -45,7 +45,6 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
 
   return (
     <div className={clsx(className, root)} ref={ref}>
-      <UiControls className={controls} />
       <VariableSizeList<Line[]>
         className={list}
         height={height}
@@ -58,6 +57,7 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
       >
         {lineRenderer}
       </VariableSizeList>
+      <UiControls className={controls} />
     </div>
   );
 };
