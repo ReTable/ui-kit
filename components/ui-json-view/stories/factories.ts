@@ -1,6 +1,12 @@
-import { rand, randBoolean, randFloat, randNumber, randSentence } from '@ngneat/falso';
+import { rand, randBoolean, randFloat, randNumber, randPhrase, seed } from '@ngneat/falso';
+
+// region Types
 
 export type PrimitiveType = 'boolean' | 'null' | 'integer' | 'float' | 'string';
+
+// endregion
+
+// region Primitives
 
 export const primitiveTypesLabels: Record<PrimitiveType, string> = {
   boolean: 'Boolean',
@@ -27,7 +33,7 @@ function createPrimitiveValue(type: PrimitiveType): unknown {
       return randFloat();
     }
     case 'string': {
-      return randSentence();
+      return randPhrase();
     }
   }
 }
@@ -36,7 +42,19 @@ function randomType(): PrimitiveType {
   return rand(primitiveTypes);
 }
 
-export function createHomogeneousArray(size: number, type: PrimitiveType): unknown[] {
+// endregion
+
+// region Homogeneous Array
+
+export function createHomogeneousArray(
+  size: number,
+  type: PrimitiveType,
+  resetSeed = true,
+): unknown[] {
+  if (resetSeed) {
+    seed('homogeneous-array');
+  }
+
   const array: unknown[] = [];
 
   for (let idx = 0; idx < size; idx += 1) {
@@ -46,24 +64,37 @@ export function createHomogeneousArray(size: number, type: PrimitiveType): unkno
   return array;
 }
 
-export function createHeterogeneousArray(size: number): unknown[] {
+// endregion
+
+// region Heterogeneous Array
+
+export function createHeterogeneousArray(size: number, resetSeed = true): unknown[] {
+  if (resetSeed) {
+    seed('heterogeneous-array');
+  }
+
   const array: unknown[] = [];
 
-  let typeIdx = 0;
-
   for (let idx = 0; idx < size; idx += 1) {
-    array.push(createPrimitiveValue(primitiveTypes[typeIdx]));
-
-    typeIdx = typeIdx < primitiveTypes.length - 1 ? (typeIdx += 1) : 0;
+    array.push(createPrimitiveValue(randomType()));
   }
 
   return array;
 }
 
+// endregion
+
+// region Homogeneous Object
+
 export function createHomogeneousObject(
   size: number,
   type: PrimitiveType,
+  resetSeed = true,
 ): Record<string, unknown> {
+  if (resetSeed) {
+    seed('homogeneous-object');
+  }
+
   const object: Record<string, unknown> = {};
 
   for (let idx = 0; idx < size; idx += 1) {
@@ -73,59 +104,88 @@ export function createHomogeneousObject(
   return object;
 }
 
-export function createHeterogeneousObject(size: number): Record<string, unknown> {
+// endregion
+
+// region Heterogeneous Object
+
+export function createHeterogeneousObject(
+  size: number,
+  resetSeed = false,
+): Record<string, unknown> {
+  if (resetSeed) {
+    seed('heterogeneous-object');
+  }
+
   const object: Record<string, unknown> = {};
 
-  let typeIdx = 0;
-
   for (let idx = 0; idx < size; idx += 1) {
-    object[`property-${idx}`] = createPrimitiveValue(primitiveTypes[typeIdx]);
-
-    typeIdx = typeIdx < primitiveTypes.length - 1 ? (typeIdx += 1) : 0;
+    object[`property-${idx}`] = createPrimitiveValue(randomType());
   }
 
   return object;
 }
 
-export function createNestedArray(): unknown[] {
+// endregion
+
+// region Nested Array
+
+export function createNestedArray(resetSeed = true): unknown[] {
+  if (resetSeed) {
+    seed('nested-array');
+  }
+
   return [
     null,
     randBoolean(),
     randNumber(),
     randFloat(),
-    randSentence(),
+    randPhrase(),
     [],
-    createHomogeneousArray(5, randomType()),
-    createHeterogeneousArray(5),
+    createHomogeneousArray(5, randomType(), false),
+    createHeterogeneousArray(5, false),
     {},
-    createHomogeneousObject(5, randomType()),
-    createHeterogeneousObject(5),
+    createHomogeneousObject(5, randomType(), false),
+    createHeterogeneousObject(5, false),
   ];
 }
 
-export function createNestedObject(): Record<string, unknown> {
+// endregion
+
+// region Nested Object
+
+export function createNestedObject(resetSeed = true): Record<string, unknown> {
+  if (resetSeed) {
+    seed('nested-object');
+  }
+
   return {
     null: null,
     boolean: randBoolean(),
     integer: randNumber(),
     float: randFloat(),
-    string: randSentence(),
+    string: randPhrase(),
     emptyArray: [],
-    homogeneousArray: createHomogeneousArray(5, randomType()),
-    heterogeneousArray: createHeterogeneousArray(5),
+    homogeneousArray: createHomogeneousArray(5, randomType(), false),
+    heterogeneousArray: createHeterogeneousArray(5, false),
     emptyObject: {},
-    homogeneousObject: createHomogeneousObject(10, randomType()),
-    heterogeneousObject: createHeterogeneousObject(5),
+    homogeneousObject: createHomogeneousObject(5, randomType(), false),
+    heterogeneousObject: createHeterogeneousObject(5, false),
   };
 }
 
+// endregion
+
+// region Complex Object
+
 export function createComplexObject(size: number): Record<string, unknown> {
-  const root: Record<string, unknown> = createNestedObject();
+  seed('complex-object');
+
+  const root: Record<string, unknown> = createNestedObject(false);
 
   let cursor = root;
 
   for (let idx = 0; idx < size; idx += 1) {
-    const nested = createNestedObject();
+    const nested = createNestedObject(false);
 
     cursor.nested = nested;
 
@@ -134,3 +194,5 @@ export function createComplexObject(size: number): Record<string, unknown> {
 
   return root;
 }
+
+// endregion
