@@ -39,10 +39,11 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
   isInteractive = defaultValue.isInteractive,
   onAction = defaultValue.onAction,
   onToggle = defaultValue.onToggle,
+  onToggleDataTypes,
+  onToggleObjectSize,
+  shortStringAfterLength,
   showDataTypes = defaultValue.showDataTypes,
   showObjectSize = defaultValue.showObjectSize,
-  onToggleObjectSize,
-  onToggleDataTypes,
 }) => {
   const value = useMemo<Value>(
     () => ({
@@ -52,6 +53,7 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
       onToggle,
       onToggleDataTypes,
       onToggleObjectSize,
+      shortStringAfterLength,
       showDataTypes,
       showObjectSize,
     }),
@@ -62,6 +64,7 @@ export const UiOptions: FC<PropsWithChildren<Partial<Value>>> = ({
       onToggle,
       onToggleDataTypes,
       onToggleObjectSize,
+      shortStringAfterLength,
       showDataTypes,
       showObjectSize,
     ],

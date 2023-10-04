@@ -8,6 +8,7 @@ import { controls, level, position, variants } from './UiLine.css';
 import { UiActions } from './UiActions';
 import { UiProperty } from './UiProperty';
 import { UiSize } from './UiSize';
+import { UiStringValue } from './UiStringValue';
 import { UiToggle } from './UiToggle';
 import { UiType } from './UiType';
 import { Line, LineKind } from './types';
@@ -30,7 +31,7 @@ export const UiLine = memo<Props>(({ line, style }) => {
         <div className={clsx(variants[type], positionClassName)} style={rootStyle}>
           <UiProperty property={property} />
           <UiType type={type} />
-          {value}
+          {type === 'string' ? <UiStringValue>{value}</UiStringValue> : value}
           <UiActions className={controls.action} jsonPath={jsonPath} />
         </div>
       );

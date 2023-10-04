@@ -27,6 +27,7 @@ export const UiJsonView: FC<Props> = ({
   limit,
   onToggleDataTypes,
   onToggleObjectSize,
+  shortStringAfterLength,
   showDataTypes,
   showObjectSize,
   source,
@@ -63,6 +64,7 @@ export const UiJsonView: FC<Props> = ({
       onToggle={onToggle}
       onToggleDataTypes={onToggleDataTypes}
       onToggleObjectSize={onToggleObjectSize}
+      shortStringAfterLength={shortStringAfterLength}
       showDataTypes={showDataTypes}
       showObjectSize={showObjectSize}
     >

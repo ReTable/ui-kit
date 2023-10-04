@@ -120,6 +120,7 @@ export type JsonViewOptions = {
   isInteractive: boolean;
   onToggleDataTypes?: (showDataTypes: boolean) => void;
   onToggleObjectSize?: (showObjectSize: boolean) => void;
+  shortStringAfterLength?: number;
   showDataTypes: boolean;
   showObjectSize: boolean;
 };
