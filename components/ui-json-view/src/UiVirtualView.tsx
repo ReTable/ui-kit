@@ -52,7 +52,7 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
         itemData={lines}
         itemKey={itemKey}
         itemSize={itemSize}
-        overscanCount={Math.floor(height / itemHeight)}
+        overscanCount={Math.floor(height / itemHeight / 4)}
         width="100%"
       >
         {lineRenderer}
