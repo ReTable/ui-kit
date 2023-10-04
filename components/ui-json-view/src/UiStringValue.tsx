@@ -1,8 +1,9 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import { root } from './UiStringValue.css';
 
 import { useOptions } from './UiOptions';
+import { useStringCollapse } from './hooks';
 
 type Props = {
   children: string;
@@ -11,25 +12,18 @@ type Props = {
 export const UiStringValue: FC<Props> = ({ children }) => {
   const { shortStringAfterLength } = useOptions();
 
-  const [isCollapsed, setIsCollapsed] = useState(() => {
-    if (shortStringAfterLength == null) {
-      return false;
-    }
+  const [isCollapsible, isCollapsed, onToggle] = useStringCollapse(
+    children,
+    shortStringAfterLength,
+  );
 
-    return children.length > shortStringAfterLength;
-  });
-
-  if (shortStringAfterLength == null) {
+  if (!isCollapsible) {
     return children;
   }
 
-  const handleClick = () => {
-    setIsCollapsed((value) => !value);
-  };
-
   return (
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-    <span className={root} onClick={handleClick} role="button" tabIndex={-1}>
+    <span className={root} onClick={onToggle} role="button" tabIndex={-1}>
       {isCollapsed ? `${children.slice(0, shortStringAfterLength)}...` : children}
     </span>
   );
