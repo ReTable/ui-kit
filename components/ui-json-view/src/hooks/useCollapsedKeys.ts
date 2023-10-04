@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { CollapsedKeys, Line, LineKind, OnToggleFn } from '../types';
 
@@ -54,6 +54,10 @@ type Result = [CollapsedKeys, OnToggleFn];
 
 export function useCollapsedKeys(lines: Line[], collapsed: boolean | number = false): Result {
   const [keys, setKeys] = useState(() => initCollapsedKeys(lines, collapsed));
+
+  useEffect(() => {
+    setKeys(initCollapsedKeys(lines, collapsed));
+  }, [lines, collapsed]);
 
   const onToggle = useCallback<OnToggleFn>((key: string) => {
     setKeys((current) => current.toggle(key));
