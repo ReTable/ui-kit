@@ -7,6 +7,7 @@ import { controls, level, position, variants } from './UiLine.css';
 
 import { UiActions } from './UiActions';
 import { UiProperty } from './UiProperty';
+import { UiRest } from './UiRest';
 import { UiSize } from './UiSize';
 import { UiStringValue } from './UiStringValue';
 import { UiToggle } from './UiToggle';
@@ -43,7 +44,15 @@ export const UiLine = memo<Props>(({ line, style }) => {
         <div className={clsx(variants.boundary, positionClassName)} style={rootStyle}>
           <UiToggle className={controls.toggle} isCollapsed={isCollapsed} path={path} />
           <UiProperty property={property} />
-          {isCollapsed ? `${openSymbol} ${size === 0 ? '' : '...'} ${closeSymbol}` : openSymbol}
+          {isCollapsed ? (
+            <>
+              {openSymbol}
+              <UiRest path={path} />
+              {closeSymbol}
+            </>
+          ) : (
+            openSymbol
+          )}
           <UiSize size={size} />
           <UiActions className={controls.action} jsonPath={jsonPath} />
         </div>
