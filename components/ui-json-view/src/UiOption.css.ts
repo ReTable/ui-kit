@@ -12,6 +12,7 @@ export const root = style([
         justifyContent: 'flex-start',
         alignItems: 'center',
         gap: '8px',
+        cursor: 'pointer',
       },
     },
   },
