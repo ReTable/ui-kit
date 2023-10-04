@@ -1,0 +1,224 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiJsonView } from '~';
+
+import { Container } from './Container';
+import { Inspect } from './Inspect';
+import { Options } from './Options';
+import { samples } from './samples';
+
+<Meta title="Docs" />
+
+# UiJsonView
+
+The `UiJsonView` component can be used to show JSON string in interactive way.
+
+<Canvas>
+  <UiJsonView source={samples.intro} />
+</Canvas>
+
+## Types
+
+The `UiJsonView` allow to show any type of JSON values.
+
+### Invalid JSON
+
+We used `JSON.parse` function under the hood, and that function raise an exception, if we try to parse a string which
+contains an invalid JSON.
+
+But this is behaviour doesn't fit user's expectations. In that case, we just try to show `Invalid JSON` message, instead
+of ruining an interface.
+
+<Canvas>
+  <UiJsonView source="" />
+</Canvas>
+
+### Valid JSON
+
+You can look at examples how `UiJsonView` shows possible JSON values in interactive stories.
+
+## Options
+
+### `isInteractive`
+
+The `isInteractive` option enables expand/collapse controls for arrays/objects.
+
+Also, it enables `Copy` and `Copy JSONPath` buttons on each line instead of closing and placeholder lines.
+
+That buttons are visible when line is hovered.
+
+<Canvas>
+  <UiJsonView isInteractive source={samples.isInteractive} />
+</Canvas>
+
+### `showDataTypes`
+
+If the `showDataTypes` option is enabled, then type name will be shown near of each primitive value instead of `null`.
+
+<Canvas>
+  <UiJsonView showDataTypes source={samples.showDataTypes} />
+</Canvas>
+
+### `showObjectSize`
+
+If the `showObjectSize` option is enabled, then array/object size will be shown near of open line.
+
+<Canvas>
+  <UiJsonView showObjectSize source={samples.showObjectSize} />
+</Canvas>
+
+### `onToggleDataTypes` / `onToggleObjectSize`
+
+You can provide handlers to allow toggle `showDataTypes` and `showObjectSize` options.
+
+<Canvas>
+  <Options dataTypes>
+    {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
+      <UiJsonView
+        onToggleDataTypes={onToggleDataTypes}
+        onToggleObjectSize={onToggleObjectSize}
+        showDataTypes={showDataTypes}
+        showObjectSize={showObjectSize}
+        source={samples.showObjectSize}
+      />
+    )}
+  </Options>
+</Canvas>
+
+<Canvas>
+  <Options objectSize>
+    {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
+      <UiJsonView
+        onToggleDataTypes={onToggleDataTypes}
+        onToggleObjectSize={onToggleObjectSize}
+        showDataTypes={showDataTypes}
+        showObjectSize={showObjectSize}
+        source={samples.showObjectSize}
+      />
+    )}
+  </Options>
+</Canvas>
+
+<Canvas>
+  <Options dataTypes objectSize>
+    {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
+      <UiJsonView
+        onToggleDataTypes={onToggleDataTypes}
+        onToggleObjectSize={onToggleObjectSize}
+        showDataTypes={showDataTypes}
+        showObjectSize={showObjectSize}
+        source={samples.showObjectSize}
+      />
+    )}
+  </Options>
+</Canvas>
+
+### `shortStringAfterLength`
+
+We can't control which JSON we will render. Sometimes, it can contains a long strings in values.
+
+That option allows to trim long lines after the given length. But a user can click by the string to toggle between
+full and trimmed versions of the value.
+
+<Canvas>
+  <UiJsonView shortStringAfterLength={25} source={samples.shortStringAfterLength} />
+</Canvas>
+
+### `collapsed`
+
+This is option allows to collapse arrays and object after the given depth.
+
+**NOTE**: That option is working only when `isInteractive` option is enabled too.
+
+For example, we have a nested data structure.
+
+<Canvas>
+  <UiJsonView isInteractive source={samples.collapsed} />
+</Canvas>
+
+If we provide `collapsed` equals to `true`, then all levels are collapsed.
+
+<Canvas>
+  <UiJsonView isInteractive collapsed source={samples.collapsed} />
+</Canvas>
+
+Or we can provide exact level.
+
+<Canvas>
+  <UiJsonView isInteractive collapsed={2} source={samples.collapsed} />
+</Canvas>
+
+### `limit`
+
+This option allows to render limited number of lines.
+
+For example, we have an array of size 8. The 10 lines are rendered in that case.
+
+<Canvas>
+  <UiJsonView source={samples.limit} />
+</Canvas>
+
+But if we provide the `limit` equals to 6, then only first 6 lines will be rendered.
+
+<Canvas>
+  <UiJsonView limit={6} source={samples.limit} />
+</Canvas>
+
+Usage of `limit` option is disable interactions like possibility to expand/collapse arrays and objects.
+
+But it's possible to control data types and object size visibility, and toggle trimmed lines.
+
+<Canvas>
+  <Options dataTypes objectSize>
+    {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
+      <UiJsonView
+        collapsed
+        isInteractive
+        limit={6}
+        onToggleDataTypes={onToggleDataTypes}
+        onToggleObjectSize={onToggleObjectSize}
+        shortStringAfterLength={25}
+        showDataTypes={showDataTypes}
+        showObjectSize={showObjectSize}
+        source={samples.limit}
+      />
+    )}
+  </Options>
+</Canvas>
+
+### `isVirtual`
+
+The `UiJsonView` supports two render modes: static (default) and virtual.
+
+Virtual render mode is uses virtualized list under the hood.
+
+<Canvas>
+  <Container>
+    <UiJsonView source={samples.isVirtual} />
+  </Container>
+</Canvas>
+
+### `actions`
+
+By default, we provide `Copy` and `Copy JSONPath` actions.
+
+But we allow to user to provide additional options.
+
+Each action handler is called with two parameters: JSONPath of the current line, and the query function, which returns
+a value by the given path from the original JSON value.
+
+Actions object has following type:
+
+For example, here we provide `Inspect` action, which will open an inspection window.
+
+<Canvas>
+  <Inspect>
+    {({ actions }) => {
+      return <UiJsonView actions={actions} isInteractive source={samples.showObjectSize} />;
+    }}
+  </Inspect>
+</Canvas>
+
+## Properties
+
+<ArgsTable of={UiJsonView} />

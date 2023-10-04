@@ -38,7 +38,7 @@ function createPrimitiveValue(type: PrimitiveType): unknown {
   }
 }
 
-function randomType(): PrimitiveType {
+export function randomType(): PrimitiveType {
   return rand(primitiveTypes);
 }
 

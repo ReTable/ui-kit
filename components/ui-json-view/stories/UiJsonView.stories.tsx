@@ -1,13 +1,11 @@
-import { CSSProperties, FC } from 'react';
+import { FC } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { StoryObj } from '@storybook/react';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { Actions, UiJsonView } from '~';
 
-import { height, root, width } from './style.css';
-
+import { Boundary } from './Boundary';
 import {
   PrimitiveType,
   createComplexObject,
@@ -24,7 +22,7 @@ import {
 type CollapsedType = 'none' | 'custom' | 'all';
 
 export default {
-  title: 'ui-json-view',
+  title: 'UiJsonView',
 
   argTypes: {
     isInteractive: {
@@ -159,20 +157,8 @@ const StoryView: FC<Props> = ({
     }
   }
 
-  const style: CSSProperties = {};
-
-  if (props.isVirtual) {
-    Object.assign(
-      style,
-      assignInlineVars({
-        [height]: `${containerHeight}px`,
-        [width]: `${containerWidth}px`,
-      }),
-    );
-  }
-
   return (
-    <div className={root} style={style}>
+    <Boundary height={containerHeight} isVirtual={props.isVirtual} width={containerWidth}>
       <UiJsonView
         {...props}
         actions={actions}
@@ -180,7 +166,7 @@ const StoryView: FC<Props> = ({
         onToggleDataTypes={onToggleDataTypes}
         onToggleObjectSize={onToggleObjectSize}
       />
-    </div>
+    </Boundary>
   );
 };
 
