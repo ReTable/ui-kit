@@ -10,7 +10,7 @@ export const root = style({
       justifyContent: 'flex-start',
       alignItems: 'stretch',
       gap: '4px',
-      padding: '8px',
+      padding: '4px',
       borderRadius: '4px',
       background: uiTheme.colors.whiteAlpha['80'],
     },
