@@ -15,5 +15,5 @@ export function useStringCollapse(children: string, limit?: number): Result {
     setIsCollapsed((value) => !value);
   }, []);
 
-  return [limit != null, isCollapsed, onToggle];
+  return [limit != null && children.length > limit, isCollapsed, onToggle];
 }
