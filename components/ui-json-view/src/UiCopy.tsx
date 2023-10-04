@@ -5,25 +5,32 @@ import { clsx } from 'clsx';
 import { copied } from './UiCopy.css';
 
 import { UiAction } from './UiAction';
-import { ActionFn } from './types';
+import { ActionFn, QueryFn } from './types';
 
 type Props = {
   className?: string;
+  defaultLabel: string;
   jsonPath: string;
+  successLabel: string;
+  toClipboard: (jsonPath: string, query: QueryFn) => string;
 };
 
 const delay = 1000;
 
-export const UiCopy: FC<Props> = ({ className, jsonPath }) => {
+export const UiCopy: FC<Props> = ({
+  className,
+  defaultLabel,
+  jsonPath,
+  successLabel,
+  toClipboard,
+}) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const timerRef: MutableRefObject<number | null> = useRef(null);
 
   const action: ActionFn = (_, query) => {
-    const toCopy = JSON.stringify(query(jsonPath), null, 4);
-
     navigator.clipboard
-      .writeText(toCopy)
+      .writeText(toClipboard(jsonPath, query))
       .then(() => {
         setIsCopied(true);
 
@@ -42,7 +49,7 @@ export const UiCopy: FC<Props> = ({ className, jsonPath }) => {
 
   return (
     <UiAction className={clsx(className, isCopied && copied)} action={action} jsonPath={jsonPath}>
-      {isCopied ? 'Copied!' : 'Copy'}
+      {isCopied ? successLabel : defaultLabel}
     </UiAction>
   );
 };
