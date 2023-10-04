@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { root } from './UiType.css';
 
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 import { ValueType } from './types';
 
 type Props = {

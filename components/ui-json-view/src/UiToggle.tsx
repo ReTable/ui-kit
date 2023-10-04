@@ -7,7 +7,7 @@ import { ReactComponent as ExpandIcon } from './assets/expand.svg';
 
 import { root } from './UiToggle.css';
 
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 
 type Props = {
   className?: string;

@@ -19,12 +19,12 @@ export const list = style({
   },
 });
 
-export const controls = style({
+export const options = style({
   '@layer': {
     [uiLayers.components]: {
       position: 'absolute',
-      top: '0',
-      right: '0',
+      top: '4px',
+      right: '4px',
     },
   },
 });

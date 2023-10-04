@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { root } from './UiSize.css';
 
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 
 type Props = {
   size: number;

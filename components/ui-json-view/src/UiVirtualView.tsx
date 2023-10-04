@@ -5,10 +5,10 @@ import { useMeasure } from 'react-use';
 import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { basePadding, itemHeight } from './UiJsonView.css';
-import { controls, list, root } from './UiVirtualView.css';
+import { list, options, root } from './UiVirtualView.css';
 
-import { UiControls } from './UiControls';
 import { UiLine } from './UiLine';
+import { UiOptions } from './UiOptions';
 import { Line, ViewComponentType } from './types';
 
 function itemKey(index: number, lines: Line[]) {
@@ -57,7 +57,7 @@ export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
       >
         {lineRenderer}
       </VariableSizeList>
-      <UiControls className={controls} />
+      <UiOptions className={options} />
     </div>
   );
 };

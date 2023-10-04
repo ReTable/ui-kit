@@ -1,9 +1,9 @@
 import { clsx } from 'clsx';
 
-import { controls, root } from './UiStaticView.css';
+import { options, root } from './UiStaticView.css';
 
-import { UiControls } from './UiControls';
 import { UiLine } from './UiLine';
+import { UiOptions } from './UiOptions';
 import { ViewComponentType } from './types';
 
 export const UiStaticView: ViewComponentType = ({ className, lines }) => {
@@ -11,7 +11,7 @@ export const UiStaticView: ViewComponentType = ({ className, lines }) => {
 
   return (
     <div className={clsx(className, root)}>
-      <UiControls className={controls} />
+      <UiOptions className={options} />
       {children}
     </div>
   );

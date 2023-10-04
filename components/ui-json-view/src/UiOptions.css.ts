@@ -6,13 +6,13 @@ export const root = style({
   '@layer': {
     [uiLayers.components]: {
       display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'stretch',
       gap: '4px',
-      padding: '4px',
-      borderBottomLeftRadius: '14px',
-      background: uiTheme.colors.background.panels,
+      padding: '8px',
+      borderRadius: '4px',
+      background: uiTheme.colors.whiteAlpha['80'],
     },
   },
 });

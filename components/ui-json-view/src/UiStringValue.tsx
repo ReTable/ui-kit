@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { root } from './UiStringValue.css';
 
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 import { useStringCollapse } from './hooks';
 
 type Props = {

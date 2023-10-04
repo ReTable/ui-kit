@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { UiAction } from './UiAction';
 import { UiCopy } from './UiCopy';
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 import { QueryFn } from './types';
 
 type Props = {

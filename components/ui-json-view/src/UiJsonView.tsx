@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { variants } from './UiJsonView.css';
 
-import { UiOptions } from './UiOptions';
+import { UiOptionsProvider } from './UiOptionsProvider';
 import { UiStaticView } from './UiStaticView';
 import { UiVirtualView } from './UiVirtualView';
 import { useActionHandler, useCollapsedKeys, useCollapsedLines, useLines, useValue } from './hooks';
@@ -57,7 +57,7 @@ export const UiJsonView: FC<Props> = ({
   const View = isVirtual ? UiVirtualView : UiStaticView;
 
   return (
-    <UiOptions
+    <UiOptionsProvider
       actions={actions}
       isInteractive={allowInteractions}
       onAction={onAction}
@@ -69,6 +69,6 @@ export const UiJsonView: FC<Props> = ({
       showObjectSize={showObjectSize}
     >
       <View className={clsx(containerClassName, className)} lines={lines} />
-    </UiOptions>
+    </UiOptionsProvider>
   );
 };

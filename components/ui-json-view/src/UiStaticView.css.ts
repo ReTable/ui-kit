@@ -10,12 +10,12 @@ export const root = style({
   },
 });
 
-export const controls = style({
+export const options = style({
   '@layer': {
     [uiLayers.components]: {
       position: 'sticky',
-      top: '0',
-      right: '0',
+      top: '4px',
+      right: '4px',
       float: 'right',
     },
   },

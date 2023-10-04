@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { root } from './UiRest.css';
 
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 
 type Props = {
   path: string;

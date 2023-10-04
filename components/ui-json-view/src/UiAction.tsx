@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { root } from './UiAction.css';
 
-import { useOptions } from './UiOptions';
+import { useOptions } from './UiOptionsProvider';
 import { ActionFn } from './types';
 
 type Props = {
