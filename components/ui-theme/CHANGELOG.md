@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.0.0
+
+### Major Changes
+
+- [#76](https://github.com/ReTable/ui-kit/pull/76) [`fb663e4`](https://github.com/ReTable/ui-kit/commit/fb663e4546fdb1a23df04bc02174c1b611ae33f9) Thanks [@demiazz](https://github.com/demiazz)! - wrap font classes with `components` layer
+
 ## 1.2.0
 
 ### Minor Changes

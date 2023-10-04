@@ -1,5 +1,11 @@
 # @tabula/eslint-config
 
+## 0.0.9
+
+### Patch Changes
+
+- [#76](https://github.com/ReTable/ui-kit/pull/76) [`fb663e4`](https://github.com/ReTable/ui-kit/commit/fb663e4546fdb1a23df04bc02174c1b611ae33f9) Thanks [@demiazz](https://github.com/demiazz)! - disables `close`, `length`, `open` and `parent` global variables
+
 ## 0.0.8
 
 ### Patch Changes
