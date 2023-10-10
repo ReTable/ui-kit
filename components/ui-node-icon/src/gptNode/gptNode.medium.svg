@@ -1,13 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path fill="var(--tbl--ui-node-icon--gpt-node-m-secondary)" fill-rule="evenodd" d="M22 5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10.873A4 4 0 0 0 11 18a2 2 0 1 1 0-4 4 4 0 0 0 4-4 2 2 0 1 1 4 0 4 4 0 0 0 3 3.873V5Zm0 9.899v2.202A5 5 0 0 0 18.101 21h-2.202A5 5 0 0 0 11 17a1 1 0 0 1 0-2 5 5 0 0 0 5-5 1 1 0 0 1 2 0 5 5 0 0 0 4 4.899ZM19.127 21A4 4 0 0 1 22 18.127V19a2 2 0 0 1-2 2h-.873Z" clip-rule="evenodd"/>
-  <path fill="var(--tbl--ui-node-icon--gpt-node-m-primary-1)" d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1H2V5Z"/>
-  <path fill="var(--tbl--ui-node-icon--gpt-node-m-primary-2)" d="M24 16a1 1 0 0 1-1 1 5 5 0 0 0-5 5 1 1 0 0 1-2 0 5 5 0 0 0-5-5 1 1 0 0 1 0-2 5 5 0 0 0 5-5 1 1 0 0 1 2 0 5 5 0 0 0 5 5 1 1 0 0 1 1 1Z"/>
+  <path
+    fill="var(--tbl--ui-node-icon--gpt-node-m-secondary)"
+    fill-rule="evenodd"
+    d="M21 5C21 3.89543 20.1046 3 19 3H4C2.89543 3 2 3.89543 2 5V18C2 19.1046 2.89543 20 4 20L14.4641 20C14.2908 19.6998 14.0778 19.4209 13.8284 19.1716C13.0783 18.4214 12.0609 18 11 18C10.4696 18 9.96086 17.7893 9.58579 17.4142C9.21072 17.0391 9 16.5304 9 16C9 15.4696 9.21072 14.9609 9.58579 14.5858C9.96086 14.2107 10.4696 14 11 14C12.0609 14 13.0783 13.5786 13.8284 12.8284C14.5786 12.0783 15 11.0609 15 10C15 9.46957 15.2107 8.96086 15.5858 8.58579C15.9609 8.21071 16.4696 8 17 8C17.5304 8 18.0391 8.21071 18.4142 8.58579C18.7893 8.96086 19 9.46957 19 10C19 11.0609 19.4214 12.0783 20.1716 12.8284C20.4209 13.0778 20.6998 13.2908 21 13.4641V5ZM21 14.5826V17.4174C20.4326 17.6651 19.9107 18.0182 19.4645 18.4645C19.0182 18.9107 18.6651 19.4326 18.4174 20H15.5826C15.3349 19.4326 14.9818 18.9107 14.5355 18.4645C13.5979 17.5268 12.3261 17 11 17C10.7348 17 10.4804 16.8946 10.2929 16.7071C10.1054 16.5196 10 16.2652 10 16C10 15.7348 10.1054 15.4804 10.2929 15.2929C10.4804 15.1054 10.7348 15 11 15C12.3261 15 13.5979 14.4732 14.5355 13.5355C15.4732 12.5979 16 11.3261 16 10C16 9.73478 16.1054 9.48043 16.2929 9.29289C16.4804 9.10536 16.7348 9 17 9C17.2652 9 17.5196 9.10536 17.7071 9.29289C17.8946 9.48043 18 9.73478 18 10C18 11.3261 18.5268 12.5979 19.4645 13.5355C19.9107 13.9818 20.4326 14.3349 21 14.5826ZM19.5881 19.9121C19.7514 19.6453 19.9467 19.3964 20.1716 19.1716C20.3964 18.9467 20.6453 18.7514 20.9121 18.5881C20.7181 19.2197 20.2197 19.7181 19.5881 19.9121Z"
+    clip-rule="evenodd"
+  />
+  <path
+    fill="var(--tbl--ui-node-icon--gpt-node-m-primary-1)"
+    d="M2 5C2 3.89543 2.89543 3 4 3H19C20.1046 3 21 3.89543 21 5V6H2V5Z"
+  />
+  <path
+    fill="var(--tbl--ui-node-icon--gpt-node-m-primary-2)"
+    d="M24 16C24 16.2652 23.8946 16.5196 23.7071 16.7071C23.5196 16.8946 23.2652 17 23 17C21.6739 17 20.4021 17.5268 19.4645 18.4645C18.5268 19.4021 18 20.6739 18 22C18 22.2652 17.8946 22.5196 17.7071 22.7071C17.5196 22.8946 17.2652 23 17 23C16.7348 23 16.4804 22.8946 16.2929 22.7071C16.1054 22.5196 16 22.2652 16 22C16 20.6739 15.4732 19.4021 14.5355 18.4645C13.5979 17.5268 12.3261 17 11 17C10.7348 17 10.4804 16.8946 10.2929 16.7071C10.1054 16.5196 10 16.2652 10 16C10 15.7348 10.1054 15.4804 10.2929 15.2929C10.4804 15.1054 10.7348 15 11 15C12.3261 15 13.5979 14.4732 14.5355 13.5355C15.4732 12.5979 16 11.3261 16 10C16 9.73478 16.1054 9.48043 16.2929 9.29289C16.4804 9.10536 16.7348 9 17 9C17.2652 9 17.5196 9.10536 17.7071 9.29289C17.8946 9.48043 18 9.73478 18 10C18 11.3261 18.5268 12.5979 19.4645 13.5355C20.4021 14.4732 21.6739 15 23 15C23.2652 15 23.5196 15.1054 23.7071 15.2929C23.8946 15.4804 24 15.7348 24 16Z"
+  />
+
   <defs>
-    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-1" x1="2" x2="22" y1="6" y2="6" gradientUnits="userSpaceOnUse">
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-1" x1="2" x2="21" y1="6" y2="6" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
     </linearGradient>
-    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-1-disabled" x1="2" x2="22" y1="6" y2="6" gradientUnits="userSpaceOnUse">
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--primary-1-disabled" x1="2" x2="21" y1="6" y2="6" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--disabled--primary)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--primary)"/>
     </linearGradient>
@@ -19,11 +31,11 @@
       <stop stop-color="var(--tbl--colors--icons--disabled--primary)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--primary)"/>
     </linearGradient>
-    <linearGradient id="tbl--ui-node-icon--gpt-node-m--secondary" x1="12" x2="12" y1="3" y2="21" gradientUnits="userSpaceOnUse">
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--secondary" x1="11.5" x2="11.5" y1="3" y2="20" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--ai--secondary--from)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--ai--secondary--to)"/>
     </linearGradient>
-    <linearGradient id="tbl--ui-node-icon--gpt-node-m--secondary-disabled" x1="12" x2="12" y1="3" y2="21" gradientUnits="userSpaceOnUse">
+    <linearGradient id="tbl--ui-node-icon--gpt-node-m--secondary-disabled" x1="11.5" x2="11.5" y1="3" y2="20" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
     </linearGradient>

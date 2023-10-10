@@ -1,4 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path fill="var(--tbl--colors--icons--clean--secondary)" fill-rule="evenodd" d="M13 6H3a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10V6Zm4 11h4a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4v11Z" clip-rule="evenodd"/>
-  <path fill="var(--tbl--colors--icons--clean--primary)" fill-rule="evenodd" d="M13 2a1 1 0 1 0 0 2h1a1 1 0 0 1 1 .999V18a1 1 0 0 1-1 1h-1a1 1 0 1 0 0 2h1c.768 0 1.47-.289 2-.764.53.475 1.232.764 2 .764h1a1 1 0 1 0 0-2h-1a1 1 0 0 1-1-1V4.999A1 1 0 0 1 18 4h1a1 1 0 1 0 0-2h-1c-.768 0-1.47.289-2 .764A2.989 2.989 0 0 0 14 2h-1Z" clip-rule="evenodd"/>
+  <path
+    fill="var(--tbl--colors--icons--clean--secondary)"
+    fill-rule="evenodd"
+    d="M13 6H4C2.89543 6 2 6.89543 2 8V15C2 16.1046 2.89543 17 4 17H13V6ZM17 17H20C21.1046 17 22 16.1046 22 15V8C22 6.89543 21.1046 6 20 6H17V17Z"
+    clip-rule="evenodd"
+  />
+  <path
+    fill="var(--tbl--colors--icons--clean--primary)"
+    fill-rule="evenodd"
+    d="M13 2C12.4477 2 12 2.44772 12 3C12 3.55228 12.4477 4 13 4H14C14.5519 4 14.9993 4.44706 15 4.99879C15 4.99919 15 4.9996 15 5V18C15 18.5523 14.5523 19 14 19H13C12.4477 19 12 19.4477 12 20C12 20.5523 12.4477 21 13 21H14C14.7684 21 15.4692 20.7111 16 20.2361C16.5308 20.7111 17.2316 21 18 21H19C19.5523 21 20 20.5523 20 20C20 19.4477 19.5523 19 19 19H18C17.4477 19 17 18.5523 17 18V5C17 4.9996 17 4.99919 17 4.99879C17.0007 4.44706 17.4481 4 18 4H19C19.5523 4 20 3.55228 20 3C20 2.44772 19.5523 2 19 2H18C17.2316 2 16.5308 2.28885 16 2.76389C15.4692 2.28885 14.7684 2 14 2H13Z"
+    clip-rule="evenodd"
+  />
 </svg>
