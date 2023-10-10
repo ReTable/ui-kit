@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 4.1.0
+
+### Minor Changes
+
+- [#81](https://github.com/ReTable/ui-kit/pull/81) [`33f7816`](https://github.com/ReTable/ui-kit/commit/33f7816edfbe5456f2c8ff627cdc0ff07e4d8ad3) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - update medium size of clean up node icons
+
 ## 4.0.1
 
 ### Patch Changes
