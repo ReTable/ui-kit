@@ -1,4 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path fill="var(--tbl--colors--icons--clean--secondary)" fill-rule="evenodd" d="M7 5H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1h-9a3 3 0 0 1-3-3V5Z" clip-rule="evenodd"/>
-  <path fill="var(--tbl--colors--icons--clean--primary)" fill-rule="evenodd" d="M10 1a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V4a3 3 0 0 0-3-3H10Zm1 5a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2h-2v5a1 1 0 1 1-2 0V7h-2a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+  <path
+    fill="var(--tbl--colors--icons--clean--secondary)"
+    fill-rule="evenodd"
+    d="M6 6H5C3.34315 6 2 7.34314 2 9V19C2 20.6568 3.34315 22 5 22H15C16.6569 22 18 20.6568 18 19V18H9C7.34315 18 6 16.6568 6 15V6Z"
+    clip-rule="evenodd"
+  />
+  <path
+    fill="var(--tbl--colors--icons--clean--primary)"
+    fill-rule="evenodd"
+    d="M9 2C7.34315 2 6 3.34314 6 5V15C6 16.6568 7.34315 18 9 18H19C20.6569 18 22 16.6568 22 15V5C22 3.34315 20.6569 2 19 2H9ZM10 7C10 6.44772 10.4477 6 11 6H17C17.5523 6 18 6.44772 18 7C18 7.55228 17.5523 8 17 8H15V13C15 13.5523 14.5523 14 14 14C13.4477 14 13 13.5523 13 13V8H11C10.4477 8 10 7.55228 10 7Z"
+    clip-rule="evenodd"
+  />
 </svg>
