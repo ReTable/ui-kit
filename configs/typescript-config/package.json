@@ -28,12 +28,12 @@
     "types"
   ],
   "dependencies": {
-    "typescript-plugin-css-modules": "^5.0.1"
+    "typescript-plugin-css-modules": "^5.0.2"
   },
   "peerDependencies": {
     "typescript": "^5.2.2"
   },
   "optionalDependencies": {
-    "@types/react": "^18.2.21"
+    "@types/react": "^18.2.29"
   }
 }

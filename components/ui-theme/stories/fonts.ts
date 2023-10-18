@@ -1,4 +1,4 @@
-import { capitalCase, paramCase } from 'change-case';
+import { capitalCase, kebabCase } from 'change-case';
 
 import { uiTheme } from '~';
 
@@ -38,7 +38,7 @@ function parseCategories(vars: Variables): Category[] {
       const weight = variant.slice(0, -2);
       const size = variant.slice(-2);
 
-      const cssPrefix = `fonts--${paramCase(family)}--${paramCase(weight)}-${size}`;
+      const cssPrefix = `fonts--${kebabCase(family)}--${kebabCase(weight)}-${size}`;
 
       const css: FontStyle = {
         font: `var(--tbl--${cssPrefix}--font)`,

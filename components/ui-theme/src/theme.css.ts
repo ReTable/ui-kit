@@ -1,5 +1,5 @@
 import { createGlobalTheme, createGlobalThemeContract } from '@vanilla-extract/css';
-import { paramCase } from 'change-case';
+import { kebabCase } from 'change-case';
 
 import { tokens } from './vars.css';
 
@@ -34,7 +34,7 @@ function contractOf<Source extends Tokens>(source: Source): Contract<Source> {
 function fontNameOf(path: string[]) {
   return path
     .map((it) => {
-      const segment = paramCase(it);
+      const segment = kebabCase(it);
 
       return /\d+$/.test(segment) ? `${segment.slice(0, -2)}-${segment.slice(-2)}` : segment;
     })
@@ -46,7 +46,7 @@ function colorNameOf(path: string[]) {
 
   return path
     .map((it) => {
-      const segment = paramCase(it);
+      const segment = kebabCase(it);
 
       if (segment.endsWith('-alpha')) {
         isAlpha = true;

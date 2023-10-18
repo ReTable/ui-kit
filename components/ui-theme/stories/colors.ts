@@ -1,4 +1,4 @@
-import { paramCase } from 'change-case';
+import { kebabCase } from 'change-case';
 
 import { uiTheme } from '~';
 
@@ -58,8 +58,8 @@ function normalizeColor(color: PlainColor): PlainColor {
 function parseColors(category: string, vars: ScopedVariables): Color[] {
   const queue: QueueItem[] = [
     {
-      css: `--tbl--colors--${paramCase(category)}`,
-      sass: `$colors--${paramCase(category)}`,
+      css: `--tbl--colors--${kebabCase(category)}`,
+      sass: `$colors--${kebabCase(category)}`,
       vanillaExtract: `uiTheme.colors.${category}`,
 
       scoped: vars,
@@ -102,9 +102,9 @@ function parseColors(category: string, vars: ScopedVariables): Color[] {
 
     for (const [key, value] of Object.entries(scoped)) {
       queue.push({
-        css: `${css}--${paramCase(key)}`,
+        css: `${css}--${kebabCase(key)}`,
         vanillaExtract: `${vanillaExtract}.${key}`,
-        sass: `${sass}--${paramCase(key)}`,
+        sass: `${sass}--${kebabCase(key)}`,
 
         scoped: value,
       });

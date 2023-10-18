@@ -4,7 +4,7 @@ import {
   createGlobalThemeContract,
   style,
 } from '@vanilla-extract/css';
-import { paramCase } from 'change-case';
+import { kebabCase } from 'change-case';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
@@ -35,7 +35,7 @@ export const gradients = createGlobalThemeContract(
     },
   },
   (_, path) => {
-    const gradientName = path.map((it) => paramCase(it)).join('-');
+    const gradientName = path.map((it) => kebabCase(it)).join('-');
 
     return `tbl--ui-node-icon--${gradientName}`;
   },

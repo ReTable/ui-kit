@@ -2,7 +2,7 @@ import { cp, mkdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { paramCase } from 'change-case';
+import { kebabCase } from 'change-case';
 import { oraPromise } from 'ora';
 import { temporaryDirectoryTask } from 'tempy';
 
@@ -37,7 +37,7 @@ const fontsMixinsOutput = join(outDir, 'fonts.scss');
 function fontNameOf(path: string[]) {
   return path
     .map((it) => {
-      const segment = paramCase(it);
+      const segment = kebabCase(it);
 
       return /\d+$/.test(segment) ? `${segment.slice(0, -2)}-${segment.slice(-2)}` : segment;
     })
@@ -49,7 +49,7 @@ function colorNameOf(path: string[]) {
 
   return path
     .map((it) => {
-      const segment = paramCase(it);
+      const segment = kebabCase(it);
 
       if (segment.endsWith('-alpha')) {
         isAlpha = true;
@@ -125,7 +125,7 @@ function generateSassFontMixins(variables: string[]) {
     const mixinName = variable
       .split('--')
       .slice(1, -1)
-      .map((it) => paramCase(it))
+      .map((it) => kebabCase(it))
       .join('--')
       .replace('_', '-');
 
