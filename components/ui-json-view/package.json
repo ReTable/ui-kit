@@ -48,8 +48,8 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@types/jsonpath": "^0.2.1",
-    "@types/react-window": "^1.8.6"
+    "@types/jsonpath": "^0.2.2",
+    "@types/react-window": "^1.8.7"
   },
   "dependencies": {
     "@vanilla-extract/dynamic": "^2.0.3",
