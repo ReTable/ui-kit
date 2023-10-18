@@ -49,6 +49,6 @@
     "happy-dom": "^12.9.1"
   },
   "peerDependencies": {
-    "vitest": "^0.34.4"
+    "vitest": "^0.34.6"
   }
 }
