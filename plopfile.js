@@ -2,7 +2,7 @@ import { readdir, stat, writeFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { camelCase, paramCase, pascalCase, snakeCase } from 'change-case';
+import { camelCase, kebabCase, pascalCase, snakeCase } from 'change-case';
 import { execa } from 'execa';
 
 // region Constants
@@ -27,7 +27,7 @@ const STYLES = {
 // region Utilities
 
 function componentNameOf(raw) {
-  let packageName = paramCase(raw);
+  let packageName = kebabCase(raw);
 
   if (!packageName.startsWith('ui-')) {
     packageName = `ui-${packageName}`;
@@ -39,7 +39,7 @@ function componentNameOf(raw) {
 }
 
 function hookNameOf(raw) {
-  let packageName = paramCase(raw);
+  let packageName = kebabCase(raw);
 
   if (!packageName.startsWith('use-')) {
     packageName = `use-${packageName}`;
@@ -52,7 +52,7 @@ function hookNameOf(raw) {
 }
 
 function libraryNameOf(raw) {
-  const packageName = paramCase(raw);
+  const packageName = kebabCase(raw);
   const entryName = camelCase(packageName);
 
   return { entryName, packageName };
