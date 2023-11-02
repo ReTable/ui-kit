@@ -3,7 +3,6 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
-import { capitalCase } from 'change-case';
 import { mergeConfig } from 'vite';
 
 const ROOT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '../');
@@ -22,7 +21,7 @@ function searchStories(workspace) {
 
       stories.push({
         directory: packageDir,
-        titlePrefix: `${capitalCase(workspace)}/${name}@${packageJson.version}`,
+        titlePrefix: `${workspace}/${name}@${packageJson.version}`,
         files: 'stories/**/*.stories.@(mdx|ts|tsx)',
       });
     }
