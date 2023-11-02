@@ -15,15 +15,15 @@ type Props = {
 };
 
 export const LayoutContainer: FC<Props> = ({ children, leftSidebar, rightSidebar }) => {
-  const [isLeftSidebarVisible, onChangeLeftSidebar] = useState(false);
-  const [isRightSidebarVisible, onChangeRightSidebar] = useState(false);
+  const [isLeftSidebarVisible, setIsLeftSidebarVisible] = useState(false);
+  const [isRightSidebarVisible, setIsRightSidebarVisible] = useState(false);
 
   const onToggleLeft = () => {
-    onChangeLeftSidebar((prev) => !prev);
+    setIsLeftSidebarVisible((prev) => !prev);
   };
 
   const onToggleRight = () => {
-    onChangeRightSidebar((prev) => !prev);
+    setIsRightSidebarVisible((prev) => !prev);
   };
 
   const props: RendererProps = {
