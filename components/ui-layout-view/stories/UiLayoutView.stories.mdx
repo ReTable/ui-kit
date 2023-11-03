@@ -1,0 +1,116 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiLayoutView } from '~';
+
+import { body, leftSidebar, rightSidebar, root } from './style.css';
+
+import { LayoutContainer } from './LayoutContainer';
+
+<Meta title="Docs" />
+
+# UiLayoutView
+
+The `UiLayoutView` component can be used to show collapsible left/right sidebar panels
+
+<Canvas>
+  <LayoutContainer leftSidebar rightSidebar>
+    {({ isLeftSidebarVisible, isRightSidebarVisible }) => (
+      <UiLayoutView
+        rootClassName={root}
+        bodyClassName={body}
+        isLeftSidebarVisible={isLeftSidebarVisible}
+        leftSidebar={() => 'left sidebar'}
+        leftSidebarClassName={leftSidebar}
+        isRightSidebarVisible={isRightSidebarVisible}
+        rightSidebar={() => 'right sidebar'}
+        rightSidebarClassName={rightSidebar}
+      >
+        body
+      </UiLayoutView>
+    )}
+  </LayoutContainer>
+</Canvas>
+
+## CSS Variables
+
+We use `react-transition-group` to toggle sidebar panel.<br />
+For controlling behaviour of sidebar's width and animation parameters there are css-variables:
+
+- `--left-sidebar-width` - px, default is `0px`. **Required, if sidebar exists.** Width of left sidebar.
+- `--right-sidebar-width` - px, default is `0px`. **Required, if sidebar exists.** Width of right sidebar.
+- `--duration` - ms, default is `duration--moderate--1`. Panel's animation duration.
+- `--entrance-easing` - easing, default is `easing--entrance--productive`. Easing of entrance animation.
+- `--exit-easing` - easing, default is `easing--exit--productive`. Easing of exit animation.
+
+## Props
+
+#### Common
+
+- `rootClassName` - `string` - style root div-element. Is used to overwrite css-variables
+- `bodyClassName` - `string | undefined` - style body div-container
+- `children` - `ReactNode` - Content of body panel
+
+#### Left sidebar
+
+- `isLeftSidebarVisible` - `boolean` - flag of visibility left panel
+- `leftSidebar` - `() => ReactNode` - Content of left sidebar panel
+- `leftSidebarClassName` - `string | undefined` - style left sidebar div-container
+
+#### Right sidebar
+
+- `isRightSidebarVisible` - `boolean` - flag of visibility right panel
+- `rightSidebar` - `() => ReactNode` - Content of right sidebar panel
+- `rightSidebarClassName` - `string | undefined` - style right sidebar div-container
+
+
+## Variants of usage
+
+We can use the component to display both sidebars, with one side or no sidebars at all
+
+#### Only left sidebar
+
+<Canvas>
+  <LayoutContainer leftSidebar>
+    {({ isLeftSidebarVisible }) => (
+      <UiLayoutView
+        rootClassName={root}
+        bodyClassName={body}
+        isLeftSidebarVisible={isLeftSidebarVisible}
+        leftSidebar={() => 'left sidebar'}
+        leftSidebarClassName={leftSidebar}
+      >
+        body
+      </UiLayoutView>
+    )}
+  </LayoutContainer>
+</Canvas>
+
+#### Only right sidebar
+
+<Canvas>
+  <LayoutContainer rightSidebar>
+    {({ isRightSidebarVisible }) => (
+      <UiLayoutView
+        rootClassName={root}
+        bodyClassName={body}
+        isRightSidebarVisible={isRightSidebarVisible}
+        rightSidebar={() => 'right sidebar'}
+        rightSidebarClassName={rightSidebar}
+      >
+        body
+      </UiLayoutView>
+    )}
+  </LayoutContainer>
+</Canvas>
+
+#### No one sidebar
+
+<Canvas>
+  <LayoutContainer>
+    {() => (
+      <UiLayoutView rootClassName={root} bodyClassName={body}>
+        body
+      </UiLayoutView>
+    )}
+  </LayoutContainer>
+</Canvas>

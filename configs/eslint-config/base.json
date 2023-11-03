@@ -128,7 +128,7 @@
     "@typescript-eslint/no-shadow": [
       "error",
       {
-        "builtinGlobals": true
+        "builtinGlobals": false
       }
     ],
     "@typescript-eslint/no-throw-literal": "error",

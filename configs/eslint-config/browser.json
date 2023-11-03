@@ -22,14 +22,6 @@
     "es2021": true
   },
 
-  "globals": {
-    "close": "off",
-    "length": "off",
-    "name": "off",
-    "open": "off",
-    "parent": "off"
-  },
-
   "settings": {
     "react": {
       "version": "detect"

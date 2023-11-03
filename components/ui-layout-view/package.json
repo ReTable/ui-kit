@@ -1,0 +1,57 @@
+{
+  "name": "@tabula/ui-layout-view",
+  "version": "0.0.0",
+  "description": "Layout component, that unifies sidebar functionality",
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-layout-view#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-layout-view"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:docs": "forge --storybook",
+    "build:watch": "forge --watch",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "@tabula/ui-theme": "workspace:^",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:^",
+    "@types/react-transition-group": "^4.4.8"
+  },
+  "dependencies": {
+    "clsx": "^2.0.0",
+    "react-transition-group": "^4.4.5"
+  }
+}
