@@ -1,5 +1,7 @@
 import { ReactNode, Ref } from 'react';
 
+type SidebarRenderer = () => ReactNode;
+
 // ----- Sidebar definition
 
 type HasNoLeftSidebar = {
@@ -10,7 +12,7 @@ type HasNoLeftSidebar = {
 
 type HasLeftSidebar = {
   isLeftSidebarVisible: boolean;
-  leftSidebar: ReactNode;
+  leftSidebar: SidebarRenderer;
   leftSidebarClassName?: string;
 };
 
@@ -22,7 +24,7 @@ type HasNoRightSidebar = {
 
 type HasRightSidebar = {
   isRightSidebarVisible: boolean;
-  rightSidebar: ReactNode;
+  rightSidebar: SidebarRenderer;
   rightSidebarClassName?: string;
 };
 

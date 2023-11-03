@@ -29,10 +29,10 @@ export function UiLayoutView({
 }: Props): ReactElement {
   const ref = useRef<HTMLDivElement>(null);
 
-  const hasLeftSidebar = 'isLeftSidebarVisible' in props;
+  const hasLeftSidebar = 'isLeftSidebarVisible' in props && props.isLeftSidebarVisible != null;
   const isLeftSidebarVisible = hasLeftSidebar ? props.isLeftSidebarVisible : false;
 
-  const hasRightSidebar = 'isRightSidebarVisible' in props;
+  const hasRightSidebar = 'isRightSidebarVisible' in props && props.isRightSidebarVisible != null;
   const isRightSidebarVisible = hasRightSidebar ? props.isRightSidebarVisible : false;
 
   return (
@@ -59,13 +59,13 @@ export function UiLayoutView({
           >
             {hasLeftSidebar && (
               <div className={clsx(leftSidebar, props.leftSidebarClassName)}>
-                {props.leftSidebar}
+                {isLeftSidebarVisible && props.leftSidebar()}
               </div>
             )}
             <div className={clsx(body, bodyClassName)}>{children}</div>
             {hasRightSidebar && (
               <div className={clsx(rightSidebar, props.rightSidebarClassName)}>
-                {props.rightSidebar}
+                {isRightSidebarVisible && props.rightSidebar()}
               </div>
             )}
           </div>
