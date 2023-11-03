@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.0.1
+
+### Patch Changes
+
+- [#83](https://github.com/ReTable/ui-kit/pull/83) [`18556b7`](https://github.com/ReTable/ui-kit/commit/18556b75a6283aeab1b5643b6b6743b6576840ae) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
 ## 2.0.0
 
 ### Major Changes

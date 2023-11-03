@@ -1,5 +1,15 @@
 # @tabula/eslint-config
 
+## 0.1.0
+
+### Minor Changes
+
+- [#86](https://github.com/ReTable/ui-kit/pull/86) [`7c34148`](https://github.com/ReTable/ui-kit/commit/7c341483db147f9b87ac0733c440b6d2859aae8f) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - don't apply 'no-shadow' rule to the global variables
+
+### Patch Changes
+
+- [#83](https://github.com/ReTable/ui-kit/pull/83) [`18556b7`](https://github.com/ReTable/ui-kit/commit/18556b75a6283aeab1b5643b6b6743b6576840ae) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
 ## 0.0.9
 
 ### Patch Changes
