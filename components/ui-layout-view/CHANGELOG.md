@@ -1,5 +1,11 @@
 # @tabula/ui-layout-view
 
+## 1.0.1
+
+### Patch Changes
+
+- [#87](https://github.com/ReTable/ui-kit/pull/87) [`ebece2f`](https://github.com/ReTable/ui-kit/commit/ebece2f44fa875917e079e1af06322ed075e3bea) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix "Change in the order of hooks"
+
 ## 1.0.0
 
 ### Major Changes
