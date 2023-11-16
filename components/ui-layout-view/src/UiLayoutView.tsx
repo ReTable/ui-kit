@@ -1,4 +1,4 @@
-import { ReactElement, useRef } from 'react';
+import { ReactElement, createElement, useRef } from 'react';
 
 import clsx from 'clsx';
 import { CSSTransition } from 'react-transition-group';
@@ -59,13 +59,13 @@ export function UiLayoutView({
           >
             {hasLeftSidebar && (
               <div className={clsx(leftSidebar, props.leftSidebarClassName)}>
-                {isLeftSidebarVisible && props.leftSidebar()}
+                {isLeftSidebarVisible && createElement(props.leftSidebar, null)}
               </div>
             )}
             <div className={clsx(body, bodyClassName)}>{children}</div>
             {hasRightSidebar && (
               <div className={clsx(rightSidebar, props.rightSidebarClassName)}>
-                {isRightSidebarVisible && props.rightSidebar()}
+                {isRightSidebarVisible && createElement(props.rightSidebar, null)}
               </div>
             )}
           </div>
