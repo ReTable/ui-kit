@@ -36,6 +36,7 @@ import { ReactComponent as UiPostgresSourceLIconInner } from './postgresSource/p
 import { ReactComponent as UiPostgresSqlLIconInner } from './postgresSql/postgresSql.large.svg';
 import { ReactComponent as UiRemoveDuplicateRowsLIconInner } from './removeDuplicateRows/removeDuplicateRows.large.svg';
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
+import { ReactComponent as UiReportLIconInner } from './report/report.large.svg';
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
 import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput/snowflakeOutput.large.svg';
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
@@ -167,3 +168,4 @@ export const UiUnpivotLIcon = createIcon(UiUnpivotLIconInner, icon, 'UiUnpivotLI
 export const UiWinFuncLIcon = createIcon(UiWinFuncLIconInner, icon, 'UiWinFuncLIcon');
 export const UiXlsFileLIcon = createIcon(UiXlsFileLIconInner, icon, 'UiXlsFileLIcon');
 export const UiXlsOutputLIcon = createIcon(UiXlsOutputLIconInner, icon, 'UiXlsOutputLIcon');
+export const UiReportLIcon = createIcon(UiReportLIconInner, icon, 'UiReportLIcon');
