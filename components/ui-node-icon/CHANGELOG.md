@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 4.2.0
+
+### Minor Changes
+
+- [#89](https://github.com/ReTable/ui-kit/pull/89) [`53c13c0`](https://github.com/ReTable/ui-kit/commit/53c13c0d1fe8bf645b468d2eaf94badbaea30984) Thanks [@tubignat](https://github.com/tubignat)! - Icon for Reports is added
+
 ## 4.1.1
 
 ### Patch Changes
