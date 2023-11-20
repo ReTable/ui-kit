@@ -43,3 +43,4 @@ export { ReactComponent as UiUnnestSIcon } from './unnest/unnest.small.svg';
 export { ReactComponent as UiUnpivotSIcon } from './unpivot/unpivot.small.svg';
 export { ReactComponent as UiWinFuncSIcon } from './winFunc/winFunc.small.svg';
 export { ReactComponent as UiXlsFileSIcon } from './xlsFile/xlsFile.small.svg';
+export { ReactComponent as UiReportSIconInner } from './report/report.small.svg';
