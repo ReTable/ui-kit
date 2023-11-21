@@ -15,6 +15,9 @@
       "path": "components/ui-data-type-icon"
     },
     {
+      "path": "components/ui-date-picker"
+    },
+    {
       "path": "components/ui-icon"
     },
     {

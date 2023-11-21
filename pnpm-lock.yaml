@@ -178,6 +178,16 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  components/ui-date-picker:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+    devDependencies:
+      '@tabula/ui-theme':
+        specifier: workspace:^
+        version: link:../ui-theme
+
   components/ui-icon:
     dependencies:
       '@tabula/ui-theme':
