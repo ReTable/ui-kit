@@ -49,5 +49,9 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^"
+  },
+  "dependencies": {
+    "@tabula/ui-data-type-icon": "workspace:^",
+    "date-fns": "^2.30.0"
   }
 }
