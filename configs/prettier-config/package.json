@@ -29,9 +29,9 @@
   "author": "Retable Inc.",
   "license": "ISC",
   "dependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.2.0"
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0"
   },
   "peerDependencies": {
-    "prettier": "^3.0.3"
+    "prettier": "^3.1.0"
   }
 }
