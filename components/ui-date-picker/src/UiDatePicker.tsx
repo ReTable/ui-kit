@@ -1,11 +1,14 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 
-import { root } from './UiDatePicker.css';
+import { UiCalendar } from './UiCalendar';
 
 export type Props = {
   className?: string;
 };
 
-export function UiDatePicker({ className = '' }: Props): ReactElement {
-  return <div className={`${root} ${className}`} />;
+export function UiDatePicker(): ReactElement {
+  const shown = new Date();
+  const [selected, setSelected] = useState(shown);
+
+  return <UiCalendar selected={selected} shown={shown} onSelect={setSelected} />;
 }
