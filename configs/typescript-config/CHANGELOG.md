@@ -1,5 +1,11 @@
 # @tabula/typescript-config
 
+## 0.2.0
+
+### Minor Changes
+
+- [#91](https://github.com/ReTable/ui-kit/pull/91) [`424ab84`](https://github.com/ReTable/ui-kit/commit/424ab84dd1b0f8461ce13c2ed33fccd02b648cbd) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
 ## 0.1.1
 
 ### Patch Changes
