@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@types/react-transition-group": "^4.4.8"
+    "@types/react-transition-group": "^4.4.9"
   },
   "dependencies": {
     "clsx": "^2.0.0",
