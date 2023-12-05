@@ -27,9 +27,6 @@
     "tsconfig.browser.json",
     "types"
   ],
-  "dependencies": {
-    "typescript-plugin-css-modules": "^5.0.2"
-  },
   "peerDependencies": {
     "typescript": "^5.3.2"
   },

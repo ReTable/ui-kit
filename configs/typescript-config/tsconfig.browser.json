@@ -11,18 +11,7 @@
     "lib": ["DOM", "DOM.Iterable", "ES2021"],
     "jsx": "react-jsx",
 
-    "moduleResolution": "Bundler",
-
-    /* CSS Modules */
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "classnameTransform": "camelCaseOnly",
-          "customMatcher": "\\.module\\.(c|pc|sc)ss$"
-        }
-      }
-    ]
+    "moduleResolution": "Bundler"
   },
 
   "files": [
