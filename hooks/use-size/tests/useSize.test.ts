@@ -1,356 +1,240 @@
-import { randNumber } from '@ngneat/falso';
-import { act, renderHook } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-import { Size, useSize } from '~';
-
-class ResizeObserverMock {
-  public static readonly observe = vi.fn();
-
-  public static readonly unobserve = vi.fn();
-
-  private static callback: ResizeObserverCallback | null = null;
-
-  public readonly observe = ResizeObserverMock.observe;
-
-  public readonly unobserve = ResizeObserverMock.unobserve;
-
-  public constructor(callback: ResizeObserverCallback) {
-    ResizeObserverMock.callback = callback;
-  }
-
-  public static emit(...values: Array<[Element, Size]>) {
-    const entries = values.map(
-      ([target, contentRect]) => ({ target, contentRect }) as ResizeObserverEntry,
-    );
-
-    ResizeObserverMock.callback?.(entries, this as unknown as ResizeObserver);
-  }
-}
-
-vi.stubGlobal('ResizeObserver', ResizeObserverMock);
-
-function createElement(size: Size): Element {
-  return {
-    getBoundingClientRect(): DOMRect {
-      return size as DOMRect;
-    },
-  } as Element;
-}
+import {
+  createDimension,
+  createElement,
+  createSize,
+  createView,
+  mount,
+  resize,
+  roundSize,
+} from './helpers';
 
 describe('useSize', () => {
-  beforeEach(() => {
-    ResizeObserverMock.observe.mockClear();
-    ResizeObserverMock.unobserve.mockClear();
-  });
-
   describe('default size', () => {
     it('equals to 0', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const [, size] = result.current;
-
-      expect(size).toEqual({ height: 0, width: 0 });
+      expect(view.size).toEqual({ height: 0, width: 0 });
     });
 
     it('equals to provided initial size', () => {
-      const initialSize = {
-        height: randNumber({ min: 10, max: 1000 }),
-        width: randNumber({ min: 10, max: 1000 }),
-      };
-      const { result } = renderHook(() => useSize(initialSize));
+      const initialSize = createSize();
 
-      const [, size] = result.current;
+      const view = createView(initialSize);
 
-      expect(size).toBe(initialSize);
+      expect(view.size).toBe(initialSize);
     });
   });
 
   describe('initial mount', () => {
     it('updates size on initial mount', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const size: Size = { height: 100, width: 200 };
+      const size = createSize();
 
-      act(() => {
-        result.current[0](createElement(size));
-      });
+      mount([view, size]);
 
-      expect(result.current[1]).toEqual(size);
+      expect(view.size).toEqual(size);
     });
 
     it('rounds sizes', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const size: Size = { height: 100.1, width: 200.9 };
+      const size = {
+        height: createDimension(0.1),
+        width: createDimension(0.9),
+      };
 
-      act(() => {
-        result.current[0](createElement(size));
-      });
+      mount([view, size]);
 
-      expect(result.current[1]).toEqual({
-        height: Math.round(size.height),
-        width: Math.round(size.width),
-      });
+      expect(view.size).toEqual(roundSize(size));
     });
 
     it("doesn't change size if it equals", () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const beforeMount = result.current[1];
+      const initialSize = view.size;
 
-      act(() => {
-        result.current[0](createElement({ ...beforeMount }));
-      });
+      mount([view, { ...initialSize }]);
 
-      expect(beforeMount).toBe(result.current[1]);
+      expect(view.size).toBe(initialSize);
 
-      act(() => {
-        result.current[0](
-          createElement({
-            height: beforeMount.height + 0.1,
-            width: beforeMount.width + 0.1,
-          }),
-        );
-      });
+      mount([view, { height: initialSize.height + 0.1, width: initialSize.width + 0.1 }]);
 
-      expect(beforeMount).toBe(result.current[1]);
+      expect(view.size).toBe(initialSize);
     });
 
     it('updates size after mount another element', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const initialSize: Size = { height: 100, width: 200 };
+      const initialSize = createSize();
 
-      act(() => {
-        result.current[0](createElement(initialSize));
-      });
+      mount([view, initialSize]);
 
-      expect(result.current[1]).toEqual(initialSize);
+      expect(view.size).toEqual(initialSize);
 
-      const nextSize: Size = { height: 200, width: 400 };
+      const nextSize = createSize();
 
-      act(() => {
-        result.current[0](createElement(nextSize));
-      });
+      mount([view, nextSize]);
 
-      expect(result.current[1]).toEqual(nextSize);
+      expect(view.size).toEqual(nextSize);
     });
   });
 
   describe('resize', () => {
     it('updates size after resize', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const initialSize: Size = { height: 100, width: 200 };
+      const initialSize = createSize();
 
       const element = createElement(initialSize);
 
-      act(() => {
-        result.current[0](element);
-      });
+      mount([view, element]);
 
-      expect(result.current[1]).toEqual(initialSize);
+      expect(view.size).toEqual(initialSize);
 
-      let nextSize: Size = { height: 200, width: 400 };
+      let nextSize = createSize();
 
-      act(() => {
-        ResizeObserverMock.emit([element, nextSize]);
-      });
+      resize([element, nextSize]);
 
-      expect(result.current[1]).toEqual(nextSize);
+      expect(view.size).toEqual(nextSize);
 
-      nextSize = { height: 400, width: 800 };
+      nextSize = createSize();
 
-      act(() => {
-        ResizeObserverMock.emit([element, nextSize]);
-      });
+      resize([element, nextSize]);
 
-      expect(result.current[1]).toEqual(nextSize);
+      expect(view.size).toEqual(nextSize);
     });
 
     it('rounds sizes', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const initialSize: Size = { height: 100, width: 200 };
+      const initialSize = createSize();
 
       const element = createElement(initialSize);
 
-      act(() => {
-        result.current[0](element);
-      });
+      mount([view, element]);
 
-      expect(result.current[1]).toEqual(initialSize);
+      expect(view.size).toEqual(initialSize);
 
-      const nextSize: Size = { height: 200.1, width: 400.9 };
+      const nextSize = {
+        height: createDimension(0.1),
+        width: createDimension(0.9),
+      };
 
-      act(() => {
-        ResizeObserverMock.emit([element, nextSize]);
-      });
+      resize([element, nextSize]);
 
-      expect(result.current[1]).toEqual({
-        height: Math.round(nextSize.height),
-        width: Math.round(nextSize.width),
-      });
+      expect(view.size).toEqual(roundSize(nextSize));
     });
 
     it("doesn't change size if it equals", () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const initialSize: Size = { height: 100, width: 200 };
+      const initialSize = createSize();
 
       const element = createElement(initialSize);
 
-      act(() => {
-        result.current[0](element);
-      });
+      mount([view, element]);
 
-      expect(result.current[1]).toEqual(initialSize);
+      expect(view.size).toEqual(initialSize);
 
-      const afterMount = result.current[1];
+      const nextSize = view.size;
 
-      act(() => {
-        ResizeObserverMock.emit([element, { ...initialSize }]);
-      });
+      resize([element, { ...initialSize }]);
 
-      expect(result.current[1]).toBe(afterMount);
+      expect(view.size).toBe(nextSize);
 
-      act(() => {
-        ResizeObserverMock.emit([
-          element,
-          {
-            height: initialSize.height + 0.1,
-            width: initialSize.width + 0.1,
-          },
-        ]);
-      });
+      resize([
+        element,
+        {
+          height: initialSize.height + 0.1,
+          width: initialSize.width + 0.1,
+        },
+      ]);
 
-      expect(result.current[1]).toBe(afterMount);
+      expect(view.size).toBe(nextSize);
     });
 
     it('ignores resize of initial element after change element', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const initialElement = createElement({ height: 100, width: 200 });
+      const initialSize = createSize();
 
-      act(() => {
-        result.current[0](initialElement);
-      });
+      const initialElement = createElement(initialSize);
 
-      expect(result.current[1]).toEqual({
-        height: 100,
-        width: 200,
-      });
+      mount([view, initialElement]);
 
-      act(() => {
-        ResizeObserverMock.emit([initialElement, { height: 200, width: 400 }]);
-      });
+      expect(view.size).toEqual(initialSize);
 
-      expect(result.current[1]).toEqual({
-        height: 200,
-        width: 400,
-      });
+      let nextSize = createSize();
 
-      const nextElement = createElement({ height: 400, width: 800 });
+      resize([initialElement, nextSize]);
 
-      act(() => {
-        result.current[0](nextElement);
-      });
+      expect(view.size).toEqual(nextSize);
 
-      expect(result.current[1]).toEqual({
-        height: 400,
-        width: 800,
-      });
+      nextSize = createSize();
 
-      act(() => {
-        ResizeObserverMock.emit([initialElement, { height: 150, width: 300 }]);
-      });
+      const nextElement = createElement(nextSize);
 
-      expect(result.current[1]).toEqual({
-        height: 400,
-        width: 800,
-      });
+      mount([view, nextElement]);
 
-      act(() => {
-        ResizeObserverMock.emit([nextElement, { height: 800, width: 1600 }]);
-      });
+      expect(view.size).toEqual(nextSize);
 
-      expect(result.current[1]).toEqual({
-        height: 800,
-        width: 1600,
-      });
+      resize([initialElement, createSize()]);
+
+      expect(view.size).toEqual(nextSize);
+
+      nextSize = createSize();
+
+      resize([nextElement, nextSize]);
+
+      expect(view.size).toEqual(nextSize);
     });
 
     it('ignores resize of another element', () => {
-      const { result } = renderHook(() => useSize());
+      const view = createView();
 
-      const targetElement = createElement({ height: 100, width: 200 });
-      const anotherElement = createElement({ height: 200, width: 400 });
+      const targetSize = createSize();
+      const anotherSize = createSize();
 
-      act(() => {
-        result.current[0](targetElement);
-      });
+      const targetElement = createElement(targetSize);
+      const anotherElement = createElement(anotherSize);
 
-      expect(result.current[1]).toEqual({ height: 100, width: 200 });
+      mount([view, targetElement]);
 
-      act(() => {
-        ResizeObserverMock.emit([
-          anotherElement,
-          {
-            height: 400,
-            width: 800,
-          },
-        ]);
-      });
+      expect(view.size).toEqual(targetSize);
 
-      expect(result.current[1]).toEqual({ height: 100, width: 200 });
+      const nextSize = createSize();
 
-      act(() => {
-        ResizeObserverMock.emit(
-          [
-            targetElement,
-            {
-              height: 150,
-              width: 300,
-            },
-          ],
-          [
-            anotherElement,
-            {
-              height: 400,
-              width: 800,
-            },
-          ],
-        );
-      });
+      resize([anotherElement, nextSize]);
 
-      expect(result.current[1]).toEqual({ height: 150, width: 300 });
+      expect(view.size).toEqual(targetSize);
+
+      resize([targetElement, nextSize], [anotherElement, createSize()]);
+
+      expect(view.size).toEqual(nextSize);
     });
 
     it('supports multiple refs for the single element', () => {
-      const initialSize = { height: 100, width: 200 };
+      const firstView = createView();
+      const secondView = createView();
+
+      const initialSize = createSize();
 
       const element = createElement(initialSize);
 
-      const { result: firstResult } = renderHook(() => useSize());
-      const { result: secondResult } = renderHook(() => useSize());
+      mount([firstView, element], [secondView, element]);
 
-      act(() => {
-        firstResult.current[0](element);
-        secondResult.current[0](element);
-      });
+      expect(firstView.size).toEqual(initialSize);
+      expect(secondView.size).toEqual(initialSize);
 
-      expect(firstResult.current[1]).toEqual(initialSize);
-      expect(secondResult.current[1]).toEqual(initialSize);
+      const nextSize = createSize();
 
-      const nextSize = { height: 200, width: 400 };
+      resize([element, nextSize]);
 
-      act(() => {
-        ResizeObserverMock.emit([element, nextSize]);
-      });
-
-      expect(firstResult.current[1]).toEqual(nextSize);
-      expect(secondResult.current[1]).toEqual(nextSize);
+      expect(firstView.size).toEqual(nextSize);
+      expect(secondView.size).toEqual(nextSize);
     });
   });
 });
