@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.0.3
+
+### Patch Changes
+
+- [#93](https://github.com/ReTable/ui-kit/pull/93) [`68484f9`](https://github.com/ReTable/ui-kit/commit/68484f98a65b1ed5f860a785222bdda301f24d2b) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - add `$colors--status--warning`
+
 ## 2.0.2
 
 ### Patch Changes
