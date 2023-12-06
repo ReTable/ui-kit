@@ -67,6 +67,7 @@ export const tokens = {
       idle: 'rgba(0, 0, 0, 0.05)',
       running: 'rgba(18, 127, 249, 0.1)',
       success: 'rgba(0, 183, 162, 0.1)',
+      warning: 'rgba(226, 158, 56, 0.1)',
     },
 
     borderControl: {
