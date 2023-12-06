@@ -8,6 +8,7 @@ import {
   mount,
   resize,
   roundSize,
+  triggerAnimationFrame,
 } from './helpers';
 
 describe('useSize', () => {
@@ -96,13 +97,13 @@ describe('useSize', () => {
 
       let nextSize = createSize();
 
-      resize([element, nextSize]);
+      resize(true, [element, nextSize]);
 
       expect(view.size).toEqual(nextSize);
 
       nextSize = createSize();
 
-      resize([element, nextSize]);
+      resize(true, [element, nextSize]);
 
       expect(view.size).toEqual(nextSize);
     });
@@ -123,7 +124,7 @@ describe('useSize', () => {
         width: createDimension(0.9),
       };
 
-      resize([element, nextSize]);
+      resize(true, [element, nextSize]);
 
       expect(view.size).toEqual(roundSize(nextSize));
     });
@@ -141,11 +142,11 @@ describe('useSize', () => {
 
       const nextSize = view.size;
 
-      resize([element, { ...initialSize }]);
+      resize(true, [element, { ...initialSize }]);
 
       expect(view.size).toBe(nextSize);
 
-      resize([
+      resize(true, [
         element,
         {
           height: initialSize.height + 0.1,
@@ -169,7 +170,7 @@ describe('useSize', () => {
 
       let nextSize = createSize();
 
-      resize([initialElement, nextSize]);
+      resize(true, [initialElement, nextSize]);
 
       expect(view.size).toEqual(nextSize);
 
@@ -181,13 +182,13 @@ describe('useSize', () => {
 
       expect(view.size).toEqual(nextSize);
 
-      resize([initialElement, createSize()]);
+      resize(true, [initialElement, createSize()]);
 
       expect(view.size).toEqual(nextSize);
 
       nextSize = createSize();
 
-      resize([nextElement, nextSize]);
+      resize(true, [nextElement, nextSize]);
 
       expect(view.size).toEqual(nextSize);
     });
@@ -207,11 +208,11 @@ describe('useSize', () => {
 
       const nextSize = createSize();
 
-      resize([anotherElement, nextSize]);
+      resize(true, [anotherElement, nextSize]);
 
       expect(view.size).toEqual(targetSize);
 
-      resize([targetElement, nextSize], [anotherElement, createSize()]);
+      resize(true, [targetElement, nextSize], [anotherElement, createSize()]);
 
       expect(view.size).toEqual(nextSize);
     });
@@ -231,10 +232,34 @@ describe('useSize', () => {
 
       const nextSize = createSize();
 
-      resize([element, nextSize]);
+      resize(true, [element, nextSize]);
 
       expect(firstView.size).toEqual(nextSize);
       expect(secondView.size).toEqual(nextSize);
+    });
+
+    it("supports 'requestAnimationFrame'", () => {
+      const view = createView();
+
+      const initialSize = createSize();
+
+      const element = createElement(initialSize);
+
+      mount([view, element]);
+
+      expect(view.size).toEqual(initialSize);
+
+      const firstSize = createSize();
+
+      resize(false, [element, firstSize]);
+
+      const secondSize = createSize();
+
+      resize(false, [element, secondSize]);
+
+      triggerAnimationFrame();
+
+      expect(view.size).toEqual(secondSize);
     });
   });
 });

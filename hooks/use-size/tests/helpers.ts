@@ -4,6 +4,34 @@ import { vi } from 'vitest';
 
 import { Size, useSize } from '~';
 
+// region requestAnimationFrame
+
+let job: (() => void) | null = null;
+
+function requestAnimationFrame(callback: () => void) {
+  job = callback;
+}
+
+vi.stubGlobal('requestAnimationFrame', requestAnimationFrame);
+
+function flushAnimationFrame() {
+  job?.();
+
+  job = null;
+}
+
+export function triggerAnimationFrame(withAct = true): void {
+  if (withAct) {
+    act(() => {
+      flushAnimationFrame();
+    });
+  } else {
+    flushAnimationFrame();
+  }
+}
+
+// endregion
+
 // region ResizeObserver
 
 class ResizeObserverMock {
@@ -24,13 +52,17 @@ class ResizeObserverMock {
 
 vi.stubGlobal('ResizeObserver', ResizeObserverMock);
 
-export function resize(...values: Array<[Element, Size]>): void {
+export function resize(trigger: boolean, ...values: Array<[Element, Size]>): void {
   act(() => {
     const entries = values.map(
       ([target, contentRect]) => ({ target, contentRect }) as ResizeObserverEntry,
     );
 
     ResizeObserverMock.callback?.(entries, null as unknown as ResizeObserver);
+
+    if (trigger) {
+      triggerAnimationFrame(false);
+    }
   });
 }
 

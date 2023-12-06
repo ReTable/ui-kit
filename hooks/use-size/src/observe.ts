@@ -4,18 +4,38 @@ export type Listener = (rect: DOMRect) => void;
 
 const allListeners = new WeakMap<Element, Listener[]>();
 
-function onResize(entries: ResizeObserverEntry[]) {
-  for (const entry of entries) {
-    const listeners = allListeners.get(entry.target);
+let isTicking = false;
+
+const queue = new Map<Element, DOMRect>();
+
+function flushQueue() {
+  for (const [target, rect] of queue.entries()) {
+    const listeners = allListeners.get(target);
 
     if (listeners == null) {
       continue;
     }
 
     for (const listener of listeners) {
-      listener(entry.contentRect);
+      listener(rect);
     }
   }
+
+  queue.clear();
+
+  isTicking = false;
+}
+
+function onResize(entries: ResizeObserverEntry[]) {
+  for (const entry of entries) {
+    queue.set(entry.target, entry.contentRect);
+  }
+
+  if (!isTicking) {
+    requestAnimationFrame(flushQueue);
+  }
+
+  isTicking = true;
 }
 
 // endregion

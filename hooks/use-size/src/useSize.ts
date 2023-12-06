@@ -25,7 +25,23 @@ export function useSize<E extends Element = Element>(initialSize: Size = default
 
     handleRect(target.getBoundingClientRect());
 
-    return observe(target, handleRect);
+    let didUnsubscribe = false;
+
+    const handleResize = (rect: DOMRect) => {
+      if (didUnsubscribe) {
+        return;
+      }
+
+      handleRect(rect);
+    };
+
+    const unsubscribe = observe(target, handleResize);
+
+    return () => {
+      didUnsubscribe = true;
+
+      unsubscribe();
+    };
   }, [target, handleRect]);
 
   return [setTarget, size];
