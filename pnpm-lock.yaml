@@ -349,6 +349,12 @@ importers:
         specifier: ^12.10.3
         version: 12.10.3
 
+  hooks/use-size:
+    dependencies:
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
 packages:
 
   /@aashutoshrathi/word-wrap@1.2.6:

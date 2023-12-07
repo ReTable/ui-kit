@@ -1,0 +1,163 @@
+import { Meta, Source, Description } from '@storybook/blocks';
+
+<Meta title="Docs" />
+
+# useSize
+
+The `useSize` hook allows to track size of an element through the `ResizeObserver`.
+
+That hook is written with a few technical decisions:
+
+  - a single `ResizeObserver` instance used for better performance;
+  - the `requestAnimationFrame` used for throttling resize callbacks;
+  - the hook doesn't support SSR;
+  - `ResizeObserver` polyfill doesn't used.
+
+## Usage
+
+The default usage is looks like:
+
+<Source code={`
+import { useSize } from '@tabula/use-size';
+
+const Watcher: FC = () => {
+  const [ref, size] = useSize();
+
+  return <div ref={ref} />;
+};
+`} language="tsx"/>
+
+## Defaults
+
+The initial value of size will be `{ height: 0, width: 0 }`.
+
+<Source code={`
+const [, size] = useSize();
+
+// size => { height: 0, width: 0 }
+`} languag="tsx" />
+
+But you can provide your default value:
+
+<Source code={`
+const [, size] = useSize({ height: 150, width: 450 });
+
+// size => { height: 150, width: 450 }
+`} languag="tsx" />
+
+That value is actual while have no any element which mounted and transferred to the hook with `ref`.
+
+## Initial element's size
+
+Each time, when a new element is provided through the `ref`, we update it's size.
+
+<Source code={`
+const [ref, size] = useSize();
+
+// size => { height: 0, width: 0 }
+
+ref(<div style={{ height: 150, width: 450 }} />);
+
+// size => { height: 150, width: 450 }
+`} languag="tsx" />
+
+It works each time when element is updated.
+
+<Source code={`
+const [ref, size] = useSize();
+
+// size => { height: 0, width: 0 }
+
+ref(<div key={0} style={{ height: 150, width: 450 }} />);
+
+// size => { height: 150, width: 450 }
+
+ref(<div key={1} style={{ height: 50, width: 150 }} />);
+
+// size => { height: 50, width: 150 }
+`} languag="tsx" />
+
+## Resize
+
+Each time when an element is resized, we update it's size in hook.
+
+<Source code={`
+const [ref, size] = useSize();
+
+// size => { height: 0, width: 0 }
+
+ref(<div style={{ height: 150, width: 450 }} />);
+
+// size => { height: 150, width: 450 }
+
+resize({ height: 50, width: 150 });
+
+// size => { height: 50, width: 150 }
+`} languag="tsx" />
+
+## Multiple refs
+
+We want to track size of the single element with multiple refs.
+
+<Source code={`
+const [ref1, size1] = useSize();
+const [ref2, size2] = useSize();
+
+const ref = combineRefs(ref1, ref2);
+
+// size1 => { height: 0, width: 0 }
+// size2 => { height: 0, width: 0 }
+
+ref(<div style={{ height: 150, width: 450 }} />);
+
+// size1 => { height: 150, width: 450 }
+// size2 => { height: 150, width: 450 }
+
+resize({ height: 50, width: 150 });
+
+// size1 => { height: 50, width: 150 }
+// size2 => { height: 50, width: 150 }
+`} languag="tsx" />
+
+## Rounds
+
+We always round size object values.
+
+<Source code={`
+const [ref, size] = useSize();
+
+// size => { height: 0, width: 0 }
+
+ref(<div style={{ height: 150.1, width: 450.9 }} />);
+
+// size => { height: 150, width: 451 }
+
+resize({ height: 50.9, width: 150.1 });
+
+// size => { height: 51, width: 150 }
+`} languag="tsx" />
+
+## Re-renders
+
+We try to avoid re-renders. If a new size is equal to previous, we don't trigger re-render.
+
+<Source code={`
+const [ref, size] = useSize();
+
+// size => { height: 0, width: 0 }
+// render
+
+ref(<div style={{ height: 150, width: 450 }} />);
+
+// size => { height: 150, width: 450 }
+// render
+
+resize({ height: 150, width: 450 });
+
+// size => { height: 150, width: 450 }
+// no render
+
+resize({ height: 150.1, width: 450.1 })
+// size => { height: 150, width: 450 }
+// no render
+`} languag="tsx" />
