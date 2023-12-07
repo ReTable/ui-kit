@@ -1,6 +1,7 @@
 plopfile.js
 components/**/lib
 components/**/typings
+docs/**/*
 hooks/**/lib
 hooks/**/typings
 libraries/**/lib
