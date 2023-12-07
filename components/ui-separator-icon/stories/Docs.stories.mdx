@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks';
 
 import { UiCommaIcon } from '~';
 
@@ -12,9 +12,9 @@ We provide icons as React components.
 
 <br />
 
-```tsx
+<Source code={`
 import { UiCommaIcon } from '@tabula/ui-separator-icon';
-```
+`} language="ts"/>
 
 <br />
 
@@ -75,9 +75,9 @@ Also, we provide icons as static images.
 
 <br />
 
-```ts
+<Source code={`
 import { uiCommaIconUrl } from "@tabula/ui-separator-icon";
-```
+`} language="ts"/>
 
 <br />
 
@@ -85,8 +85,8 @@ import { uiCommaIconUrl } from "@tabula/ui-separator-icon";
 
 If you use a Vite bundler, you can use icons in your styles like this:
 
-```scss
+<Source code={`
 .awesome-component {
   background-image: url('@tabula/ui-separator-icon/comma.svg');
 }
-```
+`} language="css"/>

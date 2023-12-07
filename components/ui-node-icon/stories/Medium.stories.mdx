@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks';
 
 import { UiInnerJoinMIcon } from '~';
 
@@ -8,17 +8,17 @@ import { UiInnerJoinMIcon } from '~';
 
 You can import a single icon the following way:
 
-```tsx
+<Source code={`
 import { UiInnerJoinMIcon } from '@tabula/ui-node-icon';
-```
+`} language="ts"/>
 
 Or you can import all icons another way:
 
-```tsx
+<Source code={`
 import { UiNodeMIcons } from '@tabula/ui-node-icon';
 
 const ComponentWithIcon = () => <UiNodeMIcons.UiInnerJoinMIcon />;
-```
+`} language="tsx"/>
 
 # Default
 
