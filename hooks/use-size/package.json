@@ -1,6 +1,6 @@
 {
   "name": "@tabula/use-size",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Watches the DOM element's size with ResizeObserver",
   "type": "module",
   "typings": "./typings/index.d.ts",
