@@ -168,6 +168,13 @@ resize({ height: 150.1, width: 450.1 })
 // no render
 ```
 
+## Inspired By
+
+This package is inspired by:
+
+- [react-hook/useSize](https://github.com/jaredLunde/react-hook/)
+- [react-use/useMeasure](https://github.com/streamich/react-use/)
+
 ## License
 
 This project is [ISC](https://choosealicense.com/licenses/isc/) licensed.
