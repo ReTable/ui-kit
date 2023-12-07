@@ -1,5 +1,14 @@
 # @tabula/ui-json-view
 
+## 0.1.5
+
+### Patch Changes
+
+- [#99](https://github.com/ReTable/ui-kit/pull/99) [`0d804db`](https://github.com/ReTable/ui-kit/commit/0d804db87cb8b0fbfca420623e22f2700f0c8dab) Thanks [@demiazz](https://github.com/demiazz)! - replace `react-use` with `@tabula/use-size`
+
+- Updated dependencies [[`51879db`](https://github.com/ReTable/ui-kit/commit/51879dbf0d61110b113070fa480f731040dbe3ad)]:
+  - @tabula/use-size@0.2.0
+
 ## 0.1.4
 
 ### Patch Changes
