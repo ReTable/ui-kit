@@ -168,6 +168,28 @@ resize({ height: 150.1, width: 450.1 })
 // no render
 ```
 
+## Target
+
+You can get access to the target element through hook.
+
+```tsx
+const [ref, size, target] = useSize();
+
+// target => null
+
+ref(<div id="target-1" />);
+
+// target => <div id="target-1" />
+
+ref(<div id="target-2" />);
+
+// target => <div id="target-2" />
+
+ref(null);
+
+// target => null
+```
+
 ## Inspired By
 
 This package is inspired by:

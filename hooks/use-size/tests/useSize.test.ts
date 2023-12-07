@@ -262,4 +262,28 @@ describe('useSize', () => {
       expect(view.size).toEqual(secondSize);
     });
   });
+
+  describe('target', () => {
+    it('returns the current target', () => {
+      const view = createView();
+
+      expect(view.target).toBeNull();
+
+      const initialElement = createElement(createSize());
+
+      mount([view, initialElement]);
+
+      expect(view.target).toBe(initialElement);
+
+      const nextElement = createElement(createSize());
+
+      mount([view, nextElement]);
+
+      expect(view.target).toBe(nextElement);
+
+      mount([view, null]);
+
+      expect(view.target).toBeNull();
+    });
+  });
 });

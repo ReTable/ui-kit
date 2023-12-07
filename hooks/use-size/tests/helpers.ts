@@ -95,8 +95,9 @@ export function createElement(size: Size): Element {
 
 type View = {
   size: Size;
+  target: Element | null;
 
-  mount: (element: Element | Size) => void;
+  mount: (element: Element | Size | null) => void;
 };
 
 export function createView(initialSize?: Size): View {
@@ -107,8 +108,14 @@ export function createView(initialSize?: Size): View {
       return result.current[1];
     },
 
-    mount(elementOrSize: Element | Size) {
-      if ('getBoundingClientRect' in elementOrSize) {
+    get target() {
+      return result.current[2];
+    },
+
+    mount(elementOrSize: Element | Size | null) {
+      if (elementOrSize == null) {
+        result.current[0](elementOrSize);
+      } else if ('getBoundingClientRect' in elementOrSize) {
         result.current[0](elementOrSize);
       } else {
         result.current[0](createElement(elementOrSize));
@@ -117,7 +124,7 @@ export function createView(initialSize?: Size): View {
   };
 }
 
-export function mount(...targets: Array<[View, Element | Size]>): void {
+export function mount(...targets: Array<[View, Element | Size | null]>): void {
   act(() => {
     for (const [view, elementOrSize] of targets) {
       view.mount(elementOrSize);
