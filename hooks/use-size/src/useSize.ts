@@ -3,7 +3,7 @@ import { RefCallback, useCallback, useLayoutEffect, useState } from 'react';
 import { Listener, observe } from './observe';
 import { Size, updateSizeFromRect } from './size';
 
-type Result<E> = [RefCallback<E>, Size];
+type Result<E> = [RefCallback<E>, Size, E | null];
 
 const defaultSize: Size = {
   width: 0,
@@ -44,5 +44,5 @@ export function useSize<E extends Element = Element>(initialSize: Size = default
     };
   }, [target, handleRect]);
 
-  return [setTarget, size];
+  return [setTarget, size, target];
 }

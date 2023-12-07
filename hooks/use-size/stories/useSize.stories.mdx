@@ -35,7 +35,7 @@ The initial value of size will be `{ height: 0, width: 0 }`.
 const [, size] = useSize();
 
 // size => { height: 0, width: 0 }
-`} languag="tsx" />
+`} language="tsx" />
 
 But you can provide your default value:
 
@@ -43,7 +43,7 @@ But you can provide your default value:
 const [, size] = useSize({ height: 150, width: 450 });
 
 // size => { height: 150, width: 450 }
-`} languag="tsx" />
+`} language="tsx" />
 
 That value is actual while have no any element which mounted and transferred to the hook with `ref`.
 
@@ -59,7 +59,7 @@ const [ref, size] = useSize();
 ref(<div style={{ height: 150, width: 450 }} />);
 
 // size => { height: 150, width: 450 }
-`} languag="tsx" />
+`} language="tsx" />
 
 It works each time when element is updated.
 
@@ -75,7 +75,7 @@ ref(<div key={0} style={{ height: 150, width: 450 }} />);
 ref(<div key={1} style={{ height: 50, width: 150 }} />);
 
 // size => { height: 50, width: 150 }
-`} languag="tsx" />
+`} language="tsx" />
 
 ## Resize
 
@@ -117,7 +117,7 @@ resize({ height: 50, width: 150 });
 
 // size1 => { height: 50, width: 150 }
 // size2 => { height: 50, width: 150 }
-`} languag="tsx" />
+`} language="tsx" />
 
 ## Rounds
 
@@ -135,7 +135,7 @@ ref(<div style={{ height: 150.1, width: 450.9 }} />);
 resize({ height: 50.9, width: 150.1 });
 
 // size => { height: 51, width: 150 }
-`} languag="tsx" />
+`} language="tsx" />
 
 ## Re-renders
 
@@ -160,4 +160,26 @@ resize({ height: 150, width: 450 });
 resize({ height: 150.1, width: 450.1 })
 // size => { height: 150, width: 450 }
 // no render
-`} languag="tsx" />
+`} language="tsx" />
+
+## Target
+
+You can get access to the target element through hook.
+
+<Source code={`
+const [ref, size, target] = useSize();
+
+// target => null
+
+ref(<div id="target-1" />);
+
+// target => <div id="target-1" />
+
+ref(<div id="target-2" />);
+
+// target => <div id="target-2" />
+
+ref(null);
+
+// target => null
+`} language="tsx" />
