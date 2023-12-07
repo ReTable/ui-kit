@@ -1,8 +1,9 @@
 import { ComponentType, useCallback } from 'react';
 
 import { clsx } from 'clsx';
-import { useMeasure } from 'react-use';
 import { ListChildComponentProps, VariableSizeList } from 'react-window';
+
+import { useSize } from '@tabula/use-size';
 
 import { basePadding, itemHeight } from './UiJsonView.css';
 import { list, options, root } from './UiVirtualView.css';
@@ -22,7 +23,7 @@ const lineRenderer: ComponentType<ListChildComponentProps<Line[]>> = ({ index, d
 };
 
 export const UiVirtualView: ViewComponentType = ({ className, lines }) => {
-  const [ref, { height }] = useMeasure<HTMLDivElement>();
+  const [ref, { height }] = useSize();
 
   const itemSize = useCallback(
     (index: number) => {

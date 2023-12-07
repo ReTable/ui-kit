@@ -52,10 +52,10 @@
     "@types/react-window": "^1.8.8"
   },
   "dependencies": {
+    "@tabula/use-size": "workspace:^",
     "@vanilla-extract/dynamic": "^2.1.0",
     "clsx": "^2.0.0",
     "jsonpath": "^1.1.1",
-    "react-use": "^17.4.2",
     "react-window": "^1.8.10"
   }
 }
