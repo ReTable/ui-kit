@@ -7,10 +7,12 @@ const cellSize = '40px';
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'relative',
       display: 'grid',
       gridTemplateColumns: `repeat(7, ${cellSize})`,
       gridAutoRows: cellSize,
       padding: '8px 12px',
+      zIndex: 1,
     },
   },
 });

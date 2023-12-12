@@ -51,6 +51,7 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
+    "@tabula/ui-button": "workspace:^",
     "@tabula/ui-data-type-icon": "workspace:^",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0"
