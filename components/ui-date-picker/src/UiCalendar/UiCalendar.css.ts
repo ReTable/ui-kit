@@ -75,6 +75,21 @@ export const expand = style([
   },
 ]);
 
+export const expandIcon = styleVariants(
+  {
+    isExpanded: -180,
+    isCollapsed: 0,
+  },
+  (rotate) => ({
+    '@layer': {
+      [uiLayers.components]: {
+        transform: `rotateZ(${rotate}deg)`,
+        transition: `transform ${uiTheme.duration.moderate['2']} ${uiTheme.easing.standard.productive}`,
+      },
+    },
+  }),
+);
+
 export const today = style({
   '@layer': {
     [uiLayers.components]: {
@@ -104,6 +119,61 @@ export const siblings = styleVariants(
 
           ...styles,
         },
+      },
+    },
+  ],
+);
+
+export const body = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'relative',
+    },
+  },
+});
+
+const years = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      background: 'lightYellow',
+      zIndex: 1,
+    },
+  },
+});
+
+export const yearsTransitions = styleVariants(
+  {
+    enter: {
+      opacity: '0',
+    },
+    enterActive: {
+      opacity: '1',
+      transition: `opacity ${uiTheme.duration.moderate['2']} ${uiTheme.easing.entrance.productive}`,
+    },
+    enterDone: {
+      opacity: '1',
+    },
+    exit: {
+      opacity: '1',
+    },
+    exitActive: {
+      opacity: '0',
+      transition: `opacity ${uiTheme.duration.moderate['2']} ${uiTheme.easing.exit.productive}`,
+    },
+    exitDone: {
+      opacity: '0',
+    },
+  },
+  (styles) => [
+    years,
+    {
+      '@layer': {
+        [uiLayers.components]: styles,
       },
     },
   ],

@@ -13,6 +13,7 @@ export const root = style({
         '0px 1px 4px 0px rgba(0, 0, 0, 0.12)',
         '0px 1px 2px 0px rgba(0, 0, 0, 0.04)',
       ].join(', '),
+      overflow: 'hidden',
     },
   },
 });
