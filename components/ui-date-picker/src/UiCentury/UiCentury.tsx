@@ -1,12 +1,4 @@
-import {
-  FC,
-  MouseEventHandler,
-  ReactNode,
-  useCallback,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-} from 'react';
+import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -67,8 +59,9 @@ export const UiCentury: FC<Props> = ({ className, shown, onSelect }) => {
     return nodes;
   }, [currentYear, handleClick]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     selectedRef.current?.scrollIntoView({
+      behavior: 'instant',
       block: 'center',
     });
   }, []);
