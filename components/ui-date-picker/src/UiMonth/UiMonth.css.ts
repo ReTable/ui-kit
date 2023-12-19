@@ -11,7 +11,7 @@ export const root = style({
       display: 'grid',
       gridTemplateColumns: `repeat(7, ${cellSize})`,
       gridAutoRows: cellSize,
-      padding: '8px 12px',
+      padding: '12px 12px 8px',
       zIndex: 1,
     },
   },

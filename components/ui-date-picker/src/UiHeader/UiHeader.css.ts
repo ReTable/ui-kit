@@ -9,7 +9,6 @@ export const root = style({
       flexDirection: 'row',
       alignItems: 'center',
       height: '48px',
-      padding: '0 16px',
       borderBottom: `1px solid ${uiTheme.colors.neutralAlpha['7']}`,
     },
   },

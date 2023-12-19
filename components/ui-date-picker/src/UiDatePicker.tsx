@@ -9,12 +9,11 @@ export type Props = {
 };
 
 export function UiDatePicker(): ReactElement {
-  const shown = new Date();
-  const [selected, setSelected] = useState(shown);
+  const [selected, setSelected] = useState(new Date());
 
   return (
     <div className={root}>
-      <UiCalendar selected={selected} shown={shown} onSelect={setSelected} />
+      <UiCalendar selected={selected} onSelect={setSelected} />
     </div>
   );
 }
