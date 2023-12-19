@@ -45,38 +45,35 @@ const baseItem = style([
   },
 ]);
 
-export const item = styleVariants({
-  default: [
-    baseItem,
-    {
-      '@layer': {
-        [uiLayers.components]: {
-          selectors: {
-            '&:focus': {
-              outlineWidth: '0',
-              boxShadow: `inset 0 0 0 2px ${uiTheme.colors.borderControl.focus2}`,
-            },
-          },
+export const item = styleVariants(
+  {
+    default: {
+      selectors: {
+        '&:focus': {
+          outlineWidth: '0',
+          boxShadow: `inset 0 0 0 2px ${uiTheme.colors.borderControl.focus2}`,
         },
       },
     },
-  ],
 
-  selected: [
-    baseItem,
-    {
-      '@layer': {
-        [uiLayers.components]: {
+    selected: {
+      backgroundColor: uiTheme.colors.accent['100'],
+      color: uiTheme.colors.content.contrast,
+
+      selectors: {
+        '&:hover': {
           backgroundColor: uiTheme.colors.accent['100'],
-          color: uiTheme.colors.content.contrast,
-
-          selectors: {
-            '&:hover': {
-              backgroundColor: uiTheme.colors.accent['100'],
-            },
-          },
         },
       },
     },
+  },
+
+  (styles) => [
+    baseItem,
+    {
+      '@layer': {
+        [uiLayers.components]: styles,
+      },
+    },
   ],
-});
+);
