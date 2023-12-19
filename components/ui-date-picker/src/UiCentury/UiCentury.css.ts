@@ -2,8 +2,6 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
-import { button } from '../shared.css';
-
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
@@ -31,43 +29,6 @@ export const list = style({
       overflow: 'scroll',
       height: '100%',
       width: '100%',
-    },
-  },
-});
-
-export const item = style([
-  button,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        height: '40px',
-        borderWidth: '0',
-        background: 'transparent',
-
-        selectors: {
-          '&:focus': {
-            outlineStyle: 'inset',
-          },
-        },
-      },
-    },
-  },
-]);
-
-export const selected = style({
-  '@layer': {
-    [uiLayers.components]: {
-      cursor: 'default',
-
-      selectors: {
-        '&, &:hover': {
-          color: uiTheme.colors.content.contrast,
-        },
-
-        '&::before, &:hover::before': {
-          backgroundColor: uiTheme.colors.accent['100'],
-        },
-      },
     },
   },
 });

@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
@@ -32,4 +32,51 @@ export const button = style({
       },
     },
   },
+});
+
+const baseItem = style([
+  button,
+  {
+    '@layer': {
+      [uiLayers.components]: {
+        height: '40px',
+      },
+    },
+  },
+]);
+
+export const item = styleVariants({
+  default: [
+    baseItem,
+    {
+      '@layer': {
+        [uiLayers.components]: {
+          selectors: {
+            '&:focus': {
+              outlineWidth: '0',
+              boxShadow: `inset 0 0 0 2px ${uiTheme.colors.borderControl.focus2}`,
+            },
+          },
+        },
+      },
+    },
+  ],
+
+  selected: [
+    baseItem,
+    {
+      '@layer': {
+        [uiLayers.components]: {
+          backgroundColor: uiTheme.colors.accent['100'],
+          color: uiTheme.colors.content.contrast,
+
+          selectors: {
+            '&:hover': {
+              backgroundColor: uiTheme.colors.accent['100'],
+            },
+          },
+        },
+      },
+    },
+  ],
 });

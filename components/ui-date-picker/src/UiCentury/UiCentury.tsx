@@ -10,7 +10,8 @@ import {
 
 import clsx from 'clsx';
 
-import { item, root, selected } from './UiCentury.css';
+import { item } from '../shared.css';
+import { root } from './UiCentury.css';
 
 export type Props = {
   className?: string;
@@ -50,7 +51,7 @@ export const UiCentury: FC<Props> = ({ className, shown, onSelect }) => {
 
       nodes.push(
         <button
-          className={clsx(item, isSelected && selected)}
+          className={isSelected ? item.selected : item.default}
           data-value={year}
           disabled={isSelected}
           key={year}
