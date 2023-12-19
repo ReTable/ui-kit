@@ -195,10 +195,16 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-transition-group:
+        specifier: ^4.4.5
+        version: 4.4.5(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@tabula/ui-theme':
         specifier: workspace:^
         version: link:../ui-theme
+      '@types/react-transition-group':
+        specifier: ^4.4.10
+        version: 4.4.10
 
   components/ui-icon:
     dependencies:
