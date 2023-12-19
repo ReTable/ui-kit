@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { UiDatePicker } from '~';
 
@@ -7,4 +7,14 @@ export default {
   title: 'ui-date-picker',
 };
 
-export const Default: FC = () => <UiDatePicker />;
+export const Default: FC = () => {
+  const [selected, setSelected] = useState<Date | null>(null);
+
+  return (
+    <>
+      <p>{selected?.toLocaleString()}</p>
+
+      <UiDatePicker selected={selected ?? undefined} onSelect={setSelected} />
+    </>
+  );
+};
