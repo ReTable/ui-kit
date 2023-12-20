@@ -1,7 +1,7 @@
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { primaryShadow } from './const.css';
-import { buildVariants } from './variants.css';
+import { primaryShadow } from '../const.css';
+import { buildVariants } from '../variants.css';
 
 const rootStyle = {
   gap: '8px',
