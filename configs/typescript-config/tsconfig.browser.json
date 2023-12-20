@@ -7,8 +7,8 @@
 
   "compilerOptions": {
     /* Language and Environment */
-    "target": "ES2021",
-    "lib": ["DOM", "DOM.Iterable", "ES2021"],
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "jsx": "react-jsx",
 
     "moduleResolution": "Bundler"
