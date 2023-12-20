@@ -55,7 +55,7 @@
     "@tabula/ui-button": "workspace:^",
     "@tabula/ui-data-type-icon": "workspace:^",
     "clsx": "^2.0.0",
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.0.1",
     "react-transition-group": "^4.4.5"
   }
 }
