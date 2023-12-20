@@ -6,11 +6,11 @@ import { CSSTransition } from 'react-transition-group';
 
 import { UiButton24 } from '@tabula/ui-button';
 
-import { body, header, root, slots, title, yearsTransitions } from './UiCalendar.css';
+import { body, header, root, slots, title, years, yearsTransitions } from './UiCalendar.css';
 
-import { UiCentury } from '../UiCentury';
 import { UiExpand } from '../UiExpand';
 import { UiHeader } from '../UiHeader';
+import { UiList } from '../UiList';
 import { UiMonth } from '../UiMonth';
 import { UiNavigate } from '../UiNavigate';
 import { useDaysOfMonth } from '../hooks';
@@ -87,7 +87,13 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
           mountOnEnter
           unmountOnExit
         >
-          <UiCentury onSelect={handleSelectYear} shown={shown} />
+          <UiList
+            className={years}
+            from={1900}
+            to={2100}
+            onSelect={handleSelectYear}
+            selected={shown.getFullYear()}
+          />
         </CSSTransition>
       </div>
     </div>

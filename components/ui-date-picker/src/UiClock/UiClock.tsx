@@ -3,10 +3,10 @@ import { FC, useCallback } from 'react';
 import clsx from 'clsx';
 import { format, set } from 'date-fns';
 
-import { body, cylinder, header, root, title } from './UiClock.css';
+import { body, header, list, root, title } from './UiClock.css';
 
-import { UiCylinder } from '../UiCylinder';
 import { UiHeader } from '../UiHeader';
+import { UiList } from '../UiList';
 
 export type Props = {
   className?: string;
@@ -15,6 +15,10 @@ export type Props = {
 
   onSelect: (date: Date) => void;
 };
+
+function labelOf(value: number) {
+  return value.toString().padStart(2, '0');
+}
 
 export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
   const hours = selected?.getHours();
@@ -54,26 +58,29 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
         {selected != null && <span className={title}>{format(selected, 'HH:mm:ss')}</span>}
       </UiHeader>
       <div className={body}>
-        <UiCylinder
-          className={cylinder}
+        <UiList
+          className={list}
           from={0}
+          labelOf={labelOf}
           onSelect={handleSelectHours}
           selected={hours}
-          to={23}
+          to={24}
         />
-        <UiCylinder
-          className={cylinder}
+        <UiList
+          className={list}
           from={0}
+          labelOf={labelOf}
           onSelect={handleSelectMinutes}
           selected={minutes}
-          to={59}
+          to={60}
         />
-        <UiCylinder
-          className={cylinder}
+        <UiList
+          className={list}
           from={0}
+          labelOf={labelOf}
           onSelect={handleSelectSeconds}
           selected={seconds}
-          to={59}
+          to={60}
         />
       </div>
     </div>

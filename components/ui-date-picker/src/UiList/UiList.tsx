@@ -1,23 +1,34 @@
-import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useMemo, useRef } from 'react';
+import {
+  FC,
+  MouseEventHandler,
+  PropsWithChildren,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+} from 'react';
 
 import clsx from 'clsx';
 
-import { root } from './UiCylinder.css';
+import { item, root } from './UiList.css';
 
-import { UiItem } from '../UiItem';
+import { UiButton } from '../UiButton';
 
-export type Props = {
+export type Props = PropsWithChildren<{
   className?: string;
 
-  selected?: number;
+  labelOf?: (value: number) => string;
 
   from: number;
   to: number;
 
-  onSelect: (value: number) => void;
-};
+  selected?: number;
 
-export const UiCylinder: FC<Props> = ({ className, from, selected, to, onSelect }) => {
+  onSelect: (value: number) => void;
+}>;
+
+export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected, to }) => {
   const selectedRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = useCallback<MouseEventHandler>(
@@ -40,24 +51,25 @@ export const UiCylinder: FC<Props> = ({ className, from, selected, to, onSelect 
   const items = useMemo(() => {
     const nodes: ReactNode[] = [];
 
-    for (let value = from; value <= to; value += 1) {
+    for (let value = from; value < to; value += 1) {
       const isSelected = value === selected;
 
       nodes.push(
-        <UiItem
-          isSelected={isSelected}
-          key={value}
+        <UiButton
+          className={clsx(isSelected ? item.selected : item.default)}
+          data-value={value}
+          disabled={isSelected}
           onClick={handleClick}
+          key={value}
           ref={isSelected ? selectedRef : null}
-          value={value}
         >
-          {value.toString().padStart(2, '0')}
-        </UiItem>,
+          {labelOf == null ? value : labelOf(value)}
+        </UiButton>,
       );
     }
 
     return nodes;
-  }, [from, to, selected, handleClick]);
+  }, [from, to, selected, handleClick, labelOf]);
 
   useEffect(() => {
     selectedRef.current?.scrollIntoView({

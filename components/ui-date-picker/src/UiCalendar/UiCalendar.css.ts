@@ -69,7 +69,7 @@ export const body = style({
   },
 });
 
-const years = style({
+export const years = style({
   '@layer': {
     [uiLayers.components]: {
       position: 'absolute',
@@ -77,6 +77,8 @@ const years = style({
       left: '0',
       width: '100%',
       height: '100%',
+      gridTemplateColumns: '1fr 1fr 1fr 1fr',
+      background: uiTheme.colors.background.primaryContent,
       zIndex: 1,
     },
   },

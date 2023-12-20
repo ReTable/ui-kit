@@ -1,8 +1,24 @@
-import { styleVariants } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
-export const root = styleVariants(
+export const root = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'grid',
+      gridTemplateRows: 'auto',
+      overflow: 'scroll',
+
+      selectors: {
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
+      },
+    },
+  },
+});
+
+export const item = styleVariants(
   {
     default: {
       selectors: {

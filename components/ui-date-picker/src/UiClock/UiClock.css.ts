@@ -45,10 +45,12 @@ export const body = style({
   },
 });
 
-export const cylinder = style({
+export const list = style({
   '@layer': {
     [uiLayers.components]: {
+      gridTemplateColumns: '1fr',
       flex: '1 1 auto',
+      height: '100%',
     },
   },
 });

@@ -5,7 +5,6 @@ import { set } from 'date-fns';
 
 import { calendar, clock, root } from './UiDatePicker.css';
 
-import './UiButton';
 import { UiCalendar } from './UiCalendar';
 import { UiClock } from './UiClock';
 import { Type } from './types';
