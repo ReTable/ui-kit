@@ -13,10 +13,21 @@ import { Type } from './UiDatePicker.types';
 export type Props = {
   className?: string;
 
+  /**
+   * The current selected date.
+   */
   selected?: Date;
 
+  /**
+   * Handler which called when a new date was selected.
+   *
+   * @param date A new date.
+   */
   onSelect: (date: Date) => void;
 
+  /**
+   * Type of widget.
+   */
   type: Type;
 };
 
