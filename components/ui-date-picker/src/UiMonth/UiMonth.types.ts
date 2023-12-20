@@ -4,5 +4,3 @@ export type DayOfMonth = {
   isOutOfMonth: boolean;
   isSelected: boolean;
 };
-
-export type Type = 'date' | 'time' | 'datetime';

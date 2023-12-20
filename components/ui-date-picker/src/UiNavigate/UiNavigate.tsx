@@ -26,3 +26,5 @@ export const UiNavigate: FC<Props> = ({ className, onPrevious, onNext }) => (
     </UiButton>
   </div>
 );
+
+UiNavigate.displayName = `ui-date-picker(UiNavigate)`;

@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 
 import { dayOfMonth, dayOfWeek, outOfMonth, root, selected } from './UiMonth.css';
 
-import { DayOfMonth } from '../types';
+import { DayOfMonth } from './UiMonth.types';
 
 export type Props = {
   className?: string;
@@ -69,3 +69,5 @@ export const UiMonth: FC<Props> = ({ className, days, onSelect }) => {
 
   return <div className={clsx(root, className)}>{items}</div>;
 };
+
+UiMonth.displayName = `ui-date-picker(UiMonth)`;

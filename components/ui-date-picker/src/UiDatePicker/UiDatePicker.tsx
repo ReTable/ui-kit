@@ -5,9 +5,10 @@ import { set } from 'date-fns';
 
 import { calendar, clock, root } from './UiDatePicker.css';
 
-import { UiCalendar } from './UiCalendar';
-import { UiClock } from './UiClock';
-import { Type } from './types';
+import { UiCalendar } from '../UiCalendar';
+import { UiClock } from '../UiClock';
+
+import { Type } from './UiDatePicker.types';
 
 export type Props = {
   className?: string;
@@ -77,3 +78,5 @@ export const UiDatePicker: FC<Props> = ({ className, selected, onSelect, type })
     }
   }
 };
+
+UiDatePicker.displayName = `ui-date-picker(UiDatePicker)`;

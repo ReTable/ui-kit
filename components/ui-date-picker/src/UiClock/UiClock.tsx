@@ -86,3 +86,5 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
     </div>
   );
 };
+
+UiClock.displayName = `ui-date-picker(UiClock)`;

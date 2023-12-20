@@ -13,7 +13,8 @@ import { UiHeader } from '../UiHeader';
 import { UiList } from '../UiList';
 import { UiMonth } from '../UiMonth';
 import { UiNavigate } from '../UiNavigate';
-import { useDaysOfMonth } from '../hooks';
+
+import { useDaysOfMonth } from './UiCalendar.hooks';
 
 type Props = {
   className?: string;
@@ -99,3 +100,5 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
     </div>
   );
 };
+
+UiCalendar.displayName = `ui-date-picker(UiCalendar)`;

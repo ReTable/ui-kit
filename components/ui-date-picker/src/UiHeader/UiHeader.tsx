@@ -11,3 +11,5 @@ type Props = PropsWithChildren<{
 export const UiHeader: FC<Props> = ({ className, children }) => (
   <div className={clsx(root, className)}>{children}</div>
 );
+
+UiHeader.displayName = `ui-date-picker(UiHeader)`;

@@ -17,3 +17,5 @@ export const UiExpand: FC<Props> = ({ isExpanded, onClick }) => (
     <ChevronDown className={isExpanded ? icon.isExpanded : icon.isCollapsed} />
   </UiButton>
 );
+
+UiExpand.displayName = `ui-date-picker(UiExpand)`;

@@ -16,3 +16,5 @@ export const UiButton = forwardRef<HTMLButtonElement, Props>(function UiButton(
     </button>
   );
 });
+
+UiButton.displayName = `ui-date-picker(UiButton)`;

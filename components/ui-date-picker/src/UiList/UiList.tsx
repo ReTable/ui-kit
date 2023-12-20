@@ -80,3 +80,5 @@ export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected
 
   return <div className={clsx(root, className)}>{items}</div>;
 };
+
+UiList.displayName = `ui-date-picker(UiList)`;
