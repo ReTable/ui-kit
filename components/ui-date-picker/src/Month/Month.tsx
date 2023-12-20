@@ -3,9 +3,9 @@ import { FC, MouseEventHandler, ReactNode, useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 
-import * as styles from './UiMonth.css';
+import * as styles from './Month.css';
 
-import { DayOfMonth } from './UiMonth.types';
+import { DayOfMonth } from './Month.types';
 
 export type Props = {
   className?: string;
@@ -15,7 +15,7 @@ export type Props = {
   onSelect: (date: Date) => void;
 };
 
-export const UiMonth: FC<Props> = ({ className, days, onSelect }) => {
+export const Month: FC<Props> = ({ className, days, onSelect }) => {
   const handleClick = useCallback<MouseEventHandler>(
     ({ currentTarget }) => {
       if (!(currentTarget instanceof HTMLElement)) {
@@ -73,5 +73,3 @@ export const UiMonth: FC<Props> = ({ className, days, onSelect }) => {
 
   return <div className={clsx(styles.root, className)}>{items}</div>;
 };
-
-UiMonth.displayName = `ui-date-picker(UiMonth)`;

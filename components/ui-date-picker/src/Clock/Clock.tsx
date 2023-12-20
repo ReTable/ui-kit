@@ -3,10 +3,10 @@ import { FC, useCallback } from 'react';
 import clsx from 'clsx';
 import { format, set } from 'date-fns';
 
-import * as styles from './UiClock.css';
+import * as styles from './Clock.css';
 
-import { UiHeader } from '../UiHeader';
-import { UiList } from '../UiList';
+import { Header } from '../Header';
+import { List } from '../List';
 
 export type Props = {
   className?: string;
@@ -20,7 +20,7 @@ function labelOf(value: number) {
   return value.toString().padStart(2, '0');
 }
 
-export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
+export const Clock: FC<Props> = ({ className, onSelect, selected }) => {
   const hours = selected?.getHours();
   const minutes = selected?.getMinutes();
   const seconds = selected?.getSeconds();
@@ -54,11 +54,11 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
 
   return (
     <div className={clsx(styles.root, className)}>
-      <UiHeader className={styles.header}>
+      <Header className={styles.header}>
         {selected != null && <span className={styles.title}>{format(selected, 'HH:mm:ss')}</span>}
-      </UiHeader>
+      </Header>
       <div className={styles.body}>
-        <UiList
+        <List
           className={styles.list}
           from={0}
           labelOf={labelOf}
@@ -66,7 +66,7 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
           selected={hours}
           to={24}
         />
-        <UiList
+        <List
           className={styles.list}
           from={0}
           labelOf={labelOf}
@@ -74,7 +74,7 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
           selected={minutes}
           to={60}
         />
-        <UiList
+        <List
           className={styles.list}
           from={0}
           labelOf={labelOf}
@@ -86,5 +86,3 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
     </div>
   );
 };
-
-UiClock.displayName = `ui-date-picker(UiClock)`;

@@ -5,9 +5,9 @@ import clsx from 'clsx';
 import { ReactComponent as ChevronLeft } from './assets/chevronLeft.svg';
 import { ReactComponent as ChevronRight } from './assets/chevronRight.svg';
 
-import * as styles from './UiNavigate.css';
+import * as styles from './Navigate.css';
 
-import { UiButton } from '../UiButton';
+import { Button } from '../Button';
 
 export type Props = {
   className?: string;
@@ -16,15 +16,13 @@ export type Props = {
   onNext: MouseEventHandler<HTMLButtonElement>;
 };
 
-export const UiNavigate: FC<Props> = ({ className, onPrevious, onNext }) => (
+export const Navigate: FC<Props> = ({ className, onPrevious, onNext }) => (
   <div className={clsx(styles.root, className)}>
-    <UiButton className={styles.variants.previous} onClick={onPrevious}>
+    <Button className={styles.variants.previous} onClick={onPrevious}>
       <ChevronLeft />
-    </UiButton>
-    <UiButton className={styles.variants.next} onClick={onNext}>
+    </Button>
+    <Button className={styles.variants.next} onClick={onNext}>
       <ChevronRight />
-    </UiButton>
+    </Button>
   </div>
 );
-
-UiNavigate.displayName = `ui-date-picker(UiNavigate)`;

@@ -6,15 +6,15 @@ import { CSSTransition } from 'react-transition-group';
 
 import { UiButton24 } from '@tabula/ui-button';
 
-import * as styles from './UiCalendar.css';
+import * as styles from './Calendar.css';
 
-import { UiExpand } from '../UiExpand';
-import { UiHeader } from '../UiHeader';
-import { UiList } from '../UiList';
-import { UiMonth } from '../UiMonth';
-import { UiNavigate } from '../UiNavigate';
+import { Expand } from '../Expand';
+import { Header } from '../Header';
+import { List } from '../List';
+import { Month } from '../Month';
+import { Navigate } from '../Navigate';
 
-import { useDaysOfMonth } from './UiCalendar.hooks';
+import { useDaysOfMonth } from './Calendar.hooks';
 
 type Props = {
   className?: string;
@@ -24,7 +24,7 @@ type Props = {
   onSelect: (date: Date) => void;
 };
 
-export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
+export const Calendar: FC<Props> = ({ className, selected, onSelect }) => {
   const [shown, setShown] = useState(selected ?? new Date());
 
   const [isYearsVisible, setIsYearsVisible] = useState(false);
@@ -63,11 +63,11 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
 
   return (
     <div className={clsx(styles.root, className)}>
-      <UiHeader className={styles.header}>
+      <Header className={styles.header}>
         <div className={styles.slots.left}>
           <span className={styles.title}>{format(shown, 'MMMM yyyy')}</span>
 
-          <UiExpand isExpanded={isYearsVisible} onClick={handleToggleYears} />
+          <Expand isExpanded={isYearsVisible} onClick={handleToggleYears} />
         </div>
 
         <div className={styles.slots.right}>
@@ -75,11 +75,11 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
             Today
           </UiButton24>
 
-          <UiNavigate onPrevious={handlePreviousMonth} onNext={handleNextMonth} />
+          <Navigate onPrevious={handlePreviousMonth} onNext={handleNextMonth} />
         </div>
-      </UiHeader>
+      </Header>
       <div className={styles.body}>
-        <UiMonth days={days} onSelect={onSelect} />
+        <Month days={days} onSelect={onSelect} />
 
         <CSSTransition
           addEndListener={handleEndListener}
@@ -88,7 +88,7 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
           mountOnEnter
           unmountOnExit
         >
-          <UiList
+          <List
             className={styles.years}
             from={1900}
             to={2100}
@@ -100,5 +100,3 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
     </div>
   );
 };
-
-UiCalendar.displayName = `ui-date-picker(UiCalendar)`;

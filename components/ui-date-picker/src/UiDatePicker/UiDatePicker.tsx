@@ -5,8 +5,8 @@ import { set } from 'date-fns';
 
 import * as styles from './UiDatePicker.css';
 
-import { UiCalendar } from '../UiCalendar';
-import { UiClock } from '../UiClock';
+import { Calendar } from '../Calendar';
+import { Clock } from '../Clock';
 
 import { Type } from './UiDatePicker.types';
 
@@ -68,26 +68,24 @@ export const UiDatePicker: FC<Props> = ({ className, selected, onSelect, type })
     case 'date': {
       return (
         <div className={clsx(styles.root.date, className)}>
-          <UiCalendar className={styles.calendar} selected={selected} onSelect={handleSelectDate} />
+          <Calendar className={styles.calendar} selected={selected} onSelect={handleSelectDate} />
         </div>
       );
     }
     case 'time': {
       return (
         <div className={clsx(styles.root.time, className)}>
-          <UiClock className={styles.clock} selected={selected} onSelect={handleSelectTime} />
+          <Clock className={styles.clock} selected={selected} onSelect={handleSelectTime} />
         </div>
       );
     }
     case 'datetime': {
       return (
         <div className={clsx(styles.root.datetime, className)}>
-          <UiCalendar className={styles.calendar} selected={selected} onSelect={handleSelectDate} />
-          <UiClock className={styles.clock} selected={selected} onSelect={handleSelectTime} />
+          <Calendar className={styles.calendar} selected={selected} onSelect={handleSelectDate} />
+          <Clock className={styles.clock} selected={selected} onSelect={handleSelectTime} />
         </div>
       );
     }
   }
 };
-
-UiDatePicker.displayName = `ui-date-picker(UiDatePicker)`;

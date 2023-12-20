@@ -2,9 +2,9 @@ import { FC, MouseEventHandler } from 'react';
 
 import { ReactComponent as ChevronDown } from './assets/chevronDown.svg';
 
-import * as styles from './UiExpand.css';
+import * as styles from './Expand.css';
 
-import { UiButton } from '../UiButton';
+import { Button } from '../Button';
 
 export type Props = {
   isExpanded: boolean;
@@ -12,10 +12,8 @@ export type Props = {
   onClick: MouseEventHandler<HTMLButtonElement>;
 };
 
-export const UiExpand: FC<Props> = ({ isExpanded, onClick }) => (
-  <UiButton className={styles.root} onClick={onClick}>
+export const Expand: FC<Props> = ({ isExpanded, onClick }) => (
+  <Button className={styles.root} onClick={onClick}>
     <ChevronDown className={isExpanded ? styles.icon.isExpanded : styles.icon.isCollapsed} />
-  </UiButton>
+  </Button>
 );
-
-UiExpand.displayName = `ui-date-picker(UiExpand)`;

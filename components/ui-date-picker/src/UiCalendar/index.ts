@@ -1,1 +1,0 @@
-export { UiCalendar } from './UiCalendar';

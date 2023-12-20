@@ -11,9 +11,9 @@ import {
 
 import clsx from 'clsx';
 
-import * as styles from './UiList.css';
+import * as styles from './List.css';
 
-import { UiButton } from '../UiButton';
+import { Button } from '../Button';
 
 export type Props = PropsWithChildren<{
   className?: string;
@@ -28,7 +28,7 @@ export type Props = PropsWithChildren<{
   onSelect: (value: number) => void;
 }>;
 
-export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected, to }) => {
+export const List: FC<Props> = ({ className, from, labelOf, onSelect, selected, to }) => {
   const selectedRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = useCallback<MouseEventHandler>(
@@ -55,7 +55,7 @@ export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected
       const isSelected = value === selected;
 
       nodes.push(
-        <UiButton
+        <Button
           className={clsx(isSelected ? styles.item.selected : styles.item.default)}
           data-value={value}
           disabled={isSelected}
@@ -64,7 +64,7 @@ export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected
           ref={isSelected ? selectedRef : null}
         >
           {labelOf == null ? value : labelOf(value)}
-        </UiButton>,
+        </Button>,
       );
     }
 
@@ -80,5 +80,3 @@ export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected
 
   return <div className={clsx(styles.root, className)}>{items}</div>;
 };
-
-UiList.displayName = `ui-date-picker(UiList)`;
