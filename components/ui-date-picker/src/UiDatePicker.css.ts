@@ -1,8 +1,10 @@
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
-export const root = style({
+const clockWidth = 220;
+
+const base = style({
   '@layer': {
     [uiLayers.components]: {
       width: 'fit-content',
@@ -14,6 +16,51 @@ export const root = style({
         '0px 1px 2px 0px rgba(0, 0, 0, 0.04)',
       ].join(', '),
       overflow: 'hidden',
+    },
+  },
+});
+
+export const root = styleVariants({
+  date: [base],
+  time: [base],
+  datetime: [
+    base,
+    {
+      '@layer': {
+        [uiLayers.components]: {
+          position: 'relative',
+          paddingRight: `${clockWidth}px`,
+        },
+      },
+    },
+  ],
+});
+
+export const calendar = style({
+  '@layer': {
+    [uiLayers.components]: {
+      selectors: {
+        [`${root.datetime} &`]: {
+          borderRight: `1px solid ${uiTheme.colors.neutralAlpha['7']}`,
+        },
+      },
+    },
+  },
+});
+
+export const clock = style({
+  '@layer': {
+    [uiLayers.components]: {
+      width: `${clockWidth}px`,
+
+      selectors: {
+        [`${root.datetime} &`]: {
+          position: 'absolute',
+          top: '0',
+          right: '0',
+          height: '100%',
+        },
+      },
     },
   },
 });

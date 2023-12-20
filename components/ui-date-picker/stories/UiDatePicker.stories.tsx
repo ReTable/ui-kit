@@ -14,7 +14,7 @@ export const Default: FC = () => {
     <>
       <p>{selected?.toLocaleString()}</p>
 
-      <UiDatePicker selected={selected ?? undefined} onSelect={setSelected} />
+      <UiDatePicker selected={selected ?? undefined} onSelect={setSelected} type="datetime" />
     </>
   );
 };
