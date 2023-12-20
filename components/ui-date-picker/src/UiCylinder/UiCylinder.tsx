@@ -52,7 +52,7 @@ export const UiCylinder: FC<Props> = ({ className, from, selected, to, onSelect 
           ref={isSelected ? selectedRef : null}
           type="button"
         >
-          {value}
+          {value.toString().padStart(2, '0')}
         </button>,
       );
     }
