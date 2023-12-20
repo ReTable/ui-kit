@@ -6,26 +6,13 @@ import { CSSTransition } from 'react-transition-group';
 
 import { UiButton24 } from '@tabula/ui-button';
 
-import { ReactComponent as ChevronDown } from './assets/chevronDown.svg';
-import { ReactComponent as ChevronLeft } from './assets/chevronLeft.svg';
-import { ReactComponent as ChevronRight } from './assets/chevronRight.svg';
-
-import {
-  body,
-  expand,
-  expandIcon,
-  header,
-  root,
-  siblings,
-  slots,
-  title,
-  today,
-  yearsTransitions,
-} from './UiCalendar.css';
+import { body, header, root, slots, title, yearsTransitions } from './UiCalendar.css';
 
 import { UiCentury } from '../UiCentury';
+import { UiExpand } from '../UiExpand';
 import { UiHeader } from '../UiHeader';
 import { UiMonth } from '../UiMonth';
+import { UiNavigate } from '../UiNavigate';
 import { useDaysOfMonth } from '../hooks';
 
 type Props = {
@@ -79,24 +66,15 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
         <div className={slots.left}>
           <span className={title}>{format(shown, 'MMMM yyyy')}</span>
 
-          <button className={expand} onClick={handleToggleYears} type="button">
-            <ChevronDown
-              className={isYearsVisible ? expandIcon.isExpanded : expandIcon.isCollapsed}
-            />
-          </button>
+          <UiExpand isExpanded={isYearsVisible} onClick={handleToggleYears} />
         </div>
 
         <div className={slots.right}>
-          <UiButton24 className={today} variant="cancelFilled" onClick={handleToday}>
+          <UiButton24 variant="cancelFilled" onClick={handleToday}>
             Today
           </UiButton24>
 
-          <button className={siblings.previous} onClick={handlePreviousMonth} type="button">
-            <ChevronLeft />
-          </button>
-          <button className={siblings.next} onClick={handleNextMonth} type="button">
-            <ChevronRight />
-          </button>
+          <UiNavigate onPrevious={handlePreviousMonth} onNext={handleNextMonth} />
         </div>
       </UiHeader>
       <div className={body}>

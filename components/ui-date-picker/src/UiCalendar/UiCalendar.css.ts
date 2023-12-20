@@ -2,8 +2,6 @@ import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
 
-import { button } from '../shared.css';
-
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
@@ -39,6 +37,7 @@ export const slots = styleVariants(
     },
     right: {
       justifyContent: 'flex-end',
+      gap: '4px',
     },
   },
   (styles) => [
@@ -62,68 +61,6 @@ export const title = style([
   },
 ]);
 
-export const expand = style([
-  button,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        width: '24px',
-        height: '24px',
-        borderRadius: '12px',
-      },
-    },
-  },
-]);
-
-export const expandIcon = styleVariants(
-  {
-    isExpanded: -180,
-    isCollapsed: 0,
-  },
-  (rotate) => ({
-    '@layer': {
-      [uiLayers.components]: {
-        transform: `rotateZ(${rotate}deg)`,
-        transition: `transform ${uiTheme.duration.moderate['2']} ${uiTheme.easing.standard.productive}`,
-      },
-    },
-  }),
-);
-
-export const today = style({
-  '@layer': {
-    [uiLayers.components]: {
-      marginRight: '4px',
-    },
-  },
-});
-
-export const siblings = styleVariants(
-  {
-    previous: {
-      borderTopLeftRadius: '12px',
-      borderBottomLeftRadius: '12px',
-    },
-    next: {
-      borderTopRightRadius: '12px',
-      borderBottomRightRadius: '12px',
-    },
-  },
-  (styles) => [
-    button,
-    {
-      '@layer': {
-        [uiLayers.components]: {
-          width: '24px',
-          height: '24px',
-
-          ...styles,
-        },
-      },
-    },
-  ],
-);
-
 export const body = style({
   '@layer': {
     [uiLayers.components]: {
@@ -140,7 +77,6 @@ const years = style({
       left: '0',
       width: '100%',
       height: '100%',
-      background: 'lightYellow',
       zIndex: 1,
     },
   },
