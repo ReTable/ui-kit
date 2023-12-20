@@ -19,7 +19,7 @@ import { useDaysOfMonth } from './UiCalendar.hooks';
 type Props = {
   className?: string;
 
-  selected?: Date;
+  selected?: Date | null;
 
   onSelect: (date: Date) => void;
 };

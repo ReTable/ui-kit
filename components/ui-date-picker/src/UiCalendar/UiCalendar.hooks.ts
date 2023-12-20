@@ -16,7 +16,7 @@ const WEEK_OPTIONS = {
   weekStartsOn: 1,
 } as const;
 
-export function useDaysOfMonth(shown: Date, selected?: Date): DayOfMonth[] {
+export function useDaysOfMonth(shown: Date, selected?: Date | null): DayOfMonth[] {
   const days = useMemo(() => {
     const monthStart = startOfMonth(shown);
     const monthEnd = endOfMonth(monthStart);

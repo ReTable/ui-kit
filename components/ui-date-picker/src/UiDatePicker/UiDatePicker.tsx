@@ -16,7 +16,7 @@ export type Props = {
   /**
    * The current selected date.
    */
-  selected?: Date;
+  selected?: Date | null;
 
   /**
    * Handler which called when a new date was selected.

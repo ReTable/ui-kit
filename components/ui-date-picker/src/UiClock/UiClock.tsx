@@ -11,7 +11,7 @@ import { UiList } from '../UiList';
 export type Props = {
   className?: string;
 
-  selected?: Date;
+  selected?: Date | null;
 
   onSelect: (date: Date) => void;
 };

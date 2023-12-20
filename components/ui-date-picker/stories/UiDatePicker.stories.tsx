@@ -46,7 +46,7 @@ const Template: FC<Props> = ({ type }) => {
           Force update
         </button>
       </p>
-      <UiDatePicker key={id} onSelect={setSelected} selected={selected ?? undefined} type={type} />
+      <UiDatePicker key={id} onSelect={setSelected} selected={selected} type={type} />
     </>
   );
 };
