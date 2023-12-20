@@ -1,5 +1,6 @@
-// region Json
 import { ComponentType } from 'react';
+
+// region Json
 
 export type JsonPrimitiveValue = boolean | null | number | string;
 

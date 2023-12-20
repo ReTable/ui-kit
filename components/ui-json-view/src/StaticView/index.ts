@@ -1,0 +1,1 @@
+export { StaticView } from './StaticView';
