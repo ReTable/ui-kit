@@ -7,6 +7,7 @@ import { calendar, clock, root } from './UiDatePicker.css';
 
 import { UiCalendar } from './UiCalendar';
 import { UiClock } from './UiClock';
+import { Type } from './types';
 
 export type Props = {
   className?: string;
@@ -15,7 +16,7 @@ export type Props = {
 
   onSelect: (date: Date) => void;
 
-  type: 'date' | 'time' | 'datetime';
+  type: Type;
 };
 
 export const UiDatePicker: FC<Props> = ({ className, selected, onSelect, type }) => {
