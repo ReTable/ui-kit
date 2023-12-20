@@ -1,5 +1,11 @@
 # @tabula/typescript-config
 
+## 0.2.1
+
+### Patch Changes
+
+- [#102](https://github.com/ReTable/ui-kit/pull/102) [`4704a99`](https://github.com/ReTable/ui-kit/commit/4704a999629b5f1da41f5a5961cf32811e978ae3) Thanks [@demiazz](https://github.com/demiazz)! - use `ESNext` target for browser
+
 ## 0.2.0
 
 ### Minor Changes
