@@ -3,7 +3,7 @@ import { FC, useCallback } from 'react';
 import clsx from 'clsx';
 import { set } from 'date-fns';
 
-import { calendar, clock, root } from './UiDatePicker.css';
+import * as styles from './UiDatePicker.css';
 
 import { UiCalendar } from '../UiCalendar';
 import { UiClock } from '../UiClock';
@@ -56,23 +56,23 @@ export const UiDatePicker: FC<Props> = ({ className, selected, onSelect, type })
   switch (type) {
     case 'date': {
       return (
-        <div className={clsx(root.date, className)}>
-          <UiCalendar className={calendar} selected={selected} onSelect={handleSelectDate} />
+        <div className={clsx(styles.root.date, className)}>
+          <UiCalendar className={styles.calendar} selected={selected} onSelect={handleSelectDate} />
         </div>
       );
     }
     case 'time': {
       return (
-        <div className={clsx(root.time, className)}>
-          <UiClock className={clock} selected={selected} onSelect={handleSelectTime} />
+        <div className={clsx(styles.root.time, className)}>
+          <UiClock className={styles.clock} selected={selected} onSelect={handleSelectTime} />
         </div>
       );
     }
     case 'datetime': {
       return (
-        <div className={clsx(root.datetime, className)}>
-          <UiCalendar className={calendar} selected={selected} onSelect={handleSelectDate} />
-          <UiClock className={clock} selected={selected} onSelect={handleSelectTime} />
+        <div className={clsx(styles.root.datetime, className)}>
+          <UiCalendar className={styles.calendar} selected={selected} onSelect={handleSelectDate} />
+          <UiClock className={styles.clock} selected={selected} onSelect={handleSelectTime} />
         </div>
       );
     }

@@ -6,7 +6,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import { UiButton24 } from '@tabula/ui-button';
 
-import { body, header, root, slots, title, years, yearsTransitions } from './UiCalendar.css';
+import * as styles from './UiCalendar.css';
 
 import { UiExpand } from '../UiExpand';
 import { UiHeader } from '../UiHeader';
@@ -62,15 +62,15 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
   }, []);
 
   return (
-    <div className={clsx(root, className)}>
-      <UiHeader className={header}>
-        <div className={slots.left}>
-          <span className={title}>{format(shown, 'MMMM yyyy')}</span>
+    <div className={clsx(styles.root, className)}>
+      <UiHeader className={styles.header}>
+        <div className={styles.slots.left}>
+          <span className={styles.title}>{format(shown, 'MMMM yyyy')}</span>
 
           <UiExpand isExpanded={isYearsVisible} onClick={handleToggleYears} />
         </div>
 
-        <div className={slots.right}>
+        <div className={styles.slots.right}>
           <UiButton24 variant="cancelFilled" onClick={handleToday}>
             Today
           </UiButton24>
@@ -78,18 +78,18 @@ export const UiCalendar: FC<Props> = ({ className, selected, onSelect }) => {
           <UiNavigate onPrevious={handlePreviousMonth} onNext={handleNextMonth} />
         </div>
       </UiHeader>
-      <div className={body}>
+      <div className={styles.body}>
         <UiMonth days={days} onSelect={onSelect} />
 
         <CSSTransition
           addEndListener={handleEndListener}
-          classNames={yearsTransitions}
+          classNames={styles.yearsTransitions}
           in={isYearsVisible}
           mountOnEnter
           unmountOnExit
         >
           <UiList
-            className={years}
+            className={styles.years}
             from={1900}
             to={2100}
             onSelect={handleSelectYear}

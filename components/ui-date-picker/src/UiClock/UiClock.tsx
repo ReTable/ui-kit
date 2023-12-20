@@ -3,7 +3,7 @@ import { FC, useCallback } from 'react';
 import clsx from 'clsx';
 import { format, set } from 'date-fns';
 
-import { body, header, list, root, title } from './UiClock.css';
+import * as styles from './UiClock.css';
 
 import { UiHeader } from '../UiHeader';
 import { UiList } from '../UiList';
@@ -53,13 +53,13 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
   );
 
   return (
-    <div className={clsx(root, className)}>
-      <UiHeader className={header}>
-        {selected != null && <span className={title}>{format(selected, 'HH:mm:ss')}</span>}
+    <div className={clsx(styles.root, className)}>
+      <UiHeader className={styles.header}>
+        {selected != null && <span className={styles.title}>{format(selected, 'HH:mm:ss')}</span>}
       </UiHeader>
-      <div className={body}>
+      <div className={styles.body}>
         <UiList
-          className={list}
+          className={styles.list}
           from={0}
           labelOf={labelOf}
           onSelect={handleSelectHours}
@@ -67,7 +67,7 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
           to={24}
         />
         <UiList
-          className={list}
+          className={styles.list}
           from={0}
           labelOf={labelOf}
           onSelect={handleSelectMinutes}
@@ -75,7 +75,7 @@ export const UiClock: FC<Props> = ({ className, onSelect, selected }) => {
           to={60}
         />
         <UiList
-          className={list}
+          className={styles.list}
           from={0}
           labelOf={labelOf}
           onSelect={handleSelectSeconds}

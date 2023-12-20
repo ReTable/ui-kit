@@ -11,7 +11,7 @@ import {
 
 import clsx from 'clsx';
 
-import { item, root } from './UiList.css';
+import * as styles from './UiList.css';
 
 import { UiButton } from '../UiButton';
 
@@ -56,7 +56,7 @@ export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected
 
       nodes.push(
         <UiButton
-          className={clsx(isSelected ? item.selected : item.default)}
+          className={clsx(isSelected ? styles.item.selected : styles.item.default)}
           data-value={value}
           disabled={isSelected}
           onClick={handleClick}
@@ -78,7 +78,7 @@ export const UiList: FC<Props> = ({ className, from, labelOf, onSelect, selected
     });
   }, []);
 
-  return <div className={clsx(root, className)}>{items}</div>;
+  return <div className={clsx(styles.root, className)}>{items}</div>;
 };
 
 UiList.displayName = `ui-date-picker(UiList)`;

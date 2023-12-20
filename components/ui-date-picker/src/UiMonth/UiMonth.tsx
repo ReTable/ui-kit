@@ -3,7 +3,7 @@ import { FC, MouseEventHandler, ReactNode, useCallback, useMemo } from 'react';
 import clsx from 'clsx';
 import { format } from 'date-fns';
 
-import { dayOfMonth, dayOfWeek, outOfMonth, root, selected } from './UiMonth.css';
+import * as styles from './UiMonth.css';
 
 import { DayOfMonth } from './UiMonth.types';
 
@@ -40,7 +40,7 @@ export const UiMonth: FC<Props> = ({ className, days, onSelect }) => {
       const label = format(date, 'EEEEEE');
 
       nodes.push(
-        <div className={clsx(dayOfWeek)} key={label}>
+        <div className={clsx(styles.dayOfWeek)} key={label}>
           {label}
         </div>,
       );
@@ -52,7 +52,11 @@ export const UiMonth: FC<Props> = ({ className, days, onSelect }) => {
 
       nodes.push(
         <button
-          className={clsx(dayOfMonth, isOutOfMonth && outOfMonth, isSelected && selected)}
+          className={clsx(
+            styles.dayOfMonth,
+            isOutOfMonth && styles.outOfMonth,
+            isSelected && styles.selected,
+          )}
           data-value={value}
           disabled={isSelected}
           key={value}
@@ -67,7 +71,7 @@ export const UiMonth: FC<Props> = ({ className, days, onSelect }) => {
     return nodes;
   }, [days, handleClick]);
 
-  return <div className={clsx(root, className)}>{items}</div>;
+  return <div className={clsx(styles.root, className)}>{items}</div>;
 };
 
 UiMonth.displayName = `ui-date-picker(UiMonth)`;

@@ -2,7 +2,7 @@ import { HTMLProps, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
-import { root } from './UiButton.css';
+import * as styles from './UiButton.css';
 
 export type Props = Omit<HTMLProps<HTMLButtonElement>, 'type'>;
 
@@ -11,7 +11,7 @@ export const UiButton = forwardRef<HTMLButtonElement, Props>(function UiButton(
   ref,
 ) {
   return (
-    <button className={clsx(root, className)} ref={ref} type="button" {...props}>
+    <button className={clsx(styles.root, className)} ref={ref} type="button" {...props}>
       {children}
     </button>
   );
