@@ -59,11 +59,16 @@ export const dayOfMonth = style([
           },
 
           '&:focus': {
-            outlineWidth: 0,
+            outlineWidth: '0',
           },
 
           '&:focus, &:hover': {
             color: uiTheme.colors.content.primary,
+          },
+
+          '&:focus::before': {
+            outlineWidth: '0',
+            boxShadow: `inset 0 0 0 2px ${uiTheme.colors.borderControl.focus2}`,
           },
 
           '&:focus::before, &:hover::before': {
