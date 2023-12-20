@@ -2,6 +2,7 @@ import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
+const clockHeight = 328;
 const clockWidth = 220;
 
 const base = style({
@@ -54,6 +55,10 @@ export const clock = style({
       width: `${clockWidth}px`,
 
       selectors: {
+        [`${root.time} &`]: {
+          height: `${clockHeight}px`,
+        },
+
         [`${root.datetime} &`]: {
           position: 'absolute',
           top: '0',
