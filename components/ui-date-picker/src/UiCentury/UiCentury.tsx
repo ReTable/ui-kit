@@ -2,8 +2,9 @@ import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useMemo, useR
 
 import clsx from 'clsx';
 
-import { item } from '../shared.css';
 import { root } from './UiCentury.css';
+
+import { UiItem } from '../UiItem';
 
 export type Props = {
   className?: string;
@@ -42,17 +43,15 @@ export const UiCentury: FC<Props> = ({ className, shown, onSelect }) => {
       const isSelected = year === currentYear;
 
       nodes.push(
-        <button
-          className={isSelected ? item.selected : item.default}
-          data-value={year}
-          disabled={isSelected}
+        <UiItem
+          isSelected={isSelected}
           key={year}
           onClick={handleClick}
           ref={isSelected ? selectedRef : null}
-          type="button"
+          value={year}
         >
           {year}
-        </button>,
+        </UiItem>,
       );
     }
 

@@ -1,17 +1,18 @@
-import { FC, MouseEventHandler, PropsWithChildren } from 'react';
+import { HTMLProps, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
 import { root } from './UiButton.css';
 
-export type Props = PropsWithChildren<{
-  className?: string;
+export type Props = Omit<HTMLProps<HTMLButtonElement>, 'type'>;
 
-  onClick: MouseEventHandler<HTMLButtonElement>;
-}>;
-
-export const UiButton: FC<Props> = ({ children, className, onClick }) => (
-  <button className={clsx(root, className)} onClick={onClick} type="button">
-    {children}
-  </button>
-);
+export const UiButton = forwardRef<HTMLButtonElement, Props>(function UiButton(
+  { children, className, ...props },
+  ref,
+) {
+  return (
+    <button className={clsx(root, className)} ref={ref} type="button" {...props}>
+      {children}
+    </button>
+  );
+});

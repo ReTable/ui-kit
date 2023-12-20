@@ -2,8 +2,9 @@ import { FC, MouseEventHandler, ReactNode, useCallback, useEffect, useMemo, useR
 
 import clsx from 'clsx';
 
-import { item } from '../shared.css';
 import { root } from './UiCylinder.css';
+
+import { UiItem } from '../UiItem';
 
 export type Props = {
   className?: string;
@@ -43,17 +44,15 @@ export const UiCylinder: FC<Props> = ({ className, from, selected, to, onSelect 
       const isSelected = value === selected;
 
       nodes.push(
-        <button
-          className={isSelected ? item.selected : item.default}
-          data-value={value}
-          disabled={isSelected}
+        <UiItem
+          isSelected={isSelected}
           key={value}
           onClick={handleClick}
           ref={isSelected ? selectedRef : null}
-          type="button"
+          value={value}
         >
           {value.toString().padStart(2, '0')}
-        </button>,
+        </UiItem>,
       );
     }
 
