@@ -5,8 +5,11 @@ import { CSSTransition } from 'react-transition-group';
 
 import { container, leftSidebarStates, panels, rightSidebarStates, root } from './UiLayoutView.css';
 
-import { DURATION } from './UiLayoutView.const';
 import { Props } from './UiLayoutView.types';
+
+const endListener = (node: HTMLElement, done: () => void) => {
+  node.addEventListener('transitionend', done, false);
+};
 
 export function UiLayoutView({
   rootClassName,
@@ -26,16 +29,14 @@ export function UiLayoutView({
   return (
     <div className={clsx(root, rootClassName)} ref={forwardedRef}>
       <CSSTransition
-        in={isLeftSidebarVisible}
-        timeout={DURATION}
+        addEndListener={endListener}
         classNames={leftSidebarStates}
-        nodeRef={ref}
+        in={isLeftSidebarVisible}
       >
         <CSSTransition
-          in={isRightSidebarVisible}
-          timeout={DURATION}
+          addEndListener={endListener}
           classNames={rightSidebarStates}
-          nodeRef={ref}
+          in={isRightSidebarVisible}
         >
           <div ref={ref} className={clsx(container)}>
             {hasLeftSidebar && (
