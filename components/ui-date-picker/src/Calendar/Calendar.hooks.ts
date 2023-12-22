@@ -10,7 +10,7 @@ import {
   startOfWeek,
 } from 'date-fns';
 
-import { DayOfMonth } from '../UiMonth';
+import { DayOfMonth } from '../Month';
 
 const WEEK_OPTIONS = {
   weekStartsOn: 1,
