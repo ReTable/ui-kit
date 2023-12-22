@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`defineConfig > add scope and displayName with name transformation 1`] = `
+"import * as React from "react";
+import { memo } from "react";
+const UiIcon = props => <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}><rect x={10} y={10} height={100} width={100} style={{
+    stroke: "#ff0000",
+    fill: "#0000ff"
+  }} /></svg>;
+const Memo = memo(UiIcon);
+export default Memo;
+Memo.displayName = "svgr-config(UiIcon)";"
+`;
+
+exports[`defineConfig > add scope and displayName without name transformation 1`] = `
+"import * as React from "react";
+import { memo } from "react";
+const SvgIcon = props => <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" {...props}><rect x={10} y={10} height={100} width={100} style={{
+    stroke: "#ff0000",
+    fill: "#0000ff"
+  }} /></svg>;
+const Memo = memo(SvgIcon);
+export default Memo;
+Memo.displayName = "svgr-config(SvgIcon)";"
+`;

@@ -1,0 +1,51 @@
+{
+  "name": "@tabula/svgr-config",
+  "version": "0.2.0",
+  "description": "Configuration for the SVGR with ability to change name and display name of components",
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "config",
+    "svgr",
+    "preset"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/configs/svgr-config#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "configs/svgr-config"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:watch": "forge --watch",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@svgr/babel-plugin-transform-svg-component": "^8.0.0",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0"
+  },
+  "dependencies": {
+    "@babel/types": "^7.23.6"
+  }
+}
