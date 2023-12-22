@@ -12,7 +12,7 @@ import {
 import { titleOf } from './helpers';
 import { InnerProps as Props } from './types';
 
-export const UiButton: FC<Props> = ({
+export const Button: FC<Props> = ({
   children,
   className,
   iconClassName,

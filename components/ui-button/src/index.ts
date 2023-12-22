@@ -11,8 +11,8 @@ export type {
   LinkComponentProps as UiButtonLinkComponentProps,
   LinkComponentType as UiButtonLinkComponentType,
 } from './types';
-export type { Props as UiButton20Props, Variant as UiButton20Variant } from './UiButton20';
-export type { Props as UiButton24Props, Variant as UiButton24Variant } from './UiButton24';
-export type { Props as UiButton32Props, Variant as UiButton32Variant } from './UiButton32';
-export type { Props as UiButton40Props, Variant as UiButton40Variant } from './UiButton40';
-export type { Props as UiButton48Props, Variant as UiButton48Variant } from './UiButton48';
+export type { UiButton20Props, UiButton20Variant } from './UiButton20';
+export type { UiButton24Props, UiButton24Variant } from './UiButton24';
+export type { UiButton32Props, UiButton32Variant } from './UiButton32';
+export type { UiButton40Props, UiButton40Variant } from './UiButton40';
+export type { UiButton48Props, UiButton48Variant } from './UiButton48';

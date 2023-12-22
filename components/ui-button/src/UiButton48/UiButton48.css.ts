@@ -2,10 +2,10 @@ import { style } from '@vanilla-extract/css';
 
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { accentHover, accentPressed } from './const.css';
-import { buildVariants } from './variants.css';
+import { accentHover, accentPressed } from '../const.css';
+import { buildVariants } from '../variants.css';
 
-import { wrap } from './helpers';
+import { wrap } from '../helpers';
 
 const rootStyle = {
   gap: '16px',
