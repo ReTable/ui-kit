@@ -358,7 +358,7 @@ importers:
         version: 5.3.3
     optionalDependencies:
       '@types/react':
-        specifier: ^18.2.42
+        specifier: ^18.2.45
         version: 18.2.45
 
   configs/vitest-config:
