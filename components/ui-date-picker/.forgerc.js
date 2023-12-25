@@ -8,7 +8,7 @@ export default {
   },
   svgrDisplayName(name) {
     return {
-      displayName: `ui-date-picker(${name})`,
+      displayName: name,
       isDebugOnly: true,
     };
   },
