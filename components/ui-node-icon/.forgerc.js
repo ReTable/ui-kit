@@ -3,7 +3,6 @@ export default {
   entry: 'index',
   check: true,
   typings: true,
-  cssClassPrefix: '[name]__',
   svgrComponentName(name) {
     if (name.endsWith('small')) {
       return `Ui${name.slice(3, -5)}SIcon`;
