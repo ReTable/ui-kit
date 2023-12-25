@@ -93,3 +93,7 @@ export const UiJsonView: FC<Props> = ({
     </OptionsProvider>
   );
 };
+
+if (import.meta.env.DEV) {
+  UiJsonView.displayName = 'ui-json-view(UiJsonView)';
+}
