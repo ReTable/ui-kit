@@ -1,4 +1,4 @@
-import { ComponentType, HTMLProps, memo } from 'react';
+import { ComponentType, FC, HTMLProps } from 'react';
 
 import clsx from 'clsx';
 
@@ -12,19 +12,18 @@ type Props = HTMLProps<SVGSVGElement> & {
 export function createIcon(
   Icon: ComponentType<Props>,
   iconClassName: string,
-  displayName: string,
 ): ComponentType<Props> {
-  const StyledIcon = memo<Props>(({ className, isDisabled, testId, ...props }) => {
-    return (
-      <Icon
-        className={clsx(iconClassName, isDisabled && disabled, className)}
-        data-testid={testId}
-        {...props}
-      />
-    );
-  });
+  const StyledIcon: FC<Props> = ({ className, isDisabled, testId, ...props }) => (
+    <Icon
+      className={clsx(iconClassName, isDisabled && disabled, className)}
+      data-testid={testId}
+      {...props}
+    />
+  );
 
-  StyledIcon.displayName = displayName;
+  if (import.meta.env.DEV) {
+    StyledIcon.displayName = `ui-node-icon(Ui${Icon.displayName})`;
+  }
 
   return StyledIcon;
 }

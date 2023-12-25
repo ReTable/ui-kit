@@ -58,114 +58,58 @@ import { icon } from './style.css';
 
 import { createIcon } from './utils';
 
-export const UiAddGPTColumnLIcon = createIcon(
-  UiAddGPTColumnLIconInner,
-  icon,
-  'UiAddGPTColumnLIcon',
-);
-export const UiAddNewColumnLIcon = createIcon(
-  UiAddNewColumnLIconInner,
-  icon,
-  'UiAddNewColumnLIcon',
-);
-export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon, 'UiApiColumnLIcon');
-export const UiBlankTableLIcon = createIcon(UiBlankTableLIconInner, icon, 'UiBlankTableLIcon');
-export const UiByExampleLIcon = createIcon(UiByExampleLIconInner, icon, 'UiByExampleLIcon');
-export const UiChangeDataTypeLIcon = createIcon(
-  UiChangeDataTypeLIconInner,
-  icon,
-  'UiChangeDataTypeLIcon',
-);
-export const UiChartLIcon = createIcon(UiChartLIconInner, icon, 'UiChartLIcon');
-export const UiCleanLIcon = createIcon(UiCleanLIconInner, icon, 'UiCleanLIcon');
-export const UiConditionLIcon = createIcon(UiConditionLIconInner, icon, 'UiConditionLIcon');
-export const UiCountMatchesLIcon = createIcon(
-  UiCountMatchesLIconInner,
-  icon,
-  'UiCountMatchesLIcon',
-);
-export const UiCrossJoinLIcon = createIcon(UiCrossJoinLIconInner, icon, 'UiCrossJoinLIcon');
-export const UiCsvFileLIcon = createIcon(UiCsvFileLIconInner, icon, 'UiCsvFileLIcon');
-export const UiCsvOutputLIcon = createIcon(UiCsvOutputLIconInner, icon, 'UiCsvOutputLIcon');
-export const UiEditColumnLIcon = createIcon(UiEditColumnLIconInner, icon, 'UiEditColumnLIcon');
-export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon, 'UiExtractLIcon');
-export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon, 'UiFilterLIcon');
-export const UiFolderSourceLIcon = createIcon(
-  UiFolderSourceLIconInner,
-  icon,
-  'UiFolderSourceLIcon',
-);
-export const UiGoldenLIcon = createIcon(UiGoldenLIconInner, icon, 'UiGoldenLIcon');
-export const UiGPTNodeLIcon = createIcon(UiGPTNodeLIconInner, icon, 'UiGPTNodeLIcon');
-export const UiGroupLIcon = createIcon(UiGroupLIconInner, icon, 'UiGroupLIcon');
-export const UiGroupByLIcon = createIcon(UiGroupByLIconInner, icon, 'UiGroupByLIcon');
-export const UiInnerJoinLIcon = createIcon(UiInnerJoinLIconInner, icon, 'UiInnerJoinLIcon');
-export const UiJsonFileLIcon = createIcon(UiJsonFileLIconInner, icon, 'UiJsonFileLIcon');
-export const UiLeftJoinLIcon = createIcon(UiLeftJoinLIconInner, icon, 'UiLeftJoinLIcon');
-export const UiLocalFileLIcon = createIcon(UiLocalFileLIconInner, icon, 'UiLocalFileLIcon');
-export const UiLocalOutputLIcon = createIcon(UiLocalOutputLIconInner, icon, 'UiLocalOutputLIcon');
-export const UiMergeColumnsLIcon = createIcon(
-  UiMergeColumnsLIconInner,
-  icon,
-  'UiMergeColumnsLIcon',
-);
-export const UiMultiSourceLIcon = createIcon(UiMultiSourceLIconInner, icon, 'UiMultiSourceLIcon');
-export const UiNestLIcon = createIcon(UiNestLIconInner, icon, 'UiNestLIcon');
-export const UiNoNodeLIcon = createIcon(UiNoNodeLIconInner, icon, 'UiNoNodeLIcon');
-export const UiOuterJoinLIcon = createIcon(UiOuterJoinLIconInner, icon, 'UiOuterJoinLIcon');
-export const UiOutputLIcon = createIcon(UiOutputLIconInner, icon, 'UiOutputLIcon');
-export const UiPivotLIcon = createIcon(UiPivotLIconInner, icon, 'UiPivotLIcon');
-export const UiPostgresOutputLIcon = createIcon(
-  UiPostgresOutputLIconInner,
-  icon,
-  'UiPostgresOutputLIcon',
-);
-export const UiPostgresSourceLIcon = createIcon(
-  UiPostgresSourceLIconInner,
-  icon,
-  'UiPostgresSourceLIcon',
-);
-export const UiPostgresSqlLIcon = createIcon(UiPostgresSqlLIconInner, icon, 'UiPostgresSqlLIcon');
-export const UiRemoveDuplicateRowsLIcon = createIcon(
-  UiRemoveDuplicateRowsLIconInner,
-  icon,
-  'UiRemoveDuplicateRowsLIcon',
-);
-export const UiReplaceLIcon = createIcon(UiReplaceLIconInner, icon, 'UiReplaceLIcon');
-export const UiRightJoinLIcon = createIcon(UiRightJoinLIconInner, icon, 'UiRightJoinLIcon');
-export const UiSnowflakeOutputLIcon = createIcon(
-  UiSnowflakeOutputLIconInner,
-  icon,
-  'UiSnowflakeOutputLIcon',
-);
-export const UiSnowflakeSourceLIcon = createIcon(
-  UiSnowflakeSourceLIconInner,
-  icon,
-  'UiSnowflakeSourceLIcon',
-);
-export const UiSortByAscendingLIcon = createIcon(
-  UiSortByAscendingLIconInner,
-  icon,
-  'UiSortByAscendingLIcon',
-);
-export const UiSortByDescendingLIcon = createIcon(
-  UiSortByDescendingLIconInner,
-  icon,
-  'UiSortByDescendingLIcon',
-);
-export const UiSourceLIcon = createIcon(UiSourceLIconInner, icon, 'UiSourceLIcon');
-export const UiSplitColumnsLIcon = createIcon(
-  UiSplitColumnsLIconInner,
-  icon,
-  'UiSplitColumnsLIcon',
-);
-export const UiSqlLIcon = createIcon(UiSqlLIconInner, icon, 'UiSqlLIcon');
-export const UiStandardizeLIcon = createIcon(UiStandardizeLIconInner, icon, 'UiStandardizeLIcon');
-export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon, 'UiTransposeLIcon');
-export const UiUnionLIcon = createIcon(UiUnionLIconInner, icon, 'UiUnionLIcon');
-export const UiUnnestLIcon = createIcon(UiUnnestLIconInner, icon, 'UiUnnestLIcon');
-export const UiUnpivotLIcon = createIcon(UiUnpivotLIconInner, icon, 'UiUnpivotLIcon');
-export const UiWinFuncLIcon = createIcon(UiWinFuncLIconInner, icon, 'UiWinFuncLIcon');
-export const UiXlsFileLIcon = createIcon(UiXlsFileLIconInner, icon, 'UiXlsFileLIcon');
-export const UiXlsOutputLIcon = createIcon(UiXlsOutputLIconInner, icon, 'UiXlsOutputLIcon');
-export const UiReportLIcon = createIcon(UiReportLIconInner, icon, 'UiReportLIcon');
+export const UiAddGPTColumnLIcon = createIcon(UiAddGPTColumnLIconInner, icon);
+export const UiAddNewColumnLIcon = createIcon(UiAddNewColumnLIconInner, icon);
+export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon);
+export const UiBlankTableLIcon = createIcon(UiBlankTableLIconInner, icon);
+export const UiByExampleLIcon = createIcon(UiByExampleLIconInner, icon);
+export const UiChangeDataTypeLIcon = createIcon(UiChangeDataTypeLIconInner, icon);
+export const UiChartLIcon = createIcon(UiChartLIconInner, icon);
+export const UiCleanLIcon = createIcon(UiCleanLIconInner, icon);
+export const UiConditionLIcon = createIcon(UiConditionLIconInner, icon);
+export const UiCountMatchesLIcon = createIcon(UiCountMatchesLIconInner, icon);
+export const UiCrossJoinLIcon = createIcon(UiCrossJoinLIconInner, icon);
+export const UiCsvFileLIcon = createIcon(UiCsvFileLIconInner, icon);
+export const UiCsvOutputLIcon = createIcon(UiCsvOutputLIconInner, icon);
+export const UiEditColumnLIcon = createIcon(UiEditColumnLIconInner, icon);
+export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon);
+export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon);
+export const UiFolderSourceLIcon = createIcon(UiFolderSourceLIconInner, icon);
+export const UiGoldenLIcon = createIcon(UiGoldenLIconInner, icon);
+export const UiGPTNodeLIcon = createIcon(UiGPTNodeLIconInner, icon);
+export const UiGroupLIcon = createIcon(UiGroupLIconInner, icon);
+export const UiGroupByLIcon = createIcon(UiGroupByLIconInner, icon);
+export const UiInnerJoinLIcon = createIcon(UiInnerJoinLIconInner, icon);
+export const UiJsonFileLIcon = createIcon(UiJsonFileLIconInner, icon);
+export const UiLeftJoinLIcon = createIcon(UiLeftJoinLIconInner, icon);
+export const UiLocalFileLIcon = createIcon(UiLocalFileLIconInner, icon);
+export const UiLocalOutputLIcon = createIcon(UiLocalOutputLIconInner, icon);
+export const UiMergeColumnsLIcon = createIcon(UiMergeColumnsLIconInner, icon);
+export const UiMultiSourceLIcon = createIcon(UiMultiSourceLIconInner, icon);
+export const UiNestLIcon = createIcon(UiNestLIconInner, icon);
+export const UiNoNodeLIcon = createIcon(UiNoNodeLIconInner, icon);
+export const UiOuterJoinLIcon = createIcon(UiOuterJoinLIconInner, icon);
+export const UiOutputLIcon = createIcon(UiOutputLIconInner, icon);
+export const UiPivotLIcon = createIcon(UiPivotLIconInner, icon);
+export const UiPostgresOutputLIcon = createIcon(UiPostgresOutputLIconInner, icon);
+export const UiPostgresSourceLIcon = createIcon(UiPostgresSourceLIconInner, icon);
+export const UiPostgresSqlLIcon = createIcon(UiPostgresSqlLIconInner, icon);
+export const UiRemoveDuplicateRowsLIcon = createIcon(UiRemoveDuplicateRowsLIconInner, icon);
+export const UiReplaceLIcon = createIcon(UiReplaceLIconInner, icon);
+export const UiRightJoinLIcon = createIcon(UiRightJoinLIconInner, icon);
+export const UiSnowflakeOutputLIcon = createIcon(UiSnowflakeOutputLIconInner, icon);
+export const UiSnowflakeSourceLIcon = createIcon(UiSnowflakeSourceLIconInner, icon);
+export const UiSortByAscendingLIcon = createIcon(UiSortByAscendingLIconInner, icon);
+export const UiSortByDescendingLIcon = createIcon(UiSortByDescendingLIconInner, icon);
+export const UiSourceLIcon = createIcon(UiSourceLIconInner, icon);
+export const UiSplitColumnsLIcon = createIcon(UiSplitColumnsLIconInner, icon);
+export const UiSqlLIcon = createIcon(UiSqlLIconInner, icon);
+export const UiStandardizeLIcon = createIcon(UiStandardizeLIconInner, icon);
+export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon);
+export const UiUnionLIcon = createIcon(UiUnionLIconInner, icon);
+export const UiUnnestLIcon = createIcon(UiUnnestLIconInner, icon);
+export const UiUnpivotLIcon = createIcon(UiUnpivotLIconInner, icon);
+export const UiWinFuncLIcon = createIcon(UiWinFuncLIconInner, icon);
+export const UiXlsFileLIcon = createIcon(UiXlsFileLIconInner, icon);
+export const UiXlsOutputLIcon = createIcon(UiXlsOutputLIconInner, icon);
+export const UiReportLIcon = createIcon(UiReportLIconInner, icon);
