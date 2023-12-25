@@ -89,3 +89,7 @@ export const UiDatePicker: FC<Props> = ({ className, selected, onSelect, type })
     }
   }
 };
+
+if (import.meta.env.DEV) {
+  UiDatePicker.displayName = 'ui-date-picker(UiDatePicker)';
+}
