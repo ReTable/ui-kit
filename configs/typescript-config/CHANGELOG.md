@@ -1,5 +1,15 @@
 # @tabula/typescript-config
 
+## 0.3.0
+
+### Minor Changes
+
+- [#111](https://github.com/ReTable/ui-kit/pull/111) [`b35c0fb`](https://github.com/ReTable/ui-kit/commit/b35c0fb03fde828f8366c45a7f84d710a327dd40) Thanks [@demiazz](https://github.com/demiazz)! - add support of `import.meta.env` object which used in Vite
+
+### Patch Changes
+
+- [#104](https://github.com/ReTable/ui-kit/pull/104) [`e49b4db`](https://github.com/ReTable/ui-kit/commit/e49b4db93d3ec201f0aead9a4a72e1e4fcc3f740) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
 ## 0.2.1
 
 ### Patch Changes

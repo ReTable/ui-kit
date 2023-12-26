@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.0.4
+
+### Patch Changes
+
+- [#111](https://github.com/ReTable/ui-kit/pull/111) [`b35c0fb`](https://github.com/ReTable/ui-kit/commit/b35c0fb03fde828f8366c45a7f84d710a327dd40) Thanks [@demiazz](https://github.com/demiazz)! - add `displayName` for exportable components for debug purposes
+
 ## 2.0.3
 
 ### Patch Changes
@@ -132,9 +138,9 @@
   You can use them through `vanilla-extract` variants:
 
   ```typescript
-  import { style } from '@vanilla-extract/css';
+  import { style } from "@vanilla-extract/css";
 
-  import { uiFonts } from '@tabula/ui-theme';
+  import { uiFonts } from "@tabula/ui-theme";
 
   export const root = style([uiFonts.sansSerif.regular24], {
     /* Your styles here. */
@@ -144,7 +150,7 @@
   Or you can use them through Sass:
 
   ```scss
-  @use '~@tabula/ui-theme' as theme;
+  @use "~@tabula/ui-theme" as theme;
 
   .root {
     @include theme.font-sans-serif-medium-24();
