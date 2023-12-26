@@ -18,6 +18,7 @@
     "./types/static.d.ts",
     "./types/css-modules.d.ts",
     "./types/svg.d.ts",
-    "./types/jest-dom.d.ts"
+    "./types/jest-dom.d.ts",
+    "./types/vite.d.ts"
   ]
 }

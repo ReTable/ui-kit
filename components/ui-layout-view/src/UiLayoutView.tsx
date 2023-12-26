@@ -74,3 +74,7 @@ export function UiLayoutView({
     </div>
   );
 }
+
+if (import.meta.env.DEV) {
+  UiLayoutView.displayName = 'ui-layout-view(UiLayoutView)';
+}

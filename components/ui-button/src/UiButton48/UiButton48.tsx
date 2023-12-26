@@ -21,3 +21,7 @@ export const UiButton48: FC<Props> = ({ children, icon, variant, ...props }) => 
     </Button>
   );
 };
+
+if (import.meta.env.DEV) {
+  UiButton48.displayName = 'ui-button(UiButton48)';
+}

@@ -11,4 +11,6 @@ export const UiLayoutViewWithRef = forwardRef<HTMLDivElement, Props>(
   ),
 );
 
-UiLayoutViewWithRef.displayName = 'UiLayoutView(WithRef)';
+if (import.meta.env.DEV) {
+  UiLayoutViewWithRef.displayName = 'ui-layout-view(UiLayoutViewWithRef)';
+}
