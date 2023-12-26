@@ -60,8 +60,8 @@ importers:
         specifier: workspace:*
         version: link:configs/eslint-config
       '@tabula/forge':
-        specifier: ^2.0.0-next.2
-        version: 2.0.0-next.2(@types/node@20.10.5)(typescript@5.3.3)
+        specifier: ^2.0.0
+        version: 2.0.0(@types/node@20.10.5)(typescript@5.3.3)
       '@tabula/prettier-config':
         specifier: workspace:*
         version: link:configs/prettier-config
@@ -4588,8 +4588,8 @@ packages:
       - supports-color
     dev: true
 
-  /@tabula/forge@2.0.0-next.2(@types/node@20.10.5)(typescript@5.3.3):
-    resolution: {integrity: sha512-U0w7z7N2Tv5/m4MITDk8vAp15ya1Sqh3isXtyb68QzvLwT04WI6ZSausvf6O62c6pOhagsDleRxQkiBc2aIYWw==}
+  /@tabula/forge@2.0.0(@types/node@20.10.5)(typescript@5.3.3):
+    resolution: {integrity: sha512-c9Ar8D4ZpOHXpGL9RjbosdPv9o0zUrTwjJrVIuqDZid23w7afy9a70SXVk0/K5nJaIwDNHhBoxBpE51CVwcz/A==}
     engines: {node: ^20, pnpm: 8.6.5}
     hasBin: true
     peerDependencies:
