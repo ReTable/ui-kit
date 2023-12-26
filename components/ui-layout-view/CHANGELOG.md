@@ -1,5 +1,14 @@
 # @tabula/ui-layout-view
 
+## 1.0.4
+
+### Patch Changes
+
+- [#111](https://github.com/ReTable/ui-kit/pull/111) [`b35c0fb`](https://github.com/ReTable/ui-kit/commit/b35c0fb03fde828f8366c45a7f84d710a327dd40) Thanks [@demiazz](https://github.com/demiazz)! - add `displayName` for exportable components for debug purposes
+
+- Updated dependencies [[`b35c0fb`](https://github.com/ReTable/ui-kit/commit/b35c0fb03fde828f8366c45a7f84d710a327dd40)]:
+  - @tabula/ui-theme@2.0.4
+
 ## 1.0.3
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @tabula/ui-icon
 
+## 4.0.5
+
+### Patch Changes
+
+- Updated dependencies [[`b35c0fb`](https://github.com/ReTable/ui-kit/commit/b35c0fb03fde828f8366c45a7f84d710a327dd40)]:
+  - @tabula/ui-theme@2.0.4
+
 ## 4.0.4
 
 ### Patch Changes
@@ -139,7 +146,7 @@
   You can import and use icons as standalone components:
 
   ```tsx
-  import { UiArrayIcon } from '@tabula/ui-icon/dataTypes';
+  import { UiArrayIcon } from "@tabula/ui-icon/dataTypes";
 
   function ComponentWithIcon() {
     return <UiArrayIcon />;

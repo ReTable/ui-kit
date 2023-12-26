@@ -1,5 +1,11 @@
 # @tabula/vitest-config
 
+## 0.2.1
+
+### Patch Changes
+
+- [#104](https://github.com/ReTable/ui-kit/pull/104) [`e49b4db`](https://github.com/ReTable/ui-kit/commit/e49b4db93d3ec201f0aead9a4a72e1e4fcc3f740) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
 ## 0.2.0
 
 ### Minor Changes

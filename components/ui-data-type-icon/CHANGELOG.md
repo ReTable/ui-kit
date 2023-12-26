@@ -1,5 +1,11 @@
 # @tabula/ui-data-type-icon
 
+## 0.2.2
+
+### Patch Changes
+
+- [#111](https://github.com/ReTable/ui-kit/pull/111) [`b35c0fb`](https://github.com/ReTable/ui-kit/commit/b35c0fb03fde828f8366c45a7f84d710a327dd40) Thanks [@demiazz](https://github.com/demiazz)! - add `displayName` for exportable components for debug purposes
+
 ## 0.2.1
 
 ### Patch Changes
@@ -15,7 +21,7 @@
   For example, you can export URL of files like this:
 
   ```tsx
-  import { uiArrayIconUrl } from '@tabula/ui-data-type-icon';
+  import { uiArrayIconUrl } from "@tabula/ui-data-type-icon";
   ```
 
   It returns the string with relative path to the SVG file, which should be processed by yours bundler.
@@ -24,7 +30,7 @@
 
   ```scss
   .awesome-component {
-    background-image: url('@tabula/ui-data-type-icon/array.svg');
+    background-image: url("@tabula/ui-data-type-icon/array.svg");
   }
   ```
 
