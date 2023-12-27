@@ -15,7 +15,19 @@ function searchStories(workspace) {
 
     for (const entry of readdirSync(workspaceDir)) {
       const packageDir = join(workspaceDir, entry);
-      const packageJson = require(join(packageDir, 'package.json'));
+
+      let packageJson;
+
+      // NOTE: A developer can work on few branches simultaneously, including work on a new package. If switch between
+      //       branches in that case, directory with build artifacts of a new package leaved by Git, and break Storybook
+      //       build.
+      //
+      //       If directory have no `package.json`, then just ignore it.
+      try {
+        packageJson = require(join(packageDir, 'package.json'));
+      } catch {
+        continue;
+      }
 
       const [_, name] = packageJson.name.split('/');
 
