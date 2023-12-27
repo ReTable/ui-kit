@@ -65,7 +65,17 @@ export default {
 
   staticDirs: ['./public'],
 
-  stories: [...searchStories('components'), ...searchStories('hooks')],
+  stories: [
+    ...searchStories('components'),
+    ...searchStories('hooks'),
+    ...searchStories('libraries'),
+
+    {
+      directory: join(ROOT_DIR, 'contributing'),
+      titlePrefix: `Contributing`,
+      files: '**/*.mdx',
+    },
+  ],
 
   async viteFinal(config) {
     return mergeConfig(config, {
