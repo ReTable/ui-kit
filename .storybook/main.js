@@ -69,7 +69,11 @@ export default {
 
   async viteFinal(config) {
     return mergeConfig(config, {
+      // NOTE: Workaround for https://github.com/storybookjs/storybook/issues/25256
+      assetsInclude: ['/sb-preview/**'],
+
       plugins: [vanillaExtractPlugin()],
+
       resolve: {
         alias: [
           {
