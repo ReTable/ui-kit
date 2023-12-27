@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Editors support" />
+
+# Editors support
+
+<br />
+
+## Intellij Idea run configurations
+
+We provide various run configurations for Intellij Idea.
+
+### Global run configurations
+
+- `build`: builds all packages;
+- `lint`: lints all packages;
+- `test`: tests all packages;
+
+- `docs:build`: builds docs;
+- `docs:watch`: builds docs in watch mode;
+
+- `scaffold:component`: scaffolds a component package;
+- `scaffold:hook`: scaffolds a hook package;
+- `scaffold:library`: scaffolds a library package.
+
+### Package run configurations
+
+- `<package-name>:build`: builds a package;
+- `<package-name>:test`: tests a package;
+- `<package-name>:dev:test`: runs build and tests in watch mode in parallel;
+- `<package-name>:dev:server`: builds package and docs in watch mode in parallel.
+
+Also, we have additional run configurations which used in compound run configurations:
+
+- `<package-name>:build:watch`: builds a package in watch mode;
+- `<package-name>:test:watch`: tests a package in watch mode.

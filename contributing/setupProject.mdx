@@ -1,0 +1,41 @@
+import { Meta, Source } from '@storybook/blocks';
+
+<Meta title="Set up the project" />
+
+# Set up the project
+
+We use fixed [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) versions for development. You can install them
+manually or use [asdf](https://asdf-vm.com/).
+
+## Optional: How to configure `asdf` for project?
+
+1. Install `asdf`. You can read about it [here](https://asdf-vm.com/guide/getting-started.html).
+
+2. Install plugin for `nodejs`.
+
+<Source code="asdf plugin add nodejs" />
+
+3. Install plugin for `pnpm`.
+
+<Source code="asdf plugin add pnpm" />
+
+## Setting up
+
+1. Clone repository locally:
+
+<Source code={`
+git clone git@github.com:ReTable/ui-kit.git
+cd ui-kit
+`} />
+
+2. _Optional_. Install `nodejs` and `pnpm` with `asdf`:
+
+<Source code="asdf install" />
+
+3. Setup all dependencies and packages.
+
+<Source code="pnpm install" />
+
+4. Build all packages.
+
+<Source code="pnpm build" />

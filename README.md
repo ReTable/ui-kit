@@ -26,8 +26,7 @@ We have the [documentation website](https://retable.github.io/ui-kit/) powered b
 
 ## Contributing
 
-We have [contributing guide](./CONTRIBUTING.md) where you can find information about project, development process and tools
-which needed to contribute to the project.
+We have section about contributing in out [docs](https://retable.github.io/ui-kit/).
 
 ## License
 
