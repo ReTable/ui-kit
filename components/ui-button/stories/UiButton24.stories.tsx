@@ -1,10 +1,11 @@
 import { ReactElement } from 'react';
 
 import { StoryObj } from '@storybook/react';
+import clsx from 'clsx';
 
 import { UiButton24, UiButton24Props } from '~';
 
-import { darkBackground } from './style.css';
+import { darkBackground, paddings } from './style.css';
 
 import { ArgsOf, argTypes as baseArgTypes, toProps } from './helpers';
 
@@ -44,7 +45,7 @@ function render(args: Args): ReactElement {
 
 function darkRender(args: Args): ReactElement {
   return (
-    <div className={darkBackground}>
+    <div className={clsx(darkBackground, paddings)}>
       <UiButton24 {...toProps(args)} />
     </div>
   );

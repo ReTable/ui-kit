@@ -5,6 +5,9 @@ export const contractBackground = style({
 });
 
 export const darkBackground = style({
-  padding: 24,
   background: '#3c3f4a !important',
+});
+
+export const paddings = style({
+  padding: 24,
 });
