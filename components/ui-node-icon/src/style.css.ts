@@ -129,25 +129,25 @@ const overrides = {
   ...assignVars(gradients, {
     addGPTColumn: {
       l: {
-        primary: 'url(#tbl--ui-node-icon--add-gpt-column-l--primary-disabled)',
-        secondary: 'url(#tbl--ui-node-icon--add-gpt-column-l--secondary-disabled)',
+        primary: uiTheme.colors.icons.disabled.primary,
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
       m: {
-        primary: 'url(#tbl--ui-node-icon--add-gpt-column-m--primary-disabled)',
-        secondary: 'url(#tbl--ui-node-icon--add-gpt-column-m--secondary-disabled)',
+        primary: uiTheme.colors.icons.disabled.primary,
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
     },
     gptNode: {
       l: {
-        primary: 'url(#tbl--ui-node-icon--gpt-node-l--primary-disabled)',
-        secondary: 'url(#tbl--ui-node-icon--gpt-node-l--secondary-disabled)',
+        primary: uiTheme.colors.icons.disabled.primary,
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
       m: {
         primary: {
-          ['1']: 'url(#tbl--ui-node-icon--gpt-node-m--primary-1-disabled)',
-          ['2']: 'url(#tbl--ui-node-icon--gpt-node-m--primary-2-disabled)',
+          ['1']: uiTheme.colors.icons.disabled.primary,
+          ['2']: uiTheme.colors.icons.disabled.primary,
         },
-        secondary: 'url(#tbl--ui-node-icon--gpt-node-m--secondary-disabled)',
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
     },
     tabulaDrive: {
