@@ -88,6 +88,7 @@ export const tokens = {
       postgres: '#38609b',
       salesforce: '#67a3e5',
       snowflake: '#29b5e8',
+      tabulaDrive: '#3c3f4a',
     },
 
     code: {

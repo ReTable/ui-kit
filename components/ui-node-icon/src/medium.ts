@@ -47,6 +47,7 @@ import { ReactComponent as UiSourceMIconInner } from './source/source.medium.svg
 import { ReactComponent as UiSplitColumnsMIconInner } from './splitColumns/splitColumns.medium.svg';
 import { ReactComponent as UiSqlMIconInner } from './sql/sql.medium.svg';
 import { ReactComponent as UiStandardizeMIconInner } from './standardize/standardize.medium.svg';
+import { ReactComponent as UiTabulaDriveMIconInner } from './tabulaDrive/tabulaDrive.medium.svg';
 import { ReactComponent as UiTransposeMIconInner } from './transpose/transpose.medium.svg';
 import { ReactComponent as UiUnionMIconInner } from './union/union.medium.svg';
 import { ReactComponent as UiUnnestMIconInner } from './unnest/unnest.medium.svg';
@@ -98,6 +99,7 @@ export const UiPostgresSourceMIcon = createIcon(UiPostgresSourceMIconInner, icon
 export const UiRecipeMIcon = createIcon(UiRecipeMIconInner, icon);
 export const UiRemoveDuplicateRowsMIcon = createIcon(UiRemoveDuplicateRowsMIconInner, icon);
 export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, icon);
+export const UiReportMIcon = createIcon(UiReportMIconInner, icon);
 export const UiRightJoinMIcon = createIcon(UiRightJoinMIconInner, icon);
 export const UiSnowflakeOutputMIcon = createIcon(UiSnowflakeOutputMIconInner, icon);
 export const UiSnowflakeSourceMIcon = createIcon(UiSnowflakeSourceMIconInner, icon);
@@ -107,6 +109,7 @@ export const UiSourceMIcon = createIcon(UiSourceMIconInner, icon);
 export const UiSplitColumnsMIcon = createIcon(UiSplitColumnsMIconInner, icon);
 export const UiSqlMIcon = createIcon(UiSqlMIconInner, icon);
 export const UiStandardizeMIcon = createIcon(UiStandardizeMIconInner, icon);
+export const UiTabulaDriveMIcon = createIcon(UiTabulaDriveMIconInner, icon);
 export const UiTransposeMIcon = createIcon(UiTransposeMIconInner, icon);
 export const UiUnionMIcon = createIcon(UiUnionMIconInner, icon);
 export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, icon);
@@ -114,4 +117,3 @@ export const UiUnpivotMIcon = createIcon(UiUnpivotMIconInner, icon);
 export const UiWinFuncMIcon = createIcon(UiWinFuncMIconInner, icon);
 export const UiXlsFileMIcon = createIcon(UiXlsFileMIconInner, icon);
 export const UiXlsOutputMIcon = createIcon(UiXlsOutputMIconInner, icon);
-export const UiReportMIcon = createIcon(UiReportMIconInner, icon);

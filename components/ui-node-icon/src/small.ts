@@ -29,6 +29,7 @@ export { ReactComponent as UiPostgresSourceSIcon } from './postgresSource/postgr
 export { ReactComponent as UiRecipeSIcon } from './recipe/recipe.small.svg';
 export { ReactComponent as UiRemoveDuplicateRowsSIcon } from './removeDuplicateRows/removeDuplicateRows.small.svg';
 export { ReactComponent as UiReplaceSIcon } from './replace/replace.small.svg';
+export { ReactComponent as UiReportSIcon } from './report/report.small.svg';
 export { ReactComponent as UiRightJoinSIcon } from './rightJoin/rightJoin.small.svg';
 export { ReactComponent as UiSnowflakeSourceSIcon } from './snowflakeSource/snowflakeSource.small.svg';
 export { ReactComponent as UiSortByAscendingSIcon } from './sortByAscending/sortByAscending.small.svg';
@@ -43,4 +44,3 @@ export { ReactComponent as UiUnnestSIcon } from './unnest/unnest.small.svg';
 export { ReactComponent as UiUnpivotSIcon } from './unpivot/unpivot.small.svg';
 export { ReactComponent as UiWinFuncSIcon } from './winFunc/winFunc.small.svg';
 export { ReactComponent as UiXlsFileSIcon } from './xlsFile/xlsFile.small.svg';
-export { ReactComponent as UiReportSIconInner } from './report/report.small.svg';

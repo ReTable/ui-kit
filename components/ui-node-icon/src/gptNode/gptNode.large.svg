@@ -6,17 +6,9 @@
       <stop stop-color="var(--tbl--colors--icons--ai--primary--from)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--ai--primary--to)"/>
     </linearGradient>
-    <linearGradient id="tbl--ui-node-icon--gpt-node-l--primary-disabled" x1="17.5" x2="17.5" y1="3" y2="30" gradientUnits="userSpaceOnUse">
-      <stop stop-color="var(--tbl--colors--icons--disabled--primary)"/>
-      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--primary)"/>
-    </linearGradient>
     <linearGradient id="tbl--ui-node-icon--gpt-node-l--secondary" x1="15.5" x2="15.5" y1="4" y2="26" gradientUnits="userSpaceOnUse">
       <stop stop-color="var(--tbl--colors--icons--ai--secondary--from)"/>
       <stop offset="1" stop-color="var(--tbl--colors--icons--ai--secondary--to)"/>
-    </linearGradient>
-    <linearGradient id="tbl--ui-node-icon--gpt-node-l--secondary-disabled" x1="15.5" x2="15.5" y1="4" y2="26" gradientUnits="userSpaceOnUse">
-      <stop stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
-      <stop offset="1" stop-color="var(--tbl--colors--icons--disabled--secondary)"/>
     </linearGradient>
   </defs>
 </svg>
