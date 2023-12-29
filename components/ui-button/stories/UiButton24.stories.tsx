@@ -4,13 +4,25 @@ import { StoryObj } from '@storybook/react';
 
 import { UiButton24, UiButton24Props } from '~';
 
+import { darkBackground } from './style.css';
+
 import { ArgsOf, argTypes as baseArgTypes, toProps } from './helpers';
 
 type Args = ArgsOf<UiButton24Props>;
 
 const argTypes = structuredClone(baseArgTypes);
 
-argTypes.variant.options = ['primary', 'secondary', 'cancel', 'cancelFilled', 'edit', 'test', 'ai'];
+argTypes.variant.options = [
+  'primary',
+  'secondary',
+  'primaryHeader',
+  'secondaryHeader',
+  'cancel',
+  'cancelFilled',
+  'edit',
+  'test',
+  'ai',
+];
 
 const meta = {
   title: 'UiButton24',
@@ -30,6 +42,14 @@ function render(args: Args): ReactElement {
   return <UiButton24 {...toProps(args)} />;
 }
 
+function darkRender(args: Args): ReactElement {
+  return (
+    <div className={darkBackground}>
+      <UiButton24 {...toProps(args)} />
+    </div>
+  );
+}
+
 type Story = StoryObj<Args>;
 
 export const Primary: Story = {
@@ -44,6 +64,20 @@ export const Secondary: Story = {
     variant: 'secondary',
   },
   render,
+};
+
+export const PrimaryHeader: Story = {
+  args: {
+    variant: 'primaryHeader',
+  },
+  render,
+};
+
+export const SecondaryHeader: Story = {
+  args: {
+    variant: 'secondaryHeader',
+  },
+  render: darkRender,
 };
 
 export const Cancel: Story = {
