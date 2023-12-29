@@ -1,6 +1,6 @@
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { primaryShadow } from '../const.css';
+import { accentHover, accentPressed, primaryShadow } from '../const.css';
 import { buildVariants } from '../variants.css';
 
 import { gradient } from '../helpers';
@@ -47,6 +47,39 @@ const variantStyles = {
     },
     active: {
       background: uiTheme.colors.neutralAlpha['10'],
+    },
+  },
+
+  primaryHeader: {
+    font: uiFonts.sansSerif.medium12,
+    default: {
+      background: uiTheme.colors.accent['100'],
+      color: uiTheme.colors.content.contrast,
+      boxShadow: '0 4px 4px 0 rgba(18, 127, 249, 0.1)',
+    },
+    hover: {
+      background: accentHover,
+    },
+    active: {
+      background: accentPressed,
+      boxShadow: 'unset',
+    },
+  },
+
+  secondaryHeader: {
+    font: uiFonts.sansSerif.medium12,
+    default: {
+      background: uiTheme.colors.whiteAlpha['20'],
+      color: uiTheme.colors.content.contrast,
+    },
+    hover: {
+      background: uiTheme.colors.whiteAlpha['15'],
+    },
+    focus: {
+      outlineColor: uiTheme.colors.whiteAlpha['50'],
+    },
+    active: {
+      background: uiTheme.colors.whiteAlpha['10'],
     },
   },
 
