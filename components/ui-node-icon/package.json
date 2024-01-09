@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-node-icon",
-  "version": "4.2.3",
+  "version": "5.0.0",
   "description": "Icons for nodes",
   "type": "module",
   "typings": "./typings/index.d.ts",
