@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M5 5C3.34315 5 2 6.34315 2 8V18C2 21.7712 2 23.6569 3.17157 24.8284C4.34315 26 6.22876 26 10 26H22C25.7712 26 27.6569 26 28.8284 24.8284C30 23.6569 30 21.7712 30 18V16C30 12.2288 30 10.3431 28.8284 9.17157C27.6569 8 25.7712 8 22 8H17L15.8906 6.3359C15.3342 5.5013 14.3975 5 13.3944 5H5Z"
+    fill="var(--tbl--colors--brand--tabula-drive)"
+  />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M12 14C12 13.4477 12.4687 13 13.0469 13H19.9217C20.4999 13 21 13.4477 21 14C21 14.5523 20.4999 15 19.9217 15H13.0469C12.4687 15 12 14.5523 12 14Z"
+    fill="var(--tbl--ui-node-icon--tabula-drive-l-primary-1)"
+  />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M15.6143 15.1378C15.995 13.8688 17.1629 12.9998 18.4878 12.9998H20.4997C21.052 12.9998 21.4997 13.4475 21.4997 13.9998C21.4997 14.5521 21.052 14.9998 20.4997 14.9998H18.4878C18.0462 14.9998 17.6568 15.2895 17.5299 15.7125L16.8851 17.8618C16.5044 19.1308 15.3365 19.9998 14.0116 19.9998H12.9997C12.4474 19.9998 11.9997 19.5521 11.9997 18.9998C11.9997 18.4475 12.4474 17.9998 12.9997 17.9998H14.0116C14.4532 17.9998 14.8426 17.7101 14.9695 17.2871L15.6143 15.1378Z"
+    fill="var(--tbl--ui-node-icon--tabula-drive-l-primary-2)"
+  />
+  <defs>
+    <linearGradient id="tbl--ui-node-icon--tabula-drive-l--primary-1" x1="11.9937" y1="13.6144" x2="17.4942" y2="16.4149" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#47FFEA"/>
+      <stop offset="1" stop-color="#27F4DD" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="tbl--ui-node-icon--tabula-drive-l--primary-2" x1="11.9053" y1="18.5541" x2="13.8633" y2="12.6336" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5CFFF5"/>
+      <stop offset="1" stop-color="#58A3F7"/>
+    </linearGradient>
+  </defs>
+</svg>

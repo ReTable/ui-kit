@@ -33,6 +33,20 @@ export const gradients = createGlobalThemeContract(
         secondary: 'secondary',
       },
     },
+    tabulaDrive: {
+      l: {
+        primary: {
+          ['1']: 'primary-1',
+          ['2']: 'primary-2',
+        },
+      },
+      m: {
+        primary: {
+          ['1']: 'primary-1',
+          ['2']: 'primary-2',
+        },
+      },
+    },
   },
   (_, path) => {
     const gradientName = path.map((it) => kebabCase(it)).join('-');
@@ -65,6 +79,20 @@ createGlobalTheme(':root', gradients, {
       secondary: 'url(#tbl--ui-node-icon--gpt-node-m--secondary)',
     },
   },
+  tabulaDrive: {
+    l: {
+      primary: {
+        ['1']: 'url(#tbl--ui-node-icon--tabula-drive-l--primary-1)',
+        ['2']: 'url(#tbl--ui-node-icon--tabula-drive-l--primary-2)',
+      },
+    },
+    m: {
+      primary: {
+        ['1']: 'url(#tbl--ui-node-icon--tabula-drive-m--primary-1)',
+        ['2']: 'url(#tbl--ui-node-icon--tabula-drive-m--primary-2)',
+      },
+    },
+  },
 });
 
 const overrides = {
@@ -72,6 +100,7 @@ const overrides = {
     postgres: uiTheme.colors.icons.disabled.primary,
     salesforce: uiTheme.colors.icons.disabled.primary,
     snowflake: uiTheme.colors.icons.disabled.primary,
+    tabulaDrive: uiTheme.colors.icons.disabled.secondary,
   }),
   ...assignVars(uiTheme.colors.icons.clean, {
     primary: uiTheme.colors.icons.disabled.primary,
@@ -100,25 +129,39 @@ const overrides = {
   ...assignVars(gradients, {
     addGPTColumn: {
       l: {
-        primary: 'url(#tbl--ui-node-icon--add-gpt-column-l--primary-disabled)',
-        secondary: 'url(#tbl--ui-node-icon--add-gpt-column-l--secondary-disabled)',
+        primary: uiTheme.colors.icons.disabled.primary,
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
       m: {
-        primary: 'url(#tbl--ui-node-icon--add-gpt-column-m--primary-disabled)',
-        secondary: 'url(#tbl--ui-node-icon--add-gpt-column-m--secondary-disabled)',
+        primary: uiTheme.colors.icons.disabled.primary,
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
     },
     gptNode: {
       l: {
-        primary: 'url(#tbl--ui-node-icon--gpt-node-l--primary-disabled)',
-        secondary: 'url(#tbl--ui-node-icon--gpt-node-l--secondary-disabled)',
+        primary: uiTheme.colors.icons.disabled.primary,
+        secondary: uiTheme.colors.icons.disabled.secondary,
       },
       m: {
         primary: {
-          ['1']: 'url(#tbl--ui-node-icon--gpt-node-m--primary-1-disabled)',
-          ['2']: 'url(#tbl--ui-node-icon--gpt-node-m--primary-2-disabled)',
+          ['1']: uiTheme.colors.icons.disabled.primary,
+          ['2']: uiTheme.colors.icons.disabled.primary,
         },
-        secondary: 'url(#tbl--ui-node-icon--gpt-node-m--secondary-disabled)',
+        secondary: uiTheme.colors.icons.disabled.secondary,
+      },
+    },
+    tabulaDrive: {
+      l: {
+        primary: {
+          ['1']: uiTheme.colors.icons.disabled.primary,
+          ['2']: uiTheme.colors.icons.disabled.primary,
+        },
+      },
+      m: {
+        primary: {
+          ['1']: uiTheme.colors.icons.disabled.primary,
+          ['2']: uiTheme.colors.icons.disabled.primary,
+        },
       },
     },
   }),
