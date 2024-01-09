@@ -1,5 +1,14 @@
 # @tabula/ui-theme
 
+## 2.1.0
+
+### Minor Changes
+
+- [#114](https://github.com/ReTable/ui-kit/pull/114) [`90f4f17`](https://github.com/ReTable/ui-kit/commit/90f4f17a04b08a3398ac8ae63b0e89efac2d2d50) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - add TabulaDrive icons
+
+  fix: use right name for ReportSIcon
+  feat: add TabulaDrive icons of L and M sizes
+
 ## 2.0.4
 
 ### Patch Changes

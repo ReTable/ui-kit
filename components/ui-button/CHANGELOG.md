@@ -1,5 +1,16 @@
 # @tabula/ui-button
 
+## 3.0.0
+
+### Minor Changes
+
+- [#115](https://github.com/ReTable/ui-kit/pull/115) [`2395e47`](https://github.com/ReTable/ui-kit/commit/2395e471b0e4e5e34a948df7c37bff77ff75512c) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Add primary/secondary header styles of Button24
+
+### Patch Changes
+
+- Updated dependencies [[`90f4f17`](https://github.com/ReTable/ui-kit/commit/90f4f17a04b08a3398ac8ae63b0e89efac2d2d50)]:
+  - @tabula/ui-theme@2.1.0
+
 ## 2.0.5
 
 ### Patch Changes
