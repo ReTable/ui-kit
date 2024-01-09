@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
 
 import { UiButton24 } from '~';
 
-import { contractBackground } from './style.css';
+import { contractBackground, darkBackground } from './style.css';
 
 import { AddIcon } from './AddIcon';
 import { Link } from './Link';
@@ -64,16 +64,20 @@ another `button` element.
 
 ## Variants
 
-There are 7 appearance variants, which you can use:
+There are 9 appearance variants, which you can use:
 
 <Canvas>
   <UiButton24 variant="primary">Primary</UiButton24>
   <UiButton24 variant="secondary">Secondary</UiButton24>
+  <UiButton24 variant="primaryHeader">Primary Header</UiButton24>
   <UiButton24 variant="cancel">Cancel</UiButton24>
   <UiButton24 variant="cancelFilled">Cancel Filled</UiButton24>
   <UiButton24 variant="edit">Edit</UiButton24>
   <UiButton24 variant="test">Test</UiButton24>
   <UiButton24 variant="ai">Ai</UiButton24>
+</Canvas>
+<Canvas className={darkBackground}>
+  <UiButton24 variant="secondaryHeader">Secondary Header</UiButton24>
 </Canvas>
 
 ## Options
