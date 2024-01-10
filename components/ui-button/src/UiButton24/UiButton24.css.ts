@@ -6,7 +6,7 @@ import { buildVariants } from '../variants.css';
 import { gradient } from '../helpers';
 
 const rootStyle = {
-  gap: '4px',
+  gap: '6px',
   height: '24px',
   padding: '0 12px',
   borderRadius: '12px',
