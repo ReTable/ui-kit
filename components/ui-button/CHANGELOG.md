@@ -1,5 +1,11 @@
 # @tabula/ui-button
 
+## 3.0.1
+
+### Patch Changes
+
+- [#117](https://github.com/ReTable/ui-kit/pull/117) [`4c27d9b`](https://github.com/ReTable/ui-kit/commit/4c27d9bde2bdc2eca95d5e4832221859a1cc8089) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - up content gap from 4px to 6px
+
 ## 3.0.0
 
 ### Minor Changes
