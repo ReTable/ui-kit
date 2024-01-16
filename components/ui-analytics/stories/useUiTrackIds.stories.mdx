@@ -1,0 +1,58 @@
+import { ArgsTable, Canvas, Meta, Source } from '@storybook/blocks';
+
+import { UiAnalytics } from '~';
+
+import { UseUiTrackIds } from './UseUiTrackIds';
+
+<Meta title="Docs/useUiTrackIds" />
+
+# useUiTrackIds
+
+This hook allows to fetch track id from context and build ids map.
+
+For example, you have the following component:
+
+<Source code={`
+import { useUiTrackIds } from '@tabula/ui-analytics';
+
+const Usage: FC = () => {
+  const trackIds = useUiTrackIds({
+    button: 'awesome-button',
+    label: 'awesome-label',
+  });
+
+  return (
+    <ul>
+      <li>{trackIds.button}</li>
+      <li>{trackIds.label}</li>
+    </ul>
+  );
+};
+`} language="ts" />
+
+Then result of the following code:
+
+<Source code={`
+<UiAnalytics trackId="track">
+  <Usage />
+</UiAnalytics>
+`} language="ts" />
+
+will be:
+
+<Source code={`
+<ul>
+  <li>track--awesome-button</li>
+  <li>track--awesome-label</li>
+</ul>
+`} language="html" />
+
+If context is not provided, then `null` will be returned for all keys.
+
+## Demo
+
+<Canvas>
+  <UiAnalytics trackId="track">
+    <UseUiTrackIds />
+  </UiAnalytics>
+</Canvas>
