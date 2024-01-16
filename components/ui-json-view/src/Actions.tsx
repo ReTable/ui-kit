@@ -41,6 +41,7 @@ export const Actions: FC<Props> = ({ className, jsonPath }) => {
         jsonPath={jsonPath}
         successLabel="Copied!"
         toClipboard={valueToClipboard}
+        trackId="copy-json"
       />
       <Copy
         className={className}
@@ -48,6 +49,7 @@ export const Actions: FC<Props> = ({ className, jsonPath }) => {
         jsonPath={jsonPath}
         successLabel="Copied!"
         toClipboard={jsonPathToClipboard}
+        trackId="copy-json-path"
       />
       {controls}
     </>

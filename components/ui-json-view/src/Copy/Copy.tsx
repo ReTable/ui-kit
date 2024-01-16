@@ -13,6 +13,7 @@ type Props = {
   jsonPath: string;
   successLabel: string;
   toClipboard: (jsonPath: string, query: QueryFn) => string;
+  trackId?: string;
 };
 
 const delay = 1000;
@@ -23,6 +24,7 @@ export const Copy: FC<Props> = ({
   jsonPath,
   successLabel,
   toClipboard,
+  trackId,
 }) => {
   const [isCopied, setIsCopied] = useState(false);
 
@@ -48,7 +50,12 @@ export const Copy: FC<Props> = ({
   };
 
   return (
-    <Action className={clsx(className, isCopied && copied)} action={action} jsonPath={jsonPath}>
+    <Action
+      className={clsx(className, isCopied && copied)}
+      action={action}
+      jsonPath={jsonPath}
+      trackId={trackId}
+    >
       {isCopied ? successLabel : defaultLabel}
     </Action>
   );

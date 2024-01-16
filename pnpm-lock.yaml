@@ -223,6 +223,9 @@ importers:
 
   components/ui-json-view:
     dependencies:
+      '@tabula/ui-analytics':
+        specifier: workspace:^
+        version: link:../ui-analytics
       '@tabula/use-size':
         specifier: workspace:^
         version: link:../../hooks/use-size

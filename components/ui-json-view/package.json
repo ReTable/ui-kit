@@ -52,6 +52,7 @@
     "@types/react-window": "^1.8.8"
   },
   "dependencies": {
+    "@tabula/ui-analytics": "workspace:^",
     "@tabula/use-size": "workspace:^",
     "@vanilla-extract/dynamic": "^2.1.0",
     "clsx": "^2.0.0",
