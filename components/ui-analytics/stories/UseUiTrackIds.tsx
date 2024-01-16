@@ -4,16 +4,18 @@ import { useUiTrackIds } from '~';
 
 export function UseUiTrackIds(): ReactNode {
   const trackIds = useUiTrackIds({
-    button: 'awesome-button',
-    label: 'awesome-label',
+    emptyId: '',
+    buttonId: 'button',
+    labelId: 'label',
   });
 
   return (
     <div>
       <div>Multiple Ids:</div>
       <ul>
-        <li>button: {trackIds.button}</li>
-        <li>button: {trackIds.label}</li>
+        <li>emptyId: {trackIds.emptyId}</li>
+        <li>buttonId: {trackIds.buttonId}</li>
+        <li>labelId: {trackIds.labelId}</li>
       </ul>
     </div>
   );

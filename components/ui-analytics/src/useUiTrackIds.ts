@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { idFrom } from './idFrom';
 import { useUiTrackId } from './useUiTrackId';
 
 type TrackIds<Ids extends Record<string, string>> = {
@@ -12,8 +13,8 @@ export function useUiTrackIds<Ids extends Record<string, string>>(ids: Ids): Tra
   return useMemo(() => {
     const result: Record<string, string | null> = {};
 
-    for (const [name, value] of Object.entries(ids)) {
-      result[name] = trackId == null ? null : `${trackId}--${value}`;
+    for (const [name, id] of Object.entries(ids)) {
+      result[name] = idFrom(trackId, id);
     }
 
     return result as TrackIds<Ids>;

@@ -9,6 +9,7 @@ describe('useUiTrackIds', () => {
     const ids = {
       button: randUuid(),
       label: randUuid(),
+      empty: '',
     };
 
     const { result } = renderHook(() => useUiTrackIds(ids));
@@ -16,6 +17,7 @@ describe('useUiTrackIds', () => {
     expect(result.current).toEqual({
       button: null,
       label: null,
+      empty: null,
     });
   });
 
@@ -23,6 +25,7 @@ describe('useUiTrackIds', () => {
     const ids = {
       button: randUuid(),
       label: randUuid(),
+      empty: '',
     };
 
     const { result } = renderHook(() => useUiTrackIds(ids), {
@@ -34,6 +37,7 @@ describe('useUiTrackIds', () => {
     expect(result.current).toEqual({
       button: null,
       label: null,
+      empty: null,
     });
   });
 
@@ -43,6 +47,7 @@ describe('useUiTrackIds', () => {
     const ids = {
       button: randUuid(),
       label: randUuid(),
+      empty: '',
     };
 
     const { result } = renderHook(() => useUiTrackIds(ids), {
@@ -54,6 +59,7 @@ describe('useUiTrackIds', () => {
     expect(result.current).toEqual({
       button: `${trackId}--${ids.button}`,
       label: `${trackId}--${ids.label}`,
+      empty: trackId,
     });
   });
 });

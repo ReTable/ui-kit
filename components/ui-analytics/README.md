@@ -30,51 +30,45 @@ import { UiAnalytics } from "@tabula/ui-analytics";
 
 ### `useUiTrackId`
 
-This hook extract track id from context.
+This hook allows to fetch track id from context.
 
-```typescript jsx
+#### Type
+
+`function useUiTrackId(id?: string): string | null`
+
+#### Usage
+
+```typescript
 import { useUiTrackId } from "@tabula/ui-analytics";
-
-// ...
-const trackId = useUiTrackId();
-// ...
-
-// ...
-<button data-track-id={trackId}>Click me!</button>
-// ...
 ```
 
-If `trackId` is not provided through context or nullable, then hook returns `null` too.
+| Track Id   | Id        | Result           |
+|------------|-----------|------------------|
+| `null`     | `null`    | `null`           |
+| `null`     | `"`      | `null`           |
+| `null`     | `"child"` | `null`           |
+| `"parent"` | `null`    | `"parent"`       |
+| `"parent"` | `"`      | `"parent"`       |
+| `"parent"` | `"child"` | `"parent-child"` |
 
 ### `useUiTrackIds`
 
-This hook extract track id from context and build ids map.
+This hook allows to fetch track id from context and build ids map.
 
-```typescript jsx
-import { useUiTrackId } from "@tabula/ui-analytics";
+#### Type
 
-// ...
-const trackIds = useUiTrackIds({
-  add: 'add-button',
-  remove: 'remove-button',
-});
-// ...
+`function useUiTrackId<Ids extends Record<string, string>(ids: Ids): Record<string, string> | Record<string, null>`
 
-// ...
-<button data-track-id={trackIds.add}>Add</button>
-<button data-track-id={trackIds.remove}>Remove</button>
-// ...
+#### Usage
+
+```typescript
+import { useUiTrackIds } from "@tabula/ui-analytics";
 ```
 
-It generates each id in following way from example above when track id is `list`:
-
-```html
-<button data-track-id="list--add-button">Add</button>
-<button data-track-id="list--remove-button">Remove</button>
-```
-
-If `trackId` is not provided through context or nullable, then hook returns `null` for
-all keys.
+| Track Id   | Id                                        | Result                                                  |
+|------------|-------------------------------------------|---------------------------------------------------------|
+| `null`     | `{  empty :  "" ,  nonEmpty :  "child" }` | `null`                                                  |
+| `"parent"` | `{  empty :  " ,  nonEmpty :  "child" }` | `{  empty :  "parent" ,  nonEmpty :  "parent--child" }` |
 
 ## License
 
