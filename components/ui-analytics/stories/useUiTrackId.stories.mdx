@@ -1,0 +1,19 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiAnalytics } from '~';
+
+import { UseUiTrackId } from './UseUiTrackId';
+
+<Meta title="Docs/useUiTrackId" />
+
+# useUiTrackId
+
+This hook allows to fetch track id from context. If context is not provided, then `null` will be returned.
+
+## Demo
+
+<Canvas>
+  <UiAnalytics trackId="track">
+    <UseUiTrackId />
+  </UiAnalytics>
+</Canvas>
