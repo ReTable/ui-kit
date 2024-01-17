@@ -1,5 +1,16 @@
 # @tabula/ui-json-view
 
+## 1.1.0
+
+### Minor Changes
+
+- [#122](https://github.com/ReTable/ui-kit/pull/122) [`fa73aaf`](https://github.com/ReTable/ui-kit/commit/fa73aaf26c3fb47d7cf2aab4f32510ec029280a4) Thanks [@demiazz](https://github.com/demiazz)! - allow to provide track id to actions
+
+### Patch Changes
+
+- Updated dependencies [[`62145c6`](https://github.com/ReTable/ui-kit/commit/62145c6a6ab3710d4ecea42479fdfade32729ad0)]:
+  - @tabula/ui-analytics@0.2.0
+
 ## 1.0.0
 
 ### Patch Changes
