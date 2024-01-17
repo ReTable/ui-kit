@@ -1,19 +1,52 @@
-import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
 
 import { UiAnalytics } from '~';
 
+import { Table } from './Table';
 import { UseUiTrackId } from './UseUiTrackId';
 
 <Meta title="Docs/useUiTrackId" />
 
 # useUiTrackId
 
-This hook allows to fetch track id from context. If context is not provided, then `null` will be returned.
+This hook allows to fetch track id from context.
+
+## Type
+
+`function useUiTrackId(id?: string | false | null): string | null`
+
+## Usage
+
+<Table
+  columns={['Track Id', 'Id', 'Result']}
+  data={[
+    [undefined, undefined, null],
+    [undefined, null, null],
+    [undefined, false, null],
+    [undefined, '', null],
+    [undefined, 'child', null],
+    [null, undefined, null],
+    [null, null, null],
+    [null, false, null],
+    [null, '', null],
+    [null, 'child', null],
+    ['', undefined, null],
+    ['', null, null],
+    ['', false, null],
+    ['', '', null],
+    ['', 'child', null],
+    ['parent', undefined, 'parent'],
+    ['parent', null, 'parent'],
+    ['parent', false, null],
+    ['parent', '', null],
+    ['parent', 'child', 'parent--child'],
+  ]}
+/>
 
 ## Demo
 
 <Canvas>
-  <UiAnalytics trackId="track">
+  <UiAnalytics trackId="parent">
     <UseUiTrackId />
   </UiAnalytics>
 </Canvas>

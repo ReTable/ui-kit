@@ -3,7 +3,7 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { Context } from './Context';
 
 export type Props = PropsWithChildren<{
-  trackId?: string;
+  trackId?: string | null;
 }>;
 
 export function UiAnalytics({ children, trackId }: Props): ReactNode {

@@ -1,7 +1,8 @@
-import { ArgsTable, Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/blocks';
 
 import { UiAnalytics } from '~';
 
+import { Table } from './Table';
 import { UseUiTrackIds } from './UseUiTrackIds';
 
 <Meta title="Docs/useUiTrackIds" />
@@ -10,49 +11,82 @@ import { UseUiTrackIds } from './UseUiTrackIds';
 
 This hook allows to fetch track id from context and build ids map.
 
-For example, you have the following component:
+## Type
 
-<Source code={`
-import { useUiTrackIds } from '@tabula/ui-analytics';
+`function useUiTrackId(ids: Record<string, string | null | false>): Record<string, string> | Record<string, null>`
 
-const Usage: FC = () => {
-  const trackIds = useUiTrackIds({
-    button: 'awesome-button',
-    label: 'awesome-label',
-  });
+## Usage
 
-  return (
-    <ul>
-      <li>{trackIds.button}</li>
-      <li>{trackIds.label}</li>
-    </ul>
-  );
-};
-`} language="ts" />
-
-Then result of the following code:
-
-<Source code={`
-<UiAnalytics trackId="track">
-  <Usage />
-</UiAnalytics>
-`} language="ts" />
-
-will be:
-
-<Source code={`
-<ul>
-  <li>track--awesome-button</li>
-  <li>track--awesome-label</li>
-</ul>
-`} language="html" />
-
-If context is not provided, then `null` will be returned for all keys.
+<Table
+  columns={['Track Id', 'Id', 'Result']}
+  data={[
+    [
+      undefined,
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: null,
+      },
+    ],
+    [
+      null,
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: null,
+      },
+    ],
+    [
+      '',
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: null,
+      },
+    ],
+    [
+      'parent',
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: 'parent--child',
+      },
+    ],
+  ]}
+/>
 
 ## Demo
 
 <Canvas>
-  <UiAnalytics trackId="track">
+  <UiAnalytics trackId="parent">
     <UseUiTrackIds />
   </UiAnalytics>
 </Canvas>
