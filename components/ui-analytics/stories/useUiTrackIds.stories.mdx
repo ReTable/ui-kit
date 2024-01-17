@@ -13,15 +13,73 @@ This hook allows to fetch track id from context and build ids map.
 
 ## Type
 
-`function useUiTrackId<Ids extends Record<string, string>(ids: Ids): Record<string, string> | Record<string, null>`
+`function useUiTrackId(ids: Record<string, string | null | false>): Record<string, string> | Record<string, null>`
 
 ## Usage
 
 <Table
   columns={['Track Id', 'Id', 'Result']}
   data={[
-    [null, { empty: '', nonEmpty: 'child' }, null],
-    ['parent', { empty: '', nonEmpty: 'child' }, { empty: 'parent', nonEmpty: 'parent--child' }],
+    [
+      undefined,
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: null,
+      },
+    ],
+    [
+      null,
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: null,
+      },
+    ],
+    [
+      '',
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: null,
+      },
+    ],
+    [
+      'parent',
+      {
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isNull: null,
+        isFalse: null,
+        isEmpty: null,
+        isString: 'parent--child',
+      },
+    ],
   ]}
 />
 

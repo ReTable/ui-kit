@@ -13,18 +13,32 @@ This hook allows to fetch track id from context.
 
 ## Type
 
-`function useUiTrackId(id?: string): string | null`
+`function useUiTrackId(id?: string | false | null): string | null`
 
 ## Usage
 
 <Table
   columns={['Track Id', 'Id', 'Result']}
   data={[
+    [undefined, undefined, null],
+    [undefined, null, null],
+    [undefined, false, null],
+    [undefined, '', null],
+    [undefined, 'child', null],
+    [null, undefined, null],
     [null, null, null],
+    [null, false, null],
     [null, '', null],
     [null, 'child', null],
+    ['', undefined, null],
+    ['', null, null],
+    ['', false, null],
+    ['', '', null],
+    ['', 'child', null],
+    ['parent', undefined, 'parent'],
     ['parent', null, 'parent'],
-    ['parent', '', 'parent'],
+    ['parent', false, null],
+    ['parent', '', null],
     ['parent', 'child', 'parent--child'],
   ]}
 />
@@ -34,6 +48,5 @@ This hook allows to fetch track id from context.
 <Canvas>
   <UiAnalytics trackId="parent">
     <UseUiTrackId />
-    <UseUiTrackId id="child" />
   </UiAnalytics>
 </Canvas>

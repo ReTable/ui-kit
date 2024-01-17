@@ -24,7 +24,6 @@ export const Default: Story = {
     return (
       <UiAnalytics trackId={trackId}>
         <UseUiTrackId />
-        <UseUiTrackId id="child" />
         <UseUiTrackIds />
       </UiAnalytics>
     );
