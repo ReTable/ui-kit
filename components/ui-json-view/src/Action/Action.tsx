@@ -20,7 +20,7 @@ type Props = {
 export const Action: FC<Props> = ({ action, className, children, jsonPath, trackId }) => {
   const { onAction } = useOptions();
 
-  const actualTrackId = useUiTrackId(trackId);
+  const actualTrackId = useUiTrackId(trackId ?? false);
 
   const handleClick = () => {
     onAction(jsonPath, action);

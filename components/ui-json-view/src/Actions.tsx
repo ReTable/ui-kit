@@ -27,11 +27,22 @@ export const Actions: FC<Props> = ({ className, jsonPath }) => {
     return null;
   }
 
-  const controls = Object.entries(actions).map(([name, action]) => (
-    <Action className={className} action={action} key={name} jsonPath={jsonPath}>
-      {name}
-    </Action>
-  ));
+  const controls = Object.entries(actions).map(([name, action]) => {
+    const [actionFn, trackId] =
+      typeof action === 'function' ? [action, undefined] : [action.action, action.trackId];
+
+    return (
+      <Action
+        className={className}
+        action={actionFn}
+        key={name}
+        jsonPath={jsonPath}
+        trackId={trackId}
+      >
+        {name}
+      </Action>
+    );
+  });
 
   return (
     <>

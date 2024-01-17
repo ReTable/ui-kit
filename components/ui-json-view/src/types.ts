@@ -108,9 +108,11 @@ export type QueryFn = (jsonPath: string) => Readonly<JsonValue>;
 
 export type ActionFn = (jsonPath: string, query: QueryFn) => void;
 
+export type Action = ActionFn | { action: ActionFn; trackId?: string };
+
 export type OnActionFn = (jsonPath: string, action: ActionFn) => void;
 
-export type Actions = Record<string, ActionFn>;
+export type Actions = Record<string, Action>;
 
 // endregion
 
