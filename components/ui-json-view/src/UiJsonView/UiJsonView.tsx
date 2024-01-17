@@ -2,6 +2,8 @@ import { FC } from 'react';
 
 import { clsx } from 'clsx';
 
+import { UiAnalytics } from '@tabula/ui-analytics';
+
 import { variants } from './UiJsonView.css';
 
 import { OptionsProvider } from '../OptionsProvider';
@@ -37,6 +39,7 @@ export type Props = Partial<JsonViewOptions> & {
    * JSON value in string representation.
    */
   source: string;
+  trackId?: string;
 };
 
 export const UiJsonView: FC<Props> = ({
@@ -52,6 +55,7 @@ export const UiJsonView: FC<Props> = ({
   showDataTypes,
   showObjectSize,
   source,
+  trackId,
 }) => {
   const [allowInteractions, maxNumberOfLines] =
     limit != null && limit > 0 ? [false, limit] : [isInteractive, Number.POSITIVE_INFINITY];
@@ -78,19 +82,21 @@ export const UiJsonView: FC<Props> = ({
   const View = isVirtual ? VirtualView : StaticView;
 
   return (
-    <OptionsProvider
-      actions={actions}
-      isInteractive={allowInteractions}
-      onAction={onAction}
-      onToggle={onToggle}
-      onToggleDataTypes={onToggleDataTypes}
-      onToggleObjectSize={onToggleObjectSize}
-      shortStringAfterLength={shortStringAfterLength}
-      showDataTypes={showDataTypes}
-      showObjectSize={showObjectSize}
-    >
-      <View className={clsx(containerClassName, className)} lines={lines} />
-    </OptionsProvider>
+    <UiAnalytics trackId={trackId}>
+      <OptionsProvider
+        actions={actions}
+        isInteractive={allowInteractions}
+        onAction={onAction}
+        onToggle={onToggle}
+        onToggleDataTypes={onToggleDataTypes}
+        onToggleObjectSize={onToggleObjectSize}
+        shortStringAfterLength={shortStringAfterLength}
+        showDataTypes={showDataTypes}
+        showObjectSize={showObjectSize}
+      >
+        <View className={clsx(containerClassName, className)} lines={lines} />
+      </OptionsProvider>
+    </UiAnalytics>
   );
 };
 
