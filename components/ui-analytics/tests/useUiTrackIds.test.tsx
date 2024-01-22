@@ -4,13 +4,14 @@ import { describe, expect, it } from 'vitest';
 import { UiAnalytics, useUiTrackIds } from '~';
 
 type Ids = {
+  isUndefined: undefined;
   isNull: null;
   isFalse: false;
   isEmpty: '';
   isString: string;
 };
 
-type ExpectedIds = Record<keyof Ids, string | null>;
+type ExpectedIds = Record<keyof Ids, string | undefined>;
 
 type Sample = {
   trackId: string | null | undefined;
@@ -21,36 +22,40 @@ const samples: Sample[] = [
   {
     trackId: undefined,
     expected: {
-      isNull: null,
-      isFalse: null,
-      isEmpty: null,
-      isString: null,
+      isUndefined: undefined,
+      isNull: undefined,
+      isFalse: undefined,
+      isEmpty: undefined,
+      isString: undefined,
     },
   },
   {
     trackId: null,
     expected: {
-      isNull: null,
-      isFalse: null,
-      isEmpty: null,
-      isString: null,
+      isUndefined: undefined,
+      isNull: undefined,
+      isFalse: undefined,
+      isEmpty: undefined,
+      isString: undefined,
     },
   },
   {
     trackId: '',
     expected: {
-      isNull: null,
-      isFalse: null,
-      isEmpty: null,
-      isString: null,
+      isUndefined: undefined,
+      isNull: undefined,
+      isFalse: undefined,
+      isEmpty: undefined,
+      isString: undefined,
     },
   },
   {
     trackId: 'parent',
     expected: {
-      isNull: null,
-      isFalse: null,
-      isEmpty: null,
+      isUndefined: undefined,
+      isNull: undefined,
+      isFalse: undefined,
+      isEmpty: undefined,
       isString: 'parent--child',
     },
   },
@@ -60,6 +65,7 @@ function resultOf(trackId: string | null | undefined): ExpectedIds {
   const { result } = renderHook(
     () =>
       useUiTrackIds({
+        isUndefined: undefined,
         isNull: null,
         isFalse: false,
         isEmpty: '',
