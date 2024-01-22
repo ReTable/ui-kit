@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 
 import { useUiTrackId } from './useUiTrackId';
 
-type TrackIds<Ids extends Record<string, string | null | false>> = {
-  [Key in keyof Ids]: string | null;
+type TrackIds<Ids extends Record<string, string | false | null | undefined>> = {
+  [Key in keyof Ids]: string | undefined;
 };
 
-export function useUiTrackIds<Ids extends Record<string, string | null | false>>(
+export function useUiTrackIds<Ids extends Record<string, string | false | null | undefined>>(
   ids: Ids,
 ): TrackIds<Ids> {
   const trackId = useUiTrackId();
@@ -16,14 +16,10 @@ export function useUiTrackIds<Ids extends Record<string, string | null | false>>
 
     for (const [name, id] of Object.entries(ids)) {
       if (trackId == null || trackId === '') {
-        result[name] = null;
-
         continue;
       }
 
       if (!id || id === '') {
-        result[name] = null;
-
         continue;
       }
 

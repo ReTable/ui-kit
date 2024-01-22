@@ -2,16 +2,16 @@ import { useContext, useMemo } from 'react';
 
 import { Context } from './Context';
 
-export function useUiTrackId(id?: string | false | null): string | null {
+export function useUiTrackId(id?: string | false | null): string | undefined {
   const trackId = useContext(Context);
 
   return useMemo(() => {
     if (trackId == null || trackId === '') {
-      return null;
+      return;
     }
 
     if (id === false || id === '') {
-      return null;
+      return;
     }
 
     if (id == null) {

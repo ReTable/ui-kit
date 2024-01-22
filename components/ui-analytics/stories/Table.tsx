@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 type Props = {
   columns: string[];
-  data: string[][];
+  data: unknown[][];
 };
 
 /* eslint-disable react/no-array-index-key */
@@ -22,7 +22,7 @@ export function Table({ columns, data }: Props): ReactNode {
             {row.map((it, idx) => (
               <td key={idx}>
                 <pre>
-                  <code>{JSON.stringify(it, null, 2)}</code>
+                  <code>{it === undefined ? 'undefined' : JSON.stringify(it, null, 2)}</code>
                 </pre>
               </td>
             ))}

@@ -42,28 +42,28 @@ This hook allows to fetch track id from context.
 import { useUiTrackId } from "@tabula/ui-analytics";
 ```
 
-| Track Id  | Id            | Result              |
-|-----------|---------------|---------------------|
-| `undefined` | `undefined` | `null`              |
-| `undefined` | `null`      | `null`              |
-| `undefined` | `false`     | `null`              |
-| `undefined` | `""`        | `null`              |
-| `undefined` | `"child"`   | `null`              |
-| `null`      | `undefined` | `null`              |
-| `null`      | `null`      | `null`              |
-| `null`      | `false`     | `null`              |
-| `null`      | `""`        | `null`              |
-| `null`      | `"child"`   | `null`              |
-| `""`        | `undefined` | `null`              |
-| `""`        | `null`      | `null`              |
-| `""`        | `false`     | `null`              |
-| `""`        | `""`        | `null`              |
-| `""`        | `"child"`   | `null`              |
-| `"parent"`  | `undefined` | `"parent"`          |
-| `"parent"`  | `null`      | `"parent"`          |
-| `"parent"`  | `false`     | `null`              |
-| `"parent"`  | `""`        | `null`              |
-| `"parent"`  | `"child"`   | `"parent--child"`   |
+| Track Id  | Id            | Result            |
+|-----------|---------------|-------------------|
+| `undefined` | `undefined` | `undefined`       |
+| `undefined` | `null`      | `undefined`       |
+| `undefined` | `false`     | `undefined`       |
+| `undefined` | `""`        | `undefined`       |
+| `undefined` | `"child"`   | `undefined`       |
+| `null`      | `undefined` | `undefined`       |
+| `null`      | `null`      | `undefined`       |
+| `null`      | `false`     | `undefined`       |
+| `null`      | `""`        | `undefined`       |
+| `null`      | `"child"`   | `undefined`       |
+| `""`        | `undefined` | `undefined`       |
+| `""`        | `null`      | `undefined`       |
+| `""`        | `false`     | `undefined`       |
+| `""`        | `""`        | `undefined`       |
+| `""`        | `"child"`   | `undefined`       |
+| `"parent"`  | `undefined` | `"parent"`        |
+| `"parent"`  | `null`      | `"parent"`        |
+| `"parent"`  | `false`     | `undefined`       |
+| `"parent"`  | `""`        | `undefined`       |
+| `"parent"`  | `"child"`   | `"parent--child"` |
 
 ### `useUiTrackIds`
 
@@ -79,12 +79,12 @@ This hook allows to fetch track id from context and build ids map.
 import { useUiTrackIds } from "@tabula/ui-analytics";
 ```
 
-| Track Id    | Ids                                                                |                                                                             |
-|-------------|--------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| `undefined` | `{ isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ isNull: null, isFalse: null, isEmpty: null, isString: null }`            |
-| `null`      | `{ isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ isNull: null, isFalse: null, isEmpty: null, isString: null }`            |
-| `"'`        | `{ isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ isNull: null, isFalse: null, isEmpty: null, isString: null }`            |
-| `"parent"`  | `{ isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ isNull: null, isFalse: null, isEmpty: null, isString: "parent--child" }` |
+| Track Id    | Ids                                                                                        |                                 |
+|-------------|--------------------------------------------------------------------------------------------|---------------------------------|
+| `undefined` | `{ isUndefined: undefined, isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ }`                           |
+| `null`      | `{ isUndefined: undefined, isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ }`                           |
+| `""`        | `{ isUndefined: undefined, isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ }`                           |
+| `"parent"`  | `{ isUndefined: undefined, isNull: null, isFalse: false, isEmpty: "", isString: "child" }` | `{ isString: "parent--child" }` |
 
 ## License
 
