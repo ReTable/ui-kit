@@ -1,5 +1,11 @@
 # @tabula/ui-analytics
 
+## 0.3.0
+
+### Minor Changes
+
+- [#124](https://github.com/ReTable/ui-kit/pull/124) [`9460651`](https://github.com/ReTable/ui-kit/commit/9460651beb9e5331d561d912769ab058f4747cc0) Thanks [@demiazz](https://github.com/demiazz)! - returns `undefined` instead of `null` from hooks
+
 ## 0.2.0
 
 ### Minor Changes
