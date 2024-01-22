@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-analytics",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Allows to provide tracking ids to components",
   "type": "module",
   "typings": "./typings/index.d.ts",
