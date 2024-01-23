@@ -1,0 +1,74 @@
+import { Canvas, Meta } from '@storybook/blocks';
+
+import { Table } from './Table';
+import { UseTrackIds } from './UseTrackIds';
+
+<Meta title="Docs/useTrackIds" />
+
+# useTrackId
+
+Helps generate track id for analytics purposes.
+
+## Type
+
+`function useTrackIds(scope: string | null | undefined, ids: Record<string, string | false | null | undefined>): Record<string, string | undefined>`
+
+## Usage
+
+<Table
+  columns={['Track Id', 'Id', 'Result']}
+  data={[
+    [
+      undefined,
+      {
+        isUndefined: undefined,
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {},
+    ],
+    [
+      null,
+      {
+        isUndefined: undefined,
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {},
+    ],
+    [
+      '',
+      {
+        isUndefined: undefined,
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {},
+    ],
+    [
+      'parent',
+      {
+        isUndefined: undefined,
+        isNull: null,
+        isFalse: false,
+        isEmpty: '',
+        isString: 'child',
+      },
+      {
+        isString: 'parent--child',
+      },
+    ],
+  ]}
+/>
+
+## Demo
+
+<Canvas>
+  <UseTrackIds scope="parent" />
+</Canvas>
