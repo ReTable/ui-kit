@@ -1,23 +1,11 @@
-import { useContext, useMemo } from 'react';
+import { useContext } from 'react';
+
+import { useTrackId } from '@tabula/use-track-id';
 
 import { Context } from './Context';
 
 export function useUiTrackId(id?: string | false | null): string | undefined {
-  const trackId = useContext(Context);
+  const scope = useContext(Context);
 
-  return useMemo(() => {
-    if (trackId == null || trackId === '') {
-      return;
-    }
-
-    if (id === false || id === '') {
-      return;
-    }
-
-    if (id == null) {
-      return trackId;
-    }
-
-    return `${trackId}--${id}`;
-  }, [trackId, id]);
+  return useTrackId(scope, id);
 }

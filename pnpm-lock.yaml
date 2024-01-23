@@ -161,6 +161,12 @@ importers:
 
   components/ui-analytics:
     dependencies:
+      '@tabula/use-track-id':
+        specifier: workspace:^
+        version: link:../../hooks/use-track-id
+      '@tabula/use-track-ids':
+        specifier: workspace:^
+        version: link:../../hooks/use-track-ids
       react:
         specifier: ^18.2.0
         version: 18.2.0
