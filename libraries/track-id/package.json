@@ -1,0 +1,45 @@
+{
+  "name": "@tabula/track-id",
+  "version": "0.0.0",
+  "description": "Helps generate track ids for analytics purposes",
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "library",
+    "analytics"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/libraries/track-id#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "libraries/track-id"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:watch": "forge --watch",
+    "lint": "eslint .",
+    "test": "vitest run"
+  }
+}
