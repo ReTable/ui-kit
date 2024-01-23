@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="use-track-ids" name="use-track-ids:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="use-track-ids:build:watch" type="js.build_tools.npm" />
+    <toRun name="use-track-ids:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -1,7 +1,7 @@
 {
-  "name": "@tabula/ui-analytics",
-  "version": "0.3.0",
-  "description": "Allows to provide tracking ids to components",
+  "name": "@tabula/use-track-ids",
+  "version": "0.0.0",
+  "description": "Helps generate track ids for analytics purposes",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
@@ -18,18 +18,17 @@
     "tabula.io",
     "tomat.ai",
     "ui-kit",
-    "component",
-    "react",
-    "analytics"
+    "hook",
+    "react"
   ],
-  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-analytics#readme",
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/hooks/use-track-ids#readme",
   "bugs": {
     "url": "https://github.com/ReTable/ui-kit/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ReTable/ui-kit.git",
-    "directory": "components/ui-analytics"
+    "directory": "hooks/use-track-ids"
   },
   "author": "Retable Inc.",
   "license": "ISC",
@@ -48,7 +47,6 @@
     "react": "^18.2.0"
   },
   "dependencies": {
-    "@tabula/use-track-id": "workspace:^",
-    "@tabula/use-track-ids": "workspace:^"
+    "@tabula/track-id": "workspace:^"
   }
 }

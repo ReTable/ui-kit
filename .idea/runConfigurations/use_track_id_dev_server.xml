@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="use-track-id" name="use-track-id:dev:server" type="CompoundRunConfigurationType">
+    <toRun name="docs:watch" type="js.build_tools.npm" />
+    <toRun name="use-track-id:build:watch" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
