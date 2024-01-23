@@ -408,6 +408,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  hooks/use-track-id:
+    dependencies:
+      '@tabula/track-id':
+        specifier: workspace:^
+        version: link:../../libraries/track-id
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   libraries/track-id: {}
 
 packages:

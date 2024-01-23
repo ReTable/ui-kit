@@ -42,6 +42,9 @@
       "path": "hooks/use-size"
     },
     {
+      "path": "hooks/use-track-id"
+    },
+    {
       "path": "libraries/track-id"
     },
     {
