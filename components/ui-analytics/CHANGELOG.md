@@ -1,5 +1,15 @@
 # @tabula/ui-analytics
 
+## 0.3.1
+
+### Patch Changes
+
+- [#126](https://github.com/ReTable/ui-kit/pull/126) [`f5fb4fe`](https://github.com/ReTable/ui-kit/commit/f5fb4fef44e8b7451d56e4f4957e8a6eaa3a07ce) Thanks [@demiazz](https://github.com/demiazz)! - use `@tabula/use-track-id` and `@tabula/use-track-ids` inside
+
+- Updated dependencies [[`f5fb4fe`](https://github.com/ReTable/ui-kit/commit/f5fb4fef44e8b7451d56e4f4957e8a6eaa3a07ce), [`f5fb4fe`](https://github.com/ReTable/ui-kit/commit/f5fb4fef44e8b7451d56e4f4957e8a6eaa3a07ce)]:
+  - @tabula/use-track-id@0.1.0
+  - @tabula/use-track-ids@0.1.0
+
 ## 0.3.0
 
 ### Minor Changes

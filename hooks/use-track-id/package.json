@@ -1,6 +1,6 @@
 {
   "name": "@tabula/use-track-id",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Helps generate track id for analytics purposes",
   "type": "module",
   "typings": "./typings/index.d.ts",
