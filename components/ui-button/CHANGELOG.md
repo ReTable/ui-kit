@@ -1,5 +1,11 @@
 # @tabula/ui-button
 
+## 3.1.0
+
+### Minor Changes
+
+- [#128](https://github.com/ReTable/ui-kit/pull/128) [`e9b76e3`](https://github.com/ReTable/ui-kit/commit/e9b76e33aa59f1ddd574e453adeeacb30c5bf54b) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Use accent color for primary UiButton40
+
 ## 3.0.1
 
 ### Patch Changes
