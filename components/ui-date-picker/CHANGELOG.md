@@ -1,5 +1,12 @@
 # @tabula/ui-date-picker
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`e9b76e3`](https://github.com/ReTable/ui-kit/commit/e9b76e33aa59f1ddd574e453adeeacb30c5bf54b)]:
+  - @tabula/ui-button@3.1.0
+
 ## 1.0.1
 
 ### Patch Changes
