@@ -1,6 +1,6 @@
 import { uiFonts, uiTheme } from '@tabula/ui-theme';
 
-import { primaryShadow } from '../const.css';
+import { accentHover, accentPressed, primaryShadow } from '../const.css';
 import { buildVariants } from '../variants.css';
 
 const rootStyle = {
@@ -19,15 +19,15 @@ const variantStyles = {
   primary: {
     font: uiFonts.sansSerif.semiBold14,
     default: {
-      background: uiTheme.colors.fillControl.btnPrimary,
+      background: uiTheme.colors.accent['100'],
       color: uiTheme.colors.content.contrast,
       boxShadow: primaryShadow,
     },
     hover: {
-      background: uiTheme.colors.fillControl.btnPrimaryHover,
+      background: accentHover,
     },
     active: {
-      background: uiTheme.colors.fillControl.btnPrimaryPressed,
+      background: accentPressed,
       boxShadow: 'unset',
     },
   },
