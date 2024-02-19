@@ -1,5 +1,11 @@
 # @tabula/ui-button
 
+## 3.2.0
+
+### Minor Changes
+
+- [#130](https://github.com/ReTable/ui-kit/pull/130) [`4862275`](https://github.com/ReTable/ui-kit/commit/486227574e1418e3418b798735d347ca295cef66) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - add secondaryDark style for Button40
+
 ## 3.1.0
 
 ### Minor Changes
