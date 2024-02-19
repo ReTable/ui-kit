@@ -75,6 +75,22 @@ const variantStyles = {
       background: uiTheme.colors.accentShades.secondary3,
     },
   },
+
+  secondaryDark: {
+    font: uiFonts.sansSerif.semiBold14,
+    default: {
+      borderColor: uiTheme.colors.content.contrast,
+      color: uiTheme.colors.content.contrast,
+    },
+    hover: {
+      background: accentHover,
+      borderColor: accentHover,
+    },
+    active: {
+      background: accentPressed,
+      borderColor: accentPressed,
+    },
+  },
 };
 
 export const variants = buildVariants(rootStyle, variantStyles);

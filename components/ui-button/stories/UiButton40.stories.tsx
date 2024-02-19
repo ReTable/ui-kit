@@ -1,8 +1,11 @@
 import { ReactElement } from 'react';
 
 import { StoryObj } from '@storybook/react';
+import clsx from 'clsx';
 
 import { UiButton40, UiButton40Props } from '~';
+
+import { darkBackground, paddings } from './style.css';
 
 import { ArgsOf, argTypes as baseArgTypes, toProps } from './helpers';
 
@@ -28,6 +31,14 @@ export default meta;
 
 function render(args: Args): ReactElement {
   return <UiButton40 {...toProps(args)} />;
+}
+
+function darkRender(args: Args): ReactElement {
+  return (
+    <div className={clsx(darkBackground, paddings)}>
+      <UiButton40 {...toProps(args)} />
+    </div>
+  );
 }
 
 type Story = StoryObj<Args>;
@@ -58,4 +69,11 @@ export const SecondaryFilled: Story = {
     variant: 'secondaryFilled',
   },
   render,
+};
+
+export const SecondaryDark: Story = {
+  args: {
+    variant: 'secondaryDark',
+  },
+  render: darkRender,
 };
