@@ -2,7 +2,7 @@ import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
 
 import { UiButton40 } from '~';
 
-import { contractBackground } from './style.css';
+import { contractBackground, darkBackground } from './style.css';
 
 import { AddIcon } from './AddIcon';
 import { Link } from './Link';
@@ -64,13 +64,16 @@ another `button` element.
 
 ## Variants
 
-There are 4 appearance variants, which you can use:
+There are 5 appearance variants, which you can use:
 
 <Canvas>
   <UiButton40 variant="primary">Primary</UiButton40>
   <UiButton40 variant="secondary">Secondary</UiButton40>
   <UiButton40 variant="secondaryBlue">Secondary Blue</UiButton40>
   <UiButton40 variant="secondaryFilled">Secondary Filled</UiButton40>
+</Canvas>
+<Canvas className={darkBackground}>
+  <UiButton40 variant="secondaryDark">Secondary Dark</UiButton40>
 </Canvas>
 
 ## Options
