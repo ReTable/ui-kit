@@ -130,8 +130,9 @@ export const tokens = {
       disabledLight: '#ebebeb',
 
       contrast: '#fff',
-      contrastDisabled: 'rgba(255, 255, 255, 0.7)',
-      contrastSecondary: 'rgba(255, 255, 255, 0.3)',
+      contrastSecondary: 'rgba(255, 255, 255, 0.7)',
+      contrastTertiary: 'rgba(255, 255, 255, 0.5)',
+      contrastDisabled: 'rgba(255, 255, 255, 0.5)',
 
       accentActive: '#127ff9',
       accentActiveHover: '#3594ff',
