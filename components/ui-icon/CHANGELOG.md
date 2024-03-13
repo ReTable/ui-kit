@@ -1,5 +1,12 @@
 # @tabula/ui-icon
 
+## 6.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`f6dbe85`](https://github.com/ReTable/ui-kit/commit/f6dbe85b014d8c0e00a3b0a0eb56a7a0ca8f56e6)]:
+  - @tabula/ui-theme@2.2.0
+
 ## 5.0.0
 
 ### Patch Changes

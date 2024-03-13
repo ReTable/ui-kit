@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.2.0
+
+### Minor Changes
+
+- [#132](https://github.com/ReTable/ui-kit/pull/132) [`f6dbe85`](https://github.com/ReTable/ui-kit/commit/f6dbe85b014d8c0e00a3b0a0eb56a7a0ca8f56e6) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Update value of contrast color vars
+
 ## 2.1.0
 
 ### Minor Changes
