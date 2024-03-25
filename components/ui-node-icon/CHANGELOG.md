@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 6.0.1
+
+### Patch Changes
+
+- [#134](https://github.com/ReTable/ui-kit/pull/134) [`cdb0b23`](https://github.com/ReTable/ui-kit/commit/cdb0b23aa648eaef8a4a5b665e85c7c1c609d68e) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - fix L source icons
+
 ## 6.0.0
 
 ### Patch Changes
