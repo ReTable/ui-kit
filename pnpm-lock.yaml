@@ -181,6 +181,19 @@ importers:
         specifier: workspace:^
         version: link:../ui-theme
 
+  components/ui-checkbox:
+    dependencies:
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+    devDependencies:
+      '@tabula/ui-theme':
+        specifier: workspace:^
+        version: link:../ui-theme
+
   components/ui-data-type-icon:
     dependencies:
       react:
