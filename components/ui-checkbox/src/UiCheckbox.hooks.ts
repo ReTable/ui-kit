@@ -10,7 +10,7 @@ type Result = [RefObject<HTMLInputElement>, ChangeEventHandler<HTMLInputElement>
 export function useLifecycle({ isIndeterminate, onChange }: Options): Result {
   const ref = useRef<HTMLInputElement>(null);
 
-  // NOTE: Sets the `indeterminate` flag directly to the HTML element, because React doesn't supports `indeterminate`
+  // NOTE: Sets the `indeterminate` flag directly to the HTML element, because React doesn't support `indeterminate`
   //       property natively.
   useEffect(() => {
     const { current: input } = ref;
