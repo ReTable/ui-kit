@@ -17,6 +17,7 @@ export type Props = PropsWithChildren<{
   isIndeterminate?: boolean;
   name?: string;
   onChange?: (value: boolean) => void;
+  testId?: string;
   trackId?: string;
 }>;
 
@@ -29,6 +30,7 @@ export function UiCheckbox({
   isIndeterminate = false,
   name,
   onChange,
+  testId,
   trackId,
 }: Props): ReactNode {
   const [ref, handleChange] = useLifecycle({ isIndeterminate, onChange });
@@ -37,7 +39,12 @@ export function UiCheckbox({
   const Icon = isIndeterminate ? IndeterminateIcon : CheckedIcon;
 
   return (
-    <label className={clsx(styles.root, className)} data-track-id={trackId} htmlFor={id}>
+    <label
+      className={clsx(styles.root, className)}
+      data-testid={testId}
+      data-track-id={trackId}
+      htmlFor={id}
+    >
       <input
         checked={isChecked}
         className={styles.input}

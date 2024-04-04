@@ -1,79 +1,197 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 
 import { UiCheckbox } from '~';
 
-export default {
+import * as Interactions from './Interactions';
+
+// region Meta
+
+const meta: Meta<typeof UiCheckbox> = {
+  title: 'UiCheckbox',
+
   component: UiCheckbox,
-  title: 'ui-checkbox',
 };
 
-export const Unchecked: FC = () => <UiCheckbox>Is ugly?</UiCheckbox>;
+export default meta;
 
-export const Checked: FC = () => <UiCheckbox isChecked>Is awesome?</UiCheckbox>;
+// endregion Meta
 
-export const Indeterminate: FC = () => (
-  <UiCheckbox isChecked isIndeterminate>
-    Is awesome?
-  </UiCheckbox>
-);
+// region Story Utilities
 
-export const UncheckedDisabled: FC = () => <UiCheckbox isDisabled>Is ugly?</UiCheckbox>;
+type Story = StoryObj<typeof UiCheckbox>;
 
-export const CheckedDisabled: FC = () => (
-  <UiCheckbox isChecked isDisabled>
-    Is awesome?
-  </UiCheckbox>
-);
-
-export const IndeterminateDisabled: FC = () => (
-  <UiCheckbox isChecked isDisabled isIndeterminate>
-    Is awesome?
-  </UiCheckbox>
-);
-
-export const Interactive: FC = () => {
-  const [items, setItems] = useState([false, false, false]);
-
-  const isChecked = useMemo(() => !items.includes(false), [items]);
-  const isIndeterminate = useMemo(() => items.some(Boolean) && !isChecked, [isChecked, items]);
-
-  const handleChangeAll = useCallback((nextIsChecked: boolean) => {
-    setItems(() => (nextIsChecked ? [true, true, true] : [false, false, false]));
-  }, []);
-
-  const changeItem = useCallback((target: number, nextIsChecked: boolean) => {
-    setItems((current) => current.map((it, index) => (index === target ? nextIsChecked : it)));
-  }, []);
-
-  const group = useMemo(
-    () =>
-      items.map((it, index) => {
-        const handleChange = (nextIsChanged: boolean) => {
-          changeItem(index, nextIsChanged);
-        };
-
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <UiCheckbox key={index} onChange={handleChange} isChecked={it}>
-            Select {index}
-          </UiCheckbox>
-        );
-      }),
-
-    [changeItem, items],
-  );
-
-  return (
-    <>
-      <UiCheckbox
-        isChecked={isChecked}
-        isIndeterminate={isIndeterminate}
-        onChange={handleChangeAll}
-      >
-        Select all
-      </UiCheckbox>
-      <hr />
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>{group}</div>
-    </>
-  );
+const staticParameters = {
+  controls: {
+    exclude: /.*/g,
+    hideNoControlsWarning: true,
+  },
 };
+
+const onChangeAction = action('onChange');
+
+// region Story Utilities
+
+// region Stories
+
+export const Unchecked: Story = {
+  args: {
+    children: 'Is ugly?',
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const Checked: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const Indeterminate: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    isIndeterminate: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const UncheckedDisabled: Story = {
+  args: {
+    children: 'Is ugly?',
+    isDisabled: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const CheckedDisabled: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    isDisabled: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const IndeterminateDisabled: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    isDisabled: true,
+    isIndeterminate: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+// endregion Stories
+
+// region Playgrounds
+
+export const SimpleInteraction: StoryObj<typeof Interactions.Simple> = {
+  render() {
+    return <Interactions.Simple />;
+  },
+
+  async play({ canvasElement, step }) {
+    const canvas = within(canvasElement);
+
+    await step('Check the input', async () => {
+      await userEvent.click(await canvas.findByTestId('target'));
+    });
+
+    await step('Uncheck the input', async () => {
+      await userEvent.click(await canvas.findByTestId('target'));
+    });
+
+    await step('Check the input', async () => {
+      await userEvent.click(await canvas.findByTestId('target'));
+    });
+  },
+};
+
+export const ComplexInteraction: StoryObj<typeof Interactions.Complex> = {
+  render() {
+    return <Interactions.Complex />;
+  },
+
+  async play({ canvasElement, step }) {
+    const canvas = within(canvasElement);
+
+    await step('Check all', async () => {
+      await userEvent.click(await canvas.findByTestId('check-all'));
+    });
+
+    await step('Uncheck all', async () => {
+      await userEvent.click(await canvas.findByTestId('check-all'));
+    });
+
+    await step('Check 1', async () => {
+      await userEvent.click(await canvas.findByTestId('check-1'));
+    });
+
+    await step('Check 3', async () => {
+      await userEvent.click(await canvas.findByTestId('check-3'));
+    });
+
+    await step('Check 2', async () => {
+      await userEvent.click(await canvas.findByTestId('check-2'));
+    });
+
+    await step('Uncheck 1', async () => {
+      await userEvent.click(await canvas.findByTestId('check-1'));
+    });
+
+    await step('Uncheck 3', async () => {
+      await userEvent.click(await canvas.findByTestId('check-3'));
+    });
+
+    await step('Uncheck 2', async () => {
+      await userEvent.click(await canvas.findByTestId('check-2'));
+    });
+
+    await step('Check all', async () => {
+      await userEvent.click(await canvas.findByTestId('check-all'));
+    });
+  },
+};
+
+export const Playground: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+  },
+  argTypes: {
+    children: {
+      name: 'Label',
+      type: 'string',
+    },
+    isChecked: {
+      name: 'Is checked?',
+      type: 'boolean',
+    },
+    isIndeterminate: {
+      name: 'Is indeterminate?',
+      type: 'boolean',
+    },
+    isDisabled: {
+      name: 'Is disabled?',
+      type: 'boolean',
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /^(className|id|name|onChange|testId|trackId)$/g,
+    },
+  },
+};
+
+// endregion Playgrounds

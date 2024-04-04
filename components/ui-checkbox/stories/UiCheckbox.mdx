@@ -1,0 +1,44 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import * as Stories from './UiCheckbox.stories';
+
+import { UiCheckbox } from '~';
+
+<Meta of={Stories} />
+
+# UiCheckbox
+
+Checkboxes allow users to select multiple items from a list, or to mark one item as selected.
+
+<Canvas>
+  <UiCheckbox isChecked>Is our UI Kit awesome?</UiCheckbox>
+</Canvas>
+
+## Options
+
+There are a few main properties which supported by component.
+
+### `isChecked`
+
+This property controls boolean value of checkbox.
+
+<Canvas of={Stories.Checked} />
+<Canvas of={Stories.Unchecked} />
+
+### `isIndeterminate`
+
+You can use indeterminate state of checkbox.
+
+<Canvas of={Stories.Indeterminate} />
+
+### `isDisabled`
+
+This property allows to disable a control.
+
+<Canvas of={Stories.CheckedDisabled} />
+<Canvas of={Stories.UncheckedDisabled} />
+<Canvas of={Stories.IndeterminateDisabled} />
+
+## Properties
+
+<ArgsTable of={UiCheckbox} />
