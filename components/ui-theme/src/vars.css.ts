@@ -91,6 +91,21 @@ export const tokens = {
       tabulaDrive: '#3c3f4a',
     },
 
+    chart: {
+      0: '#5cb9ed',
+      1: '#3e5eb0',
+      2: '#bc5090',
+      3: '#5fb582',
+      4: '#c0c23a',
+      5: '#f1b33f',
+      6: '#fc7d7c',
+      7: '#796fb8',
+      8: '#c06ddd',
+      9: '#8cdbcd',
+      10: '#5b98a5',
+      11: '#ace9fd',
+    },
+
     code: {
       backgroundIconData: '#b0b3bd',
       backgroundIconFunction: '#89a8cb',
