@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { assignInlineVars } from '@vanilla-extract/dynamic';
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { bezierRoot, curve, grid, root, vars } from './Easing.css';
 
