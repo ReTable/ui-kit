@@ -6,8 +6,11 @@ type LayerType = (typeof layersNames)[number];
 
 type Layers = Record<LayerType, string>;
 
-export const layers = layersNames.reduce((result, layerName) => {
-  result[layerName] = globalLayer(`tbl--${layerName}`);
+export const layers = layersNames.reduce<Layers>(
+  (result, layerName) => {
+    result[layerName] = globalLayer(`tbl--${layerName}`);
 
-  return result;
-}, {} as Layers);
+    return result;
+  },
+  { components: '', reset: '' },
+);
