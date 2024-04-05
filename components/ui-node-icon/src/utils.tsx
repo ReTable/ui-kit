@@ -1,6 +1,6 @@
 import { ComponentType, FC, HTMLProps } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { disabled } from './style.css';
 
