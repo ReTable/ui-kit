@@ -1,5 +1,16 @@
 # @tabula/ui-button
 
+## 5.0.0
+
+### Patch Changes
+
+- [#137](https://github.com/ReTable/ui-kit/pull/137) [`f6af9ad`](https://github.com/ReTable/ui-kit/commit/f6af9ad061907eea38349b4b7aa8ede6a1fa1fa0) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
+- [#137](https://github.com/ReTable/ui-kit/pull/137) [`f6af9ad`](https://github.com/ReTable/ui-kit/commit/f6af9ad061907eea38349b4b7aa8ede6a1fa1fa0) Thanks [@demiazz](https://github.com/demiazz)! - use `clsx/lite` instead of `clsx`
+
+- Updated dependencies [[`f6af9ad`](https://github.com/ReTable/ui-kit/commit/f6af9ad061907eea38349b4b7aa8ede6a1fa1fa0), [`6c53589`](https://github.com/ReTable/ui-kit/commit/6c53589b89ed730d3f8245d7a54e7641e5eb69eb), [`f6af9ad`](https://github.com/ReTable/ui-kit/commit/f6af9ad061907eea38349b4b7aa8ede6a1fa1fa0)]:
+  - @tabula/ui-theme@2.3.0
+
 ## 4.0.0
 
 ### Patch Changes
