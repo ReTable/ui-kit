@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 
 import { StoryObj } from '@storybook/react';
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { UiButton40, UiButton40Props } from '~';
 
