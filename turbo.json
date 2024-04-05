@@ -6,7 +6,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["src/**", "tsconfig.forge.json"],
+      "inputs": ["src/**", ".forgerc", "tsconfig.json", "tsconfig.forge.json"],
       "outputs": ["lib/**", "typings/**"]
     },
     "build:docs": {
