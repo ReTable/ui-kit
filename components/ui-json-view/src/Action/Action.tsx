@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { clsx } from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { useUiTrackId } from '@tabula/ui-analytics';
 

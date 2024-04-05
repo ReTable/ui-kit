@@ -9,7 +9,7 @@ import {
   useRef,
 } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import * as styles from './List.css';
 

@@ -1,6 +1,6 @@
 import { FC, MouseEventHandler } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { ReactComponent as ChevronLeft } from './assets/chevronLeft.svg';
 import { ReactComponent as ChevronRight } from './assets/chevronRight.svg';

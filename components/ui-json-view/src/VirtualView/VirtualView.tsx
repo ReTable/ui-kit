@@ -1,6 +1,6 @@
 import { ComponentType, useCallback } from 'react';
 
-import { clsx } from 'clsx';
+import { clsx } from 'clsx/lite';
 import { ListChildComponentProps, VariableSizeList } from 'react-window';
 
 import { useSize } from '@tabula/use-size';

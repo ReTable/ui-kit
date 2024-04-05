@@ -1,6 +1,6 @@
 import { FC, MutableRefObject, useRef, useState } from 'react';
 
-import { clsx } from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { copied } from './Copy.css';
 

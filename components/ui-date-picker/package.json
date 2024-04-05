@@ -53,8 +53,8 @@
   "dependencies": {
     "@tabula/ui-button": "workspace:^",
     "@tabula/ui-data-type-icon": "workspace:^",
-    "clsx": "^2.0.0",
-    "date-fns": "^3.0.6",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.6.0",
     "react-transition-group": "^4.4.5"
   }
 }

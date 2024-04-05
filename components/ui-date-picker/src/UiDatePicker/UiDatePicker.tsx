@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 import { set } from 'date-fns';
 
 import * as styles from './UiDatePicker.css';
