@@ -1,6 +1,6 @@
 import { FC, useCallback, useState } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 import { add, format, setYear, sub } from 'date-fns';
 import { CSSTransition } from 'react-transition-group';
 

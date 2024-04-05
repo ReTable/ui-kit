@@ -1,6 +1,6 @@
 import { HTMLProps, forwardRef } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import * as styles from './Button.css';
 

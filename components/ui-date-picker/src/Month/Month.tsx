@@ -1,6 +1,6 @@
 import { FC, MouseEventHandler, ReactNode, useCallback, useMemo } from 'react';
 
-import clsx from 'clsx';
+import { clsx } from 'clsx/lite';
 import { format } from 'date-fns';
 
 import * as styles from './Month.css';
