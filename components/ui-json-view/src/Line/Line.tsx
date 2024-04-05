@@ -1,7 +1,7 @@
 import { CSSProperties, memo } from 'react';
 
 import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { clsx } from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { controls, level, position, variants } from './Line.css';
 

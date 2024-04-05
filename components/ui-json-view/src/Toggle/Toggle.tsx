@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { clsx } from 'clsx';
+import { clsx } from 'clsx/lite';
 
 import { ReactComponent as CollapseIcon } from './assets/collapse.svg';
 import { ReactComponent as ExpandIcon } from './assets/expand.svg';
