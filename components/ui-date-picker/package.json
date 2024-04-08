@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-date-picker",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Allows to pick a date, time or date and time together",
   "type": "module",
   "typings": "./typings/index.d.ts",
