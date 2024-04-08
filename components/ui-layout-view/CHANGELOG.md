@@ -1,5 +1,12 @@
 # @tabula/ui-layout-view
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`130fb88`](https://github.com/ReTable/ui-kit/commit/130fb8899ab6b1e70c3a1e26e4afda2f8df7fa98)]:
+  - @tabula/ui-theme@2.4.0
+
 ## 4.0.0
 
 ### Patch Changes

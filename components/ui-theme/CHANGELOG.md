@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.4.0
+
+### Minor Changes
+
+- [#142](https://github.com/ReTable/ui-kit/pull/142) [`130fb88`](https://github.com/ReTable/ui-kit/commit/130fb8899ab6b1e70c3a1e26e4afda2f8df7fa98) Thanks [@demiazz](https://github.com/demiazz)! - increase chart colors count
+
 ## 2.3.0
 
 ### Minor Changes
