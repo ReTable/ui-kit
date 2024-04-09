@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.5.0
+
+### Minor Changes
+
+- [#144](https://github.com/ReTable/ui-kit/pull/144) [`64f426e`](https://github.com/ReTable/ui-kit/commit/64f426e569f57f41eb8b895b2cb0dbb55b6e5c5c) Thanks [@demiazz](https://github.com/demiazz)! - update indexed colors
+
 ## 2.4.0
 
 ### Minor Changes
