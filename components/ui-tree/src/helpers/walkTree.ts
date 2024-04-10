@@ -19,7 +19,7 @@ export function* walkTree<Data, Id>(
 
   let cursor = 0;
 
-  while (cursor < tree.length) {
+  while (cursor < queue.length) {
     const [item, level] = queue[cursor];
 
     cursor += 1;
