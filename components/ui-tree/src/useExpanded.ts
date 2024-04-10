@@ -24,19 +24,19 @@ export function useExpanded<Id>(tree: Tree<unknown, Id>): Result<Id> {
     });
   }, [tree]);
 
-  const handleExpand = useCallback((id: Id) => {
+  const handleToggle = useCallback((id: Id) => {
     setExpanded((current) => {
       const next = new Set(current);
 
       if (next.has(id)) {
-        next.add(id);
-      } else {
         next.delete(id);
+      } else {
+        next.add(id);
       }
 
       return next;
     });
   }, []);
 
-  return [expanded, handleExpand];
+  return [expanded, handleToggle];
 }
