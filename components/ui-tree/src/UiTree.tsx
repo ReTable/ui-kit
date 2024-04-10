@@ -1,5 +1,9 @@
 import { ReactElement, ReactNode, useMemo } from 'react';
 
+import { clsx } from 'clsx/lite';
+
+import * as styles from './UiTree.css';
+
 import { isBranch, walkTree } from './helpers';
 import { BranchComponentType, LeafComponentType, Tree } from './types';
 import { useExpanded } from './useExpanded';
@@ -54,5 +58,5 @@ export function UiTree<Data, Id extends number | string = number | string>({
     return children;
   }, [tree, expanded, Branch, Leaf, onToggle]);
 
-  return <div className={className}>{items}</div>;
+  return <div className={clsx(styles.root, className)}>{items}</div>;
 }
