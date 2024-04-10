@@ -9,6 +9,7 @@ export const tree = style({
   border: `1px solid ${uiTheme.colors.borderControl.default}`,
   borderRadius: '8px',
   padding: '8px',
+  overflow: 'auto',
 });
 
 export const level = createVar();

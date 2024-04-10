@@ -50,9 +50,9 @@ export const List: Story = {
   },
 };
 
-export const SingleLevel: Story = {
+export const Tree: Story = {
   args: {
-    tree: trees.singleLevel,
+    tree: trees.tree,
   },
 };
 
