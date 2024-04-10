@@ -38,6 +38,8 @@ export function UiTree<Data, Id extends number | string = number | string>({
 
       if (!isBranch(item)) {
         children.push(<Leaf data={data} id={id} key={id} level={level} />);
+
+        continue;
       }
 
       const isExpanded = expanded.has(id);
