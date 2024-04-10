@@ -7,7 +7,7 @@ type ExpandHandler<Id> = (id: Id) => void;
 
 type Result<Id> = [Set<Id>, ExpandHandler<Id>];
 
-export function useExpanded<Id>(tree: Tree<unknown, Id>): Result<Id> {
+export function useExpanded<Id>(tree: Tree<Id, unknown>): Result<Id> {
   const [expanded, setExpanded] = useState<Set<Id>>(new Set());
 
   useEffect(() => {

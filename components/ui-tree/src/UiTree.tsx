@@ -4,24 +4,24 @@ import { isBranch, walkTree } from './helpers';
 import { BranchComponentType, LeafComponentType, Tree } from './types';
 import { useExpanded } from './useExpanded';
 
-export type Props<Data, Id> = {
+export type Props<Id, Data> = {
   className?: string;
 
-  tree: Tree<Data, Id>;
+  tree: Tree<Id, Data>;
 
-  leafComponent: LeafComponentType<Data, Id>;
-  branchComponent: BranchComponentType<Data, Id>;
+  leafComponent: LeafComponentType<Id, Data>;
+  branchComponent: BranchComponentType<Id, Data>;
 
   testId?: string;
 };
 
-export function UiTree<Data, Id extends number | string = number | string>({
+export function UiTree<Id extends number | string, Data>({
   className,
   tree,
   leafComponent: Leaf,
   branchComponent: Branch,
   testId,
-}: Props<Data, Id>): ReactElement {
+}: Props<Id, Data>): ReactElement {
   const [expanded, onToggle] = useExpanded(tree);
 
   const items = useMemo(() => {

@@ -8,7 +8,7 @@ import * as styles from './styles.css';
 
 import { Data } from './types';
 
-export const Branch: FC<BranchComponentProps<Data, number>> = ({
+export const Branch: FC<BranchComponentProps<number, Data>> = ({
   data,
   isExpanded,
   level,

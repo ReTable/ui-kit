@@ -1,24 +1,24 @@
 import { ComponentType } from 'react';
 
-export type Leaf<Data, Id> = {
+export type Leaf<Id, Data> = {
   id: Id;
 
   data: Data;
 };
 
-export type Branch<Data, Id> = {
+export type Branch<Id, Data> = {
   id: Id;
 
   data: Data;
 
-  children: Array<Leaf<Data, Id> | Branch<Data, Id>>;
+  children: Array<Leaf<Id, Data> | Branch<Id, Data>>;
 };
 
-export type Item<Data, Id> = Leaf<Data, Id> | Branch<Data, Id>;
+export type Item<Id, Data> = Leaf<Id, Data> | Branch<Id, Data>;
 
-export type Tree<Data, Id> = Array<Item<Data, Id>>;
+export type Tree<Id, Data> = Array<Item<Id, Data>>;
 
-export type LeafComponentProps<Data, Id> = {
+export type LeafComponentProps<Id, Data> = {
   id: Id;
 
   data: Data;
@@ -26,7 +26,7 @@ export type LeafComponentProps<Data, Id> = {
   level: number;
 };
 
-export type BranchComponentProps<Data, Id> = {
+export type BranchComponentProps<Id, Data> = {
   id: Id;
 
   data: Data;
@@ -37,6 +37,6 @@ export type BranchComponentProps<Data, Id> = {
   onToggle: () => void;
 };
 
-export type LeafComponentType<Data, Id> = ComponentType<LeafComponentProps<Data, Id>>;
+export type LeafComponentType<Id, Data> = ComponentType<LeafComponentProps<Id, Data>>;
 
-export type BranchComponentType<Data, Id> = ComponentType<BranchComponentProps<Data, Id>>;
+export type BranchComponentType<Id, Data> = ComponentType<BranchComponentProps<Id, Data>>;

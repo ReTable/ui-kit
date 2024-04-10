@@ -13,7 +13,7 @@ import { Data } from './types';
 
 // region Types
 
-type StoryTree = ComponentType<UiTreeProps<Data, number>>;
+type StoryTree = ComponentType<UiTreeProps<number, Data>>;
 
 // endregion Types
 
