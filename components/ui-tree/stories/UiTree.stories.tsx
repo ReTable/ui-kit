@@ -1,10 +1,59 @@
-import { FC } from 'react';
+import { ComponentType } from 'react';
 
-import { UiTree } from '~';
+import { Meta, StoryObj } from '@storybook/react';
 
-export default {
+import { UiTree, UiTreeProps } from '~';
+
+import * as styles from './styles.css';
+
+import * as trees from './trees';
+import { Branch } from './Branch';
+import { Leaf } from './Leaf';
+import { Data } from './types';
+
+// region Types
+
+type StoryTree = ComponentType<UiTreeProps<Data, number>>;
+
+// endregion Types
+
+// region Meta
+
+const meta: Meta<StoryTree> = {
+  title: 'UiTree',
+
   component: UiTree,
-  title: 'ui-tree',
+
+  args: {
+    className: styles.tree,
+
+    branchComponent: Branch,
+    leafComponent: Leaf,
+  },
 };
 
-export const Default: FC = () => <UiTree />;
+export default meta;
+
+// endregion Meta
+
+// region Story Utilities
+
+type Story = StoryObj<StoryTree>;
+
+// endregion Story Utilities
+
+// region Stories
+
+export const List: Story = {
+  args: {
+    tree: trees.list,
+  },
+};
+
+export const SingleLevel: Story = {
+  args: {
+    tree: trees.singleLevel,
+  },
+};
+
+// endregion Stories

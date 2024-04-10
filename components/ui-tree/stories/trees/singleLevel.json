@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+
+    "data": {
+      "name": "Tabula Drive"
+    },
+
+    "children": [
+      {
+        "id": 6,
+
+        "data": {
+          "name": "Marketing"
+        }
+      },
+      {
+        "id": 7,
+
+        "data": {
+          "name": "Folder name"
+        }
+      },
+      {
+        "id": 8,
+
+        "data": {
+          "name": "Others"
+        }
+      },
+      {
+        "id": 9,
+
+        "data": {
+          "name": "Folder"
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+
+    "data": {
+      "name": "PostgresSQL"
+    }
+  },
+  {
+    "id": 3,
+
+    "data": {
+      "name": "Snowflake"
+    }
+  },
+  {
+    "id": 4,
+
+    "data": {
+      "name": "Hubspot"
+    }
+  },
+  {
+    "id": 5,
+
+    "data": {
+      "name": "Salesforce"
+    }
+  }
+]
