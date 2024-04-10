@@ -36,6 +36,6 @@ export function* walkTree<Data, Id>(
 
     const enqueued = item.children.map<QueueItem<Data, Id>>((it) => [it, level + 1]);
 
-    queue.splice(cursor + 1, 0, ...enqueued);
+    queue.splice(cursor, 0, ...enqueued);
   }
 }
