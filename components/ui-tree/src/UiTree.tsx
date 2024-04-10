@@ -24,7 +24,9 @@ export function UiTree<Data, Id extends number | string = number | string>({
   const items = useMemo(() => {
     const children: ReactNode[] = [];
 
-    for (const [item, level] of walkTree(tree)) {
+    const skipBranch = (id: Id) => !expanded.has(id);
+
+    for (const [item, level] of walkTree(tree, skipBranch)) {
       const { id, data } = item;
 
       if (!isBranch(item)) {
