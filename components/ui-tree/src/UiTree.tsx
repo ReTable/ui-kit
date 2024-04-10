@@ -29,7 +29,7 @@ export function UiTree<Id extends number | string, Data>({
 
     const skipBranch = (id: Id) => !expanded.has(id);
 
-    for (const [item, level] of walkTree(tree, skipBranch)) {
+    for (const { item, level } of walkTree(tree, skipBranch)) {
       const { id, data } = item;
 
       if (!isBranch(item)) {

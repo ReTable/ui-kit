@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { isBranch, walkTree } from './helpers';
+import { syncExpandedIds, toggle } from './helpers';
 import { Tree } from './types';
 
 type ExpandHandler<Id> = (id: Id) => void;
@@ -15,32 +15,15 @@ export function useExpanded<Id>(tree: Tree<Id, unknown>): Result<Id> {
   //       - remove all non-branch items (if they're transited from branches to leafs);
   //       - keep only ids which already was in the `expanded` set.
   useEffect(() => {
-    setExpanded((current) => {
-      const next = new Set<Id>();
-
-      for (const [item] of walkTree(tree)) {
-        if (isBranch(item) && current.has(item.id)) {
-          next.add(item.id);
-        }
-      }
-
-      return next;
-    });
+    setExpanded((current) => syncExpandedIds(current, tree));
   }, [tree]);
 
-  const handleToggle = useCallback((id: Id) => {
-    setExpanded((current) => {
-      const next = new Set(current);
-
-      if (next.has(id)) {
-        next.delete(id);
-      } else {
-        next.add(id);
-      }
-
-      return next;
-    });
-  }, []);
+  const handleToggle = useCallback(
+    (id: Id) => {
+      setExpanded((current) => toggle(current, id, tree));
+    },
+    [tree],
+  );
 
   return [expanded, handleToggle];
 }

@@ -1,7 +1,11 @@
 import { isBranch } from '../helpers';
 import { Item, Tree } from '../types';
 
-type QueueItem<Id, Data> = [Item<Id, Data>, number];
+type QueueItem<Id, Data> = {
+  item: Item<Id, Data>;
+  level: number;
+  parentId: Id | null;
+};
 
 type Queue<Id, Data> = Array<QueueItem<Id, Data>>;
 
@@ -15,16 +19,20 @@ export function* walkTree<Id, Data>(
     return;
   }
 
-  const queue: Queue<Id, Data> = tree.map((it) => [it, 0]);
+  const queue: Queue<Id, Data> = tree.map((it) => ({
+    item: it,
+    level: 0,
+    parentId: null,
+  }));
 
   let cursor = 0;
 
   while (cursor < queue.length) {
-    const [item, level] = queue[cursor];
+    const { item, parentId, level } = queue[cursor];
 
     cursor += 1;
 
-    yield [item, level];
+    yield { item, parentId, level };
 
     if (!isBranch(item)) {
       continue;
@@ -34,7 +42,11 @@ export function* walkTree<Id, Data>(
       continue;
     }
 
-    const enqueued = item.children.map<QueueItem<Id, Data>>((it) => [it, level + 1]);
+    const enqueued = item.children.map<QueueItem<Id, Data>>((it) => ({
+      item: it,
+      level: level + 1,
+      parentId: item.id,
+    }));
 
     queue.splice(cursor, 0, ...enqueued);
   }
