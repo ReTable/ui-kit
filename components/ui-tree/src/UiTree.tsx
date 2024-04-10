@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, useMemo } from 'react';
+import { ReactElement, ReactNode } from 'react';
 
 import { isBranch, walkTree } from './helpers';
 import { BranchComponentType, LeafComponentType, Tree } from './types';
@@ -24,44 +24,42 @@ export function UiTree<Id extends number | string, Data>({
 }: Props<Id, Data>): ReactElement {
   const [expanded, onToggle] = useExpanded(tree);
 
-  const items = useMemo(() => {
-    const children: ReactNode[] = [];
+  const children: ReactNode[] = [];
 
-    const skipBranch = (id: Id) => !expanded.has(id);
+  for (const { item, level } of walkTree(tree, (id) => !expanded.has(id))) {
+    const { id, data } = item;
 
-    for (const { item, level } of walkTree(tree, skipBranch)) {
-      const { id, data } = item;
+    if (!isBranch(item)) {
+      children.push(<Leaf data={data} id={id} key={id} level={level} />);
 
-      if (!isBranch(item)) {
-        children.push(<Leaf data={data} id={id} key={id} level={level} />);
-
-        continue;
-      }
-
-      const isExpanded = expanded.has(id);
-
-      const handleToggle = () => {
-        onToggle(item.id);
-      };
-
-      children.push(
-        <Branch
-          data={data}
-          id={id}
-          isExpanded={isExpanded}
-          key={id}
-          level={level}
-          onToggle={handleToggle}
-        />,
-      );
+      continue;
     }
 
-    return children;
-  }, [tree, expanded, Branch, Leaf, onToggle]);
+    const isExpanded = expanded.has(id);
+
+    const handleToggle = () => {
+      onToggle(item.id);
+    };
+
+    children.push(
+      <Branch
+        data={data}
+        id={id}
+        isExpanded={isExpanded}
+        key={id}
+        level={level}
+        onToggle={handleToggle}
+      />,
+    );
+  }
 
   return (
     <div className={className} data-test-id={testId}>
-      {items}
+      {children}
     </div>
   );
+}
+
+if (import.meta.env.DEV) {
+  UiTree.displayName = 'ui-tree(UiTree)';
 }
