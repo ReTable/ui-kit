@@ -15,6 +15,8 @@ export type Props<Data, Id> = {
 
   leafComponent: LeafComponentType<Data, Id>;
   branchComponent: BranchComponentType<Data, Id>;
+
+  testId?: string;
 };
 
 export function UiTree<Data, Id extends number | string = number | string>({
@@ -22,6 +24,7 @@ export function UiTree<Data, Id extends number | string = number | string>({
   tree,
   leafComponent: Leaf,
   branchComponent: Branch,
+  testId,
 }: Props<Data, Id>): ReactElement {
   const [expanded, onToggle] = useExpanded(tree);
 
@@ -58,5 +61,9 @@ export function UiTree<Data, Id extends number | string = number | string>({
     return children;
   }, [tree, expanded, Branch, Leaf, onToggle]);
 
-  return <div className={clsx(styles.root, className)}>{items}</div>;
+  return (
+    <div className={clsx(styles.root, className)} data-test-id={testId}>
+      {items}
+    </div>
+  );
 }
