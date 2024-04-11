@@ -19,21 +19,45 @@ export type Item<Id, Data> = Leaf<Id, Data> | Branch<Id, Data>;
 export type Tree<Id, Data> = Array<Item<Id, Data>>;
 
 export type LeafComponentProps<Id, Data> = {
+  /**
+   * ID of item.
+   */
   id: Id;
 
+  /**
+   * Data of item.
+   */
   data: Data;
 
+  /**
+   * Item's nesting level.
+   */
   level: number;
 };
 
 export type BranchComponentProps<Id, Data> = {
+  /**
+   * ID of item.
+   */
   id: Id;
 
+  /**
+   * Data of item.
+   */
   data: Data;
 
+  /**
+   * Item's nesting level.
+   */
   level: number;
+  /**
+   * Is branch expanded?
+   */
   isExpanded: boolean;
 
+  /**
+   * Handler to expand/collapse the current branch.
+   */
   onToggle: () => void;
 };
 

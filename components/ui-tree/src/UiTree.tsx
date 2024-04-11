@@ -5,13 +5,28 @@ import { BranchComponentType, LeafComponentType, Tree } from './types';
 import { useExpanded } from './useExpanded';
 
 export type Props<Id, Data> = {
+  /**
+   * Optional CSS class for root element.
+   */
   className?: string;
 
+  /**
+   * Tree of elements to render.
+   */
   tree: Tree<Id, Data>;
 
+  /**
+   * Component to render leaf item.
+   */
   leafComponent: LeafComponentType<Id, Data>;
+  /**
+   * Component to render branch item.
+   */
   branchComponent: BranchComponentType<Id, Data>;
 
+  /**
+   * Optional attribute for test purposes.
+   */
   testId?: string;
 };
 
