@@ -30,6 +30,13 @@ const meta: Meta<StoryTree> = {
     branchComponent: Branch,
     leafComponent: Leaf,
   },
+
+  parameters: {
+    controls: {
+      include: /tree/g,
+      hideNoControlsWarning: true,
+    },
+  },
 };
 
 export default meta;
