@@ -54,7 +54,7 @@ export function UiTree<Id extends number | string, Data>({
   }
 
   return (
-    <div className={className} data-test-id={testId}>
+    <div className={className} data-testid={testId}>
       {children}
     </div>
   );
