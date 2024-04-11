@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`UiTree > works 1`] = `
-<div
-  className="tabula_ui_tree__1x3fa7k0 "
-/>
-`;
