@@ -1,0 +1,63 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import * as Stories from './UiTree.stories';
+
+import { UiTree } from '~';
+
+<Meta of={Stories} />
+
+# UiTree
+
+Tree component allows to render tree with user defined leafs and branches elements in one dimension list.
+
+Also, it handles expand/collapse operations inside.
+
+We use our custom components to render example below.
+
+<Canvas of={Stories.Tree} />
+
+## Options
+
+### `tree`
+
+The `tree` property contains a tree data to render. You can define type of ids, and data which expected in the tree
+structure.
+
+Ids of items must be unique and has type `number` or `string`.
+
+See typings for more information.
+
+### `branchComponent`
+
+The `branchComponent` expects a React component which will be used to render branch element.
+
+We provide following properties for branches:
+
+- `id` - ID of an item;
+- `data` - data of an item;
+- `level` - nesting level of branch starting from `0`;
+- `isExpanded` - flag which says about expanded branch or collapsed;
+- `onToggle` - callback which used to toggle branch, and which could be assigned to the interactive element inside of
+               component.
+
+### `leafComponent`
+
+The `leafComponent` expects a React component which will be used to render leaf element.
+
+We provide following properties for leafs:
+
+- `id` - ID of an item;
+- `data` - data of an item;
+- `level` - nesting level of leaf starting from `0`.
+
+### `className`
+
+You can provide custom CSS class which will be assigned to the root element.
+
+### `testId`
+
+We allow to assign test ID for the root element.
+
+## Properties
+
+<ArgsTable of={UiTree} />
