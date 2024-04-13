@@ -8,7 +8,7 @@ import { UseUiTrackIds } from './UseUiTrackIds';
 export default {
   component: UiAnalytics,
 
-  title: 'ui-analytics',
+  title: 'UiAnalytics',
 
   argTypes: {
     trackId: {

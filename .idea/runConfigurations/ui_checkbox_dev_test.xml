@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-checkbox" name="ui-checkbox:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="ui-checkbox:build:watch" type="js.build_tools.npm" />
+    <toRun name="ui-checkbox:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>

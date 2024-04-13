@@ -205,7 +205,7 @@ export const tokens = {
       btnPrimary: '#616986',
       btnPrimaryHover: '#707896',
       btnPrimaryPressed: '#4f5877',
-      checkbox: '#89a8cb',
+      checkbox: '#616986',
     },
 
     icons: {
