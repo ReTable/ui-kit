@@ -24,5 +24,9 @@
     "@tabula/use-track-ids": "0.1.0",
     "@tabula/track-id": "0.1.0"
   },
-  "changesets": ["beige-gorillas-smash"]
+  "changesets": [
+    "beige-gorillas-smash",
+    "silent-foxes-greet",
+    "silver-suns-dance"
+  ]
 }

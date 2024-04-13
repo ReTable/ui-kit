@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-layout-view",
-  "version": "4.0.2",
+  "version": "5.0.0-beta.0",
   "description": "Layout component, that unifies sidebar functionality",
   "type": "module",
   "typings": "./typings/index.d.ts",
