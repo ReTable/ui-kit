@@ -48,10 +48,13 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@tabula/ui-theme": "workspace:^"
+    "@tabula/ui-theme": "workspace:^",
+    "@vanilla-extract/css-utils": "^0.1.3"
   },
   "dependencies": {
     "@tabula/ui-checkbox": "workspace:0.1.0-beta.0",
-    "@tabula/ui-tree": "workspace:0.1.0-beta.0"
+    "@tabula/ui-tree": "workspace:0.1.0-beta.0",
+    "@vanilla-extract/dynamic": "^2.1.0",
+    "clsx": "^2.1.0"
   }
 }
