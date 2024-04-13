@@ -34,7 +34,7 @@ function searchStories(workspace) {
       stories.push({
         directory: packageDir,
         titlePrefix: `${workspace}/${name}@${packageJson.version}`,
-        files: 'stories/**/*.stories.@(mdx|ts|tsx)',
+        files: 'stories/**/*.@(mdx|stories.@(mdx|ts|tsx))',
       });
     }
 
