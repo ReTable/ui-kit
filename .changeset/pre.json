@@ -4,6 +4,7 @@
   "initialVersions": {
     "@tabula/ui-analytics": "0.3.1",
     "@tabula/ui-button": "5.0.2",
+    "@tabula/ui-checkbox": "0.0.0",
     "@tabula/ui-data-type-icon": "0.2.2",
     "@tabula/ui-date-picker": "3.0.2",
     "@tabula/ui-icon": "7.0.2",
@@ -23,7 +24,5 @@
     "@tabula/use-track-ids": "0.1.0",
     "@tabula/track-id": "0.1.0"
   },
-  "changesets": [
-    "beige-gorillas-smash"
-  ]
+  "changesets": ["beige-gorillas-smash"]
 }
