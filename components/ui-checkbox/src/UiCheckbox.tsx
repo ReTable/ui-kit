@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { CSSProperties, PropsWithChildren, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -10,6 +10,9 @@ import * as styles from './UiCheckbox.css';
 import { useLifecycle } from './UiCheckbox.hooks';
 
 export type Props = PropsWithChildren<{
+  /**
+   * User defined CSS class which be assigned to the root element.
+   */
   className?: string;
   /**
    * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/id)
@@ -44,6 +47,10 @@ export type Props = PropsWithChildren<{
    * Can be used for analytics purposes.
    */
   trackId?: string;
+  /**
+   * User defined CSS styles which be assigned to the root element.
+   */
+  style?: CSSProperties;
 }>;
 
 export function UiCheckbox({
@@ -53,10 +60,12 @@ export function UiCheckbox({
   isChecked = false,
   isDisabled,
   isIndeterminate = false,
+
   name,
   onChange,
   testId,
   trackId,
+  style,
 }: Props): ReactNode {
   const [ref, handleChange] = useLifecycle({ isIndeterminate, onChange });
 
@@ -69,6 +78,7 @@ export function UiCheckbox({
       data-testid={testId}
       data-track-id={trackId}
       htmlFor={id}
+      style={style}
     >
       <input
         checked={isChecked}
