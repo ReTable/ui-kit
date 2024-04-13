@@ -1,6 +1,6 @@
 {
   "mode": "pre",
-  "tag": "next",
+  "tag": "beta",
   "initialVersions": {
     "@tabula/ui-analytics": "0.3.1",
     "@tabula/ui-button": "5.0.2",
