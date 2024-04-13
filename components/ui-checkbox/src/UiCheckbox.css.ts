@@ -2,25 +2,35 @@ import { style } from '@vanilla-extract/css';
 
 import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
 
-export const root = style({
-  '@layer': {
-    [uiLayers.components]: {
-      position: 'relative',
-      zIndex: 0,
+export const root = style([
+  uiFonts.sansSerif.semiBold12,
+  {
+    '@layer': {
+      [uiLayers.components]: {
+        position: 'relative',
 
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        gap: '12px',
 
-      cursor: 'pointer',
+        cursor: 'pointer',
+      },
     },
   },
-});
+]);
 
+// NOTE: We don't remove input from the flow for two reasons:
+//         - the `display: none` style breaks focus handling;
+//         - the `position: absolute` style allows to ignore flex's gap.
 export const input = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+
       width: 0,
       height: 0,
 
@@ -100,23 +110,19 @@ export const icon = style({
   },
 });
 
-export const content = style([
-  uiFonts.sansSerif.semiBold12,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        paddingLeft: '12px',
-        flexGrow: 1,
-        color: uiTheme.colors.content.primary,
-        userSelect: 'none',
-        cursor: 'pointer',
+export const content = style({
+  '@layer': {
+    [uiLayers.components]: {
+      flexGrow: 1,
+      color: uiTheme.colors.content.primary,
+      userSelect: 'none',
+      cursor: 'pointer',
 
-        selectors: {
-          [`${input}:disabled ~ &`]: {
-            cursor: 'default',
-          },
+      selectors: {
+        [`${input}:disabled ~ &`]: {
+          cursor: 'default',
         },
       },
     },
   },
-]);
+});
