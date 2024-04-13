@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-tree",
-  "version": "0.0.0",
+  "version": "0.1.0-beta.0",
   "description": "Allows to render trees",
   "type": "module",
   "typings": "./typings/index.d.ts",

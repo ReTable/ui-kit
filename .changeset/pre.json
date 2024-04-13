@@ -23,5 +23,7 @@
     "@tabula/use-track-ids": "0.1.0",
     "@tabula/track-id": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "beige-gorillas-smash"
+  ]
 }
