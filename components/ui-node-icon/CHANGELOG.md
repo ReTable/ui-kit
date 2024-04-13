@@ -1,6 +1,6 @@
 # @tabula/ui-node-icon
 
-## 8.0.0-beta.0
+## 7.0.3-beta.0
 
 ### Patch Changes
 

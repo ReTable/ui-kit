@@ -1,6 +1,6 @@
 # @tabula/ui-layout-view
 
-## 5.0.0-beta.0
+## 4.0.3-beta.0
 
 ### Patch Changes
 

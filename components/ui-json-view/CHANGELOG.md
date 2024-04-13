@@ -1,6 +1,6 @@
 # @tabula/ui-json-view
 
-## 4.0.0-beta.0
+## 3.0.3-beta.0
 
 ### Patch Changes
 

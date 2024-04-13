@@ -1,6 +1,6 @@
 # @tabula/ui-button
 
-## 6.0.0-beta.0
+## 5.0.3-beta.0
 
 ### Patch Changes
 
