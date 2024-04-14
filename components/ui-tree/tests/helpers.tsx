@@ -35,14 +35,7 @@ type RenderTreeResult = {
 };
 
 export function renderTree(tree: Tree<Leaf>): RenderTreeResult {
-  render(
-    <UiTree
-      tree={tree}
-      leafComponent={LeafComponent}
-      branchComponent={BranchComponent}
-      testId="tree"
-    />,
-  );
+  render(<UiTree branch={BranchComponent} leaf={LeafComponent} testId="tree" tree={tree} />);
 
   return {
     toggle(id) {

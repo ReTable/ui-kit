@@ -18,11 +18,11 @@ export type Props<Leaf extends TreeLeaf> = {
   /**
    * Component to render leaf item.
    */
-  leafComponent: LeafComponentType<Leaf>;
+  leaf: LeafComponentType<Leaf>;
   /**
    * Component to render branch item.
    */
-  branchComponent: BranchComponentType<Leaf>;
+  branch: BranchComponentType<Leaf>;
 
   /**
    * Optional attribute for test purposes.
@@ -33,8 +33,8 @@ export type Props<Leaf extends TreeLeaf> = {
 export function UiTree<Leaf extends TreeLeaf>({
   className,
   tree,
-  leafComponent: LeafComponent,
-  branchComponent: BranchComponent,
+  leaf: LeafRenderer,
+  branch: BranchRenderer,
   testId,
 }: Props<Leaf>): ReactElement {
   const [expanded, onToggle] = useExpanded(tree);
@@ -43,7 +43,7 @@ export function UiTree<Leaf extends TreeLeaf>({
 
   for (const { item, level } of walkTree(tree, (id) => !expanded.has(id))) {
     if (!isBranch(item)) {
-      children.push(<LeafComponent key={item.id} level={level} node={item} />);
+      children.push(<LeafRenderer key={item.id} level={level} node={item} />);
 
       continue;
     }
@@ -55,7 +55,7 @@ export function UiTree<Leaf extends TreeLeaf>({
     };
 
     children.push(
-      <BranchComponent
+      <BranchRenderer
         isExpanded={isExpanded}
         key={item.id}
         level={level}

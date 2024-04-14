@@ -27,8 +27,8 @@ const meta: Meta<StoryTree> = {
   args: {
     className: styles.tree,
 
-    branchComponent: Branch,
-    leafComponent: Leaf,
+    branch: Branch,
+    leaf: Leaf,
   },
 
   parameters: {
