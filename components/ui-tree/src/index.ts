@@ -2,11 +2,11 @@ export { UiTree } from './UiTree';
 
 export type { Props as UiTreeProps } from './UiTree';
 export type {
-  Branch,
   BranchComponentProps,
   BranchComponentType,
-  Item,
-  Leaf,
+  TreeLeaf,
+  TreeBranch,
+  TreeNode,
   LeafComponentProps,
   LeafComponentType,
   Tree,

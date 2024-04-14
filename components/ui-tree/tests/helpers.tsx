@@ -1,33 +1,26 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import { Branch, Item, Leaf, Tree, UiTree } from '~';
+import { Tree, TreeBranch, TreeNode, UiTree } from '~';
 
 import { Branch as BranchComponent } from './Branch';
 import { Leaf as LeafComponent } from './Leaf';
-import { Data } from './pipeline';
+import { Leaf } from './pipeline';
 
 // region Factory
 
-export function leafOf(id: number): Leaf<number, Data> {
+export function leafOf(id: number): Leaf {
   return {
     id,
 
-    data: {
-      name: `Leaf ${id}`,
-    },
+    name: `Leaf ${id}`,
   };
 }
 
-export function branchOf(
-  id: number,
-  children: Array<Item<number, Data>> = [],
-): Branch<number, Data> {
+export function branchOf(id: number, children: Array<TreeNode<Leaf>> = []): TreeBranch<Leaf> {
   return {
     id,
 
-    data: {
-      name: `Branch ${id}`,
-    },
+    name: `Branch ${id}`,
 
     children,
   };
@@ -41,7 +34,7 @@ type RenderTreeResult = {
   toggle: (id: number) => void;
 };
 
-export function renderTree(tree: Tree<number, Data>): RenderTreeResult {
+export function renderTree(tree: Tree<Leaf>): RenderTreeResult {
   render(
     <UiTree
       tree={tree}

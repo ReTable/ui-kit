@@ -1,57 +1,39 @@
 [
   {
     "id": 65,
-    "data": {
-      "name": "Local Drive"
-    },
+    "name": "Local Drive",
     "children": [
       {
         "id": 9,
-        "data": {
-          "name": "/dev"
-        },
+        "name": "/dev",
         "children": [
           {
             "id": 1,
-            "data": {
-              "name": "home.pdf"
-            }
+            "name": "home.pdf"
           },
           {
             "id": 7,
-            "data": {
-              "name": "/etc/defaults"
-            },
+            "name": "/etc/defaults",
             "children": [
               {
                 "id": 2,
-                "data": {
-                  "name": "national_world_classv.pdf"
-                }
+                "name": "national_world_classv.pdf"
               },
               {
                 "id": 3,
-                "data": {
-                  "name": "peso.pdf"
-                }
+                "name": "peso.pdf"
               },
               {
                 "id": 6,
-                "data": {
-                  "name": "/usr/include"
-                },
+                "name": "/usr/include",
                 "children": [
                   {
                     "id": 4,
-                    "data": {
-                      "name": "pixel.pdf"
-                    }
+                    "name": "pixel.pdf"
                   },
                   {
                     "id": 5,
-                    "data": {
-                      "name": "synthesizing.pdf"
-                    }
+                    "name": "synthesizing.pdf"
                   }
                 ]
               }
@@ -59,85 +41,59 @@
           },
           {
             "id": 8,
-            "data": {
-              "name": "protocol_engineer_azerbaijan.pdf"
-            }
+            "name": "protocol_engineer_azerbaijan.pdf"
           }
         ]
       },
       {
         "id": 49,
-        "data": {
-          "name": "/usr"
-        },
+        "name": "/usr",
         "children": [
           {
             "id": 20,
-            "data": {
-              "name": "/dev"
-            },
+            "name": "/dev",
             "children": [
               {
                 "id": 14,
-                "data": {
-                  "name": "/usr"
-                },
+                "name": "/usr",
                 "children": [
                   {
                     "id": 10,
-                    "data": {
-                      "name": "transmit_borders_input.pdf"
-                    }
+                    "name": "transmit_borders_input.pdf"
                   },
                   {
                     "id": 11,
-                    "data": {
-                      "name": "implement_nevada.pdf"
-                    }
+                    "name": "implement_nevada.pdf"
                   },
                   {
                     "id": 12,
-                    "data": {
-                      "name": "metal_drive_sports.pdf"
-                    }
+                    "name": "metal_drive_sports.pdf"
                   },
                   {
                     "id": 13,
-                    "data": {
-                      "name": "agp.pdf"
-                    }
+                    "name": "agp.pdf"
                   }
                 ]
               },
               {
                 "id": 15,
-                "data": {
-                  "name": "quantifying_quantify_norway.pdf"
-                }
+                "name": "quantifying_quantify_norway.pdf"
               },
               {
                 "id": 19,
-                "data": {
-                  "name": "/usr/include"
-                },
+                "name": "/usr/include",
                 "children": [
                   {
                     "id": 16,
-                    "data": {
-                      "name": "calculate.pdf"
-                    }
+                    "name": "calculate.pdf"
                   },
                   {
                     "id": 17,
-                    "data": {
-                      "name": "metal_drive_sports.pdf"
-                    }
+                    "name": "metal_drive_sports.pdf"
                   },
                   {
                     "id": 18,
-                    "data": {
-                      "name": "quantifying_quantify_norway.pdf"
-                    }
+                    "name": "quantifying_quantify_norway.pdf"
                   }
                 ]
               }
@@ -145,181 +101,125 @@
           },
           {
             "id": 30,
-            "data": {
-              "name": "/tmp"
-            },
+            "name": "/tmp",
             "children": [
               {
                 "id": 21,
-                "data": {
-                  "name": "nepal_view_protocol.pdf"
-                }
+                "name": "nepal_view_protocol.pdf"
               },
               {
                 "id": 22,
-                "data": {
-                  "name": "incredible_azure_interface.pdf"
-                }
+                "name": "incredible_azure_interface.pdf"
               },
               {
                 "id": 28,
-                "data": {
-                  "name": "/home/user"
-                },
+                "name": "/home/user",
                 "children": [
                   {
                     "id": 23,
-                    "data": {
-                      "name": "extend.pdf"
-                    }
+                    "name": "extend.pdf"
                   },
                   {
                     "id": 24,
-                    "data": {
-                      "name": "invoice.pdf"
-                    }
+                    "name": "invoice.pdf"
                   },
                   {
                     "id": 25,
-                    "data": {
-                      "name": "capacitor_bypass.pdf"
-                    }
+                    "name": "capacitor_bypass.pdf"
                   },
                   {
                     "id": 26,
-                    "data": {
-                      "name": "markets.pdf"
-                    }
+                    "name": "markets.pdf"
                   },
                   {
                     "id": 27,
-                    "data": {
-                      "name": "automotive.pdf"
-                    }
+                    "name": "automotive.pdf"
                   }
                 ]
               },
               {
                 "id": 29,
-                "data": {
-                  "name": "pound_program_handmade.pdf"
-                }
+                "name": "pound_program_handmade.pdf"
               }
             ]
           },
           {
             "id": 31,
-            "data": {
-              "name": "nuevo_avon_market.pdf"
-            }
+            "name": "nuevo_avon_market.pdf"
           },
           {
             "id": 32,
-            "data": {
-              "name": "administrator.pdf"
-            }
+            "name": "administrator.pdf"
           },
           {
             "id": 48,
-            "data": {
-              "name": "/usr/local/src"
-            },
+            "name": "/usr/local/src",
             "children": [
               {
                 "id": 37,
-                "data": {
-                  "name": "/home/user/dir"
-                },
+                "name": "/home/user/dir",
                 "children": [
                   {
                     "id": 33,
-                    "data": {
-                      "name": "dynamic_portal.pdf"
-                    }
+                    "name": "dynamic_portal.pdf"
                   },
                   {
                     "id": 34,
-                    "data": {
-                      "name": "wireless_frictionless_chicken.pdf"
-                    }
+                    "name": "wireless_frictionless_chicken.pdf"
                   },
                   {
                     "id": 35,
-                    "data": {
-                      "name": "back_end.pdf"
-                    }
+                    "name": "back_end.pdf"
                   },
                   {
                     "id": 36,
-                    "data": {
-                      "name": "chair_rss.pdf"
-                    }
+                    "name": "chair_rss.pdf"
                   }
                 ]
               },
               {
                 "id": 41,
-                "data": {
-                  "name": "/etc/ppp"
-                },
+                "name": "/etc/ppp",
                 "children": [
                   {
                     "id": 38,
-                    "data": {
-                      "name": "white_wireless_garden.pdf"
-                    }
+                    "name": "white_wireless_garden.pdf"
                   },
                   {
                     "id": 39,
-                    "data": {
-                      "name": "payment_context_sensitive_wisconsin.pdf"
-                    }
+                    "name": "payment_context_sensitive_wisconsin.pdf"
                   },
                   {
                     "id": 40,
-                    "data": {
-                      "name": "licensed.pdf"
-                    }
+                    "name": "licensed.pdf"
                   }
                 ]
               },
               {
                 "id": 46,
-                "data": {
-                  "name": "/boot/defaults"
-                },
+                "name": "/boot/defaults",
                 "children": [
                   {
                     "id": 42,
-                    "data": {
-                      "name": "open_architected_content_based_protocol.pdf"
-                    }
+                    "name": "open_architected_content_based_protocol.pdf"
                   },
                   {
                     "id": 43,
-                    "data": {
-                      "name": "berkshire_car_micronesia.pdf"
-                    }
+                    "name": "berkshire_car_micronesia.pdf"
                   },
                   {
                     "id": 44,
-                    "data": {
-                      "name": "png.pdf"
-                    }
+                    "name": "png.pdf"
                   },
                   {
                     "id": 45,
-                    "data": {
-                      "name": "b2b_belarussian.pdf"
-                    }
+                    "name": "b2b_belarussian.pdf"
                   }
                 ]
               },
               {
                 "id": 47,
-                "data": {
-                  "name": "wireless_frictionless_chicken.pdf"
-                }
+                "name": "wireless_frictionless_chicken.pdf"
               }
             ]
           }
@@ -327,97 +227,67 @@
       },
       {
         "id": 64,
-        "data": {
-          "name": "/home/user/dir"
-        },
+        "name": "/home/user/dir",
         "children": [
           {
             "id": 53,
-            "data": {
-              "name": "/usr/X11R6"
-            },
+            "name": "/usr/X11R6",
             "children": [
               {
                 "id": 50,
-                "data": {
-                  "name": "action_items.pdf"
-                }
+                "name": "action_items.pdf"
               },
               {
                 "id": 51,
-                "data": {
-                  "name": "licensed_pink_fundamental.pdf"
-                }
+                "name": "licensed_pink_fundamental.pdf"
               },
               {
                 "id": 52,
-                "data": {
-                  "name": "solid_backing_strategist.pdf"
-                }
+                "name": "solid_backing_strategist.pdf"
               }
             ]
           },
           {
             "id": 63,
-            "data": {
-              "name": "/etc/namedb"
-            },
+            "name": "/etc/namedb",
             "children": [
               {
                 "id": 58,
-                "data": {
-                  "name": "/Network"
-                },
+                "name": "/Network",
                 "children": [
                   {
                     "id": 54,
-                    "data": {
-                      "name": "plug_and_play.pdf"
-                    }
+                    "name": "plug_and_play.pdf"
                   },
                   {
                     "id": 55,
-                    "data": {
-                      "name": "transmit_borders_input.pdf"
-                    }
+                    "name": "transmit_borders_input.pdf"
                   },
                   {
                     "id": 56,
-                    "data": {
-                      "name": "b2b_belarussian.pdf"
-                    }
+                    "name": "b2b_belarussian.pdf"
                   },
                   {
                     "id": 57,
-                    "data": {
-                      "name": "loan_saint.pdf"
-                    }
+                    "name": "loan_saint.pdf"
                   }
                 ]
               },
               {
                 "id": 62,
-                "data": {
-                  "name": "/proc"
-                },
+                "name": "/proc",
                 "children": [
                   {
                     "id": 59,
-                    "data": {
-                      "name": "borders.pdf"
-                    }
+                    "name": "borders.pdf"
                   },
                   {
                     "id": 60,
-                    "data": {
-                      "name": "open_architected_content_based_protocol.pdf"
-                    }
+                    "name": "open_architected_content_based_protocol.pdf"
                   },
                   {
                     "id": 61,
-                    "data": {
-                      "name": "chair_rss.pdf"
-                    }
+                    "name": "chair_rss.pdf"
                   }
                 ]
               }
@@ -429,71 +299,49 @@
   },
   {
     "id": 66,
-    "data": {
-      "name": "Network Drives"
-    },
+    "name": "Network Drives",
     "children": [
       {
         "id": 76,
-        "data": {
-          "name": "Manufacturing"
-        },
+        "name": "Manufacturing",
         "children": [
           {
             "id": 71,
-            "data": {
-              "name": "Movies & TV"
-            },
+            "name": "Movies & TV",
             "children": [
               {
                 "id": 67,
-                "data": {
-                  "name": "Generic Rubber Shirt"
-                }
+                "name": "Generic Rubber Shirt"
               },
               {
                 "id": 68,
-                "data": {
-                  "name": "Rustic Cotton Ball"
-                }
+                "name": "Rustic Cotton Ball"
               },
               {
                 "id": 69,
-                "data": {
-                  "name": "Handmade Rubber Car"
-                }
+                "name": "Handmade Rubber Car"
               },
               {
                 "id": 70,
-                "data": {
-                  "name": "Unbranded Granite Chicken"
-                }
+                "name": "Unbranded Granite Chicken"
               }
             ]
           },
           {
             "id": 75,
-            "data": {
-              "name": "Sporting Goods"
-            },
+            "name": "Sporting Goods",
             "children": [
               {
                 "id": 72,
-                "data": {
-                  "name": "Handmade Plastic Tuna"
-                }
+                "name": "Handmade Plastic Tuna"
               },
               {
                 "id": 73,
-                "data": {
-                  "name": "Intelligent Wooden Bacon"
-                }
+                "name": "Intelligent Wooden Bacon"
               },
               {
                 "id": 74,
-                "data": {
-                  "name": "Rustic Wooden Pizza"
-                }
+                "name": "Rustic Wooden Pizza"
               }
             ]
           }
@@ -501,65 +349,45 @@
       },
       {
         "id": 98,
-        "data": {
-          "name": "Marketing"
-        },
+        "name": "Marketing",
         "children": [
           {
             "id": 83,
-            "data": {
-              "name": "Dior"
-            },
+            "name": "Dior",
             "children": [
               {
                 "id": 84,
-                "data": {
-                  "name": "Campaigns"
-                },
+                "name": "Campaigns",
                 "children": [
                   {
                     "id": 77,
-                    "data": {
-                      "name": "Year 2019"
-                    }
+                    "name": "Year 2019"
                   },
                   {
                     "id": 78,
-                    "data": {
-                      "name": "Year 2020"
-                    }
+                    "name": "Year 2020"
                   },
                   {
                     "id": 79,
-                    "data": {
-                      "name": "Year 2021"
-                    }
+                    "name": "Year 2021"
                   }
                 ]
               },
               {
                 "id": 85,
-                "data": {
-                  "name": "Products"
-                },
+                "name": "Products",
                 "children": [
                   {
                     "id": 80,
-                    "data": {
-                      "name": "Ergonomic Cotton Computer"
-                    }
+                    "name": "Ergonomic Cotton Computer"
                   },
                   {
                     "id": 81,
-                    "data": {
-                      "name": "Handcrafted Wooden Fish"
-                    }
+                    "name": "Handcrafted Wooden Fish"
                   },
                   {
                     "id": 82,
-                    "data": {
-                      "name": "Generic Granite Sausages"
-                    }
+                    "name": "Generic Granite Sausages"
                   }
                 ]
               }
@@ -567,77 +395,53 @@
           },
           {
             "id": 95,
-            "data": {
-              "name": "FedEx"
-            },
+            "name": "FedEx",
             "children": [
               {
                 "id": 96,
-                "data": {
-                  "name": "Campaigns"
-                },
+                "name": "Campaigns",
                 "children": [
                   {
                     "id": 86,
-                    "data": {
-                      "name": "Year 2019"
-                    }
+                    "name": "Year 2019"
                   },
                   {
                     "id": 87,
-                    "data": {
-                      "name": "Year 2020"
-                    }
+                    "name": "Year 2020"
                   },
                   {
                     "id": 88,
-                    "data": {
-                      "name": "Year 2021"
-                    }
+                    "name": "Year 2021"
                   },
                   {
                     "id": 89,
-                    "data": {
-                      "name": "Year 2022"
-                    }
+                    "name": "Year 2022"
                   },
                   {
                     "id": 90,
-                    "data": {
-                      "name": "Year 2023"
-                    }
+                    "name": "Year 2023"
                   }
                 ]
               },
               {
                 "id": 97,
-                "data": {
-                  "name": "Products"
-                },
+                "name": "Products",
                 "children": [
                   {
                     "id": 91,
-                    "data": {
-                      "name": "Tasty Concrete Chips"
-                    }
+                    "name": "Tasty Concrete Chips"
                   },
                   {
                     "id": 92,
-                    "data": {
-                      "name": "Small Fresh Bacon"
-                    }
+                    "name": "Small Fresh Bacon"
                   },
                   {
                     "id": 93,
-                    "data": {
-                      "name": "Handcrafted Concrete Bacon"
-                    }
+                    "name": "Handcrafted Concrete Bacon"
                   },
                   {
                     "id": 94,
-                    "data": {
-                      "name": "Awesome Wooden Shirt"
-                    }
+                    "name": "Awesome Wooden Shirt"
                   }
                 ]
               }
@@ -649,115 +453,79 @@
   },
   {
     "id": 160,
-    "data": {
-      "name": "Databases"
-    },
+    "name": "Databases",
     "children": [
       {
         "id": 112,
-        "data": {
-          "name": "MySQL"
-        },
+        "name": "MySQL",
         "children": [
           {
             "id": 113,
-            "data": {
-              "name": "airlines"
-            },
+            "name": "airlines",
             "children": [
               {
                 "id": 99,
-                "data": {
-                  "name": "alitalia"
-                }
+                "name": "alitalia"
               },
               {
                 "id": 100,
-                "data": {
-                  "name": "swoop"
-                }
+                "name": "swoop"
               },
               {
                 "id": 101,
-                "data": {
-                  "name": "hong_kong_airlines"
-                }
+                "name": "hong_kong_airlines"
               },
               {
                 "id": 102,
-                "data": {
-                  "name": "etihad"
-                }
+                "name": "etihad"
               }
             ]
           },
           {
             "id": 114,
-            "data": {
-              "name": "brands"
-            },
+            "name": "brands",
             "children": [
               {
                 "id": 103,
-                "data": {
-                  "name": "ikea"
-                }
+                "name": "ikea"
               },
               {
                 "id": 104,
-                "data": {
-                  "name": "facebook"
-                }
+                "name": "facebook"
               },
               {
                 "id": 105,
-                "data": {
-                  "name": "salesforce"
-                }
+                "name": "salesforce"
               },
               {
                 "id": 106,
-                "data": {
-                  "name": "nissan"
-                }
+                "name": "nissan"
               },
               {
                 "id": 107,
-                "data": {
-                  "name": "corona"
-                }
+                "name": "corona"
               }
             ]
           },
           {
             "id": 115,
-            "data": {
-              "name": "companies"
-            },
+            "name": "companies",
             "children": [
               {
                 "id": 108,
-                "data": {
-                  "name": "dooley_and_sons"
-                }
+                "name": "dooley_and_sons"
               },
               {
                 "id": 109,
-                "data": {
-                  "name": "hodkiewicz_hintz"
-                }
+                "name": "hodkiewicz_hintz"
               },
               {
                 "id": 110,
-                "data": {
-                  "name": "legros_tillman_and_hodkiewicz"
-                }
+                "name": "legros_tillman_and_hodkiewicz"
               },
               {
                 "id": 111,
-                "data": {
-                  "name": "kreiger_sauer"
-                }
+                "name": "kreiger_sauer"
               }
             ]
           }
@@ -765,91 +533,63 @@
       },
       {
         "id": 126,
-        "data": {
-          "name": "SAP Adaptive Server"
-        },
+        "name": "SAP Adaptive Server",
         "children": [
           {
             "id": 127,
-            "data": {
-              "name": "airlines"
-            },
+            "name": "airlines",
             "children": [
               {
                 "id": 116,
-                "data": {
-                  "name": "avianca"
-                }
+                "name": "avianca"
               },
               {
                 "id": 117,
-                "data": {
-                  "name": "sun_country"
-                }
+                "name": "sun_country"
               },
               {
                 "id": 118,
-                "data": {
-                  "name": "brussels_airlines"
-                }
+                "name": "brussels_airlines"
               }
             ]
           },
           {
             "id": 128,
-            "data": {
-              "name": "brands"
-            },
+            "name": "brands",
             "children": [
               {
                 "id": 119,
-                "data": {
-                  "name": "l_oreal"
-                }
+                "name": "l_oreal"
               },
               {
                 "id": 120,
-                "data": {
-                  "name": "h_m"
-                }
+                "name": "h_m"
               },
               {
                 "id": 121,
-                "data": {
-                  "name": "starbucks"
-                }
+                "name": "starbucks"
               },
               {
                 "id": 122,
-                "data": {
-                  "name": "american_express"
-                }
+                "name": "american_express"
               }
             ]
           },
           {
             "id": 129,
-            "data": {
-              "name": "companies"
-            },
+            "name": "companies",
             "children": [
               {
                 "id": 123,
-                "data": {
-                  "name": "batz_rice"
-                }
+                "name": "batz_rice"
               },
               {
                 "id": 124,
-                "data": {
-                  "name": "heller_hyatt_and_jaskolski"
-                }
+                "name": "heller_hyatt_and_jaskolski"
               },
               {
                 "id": 125,
-                "data": {
-                  "name": "brown_llc"
-                }
+                "name": "brown_llc"
               }
             ]
           }
@@ -857,97 +597,67 @@
       },
       {
         "id": 141,
-        "data": {
-          "name": "Elasticsearch"
-        },
+        "name": "Elasticsearch",
         "children": [
           {
             "id": 142,
-            "data": {
-              "name": "airlines"
-            },
+            "name": "airlines",
             "children": [
               {
                 "id": 130,
-                "data": {
-                  "name": "taca"
-                }
+                "name": "taca"
               },
               {
                 "id": 131,
-                "data": {
-                  "name": "air_india"
-                }
+                "name": "air_india"
               },
               {
                 "id": 132,
-                "data": {
-                  "name": "air_north"
-                }
+                "name": "air_north"
               },
               {
                 "id": 133,
-                "data": {
-                  "name": "regional_express"
-                }
+                "name": "regional_express"
               }
             ]
           },
           {
             "id": 143,
-            "data": {
-              "name": "brands"
-            },
+            "name": "brands",
             "children": [
               {
                 "id": 134,
-                "data": {
-                  "name": "adobe"
-                }
+                "name": "adobe"
               },
               {
                 "id": 135,
-                "data": {
-                  "name": "land_rover"
-                }
+                "name": "land_rover"
               },
               {
                 "id": 136,
-                "data": {
-                  "name": "huawei"
-                }
+                "name": "huawei"
               }
             ]
           },
           {
             "id": 144,
-            "data": {
-              "name": "companies"
-            },
+            "name": "companies",
             "children": [
               {
                 "id": 137,
-                "data": {
-                  "name": "bartell_wehner_and_schowalter"
-                }
+                "name": "bartell_wehner_and_schowalter"
               },
               {
                 "id": 138,
-                "data": {
-                  "name": "maggio_wisoky_and_blick"
-                }
+                "name": "maggio_wisoky_and_blick"
               },
               {
                 "id": 139,
-                "data": {
-                  "name": "dickinson_tremblay_and_moore"
-                }
+                "name": "dickinson_tremblay_and_moore"
               },
               {
                 "id": 140,
-                "data": {
-                  "name": "greenholt_mosciski"
-                }
+                "name": "greenholt_mosciski"
               }
             ]
           }
@@ -955,97 +665,67 @@
       },
       {
         "id": 156,
-        "data": {
-          "name": "Memcached"
-        },
+        "name": "Memcached",
         "children": [
           {
             "id": 157,
-            "data": {
-              "name": "airlines"
-            },
+            "name": "airlines",
             "children": [
               {
                 "id": 145,
-                "data": {
-                  "name": "airasia"
-                }
+                "name": "airasia"
               },
               {
                 "id": 146,
-                "data": {
-                  "name": "oman_air"
-                }
+                "name": "oman_air"
               },
               {
                 "id": 147,
-                "data": {
-                  "name": "vueling_airlines"
-                }
+                "name": "vueling_airlines"
               },
               {
                 "id": 148,
-                "data": {
-                  "name": "ukraine_international"
-                }
+                "name": "ukraine_international"
               }
             ]
           },
           {
             "id": 158,
-            "data": {
-              "name": "brands"
-            },
+            "name": "brands",
             "children": [
               {
                 "id": 149,
-                "data": {
-                  "name": "morgan_stanely"
-                }
+                "name": "morgan_stanely"
               },
               {
                 "id": 150,
-                "data": {
-                  "name": "pampers"
-                }
+                "name": "pampers"
               },
               {
                 "id": 151,
-                "data": {
-                  "name": "colgate"
-                }
+                "name": "colgate"
               },
               {
                 "id": 152,
-                "data": {
-                  "name": "3m"
-                }
+                "name": "3m"
               }
             ]
           },
           {
             "id": 159,
-            "data": {
-              "name": "companies"
-            },
+            "name": "companies",
             "children": [
               {
                 "id": 153,
-                "data": {
-                  "name": "hahn_welch"
-                }
+                "name": "hahn_welch"
               },
               {
                 "id": 154,
-                "data": {
-                  "name": "olson_olson_and_carter"
-                }
+                "name": "olson_olson_and_carter"
               },
               {
                 "id": 155,
-                "data": {
-                  "name": "jenkins_llc"
-                }
+                "name": "jenkins_llc"
               }
             ]
           }

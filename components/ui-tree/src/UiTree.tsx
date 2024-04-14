@@ -1,10 +1,10 @@
 import { ReactElement, ReactNode } from 'react';
 
 import { isBranch, walkTree } from './helpers';
-import { BranchComponentType, LeafComponentType, Tree } from './types';
+import { BranchComponentType, LeafComponentType, Tree, TreeLeaf } from './types';
 import { useExpanded } from './useExpanded';
 
-export type Props<Id, Data> = {
+export type Props<Leaf extends TreeLeaf> = {
   /**
    * Optional CSS class for root element.
    */
@@ -13,16 +13,16 @@ export type Props<Id, Data> = {
   /**
    * Tree of elements to render.
    */
-  tree: Tree<Id, Data>;
+  tree: Tree<Leaf>;
 
   /**
    * Component to render leaf item.
    */
-  leafComponent: LeafComponentType<Id, Data>;
+  leafComponent: LeafComponentType<Leaf>;
   /**
    * Component to render branch item.
    */
-  branchComponent: BranchComponentType<Id, Data>;
+  branchComponent: BranchComponentType<Leaf>;
 
   /**
    * Optional attribute for test purposes.
@@ -30,39 +30,36 @@ export type Props<Id, Data> = {
   testId?: string;
 };
 
-export function UiTree<Id extends number | string, Data>({
+export function UiTree<Leaf extends TreeLeaf>({
   className,
   tree,
-  leafComponent: Leaf,
-  branchComponent: Branch,
+  leafComponent: LeafComponent,
+  branchComponent: BranchComponent,
   testId,
-}: Props<Id, Data>): ReactElement {
+}: Props<Leaf>): ReactElement {
   const [expanded, onToggle] = useExpanded(tree);
 
   const children: ReactNode[] = [];
 
   for (const { item, level } of walkTree(tree, (id) => !expanded.has(id))) {
-    const { id, data } = item;
-
     if (!isBranch(item)) {
-      children.push(<Leaf data={data} id={id} key={id} level={level} />);
+      children.push(<LeafComponent key={item.id} level={level} node={item} />);
 
       continue;
     }
 
-    const isExpanded = expanded.has(id);
+    const isExpanded = expanded.has(item.id);
 
     const handleToggle = () => {
       onToggle(item.id);
     };
 
     children.push(
-      <Branch
-        data={data}
-        id={id}
+      <BranchComponent
         isExpanded={isExpanded}
-        key={id}
+        key={item.id}
         level={level}
+        node={item}
         onToggle={handleToggle}
       />,
     );

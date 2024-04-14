@@ -1,4 +1,4 @@
-import { Tree } from '../types';
+import { Tree, TreeLeaf } from '../types';
 
 import { isBranch } from './isBranch';
 import { walkTree } from './walkTree';
@@ -11,16 +11,20 @@ function expand<Id>(current: Set<Id>, id: Id): Set<Id> {
   return next;
 }
 
-type Location<Id> =
-  | { isInside: true; targetParentId: Id | null }
+type Location<Leaf extends TreeLeaf> =
+  | { isInside: true; targetParentId: Leaf['id'] | null }
   | { isInside: false; targetParentId: null };
 
-function collapse<Id>(current: Set<Id>, id: Id, tree: Tree<Id, unknown>): Set<Id> {
+function collapse<Leaf extends TreeLeaf>(
+  current: Set<Leaf['id']>,
+  id: Leaf['id'],
+  tree: Tree<Leaf>,
+): Set<Leaf['id']> {
   const next = new Set(current);
 
   next.delete(id);
 
-  let location: Location<Id> = { isInside: false, targetParentId: null };
+  let location: Location<Leaf> = { isInside: false, targetParentId: null };
 
   for (const { item, parentId } of walkTree(tree)) {
     // NOTE: Mark when we go in to the target branch.
@@ -55,6 +59,10 @@ function collapse<Id>(current: Set<Id>, id: Id, tree: Tree<Id, unknown>): Set<Id
   return next;
 }
 
-export function toggle<Id>(current: Set<Id>, id: Id, tree: Tree<Id, unknown>): Set<Id> {
+export function toggle<Leaf extends TreeLeaf>(
+  current: Set<Leaf['id']>,
+  id: Leaf['id'],
+  tree: Tree<Leaf>,
+): Set<Leaf['id']> {
   return current.has(id) ? collapse(current, id, tree) : expand(current, id);
 }

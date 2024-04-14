@@ -1,33 +1,30 @@
 import { ComponentType } from 'react';
 
-export type Leaf<Id, Data> = {
-  id: Id;
+// region Tree
 
-  data: Data;
+export type TreeLeaf = {
+  [key: string]: unknown;
+
+  id: number | string;
 };
 
-export type Branch<Id, Data> = {
-  id: Id;
-
-  data: Data;
-
-  children: Array<Leaf<Id, Data> | Branch<Id, Data>>;
+export type TreeBranch<Leaf extends TreeLeaf> = Leaf & {
+  children: Array<Leaf | TreeBranch<Leaf>>;
 };
 
-export type Item<Id, Data> = Leaf<Id, Data> | Branch<Id, Data>;
+export type TreeNode<Leaf extends TreeLeaf> = Leaf | TreeBranch<Leaf>;
 
-export type Tree<Id, Data> = Array<Item<Id, Data>>;
+export type Tree<Leaf extends TreeLeaf> = Array<TreeNode<Leaf>>;
 
-export type LeafComponentProps<Id, Data> = {
+// endregion Tree
+
+// region Components
+
+export type LeafComponentProps<Leaf extends TreeLeaf> = {
   /**
-   * ID of item.
+   * Tree's node.
    */
-  id: Id;
-
-  /**
-   * Data of item.
-   */
-  data: Data;
+  node: Leaf;
 
   /**
    * Item's nesting level.
@@ -35,16 +32,11 @@ export type LeafComponentProps<Id, Data> = {
   level: number;
 };
 
-export type BranchComponentProps<Id, Data> = {
+export type BranchComponentProps<Leaf extends TreeLeaf> = {
   /**
-   * ID of item.
+   * Tree's node.
    */
-  id: Id;
-
-  /**
-   * Data of item.
-   */
-  data: Data;
+  node: Leaf;
 
   /**
    * Item's nesting level.
@@ -61,6 +53,8 @@ export type BranchComponentProps<Id, Data> = {
   onToggle: () => void;
 };
 
-export type LeafComponentType<Id, Data> = ComponentType<LeafComponentProps<Id, Data>>;
+export type LeafComponentType<Leaf extends TreeLeaf> = ComponentType<LeafComponentProps<Leaf>>;
 
-export type BranchComponentType<Id, Data> = ComponentType<BranchComponentProps<Id, Data>>;
+export type BranchComponentType<Leaf extends TreeLeaf> = ComponentType<BranchComponentProps<Leaf>>;
+
+// endregion Components

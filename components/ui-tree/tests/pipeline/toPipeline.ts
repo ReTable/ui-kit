@@ -1,10 +1,10 @@
-import { Item, Tree } from '~';
+import { Tree, TreeNode } from '~';
 
 import { hiddenBranch, hiddenLeaf, visibleBranch, visibleLeaf } from './factories';
-import { Data, Pipeline } from './types';
+import { Leaf, Pipeline } from './types';
 
 type QueueItem = {
-  item: Item<number, Data>;
+  item: TreeNode<Leaf>;
 
   level: number;
 
@@ -13,7 +13,7 @@ type QueueItem = {
 
 type Queue = QueueItem[];
 
-export function toPipeline(tree: Tree<number, Data>, expanded: Set<number>): Pipeline {
+export function toPipeline(tree: Tree<Leaf>, expanded: Set<number>): Pipeline {
   if (tree.length === 0) {
     return [];
   }

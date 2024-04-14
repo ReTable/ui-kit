@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { syncExpandedIds, toggle } from './helpers';
-import { Tree } from './types';
+import { Tree, TreeLeaf } from './types';
 
 type ExpandHandler<Id> = (id: Id) => void;
 
-type Result<Id> = [Set<Id>, ExpandHandler<Id>];
+type Result<Leaf extends TreeLeaf> = [Set<Leaf['id']>, ExpandHandler<Leaf['id']>];
 
-export function useExpanded<Id>(tree: Tree<Id, unknown>): Result<Id> {
-  const [expanded, setExpanded] = useState<Set<Id>>(new Set());
+export function useExpanded<Leaf extends TreeLeaf>(tree: Tree<Leaf>): Result<Leaf> {
+  const [expanded, setExpanded] = useState<Set<Leaf['id']>>(new Set());
 
   // NOTE: Sync `expanded` set with ids from the `tree`:
   //
@@ -19,7 +19,7 @@ export function useExpanded<Id>(tree: Tree<Id, unknown>): Result<Id> {
   }, [tree]);
 
   const handleToggle = useCallback(
-    (id: Id) => {
+    (id: Leaf['id']) => {
       setExpanded((current) => toggle(current, id, tree));
     },
     [tree],

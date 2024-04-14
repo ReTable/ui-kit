@@ -1,3 +1,3 @@
 export { verifyTree } from './verifyTree';
 
-export type { Data } from './types';
+export type { Leaf } from './types';

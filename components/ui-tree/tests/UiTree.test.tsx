@@ -4,9 +4,9 @@ import { describe, it } from 'vitest';
 import { Tree as BaseTree } from '~';
 
 import { branchOf, leafOf, renderTree } from './helpers';
-import { Data, verifyTree } from './pipeline';
+import { Leaf, verifyTree } from './pipeline';
 
-type Tree = BaseTree<number, Data>;
+type Tree = BaseTree<Leaf>;
 
 describe('UiTree', () => {
   it('renders empty tree', () => {

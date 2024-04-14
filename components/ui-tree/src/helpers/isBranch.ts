@@ -1,5 +1,5 @@
-import { Branch, Item } from '../types';
+import { TreeBranch, TreeLeaf, TreeNode } from '../types';
 
-export function isBranch<Data, Id>(item: Item<Data, Id>): item is Branch<Data, Id> {
-  return 'children' in item;
+export function isBranch<Leaf extends TreeLeaf>(node: TreeNode<Leaf>): node is TreeBranch<Leaf> {
+  return 'children' in node;
 }

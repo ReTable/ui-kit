@@ -9,11 +9,11 @@ import * as styles from './styles.css';
 import * as trees from './trees';
 import { Branch } from './Branch';
 import { Leaf } from './Leaf';
-import { Data } from './types';
+import { Leaf as LeafType } from './types';
 
 // region Types
 
-type StoryTree = ComponentType<UiTreeProps<number, Data>>;
+type StoryTree = ComponentType<UiTreeProps<LeafType>>;
 
 // endregion Types
 

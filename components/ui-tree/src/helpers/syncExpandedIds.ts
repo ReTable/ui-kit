@@ -1,10 +1,13 @@
-import { Tree } from '../types';
+import { Tree, TreeLeaf } from '../types';
 
 import { isBranch } from './isBranch';
 import { walkTree } from './walkTree';
 
-export function syncExpandedIds<Id>(current: Set<Id>, tree: Tree<Id, unknown>): Set<Id> {
-  const next = new Set<Id>();
+export function syncExpandedIds<Leaf extends TreeLeaf>(
+  current: Set<Leaf['id']>,
+  tree: Tree<Leaf>,
+): Set<Leaf['id']> {
+  const next = new Set<Leaf['id']>();
 
   for (const { item } of walkTree(tree)) {
     if (isBranch(item) && current.has(item.id)) {
