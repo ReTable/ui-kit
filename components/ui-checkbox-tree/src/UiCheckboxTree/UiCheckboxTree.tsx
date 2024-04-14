@@ -2,30 +2,29 @@ import { ReactElement } from 'react';
 
 import { clsx } from 'clsx/lite';
 
-import { Tree, UiTree } from '@tabula/ui-tree';
+import { Tree, TreeLeaf, UiTree } from '@tabula/ui-tree';
 
 import * as styles from './UiCheckboxTree.css';
 
-import { Branch } from '../Branch';
-import { Leaf } from '../Leaf';
-import { BaseData, BaseId } from '../types';
+import { BranchRenderer } from '../BranchRenderer';
+import { LeafRenderer } from '../LeafRenderer';
 
-export type Props<Id extends BaseId = BaseId, Data extends BaseData = BaseData> = {
+export type Props<Leaf extends TreeLeaf> = {
   className?: string;
 
-  tree: Tree<Id, Data>;
+  tree: Tree<Leaf>;
 };
 
-export function UiCheckboxTree<Id extends BaseId = BaseId, Data extends BaseData = BaseData>({
+export function UiCheckboxTree<Leaf extends TreeLeaf>({
   className,
   tree,
-}: Props<Id, Data>): ReactElement {
+}: Props<Leaf>): ReactElement {
   return (
     <UiTree
       className={clsx(styles.root, className)}
       tree={tree}
-      leafComponent={Leaf}
-      branchComponent={Branch}
+      leaf={LeafRenderer}
+      branch={BranchRenderer}
     />
   );
 }
