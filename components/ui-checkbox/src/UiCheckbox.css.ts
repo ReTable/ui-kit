@@ -94,7 +94,7 @@ export const indicator = style({
         },
 
         [`${root}:focus-within &`]: {
-          boxShadow: `0 0 0 2px ${uiTheme.colors.borderControl.focus2}`,
+          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
         },
       },
     },
