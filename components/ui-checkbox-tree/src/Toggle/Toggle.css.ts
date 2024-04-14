@@ -5,9 +5,7 @@ import { uiLayers, uiTheme } from '@tabula/ui-theme';
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
+      display: 'block',
       width: '20px',
       height: '20px',
       padding: 0,
@@ -19,14 +17,11 @@ export const root = style({
 
       selectors: {
         '&:focus': {
-          outlineStyle: 'solid',
-          outlineColor: uiTheme.colors.borderControl.focus2,
-          outlineOffset: '0',
-          outlineWidth: 2,
+          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
         },
 
         '&:hover': {
-          backgroundColor: uiTheme.colors.neutralAlpha['5'],
+          backgroundColor: uiTheme.colors.neutralAlpha['7'],
         },
 
         '&:active': {
@@ -40,14 +35,25 @@ export const root = style({
 
 export const chevron = styleVariants(
   {
-    collapsed: 0,
-    expanded: 90,
+    collapsed: {
+      rotate: 0,
+      x: 8,
+      y: 6,
+    },
+    expanded: {
+      rotate: 90,
+      x: 7,
+      y: 7,
+    },
   },
-  (angle) => ({
+  ({ rotate, x, y }) => ({
     '@layer': {
       [uiLayers.components]: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
         transformOrigin: 'center center',
-        transform: `rotateZ(${angle}deg)`,
+        transform: `translateX(${x}px) translateY(${y}px) rotateZ(${rotate}deg)`,
         transition: `all ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
       },
     },
