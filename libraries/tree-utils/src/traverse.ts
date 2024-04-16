@@ -33,6 +33,11 @@ export type TraverseItem<Leaf extends TreeLeaf> = LeafTraverseItem<Leaf> | Branc
 
 export type TraverseFilter<Leaf extends TreeLeaf> = (item: TraverseItem<Leaf>) => boolean;
 
+export type TraverseOptions<Leaf extends TreeLeaf> = {
+  filter?: TraverseFilter<Leaf>;
+  subTree?: Leaf['id'];
+};
+
 // endregion Types
 
 // region Helpers
@@ -87,24 +92,43 @@ function toQueueItem<Leaf extends TreeLeaf>(
 export function* traverse<Leaf extends TreeLeaf>(
   tree: Tree<Leaf>,
   algorithm: TraverseAlgorithm,
-  filter?: TraverseFilter<Leaf>,
+  { filter, subTree }: TraverseOptions<Leaf> = {},
 ): Generator<TraverseItem<Leaf>> {
-  const queue = tree.map((node) => toQueueItem(node));
+  let queue = tree.map((node) => toQueueItem(node));
 
   let cursor = 0;
+
+  // NOTE: By default we think we're in the subtree already.
+  let isInsideSubtree = subTree == null;
 
   while (cursor < queue.length) {
     const item = queue[cursor];
 
-    cursor += 1;
+    // NOTE: If we're outside subtree and found the target subtree, then form a new queue from
+    //       the founded subtree.
+    if (!isInsideSubtree && item.node.id === subTree) {
+      isInsideSubtree = true;
 
-    const isSatisfy = filter?.(item) ?? true;
+      queue = [item];
 
-    if (!isSatisfy) {
+      cursor = 0;
+
       continue;
     }
 
-    yield item;
+    cursor += 1;
+
+    // NOTE: If we're inside the target subtree, then apply a filter and yield item if it's
+    //       satisfy a filter condition.
+    if (isInsideSubtree) {
+      const isSatisfy = filter?.(item) ?? true;
+
+      if (!isSatisfy) {
+        continue;
+      }
+
+      yield item;
+    }
 
     if (item.isLeaf) {
       continue;
