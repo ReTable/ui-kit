@@ -50,7 +50,7 @@ export function UiTree<Leaf extends TreeLeaf>({
     return expanded.has(parentId);
   };
 
-  for (const { isBranch, node, level } of depth(tree, filter)) {
+  for (const { isBranch, node, level } of depth(tree, { filter })) {
     if (!isBranch) {
       children.push(<LeafRenderer key={node.id} level={level} node={node} />);
 
