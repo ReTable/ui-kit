@@ -1,7 +1,4 @@
-import { Tree, TreeLeaf } from '../types';
-
-import { isBranch } from './isBranch';
-import { walkTree } from './walkTree';
+import { Tree, TreeLeaf, breadth } from '@tabula/tree-utils';
 
 export function syncExpandedIds<Leaf extends TreeLeaf>(
   current: Set<Leaf['id']>,
@@ -9,9 +6,9 @@ export function syncExpandedIds<Leaf extends TreeLeaf>(
 ): Set<Leaf['id']> {
   const next = new Set<Leaf['id']>();
 
-  for (const { item } of walkTree(tree)) {
-    if (isBranch(item) && current.has(item.id)) {
-      next.add(item.id);
+  for (const { isBranch, node } of breadth(tree)) {
+    if (isBranch && current.has(node.id)) {
+      next.add(node.id);
     }
   }
 

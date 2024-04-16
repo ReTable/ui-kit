@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
+import { Tree, TreeLeaf } from '@tabula/tree-utils';
+
 import { syncExpandedIds, toggle } from './helpers';
-import { Tree, TreeLeaf } from './types';
 
 type ExpandHandler<Id> = (id: Id) => void;
 

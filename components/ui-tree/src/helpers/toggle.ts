@@ -1,6 +1,5 @@
-import { Tree, TreeLeaf } from '../types';
+import { Tree, TreeLeaf, isTreeBranch } from '@tabula/tree-utils';
 
-import { isBranch } from './isBranch';
 import { walkTree } from './walkTree';
 
 function expand<Id>(current: Set<Id>, id: Id): Set<Id> {
@@ -48,7 +47,7 @@ function collapse<Leaf extends TreeLeaf>(
     }
 
     // NOTE: Ignore non branch items.
-    if (!isBranch(item)) {
+    if (!isTreeBranch(item)) {
       continue;
     }
 

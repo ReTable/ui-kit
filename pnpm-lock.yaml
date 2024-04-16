@@ -355,6 +355,9 @@ importers:
 
   components/ui-tree:
     dependencies:
+      '@tabula/tree-utils':
+        specifier: workspace:^
+        version: link:../../libraries/tree-utils
       react:
         specifier: ^18.2.0
         version: 18.2.0

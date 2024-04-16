@@ -1,7 +1,8 @@
 import { ReactElement, ReactNode } from 'react';
 
-import { isBranch, walkTree } from './helpers';
-import { BranchComponentType, LeafComponentType, Tree, TreeLeaf } from './types';
+import { TraverseFilter, Tree, TreeLeaf, depth } from '@tabula/tree-utils';
+
+import { BranchComponentType, LeafComponentType } from './types';
 import { useExpanded } from './useExpanded';
 
 export type Props<Leaf extends TreeLeaf> = {
@@ -41,25 +42,33 @@ export function UiTree<Leaf extends TreeLeaf>({
 
   const children: ReactNode[] = [];
 
-  for (const { item, level } of walkTree(tree, (id) => !expanded.has(id))) {
-    if (!isBranch(item)) {
-      children.push(<LeafRenderer key={item.id} level={level} node={item} />);
+  const filter: TraverseFilter<Leaf> = ({ parentId }) => {
+    if (parentId == null) {
+      return true;
+    }
+
+    return expanded.has(parentId);
+  };
+
+  for (const { isBranch, node, level } of depth(tree, filter)) {
+    if (!isBranch) {
+      children.push(<LeafRenderer key={node.id} level={level} node={node} />);
 
       continue;
     }
 
-    const isExpanded = expanded.has(item.id);
+    const isExpanded = expanded.has(node.id);
 
     const handleToggle = () => {
-      onToggle(item.id);
+      onToggle(node.id);
     };
 
     children.push(
       <BranchRenderer
         isExpanded={isExpanded}
-        key={item.id}
+        key={node.id}
         level={level}
-        node={item}
+        node={node}
         onToggle={handleToggle}
       />,
     );

@@ -1,5 +1,4 @@
-import { isBranch } from '../helpers';
-import { Tree, TreeLeaf, TreeNode } from '../types';
+import { Tree, TreeLeaf, TreeNode, isTreeBranch } from '@tabula/tree-utils';
 
 type QueueItem<Leaf extends TreeLeaf> = {
   item: TreeNode<Leaf>;
@@ -34,7 +33,7 @@ export function* walkTree<Leaf extends TreeLeaf>(
 
     yield { item, parentId, level };
 
-    if (!isBranch(item)) {
+    if (!isTreeBranch(item)) {
       continue;
     }
 
