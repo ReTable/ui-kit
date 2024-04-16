@@ -22,7 +22,6 @@ export function useChange<Leaf extends TreeLeaf>(
 
   const handleChangeBranch = useCallback<Handler<Leaf>>(
     (id: Leaf['id'], isChecked: boolean) => {
-      console.log(collectIds(tree, id));
       onChange?.(collectIds(tree, id), isChecked);
     },
     [onChange, tree],

@@ -52,6 +52,7 @@
     "@vanilla-extract/css-utils": "^0.1.3"
   },
   "dependencies": {
+    "@tabula/tree-utils": "workspace:^",
     "@tabula/ui-checkbox": "workspace:0.1.0-beta.0",
     "@tabula/ui-tree": "workspace:0.1.0-beta.0",
     "@vanilla-extract/dynamic": "^2.1.0",

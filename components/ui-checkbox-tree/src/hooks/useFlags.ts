@@ -1,17 +1,10 @@
 import { useMemo } from 'react';
 
-import { Tree, TreeLeaf, TreeNode } from '@tabula/ui-tree';
+import { depth } from '@tabula/tree-utils';
+import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
-import { isBranch, isSelected } from '../helpers';
+import { isSelected } from '../helpers';
 import { BranchFlags, Flags, Selected } from '../types';
-
-type QueueItem<Leaf extends TreeLeaf> = {
-  node: TreeNode<Leaf>;
-
-  parentIds: Array<Leaf['id']>;
-};
-
-type Queue<Leaf extends TreeLeaf> = Array<QueueItem<Leaf>>;
 
 type BranchStats = {
   leavesCount: number;
@@ -28,38 +21,11 @@ export function useFlags<Leaf extends TreeLeaf>(
 
     const branchesStats = new Map<Leaf['id'], BranchStats>();
 
-    const queue: Queue<Leaf> = tree.map((node) => ({
-      node,
+    for (const { isLeaf, node, parentIds } of depth(tree)) {
+      if (isLeaf) {
+        const isChecked = isSelected(node.id, selected);
 
-      parentIds: [],
-    }));
-
-    let cursor = 0;
-
-    while (cursor < queue.length) {
-      const { node, parentIds } = queue[cursor];
-
-      cursor += 1;
-
-      if (isBranch(node)) {
-        branchesStats.set(node.id, {
-          leavesCount: 0,
-          selectedLeavesCount: 0,
-        });
-
-        const nextParentIds = [...parentIds, node.id];
-
-        const enqueued = node.children.map((child) => ({
-          node: child,
-
-          parentIds: nextParentIds,
-        }));
-
-        queue.splice(cursor, 0, ...enqueued);
-      } else {
-        const isNodeSelected = isSelected(node.id, selected);
-
-        leavesFlags.set(node.id, isNodeSelected);
+        leavesFlags.set(node.id, isChecked);
 
         for (const parentId of parentIds) {
           let stats = branchesStats.get(parentId);
@@ -73,11 +39,11 @@ export function useFlags<Leaf extends TreeLeaf>(
             branchesStats.set(parentId, stats);
           }
 
-          stats.leavesCount += 1;
-
-          if (isNodeSelected) {
+          if (isChecked) {
             stats.selectedLeavesCount += 1;
           }
+
+          stats.leavesCount += 1;
         }
       }
     }
