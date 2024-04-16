@@ -117,6 +117,9 @@ export const content = style({
       color: uiTheme.colors.content.primary,
       userSelect: 'none',
       cursor: 'pointer',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
 
       selectors: {
         [`${input}:disabled ~ &`]: {
