@@ -31,6 +31,8 @@ type BranchTraverseItem<Leaf extends TreeLeaf> = {
 
 export type TraverseItem<Leaf extends TreeLeaf> = LeafTraverseItem<Leaf> | BranchTraverseItem<Leaf>;
 
+export type TraverseFilter<Leaf extends TreeLeaf> = (item: TraverseItem<Leaf>) => boolean;
+
 // endregion Types
 
 // region Helpers
@@ -85,6 +87,7 @@ function toQueueItem<Leaf extends TreeLeaf>(
 export function* traverse<Leaf extends TreeLeaf>(
   tree: Tree<Leaf>,
   algorithm: TraverseAlgorithm,
+  filter?: TraverseFilter<Leaf>,
 ): Generator<TraverseItem<Leaf>> {
   const queue = tree.map((node) => toQueueItem(node));
 
@@ -93,9 +96,15 @@ export function* traverse<Leaf extends TreeLeaf>(
   while (cursor < queue.length) {
     const item = queue[cursor];
 
-    yield item;
-
     cursor += 1;
+
+    const isSatisfy = filter?.(item) ?? true;
+
+    if (!isSatisfy) {
+      continue;
+    }
+
+    yield item;
 
     if (item.isLeaf) {
       continue;

@@ -87,4 +87,51 @@ describe('breadth', () => {
 
     verifyPipeline([...breadth(tree)], pipeline);
   });
+
+  it('allows filter elements', () => {
+    const [map, node] = createBuilder();
+
+    // prettier-ignore
+    const tree = [
+      node(1),
+      node(2, [
+        node(3),
+        node(4, [
+          node(5),
+          node(6, [
+            node(7),
+            node(8)
+          ]),
+          node(9)]
+        )
+      ]),
+      node(10),
+      node(11, [
+        node(12),
+        node(13),
+        node(14, [
+          node(15),
+          node(16)
+        ])
+      ]),
+    ];
+
+    const pipeline = toPipeline(
+      [
+        { id: 1, level: 0, parentIds: [] },
+        { id: 2, level: 0, parentIds: [] },
+        { id: 10, level: 0, parentIds: [] },
+        { id: 3, level: 1, parentIds: [2] },
+        { id: 4, level: 1, parentIds: [2] },
+        { id: 5, level: 2, parentIds: [2, 4] },
+        { id: 6, level: 2, parentIds: [2, 4] },
+        { id: 9, level: 2, parentIds: [2, 4] },
+      ],
+      map,
+    );
+
+    const actual = [...breadth(tree, (item) => item.level < 3 && item.node.id !== 11)];
+
+    verifyPipeline(actual, pipeline);
+  });
 });

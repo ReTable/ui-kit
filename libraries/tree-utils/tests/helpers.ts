@@ -71,12 +71,5 @@ export function verifyPipeline(
   actual: Array<TraverseItem<Leaf>>,
   expected: Array<TraverseItem<Leaf>>,
 ): void {
-  expect(actual.length, 'Actual items length not equals to expected');
-
-  // eslint-disable-next-line unicorn/no-for-loop
-  for (let idx = 0; idx < expected.length; idx += 1) {
-    expect(actual[idx]).toEqual(expected[idx]);
-
-    expect(actual[idx].node).toBe(expected[idx].node);
-  }
+  expect(actual).toEqual(expected);
 }

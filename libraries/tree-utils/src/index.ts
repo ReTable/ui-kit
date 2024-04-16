@@ -4,4 +4,4 @@ export { depth } from './depth';
 export { breadth } from './breadth';
 
 export type { TreeLeaf, TreeBranch, TreeNode, Tree } from './types';
-export type { TraverseAlgorithm, TraverseItem } from './traverse';
+export type { TraverseAlgorithm, TraverseItem, TraverseFilter } from './traverse';
