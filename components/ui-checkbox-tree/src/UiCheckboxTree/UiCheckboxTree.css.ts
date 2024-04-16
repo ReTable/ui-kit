@@ -5,7 +5,10 @@ import { uiLayers } from '@tabula/ui-theme';
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
-      // Your styles here.
+      position: 'sticky',
+      width: '100%',
+      height: '100%',
+      overflow: 'auto',
     },
   },
 });
