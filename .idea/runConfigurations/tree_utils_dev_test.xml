@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="tree-utils" name="tree-utils:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="tree-utils:build:watch" type="js.build_tools.npm" />
+    <toRun name="tree-utils:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>
