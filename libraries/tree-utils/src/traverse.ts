@@ -13,7 +13,8 @@ type LeafTraverseItem<Leaf extends TreeLeaf> = {
 
   level: number;
 
-  parentIds: Array<Leaf['id']>;
+  parentId?: Leaf['id'];
+  parentIds: Set<Leaf['id']>;
 };
 
 type BranchTraverseItem<Leaf extends TreeLeaf> = {
@@ -24,7 +25,8 @@ type BranchTraverseItem<Leaf extends TreeLeaf> = {
 
   level: number;
 
-  parentIds: Array<Leaf['id']>;
+  parentId?: Leaf['id'];
+  parentIds: Set<Leaf['id']>;
 };
 
 export type TraverseItem<Leaf extends TreeLeaf> = LeafTraverseItem<Leaf> | BranchTraverseItem<Leaf>;
@@ -33,12 +35,25 @@ export type TraverseItem<Leaf extends TreeLeaf> = LeafTraverseItem<Leaf> | Branc
 
 // region Helpers
 
+function appendParent<Leaf extends TreeLeaf>(
+  parentIds: Set<Leaf['id']>,
+  parentId: Leaf['id'],
+): Set<Leaf['id']> {
+  const nextParentIds = new Set(parentIds);
+
+  nextParentIds.add(parentId);
+
+  return nextParentIds;
+}
+
 function toQueueItem<Leaf extends TreeLeaf>(
   node: TreeNode<Leaf>,
   parent?: BranchTraverseItem<Leaf>,
 ): TraverseItem<Leaf> {
-  const [level, parentIds] =
-    parent == null ? [0, []] : [parent.level + 1, [...parent.parentIds, parent.node.id]];
+  const [level, parentId, parentIds] =
+    parent == null
+      ? [0, undefined, new Set<Leaf['id']>()]
+      : [parent.level + 1, parent.node.id, appendParent(parent.parentIds, parent.node.id)];
 
   return isTreeBranch(node)
     ? {
@@ -49,6 +64,7 @@ function toQueueItem<Leaf extends TreeLeaf>(
 
         level,
 
+        parentId,
         parentIds,
       }
     : {
@@ -58,6 +74,8 @@ function toQueueItem<Leaf extends TreeLeaf>(
         isLeaf: true,
 
         level,
+
+        parentId,
         parentIds,
       };
 }

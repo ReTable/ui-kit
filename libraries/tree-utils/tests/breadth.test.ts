@@ -24,10 +24,10 @@ describe('breadth', () => {
 
     const pipeline = toPipeline(
       [
-        [1, 0, []],
-        [2, 0, []],
-        [3, 0, []],
-        [4, 0, []],
+        { id: 1, level: 0, parentIds: [] },
+        { id: 2, level: 0, parentIds: [] },
+        { id: 3, level: 0, parentIds: [] },
+        { id: 4, level: 0, parentIds: [] },
       ],
       map,
     );
@@ -65,22 +65,22 @@ describe('breadth', () => {
 
     const pipeline = toPipeline(
       [
-        [1, 0, []],
-        [2, 0, []],
-        [10, 0, []],
-        [11, 0, []],
-        [3, 1, [2]],
-        [4, 1, [2]],
-        [12, 1, [11]],
-        [13, 1, [11]],
-        [14, 1, [11]],
-        [5, 2, [2, 4]],
-        [6, 2, [2, 4]],
-        [9, 2, [2, 4]],
-        [15, 2, [11, 14]],
-        [16, 2, [11, 14]],
-        [7, 3, [2, 4, 6]],
-        [8, 3, [2, 4, 6]],
+        { id: 1, level: 0, parentIds: [] },
+        { id: 2, level: 0, parentIds: [] },
+        { id: 10, level: 0, parentIds: [] },
+        { id: 11, level: 0, parentIds: [] },
+        { id: 3, level: 1, parentIds: [2] },
+        { id: 4, level: 1, parentIds: [2] },
+        { id: 12, level: 1, parentIds: [11] },
+        { id: 13, level: 1, parentIds: [11] },
+        { id: 14, level: 1, parentIds: [11] },
+        { id: 5, level: 2, parentIds: [2, 4] },
+        { id: 6, level: 2, parentIds: [2, 4] },
+        { id: 9, level: 2, parentIds: [2, 4] },
+        { id: 15, level: 2, parentIds: [11, 14] },
+        { id: 16, level: 2, parentIds: [11, 14] },
+        { id: 7, level: 3, parentIds: [2, 4, 6] },
+        { id: 8, level: 3, parentIds: [2, 4, 6] },
       ],
       map,
     );

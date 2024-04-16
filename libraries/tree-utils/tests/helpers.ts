@@ -22,11 +22,19 @@ export function createBuilder(): [NodesMap, NodeBuilder] {
   return [map, builder];
 }
 
+type PipelineItem = {
+  id: number;
+
+  level: number;
+
+  parentIds: Array<Leaf['id']>;
+};
+
 export function toPipeline(
-  items: Array<[number, number, number[]]>,
+  items: PipelineItem[],
   map: Map<number, TreeNode<Leaf>>,
 ): Array<TraverseItem<Leaf>> {
-  return items.map(([id, level, parentIds]) => {
+  return items.map(({ id, level, parentIds }) => {
     const node = map.get(id);
 
     if (node == null) {
@@ -42,7 +50,8 @@ export function toPipeline(
 
           level,
 
-          parentIds,
+          parentId: parentIds.at(-1),
+          parentIds: new Set(parentIds),
         }
       : {
           node,
@@ -52,7 +61,8 @@ export function toPipeline(
 
           level,
 
-          parentIds,
+          parentId: parentIds.at(-1),
+          parentIds: new Set(parentIds),
         };
   });
 }
