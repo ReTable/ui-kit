@@ -9,6 +9,7 @@ import * as styles from './styles.css';
 import * as trees from './trees';
 import { Branch } from './Branch';
 import { Leaf } from './Leaf';
+import { TreeWithSearch } from './TreeWithSearch';
 import { Leaf as LeafType } from './types';
 
 // region Types
@@ -60,6 +61,16 @@ export const List: Story = {
 export const Tree: Story = {
   args: {
     tree: trees.tree,
+  },
+};
+
+export const Search: Story = {
+  args: {
+    tree: trees.tree,
+  },
+
+  render({ tree }) {
+    return <TreeWithSearch tree={tree} />;
   },
 };
 

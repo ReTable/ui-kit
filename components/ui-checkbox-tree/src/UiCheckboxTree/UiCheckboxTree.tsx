@@ -1,36 +1,33 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 
-import { clsx } from 'clsx/lite';
-
-import { Tree, TreeLeaf, UiTree } from '@tabula/ui-tree';
+import { TreeLeaf } from '@tabula/tree-utils';
+import { Tree, UiTree } from '@tabula/ui-tree';
 
 import * as styles from './UiCheckboxTree.css';
 
-import { Branch } from '../Branch';
+import { Branch as BranchComponent } from '../Branch';
 import { ChangeHandler, LabelGetter, Provider, Selected } from '../Context';
-import { Leaf } from '../Leaf';
+import { Leaf as LeafComponent } from '../Leaf';
 
-export type Props<Leaf extends TreeLeaf> = {
-  className?: string;
-
+type Props<Leaf extends TreeLeaf> = {
   tree: Tree<Leaf>;
 
   labelOf: LabelGetter<Leaf>;
 
-  onChange?: ChangeHandler<Leaf>;
   selected: Selected<Leaf>;
+
+  onChange: ChangeHandler<Leaf>;
 };
 
 export function UiCheckboxTree<Leaf extends TreeLeaf>({
-  className,
-  labelOf,
-  onChange,
-  selected,
   tree,
-}: Props<Leaf>): ReactElement {
+  labelOf,
+  selected,
+  onChange,
+}: Props<Leaf>): ReactNode {
   return (
-    <Provider onChange={onChange} labelOf={labelOf} selected={selected} tree={tree}>
-      <UiTree className={clsx(styles.root, className)} tree={tree} leaf={Leaf} branch={Branch} />
+    <Provider labelOf={labelOf} onChange={onChange} selected={selected} tree={tree}>
+      <UiTree className={styles.root} branch={BranchComponent} leaf={LeafComponent} tree={tree} />
     </Provider>
   );
 }

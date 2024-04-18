@@ -1,6 +1,6 @@
 import { BranchComponentType } from '~';
 
-import { Leaf } from './pipeline';
+import { Leaf } from './helpers';
 
 export const Branch: BranchComponentType<Leaf> = ({ isExpanded, level, node, onToggle }) => (
   <div
