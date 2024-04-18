@@ -64,13 +64,13 @@ export function renderTree({ match, pattern, tree }: Options): RenderTreeResult 
       fireEvent.click(button);
     },
 
-    rerender({ pattern, match } = {}) {
+    rerender(props = {}) {
       rerender(
         <UiTree
           branch={BranchComponent}
           leaf={LeafComponent}
-          match={match}
-          pattern={pattern}
+          match={props.match}
+          pattern={props.pattern}
           testId="tree"
           tree={tree}
         />,
