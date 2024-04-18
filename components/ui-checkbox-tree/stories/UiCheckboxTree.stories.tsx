@@ -80,17 +80,14 @@ export const Default: Story = {
     const [selected, setSelected] = useState<Set<number>>(new Set());
 
     return (
-      <>
-        {[...selected].toString()}
-        <div style={{ width: '200px', height: '200px' }}>
-          <UiCheckboxTree
-            tree={tree}
-            onChange={setSelected}
-            selected={selected}
-            labelOf={(it) => it.label}
-          />
-        </div>
-      </>
+      <div style={{ width: '300px', height: '300px' }}>
+        <UiCheckboxTree
+          tree={tree}
+          onChange={setSelected}
+          selected={selected}
+          labelOf={(it) => it.label}
+        />
+      </div>
     );
   },
 };

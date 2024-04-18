@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { clsx } from 'clsx/lite';
+
 import { UiCheckbox } from '@tabula/ui-checkbox';
 import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
@@ -10,6 +12,8 @@ import { ChangeHandler, Selected } from '../types';
 import { useState } from './Header.hooks';
 
 type Props<Leaf extends TreeLeaf> = {
+  className?: string;
+
   tree: Tree<Leaf>;
 
   selected: Selected<Leaf>;
@@ -18,6 +22,7 @@ type Props<Leaf extends TreeLeaf> = {
 };
 
 export function Header<Leaf extends TreeLeaf>({
+  className,
   onChange,
   selected,
   tree,
@@ -25,15 +30,13 @@ export function Header<Leaf extends TreeLeaf>({
   const [{ isChecked, isIndeterminate }, onChangeAll] = useState({ onChange, selected, tree });
 
   return (
-    <div className={styles.root}>
-      <UiCheckbox
-        className={styles.checkbox}
-        isChecked={isChecked}
-        isIndeterminate={isIndeterminate}
-        onChange={onChangeAll}
-      >
-        Select all
-      </UiCheckbox>
-    </div>
+    <UiCheckbox
+      className={clsx(styles.root, className)}
+      isChecked={isChecked}
+      isIndeterminate={isIndeterminate}
+      onChange={onChangeAll}
+    >
+      Select all
+    </UiCheckbox>
   );
 }

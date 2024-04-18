@@ -29,7 +29,7 @@ export function UiCheckboxTree<Leaf extends TreeLeaf>({
   return (
     <Provider labelOf={labelOf} onChange={onChange} selected={selected} tree={tree}>
       <div className={styles.root}>
-        <Header tree={tree} selected={selected} onChange={onChange} />
+        <Header className={styles.header} tree={tree} selected={selected} onChange={onChange} />
         <UiTree className={styles.list} branch={BranchComponent} leaf={LeafComponent} tree={tree} />
       </div>
     </Provider>
