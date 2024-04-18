@@ -5,7 +5,7 @@ import { Tree, TreeBranch, TreeLeaf, TreeNode } from './types';
 
 export type TraverseAlgorithm = 'depth-first' | 'breadth-first';
 
-type LeafTraverseItem<Leaf extends TreeLeaf> = {
+export type LeafTraverseItem<Leaf extends TreeLeaf> = {
   node: Leaf;
 
   isBranch: false;
@@ -17,7 +17,7 @@ type LeafTraverseItem<Leaf extends TreeLeaf> = {
   parentIds: Set<Leaf['id']>;
 };
 
-type BranchTraverseItem<Leaf extends TreeLeaf> = {
+export type BranchTraverseItem<Leaf extends TreeLeaf> = {
   node: TreeBranch<Leaf>;
 
   isBranch: true;

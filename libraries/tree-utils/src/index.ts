@@ -4,4 +4,11 @@ export { depth } from './depth';
 export { breadth } from './breadth';
 
 export type { TreeLeaf, TreeBranch, TreeNode, Tree } from './types';
-export type { TraverseAlgorithm, TraverseItem, TraverseFilter, TraverseOptions } from './traverse';
+export type {
+  BranchTraverseItem,
+  LeafTraverseItem,
+  TraverseAlgorithm,
+  TraverseFilter,
+  TraverseItem,
+  TraverseOptions,
+} from './traverse';
