@@ -271,6 +271,23 @@ describe('UiTree', () => {
       });
     });
 
+    it('ignores search if pattern is empty string', () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1),
+        leafOf(2),
+        leafOf(3),
+      ];
+
+      renderTree({ tree, pattern: '', match: () => false });
+
+      verify(({ leaf }) => {
+        leaf({ id: 1, level: 0 });
+        leaf({ id: 2, level: 0 });
+        leaf({ id: 3, level: 0 });
+      });
+    });
+
     it('ignores search if match predicated only was provided', () => {
       // prettier-ignore
       const tree: Tree = [
