@@ -87,6 +87,17 @@ We provide following properties for leafs:
 - `data` - data of an item;
 - `level` - nesting level of leaf starting from `0`.
 
+### `pattern` and `match`
+
+This is a pair of properties.
+
+The `pattern` is string value which contains a pattern which will be provided to the `match` function.
+
+The `match` function is predicated, which takes node and pattern, and returns boolean flag.
+
+If one of them will not be provided, or the `pattern` will be is an empty string, then search will be ignored
+completely.
+
 ### `className`
 
 You can provide custom CSS class which will be assigned to the root element.
