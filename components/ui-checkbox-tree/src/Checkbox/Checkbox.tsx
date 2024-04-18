@@ -10,8 +10,6 @@ type Props = PropsWithChildren<{
   isChecked: boolean;
   isIndeterminate: boolean;
 
-  level: number;
-
   variant: Variant;
 
   onChange: (isChecked: boolean) => void;

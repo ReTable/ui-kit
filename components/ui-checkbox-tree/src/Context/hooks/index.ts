@@ -1,4 +1,4 @@
 export { useBranchState } from './useBranchState';
 export { useHandlers } from './useHandlers';
-export { useItemStates } from './useItemStates';
+export { useCheckboxesStates } from './useCheckboxesStates';
 export { useLeafState } from './useLeafState';

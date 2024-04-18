@@ -2,4 +2,6 @@ export { UiCheckboxTree } from './UiCheckboxTree';
 
 export type { UiCheckboxTreeProps } from './UiCheckboxTree';
 
-export type { ChangeHandler, LabelGetter, Selected } from './Context';
+export type { LabelGetter } from './Context';
+
+export type { ChangeHandler, Selected } from './types';

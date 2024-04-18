@@ -3,19 +3,21 @@ import { useMemo } from 'react';
 import { depth } from '@tabula/tree-utils';
 import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
-import { ItemStates, Selected } from '../types';
+import { Selected } from '../../types';
+
+import { CheckboxesStates } from '../types';
 
 type BranchStats = {
   leavesCount: number;
   selectedLeavesCount: number;
 };
 
-export function useItemStates<Leaf extends TreeLeaf>(
+export function useCheckboxesStates<Leaf extends TreeLeaf>(
   tree: Tree<Leaf>,
   selected: Selected<Leaf>,
-): ItemStates<Leaf> {
+): CheckboxesStates<Leaf> {
   return useMemo(() => {
-    const states: ItemStates<Leaf> = new Map();
+    const states: CheckboxesStates<Leaf> = new Map();
 
     const branchesStats = new Map<TreeLeaf['id'], BranchStats>();
 
@@ -24,9 +26,7 @@ export function useItemStates<Leaf extends TreeLeaf>(
         continue;
       }
 
-      const isChecked = Array.isArray(selected)
-        ? selected.includes(node.id)
-        : selected.has(node.id);
+      const isChecked = selected.has(node.id);
 
       states.set(node.id, { isChecked, isIndeterminate: false });
 

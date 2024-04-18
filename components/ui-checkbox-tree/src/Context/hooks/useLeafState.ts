@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react';
 
-import { TreeLeaf } from '@tabula/tree-utils';
+import { TreeLeaf } from '@tabula/ui-tree';
 
 import { Context } from '../Context';
 
@@ -18,8 +18,10 @@ export function useLeafState<Leaf extends TreeLeaf>(node: Leaf): Result {
   const { isChecked = false } = itemStates.get(node.id) ?? {};
 
   const handleChange = useCallback(
-    (nextIsChecked: boolean) => onChangeLeaf(node.id, nextIsChecked),
-    [node.id],
+    (nextIsChecked: boolean) => {
+      onChangeLeaf(node.id, nextIsChecked);
+    },
+    [node.id, onChangeLeaf],
   );
 
   const label = labelOf(node);

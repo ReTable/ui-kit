@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
-import { TreeLeaf } from '@tabula/tree-utils';
-import { BranchComponentProps } from '@tabula/ui-tree';
+import { BranchComponentProps, TreeLeaf } from '@tabula/ui-tree';
 
 import * as styles from './Branch.css';
 
@@ -26,7 +25,6 @@ export function Branch<Leaf extends TreeLeaf>({
       <Checkbox
         isChecked={isChecked}
         isIndeterminate={isIndeterminate}
-        level={level}
         onChange={onChange}
         variant="branch"
       >

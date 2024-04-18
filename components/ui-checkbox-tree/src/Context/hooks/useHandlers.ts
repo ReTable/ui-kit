@@ -1,48 +1,72 @@
-import { MutableRefObject, useCallback, useEffect, useRef } from 'react';
+import { useCallback } from 'react';
 
-import { Tree, TreeLeaf, depth } from '@tabula/tree-utils';
+import { depth } from '@tabula/tree-utils';
+import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
-import { ChangeHandler, ItemChangeHandler } from '../types';
+import { ChangeHandler, Selected } from '../../types';
+
+import { ItemChangeHandler } from '../types';
+
+type Options<Leaf extends TreeLeaf> = {
+  tree: Tree<Leaf>;
+
+  selected: Selected<Leaf>;
+
+  onChange?: ChangeHandler<Leaf>;
+};
 
 type Result<Leaf extends TreeLeaf> = {
   onChangeLeaf: ItemChangeHandler<Leaf>;
   onChangeBranch: ItemChangeHandler<Leaf>;
 };
 
-export function useHandlers<Leaf extends TreeLeaf>(
-  tree: Tree<Leaf>,
-  onChange?: ChangeHandler<Leaf>,
-): Result<Leaf> {
-  const changeRef: MutableRefObject<ChangeHandler<Leaf> | undefined> = useRef();
-
-  useEffect(() => {
-    changeRef.current = onChange;
-  }, [onChange]);
-
+export function useHandlers<Leaf extends TreeLeaf>({
+  onChange,
+  selected,
+  tree,
+}: Options<Leaf>): Result<Leaf> {
   const handleChangeLeaf = useCallback<ItemChangeHandler<Leaf>>(
     (id: Leaf['id'], isChecked: boolean) => {
-      changeRef?.current?.([id], isChecked);
+      if (onChange == null) {
+        return;
+      }
+
+      const next = new Set(selected);
+
+      if (isChecked) {
+        next.add(id);
+      } else {
+        next.delete(id);
+      }
+
+      onChange(next);
     },
-    [],
+    [selected, onChange],
   );
 
   const handleChangeBranch = useCallback<ItemChangeHandler<Leaf>>(
     (id: Leaf['id'], isChecked: boolean) => {
-      if (changeRef.current == null) {
+      if (onChange == null) {
         return;
       }
 
-      const ids: Array<Leaf['id']> = [];
+      const next = new Set(selected);
 
-      for (const { isLeaf, node } of depth(tree, { subTree: id })) {
-        if (isLeaf) {
-          ids.push(node.id);
+      for (const { isBranch, node } of depth(tree, { subTree: id })) {
+        if (isBranch) {
+          continue;
+        }
+
+        if (isChecked) {
+          next.add(node.id);
+        } else {
+          next.delete(node.id);
         }
       }
 
-      changeRef.current(ids, isChecked);
+      onChange(next);
     },
-    [tree],
+    [tree, selected, onChange],
   );
 
   return {

@@ -15,7 +15,6 @@ export function Leaf<Leaf extends TreeLeaf>({ level, node }: LeafComponentProps<
     <Checkbox
       isChecked={isChecked}
       isIndeterminate={false}
-      level={level}
       onChange={onChange}
       style={style}
       variant="leaf"

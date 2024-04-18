@@ -39,35 +39,35 @@ export const Default: Story = {
       {
         id: 1,
 
-        label: 'Top Level Leaf',
+        label: 'Leaf (1)',
       },
       {
         id: 2,
 
-        label: 'Top Level Branch',
+        label: 'Branch (2)',
 
         children: [
           {
             id: 3,
 
-            label: 'Inner Level Leaf',
+            label: 'Leaf (3)',
           },
 
           {
             id: 4,
 
-            label: 'Inner Level Branch',
+            label: 'Branch (4)',
 
             children: [
               {
                 id: 5,
 
-                label: 'Depth Level Leaf 1',
+                label: 'Leaf (5)',
               },
               {
                 id: 6,
 
-                label: 'Depth Level Leaf 2',
+                label: 'Leaf (6)',
               },
             ],
           },
@@ -79,29 +79,24 @@ export const Default: Story = {
   render({ tree }: { tree: Tree<{ id: number; label: string }> }) {
     const [selected, setSelected] = useState<Set<number>>(new Set());
 
-    const handleChange = (ids: number[], isChecked: boolean) => {
-      setSelected((current) => {
-        const next = new Set(current);
+    const handleChange = (s: any) => {
+      console.log(s);
 
-        if (isChecked) {
-          ids.forEach((id) => next.add(id));
-        } else {
-          ids.forEach((id) => next.delete(id));
-        }
-
-        return next;
-      });
+      setSelected(s);
     };
 
     return (
-      <div style={{ width: '200px', height: '200px' }}>
-        <UiCheckboxTree
-          tree={tree}
-          onChange={handleChange}
-          selected={selected}
-          labelOf={(it) => it.label}
-        />
-      </div>
+      <>
+        {[...selected].toString()}
+        <div style={{ width: '200px', height: '200px' }}>
+          <UiCheckboxTree
+            tree={tree}
+            onChange={handleChange}
+            selected={selected}
+            labelOf={(it) => it.label}
+          />
+        </div>
+      </>
     );
   },
 };

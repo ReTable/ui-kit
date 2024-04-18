@@ -1,14 +1,17 @@
 import { createContext } from 'react';
 
-import { TreeLeaf } from '@tabula/tree-utils';
-
 import { ContextValue } from './types';
 
-export const Context = createContext<ContextValue<TreeLeaf>>({
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+const noop = () => {};
+
+const labelOf = () => '';
+
+export const Context = createContext<ContextValue>({
   itemStates: new Map(),
 
-  onChangeLeaf: () => {},
-  onChangeBranch: () => {},
+  onChangeLeaf: noop,
+  onChangeBranch: noop,
 
-  labelOf: () => '',
+  labelOf,
 });

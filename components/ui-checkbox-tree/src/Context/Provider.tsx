@@ -1,10 +1,12 @@
-import { PropsWithChildren, useMemo } from 'react';
+import { PropsWithChildren, ReactNode, useMemo } from 'react';
 
-import { Tree, TreeLeaf } from '@tabula/tree-utils';
+import { Tree, TreeLeaf } from '@tabula/ui-tree';
+
+import { ChangeHandler, Selected } from '../types';
 
 import { Context } from './Context';
-import { useHandlers, useItemStates } from './hooks';
-import { ChangeHandler, ContextValue, LabelGetter, Selected } from './types';
+import { useCheckboxesStates, useHandlers } from './hooks';
+import { ContextValue, LabelGetter } from './types';
 
 type Props<Leaf extends TreeLeaf> = PropsWithChildren<{
   tree: Tree<Leaf>;
@@ -22,13 +24,13 @@ export function Provider<Leaf extends TreeLeaf>({
   onChange,
   selected,
   tree,
-}: Props<Leaf>) {
-  const itemStates = useItemStates(tree, selected);
-  const { onChangeLeaf, onChangeBranch } = useHandlers(tree, onChange);
+}: Props<Leaf>): ReactNode {
+  const itemStates = useCheckboxesStates(tree, selected);
+  const { onChangeLeaf, onChangeBranch } = useHandlers({ onChange, selected, tree });
 
   const value = useMemo(
     () => ({ itemStates, labelOf, onChangeLeaf, onChangeBranch }) as unknown as ContextValue,
-    [itemStates],
+    [itemStates, labelOf, onChangeLeaf, onChangeBranch],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
