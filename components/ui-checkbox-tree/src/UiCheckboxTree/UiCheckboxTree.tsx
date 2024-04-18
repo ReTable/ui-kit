@@ -26,8 +26,6 @@ export function UiCheckboxTree<Leaf extends TreeLeaf>({
   selected,
   onChange,
 }: Props<Leaf>): ReactNode {
-  console.log('render', selected);
-
   return (
     <Provider labelOf={labelOf} onChange={onChange} selected={selected} tree={tree}>
       <div className={styles.root}>

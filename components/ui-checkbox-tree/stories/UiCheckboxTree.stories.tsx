@@ -79,19 +79,13 @@ export const Default: Story = {
   render({ tree }: { tree: Tree<{ id: number; label: string }> }) {
     const [selected, setSelected] = useState<Set<number>>(new Set());
 
-    const handleChange = (s: any) => {
-      console.log(s);
-
-      setSelected(s);
-    };
-
     return (
       <>
         {[...selected].toString()}
         <div style={{ width: '200px', height: '200px' }}>
           <UiCheckboxTree
             tree={tree}
-            onChange={handleChange}
+            onChange={setSelected}
             selected={selected}
             labelOf={(it) => it.label}
           />
