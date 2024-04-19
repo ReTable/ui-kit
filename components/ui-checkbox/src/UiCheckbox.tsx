@@ -60,7 +60,6 @@ export function UiCheckbox({
   isChecked = false,
   isDisabled,
   isIndeterminate = false,
-
   name,
   onChange,
   testId,
@@ -71,6 +70,9 @@ export function UiCheckbox({
 
   // NOTE: The checked icon is visible when a user hover over the element.
   const Icon = isIndeterminate ? IndeterminateIcon : CheckedIcon;
+
+  const [inputTestId, contentTestId] =
+    testId == null ? [] : [`${testId}--input`, `${testId}--content`];
 
   return (
     <label
@@ -83,6 +85,7 @@ export function UiCheckbox({
       <input
         checked={isChecked}
         className={styles.input}
+        data-testid={inputTestId}
         disabled={isDisabled}
         id={id}
         name={name}
@@ -93,7 +96,9 @@ export function UiCheckbox({
       <span className={styles.indicator}>
         <Icon className={styles.icon} />
       </span>
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content} data-testid={contentTestId}>
+        {children}
+      </div>
     </label>
   );
 }
