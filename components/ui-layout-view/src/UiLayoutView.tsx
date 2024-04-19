@@ -1,4 +1,4 @@
-import { ReactElement, createElement, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 
 import { clsx } from 'clsx/lite';
 import { CSSTransition } from 'react-transition-group';
@@ -13,6 +13,7 @@ import {
   withRightSidebar,
 } from './UiLayoutView.css';
 
+import { NoopSidebar } from './UiLayoutView.NoopSidebar';
 import {
   DURATION,
   LEFT_SIDEBAR_CLASS_NAMES,
@@ -26,14 +27,18 @@ export function UiLayoutView({
   children,
   forwardedRef,
   ...props
-}: Props): ReactElement {
+}: Props): ReactNode {
   const ref = useRef<HTMLDivElement>(null);
 
   const hasLeftSidebar = 'isLeftSidebarVisible' in props && props.isLeftSidebarVisible != null;
-  const isLeftSidebarVisible = hasLeftSidebar ? props.isLeftSidebarVisible : false;
+  const [LeftSidebar, isLeftSidebarVisible] = hasLeftSidebar
+    ? [props.leftSidebar, props.isLeftSidebarVisible]
+    : [NoopSidebar, false];
 
   const hasRightSidebar = 'isRightSidebarVisible' in props && props.isRightSidebarVisible != null;
-  const isRightSidebarVisible = hasRightSidebar ? props.isRightSidebarVisible : false;
+  const [RightSidebar, isRightSidebarVisible] = hasRightSidebar
+    ? [props.rightSidebar, props.isRightSidebarVisible]
+    : [NoopSidebar, false];
 
   return (
     <div className={clsx(root, rootClassName)} ref={forwardedRef}>
@@ -59,13 +64,13 @@ export function UiLayoutView({
           >
             {hasLeftSidebar && (
               <div className={clsx(leftSidebar, props.leftSidebarClassName)}>
-                {isLeftSidebarVisible && createElement(props.leftSidebar, null)}
+                {isLeftSidebarVisible && <LeftSidebar />}
               </div>
             )}
             <div className={clsx(body, bodyClassName)}>{children}</div>
             {hasRightSidebar && (
               <div className={clsx(rightSidebar, props.rightSidebarClassName)}>
-                {isRightSidebarVisible && createElement(props.rightSidebar, null)}
+                {isRightSidebarVisible && <RightSidebar />}
               </div>
             )}
           </div>
