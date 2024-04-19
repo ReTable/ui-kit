@@ -30,7 +30,7 @@ export function UiCheckboxTree<Leaf extends TreeLeaf>({
   testId,
 }: Props<Leaf>): ReactNode {
   const [rootTestId, headerTestId, treeTestId] =
-    testId == null ? [] : [testId, `${testId}--header`, `${testId}--tree`];
+    testId == null ? [] : [testId, `${testId}--header`, `${testId}--items`];
 
   return (
     <Provider labelOf={labelOf} onChange={onChange} selected={selected} tree={tree}>

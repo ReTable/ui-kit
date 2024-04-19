@@ -24,7 +24,7 @@ export function Branch<Leaf extends TreeLeaf>({
     testId == null ? [] : [`${testId}--checkbox`, `${testId}--toggle`];
 
   return (
-    <div className={styles.root} style={style}>
+    <div className={styles.root} data-testid={testId} style={style}>
       <Toggle
         className={styles.toggle}
         isExpanded={isExpanded}
