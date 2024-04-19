@@ -55,7 +55,7 @@ export function renderTree({ match, pattern, tree }: Options): RenderTreeResult 
 
   return {
     toggle(id) {
-      const button = screen.queryByTestId(`branch-${id}-toggle`);
+      const button = screen.queryByTestId(`tree--${id}--toggle`);
 
       if (button == null) {
         throw new Error(`Couldn't find a toggle button for branch with id ${id}`);
@@ -100,7 +100,7 @@ export type PipelineItem = LeafItem | BranchItem;
 
 function verifyLeaf(node: Node, { id, level }: LeafItem) {
   const name = `Leaf ${id}`;
-  const testId = `leaf-${id}`;
+  const testId = `tree--${id}`;
 
   expect(node, `Leaf with id ${id} should have id attribute with ${id} value`).toHaveAttribute(
     'data-id',
@@ -125,7 +125,7 @@ function verifyLeaf(node: Node, { id, level }: LeafItem) {
 
 function verifyBranch(node: Node, { id, level, isExpanded }: BranchItem) {
   const name = `Branch ${id}`;
-  const testId = `branch-${id}`;
+  const testId = `tree--${id}`;
 
   expect(node, `Branch with id ${id} should have id attribute with ${id} value`).toHaveAttribute(
     'data-id',

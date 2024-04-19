@@ -14,6 +14,11 @@ export type LeafComponentProps<Leaf extends TreeLeaf> = {
    * Item's nesting level.
    */
   level: number;
+
+  /**
+   * Item's test id provided by parent.
+   */
+  testId?: string;
 };
 
 export type BranchComponentProps<Leaf extends TreeLeaf> = {
@@ -35,6 +40,11 @@ export type BranchComponentProps<Leaf extends TreeLeaf> = {
    * Handler to expand/collapse the current branch.
    */
   onToggle: () => void;
+
+  /**
+   * Item's test id provided by parent.
+   */
+  testId?: string;
 };
 
 export type LeafComponentType<Leaf extends TreeLeaf> = ComponentType<LeafComponentProps<Leaf>>;

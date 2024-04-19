@@ -55,7 +55,7 @@ export function UiTree<Leaf extends TreeLeaf>({
 
   return (
     <div className={className} data-testid={testId}>
-      <Items branch={branch} leaf={leaf} pipeline={pipeline} />
+      <Items branch={branch} leaf={leaf} pipeline={pipeline} testId={testId} />
     </div>
   );
 }
