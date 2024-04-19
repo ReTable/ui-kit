@@ -19,12 +19,15 @@ type Props<Leaf extends TreeLeaf> = {
   selected: Selected<Leaf>;
 
   onChange: ChangeHandler<Leaf>;
+
+  testId?: string;
 };
 
 export function Header<Leaf extends TreeLeaf>({
   className,
   onChange,
   selected,
+  testId,
   tree,
 }: Props<Leaf>): ReactNode {
   const [{ isChecked, isIndeterminate }, onChangeAll] = useState({ onChange, selected, tree });
@@ -35,6 +38,7 @@ export function Header<Leaf extends TreeLeaf>({
       isChecked={isChecked}
       isIndeterminate={isIndeterminate}
       onChange={onChangeAll}
+      testId={testId}
     >
       Select all
     </UiCheckbox>

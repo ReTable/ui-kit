@@ -15,15 +15,18 @@ type Props = PropsWithChildren<{
   onChange: (isChecked: boolean) => void;
 
   style?: CSSProperties;
+
+  testId?: string;
 }>;
 
 export function Checkbox({
   children,
   isChecked,
   isIndeterminate,
-  variant,
   onChange,
   style,
+  testId,
+  variant,
 }: Props): ReactNode {
   return (
     <UiCheckbox
@@ -32,6 +35,7 @@ export function Checkbox({
       isIndeterminate={isIndeterminate}
       onChange={onChange}
       style={style}
+      testId={testId}
     >
       {children}
     </UiCheckbox>

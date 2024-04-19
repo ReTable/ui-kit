@@ -12,11 +12,18 @@ type Props = {
   isExpanded: boolean;
 
   onToggle: () => void;
+
+  testId?: string;
 };
 
-export function Toggle({ className, isExpanded, onToggle }: Props): ReactNode {
+export function Toggle({ className, isExpanded, onToggle, testId }: Props): ReactNode {
   return (
-    <button className={clsx(styles.root, className)} onClick={onToggle} type="button">
+    <button
+      className={clsx(styles.root, className)}
+      data-testid={testId}
+      onClick={onToggle}
+      type="button"
+    >
       <ChevronIcon className={isExpanded ? styles.chevron.expanded : styles.chevron.collapsed} />
     </button>
   );

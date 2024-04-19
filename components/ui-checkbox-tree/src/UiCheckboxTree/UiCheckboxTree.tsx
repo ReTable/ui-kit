@@ -18,6 +18,8 @@ export type Props<Leaf extends TreeLeaf> = {
   selected: Selected<Leaf>;
 
   onChange: ChangeHandler<Leaf>;
+
+  testId?: string;
 };
 
 export function UiCheckboxTree<Leaf extends TreeLeaf>({
@@ -25,12 +27,28 @@ export function UiCheckboxTree<Leaf extends TreeLeaf>({
   labelOf,
   selected,
   onChange,
+  testId,
 }: Props<Leaf>): ReactNode {
+  const [rootTestId, headerTestId, treeTestId] =
+    testId == null ? [] : [testId, `${testId}--header`, `${testId}--tree`];
+
   return (
     <Provider labelOf={labelOf} onChange={onChange} selected={selected} tree={tree}>
-      <div className={styles.root}>
-        <Header className={styles.header} tree={tree} selected={selected} onChange={onChange} />
-        <UiTree className={styles.list} branch={BranchComponent} leaf={LeafComponent} tree={tree} />
+      <div className={styles.root} data-testid={rootTestId}>
+        <Header
+          className={styles.header}
+          onChange={onChange}
+          selected={selected}
+          testId={headerTestId}
+          tree={tree}
+        />
+        <UiTree
+          branch={BranchComponent}
+          className={styles.list}
+          leaf={LeafComponent}
+          testId={treeTestId}
+          tree={tree}
+        />
       </div>
     </Provider>
   );

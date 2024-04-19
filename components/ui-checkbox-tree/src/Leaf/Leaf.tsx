@@ -6,7 +6,11 @@ import { Checkbox } from '../Checkbox';
 import { useLeafState } from '../Context';
 import { useItemStyle } from '../hooks';
 
-export function Leaf<Leaf extends TreeLeaf>({ level, node }: LeafComponentProps<Leaf>): ReactNode {
+export function Leaf<Leaf extends TreeLeaf>({
+  level,
+  node,
+  testId,
+}: LeafComponentProps<Leaf>): ReactNode {
   const { isChecked, label, onChange } = useLeafState(node);
 
   const style = useItemStyle(level);
@@ -18,6 +22,7 @@ export function Leaf<Leaf extends TreeLeaf>({ level, node }: LeafComponentProps<
       onChange={onChange}
       style={style}
       variant="leaf"
+      testId={testId == null ? undefined : `${testId}--checkbox`}
     >
       {label}
     </Checkbox>
