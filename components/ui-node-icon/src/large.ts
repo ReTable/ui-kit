@@ -47,6 +47,7 @@ import { ReactComponent as UiSplitColumnsLIconInner } from './splitColumns/split
 import { ReactComponent as UiSqlLIconInner } from './sql/sql.large.svg';
 import { ReactComponent as UiStandardizeLIconInner } from './standardize/standardize.large.svg';
 import { ReactComponent as UiTabulaDriveLIconInner } from './tabulaDrive/tabulaDrive.large.svg';
+import { ReactComponent as UiTomatDriveLIconInner } from './tomatDrive/tomatDrive.large.svg';
 import { ReactComponent as UiTransposeLIconInner } from './transpose/transpose.large.svg';
 import { ReactComponent as UiUnionLIconInner } from './union/union.large.svg';
 import { ReactComponent as UiUnnestLIconInner } from './unnest/unnest.large.svg';
@@ -108,6 +109,7 @@ export const UiSplitColumnsLIcon = createIcon(UiSplitColumnsLIconInner, icon);
 export const UiSqlLIcon = createIcon(UiSqlLIconInner, icon);
 export const UiStandardizeLIcon = createIcon(UiStandardizeLIconInner, icon);
 export const UiTabulaDriveLIcon = createIcon(UiTabulaDriveLIconInner, icon);
+export const UiTomatDriveLIcon = createIcon(UiTomatDriveLIconInner, icon);
 export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon);
 export const UiUnionLIcon = createIcon(UiUnionLIconInner, icon);
 export const UiUnnestLIcon = createIcon(UiUnnestLIconInner, icon);

@@ -89,6 +89,7 @@ export const tokens = {
       salesforce: '#67a3e5',
       snowflake: '#29b5e8',
       tabulaDrive: '#3c3f4a',
+      tomatDrive: '#da4141',
     },
 
     chart: {
@@ -241,6 +242,10 @@ export const tokens = {
       source: {
         primary: '#616986',
         secondary: '#d8dee3',
+      },
+      tomat: {
+        primary: '#91e9c9',
+        secondary: '#ffffff',
       },
       transformation: {
         primary: '#127ff9',
