@@ -101,6 +101,7 @@ const overrides = {
     salesforce: uiTheme.colors.icons.disabled.primary,
     snowflake: uiTheme.colors.icons.disabled.primary,
     tabulaDrive: uiTheme.colors.icons.disabled.secondary,
+    tomatDrive: uiTheme.colors.icons.disabled.primary,
   }),
   ...assignVars(uiTheme.colors.icons.clean, {
     primary: uiTheme.colors.icons.disabled.primary,
@@ -120,6 +121,10 @@ const overrides = {
   ...assignVars(uiTheme.colors.icons.source, {
     primary: uiTheme.colors.icons.disabled.primary,
     secondary: uiTheme.colors.icons.disabled.secondary,
+  }),
+  ...assignVars(uiTheme.colors.icons.tomat, {
+    primary: uiTheme.colors.content.contrast,
+    secondary: uiTheme.colors.content.contrast,
   }),
   ...assignVars(uiTheme.colors.icons.transformation, {
     primary: uiTheme.colors.icons.disabled.primary,
