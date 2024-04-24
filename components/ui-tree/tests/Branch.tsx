@@ -1,21 +1,21 @@
 import { BranchComponentType } from '~';
 
-import { Data } from './pipeline';
+import { Leaf } from './helpers';
 
-export const Branch: BranchComponentType<number, Data> = ({
-  data,
-  id,
+export const Branch: BranchComponentType<Leaf> = ({
   isExpanded,
   level,
+  node,
   onToggle,
+  testId,
 }) => (
   <div
-    data-id={id}
+    data-id={node.id}
     data-is-expanded={isExpanded}
     data-level={level}
-    data-name={data.name}
-    data-testid={`branch-${id}`}
+    data-name={node.name}
+    data-testid={testId}
   >
-    <button data-testid={`branch-${id}-toggle`} onClick={onToggle} type="button" />
+    <button data-testid={`${testId}--toggle`} onClick={onToggle} type="button" />
   </div>
 );

@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { CSSProperties, PropsWithChildren, ReactNode } from 'react';
 
 import clsx from 'clsx';
 
@@ -10,6 +10,9 @@ import * as styles from './UiCheckbox.css';
 import { useLifecycle } from './UiCheckbox.hooks';
 
 export type Props = PropsWithChildren<{
+  /**
+   * User defined CSS class which be assigned to the root element.
+   */
   className?: string;
   /**
    * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/id)
@@ -44,6 +47,10 @@ export type Props = PropsWithChildren<{
    * Can be used for analytics purposes.
    */
   trackId?: string;
+  /**
+   * User defined CSS styles which be assigned to the root element.
+   */
+  style?: CSSProperties;
 }>;
 
 export function UiCheckbox({
@@ -57,11 +64,15 @@ export function UiCheckbox({
   onChange,
   testId,
   trackId,
+  style,
 }: Props): ReactNode {
   const [ref, handleChange] = useLifecycle({ isIndeterminate, onChange });
 
   // NOTE: The checked icon is visible when a user hover over the element.
   const Icon = isIndeterminate ? IndeterminateIcon : CheckedIcon;
+
+  const [inputTestId, contentTestId] =
+    testId == null ? [] : [`${testId}--input`, `${testId}--content`];
 
   return (
     <label
@@ -69,10 +80,12 @@ export function UiCheckbox({
       data-testid={testId}
       data-track-id={trackId}
       htmlFor={id}
+      style={style}
     >
       <input
         checked={isChecked}
         className={styles.input}
+        data-testid={inputTestId}
         disabled={isDisabled}
         id={id}
         name={name}
@@ -83,7 +96,9 @@ export function UiCheckbox({
       <span className={styles.indicator}>
         <Icon className={styles.icon} />
       </span>
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content} data-testid={contentTestId}>
+        {children}
+      </div>
     </label>
   );
 }

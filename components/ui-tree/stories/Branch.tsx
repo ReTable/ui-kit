@@ -6,18 +6,13 @@ import { BranchComponentProps } from '~';
 
 import * as styles from './styles.css';
 
-import { Data } from './types';
+import { Leaf } from './types';
 
-export const Branch: FC<BranchComponentProps<number, Data>> = ({
-  data,
-  isExpanded,
-  level,
-  onToggle,
-}) => (
+export const Branch: FC<BranchComponentProps<Leaf>> = ({ isExpanded, level, node, onToggle }) => (
   <div className={styles.item} style={assignInlineVars({ [styles.level]: level.toString() })}>
     <button className={styles.toggle} onClick={onToggle} type="button">
       {isExpanded ? '-' : '+'}
     </button>
-    <span>{data.name}</span>
+    <span>{node.name}</span>
   </div>
 );

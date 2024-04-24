@@ -1,7 +1,7 @@
 import { LeafComponentType } from '~';
 
-import { Data } from './pipeline';
+import { Leaf as LeafType } from './helpers';
 
-export const Leaf: LeafComponentType<number, Data> = ({ data, id, level }) => (
-  <div data-id={id} data-level={level} data-name={data.name} data-testid={`leaf-${id}`} />
+export const Leaf: LeafComponentType<LeafType> = ({ level, node, testId }) => (
+  <div data-id={node.id} data-level={level} data-name={node.name} data-testid={testId} />
 );

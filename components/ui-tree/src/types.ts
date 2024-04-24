@@ -1,50 +1,31 @@
 import { ComponentType } from 'react';
 
-export type Leaf<Id, Data> = {
-  id: Id;
+import { BranchTraverseItem, LeafTraverseItem, TreeLeaf, TreeNode } from '@tabula/tree-utils';
 
-  data: Data;
-};
+// region Components
 
-export type Branch<Id, Data> = {
-  id: Id;
-
-  data: Data;
-
-  children: Array<Leaf<Id, Data> | Branch<Id, Data>>;
-};
-
-export type Item<Id, Data> = Leaf<Id, Data> | Branch<Id, Data>;
-
-export type Tree<Id, Data> = Array<Item<Id, Data>>;
-
-export type LeafComponentProps<Id, Data> = {
+export type LeafComponentProps<Leaf extends TreeLeaf> = {
   /**
-   * ID of item.
+   * Tree's node.
    */
-  id: Id;
-
-  /**
-   * Data of item.
-   */
-  data: Data;
+  node: Leaf;
 
   /**
    * Item's nesting level.
    */
   level: number;
+
+  /**
+   * Item's test id provided by parent.
+   */
+  testId?: string;
 };
 
-export type BranchComponentProps<Id, Data> = {
+export type BranchComponentProps<Leaf extends TreeLeaf> = {
   /**
-   * ID of item.
+   * Tree's node.
    */
-  id: Id;
-
-  /**
-   * Data of item.
-   */
-  data: Data;
+  node: Leaf;
 
   /**
    * Item's nesting level.
@@ -59,8 +40,47 @@ export type BranchComponentProps<Id, Data> = {
    * Handler to expand/collapse the current branch.
    */
   onToggle: () => void;
+
+  /**
+   * Item's test id provided by parent.
+   */
+  testId?: string;
 };
 
-export type LeafComponentType<Id, Data> = ComponentType<LeafComponentProps<Id, Data>>;
+export type LeafComponentType<Leaf extends TreeLeaf> = ComponentType<LeafComponentProps<Leaf>>;
 
-export type BranchComponentType<Id, Data> = ComponentType<BranchComponentProps<Id, Data>>;
+export type BranchComponentType<Leaf extends TreeLeaf> = ComponentType<BranchComponentProps<Leaf>>;
+
+// endregion Components
+
+// region Filters
+
+export type Match<Leaf extends TreeLeaf> = (node: TreeNode<Leaf>, search: string) => boolean;
+
+// endregion Filters
+
+// region Ids
+
+export type Id<Leaf extends TreeLeaf> = Leaf['id'];
+
+export type Ids<Leaf extends TreeLeaf> = Set<Id<Leaf>>;
+
+// endregion Ids
+
+// region Render
+
+export type InternalMatch<Leaf extends TreeLeaf> = (node: TreeNode<Leaf>) => boolean;
+
+type LeafRenderItem<Leaf extends TreeLeaf> = LeafTraverseItem<Leaf>;
+
+type BranchRenderItem<Leaf extends TreeLeaf> = BranchTraverseItem<Leaf> & {
+  isExpanded: boolean;
+
+  onToggle: () => void;
+};
+
+export type RenderItem<Leaf extends TreeLeaf> = LeafRenderItem<Leaf> | BranchRenderItem<Leaf>;
+
+export type RenderPipeline<Leaf extends TreeLeaf> = Iterable<RenderItem<Leaf>>;
+
+// endregion Render

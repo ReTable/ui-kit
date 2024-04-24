@@ -6,10 +6,10 @@ import { LeafComponentProps } from '~';
 
 import * as styles from './styles.css';
 
-import { Data } from './types';
+import { Leaf as LeafType } from './types';
 
-export const Leaf: FC<LeafComponentProps<number, Data>> = ({ data, level }) => (
+export const Leaf: FC<LeafComponentProps<LeafType>> = ({ level, node }) => (
   <div className={styles.item} style={assignInlineVars({ [styles.level]: level.toString() })}>
-    {data.name}
+    {node.name}
   </div>
 );

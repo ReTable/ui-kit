@@ -50,6 +50,10 @@ This property allows to disable a control.
 
 An optional `className` property to customize styles of component.
 
+### `style`
+
+An optional `style` property to customize styles of component through `style` attribute.
+
 ### `id` and `name`
 
 You can provide `id` for root `label` element, and `name` for underlying `input` element.

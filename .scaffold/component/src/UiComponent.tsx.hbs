@@ -1,4 +1,6 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
+
+import { clsx } from 'clsx/lite';
 
 {{#if (eq styles "css")}}
 import styles from './{{componentName}}.module.css';
@@ -7,17 +9,17 @@ import styles from './{{componentName}}.module.pcss';
 {{else if (eq styles "scss")}}
 import styles from './{{componentName}}.module.scss';
 {{else}}
-import { root } from './{{componentName}}.css';
+import * as styles from './{{componentName}}.css';
 {{/if}}
 
 export type Props = {
   className?: string;
 };
 
-export function {{componentName}}({ className = '' }: Props): ReactElement {
-{{#if (eq styles "vanillaExtract")}}
-  return <div className={`${root} ${className}`} />;
-{{else}}
-  return <div className={`${styles.root} ${className}`} />;
-{{/if}}
+export function {{componentName}}({ className = '' }: Props): ReactNode {
+  return <div className={clsx(styles.root, className)} />;
+}
+
+if (import.meta.env.DEV) {
+  {{componentName}}.displayName = '{{packageName}}({{componentName}})';
 }

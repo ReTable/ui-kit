@@ -48,5 +48,8 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^"
+  },
+  "dependencies": {
+    "@tabula/tree-utils": "workspace:^"
   }
 }
