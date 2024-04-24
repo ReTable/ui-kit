@@ -25,7 +25,10 @@ type Options = Pick<UiCheckboxTreeProps<Leaf>, 'tree'>;
 
 type RenderTreeResult = {
   toggle: (id: number) => Promise<void>;
+
   change: (id: number) => Promise<void>;
+  changeAll: () => Promise<void>;
+
   rerender: (options?: Omit<Options, 'tree'>) => void;
 };
 
@@ -57,6 +60,16 @@ export function renderTree({ tree }: Options): RenderTreeResult {
       await userEvent.click(checkbox);
     },
 
+    async changeAll() {
+      const checkbox = screen.queryByTestId('tree--header--input');
+
+      if (checkbox == null) {
+        throw new Error("Couldn't find a checkbox in header");
+      }
+
+      await userEvent.click(checkbox);
+    },
+
     rerender(_ = {}) {
       rerender(<CheckboxTree labelOf={labelOf} tree={tree} testId="tree" />);
     },
@@ -66,6 +79,11 @@ export function renderTree({ tree }: Options): RenderTreeResult {
 // endregion Render
 
 // region Verify
+
+type HeaderItem = {
+  isChecked: boolean;
+  isIndeterminate: boolean;
+};
 
 export type LeafItem = {
   id: number;
@@ -81,6 +99,36 @@ export type BranchItem = {
 };
 
 export type PipelineItem = LeafItem | BranchItem;
+
+function verifyHeader(node: Node, { isChecked, isIndeterminate }: HeaderItem) {
+  const inputTestId = 'tree--header--input';
+
+  const input = screen.queryByTestId(inputTestId);
+
+  expect(input).not.toBeNull();
+
+  expect(node, 'Header should have an input').toContain(input);
+
+  if (input == null) {
+    return;
+  }
+
+  if (isChecked) {
+    expect(input, `Header should have an input which is checked`).toBeChecked();
+  } else {
+    expect(input, `Header should have an input which isn't checked`).not.toBeChecked();
+  }
+
+  if (isIndeterminate) {
+    expect(input, `Header should have an input which is indeterminate`).toHaveAttribute(
+      'indeterminate',
+    );
+  } else {
+    expect(input, `Header should have an input which isn't indeterminate`).not.toHaveAttribute(
+      'indeterminate',
+    );
+  }
+}
 
 function verifyLeaf(node: Node, { id, isChecked }: LeafItem) {
   const name = `Leaf ${id}`;
@@ -175,21 +223,30 @@ function verifyBranch(node: Node, { id, isChecked, isIndeterminate }: BranchItem
   );
 }
 
+type HeaderBuilder = (header: HeaderItem) => void;
+
 type LeafBuilder = (leaf: LeafItem) => void;
 
 type BranchBuilder = (branch: BranchItem) => void;
 
 type Builder = {
+  header: HeaderBuilder;
   leaf: LeafBuilder;
   branch: BranchBuilder;
 };
 
 type Build = (builder: Builder) => void;
 
-export function verify(build?: Build): void {
+export function verify(build: Build): void {
+  let header: HeaderItem | null = null;
+
   const items: PipelineItem[] = [];
 
   const builder: Builder = {
+    header(item) {
+      header = item;
+    },
+
     leaf(item) {
       items.push(item);
     },
@@ -199,7 +256,13 @@ export function verify(build?: Build): void {
     },
   };
 
-  build?.(builder);
+  build(builder);
+
+  expect(header, "Header's state was not provided").not.toBeNull();
+
+  if (header == null) {
+    return;
+  }
 
   const root = screen.queryByTestId('tree');
 
@@ -208,6 +271,16 @@ export function verify(build?: Build): void {
   if (root == null) {
     return;
   }
+
+  const headerRoot = screen.queryByTestId('tree--header');
+
+  expect(headerRoot, 'The header should be rendered').not.toBeNull();
+
+  if (headerRoot == null) {
+    return;
+  }
+
+  verifyHeader(headerRoot, header);
 
   const treeRoot = screen.queryByTestId('tree--items');
 

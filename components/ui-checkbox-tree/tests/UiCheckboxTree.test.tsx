@@ -10,7 +10,10 @@ describe('UiCheckboxTree', () => {
 
       renderTree({ tree });
 
-      verify();
+      verify(({ header }) => {
+        // FIXME(demiazz): The `isChecked` must be `false`.
+        header({ isChecked: true, isIndeterminate: false });
+      });
     });
 
     it('renders tree with leafs only', () => {
@@ -23,7 +26,9 @@ describe('UiCheckboxTree', () => {
 
       renderTree({ tree });
 
-      verify(({ leaf }) => {
+      verify(({ header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         leaf({ id: 1, isChecked: false });
         leaf({ id: 2, isChecked: false });
         leaf({ id: 3, isChecked: false });
@@ -40,7 +45,10 @@ describe('UiCheckboxTree', () => {
 
       renderTree({ tree });
 
-      verify(({ branch }) => {
+      verify(({ header, branch }) => {
+        // FIXME(demiazz): The `isChecked` must be `false`.
+        header({ isChecked: true, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         branch({ id: 2, isChecked: false, isIndeterminate: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -68,7 +76,9 @@ describe('UiCheckboxTree', () => {
 
       renderTree({ tree });
 
-      verify(({ branch, leaf }) => {
+      verify(({ header, branch, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         leaf({ id: 1, isChecked: false });
         branch({ id: 2, isChecked: false, isIndeterminate: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -93,13 +103,17 @@ describe('UiCheckboxTree', () => {
 
       const { toggle } = renderTree({ tree });
 
-      verify(({ branch }) => {
+      verify(({ branch, header }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
       });
 
       await toggle(1);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -108,7 +122,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(3);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -133,13 +149,17 @@ describe('UiCheckboxTree', () => {
 
       const { toggle } = renderTree({ tree });
 
-      verify(({ branch }) => {
+      verify(({ branch, header }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
       });
 
       await toggle(1);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -148,7 +168,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(3);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -159,7 +181,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(3);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -168,7 +192,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(1);
 
-      verify(({ branch }) => {
+      verify(({ branch, header }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
       });
     });
@@ -189,14 +215,18 @@ describe('UiCheckboxTree', () => {
 
       const { toggle } = renderTree({ tree });
 
-      verify(({ branch }) => {
+      verify(({ branch, header }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         branch({ id: 7, isChecked: false, isIndeterminate: false });
       });
 
       await toggle(1);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -206,7 +236,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(3);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -218,7 +250,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(7);
 
-      verify(({ branch, leaf }) => {
+      verify(({ branch, header, leaf }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         leaf({ id: 2, isChecked: false });
         branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -230,7 +264,9 @@ describe('UiCheckboxTree', () => {
 
       await toggle(1);
 
-      verify(({ branch }) => {
+      verify(({ branch, header }) => {
+        header({ isChecked: false, isIndeterminate: false });
+
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         branch({ id: 7, isChecked: false, isIndeterminate: false });
       });
@@ -249,7 +285,9 @@ describe('UiCheckboxTree', () => {
 
         const { change } = renderTree({ tree });
 
-        verify(({ leaf }) => {
+        verify(({ header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           leaf({ id: 1, isChecked: false });
           leaf({ id: 2, isChecked: false });
           leaf({ id: 3, isChecked: false });
@@ -257,7 +295,9 @@ describe('UiCheckboxTree', () => {
 
         await change(2);
 
-        verify(({ leaf }) => {
+        verify(({ header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           leaf({ id: 1, isChecked: false });
           leaf({ id: 2, isChecked: true });
           leaf({ id: 3, isChecked: false });
@@ -265,16 +305,50 @@ describe('UiCheckboxTree', () => {
 
         await change(1);
 
-        verify(({ leaf }) => {
+        verify(({ header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           leaf({ id: 1, isChecked: true });
           leaf({ id: 2, isChecked: true });
           leaf({ id: 3, isChecked: false });
         });
 
+        await change(3);
+
+        verify(({ header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
+          leaf({ id: 1, isChecked: true });
+          leaf({ id: 2, isChecked: true });
+          leaf({ id: 3, isChecked: true });
+        });
+
         await change(2);
 
-        verify(({ leaf }) => {
+        verify(({ header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           leaf({ id: 1, isChecked: true });
+          leaf({ id: 2, isChecked: false });
+          leaf({ id: 3, isChecked: true });
+        });
+
+        await change(1);
+
+        verify(({ header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
+          leaf({ id: 1, isChecked: false });
+          leaf({ id: 2, isChecked: false });
+          leaf({ id: 3, isChecked: true });
+        });
+
+        await change(3);
+
+        verify(({ header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
+          leaf({ id: 1, isChecked: false });
           leaf({ id: 2, isChecked: false });
           leaf({ id: 3, isChecked: false });
         });
@@ -295,13 +369,17 @@ describe('UiCheckboxTree', () => {
 
         const { change, toggle } = renderTree({ tree });
 
-        verify(({ branch }) => {
+        verify(({ branch, header }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
         });
 
         await toggle(1);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -309,7 +387,9 @@ describe('UiCheckboxTree', () => {
 
         await toggle(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -320,7 +400,9 @@ describe('UiCheckboxTree', () => {
 
         await change(4);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           branch({ id: 1, isChecked: false, isIndeterminate: true });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: true });
@@ -331,7 +413,9 @@ describe('UiCheckboxTree', () => {
 
         await change(5);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           branch({ id: 1, isChecked: false, isIndeterminate: true });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: true });
@@ -342,7 +426,9 @@ describe('UiCheckboxTree', () => {
 
         await change(6);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           branch({ id: 1, isChecked: false, isIndeterminate: true });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -353,7 +439,9 @@ describe('UiCheckboxTree', () => {
 
         await change(2);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: true, isIndeterminate: false });
           leaf({ id: 2, isChecked: true });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -364,7 +452,9 @@ describe('UiCheckboxTree', () => {
 
         await toggle(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: true, isIndeterminate: false });
           leaf({ id: 2, isChecked: true });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -372,13 +462,17 @@ describe('UiCheckboxTree', () => {
 
         await toggle(1);
 
-        verify(({ branch }) => {
+        verify(({ branch, header }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: true, isIndeterminate: false });
         });
 
         await toggle(1);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: true, isIndeterminate: false });
           leaf({ id: 2, isChecked: true });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -386,7 +480,9 @@ describe('UiCheckboxTree', () => {
 
         await toggle(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: true, isIndeterminate: false });
           leaf({ id: 2, isChecked: true });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -408,7 +504,10 @@ describe('UiCheckboxTree', () => {
 
         const { change } = renderTree({ tree });
 
-        verify(({ branch }) => {
+        verify(({ branch, header }) => {
+          // FIXME(demiazz): The `isChecked` must be `false`.
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           branch({ id: 2, isChecked: false, isIndeterminate: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -416,7 +515,10 @@ describe('UiCheckboxTree', () => {
 
         await change(1);
 
-        verify(({ branch }) => {
+        verify(({ branch, header }) => {
+          // FIXME(demiazz): The `isChecked` must be `false`.
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           branch({ id: 2, isChecked: false, isIndeterminate: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -438,13 +540,17 @@ describe('UiCheckboxTree', () => {
 
         const { change, toggle } = renderTree({ tree });
 
-        verify(({ branch }) => {
+        verify(({ branch, header }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
         });
 
         await toggle(1);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -452,7 +558,9 @@ describe('UiCheckboxTree', () => {
 
         await toggle(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -463,7 +571,9 @@ describe('UiCheckboxTree', () => {
 
         await change(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           branch({ id: 1, isChecked: false, isIndeterminate: true });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -474,7 +584,9 @@ describe('UiCheckboxTree', () => {
 
         await change(1);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
           branch({ id: 1, isChecked: true, isIndeterminate: false });
           leaf({ id: 2, isChecked: true });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -485,7 +597,9 @@ describe('UiCheckboxTree', () => {
 
         await change(1);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -496,7 +610,9 @@ describe('UiCheckboxTree', () => {
 
         await toggle(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: false, isIndeterminate: false });
@@ -504,7 +620,9 @@ describe('UiCheckboxTree', () => {
 
         await change(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           branch({ id: 1, isChecked: false, isIndeterminate: true });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
@@ -512,7 +630,9 @@ describe('UiCheckboxTree', () => {
 
         await toggle(3);
 
-        verify(({ branch, leaf }) => {
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
           branch({ id: 1, isChecked: false, isIndeterminate: true });
           leaf({ id: 2, isChecked: false });
           branch({ id: 3, isChecked: true, isIndeterminate: false });
