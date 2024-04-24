@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`UiCheckboxTree > works 1`] = `
-<div
-  className="tabula_ui_checkbox_tree__81ni580 "
-/>
-`;
