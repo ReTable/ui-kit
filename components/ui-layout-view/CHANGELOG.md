@@ -1,5 +1,18 @@
 # @tabula/ui-layout-view
 
+## 4.1.0
+
+### Minor Changes
+
+- [#151](https://github.com/ReTable/ui-kit/pull/151) [`e3198ae`](https://github.com/ReTable/ui-kit/commit/e3198aee9d35b119517ef459cfd757e8646bd526) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - don't re-render sidebars on each render cycle
+
+### Patch Changes
+
+- [#150](https://github.com/ReTable/ui-kit/pull/150) [`0224f86`](https://github.com/ReTable/ui-kit/commit/0224f864d22d2cb8dc4255fca3a8ab46d6305f67) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
+- Updated dependencies [[`0224f86`](https://github.com/ReTable/ui-kit/commit/0224f864d22d2cb8dc4255fca3a8ab46d6305f67), [`7b68f53`](https://github.com/ReTable/ui-kit/commit/7b68f53a43f9c69931774da41c2cb506c9ce083f), [`ce3e5f2`](https://github.com/ReTable/ui-kit/commit/ce3e5f2d600778639801e993bb271c005f7b29ca)]:
+  - @tabula/ui-theme@2.6.0
+
 ## 4.0.3-beta.0
 
 ### Patch Changes
