@@ -642,5 +642,104 @@ describe('UiCheckboxTree', () => {
         });
       });
     });
+
+    describe('when header is changed', () => {
+      it('select the whole tree', async () => {
+        // prettier-ignore
+        const tree: Tree = [
+          branchOf(1, [
+            leafOf(2),
+            branchOf(3, [
+              leafOf(4),
+              leafOf(5),
+              leafOf(6),
+            ]),
+          ]),
+        ];
+
+        const { change, changeAll, toggle } = renderTree({ tree });
+
+        verify(({ branch, header }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
+          branch({ id: 1, isChecked: false, isIndeterminate: false });
+        });
+
+        await toggle(1);
+
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
+          branch({ id: 1, isChecked: false, isIndeterminate: false });
+          leaf({ id: 2, isChecked: false });
+          branch({ id: 3, isChecked: false, isIndeterminate: false });
+        });
+
+        await toggle(3);
+
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
+          branch({ id: 1, isChecked: false, isIndeterminate: false });
+          leaf({ id: 2, isChecked: false });
+          branch({ id: 3, isChecked: false, isIndeterminate: false });
+          leaf({ id: 4, isChecked: false });
+          leaf({ id: 5, isChecked: false });
+          leaf({ id: 6, isChecked: false });
+        });
+
+        await changeAll();
+
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
+          branch({ id: 1, isChecked: true, isIndeterminate: false });
+          leaf({ id: 2, isChecked: true });
+          branch({ id: 3, isChecked: true, isIndeterminate: false });
+          leaf({ id: 4, isChecked: true });
+          leaf({ id: 5, isChecked: true });
+          leaf({ id: 6, isChecked: true });
+        });
+
+        await changeAll();
+
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: false });
+
+          branch({ id: 1, isChecked: false, isIndeterminate: false });
+          leaf({ id: 2, isChecked: false });
+          branch({ id: 3, isChecked: false, isIndeterminate: false });
+          leaf({ id: 4, isChecked: false });
+          leaf({ id: 5, isChecked: false });
+          leaf({ id: 6, isChecked: false });
+        });
+
+        await change(5);
+
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: false, isIndeterminate: true });
+
+          branch({ id: 1, isChecked: false, isIndeterminate: true });
+          leaf({ id: 2, isChecked: false });
+          branch({ id: 3, isChecked: false, isIndeterminate: true });
+          leaf({ id: 4, isChecked: false });
+          leaf({ id: 5, isChecked: true });
+          leaf({ id: 6, isChecked: false });
+        });
+
+        await changeAll();
+
+        verify(({ branch, header, leaf }) => {
+          header({ isChecked: true, isIndeterminate: false });
+
+          branch({ id: 1, isChecked: true, isIndeterminate: false });
+          leaf({ id: 2, isChecked: true });
+          branch({ id: 3, isChecked: true, isIndeterminate: false });
+          leaf({ id: 4, isChecked: true });
+          leaf({ id: 5, isChecked: true });
+          leaf({ id: 6, isChecked: true });
+        });
+      });
+    });
   });
 });
