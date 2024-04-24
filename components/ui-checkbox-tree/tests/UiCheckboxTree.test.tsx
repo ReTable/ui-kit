@@ -11,8 +11,7 @@ describe('UiCheckboxTree', () => {
       renderTree({ tree });
 
       verify(({ header }) => {
-        // FIXME(demiazz): The `isChecked` must be `false`.
-        header({ isChecked: true, isIndeterminate: false });
+        header({ isChecked: false, isIndeterminate: false });
       });
     });
 
@@ -46,8 +45,7 @@ describe('UiCheckboxTree', () => {
       renderTree({ tree });
 
       verify(({ header, branch }) => {
-        // FIXME(demiazz): The `isChecked` must be `false`.
-        header({ isChecked: true, isIndeterminate: false });
+        header({ isChecked: false, isIndeterminate: false });
 
         branch({ id: 1, isChecked: false, isIndeterminate: false });
         branch({ id: 2, isChecked: false, isIndeterminate: false });
@@ -505,8 +503,7 @@ describe('UiCheckboxTree', () => {
         const { change } = renderTree({ tree });
 
         verify(({ branch, header }) => {
-          // FIXME(demiazz): The `isChecked` must be `false`.
-          header({ isChecked: true, isIndeterminate: false });
+          header({ isChecked: false, isIndeterminate: false });
 
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           branch({ id: 2, isChecked: false, isIndeterminate: false });
@@ -516,8 +513,7 @@ describe('UiCheckboxTree', () => {
         await change(1);
 
         verify(({ branch, header }) => {
-          // FIXME(demiazz): The `isChecked` must be `false`.
-          header({ isChecked: true, isIndeterminate: false });
+          header({ isChecked: false, isIndeterminate: false });
 
           branch({ id: 1, isChecked: false, isIndeterminate: false });
           branch({ id: 2, isChecked: false, isIndeterminate: false });
