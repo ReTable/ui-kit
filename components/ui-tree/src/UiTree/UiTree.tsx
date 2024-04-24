@@ -8,7 +8,7 @@ import { BranchComponentType, LeafComponentType, Match } from '../types';
 
 export type Props<Leaf extends TreeLeaf> = {
   /**
-   * Optional CSS class for root element.
+   * User defined CSS class which be assigned to the root element.
    */
   className?: string;
 
