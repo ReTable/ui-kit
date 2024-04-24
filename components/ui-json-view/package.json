@@ -55,7 +55,7 @@
     "@tabula/ui-analytics": "workspace:^",
     "@tabula/use-size": "workspace:^",
     "@vanilla-extract/dynamic": "^2.1.0",
-    "clsx": "^2.1.0",
+    "clsx": "^2.1.1",
     "jsonpath": "^1.1.1",
     "react-window": "^1.8.10"
   }
