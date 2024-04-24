@@ -87,7 +87,7 @@ Each item has the following properties:
 - `isLeaf`: boolean value which `true` if node is leaf;
 - `level`: nesting level starting from `0`;
 - `parentId`: optional id of direct parent node;
-- `parentIds`: list of all parent ids from each nesting level.
+- `parentIds`: set of all parent ids from each nesting level.
 
 We mark a node as branch if node has `children` property (even if it's an empty array and hasn't any children).
 
