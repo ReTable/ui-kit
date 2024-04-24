@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { expect } from 'vitest';
+import { MockedFunction, expect, vi } from 'vitest';
 
-import { TreeBranch, TreeNode, UiCheckboxTreeProps } from '~';
+import { ChangeHandler, TreeBranch, TreeNode, UiCheckboxTreeProps } from '~';
 
 import { CheckboxTree } from './CheckboxTree';
 import { Leaf } from './types';
@@ -21,6 +21,8 @@ export function branchOf(id: number, children: Array<TreeNode<Leaf>> = []): Tree
 
 // region Render
 
+type OnChangeMock = MockedFunction<ChangeHandler<Leaf>>;
+
 type Options = Pick<UiCheckboxTreeProps<Leaf>, 'tree'>;
 
 type RenderTreeResult = {
@@ -28,6 +30,8 @@ type RenderTreeResult = {
 
   change: (id: number) => Promise<void>;
   changeAll: () => Promise<void>;
+
+  onChange: OnChangeMock;
 
   rerender: (options?: Omit<Options, 'tree'>) => void;
 };
@@ -37,7 +41,11 @@ function labelOf(node: Leaf) {
 }
 
 export function renderTree({ tree }: Options): RenderTreeResult {
-  const { rerender } = render(<CheckboxTree labelOf={labelOf} tree={tree} testId="tree" />);
+  const onChange: OnChangeMock = vi.fn();
+
+  const { rerender } = render(
+    <CheckboxTree labelOf={labelOf} onChange={onChange} tree={tree} testId="tree" />,
+  );
 
   return {
     async toggle(id) {
@@ -70,8 +78,10 @@ export function renderTree({ tree }: Options): RenderTreeResult {
       await userEvent.click(checkbox);
     },
 
+    onChange,
+
     rerender(_ = {}) {
-      rerender(<CheckboxTree labelOf={labelOf} tree={tree} testId="tree" />);
+      rerender(<CheckboxTree labelOf={labelOf} onChange={onChange} tree={tree} testId="tree" />);
     },
   };
 }
@@ -79,6 +89,12 @@ export function renderTree({ tree }: Options): RenderTreeResult {
 // endregion Render
 
 // region Verify
+
+type ChangeItem = {
+  onChange: OnChangeMock;
+
+  ids: Set<Leaf['id']>;
+};
 
 type HeaderItem = {
   isChecked: boolean;
@@ -223,6 +239,8 @@ function verifyBranch(node: Node, { id, isChecked, isIndeterminate }: BranchItem
   );
 }
 
+type ChangeBuilder = (onChange: OnChangeMock, ...ids: Array<Leaf['id']>) => void;
+
 type HeaderBuilder = (header: HeaderItem) => void;
 
 type LeafBuilder = (leaf: LeafItem) => void;
@@ -230,6 +248,7 @@ type LeafBuilder = (leaf: LeafItem) => void;
 type BranchBuilder = (branch: BranchItem) => void;
 
 type Builder = {
+  change: ChangeBuilder;
   header: HeaderBuilder;
   leaf: LeafBuilder;
   branch: BranchBuilder;
@@ -237,12 +256,22 @@ type Builder = {
 
 type Build = (builder: Builder) => void;
 
-export function verify(build: Build): void {
+function prepareWith(build: Build): [ChangeItem | null, HeaderItem | null, PipelineItem[]] {
+  let change: ChangeItem | null = null;
+
   let header: HeaderItem | null = null;
 
   const items: PipelineItem[] = [];
 
   const builder: Builder = {
+    change(onChange, ...ids) {
+      change = {
+        onChange,
+
+        ids: new Set(ids),
+      };
+    },
+
     header(item) {
       header = item;
     },
@@ -257,6 +286,12 @@ export function verify(build: Build): void {
   };
 
   build(builder);
+
+  return [change, header, items];
+}
+
+export function verify(build: Build): void {
+  const [change, header, items] = prepareWith(build);
 
   expect(header, "Header's state was not provided").not.toBeNull();
 
@@ -306,6 +341,10 @@ export function verify(build: Build): void {
     } else {
       verifyLeaf(node, item);
     }
+  }
+
+  if (change != null) {
+    expect(change.onChange).toHaveBeenLastCalledWith(change.ids);
   }
 }
 
