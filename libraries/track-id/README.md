@@ -12,15 +12,17 @@ pnpm add @tabula/track-id
 
 You can use [npm](https://npmjs.com) or [yarn](https://yarnpkg.com) too.
 
-## `getTrackId`
+## API
+
+### `getTrackId`
 
 Accepts scope and id, and returns resulting id.
 
-### Type
+#### Type
 
 `function getTrackId(scope?: string | null | undefined, id?: string | false | null): string | undefined`
 
-### Usage
+#### Usage
 
 ```typescript
 import { getTrackId } from "@tabula/track-id";
@@ -51,15 +53,15 @@ const trackId = getTrackId("parent", "child");
 | `"parent"`  | `""`        | `undefined`       |
 | `"parent"`  | `"child"`   | `"parent--child"` |
 
-## `getTrackIds`
+### `getTrackIds`
 
 Accepts scope and ids map, and returns resulting ids map.
 
-### Type
+#### Type
 
 `function getTrackIds(scope: string | null | undefined, ids: Record<string, string | false | null | undefined>): Record<string, string | undefined>`
 
-### Usage
+#### Usage
 
 ```typescript
 import { getTrackIds } from "@tabula/track-id";
