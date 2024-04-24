@@ -1,6 +1,6 @@
 # @tabula/ui-node-icon
 
-## 8.0.0
+## 7.1.0
 
 ### Minor Changes
 

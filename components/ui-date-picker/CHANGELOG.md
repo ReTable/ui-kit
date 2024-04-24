@@ -1,6 +1,6 @@
 # @tabula/ui-date-picker
 
-## 4.0.0
+## 3.0.3
 
 ### Patch Changes
 
@@ -8,7 +8,7 @@
 
 - Updated dependencies [[`0224f86`](https://github.com/ReTable/ui-kit/commit/0224f864d22d2cb8dc4255fca3a8ab46d6305f67), [`0224f86`](https://github.com/ReTable/ui-kit/commit/0224f864d22d2cb8dc4255fca3a8ab46d6305f67), [`7b68f53`](https://github.com/ReTable/ui-kit/commit/7b68f53a43f9c69931774da41c2cb506c9ce083f), [`ce3e5f2`](https://github.com/ReTable/ui-kit/commit/ce3e5f2d600778639801e993bb271c005f7b29ca)]:
   - @tabula/ui-theme@2.6.0
-  - @tabula/ui-button@6.0.0
+  - @tabula/ui-button@5.0.3
 
 ## 3.0.3-beta.0
 
@@ -16,7 +16,7 @@
 
 - Updated dependencies [[`7b68f53`](https://github.com/ReTable/ui-kit/commit/7b68f53a43f9c69931774da41c2cb506c9ce083f)]:
   - @tabula/ui-theme@2.6.0-beta.0
-  - @tabula/ui-button@6.0.0-beta.0
+  - @tabula/ui-button@5.0.3-beta.0
 
 ## 3.0.2
 
@@ -24,7 +24,7 @@
 
 - Updated dependencies [[`64f426e`](https://github.com/ReTable/ui-kit/commit/64f426e569f57f41eb8b895b2cb0dbb55b6e5c5c)]:
   - @tabula/ui-theme@2.5.0
-  - @tabula/ui-button@6.0.0
+  - @tabula/ui-button@5.0.2
 
 ## 3.0.1
 
@@ -32,7 +32,7 @@
 
 - Updated dependencies [[`130fb88`](https://github.com/ReTable/ui-kit/commit/130fb8899ab6b1e70c3a1e26e4afda2f8df7fa98)]:
   - @tabula/ui-theme@2.4.0
-  - @tabula/ui-button@6.0.0
+  - @tabula/ui-button@5.0.1
 
 ## 3.0.0
 

@@ -1,6 +1,6 @@
 # @tabula/ui-layout-view
 
-## 5.0.0
+## 4.1.0
 
 ### Minor Changes
 
