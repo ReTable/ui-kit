@@ -1,10 +1,10 @@
-import { useState } from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Tree } from '@tabula/tree-utils';
-
 import { UiCheckboxTree } from '~';
+
+import * as trees from './trees';
+import { CheckboxTree } from './CheckboxTree';
+import { Leaf } from './types';
 
 // region Meta
 
@@ -12,6 +12,13 @@ const meta: Meta<typeof UiCheckboxTree> = {
   title: 'UiCheckboxTree',
 
   component: UiCheckboxTree,
+
+  parameters: {
+    controls: {
+      include: /tree/g,
+      hideNoControlsWarning: true,
+    },
+  },
 };
 
 export default meta;
@@ -20,75 +27,29 @@ export default meta;
 
 // region Story Utilities
 
-type Story = StoryObj<typeof UiCheckboxTree>;
-
-const staticParameters = {
-  controls: {
-    exclude: /.*/g,
-    hideNoControlsWarning: true,
-  },
-};
+type Story = StoryObj<typeof UiCheckboxTree<Leaf>>;
 
 // region Story Utilities
 
 // region Stories
 
-export const Default: Story = {
+export const List: Story = {
   args: {
-    tree: [
-      {
-        id: 1,
-
-        label: 'Leaf (1)',
-      },
-      {
-        id: 2,
-
-        label: 'Branch (2)',
-
-        children: [
-          {
-            id: 3,
-
-            label: 'Leaf (3)',
-          },
-
-          {
-            id: 4,
-
-            label: 'Branch (4)',
-
-            children: [
-              {
-                id: 5,
-
-                label: 'Leaf (5)',
-              },
-              {
-                id: 6,
-
-                label: 'Leaf (6)',
-              },
-            ],
-          },
-        ],
-      },
-    ],
+    tree: trees.list,
   },
-  parameters: staticParameters,
-  render({ tree }: { tree: Tree<{ id: number; label: string }> }) {
-    const [selected, setSelected] = useState<Set<number>>(new Set());
 
-    return (
-      <div style={{ width: '300px', height: '300px' }}>
-        <UiCheckboxTree
-          tree={tree}
-          onChange={setSelected}
-          selected={selected}
-          labelOf={(it) => it.label}
-        />
-      </div>
-    );
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
+  },
+};
+
+export const Tree: Story = {
+  args: {
+    tree: trees.tree,
+  },
+
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
   },
 };
 
