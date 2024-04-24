@@ -1,17 +1,11 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { expect } from 'vitest';
 
-import { Tree as BaseTree, TreeBranch, TreeNode, UiCheckboxTree, UiCheckboxTreeProps } from '~';
+import { TreeBranch, TreeNode, UiCheckboxTreeProps } from '~';
 
-// region Types
-
-export type Leaf = {
-  id: number;
-};
-
-export type Tree = BaseTree<Leaf>;
-
-// endregion
+import { CheckboxTree } from './CheckboxTree';
+import { Leaf } from './types';
 
 // region Factories
 
@@ -30,7 +24,8 @@ export function branchOf(id: number, children: Array<TreeNode<Leaf>> = []): Tree
 type Options = Pick<UiCheckboxTreeProps<Leaf>, 'tree'>;
 
 type RenderTreeResult = {
-  toggle: (id: number) => void;
+  toggle: (id: number) => Promise<void>;
+  change: (id: number) => Promise<void>;
   rerender: (options?: Omit<Options, 'tree'>) => void;
 };
 
@@ -38,43 +33,32 @@ function labelOf(node: Leaf) {
   return 'children' in node ? `Branch ${node.id}` : `Leaf ${node.id}`;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-function onChange() {}
-
-const selected = new Set<number>();
-
 export function renderTree({ tree }: Options): RenderTreeResult {
-  const { rerender } = render(
-    <UiCheckboxTree
-      labelOf={labelOf}
-      onChange={onChange}
-      tree={tree}
-      selected={selected}
-      testId="tree"
-    />,
-  );
+  const { rerender } = render(<CheckboxTree labelOf={labelOf} tree={tree} testId="tree" />);
 
   return {
-    toggle(id) {
+    async toggle(id) {
       const button = screen.queryByTestId(`tree--items--${id}--toggle`);
 
       if (button == null) {
         throw new Error(`Couldn't find a toggle button for branch with id ${id}`);
       }
 
-      fireEvent.click(button);
+      await userEvent.click(button);
+    },
+
+    async change(id) {
+      const checkbox = screen.queryByTestId(`tree--items--${id}--checkbox--input`);
+
+      if (checkbox == null) {
+        throw new Error(`Couldn't find a checkbox for node with id ${id}`);
+      }
+
+      await userEvent.click(checkbox);
     },
 
     rerender(_ = {}) {
-      rerender(
-        <UiCheckboxTree
-          labelOf={labelOf}
-          onChange={onChange}
-          tree={tree}
-          selected={selected}
-          testId="tree"
-        />,
-      );
+      rerender(<CheckboxTree labelOf={labelOf} tree={tree} testId="tree" />);
     },
   };
 }
