@@ -1,4 +1,3 @@
-import { act } from '@testing-library/react';
 import { describe, it } from 'vitest';
 
 import { Tree, branchOf, leafOf, renderTree, verify } from './helpers';
@@ -75,7 +74,7 @@ describe('UiTree', () => {
     });
   });
 
-  it('expands branch', () => {
+  it('expands branch', async () => {
     // prettier-ignore
     const tree: Tree = [
       branchOf(1, [
@@ -94,9 +93,7 @@ describe('UiTree', () => {
       branch({ id: 1, level: 0, isExpanded: false });
     });
 
-    act(() => {
-      toggle(1);
-    });
+    await toggle(1);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -105,9 +102,7 @@ describe('UiTree', () => {
       leaf({ id: 6, level: 1 });
     });
 
-    act(() => {
-      toggle(3);
-    });
+    await toggle(3);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -119,7 +114,7 @@ describe('UiTree', () => {
     });
   });
 
-  it('collapse branch', () => {
+  it('collapse branch', async () => {
     // prettier-ignore
     const tree: Tree = [
       branchOf(1, [
@@ -138,9 +133,7 @@ describe('UiTree', () => {
       branch({ id: 1, level: 0, isExpanded: false });
     });
 
-    act(() => {
-      toggle(1);
-    });
+    await toggle(1);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -149,9 +142,7 @@ describe('UiTree', () => {
       leaf({ id: 6, level: 1 });
     });
 
-    act(() => {
-      toggle(3);
-    });
+    await toggle(3);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -162,9 +153,7 @@ describe('UiTree', () => {
       leaf({ id: 6, level: 1 });
     });
 
-    act(() => {
-      toggle(3);
-    });
+    await toggle(3);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -173,16 +162,14 @@ describe('UiTree', () => {
       leaf({ id: 6, level: 1 });
     });
 
-    act(() => {
-      toggle(1);
-    });
+    await toggle(1);
 
     verify(({ branch }) => {
       branch({ id: 1, level: 0, isExpanded: false });
     });
   });
 
-  it('collapse nested branches', () => {
+  it('collapse nested branches', async () => {
     // prettier-ignore
     const tree: Tree = [
       branchOf(1, [
@@ -203,9 +190,7 @@ describe('UiTree', () => {
       branch({ id: 7, level: 0, isExpanded: false });
     });
 
-    act(() => {
-      toggle(1);
-    });
+    await toggle(1);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -215,9 +200,7 @@ describe('UiTree', () => {
       branch({ id: 7, level: 0, isExpanded: false });
     });
 
-    act(() => {
-      toggle(3);
-    });
+    await toggle(3);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -229,9 +212,7 @@ describe('UiTree', () => {
       branch({ id: 7, level: 0, isExpanded: false });
     });
 
-    act(() => {
-      toggle(7);
-    });
+    await toggle(7);
 
     verify(({ branch, leaf }) => {
       branch({ id: 1, level: 0, isExpanded: true });
@@ -243,9 +224,7 @@ describe('UiTree', () => {
       branch({ id: 7, level: 0, isExpanded: true });
     });
 
-    act(() => {
-      toggle(1);
-    });
+    await toggle(1);
 
     verify(({ branch }) => {
       branch({ id: 1, level: 0, isExpanded: false });
@@ -352,7 +331,7 @@ describe('UiTree', () => {
       });
     });
 
-    it('allows to expand and collapse branches with filters', () => {
+    it('allows to expand and collapse branches with filters', async () => {
       // prettier-ignore
       const tree: Tree = [
         branchOf(1, [
@@ -378,26 +357,20 @@ describe('UiTree', () => {
         leaf({ id: 4, level: 2 });
       });
 
-      act(() => {
-        toggle(1);
-      });
+      await toggle(1);
 
       verify(({ branch }) => {
         branch({ id: 1, level: 0, isExpanded: false });
       });
 
-      act(() => {
-        toggle(1);
-      });
+      await toggle(1);
 
       verify(({ branch }) => {
         branch({ id: 1, level: 0, isExpanded: true });
         branch({ id: 3, level: 1, isExpanded: false });
       });
 
-      act(() => {
-        toggle(3);
-      });
+      await toggle(3);
 
       verify(({ branch, leaf }) => {
         branch({ id: 1, level: 0, isExpanded: true });
@@ -406,7 +379,7 @@ describe('UiTree', () => {
       });
     });
 
-    it('restores state after search', () => {
+    it('restores state after search', async () => {
       // prettier-ignore
       const tree: Tree = [
         branchOf(1, [
@@ -427,9 +400,7 @@ describe('UiTree', () => {
         branch({ id: 1, level: 0, isExpanded: false });
       });
 
-      act(() => {
-        toggle(1);
-      });
+      await toggle(1);
 
       verify(({ branch, leaf }) => {
         branch({ id: 1, level: 0, isExpanded: true });
@@ -438,9 +409,7 @@ describe('UiTree', () => {
         leaf({ id: 6, level: 1 });
       });
 
-      act(() => {
-        toggle(3);
-      });
+      await toggle(3);
 
       verify(({ branch, leaf }) => {
         branch({ id: 1, level: 0, isExpanded: true });
@@ -478,9 +447,7 @@ describe('UiTree', () => {
         leaf({ id: 4, level: 2 });
       });
 
-      act(() => {
-        toggle(1);
-      });
+      await toggle(1);
 
       verify(({ branch }) => {
         branch({ id: 1, level: 0, isExpanded: false });
@@ -498,7 +465,7 @@ describe('UiTree', () => {
       });
     });
 
-    it('resets state between searches', () => {
+    it('resets state between searches', async () => {
       // prettier-ignore
       const tree: Tree = [
         branchOf(1, [
@@ -524,9 +491,7 @@ describe('UiTree', () => {
         leaf({ id: 4, level: 2 });
       });
 
-      act(() => {
-        toggle(1);
-      });
+      await toggle(1);
 
       verify(({ branch }) => {
         branch({ id: 1, level: 0, isExpanded: false });

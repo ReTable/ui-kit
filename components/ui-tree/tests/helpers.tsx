@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { expect } from 'vitest';
 
 import { Tree as BaseTree, TreeBranch, TreeNode } from '@tabula/tree-utils';
@@ -37,7 +38,7 @@ export function branchOf(id: number, children: Array<TreeNode<Leaf>> = []): Tree
 type Options = Pick<UiTreeProps<Leaf>, 'tree' | 'match' | 'pattern'>;
 
 type RenderTreeResult = {
-  toggle: (id: number) => void;
+  toggle: (id: number) => Promise<void>;
   rerender: (options?: Omit<Options, 'tree'>) => void;
 };
 
@@ -54,14 +55,14 @@ export function renderTree({ match, pattern, tree }: Options): RenderTreeResult 
   );
 
   return {
-    toggle(id) {
+    async toggle(id) {
       const button = screen.queryByTestId(`tree--${id}--toggle`);
 
       if (button == null) {
         throw new Error(`Couldn't find a toggle button for branch with id ${id}`);
       }
 
-      fireEvent.click(button);
+      await userEvent.click(button);
     },
 
     rerender(props = {}) {
