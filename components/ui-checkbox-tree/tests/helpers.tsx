@@ -1,9 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { expect } from 'vitest';
 
-import { Tree as BaseTree, TreeBranch, TreeNode } from '@tabula/tree-utils';
-
-import { UiCheckboxTree, UiCheckboxTreeProps } from '~';
+import { Tree as BaseTree, TreeBranch, TreeNode, UiCheckboxTree, UiCheckboxTreeProps } from '~';
 
 // region Types
 
