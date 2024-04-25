@@ -1,20 +1,20 @@
-import { readdirSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import fs from 'node:fs';
+import path from 'node:path';
+import url from 'node:url';
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import { mergeConfig } from 'vite';
 
-const ROOT_DIR = resolve(dirname(fileURLToPath(import.meta.url)), '../');
+const ROOT_DIR = path.resolve(path.dirname(url.fileURLToPath(import.meta.url)), '../');
 
 function searchStories(workspace) {
   try {
-    const workspaceDir = join(ROOT_DIR, workspace);
+    const workspaceDir = path.join(ROOT_DIR, workspace);
 
     const stories = [];
 
-    for (const entry of readdirSync(workspaceDir)) {
-      const packageDir = join(workspaceDir, entry);
+    for (const entry of fs.readdirSync(workspaceDir)) {
+      const packageDir = path.join(workspaceDir, entry);
 
       let packageJson;
 
@@ -24,7 +24,7 @@ function searchStories(workspace) {
       //
       //       If directory have no `package.json`, then just ignore it.
       try {
-        packageJson = require(join(packageDir, 'package.json'));
+        packageJson = require(path.join(packageDir, 'package.json'));
       } catch {
         continue;
       }
@@ -43,6 +43,22 @@ function searchStories(workspace) {
     return [];
   }
 }
+
+const alias = {
+  find: /^~$/,
+
+  replacement: `../lib/$1`,
+
+  customResolver(_, importer) {
+    if (importer == null) {
+      return null;
+    }
+
+    const [ns, pkgName] = path.relative(ROOT_DIR, importer).split(path.sep);
+
+    return path.join(ROOT_DIR, ns, pkgName, 'lib/index.js');
+  },
+};
 
 export default {
   addons: [
@@ -71,7 +87,7 @@ export default {
     ...searchStories('libraries'),
 
     {
-      directory: join(ROOT_DIR, 'contributing'),
+      directory: path.join(ROOT_DIR, 'contributing'),
       titlePrefix: `Contributing`,
       files: '**/*.mdx',
     },
@@ -79,18 +95,10 @@ export default {
 
   async viteFinal(config) {
     return mergeConfig(config, {
-      // NOTE: Workaround for https://github.com/storybookjs/storybook/issues/25256
-      assetsInclude: ['/sb-preview/**'],
-
       plugins: [vanillaExtractPlugin()],
 
       resolve: {
-        alias: [
-          {
-            find: /~(.*)$/,
-            replacement: `../lib/$1`,
-          },
-        ],
+        alias: [alias],
       },
     });
   },
