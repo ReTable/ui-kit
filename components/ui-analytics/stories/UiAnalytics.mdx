@@ -1,0 +1,19 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiAnalytics } from '~';
+
+import * as Stories from './UiAnalytics.stories';
+
+<Meta of={Stories} />
+
+# UiAnalytics
+
+This component provide track id through context to the children components.
+
+## Example
+
+<Canvas of={Stories.Playground} />
+
+## Properties
+
+<ArgsTable of={UiAnalytics} />

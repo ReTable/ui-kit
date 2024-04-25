@@ -1,9 +1,8 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks';
 
 import { UiAnalytics } from '~';
 
-import { Table } from './Table';
-import { UseUiTrackId } from './UseUiTrackId';
+import { Table, TrackId } from './components';
 
 <Meta title="useUiTrackId/Docs" />
 
@@ -13,7 +12,13 @@ This hook allows to fetch track id from context.
 
 ## Type
 
-`function useUiTrackId(id?: string | false | null): string | null`
+<Source code={`
+type Input = string | false | null;
+
+type Output = string | null;
+
+declare function useUiTrackId(id?: Input): Output;
+`} language="ts" />
 
 ## Usage
 
@@ -43,10 +48,10 @@ This hook allows to fetch track id from context.
   ]}
 />
 
-## Demo
+## Example
 
 <Canvas>
   <UiAnalytics trackId="parent">
-    <UseUiTrackId />
+    <TrackId />
   </UiAnalytics>
 </Canvas>

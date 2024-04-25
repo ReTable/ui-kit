@@ -1,11 +1,12 @@
-import { StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { UiAnalytics } from '~';
 
-import { UseUiTrackId } from './UseUiTrackId';
-import { UseUiTrackIds } from './UseUiTrackIds';
+import { TrackId, TrackIds } from './components';
 
-export default {
+// region Meta
+
+const meta: Meta<typeof UiAnalytics> = {
   component: UiAnalytics,
 
   title: 'UiAnalytics',
@@ -17,14 +18,22 @@ export default {
   },
 };
 
+export default meta;
+
+// endregion Meta
+
 type Story = StoryObj<typeof UiAnalytics>;
 
-export const Default: Story = {
+export const Playground: Story = {
+  args: {
+    trackId: 'parent',
+  },
+
   render({ trackId }) {
     return (
       <UiAnalytics trackId={trackId}>
-        <UseUiTrackId />
-        <UseUiTrackIds />
+        <TrackId />
+        <TrackIds />
       </UiAnalytics>
     );
   },

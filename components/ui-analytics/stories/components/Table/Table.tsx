@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import * as styles from './Table.css';
+
 type Props = {
   columns: string[];
   data: unknown[][];
@@ -8,7 +10,7 @@ type Props = {
 /* eslint-disable react/no-array-index-key */
 export function Table({ columns, data }: Props): ReactNode {
   return (
-    <table>
+    <table className={styles.root}>
       <thead>
         <tr>
           {columns.map((it, idx) => (

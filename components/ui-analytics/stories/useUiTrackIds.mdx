@@ -1,9 +1,8 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/blocks';
 
 import { UiAnalytics } from '~';
 
-import { Table } from './Table';
-import { UseUiTrackIds } from './UseUiTrackIds';
+import { Table, TrackIds } from './components';
 
 <Meta title="useUiTrackIds/Docs" />
 
@@ -11,9 +10,15 @@ import { UseUiTrackIds } from './UseUiTrackIds';
 
 This hook allows to fetch track id from context and build ids map.
 
-## Type
+## Signature
 
-`function useUiTrackId(ids: Record<string, string | null | false>): Record<string, string> | Record<string, null>`
+<Source code={`
+type Input = Record<string, string | false | null | undefined>;
+
+type Output = Record<string, string | undefined>;
+
+declare function useUiTrackIds(ids: Input): Output;
+`} language="ts" />
 
 ## Usage
 
@@ -69,10 +74,10 @@ This hook allows to fetch track id from context and build ids map.
   ]}
 />
 
-## Demo
+## Example
 
 <Canvas>
   <UiAnalytics trackId="parent">
-    <UseUiTrackIds />
+    <TrackIds />
   </UiAnalytics>
 </Canvas>

@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { useUiTrackId } from '~';
 
-export function UseUiTrackId(): ReactNode {
+export function TrackId(): ReactNode {
   const isUndefined = useUiTrackId();
   const isNull = useUiTrackId(null);
   const isFalse = useUiTrackId(false);
