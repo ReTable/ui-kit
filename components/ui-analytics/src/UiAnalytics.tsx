@@ -3,6 +3,9 @@ import { PropsWithChildren, ReactNode } from 'react';
 import { Context } from './Context';
 
 export type Props = PropsWithChildren<{
+  /**
+   * The parent track id which will be brought down to children components.
+   */
   trackId?: string | null;
 }>;
 
