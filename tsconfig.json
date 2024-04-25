@@ -3,6 +3,7 @@
 // Updated at: Tue, 16 Apr 2024 10:12:30 GMT
 
 {
+  "extends": "@tabula/typescript-config/tsconfig.node.json",
   "compilerOptions": {
     "composite": true
   },

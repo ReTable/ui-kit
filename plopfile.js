@@ -242,6 +242,8 @@ async function updateTSConfig() {
 
   const config = JSON.stringify(
     {
+      extends: '@tabula/typescript-config/tsconfig.node.json',
+
       compilerOptions: {
         composite: true,
       },
