@@ -4,13 +4,8 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { UiTree, UiTreeProps } from '~';
 
-import * as styles from './styles.css';
-
 import * as trees from './trees';
-import { Branch } from './Branch';
-import { Leaf } from './Leaf';
-import { TreeWithSearch } from './TreeWithSearch';
-import { Leaf as LeafType } from './types';
+import { Branch, Leaf, LeafType, TreeWithSearch, styles } from './components';
 
 // region Types
 

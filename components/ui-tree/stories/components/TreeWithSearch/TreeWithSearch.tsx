@@ -4,11 +4,11 @@ import { Tree, TreeNode } from '@tabula/tree-utils';
 
 import { UiTree } from '~';
 
-import { treeWithSearch } from './styles.css';
+import { treeWithSearch } from './TreeWithSearch.css';
 
-import { Branch } from './Branch';
-import { Leaf } from './Leaf';
-import { Leaf as LeafType } from './types';
+import { Branch } from '../Branch';
+import { Leaf } from '../Leaf';
+import { Leaf as LeafType } from '../types';
 
 type Props = {
   tree: Tree<LeafType>;

@@ -46,8 +46,3 @@ export const toggle = style({
   height: '16px',
   padding: '0',
 });
-
-export const treeWithSearch = style({
-  display: 'flex',
-  flexDirection: 'column',
-});

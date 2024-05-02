@@ -4,9 +4,9 @@ import { assignInlineVars } from '@vanilla-extract/dynamic';
 
 import { BranchComponentProps } from '~';
 
-import * as styles from './styles.css';
+import * as styles from '../shared.css';
 
-import { Leaf } from './types';
+import { Leaf } from '../types';
 
 export const Branch: FC<BranchComponentProps<Leaf>> = ({ isExpanded, level, node, onToggle }) => (
   <div className={styles.item} style={assignInlineVars({ [styles.level]: level.toString() })}>
