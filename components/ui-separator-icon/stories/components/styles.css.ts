@@ -1,4 +1,9 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
+
+globalStyle('.icon-size', {
+  width: '32px',
+  height: '32px',
+});
 
 export const root = style({
   display: 'grid',

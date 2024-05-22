@@ -1,10 +1,10 @@
 import { Canvas, Meta, Source } from '@storybook/blocks';
 
-import { UiCommaIcon } from '~';
+import * as Stories from './UiSeparatorIcon.stories';
 
-<Meta title="Docs" />
+<Meta of={Stories} />
 
-# Component
+# Ui*Icon
 
 We provide icons as React components.
 
@@ -22,9 +22,7 @@ import { UiCommaIcon } from '@tabula/ui-separator-icon';
 
 Data types icons has `16x16` size by default.
 
-<Canvas layout="centered">
-  <UiCommaIcon />
-</Canvas>
+<Canvas layout="centered" of={Stories.Default} />
 
 ## Styling
 
@@ -34,38 +32,19 @@ You can style icons with CSS.
 
 All data types icons inherit `currentColor` property.
 
-<Canvas layout="centered">
-  <div style={{ color: 'blue' }}>
-    <UiCommaIcon />
-  </div>
-</Canvas>
+<Canvas layout="centered" of={Stories.Color} />
 
 ### Size with class
 
 You can provide `className` property.
 
-<Canvas layout="centered">
-  <div>
-    <style>
-      {`
-        .ui-comma-icon {
-          width: 32px;
-          height: 32px;
-        }
-      `}
-    </style>
-
-    <UiCommaIcon className='ui-comma-icon' />
-  </div>
-</Canvas>
+<Canvas layout="centered" of={Stories.SizeWithClassName} />
 
 ### Size with style
 
 You can provide `style` property.
 
-<Canvas layout="centered">
-  <UiCommaIcon style={{ width: '32px', height: '32px' }} />
-</Canvas>
+<Canvas layout="centered" of={Stories.SizeWithStyle} />
 
 # Image URL
 
@@ -76,7 +55,7 @@ Also, we provide icons as static images.
 <br />
 
 <Source code={`
-import { uiCommaIconUrl } from "@tabula/ui-separator-icon";
+import { uiCommaIconUrl } from "@tabula/ui-separator-type-icon";
 `} language="ts"/>
 
 <br />

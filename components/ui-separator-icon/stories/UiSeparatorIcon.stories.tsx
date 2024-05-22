@@ -1,10 +1,8 @@
-import { FC } from 'react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Meta } from '@storybook/react';
+import { UiCommaIcon } from '~';
 
-import * as Components from '~';
-
-import { container, icon, root } from './styles.css';
+import { Icons } from './components';
 
 // region Args
 
@@ -18,7 +16,9 @@ type Args = {
 // region Meta
 
 const meta: Meta = {
-  title: 'Icons',
+  title: 'Ui*Icon',
+
+  component: UiCommaIcon,
 
   argTypes: {
     currentColor: {
@@ -38,21 +38,43 @@ export default meta;
 
 // region Stories
 
-export const Icons: FC<Args> = ({ currentColor, search = '' }) => {
-  const icons = Object.entries(Components)
-    .filter(([iconName]) => !iconName.endsWith('Url') && iconName.includes(search))
-    .map(([iconName, Icon]) => (
-      <div className={container} key={iconName}>
-        <Icon className={icon} />
-        {iconName}
-      </div>
-    ));
+export const All: StoryObj<Args> = {
+  render({ currentColor, search }) {
+    return <Icons currentColor={currentColor} search={search} />;
+  },
+};
 
-  return (
-    <div className={root} style={{ color: currentColor }}>
-      {icons}
-    </div>
-  );
+export const Default: StoryObj = {
+  tags: ['!dev'],
+};
+
+export const Color: StoryObj = {
+  args: {
+    style: {
+      color: 'blue',
+    },
+  },
+
+  tags: ['!dev'],
+};
+
+export const SizeWithClassName: StoryObj = {
+  args: {
+    className: 'icon-size',
+  },
+
+  tags: ['!dev'],
+};
+
+export const SizeWithStyle: StoryObj = {
+  args: {
+    style: {
+      width: '32px',
+      height: '32px',
+    },
+  },
+
+  tags: ['!dev'],
 };
 
 // endregion
