@@ -1,76 +1,37 @@
-import { FC, useCallback, useState } from 'react';
-
 import { StoryObj } from '@storybook/react';
-import { format } from 'date-fns';
 
-import { UiDatePicker, UiDatePickerType } from '~';
+import { UiDatePicker } from '~';
+
+import { Picker } from './components';
+
+// region Meta
 
 export default {
-  component: UiDatePicker,
   title: 'UiDatePicker',
+
+  component: UiDatePicker,
 };
 
-type Props = {
-  type: UiDatePickerType;
-};
+// endregion Meta
 
-const Template: FC<Props> = ({ type }) => {
-  const [id, setId] = useState(0);
-  const [selected, setSelected] = useState<Date | null>(null);
+// region Stories
 
-  const handleNow = useCallback(() => {
-    setSelected(new Date());
-  }, []);
-
-  const handleReset = useCallback(() => {
-    setSelected(null);
-  }, []);
-
-  const handleUpdate = useCallback(() => {
-    setId((current) => (current += 1));
-  }, []);
-
-  return (
-    <>
-      <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        {selected == null ? 'Not selected' : <>{format(selected, 'dd MMM yyyy, HH:mm:ss ')}</>}
-        <button onClick={handleNow} type="button">
-          Set now
-        </button>
-        {selected != null && (
-          <button onClick={handleReset} type="button">
-            Reset
-          </button>
-        )}
-        <button onClick={handleUpdate} type="button">
-          Force update
-        </button>
-      </p>
-      <UiDatePicker key={id} onSelect={setSelected} selected={selected} type={type} />
-    </>
-  );
-};
-
-export const DateStory: StoryObj = {
-  name: 'Date',
-
+export const Date: StoryObj = {
   render() {
-    return <Template type="date" />;
+    return <Picker type="date" />;
   },
 };
 
-export const TimeStory: StoryObj = {
-  name: 'Time',
-
+export const Time: StoryObj = {
   render() {
-    return <Template type="time" />;
+    return <Picker type="time" />;
   },
 };
 
-export const DateTimeStory: StoryObj = {
-  name: 'DateTime',
-
+export const DateTime: StoryObj = {
   render() {
-    return <Template type="datetime" />;
+    return <Picker type="datetime" />;
   },
 };
+
+// endregion Stories
