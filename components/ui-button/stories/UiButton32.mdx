@@ -1,0 +1,121 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiButton32 } from '~';
+
+import * as Stories from './UiButton32.stories'
+
+<Meta of={Stories} />
+
+# UiButton32
+
+Buttons allow users to take actions, and make choices. Simple example:
+
+<Canvas of={Stories.Default} />
+
+## Types
+
+The component supports four types: `button`, `a`, `div` and `link`. By default, the `button` type is used.
+
+### Button
+
+By default, the component renders generic button:
+
+<Canvas of={Stories.Default} />
+
+You can provide `as="button"` explicitly:
+
+<Canvas of={Stories.Button} />
+
+### Anchor
+
+You can render `a` element with providing `as="button"`:
+
+<Canvas of={Stories.Anchor} />
+
+### Div
+
+In rare cases, you can render `div` element with providing `as="div"`:
+
+<Canvas of={Stories.Div} />
+
+### Link
+
+You can use `as="link"` and provide `component` property to use `react-router`'s `Link` component:
+
+<Canvas of={Stories.Link} />
+
+It can be useful, when you want to have `div` element with button appearance. For example, to render it inside
+another `button` element.
+
+## Variants
+
+There are 6 appearance variants, which you can use:
+
+<Canvas of={Stories.VariantPrimaryDesign} />
+<Canvas of={Stories.VariantSecondaryDesign} />
+<Canvas of={Stories.VariantPrimaryList} />
+<Canvas of={Stories.VariantSecondaryList} />
+<Canvas of={Stories.VariantDangerousList} />
+<Canvas of={Stories.VariantShadowList} />
+
+## Options
+
+The component supports a few options.
+
+### `isDisabled`
+
+This property allows to disable button:
+
+<Canvas of={Stories.ButtonDisabled} />
+<Canvas of={Stories.AnchorDisabled} />
+<Canvas of={Stories.DivDisabled} />
+<Canvas of={Stories.LinkDisabled} />
+
+### `isFrozen`
+
+This property allows to disable button, but keep enabled look and feel:
+
+<Canvas of={Stories.ButtonFrozen} />
+<Canvas of={Stories.AnchorFrozen} />
+<Canvas of={Stories.DivFrozen} />
+<Canvas of={Stories.LinkFrozen} />
+
+### `isDisabled` and `isFrozen`
+
+The `isDisabled` styles has priority over `isFrozen` when they're used together.
+
+<Canvas of={Stories.ButtonDisabledAndFrozen} />
+<Canvas of={Stories.AnchorDisabledAndFrozen} />
+<Canvas of={Stories.DivDisabledAndFrozen} />
+<Canvas of={Stories.LinkDisabledAndFrozen} />
+
+### `icon`
+
+You can provide an icon component:
+
+<Canvas of={Stories.ButtonWithIcon} />
+<Canvas of={Stories.AnchorWithIcon} />
+<Canvas of={Stories.DivWithIcon} />
+<Canvas of={Stories.LinkWithIcon} />
+
+We recommend use icons with size of `16x16`.
+
+An icon component should support `className` property.
+
+## Attributes
+
+All component types supports relevant HTML attributes, excluding `aria-disabled` and `disabled`. This attributes are
+controlled by the component itself.
+
+Also `href` attribute is restricted `link` type.
+
+For example, you can provide `data-*` attribute for analytics purposes:
+
+<Canvas of={Stories.ButtonWithTrackId} />
+<Canvas of={Stories.AnchorWithTrackId} />
+<Canvas of={Stories.DivWithTrackId} />
+<Canvas of={Stories.LinkWithTrackId} />
+
+## Properties
+
+<ArgsTable of={UiButton32} />

@@ -1,117 +1,374 @@
-import { ReactElement } from 'react';
-
 import { StoryObj } from '@storybook/react';
-import { clsx } from 'clsx/lite';
+import { sentenceCase } from 'change-case';
 
 import { UiButton24, UiButton24Props } from '~';
 
-import { darkBackground, paddings } from './style.css';
+import {
+  AddIcon,
+  ArgsOf,
+  Link as LinkComponent,
+  argTypes as baseArgTypes,
+  controls,
+  toProps,
+} from './components';
 
-import { ArgsOf, argTypes as baseArgTypes, toProps } from './helpers';
+// region Args
 
 type Args = ArgsOf<UiButton24Props>;
 
 const argTypes = structuredClone(baseArgTypes);
 
-argTypes.variant.options = [
-  'primary',
-  'secondary',
-  'primaryHeader',
-  'secondaryHeader',
-  'cancel',
-  'cancelFilled',
-  'edit',
-  'test',
-  'ai',
-];
+argTypes.variant.options = ['contract'];
+
+// endregion Args
+
+// region Meta
 
 const meta = {
   title: 'UiButton24',
 
   argTypes,
 
-  args: {
-    as: 'button',
-    label: 'Press me!',
-    variant: argTypes.variant.options[0],
-  },
+  component: UiButton24,
 };
 
 export default meta;
 
-function render(args: Args): ReactElement {
-  return <UiButton24 {...toProps(args)} />;
+// endregion Meta
+
+// region Story Utilities
+
+type Story = StoryObj<UiButton24Props>;
+
+type UserProps = Pick<UiButton24Props, 'children' | 'icon' | 'isDisabled' | 'isFrozen'> & {
+  name?: string;
+  trackId?: string;
+};
+
+function buttonStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Button' : `Button: ${name}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'button',
+      children: fullName,
+      variant: 'primary',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
 }
 
-function darkRender(args: Args): ReactElement {
-  return (
-    <div className={clsx(darkBackground, paddings)}>
-      <UiButton24 {...toProps(args)} />
-    </div>
-  );
+function anchorStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Anchor' : `Anchor: ${name}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'a',
+      children: fullName,
+      href: '#',
+      target: '_blank',
+      variant: 'primary',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
 }
 
-type Story = StoryObj<Args>;
+function divStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Div' : `Div ${name}`;
 
-export const Primary: Story = {
+  return {
+    name: fullName,
+
+    args: {
+      as: 'div',
+      children: fullName,
+      variant: 'primary',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
+}
+
+function linkStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Link' : `Link: ${name}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'link',
+      children: fullName,
+      component: LinkComponent,
+      target: '_blank',
+      to: '#',
+      variant: 'primary',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
+}
+
+function variantStory(variant: UiButton24Props['variant']): Story {
+  const fullName = `Variant: ${sentenceCase(variant)}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'button',
+      children: fullName,
+      variant,
+    },
+
+    parameters: {
+      backgrounds: {
+        default: variant === 'secondaryHeader' ? 'dark' : 'light',
+      },
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
+}
+
+// endregion Story Utilities
+
+// region Playground
+
+export const Playground: StoryObj<Args> = {
   args: {
+    as: 'button',
+    label: 'Press me!',
     variant: 'primary',
   },
-  render,
+
+  parameters: {
+    controls,
+  },
+
+  render(args: Args) {
+    return <UiButton24 {...toProps(args, AddIcon)} />;
+  },
 };
 
-export const Secondary: Story = {
+// endregion Playground
+
+// region Default
+
+export const Default: Story = {
   args: {
-    variant: 'secondary',
+    children: 'Default',
+    variant: 'primary',
   },
-  render,
+
+  tags: ['!dev'],
 };
 
-export const PrimaryHeader: Story = {
-  args: {
-    variant: 'primaryHeader',
-  },
-  render,
-};
+// endregion Default
 
-export const SecondaryHeader: Story = {
-  args: {
-    variant: 'secondaryHeader',
-  },
-  render: darkRender,
-};
+// region Button
 
-export const Cancel: Story = {
-  args: {
-    variant: 'cancel',
-  },
-  render,
-};
+export const Button = buttonStory();
 
-export const CancelFilled: Story = {
-  args: {
-    variant: 'cancelFilled',
-  },
-  render,
-};
+export const ButtonDisabled: Story = buttonStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
 
-export const Edit: Story = {
-  args: {
-    variant: 'edit',
-  },
-  render,
-};
+export const ButtonFrozen: Story = buttonStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
 
-export const Test: Story = {
-  args: {
-    variant: 'test',
-  },
-  render,
-};
+export const ButtonDisabledAndFrozen: Story = buttonStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
 
-export const AI: Story = {
-  args: {
-    variant: 'ai',
-  },
-  render,
-};
+export const ButtonWithIcon: Story = buttonStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const ButtonWithTrackId: Story = buttonStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Button
+
+// region Anchor
+
+export const Anchor = anchorStory();
+
+export const AnchorDisabled: Story = anchorStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const AnchorFrozen: Story = anchorStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const AnchorDisabledAndFrozen: Story = anchorStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const AnchorWithIcon: Story = anchorStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const AnchorWithTrackId: Story = anchorStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Anchor
+
+// region Div
+
+export const Div = divStory();
+
+export const DivDisabled: Story = divStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const DivFrozen: Story = divStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const DivDisabledAndFrozen: Story = divStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const DivWithIcon: Story = divStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const DivWithTrackId: Story = divStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Div
+
+// region Link
+
+export const Link = linkStory();
+
+export const LinkDisabled: Story = linkStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const LinkFrozen: Story = linkStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const LinkDisabledAndFrozen: Story = linkStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const LinkWithIcon: Story = linkStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const LinkWithTrackId: Story = linkStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Link
+
+// region Variants
+
+export const VariantPrimary = variantStory('primary');
+
+export const VariantSecondary = variantStory('secondary');
+
+export const VariantPrimaryHeader = variantStory('primaryHeader');
+
+export const VariantSecondaryHeader = variantStory('secondaryHeader');
+
+export const VariantCancel = variantStory('cancel');
+
+export const VariantCancelFilled = variantStory('cancelFilled');
+
+export const VariantEdit = variantStory('edit');
+
+export const VariantTest = variantStory('test');
+
+export const VariantAi = variantStory('ai');
+
+// endregion Variants

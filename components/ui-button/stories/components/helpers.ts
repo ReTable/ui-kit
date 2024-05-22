@@ -1,6 +1,7 @@
 import { MouseEventHandler } from 'react';
 
-import { AddIcon } from './AddIcon';
+import { UiButtonIconComponentType } from '~';
+
 import { Link } from './Link';
 
 // region Types
@@ -74,21 +75,19 @@ export const argTypes = {
   },
 };
 
+export const controls = {
+  include: /(As|Is|Has|Label|URL|Variant)/g,
+  hideNoControlsWarning: true,
+};
+
 // endregion
 
 // region Helpers
 
-export function toProps<Props extends BaseProps>({
-  as,
-  href,
-  icon,
-  isDisabled,
-  isFrozen,
-  label: children,
-  onClick,
-  to,
-  variant,
-}: ArgsOf<Props>): Props {
+export function toProps<Props extends BaseProps>(
+  { as, href, icon, isDisabled, isFrozen, label: children, onClick, to, variant }: ArgsOf<Props>,
+  iconComponent: UiButtonIconComponentType,
+): Props {
   const props: Record<string, unknown> = {
     as,
     children,
@@ -108,7 +107,7 @@ export function toProps<Props extends BaseProps>({
   }
 
   if (icon) {
-    props.icon = AddIcon;
+    props.icon = iconComponent;
   }
 
   return props as Props;

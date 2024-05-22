@@ -1,10 +1,17 @@
-import { ReactElement } from 'react';
-
 import { StoryObj } from '@storybook/react';
 
 import { UiButton20, UiButton20Props } from '~';
 
-import { ArgsOf, argTypes as baseArgTypes, toProps } from './helpers';
+import {
+  AddIcon,
+  ArgsOf,
+  Link as LinkComponent,
+  argTypes as baseArgTypes,
+  controls,
+  toProps,
+} from './components';
+
+// region Args
 
 type Args = ArgsOf<UiButton20Props>;
 
@@ -12,16 +19,16 @@ const argTypes = structuredClone(baseArgTypes);
 
 argTypes.variant.options = ['contract'];
 
+// endregion Args
+
+// region Meta
+
 const meta = {
   title: 'UiButton20',
 
-  argTypes,
+  component: UiButton20,
 
-  args: {
-    as: 'button',
-    label: 'Press me!',
-    variant: argTypes.variant.options[0],
-  },
+  argTypes,
 
   parameters: {
     backgrounds: {
@@ -32,15 +39,308 @@ const meta = {
 
 export default meta;
 
-function render(args: Args): ReactElement {
-  return <UiButton20 {...toProps(args)} />;
+// endregion Meta
+
+// region Story Utilities
+
+type Story = StoryObj<UiButton20Props>;
+
+type UserProps = Pick<UiButton20Props, 'children' | 'icon' | 'isDisabled' | 'isFrozen'> & {
+  name?: string;
+  trackId?: string;
+};
+
+function buttonStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Button' : `Button: ${name}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'button',
+      children: fullName,
+      variant: 'contract',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
 }
 
-type Story = StoryObj<Args>;
+function anchorStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Anchor' : `Anchor: ${name}`;
 
-export const Contract: Story = {
+  return {
+    name: fullName,
+
+    args: {
+      as: 'a',
+      children: fullName,
+      href: '#',
+      target: '_blank',
+      variant: 'contract',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
+}
+
+function divStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Div' : `Div ${name}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'div',
+      children: fullName,
+      variant: 'contract',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
+}
+
+function linkStory({ name, trackId, ...props }: UserProps = {}): Story {
+  const fullName = name == null ? 'Link' : `Link: ${name}`;
+
+  return {
+    name: fullName,
+
+    args: {
+      as: 'link',
+      children: fullName,
+      component: LinkComponent,
+      target: '_blank',
+      to: '#',
+      variant: 'contract',
+
+      ...props,
+
+      // @ts-expect-error data attributes is allowed
+      ['data-track-id']: trackId,
+    },
+
+    parameters: {
+      controls: {
+        include: /^&/g,
+        hideNoControlsWarning: true,
+      },
+    },
+
+    tags: ['!dev'],
+  };
+}
+
+// endregion Story Utilities
+
+// region Playground
+
+export const Playground: StoryObj<Args> = {
   args: {
+    as: 'button',
+    label: 'Press me!',
     variant: 'contract',
   },
-  render,
+
+  parameters: {
+    controls,
+  },
+
+  render(args: Args) {
+    return <UiButton20 {...toProps(args, AddIcon)} />;
+  },
 };
+
+// endregion Playground
+
+// region Default
+
+export const Default: Story = {
+  args: {
+    children: 'Default',
+    variant: 'contract',
+  },
+
+  tags: ['!dev'],
+};
+
+// endregion Default
+
+// region Button
+
+export const Button = buttonStory();
+
+export const ButtonDisabled: Story = buttonStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const ButtonFrozen: Story = buttonStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const ButtonDisabledAndFrozen: Story = buttonStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const ButtonWithIcon: Story = buttonStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const ButtonWithTrackId: Story = buttonStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Button
+
+// region Anchor
+
+export const Anchor = anchorStory();
+
+export const AnchorDisabled: Story = anchorStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const AnchorFrozen: Story = anchorStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const AnchorDisabledAndFrozen: Story = anchorStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const AnchorWithIcon: Story = anchorStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const AnchorWithTrackId: Story = anchorStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Anchor
+
+// region Div
+
+export const Div = divStory();
+
+export const DivDisabled: Story = divStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const DivFrozen: Story = divStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const DivDisabledAndFrozen: Story = divStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const DivWithIcon: Story = divStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const DivWithTrackId: Story = divStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Div
+
+// region Link
+
+export const Link = linkStory();
+
+export const LinkDisabled: Story = linkStory({
+  isDisabled: true,
+  name: 'Disabled',
+});
+
+export const LinkFrozen: Story = linkStory({
+  isFrozen: true,
+  name: 'Frozen',
+});
+
+export const LinkDisabledAndFrozen: Story = linkStory({
+  isDisabled: true,
+  isFrozen: true,
+  name: 'Disabled and Frozen',
+});
+
+export const LinkWithIcon: Story = linkStory({
+  icon: AddIcon,
+  name: 'With Icon',
+});
+
+export const LinkWithTrackId: Story = linkStory({
+  name: 'With Track Id',
+  trackId: 'anchor',
+});
+
+// endregion Link
+
+// region Variants
+
+export const VariantContract: Story = {
+  name: 'Variant: Contract',
+
+  args: {
+    children: 'Variant: Contract',
+    variant: 'contract',
+  },
+
+  tags: ['!dev'],
+};
+
+// endregion Variants

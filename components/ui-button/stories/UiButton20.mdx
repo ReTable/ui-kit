@@ -1,0 +1,118 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiButton20 } from '~';
+
+import * as Stories from './UiButton20.stories';
+
+import { contractBackground } from './components';
+
+<Meta of={Stories} />
+
+# UiButton20
+
+Buttons allow users to take actions, and make choices. Simple example:
+
+<Canvas className={contractBackground} of={Stories.Default} />
+
+## Types
+
+The component supports four types: `button`, `a`, `div` and `link`. By default, the `button` type is used.
+
+### Button
+
+By default, the component renders generic button:
+
+<Canvas className={contractBackground} of={Stories.Default} />
+
+You can provide `as="button"` explicitly:
+
+<Canvas className={contractBackground} of={Stories.Button} />
+
+### Anchor
+
+You can render `a` element with providing `as="button"`:
+
+<Canvas className={contractBackground} of={Stories.Anchor} />
+
+### Div
+
+In rare cases, you can render `div` element with providing `as="div"`:
+
+<Canvas className={contractBackground} of={Stories.Div} />
+
+### Link
+
+You can use `as="link"` and provide `component` property to use `react-router`'s `Link` component:
+
+<Canvas className={contractBackground} of={Stories.Link} />
+
+It can be useful, when you want to have `div` element with button appearance. For example, to render it inside
+another `button` element.
+
+## Variants
+
+There is single appearance variant, which you can use:
+
+<Canvas className={contractBackground} of={Stories.VariantContract} />
+
+## Options
+
+The component supports a few options.
+
+### `isDisabled`
+
+This property allows to disable button:
+
+<Canvas className={contractBackground} of={Stories.ButtonDisabled} />
+<Canvas className={contractBackground} of={Stories.AnchorDisabled} />
+<Canvas className={contractBackground} of={Stories.DivDisabled} />
+<Canvas className={contractBackground} of={Stories.LinkDisabled} />
+
+### `isFrozen`
+
+This property allows to disable button, but keep enabled look and feel:
+
+<Canvas className={contractBackground} of={Stories.ButtonFrozen} />
+<Canvas className={contractBackground} of={Stories.AnchorFrozen} />
+<Canvas className={contractBackground} of={Stories.DivFrozen} />
+<Canvas className={contractBackground} of={Stories.LinkFrozen} />
+
+### `isDisabled` and `isFrozen`
+
+The `isDisabled` styles has priority over `isFrozen` when they're used together.
+
+<Canvas className={contractBackground} of={Stories.ButtonDisabledAndFrozen} />
+<Canvas className={contractBackground} of={Stories.AnchorDisabledAndFrozen} />
+<Canvas className={contractBackground} of={Stories.DivDisabledAndFrozen} />
+<Canvas className={contractBackground} of={Stories.LinkDisabledAndFrozen} />
+
+### `icon`
+
+You can provide an icon component:
+
+<Canvas className={contractBackground} of={Stories.ButtonWithIcon} />
+<Canvas className={contractBackground} of={Stories.AnchorWithIcon} />
+<Canvas className={contractBackground} of={Stories.DivWithIcon} />
+<Canvas className={contractBackground} of={Stories.LinkWithIcon} />
+
+We recommend use icons with size of `16x16`.
+
+An icon component should support `className` property.
+
+## Attributes
+
+All component types supports relevant HTML attributes, excluding `aria-disabled` and `disabled`. This attributes are
+controlled by the component itself.
+
+Also `href` attribute is restricted `link` type.
+
+For example, you can provide `data-*` attribute for analytics purposes:
+
+<Canvas className={contractBackground} of={Stories.ButtonWithTrackId} />
+<Canvas className={contractBackground} of={Stories.AnchorWithTrackId} />
+<Canvas className={contractBackground} of={Stories.DivWithTrackId} />
+<Canvas className={contractBackground} of={Stories.LinkWithTrackId} />
+
+## Properties
+
+<ArgsTable of={UiButton20} />
