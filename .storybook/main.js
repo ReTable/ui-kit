@@ -45,18 +45,20 @@ function searchStories(workspace) {
 }
 
 const alias = {
-  find: /^~$/,
+  find: /^~(.*)/,
 
-  replacement: `../lib/$1`,
+  replacement: `$1`,
 
-  customResolver(_, importer) {
+  customResolver(target, importer) {
     if (importer == null) {
       return null;
     }
 
     const [ns, pkgName] = path.relative(ROOT_DIR, importer).split(path.sep);
 
-    return path.join(ROOT_DIR, ns, pkgName, 'lib/index.js');
+    const resolvedTarget = target === '' ? 'lib/index.js' : `lib${target}.js`;
+
+    return path.join(ROOT_DIR, ns, pkgName, resolvedTarget);
   },
 };
 
@@ -102,4 +104,6 @@ export default {
       },
     });
   },
+
+  logLevel: 'debug',
 };
