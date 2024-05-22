@@ -4,7 +4,7 @@ import { userEvent, within } from '@storybook/testing-library';
 
 import { UiCheckbox } from '~';
 
-import * as Interactions from './Interactions';
+import { Complex, Simple } from './components';
 
 // region Meta
 
@@ -96,9 +96,9 @@ export const IndeterminateDisabled: Story = {
 
 // region Playgrounds
 
-export const SimpleInteraction: StoryObj<typeof Interactions.Simple> = {
+export const SimpleInteraction: StoryObj<typeof Simple> = {
   render() {
-    return <Interactions.Simple />;
+    return <Simple />;
   },
 
   async play({ canvasElement, step }) {
@@ -118,9 +118,9 @@ export const SimpleInteraction: StoryObj<typeof Interactions.Simple> = {
   },
 };
 
-export const ComplexInteraction: StoryObj<typeof Interactions.Complex> = {
+export const ComplexInteraction: StoryObj<typeof Complex> = {
   render() {
-    return <Interactions.Complex />;
+    return <Complex />;
   },
 
   async play({ canvasElement, step }) {
