@@ -1,10 +1,10 @@
 import { Canvas, Meta, Source } from '@storybook/blocks';
 
-import { UiAnalytics } from '~';
+import * as Stories from './useUiTrackIds.stories'
 
-import { Table, TrackIds } from './components';
+import { Table } from './components';
 
-<Meta title="useUiTrackIds/Docs" />
+<Meta of={Stories} />
 
 # useUiTrackIds
 
@@ -76,8 +76,4 @@ declare function useUiTrackIds(ids: Input): Output;
 
 ## Example
 
-<Canvas>
-  <UiAnalytics trackId="parent">
-    <TrackIds />
-  </UiAnalytics>
-</Canvas>
+<Canvas of={Stories.Example} />
