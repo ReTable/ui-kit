@@ -1,5 +1,15 @@
 # @tabula/ui-theme
 
+## 2.7.0
+
+### Minor Changes
+
+- [#156](https://github.com/ReTable/ui-kit/pull/156) [`551d788`](https://github.com/ReTable/ui-kit/commit/551d788fb51a78dc82b2d4f9cfcfc1ca82ee81e4) Thanks [@demiazz](https://github.com/demiazz)! - expand font styles
+
+### Patch Changes
+
+- [#157](https://github.com/ReTable/ui-kit/pull/157) [`afb7d74`](https://github.com/ReTable/ui-kit/commit/afb7d7458a6a3a30f1898698a28010faaea41551) Thanks [@demiazz](https://github.com/demiazz)! - fix font types
+
 ## 2.6.0
 
 ### Minor Changes
