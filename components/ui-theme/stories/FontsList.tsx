@@ -119,14 +119,35 @@ const Font: FC<FontProps> = ({ font, sourceType }) => {
         <p>
           <code>{usage.font}</code>
         </p>
-        {usage.textTransform && (
+
+        {usage.fontFamily && (
           <p>
-            <code>{usage.textTransform}</code>
+            <code>{usage.fontFamily}</code>
+          </p>
+        )}
+        {usage.fontSize && (
+          <p>
+            <code>{usage.fontSize}</code>
+          </p>
+        )}
+        {usage.fontWeight && (
+          <p>
+            <code>{usage.fontWeight}</code>
           </p>
         )}
         {usage.letterSpacing && (
           <p>
             <code>{usage.letterSpacing}</code>
+          </p>
+        )}
+        {usage.lineHeight && (
+          <p>
+            <code>{usage.lineHeight}</code>
+          </p>
+        )}
+        {usage.textTransform && (
+          <p>
+            <code>{usage.textTransform}</code>
           </p>
         )}
       </div>

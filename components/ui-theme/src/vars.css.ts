@@ -2,16 +2,60 @@
 
 // region Helpers
 
-function font(family: string, weight: number | string, size: number, lineHeight: number) {
-  return `normal ${weight} ${size}px/${lineHeight}px ${family}`;
+type FontOptions = {
+  family: string;
+  isUppercase?: boolean;
+  letterSpacing?: number;
+  lineHeight: number;
+  size: number;
+  weight: number | 'normal';
+};
+
+type Font = {
+  font: string;
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: string;
+  letterSpacing: string;
+  lineHeight: string;
+  textTransform: string;
+};
+
+function font({ family, isUppercase, letterSpacing, lineHeight, size, weight }: FontOptions): Font {
+  return {
+    font: `normal ${weight} ${size}px/${lineHeight}px ${family}`,
+    fontFamily: family,
+    fontSize: `${size}px`,
+    fontWeight: weight.toString(),
+    letterSpacing: letterSpacing == null ? 'normal' : `${letterSpacing}em`,
+    lineHeight: `${lineHeight}px`,
+    textTransform: isUppercase ? 'uppercase' : 'none',
+  };
 }
 
-function sansSerif(weight: 700 | 600 | 500 | 400, size: number, lineHeight: number) {
-  return font(`${JSON.stringify('Inter')}, sans-serif`, weight, size, lineHeight);
+type SansSerifOptions = Pick<
+  FontOptions,
+  'isUppercase' | 'letterSpacing' | 'lineHeight' | 'size'
+> & {
+  weight: 700 | 600 | 500 | 400;
+};
+
+const SANS_SERIF_FAMILY = `${JSON.stringify('Inter')}, sans-serif`;
+
+function sansSerif(options: SansSerifOptions): Font {
+  return font({ family: SANS_SERIF_FAMILY, ...options });
 }
 
-function monospace(weight: 700 | 500 | 'normal', size: number, lineHeight: number) {
-  return font(`${JSON.stringify('IBM Plex Mono')}, monospace`, weight, size, lineHeight);
+type MonospaceOptions = {
+  lineHeight: number;
+  size: number;
+  weight: 700 | 500 | 'normal';
+};
+
+const MONOSPACE_FAMILY = `${JSON.stringify('IBM Plex Mono')}, monospace`;
+
+function monospace(options: MonospaceOptions): Font {
+  return font({ family: MONOSPACE_FAMILY, ...options });
 }
 
 // endregion
@@ -359,85 +403,132 @@ export const tokens = {
 
   fonts: {
     sansSerif: {
-      bold12: {
-        font: sansSerif(700, 12, 16),
-      },
-      bold10: {
-        font: sansSerif(700, 10, 12),
-      },
+      bold12: sansSerif({
+        lineHeight: 16,
+        size: 12,
+        weight: 700,
+      }),
+      bold10: sansSerif({
+        lineHeight: 12,
+        size: 10,
+        weight: 700,
+      }),
 
-      semiBold18: {
-        font: sansSerif(600, 18, 24),
-        letterSpacing: '-0.015em',
-      },
-      semiBold14: {
-        font: sansSerif(600, 14, 22),
-      },
-      semiBold12: {
-        font: sansSerif(600, 12, 16),
-      },
-      semiBold10: {
-        font: sansSerif(600, 10, 16),
-        letterSpacing: '0.08em',
-        textTransform: 'uppercase',
-      },
+      semiBold18: sansSerif({
+        letterSpacing: -0.015,
+        lineHeight: 24,
+        size: 18,
+        weight: 600,
+      }),
+      semiBold14: sansSerif({
+        lineHeight: 22,
+        size: 14,
+        weight: 600,
+      }),
+      semiBold12: sansSerif({
+        lineHeight: 16,
+        size: 12,
+        weight: 600,
+      }),
+      semiBold10: sansSerif({
+        isUppercase: true,
+        letterSpacing: 0.08,
+        lineHeight: 16,
+        size: 10,
+        weight: 600,
+      }),
 
-      medium32: {
-        font: sansSerif(500, 32, 40),
-        letterSpacing: '-0.015em',
-      },
-      medium24: {
-        font: sansSerif(500, 24, 32),
-        letterSpacing: '-0.015em',
-      },
-      medium18: {
-        font: sansSerif(500, 18, 24),
-      },
-      medium14: {
-        font: sansSerif(500, 14, 22),
-      },
-      medium12: {
-        font: sansSerif(500, 12, 16),
-      },
-      medium10: {
-        font: sansSerif(500, 10, 12),
-      },
+      medium32: sansSerif({
+        letterSpacing: -0.015,
+        lineHeight: 40,
+        size: 32,
+        weight: 500,
+      }),
+      medium24: sansSerif({
+        letterSpacing: -0.015,
+        lineHeight: 32,
+        size: 24,
+        weight: 500,
+      }),
+      medium18: sansSerif({
+        lineHeight: 24,
+        size: 18,
+        weight: 500,
+      }),
+      medium14: sansSerif({
+        lineHeight: 22,
+        size: 14,
+        weight: 500,
+      }),
+      medium12: sansSerif({
+        lineHeight: 16,
+        size: 12,
+        weight: 500,
+      }),
+      medium10: sansSerif({
+        lineHeight: 12,
+        size: 10,
+        weight: 500,
+      }),
 
-      regular24: {
-        font: sansSerif(400, 24, 32),
-      },
-      regular18: {
-        font: sansSerif(400, 18, 24),
-      },
-      regular14: {
-        font: sansSerif(400, 14, 22),
-      },
-      regular12: {
-        font: sansSerif(400, 12, 16),
-      },
+      regular24: sansSerif({
+        lineHeight: 32,
+        size: 24,
+        weight: 400,
+      }),
+      regular18: sansSerif({
+        lineHeight: 24,
+        size: 18,
+        weight: 400,
+      }),
+      regular14: sansSerif({
+        lineHeight: 22,
+        size: 14,
+        weight: 400,
+      }),
+      regular12: sansSerif({
+        lineHeight: 16,
+        size: 12,
+        weight: 400,
+      }),
     },
 
     monospace: {
-      bold12: {
-        font: monospace(700, 12, 16),
-      },
-      bold10: {
-        font: monospace(700, 10, 12),
-      },
+      bold12: monospace({
+        lineHeight: 16,
+        size: 12,
+        weight: 700,
+      }),
 
-      semiBold14: {
-        font: monospace(500, 14, 20),
-      },
-      semiBold12: {
-        font: monospace(500, 12, 16),
-      },
+      bold10: monospace({
+        lineHeight: 12,
+        size: 10,
+        weight: 700,
+      }),
 
-      regular12: {
-        font: monospace('normal', 12, 16),
-      },
-      regular10: {
-        font: monospace('normal', 10, 16),
-      },
+      semiBold14: monospace({
+        lineHeight: 20,
+        size: 14,
+        weight: 500,
+      }),
+
+      semiBold12: monospace({
+        lineHeight: 16,
+        size: 12,
+        weight: 500,
+      }),
+
+      regular12: monospace({
+        lineHeight: 16,
+        size: 12,
+        weight: 'normal',
+      }),
+
+      regular10: monospace({
+        lineHeight: 16,
+        size: 10,
+        weight: 'normal',
+      }),
     },
   },
 };
