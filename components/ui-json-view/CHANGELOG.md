@@ -1,5 +1,12 @@
 # @tabula/ui-json-view
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`551d788`](https://github.com/ReTable/ui-kit/commit/551d788fb51a78dc82b2d4f9cfcfc1ca82ee81e4), [`afb7d74`](https://github.com/ReTable/ui-kit/commit/afb7d7458a6a3a30f1898698a28010faaea41551)]:
+  - @tabula/ui-theme@2.7.0
+
 ## 3.0.3
 
 ### Patch Changes
