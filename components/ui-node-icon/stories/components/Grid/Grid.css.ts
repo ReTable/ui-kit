@@ -6,7 +6,7 @@ export const root = style({
   gap: '8px',
 });
 
-export const iconContainer = style({
+export const item = style({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -20,14 +20,3 @@ export const icon = style({
   display: 'block',
   marginRight: '16px',
 });
-
-export const iconsTable = style({
-  width: '100%',
-});
-
-export const iconsTableItem = style([
-  iconContainer,
-  {
-    justifyContent: 'center',
-  },
-]);

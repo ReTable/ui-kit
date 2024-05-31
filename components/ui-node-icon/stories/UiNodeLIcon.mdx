@@ -1,0 +1,63 @@
+import { Canvas, Meta, Source } from '@storybook/blocks';
+
+import * as Stories from './UiNodeLIcon.stories';
+
+<Meta of={Stories} />
+
+# Ui*LIcon
+
+We provide icons as React components.
+
+## Import
+
+You can import a single icon the following way:
+
+<Source code={`
+import { UiInnerJoinLIcon } from '@tabula/ui-node-icon';
+`} language="ts" />
+
+Or you can import all icons another way:
+
+<Source code={`
+import { UiNodeLIcons } from '@tabula/ui-node-icon';
+
+const ComponentWithIcon = () => <UiNodeLIcons.UiInnerJoinLIcon />;
+`} language="tsx"/>
+
+## Default
+
+Data types icons has `16x16` size by default.
+
+<Canvas layout="centered" of={Stories.Default} />
+
+## Styling
+
+You can style icons with CSS.
+
+### Size with class
+
+You can provide `className` property.
+
+<Canvas layout="centered" of={Stories.SizeWithClassName} />
+
+### Size with style
+
+You can provide `style` property.
+
+<Canvas layout="centered" of={Stories.SizeWithStyle} />
+
+## Disabled State
+
+Icons has disabled state, and it can be activated with two ways.
+
+### Parent is disabled
+
+For example, if an icon located inside disabled control, then an icon will have disabled colors automatically.
+
+<Canvas layout="centered" of={Stories.DisabledParent} />
+
+### Providing `isDisabled` property.
+
+Alternative way is using of `isDisabled` property.
+
+<Canvas layout="centered" of={Stories.Disabled} />
