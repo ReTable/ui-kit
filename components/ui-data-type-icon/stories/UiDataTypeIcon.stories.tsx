@@ -11,7 +11,7 @@ type Args = {
   search: string;
 };
 
-// endregion
+// endregion Args
 
 // region Meta
 
@@ -34,7 +34,7 @@ const meta: Meta = {
 
 export default meta;
 
-// endregion
+// endregion Meta
 
 // region Stories
 
@@ -77,4 +77,4 @@ export const SizeWithStyle: StoryObj = {
   tags: ['!dev'],
 };
 
-// endregion
+// endregion Stories
