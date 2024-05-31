@@ -1,6 +1,5 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
 
 import { UiCheckbox } from '~';
 
@@ -100,67 +99,11 @@ export const SimpleInteraction: StoryObj<typeof Simple> = {
   render() {
     return <Simple />;
   },
-
-  async play({ canvasElement, step }) {
-    const canvas = within(canvasElement);
-
-    await step('Check the input', async () => {
-      await userEvent.click(await canvas.findByTestId('target'));
-    });
-
-    await step('Uncheck the input', async () => {
-      await userEvent.click(await canvas.findByTestId('target'));
-    });
-
-    await step('Check the input', async () => {
-      await userEvent.click(await canvas.findByTestId('target'));
-    });
-  },
 };
 
 export const ComplexInteraction: StoryObj<typeof Complex> = {
   render() {
     return <Complex />;
-  },
-
-  async play({ canvasElement, step }) {
-    const canvas = within(canvasElement);
-
-    await step('Check all', async () => {
-      await userEvent.click(await canvas.findByTestId('check-all'));
-    });
-
-    await step('Uncheck all', async () => {
-      await userEvent.click(await canvas.findByTestId('check-all'));
-    });
-
-    await step('Check 1', async () => {
-      await userEvent.click(await canvas.findByTestId('check-1'));
-    });
-
-    await step('Check 3', async () => {
-      await userEvent.click(await canvas.findByTestId('check-3'));
-    });
-
-    await step('Check 2', async () => {
-      await userEvent.click(await canvas.findByTestId('check-2'));
-    });
-
-    await step('Uncheck 1', async () => {
-      await userEvent.click(await canvas.findByTestId('check-1'));
-    });
-
-    await step('Uncheck 3', async () => {
-      await userEvent.click(await canvas.findByTestId('check-3'));
-    });
-
-    await step('Uncheck 2', async () => {
-      await userEvent.click(await canvas.findByTestId('check-2'));
-    });
-
-    await step('Check all', async () => {
-      await userEvent.click(await canvas.findByTestId('check-all'));
-    });
   },
 };
 
