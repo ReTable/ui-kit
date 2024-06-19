@@ -14,6 +14,7 @@ export const root = style([
         justifyContent: 'flex-start',
         alignItems: 'center',
         gap: '12px',
+        color: uiTheme.colors.content.primary,
 
         cursor: 'pointer',
       },
@@ -114,7 +115,6 @@ export const content = style({
   '@layer': {
     [uiLayers.components]: {
       flexGrow: 1,
-      color: uiTheme.colors.content.primary,
       userSelect: 'none',
       cursor: 'pointer',
       overflow: 'hidden',
