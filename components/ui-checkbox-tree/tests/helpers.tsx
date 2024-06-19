@@ -9,12 +9,16 @@ import { Leaf } from './types';
 
 // region Factories
 
-export function leafOf(id: number): Leaf {
-  return { id };
+export function leafOf(id: number, isDisabled = false): Leaf {
+  return { id, isDisabled };
 }
 
-export function branchOf(id: number, children: Array<TreeNode<Leaf>> = []): TreeBranch<Leaf> {
-  return { id, children };
+export function branchOf(
+  id: number,
+  children: Array<TreeNode<Leaf>> = [],
+  isDisabled = false,
+): TreeBranch<Leaf> {
+  return { id, children, isDisabled };
 }
 
 // endregion
@@ -104,11 +108,15 @@ type HeaderItem = {
 export type LeafItem = {
   id: number;
 
+  isDisabled?: boolean;
+
   isChecked: boolean;
 };
 
 export type BranchItem = {
   id: number;
+
+  isDisabled?: boolean;
 
   isChecked: boolean;
   isIndeterminate: boolean;
@@ -146,7 +154,7 @@ function verifyHeader(node: Node, { isChecked, isIndeterminate }: HeaderItem) {
   }
 }
 
-function verifyLeaf(node: Node, { id, isChecked }: LeafItem) {
+function verifyLeaf(node: Node, { id, isChecked, isDisabled = false }: LeafItem) {
   const name = `Leaf ${id}`;
   const testId = `tree--items--${id}--checkbox`;
 
@@ -163,6 +171,12 @@ function verifyLeaf(node: Node, { id, isChecked }: LeafItem) {
 
   if (input == null) {
     return;
+  }
+
+  if (isDisabled) {
+    expect(input, `Leaf with id ${id} should have an input which is disabled`).toBeDisabled();
+  } else {
+    expect(input, `Leaf with id ${id} should have an input which is enabled`).toBeEnabled();
   }
 
   if (isChecked) {
@@ -184,7 +198,10 @@ function verifyLeaf(node: Node, { id, isChecked }: LeafItem) {
   expect(content, `Leaf with id ${id} should have a content with ${name}`).toHaveTextContent(name);
 }
 
-function verifyBranch(node: Node, { id, isChecked, isIndeterminate }: BranchItem) {
+function verifyBranch(
+  node: Node,
+  { id, isChecked, isIndeterminate, isDisabled = false }: BranchItem,
+) {
   const name = `Branch ${id}`;
   const testId = `tree--items--${id}`;
 
@@ -201,6 +218,12 @@ function verifyBranch(node: Node, { id, isChecked, isIndeterminate }: BranchItem
 
   if (input == null) {
     return;
+  }
+
+  if (isDisabled) {
+    expect(input, `Branch with id ${id} should have an input which is disabled`).toBeDisabled();
+  } else {
+    expect(input, `Branch with id ${id} should have an input which is enabled`).toBeEnabled();
   }
 
   if (isChecked) {
