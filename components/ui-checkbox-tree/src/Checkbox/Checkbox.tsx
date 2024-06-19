@@ -7,6 +7,8 @@ import { variants } from './Checkbox.css';
 type Variant = keyof typeof variants;
 
 type Props = PropsWithChildren<{
+  isDisabled?: boolean;
+
   isChecked: boolean;
   isIndeterminate: boolean;
 
@@ -22,6 +24,7 @@ type Props = PropsWithChildren<{
 export function Checkbox({
   children,
   isChecked,
+  isDisabled,
   isIndeterminate,
   onChange,
   style,
@@ -32,6 +35,7 @@ export function Checkbox({
     <UiCheckbox
       className={variants[variant]}
       isChecked={isChecked}
+      isDisabled={isDisabled}
       isIndeterminate={isIndeterminate}
       onChange={onChange}
       style={style}

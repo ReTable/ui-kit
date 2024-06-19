@@ -53,4 +53,14 @@ export const Tree: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    tree: trees.disabled,
+  },
+
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
+  },
+};
+
 // endregion Stories

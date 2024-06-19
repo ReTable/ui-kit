@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+    "name": "Transactional",
+    "children": [
+      {
+        "id": 4,
+        "name": "SQLite"
+      },
+      {
+        "id": 5,
+        "name": "PostgreSQL",
+        "isDisabled": true
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "NoSQL",
+    "isDisabled": true,
+    "children": [
+      {
+        "id": 6,
+        "name": "MongoDB"
+      },
+      {
+        "id": 7,
+        "name": "Redis",
+        "isDisabled": true
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Futuristic",
+    "isDisabled": true,
+    "children": []
+  }
+]

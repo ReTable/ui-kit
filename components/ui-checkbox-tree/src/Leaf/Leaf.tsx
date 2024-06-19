@@ -19,6 +19,7 @@ export function Leaf<Leaf extends TreeLeaf>({
   return (
     <Checkbox
       isChecked={isChecked}
+      isDisabled={node.isDisabled}
       isIndeterminate={false}
       onChange={onChange}
       style={style}

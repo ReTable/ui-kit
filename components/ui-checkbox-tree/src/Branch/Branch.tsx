@@ -34,6 +34,7 @@ export function Branch<Leaf extends TreeLeaf>({
       />
       <Checkbox
         isChecked={isChecked}
+        isDisabled={node.isDisabled}
         isIndeterminate={isIndeterminate}
         onChange={onChange}
         testId={checkboxTestId}
