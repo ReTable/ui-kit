@@ -10,7 +10,9 @@ type BranchMeta = {
   isDisabled: boolean;
 
   leavesCount: number;
+
   selectedLeavesCount: number;
+  disabledLeavesCount: number;
 };
 
 type BranchesMetas<Leaf extends TreeLeaf> = Map<Leaf['id'], BranchMeta>;
@@ -28,6 +30,7 @@ function updateMeta<Leaf extends TreeLeaf>(
 
       leavesCount: 0,
       selectedLeavesCount: 0,
+      disabledLeavesCount: 0,
     };
 
     metas.set(id, meta);
@@ -85,13 +88,24 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
             meta.selectedLeavesCount += 1;
           }
 
+          if (isDisabled) {
+            meta.disabledLeavesCount += 1;
+          }
+
           meta.leavesCount += 1;
         });
       }
     }
 
-    for (const [id, { isDisabled, leavesCount, selectedLeavesCount }] of branchesMetas) {
+    for (const [
+      id,
+      { disabledLeavesCount, isDisabled: isSelfDisabled, leavesCount, selectedLeavesCount },
+    ] of branchesMetas) {
+      // NOTE: In case, when branch is not disabled, but all of its leaves are disabled - we disable branch too.
+      const isDisabled = isSelfDisabled || leavesCount === disabledLeavesCount;
+      // NOTE: In case, when all branch's leaves are checked, then we check branch too.
       const isChecked = leavesCount === selectedLeavesCount;
+      // NOTE: In case, when some branch's leaves are checked, then we check branch too.
       const isIndeterminate = !isChecked && selectedLeavesCount > 0;
 
       states.set(id, { isChecked, isDisabled, isIndeterminate });
