@@ -29,6 +29,7 @@ const root = style({
 
         '&:has(input:disabled)': {
           color: uiTheme.colors.content.tertiary,
+          cursor: 'default',
         },
 
         '&:has(input:disabled):hover': {
