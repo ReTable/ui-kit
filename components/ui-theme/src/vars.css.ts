@@ -13,22 +13,14 @@ type FontOptions = {
 
 type Font = {
   font: string;
-  fontFamily: string;
-  fontSize: string;
-  fontWeight: string;
   letterSpacing: string;
-  lineHeight: string;
   textTransform: string;
 };
 
 function font({ family, isUppercase, letterSpacing, lineHeight, size, weight }: FontOptions): Font {
   return {
     font: `normal ${weight} ${size}px/${lineHeight}px ${family}`,
-    fontFamily: family,
-    fontSize: `${size}px`,
-    fontWeight: weight.toString(),
     letterSpacing: letterSpacing == null ? 'normal' : `${letterSpacing}em`,
-    lineHeight: `${lineHeight}px`,
     textTransform: isUppercase ? 'uppercase' : 'none',
   };
 }
