@@ -12,14 +12,14 @@ export function Leaf<Leaf extends TreeLeaf>({
   node,
   testId,
 }: LeafComponentProps<Leaf>): ReactNode {
-  const { isChecked, label, onChange } = useLeafState(node);
+  const { isChecked, isDisabled, label, onChange } = useLeafState(node);
 
   const style = useItemStyle(level);
 
   return (
     <Checkbox
       isChecked={isChecked}
-      isDisabled={node.isDisabled}
+      isDisabled={isDisabled}
       isIndeterminate={false}
       onChange={onChange}
       style={style}

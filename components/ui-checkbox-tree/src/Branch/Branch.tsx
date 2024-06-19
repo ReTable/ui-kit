@@ -17,7 +17,7 @@ export function Branch<Leaf extends TreeLeaf>({
   onToggle,
   testId,
 }: BranchComponentProps<Leaf>): ReactNode {
-  const { isChecked, isIndeterminate, label, onChange } = useBranchState(node);
+  const { isChecked, isDisabled, isIndeterminate, label, onChange } = useBranchState(node);
 
   const style = useItemStyle(level);
 
@@ -34,7 +34,7 @@ export function Branch<Leaf extends TreeLeaf>({
       />
       <Checkbox
         isChecked={isChecked}
-        isDisabled={node.isDisabled}
+        isDisabled={isDisabled}
         isIndeterminate={isIndeterminate}
         onChange={onChange}
         testId={checkboxTestId}

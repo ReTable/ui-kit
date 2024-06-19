@@ -38,12 +38,14 @@ export function useState<Leaf extends TreeLeaf>({
     if (count === 0) {
       return {
         isChecked: false,
+        isDisabled: false,
         isIndeterminate: false,
       };
     }
 
     return {
       isChecked: isCheckedCount === count,
+      isDisabled: false,
       isIndeterminate: isCheckedCount > 0 && isCheckedCount < count,
     };
   }, [tree, selected]);
