@@ -1,9 +1,8 @@
 import { useCallback, useMemo } from 'react';
 
 import { breadth } from '@tabula/tree-utils';
-import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
-import { ChangeHandler, CheckboxState, Selected } from '../types';
+import { ChangeHandler, CheckboxState, Selected, Tree, TreeLeaf } from '../types';
 
 type Options<Leaf extends TreeLeaf> = {
   tree: Tree<Leaf>;

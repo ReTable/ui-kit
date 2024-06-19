@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { clsx } from 'clsx/lite';
 
-import { Tree, TreeLeaf, UiTree } from '@tabula/ui-tree';
+import { UiTree } from '@tabula/ui-tree';
 
 import * as styles from './UiCheckboxTree.css';
 
@@ -10,7 +10,7 @@ import { Branch as BranchComponent } from '../Branch';
 import { LabelGetter, Provider } from '../Context';
 import { Header } from '../Header';
 import { Leaf as LeafComponent } from '../Leaf';
-import { ChangeHandler, Selected } from '../types';
+import { ChangeHandler, Selected, Tree, TreeLeaf } from '../types';
 
 export type Props<Leaf extends TreeLeaf> = {
   /**

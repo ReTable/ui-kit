@@ -1,6 +1,6 @@
 import { useCallback, useContext } from 'react';
 
-import { TreeLeaf } from '@tabula/ui-tree';
+import { TreeLeaf } from '../../types';
 
 import { Context } from '../Context';
 

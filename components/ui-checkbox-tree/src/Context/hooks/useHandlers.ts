@@ -1,9 +1,8 @@
 import { useCallback } from 'react';
 
 import { depth } from '@tabula/tree-utils';
-import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
-import { ChangeHandler, Selected } from '../../types';
+import { ChangeHandler, Selected, Tree, TreeLeaf } from '../../types';
 
 import { ItemChangeHandler } from '../types';
 

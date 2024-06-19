@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
 
-import { LeafComponentProps, TreeLeaf } from '@tabula/ui-tree';
+import { LeafComponentProps } from '@tabula/ui-tree';
 
 import { Checkbox } from '../Checkbox';
 import { useLeafState } from '../Context';
 import { useItemStyle } from '../hooks';
+import { TreeLeaf } from '../types';
 
 export function Leaf<Leaf extends TreeLeaf>({
   level,

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { BranchComponentProps, TreeLeaf } from '@tabula/ui-tree';
+import { BranchComponentProps } from '@tabula/ui-tree';
 
 import * as styles from './Branch.css';
 
@@ -8,6 +8,7 @@ import { Checkbox } from '../Checkbox';
 import { useBranchState } from '../Context';
 import { Toggle } from '../Toggle';
 import { useItemStyle } from '../hooks';
+import { TreeLeaf } from '../types';
 
 export function Branch<Leaf extends TreeLeaf>({
   isExpanded,

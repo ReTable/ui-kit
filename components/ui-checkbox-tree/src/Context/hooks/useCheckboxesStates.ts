@@ -1,9 +1,8 @@
 import { useMemo } from 'react';
 
 import { depth } from '@tabula/tree-utils';
-import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
-import { Selected } from '../../types';
+import { Selected, Tree, TreeLeaf } from '../../types';
 
 import { CheckboxesStates } from '../types';
 

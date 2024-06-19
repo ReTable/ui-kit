@@ -3,11 +3,10 @@ import { ReactNode } from 'react';
 import { clsx } from 'clsx/lite';
 
 import { UiCheckbox } from '@tabula/ui-checkbox';
-import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
 import * as styles from './Header.css';
 
-import { ChangeHandler, Selected } from '../types';
+import { ChangeHandler, Selected, Tree, TreeLeaf } from '../types';
 
 import { useState } from './Header.hooks';
 
