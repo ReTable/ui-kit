@@ -26,6 +26,14 @@ const root = style({
           backgroundColor: uiTheme.colors.accentShades.secondary2,
           transition: 'none',
         },
+
+        '&:has(input:disabled)': {
+          color: uiTheme.colors.content.tertiary,
+        },
+
+        '&:has(input:disabled):hover': {
+          backgroundColor: 'unset',
+        },
       },
     },
   },
