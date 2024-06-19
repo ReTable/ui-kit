@@ -783,8 +783,9 @@ describe('UiCheckboxTree', () => {
       const tree: Tree = [
         leafOf(1, true),
         branchOf(2, [
-          leafOf(3, true)
-        ])
+          leafOf(3, true),
+          leafOf(4),
+        ]),
       ];
 
       const { toggle } = renderTree({ tree });
@@ -797,6 +798,7 @@ describe('UiCheckboxTree', () => {
         build.leaf({ id: 1, isChecked: false, isDisabled: true });
         build.branch({ id: 2, isChecked: false, isIndeterminate: false, isDisabled: false });
         build.leaf({ id: 3, isChecked: false, isDisabled: true });
+        build.leaf({ id: 4, isChecked: false, isDisabled: false });
       });
     });
 
@@ -809,7 +811,7 @@ describe('UiCheckboxTree', () => {
           branchOf(4, [
             leafOf(5),
             leafOf(6, true),
-          ], true)
+          ], true),
         ]),
         branchOf(7, [
           leafOf(8),
@@ -818,8 +820,8 @@ describe('UiCheckboxTree', () => {
             branchOf(11, [
               leafOf(12),
               leafOf(13),
-            ])
-          ])
+            ]),
+          ]),
         ], true)
       ];
 
@@ -833,7 +835,7 @@ describe('UiCheckboxTree', () => {
         build.header({ isChecked: false, isIndeterminate: false });
 
         build.leaf({ id: 1, isChecked: false, isDisabled: true });
-        build.branch({ id: 2, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 2, isChecked: false, isIndeterminate: false, isDisabled: true });
         build.leaf({ id: 3, isChecked: false, isDisabled: true });
         build.branch({ id: 4, isChecked: false, isIndeterminate: false, isDisabled: true });
         build.leaf({ id: 5, isChecked: false, isDisabled: true });
@@ -845,6 +847,43 @@ describe('UiCheckboxTree', () => {
         build.branch({ id: 11, isChecked: false, isIndeterminate: false, isDisabled: true });
         build.leaf({ id: 12, isChecked: false, isDisabled: true });
         build.leaf({ id: 13, isChecked: false, isDisabled: true });
+      });
+    });
+
+    it('renders tree with disabled branch if its children are disabled', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2, true),
+          leafOf(3, true),
+        ]),
+        branchOf(4, [
+          branchOf(5, [
+            leafOf(6),
+          ], true),
+          branchOf(7, [
+            leafOf(8, true),
+          ]),
+        ]),
+      ];
+
+      const { toggle } = renderTree({ tree });
+
+      for (const id of [1, 4, 5, 7]) {
+        await toggle(id);
+      }
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 2, isChecked: false, isDisabled: true });
+        build.leaf({ id: 3, isChecked: false, isDisabled: true });
+        build.branch({ id: 4, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.branch({ id: 5, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 6, isChecked: false, isDisabled: true });
+        build.branch({ id: 7, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 8, isChecked: false, isDisabled: true });
       });
     });
   });
