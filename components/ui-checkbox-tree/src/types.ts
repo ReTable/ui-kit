@@ -8,6 +8,7 @@ import {
 export type CheckboxState = {
   isChecked: boolean;
   isIndeterminate: boolean;
+  isDisabled: boolean;
 };
 
 export type TreeLeaf = BaseTreeLeaf & { isDisabled?: boolean };

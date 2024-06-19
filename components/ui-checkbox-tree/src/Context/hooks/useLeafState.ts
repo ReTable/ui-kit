@@ -7,6 +7,8 @@ import { Context } from '../Context';
 type Result = {
   isChecked: boolean;
 
+  isDisabled: boolean;
+
   onChange: (isChecked: boolean) => void;
 
   label: string;
@@ -15,7 +17,7 @@ type Result = {
 export function useLeafState<Leaf extends TreeLeaf>(node: Leaf): Result {
   const { itemStates, labelOf, onChangeLeaf } = useContext(Context);
 
-  const { isChecked = false } = itemStates.get(node.id) ?? {};
+  const { isChecked = false, isDisabled = false } = itemStates.get(node.id) ?? {};
 
   const handleChange = useCallback(
     (nextIsChecked: boolean) => {
@@ -26,5 +28,5 @@ export function useLeafState<Leaf extends TreeLeaf>(node: Leaf): Result {
 
   const label = labelOf(node);
 
-  return { isChecked, label, onChange: handleChange };
+  return { isChecked, isDisabled, label, onChange: handleChange };
 }
