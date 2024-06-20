@@ -76,6 +76,19 @@ You can provide custom CSS class which will be assigned to the root element.
 
 We allow to assign test ID for the root element.
 
+## Empty Branches
+
+If branch is empty, it will be disabled.
+
+## Disabled State
+
+Each item can have `isDisabled` property:
+
+- if all items are disabled, then the `Select All` is disabled too;
+- if branch is disabled, then all children is disabled too;
+- if branch's children are disabled, then branch is disabled too;
+- if user toggle branch or `Select All` when disabled items is presented, then disabled items aren't changed.
+
 ## License
 
 This project is [ISC](https://choosealicense.com/licenses/isc/) licensed.
