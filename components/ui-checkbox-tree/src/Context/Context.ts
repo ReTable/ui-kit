@@ -10,6 +10,15 @@ const labelOf = () => '';
 export const Context = createContext<ContextValue>({
   itemStates: new Map(),
 
+  headerState: {
+    hasDisabled: false,
+    isChecked: false,
+    isDisabled: false,
+    isEmpty: true,
+    isIndeterminate: false,
+  },
+
+  onChangeAll: noop,
   onChangeLeaf: noop,
   onChangeBranch: noop,
 

@@ -3,41 +3,27 @@ import { ReactNode } from 'react';
 import { clsx } from 'clsx/lite';
 
 import { UiCheckbox } from '@tabula/ui-checkbox';
-import { Tree, TreeLeaf } from '@tabula/ui-tree';
 
 import * as styles from './Header.css';
 
-import { ChangeHandler, Selected } from '../types';
+import { useHeaderState } from '../Context';
 
-import { useState } from './Header.hooks';
-
-type Props<Leaf extends TreeLeaf> = {
+type Props = {
   className?: string;
-
-  tree: Tree<Leaf>;
-
-  selected: Selected<Leaf>;
-
-  onChange: ChangeHandler<Leaf>;
 
   testId?: string;
 };
 
-export function Header<Leaf extends TreeLeaf>({
-  className,
-  onChange,
-  selected,
-  testId,
-  tree,
-}: Props<Leaf>): ReactNode {
-  const [{ isChecked, isIndeterminate }, onChangeAll] = useState({ onChange, selected, tree });
+export function Header({ className, testId }: Props): ReactNode {
+  const { isChecked, isDisabled, isIndeterminate, onChange } = useHeaderState();
 
   return (
     <UiCheckbox
       className={clsx(styles.root, className)}
+      isDisabled={isDisabled}
       isChecked={isChecked}
       isIndeterminate={isIndeterminate}
-      onChange={onChangeAll}
+      onChange={onChange}
       testId={testId}
     >
       Select all

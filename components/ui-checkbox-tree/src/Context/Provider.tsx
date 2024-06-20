@@ -25,12 +25,26 @@ export function Provider<Leaf extends TreeLeaf>({
   selected,
   tree,
 }: Props<Leaf>): ReactNode {
-  const itemStates = useCheckboxesStates(tree, selected);
-  const { onChangeLeaf, onChangeBranch } = useHandlers({ onChange, selected, tree });
+  const [headerState, itemStates] = useCheckboxesStates(tree, selected);
+  const { onChangeAll, onChangeLeaf, onChangeBranch } = useHandlers({
+    headerState,
+    itemStates,
+    onChange,
+    selected,
+    tree,
+  });
 
   const value = useMemo(
-    () => ({ itemStates, labelOf, onChangeLeaf, onChangeBranch }) as unknown as ContextValue,
-    [itemStates, labelOf, onChangeLeaf, onChangeBranch],
+    () =>
+      ({
+        headerState,
+        itemStates,
+        labelOf,
+        onChangeAll,
+        onChangeLeaf,
+        onChangeBranch,
+      }) as unknown as ContextValue,
+    [headerState, itemStates, labelOf, onChangeAll, onChangeLeaf, onChangeBranch],
   );
 
   return <Context.Provider value={value}>{children}</Context.Provider>;

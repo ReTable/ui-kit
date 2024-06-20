@@ -48,6 +48,32 @@ You can provide custom CSS class which will be assigned to the root element.
 
 We allow to assign test ID for the root element.
 
+## Empty Branches
+
+If branch is empty then it's disabled and have no toggle button.
+
+<Canvas of={Stories.EmptyBranch} />
+
+## Disabled State
+
+Each item can have `isDisabled` property.
+
+<Canvas of={Stories.DisabledLeafs} />
+
+If all items are disabled, then the `Select All` is disabled too.
+
+<Canvas of={Stories.DisabledHeader} />
+
+If branch is disabled, then all children is disabled too.
+
+<Canvas of={Stories.DisabledBranch} />
+
+If branch's children are disabled, then branch is disabled too.
+
+<Canvas of={Stories.DisabledChildren} />
+
+If user toggle branch or `Select All` when disabled items is presented, then disabled items aren't changed.
+
 ## Properties
 
 <ArgsTable of={UiCheckboxTree} />
