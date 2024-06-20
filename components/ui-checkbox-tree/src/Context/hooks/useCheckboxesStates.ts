@@ -64,7 +64,6 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
       const isDisabled = isSelfDisabled || isParentDisabled;
 
       if (!isLeaf) {
-        // NOTE: If node is disabled branch, then update meta to postponed branches build.
         updateMeta(branchesMetas, node.id, (meta) => {
           meta.isDisabled = isDisabled;
         });
