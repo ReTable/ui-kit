@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.7.1
+
+### Patch Changes
+
+- [#159](https://github.com/ReTable/ui-kit/pull/159) [`6fc774a`](https://github.com/ReTable/ui-kit/commit/6fc774a9edabb2cbb74a2bd1e81498a5d88dbf7a) Thanks [@demiazz](https://github.com/demiazz)! - fix bloated font styles for `vanilla-extract`
+
 ## 2.7.0
 
 ### Minor Changes
