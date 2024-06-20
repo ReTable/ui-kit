@@ -780,7 +780,7 @@ describe('UiCheckboxTree', () => {
         }
 
         verify((build) => {
-          build.header({ isChecked: false, isIndeterminate: false });
+          build.header({ isChecked: false, isIndeterminate: true });
 
           build.branch({ id: 1, isChecked: false, isIndeterminate: true });
           build.leaf({ id: 2, isChecked: false });
@@ -990,7 +990,7 @@ describe('UiCheckboxTree', () => {
         }
 
         verify((build) => {
-          build.header({ isChecked: false, isIndeterminate: false });
+          build.header({ isChecked: false, isIndeterminate: true });
 
           build.branch({ id: 1, isChecked: false, isIndeterminate: true });
           build.leaf({ id: 2, isChecked: false });
