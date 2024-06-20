@@ -1,5 +1,16 @@
 # @tabula/ui-checkbox
 
+## 1.0.1
+
+### Patch Changes
+
+- [#160](https://github.com/ReTable/ui-kit/pull/160) [`1188746`](https://github.com/ReTable/ui-kit/commit/1188746775d8bd7897d99c7722cea93d2359a864) Thanks [@demiazz](https://github.com/demiazz)! - fix `indeterminate` property behaviour
+
+- [#160](https://github.com/ReTable/ui-kit/pull/160) [`1188746`](https://github.com/ReTable/ui-kit/commit/1188746775d8bd7897d99c7722cea93d2359a864) Thanks [@demiazz](https://github.com/demiazz)! - allow to change label color by user class name
+
+- Updated dependencies [[`6fc774a`](https://github.com/ReTable/ui-kit/commit/6fc774a9edabb2cbb74a2bd1e81498a5d88dbf7a)]:
+  - @tabula/ui-theme@2.7.1
+
 ## 1.0.0
 
 ### Patch Changes

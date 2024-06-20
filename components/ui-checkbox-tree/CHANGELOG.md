@@ -1,5 +1,20 @@
 # @tabula/ui-checkbox-tree
 
+## 1.1.0
+
+### Minor Changes
+
+- [#162](https://github.com/ReTable/ui-kit/pull/162) [`3f12e68`](https://github.com/ReTable/ui-kit/commit/3f12e68ad864775fdb891807afc93cfdaa277849) Thanks [@demiazz](https://github.com/demiazz)! - items can be disabled
+
+### Patch Changes
+
+- [#162](https://github.com/ReTable/ui-kit/pull/162) [`3f12e68`](https://github.com/ReTable/ui-kit/commit/3f12e68ad864775fdb891807afc93cfdaa277849) Thanks [@demiazz](https://github.com/demiazz)! - empty branches is disabled and have no toggle button
+
+- Updated dependencies [[`1188746`](https://github.com/ReTable/ui-kit/commit/1188746775d8bd7897d99c7722cea93d2359a864), [`6fc774a`](https://github.com/ReTable/ui-kit/commit/6fc774a9edabb2cbb74a2bd1e81498a5d88dbf7a), [`1188746`](https://github.com/ReTable/ui-kit/commit/1188746775d8bd7897d99c7722cea93d2359a864)]:
+  - @tabula/ui-checkbox@1.0.1
+  - @tabula/ui-theme@2.7.1
+  - @tabula/ui-tree@0.1.0
+
 ## 1.0.0
 
 ### Patch Changes
