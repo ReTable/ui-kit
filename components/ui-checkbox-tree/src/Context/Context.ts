@@ -16,6 +16,7 @@ export const Context = createContext<ContextValue>({
     isDisabled: false,
   },
 
+  onChangeAll: noop,
   onChangeLeaf: noop,
   onChangeBranch: noop,
 

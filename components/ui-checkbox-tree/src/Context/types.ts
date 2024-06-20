@@ -12,6 +12,8 @@ export type CheckboxesStates<Leaf extends TreeLeaf> = Map<Leaf['id'], CheckboxSt
 
 export type ItemChangeHandler<Leaf extends TreeLeaf> = (id: Leaf['id'], isChecked: boolean) => void;
 
+export type ItemsChangeHandler = (isChecked: boolean) => void;
+
 // endregion Handlers
 
 // region Getters
@@ -27,6 +29,7 @@ export type ContextValue<Leaf extends TreeLeaf = TreeLeaf> = {
 
   itemStates: CheckboxesStates<Leaf>;
 
+  onChangeAll: ItemsChangeHandler;
   onChangeLeaf: ItemChangeHandler<Leaf>;
   onChangeBranch: ItemChangeHandler<Leaf>;
 
