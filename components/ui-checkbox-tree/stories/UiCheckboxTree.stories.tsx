@@ -53,6 +53,16 @@ export const Tree: Story = {
   },
 };
 
+export const EmptyBranch: Story = {
+  args: {
+    tree: trees.emptyBranch,
+  },
+
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
+  },
+};
+
 export const DisabledLeafs: Story = {
   args: {
     tree: trees.disabledLeafs,
