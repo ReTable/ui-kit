@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Disabled Leaf",
+    "isDisabled": true
+  },
+  {
+    "id": 2,
+    "name": "Branch",
+    "children": [
+      {
+        "id": 3,
+        "name": "Disabled Leaf",
+        "isDisabled": true
+      },
+      {
+        "id": 4,
+        "name": "Enabled Leaf"
+      }
+    ]
+  }
+]

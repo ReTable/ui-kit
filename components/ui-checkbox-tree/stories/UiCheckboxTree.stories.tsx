@@ -53,9 +53,39 @@ export const Tree: Story = {
   },
 };
 
-export const Disabled: Story = {
+export const DisabledLeafs: Story = {
   args: {
-    tree: trees.disabled,
+    tree: trees.disabledLeafs,
+  },
+
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
+  },
+};
+
+export const DisabledHeader: Story = {
+  args: {
+    tree: trees.disabledHeader,
+  },
+
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
+  },
+};
+
+export const DisabledBranch: Story = {
+  args: {
+    tree: trees.disabledBranch,
+  },
+
+  render({ tree }) {
+    return <CheckboxTree tree={tree} />;
+  },
+};
+
+export const DisabledChildren: Story = {
+  args: {
+    tree: trees.disabledChildren,
   },
 
   render({ tree }) {
