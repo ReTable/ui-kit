@@ -2,15 +2,17 @@ import { useCallback } from 'react';
 
 import { depth } from '@tabula/tree-utils';
 
-import { ChangeHandler, Selected, Tree, TreeLeaf } from '../../types';
+import { ChangeHandler, CheckboxState, Selected, Tree, TreeLeaf } from '../../types';
 
 import { CheckboxesStates, ItemChangeHandler, ItemsChangeHandler } from '../types';
 
 type Options<Leaf extends TreeLeaf> = {
   tree: Tree<Leaf>;
 
-  itemStates: CheckboxesStates<Leaf>;
   selected: Selected<Leaf>;
+
+  headerState: CheckboxState;
+  itemStates: CheckboxesStates<Leaf>;
 
   onChange?: ChangeHandler<Leaf>;
 };
@@ -22,33 +24,46 @@ type Result<Leaf extends TreeLeaf> = {
 };
 
 export function useHandlers<Leaf extends TreeLeaf>({
+  headerState,
   itemStates,
   onChange,
   selected,
   tree,
 }: Options<Leaf>): Result<Leaf> {
   const handleChangeLeaf = useCallback<ItemChangeHandler<Leaf>>(
-    (id: Leaf['id'], isChecked: boolean) => {
+    (id: Leaf['id']) => {
       if (onChange == null) {
+        return;
+      }
+
+      const state = itemStates.get(id);
+
+      if (state == null) {
         return;
       }
 
       const next = new Set(selected);
 
-      if (isChecked) {
-        next.add(id);
-      } else {
+      if (state.isChecked) {
         next.delete(id);
+      } else {
+        next.add(id);
       }
 
       onChange(next);
     },
-    [selected, onChange],
+    [itemStates, onChange, selected],
   );
 
   const handleChangeBranch = useCallback<ItemChangeHandler<Leaf>>(
-    (id: Leaf['id'], isChecked: boolean) => {
+    (id: Leaf['id']) => {
       if (onChange == null) {
+        return;
+      }
+
+      const branchState = itemStates.get(id);
+
+      if (branchState == null) {
         return;
       }
 
@@ -65,10 +80,16 @@ export function useHandlers<Leaf extends TreeLeaf>({
           continue;
         }
 
-        if (isChecked) {
-          next.add(node.id);
-        } else {
+        if (branchState.hasDisabled) {
+          if (state.isChecked) {
+            next.delete(node.id);
+          } else {
+            next.add(node.id);
+          }
+        } else if (branchState.isChecked) {
           next.delete(node.id);
+        } else {
+          next.add(node.id);
         }
       }
 
@@ -96,7 +117,13 @@ export function useHandlers<Leaf extends TreeLeaf>({
           continue;
         }
 
-        if (isChecked) {
+        if (headerState.hasDisabled) {
+          if (state.isChecked) {
+            next.delete(node.id);
+          } else {
+            next.add(node.id);
+          }
+        } else if (isChecked) {
           next.add(node.id);
         } else {
           next.delete(node.id);
@@ -105,7 +132,7 @@ export function useHandlers<Leaf extends TreeLeaf>({
 
       onChange(next);
     },
-    [onChange, selected, tree, itemStates],
+    [onChange, selected, tree, itemStates, headerState],
   );
 
   return {

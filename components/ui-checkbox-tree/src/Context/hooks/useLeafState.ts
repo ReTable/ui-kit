@@ -19,12 +19,9 @@ export function useLeafState<Leaf extends TreeLeaf>(node: Leaf): Result {
 
   const { isChecked = false, isDisabled = false } = itemStates.get(node.id) ?? {};
 
-  const handleChange = useCallback(
-    (nextIsChecked: boolean) => {
-      onChangeLeaf(node.id, nextIsChecked);
-    },
-    [node.id, onChangeLeaf],
-  );
+  const handleChange = useCallback(() => {
+    onChangeLeaf(node.id);
+  }, [node.id, onChangeLeaf]);
 
   const label = labelOf(node);
 

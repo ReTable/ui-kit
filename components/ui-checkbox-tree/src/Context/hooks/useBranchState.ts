@@ -24,12 +24,9 @@ export function useBranchState<Leaf extends TreeLeaf>(node: Leaf): Result {
     isIndeterminate = false,
   } = itemStates.get(node.id) ?? {};
 
-  const handleChange = useCallback(
-    (nextIsChecked: boolean) => {
-      onChangeBranch(node.id, nextIsChecked);
-    },
-    [node.id, onChangeBranch],
-  );
+  const handleChange = useCallback(() => {
+    onChangeBranch(node.id);
+  }, [node.id, onChangeBranch]);
 
   const label = labelOf(node);
 

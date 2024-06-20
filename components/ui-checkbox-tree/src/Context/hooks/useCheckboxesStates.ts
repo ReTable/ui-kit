@@ -74,6 +74,7 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
       const isChecked = selected.has(node.id);
 
       states.set(node.id, {
+        hasDisabled: false,
         isChecked,
         isDisabled,
         isIndeterminate: false,
@@ -105,7 +106,12 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
       // NOTE: In case, when some branch's leaves are checked, then we check branch too.
       const isIndeterminate = !isChecked && selectedLeavesCount > 0;
 
-      states.set(id, { isChecked, isDisabled, isIndeterminate });
+      states.set(id, {
+        hasDisabled: disabledLeavesCount > 0,
+        isChecked,
+        isDisabled,
+        isIndeterminate,
+      });
     }
 
     return states;
@@ -116,6 +122,8 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
     let checked = 0;
     let indeterminate = 0;
     let disabled = 0;
+
+    let hasDisabled = false;
 
     for (const it of tree) {
       const state = checkboxes.get(it.id);
@@ -137,13 +145,15 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
       if (state.isDisabled) {
         disabled += 1;
       }
+
+      hasDisabled = hasDisabled || state.hasDisabled;
     }
 
     const isChecked = count > 0 && count == checked;
     const isIndeterminate = !isChecked && (checked > 0 || indeterminate > 0);
     const isDisabled = count == disabled;
 
-    return { isChecked, isIndeterminate, isDisabled };
+    return { hasDisabled, isChecked, isIndeterminate, isDisabled };
   }, [tree, checkboxes]);
 
   return [header, checkboxes];

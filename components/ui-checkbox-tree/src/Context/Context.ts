@@ -11,6 +11,7 @@ export const Context = createContext<ContextValue>({
   itemStates: new Map(),
 
   headerState: {
+    hasDisabled: false,
     isChecked: false,
     isIndeterminate: false,
     isDisabled: false,

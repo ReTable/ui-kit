@@ -6,9 +6,10 @@ import {
 } from '@tabula/ui-tree';
 
 export type CheckboxState = {
+  hasDisabled: boolean;
   isChecked: boolean;
-  isIndeterminate: boolean;
   isDisabled: boolean;
+  isIndeterminate: boolean;
 };
 
 export type TreeLeaf = BaseTreeLeaf & { isDisabled?: boolean };

@@ -27,6 +27,7 @@ export function Provider<Leaf extends TreeLeaf>({
 }: Props<Leaf>): ReactNode {
   const [headerState, itemStates] = useCheckboxesStates(tree, selected);
   const { onChangeAll, onChangeLeaf, onChangeBranch } = useHandlers({
+    headerState,
     itemStates,
     onChange,
     selected,
