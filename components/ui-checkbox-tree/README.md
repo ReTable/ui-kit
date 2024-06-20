@@ -78,7 +78,7 @@ We allow to assign test ID for the root element.
 
 ## Empty Branches
 
-If branch is empty, it will be disabled.
+If branch is empty then it's disabled and have no toggle button.
 
 ## Disabled State
 
