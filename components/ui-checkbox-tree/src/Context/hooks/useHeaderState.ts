@@ -14,7 +14,10 @@ type Result = {
 };
 
 export function useHeaderState(): Result {
-  const { headerState, onChangeAll } = useContext(Context);
+  const {
+    headerState: { isDisabled, isEmpty, ...state },
+    onChangeAll,
+  } = useContext(Context);
 
-  return { ...headerState, onChange: onChangeAll };
+  return { isDisabled: isDisabled || isEmpty, ...state, onChange: onChangeAll };
 }

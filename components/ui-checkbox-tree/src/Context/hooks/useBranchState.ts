@@ -10,6 +10,8 @@ type Result = {
 
   isDisabled: boolean;
 
+  hasToggle: boolean;
+
   onChange: (isChecked: boolean) => void;
 
   label: string;
@@ -22,6 +24,7 @@ export function useBranchState<Leaf extends TreeLeaf>(node: Leaf): Result {
     isChecked = false,
     isDisabled = false,
     isIndeterminate = false,
+    isEmpty = true,
   } = itemStates.get(node.id) ?? {};
 
   const handleChange = useCallback(() => {
@@ -30,5 +33,12 @@ export function useBranchState<Leaf extends TreeLeaf>(node: Leaf): Result {
 
   const label = labelOf(node);
 
-  return { isChecked, isDisabled, isIndeterminate, label, onChange: handleChange };
+  return {
+    hasToggle: !isEmpty,
+    isChecked,
+    isDisabled,
+    isIndeterminate,
+    label,
+    onChange: handleChange,
+  };
 }

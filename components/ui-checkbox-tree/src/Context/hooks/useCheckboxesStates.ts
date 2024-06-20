@@ -9,6 +9,8 @@ import { CheckboxesStates } from '../types';
 type BranchMeta = {
   isDisabled: boolean;
 
+  isEmpty: boolean;
+
   leavesCount: number;
 
   selectedLeavesCount: number;
@@ -26,6 +28,8 @@ function updateMeta<Leaf extends TreeLeaf>(
 
   if (meta == null) {
     meta = {
+      isEmpty: true,
+
       isDisabled: false,
 
       leavesCount: 0,
@@ -65,6 +69,8 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
 
       if (!isLeaf) {
         updateMeta(branchesMetas, node.id, (meta) => {
+          meta.isEmpty = node.children.length === 0;
+
           meta.isDisabled = isDisabled;
         });
 
@@ -77,6 +83,7 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
         hasDisabled: false,
         isChecked,
         isDisabled,
+        isEmpty: false,
         isIndeterminate: false,
       });
 
@@ -97,7 +104,13 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
 
     for (const [
       id,
-      { disabledLeavesCount, isDisabled: isSelfDisabled, leavesCount, selectedLeavesCount },
+      {
+        disabledLeavesCount,
+        isDisabled: isSelfDisabled,
+        isEmpty,
+        leavesCount,
+        selectedLeavesCount,
+      },
     ] of branchesMetas) {
       // NOTE: In case, when branch is not disabled, but all of its leaves are disabled - we disable branch too.
       const isDisabled = isSelfDisabled || leavesCount === disabledLeavesCount;
@@ -110,6 +123,7 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
         hasDisabled: disabledLeavesCount > 0,
         isChecked,
         isDisabled,
+        isEmpty,
         isIndeterminate,
       });
     }
@@ -153,7 +167,7 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
     const isIndeterminate = !isChecked && (checked > 0 || indeterminate > 0);
     const isDisabled = count == disabled;
 
-    return { hasDisabled, isChecked, isIndeterminate, isDisabled };
+    return { isEmpty: count === 0, hasDisabled, isChecked, isIndeterminate, isDisabled };
   }, [tree, checkboxes]);
 
   return [header, checkboxes];

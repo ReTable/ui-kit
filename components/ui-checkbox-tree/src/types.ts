@@ -9,6 +9,7 @@ export type CheckboxState = {
   hasDisabled: boolean;
   isChecked: boolean;
   isDisabled: boolean;
+  isEmpty: boolean;
   isIndeterminate: boolean;
 };
 

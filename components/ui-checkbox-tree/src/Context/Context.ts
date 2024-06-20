@@ -13,8 +13,9 @@ export const Context = createContext<ContextValue>({
   headerState: {
     hasDisabled: false,
     isChecked: false,
-    isIndeterminate: false,
     isDisabled: false,
+    isEmpty: true,
+    isIndeterminate: false,
   },
 
   onChangeAll: noop,
