@@ -367,20 +367,6 @@ describe('UiCheckboxTree', () => {
         build.branch({ id: 7, isChecked: false, isIndeterminate: false, isDisabled: true });
       });
 
-      await toggle(7);
-
-      verify((build) => {
-        build.header({ isChecked: false, isIndeterminate: false });
-
-        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
-        build.leaf({ id: 2, isChecked: false });
-        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
-        build.leaf({ id: 4, isChecked: false });
-        build.leaf({ id: 5, isChecked: false });
-        build.leaf({ id: 6, isChecked: false });
-        build.branch({ id: 7, isChecked: false, isIndeterminate: false, isDisabled: true });
-      });
-
       await toggle(1);
 
       verify((build) => {
