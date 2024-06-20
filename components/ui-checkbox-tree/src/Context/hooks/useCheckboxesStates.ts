@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { depth } from '@tabula/tree-utils';
 
-import { Selected, Tree, TreeLeaf } from '../../types';
+import { CheckboxState, Selected, Tree, TreeLeaf } from '../../types';
 
 import { CheckboxesStates } from '../types';
 
@@ -42,8 +42,8 @@ function updateMeta<Leaf extends TreeLeaf>(
 export function useCheckboxesStates<Leaf extends TreeLeaf>(
   tree: Tree<Leaf>,
   selected: Selected<Leaf>,
-): CheckboxesStates<Leaf> {
-  return useMemo(() => {
+): [CheckboxState, CheckboxesStates<Leaf>] {
+  const checkboxes = useMemo(() => {
     const states: CheckboxesStates<Leaf> = new Map();
 
     const branchesMetas: BranchesMetas<Leaf> = new Map();
@@ -104,7 +104,7 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
       // NOTE: In case, when branch is not disabled, but all of its leaves are disabled - we disable branch too.
       const isDisabled = isSelfDisabled || leavesCount === disabledLeavesCount;
       // NOTE: In case, when all branch's leaves are checked, then we check branch too.
-      const isChecked = leavesCount === selectedLeavesCount;
+      const isChecked = leavesCount > 0 && leavesCount === selectedLeavesCount;
       // NOTE: In case, when some branch's leaves are checked, then we check branch too.
       const isIndeterminate = !isChecked && selectedLeavesCount > 0;
 
@@ -113,4 +113,41 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
 
     return states;
   }, [selected, tree]);
+
+  const header = useMemo(() => {
+    let count = 0;
+    let checked = 0;
+    let indeterminate = 0;
+    let disabled = 0;
+
+    for (const it of tree) {
+      const state = checkboxes.get(it.id);
+
+      if (state == null) {
+        continue;
+      }
+
+      count += 1;
+
+      if (state.isChecked) {
+        checked += 1;
+      }
+
+      if (state.isIndeterminate) {
+        indeterminate += 1;
+      }
+
+      if (state.isDisabled) {
+        disabled += 1;
+      }
+    }
+
+    const isChecked = count > 0 && count == checked;
+    const isIndeterminate = !isChecked && (checked > 0 || indeterminate > 0);
+    const isDisabled = count == disabled;
+
+    return { isChecked, isIndeterminate, isDisabled };
+  }, [tree, checkboxes]);
+
+  return [header, checkboxes];
 }

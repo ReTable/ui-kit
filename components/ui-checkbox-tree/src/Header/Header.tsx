@@ -29,11 +29,16 @@ export function Header<Leaf extends TreeLeaf>({
   testId,
   tree,
 }: Props<Leaf>): ReactNode {
-  const [{ isChecked, isIndeterminate }, onChangeAll] = useState({ onChange, selected, tree });
+  const [{ isChecked, isDisabled, isIndeterminate }, onChangeAll] = useState({
+    onChange,
+    selected,
+    tree,
+  });
 
   return (
     <UiCheckbox
       className={clsx(styles.root, className)}
+      isDisabled={isDisabled}
       isChecked={isChecked}
       isIndeterminate={isIndeterminate}
       onChange={onChangeAll}

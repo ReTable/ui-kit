@@ -23,6 +23,8 @@ export type LabelGetter<Leaf extends TreeLeaf> = (node: TreeNode<Leaf>) => strin
 // region Context
 
 export type ContextValue<Leaf extends TreeLeaf = TreeLeaf> = {
+  headerState: CheckboxState;
+
   itemStates: CheckboxesStates<Leaf>;
 
   onChangeLeaf: ItemChangeHandler<Leaf>;
