@@ -85,6 +85,112 @@ describe('UiCheckboxTree', () => {
     });
   });
 
+  describe('disable', () => {
+    it('renders tree with disabled leafs', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1, true),
+        branchOf(2, [
+          leafOf(3, true),
+          leafOf(4),
+        ]),
+      ];
+
+      const { toggle } = renderTree({ tree });
+
+      await toggle(2);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.leaf({ id: 1, isChecked: false, isDisabled: true });
+        build.branch({ id: 2, isChecked: false, isIndeterminate: false, isDisabled: false });
+        build.leaf({ id: 3, isChecked: false, isDisabled: true });
+        build.leaf({ id: 4, isChecked: false, isDisabled: false });
+      });
+    });
+
+    it('renders disabled header when all leaves are disabled', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1, true),
+        branchOf(2, [
+          leafOf(3, true),
+          leafOf(4, true),
+        ]),
+      ];
+
+      const { toggle } = renderTree({ tree });
+
+      await toggle(2);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false, isDisabled: true });
+
+        build.leaf({ id: 1, isChecked: false, isDisabled: true });
+        build.branch({ id: 2, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 3, isChecked: false, isDisabled: true });
+        build.leaf({ id: 4, isChecked: false, isDisabled: true });
+      });
+    });
+
+    it('renders disabled branch children if branch is disabled', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2),
+          leafOf(3),
+          branchOf(4, [
+            leafOf(5),
+          ]),
+        ], true),
+      ];
+
+      const { toggle } = renderTree({ tree });
+
+      await toggle(1);
+      await toggle(4);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false, isDisabled: true });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 2, isChecked: false, isDisabled: true });
+        build.leaf({ id: 3, isChecked: false, isDisabled: true });
+        build.branch({ id: 4, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 5, isChecked: false, isDisabled: true });
+      });
+    });
+
+    it('renders disabled branch if all children are disabled', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2, true),
+          leafOf(3, true),
+          branchOf(4, [
+            leafOf(5),
+          ], true),
+        ]),
+      ];
+
+      const { toggle } = renderTree({ tree });
+
+      await toggle(1);
+      await toggle(4);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false, isDisabled: true });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 2, isChecked: false, isDisabled: true });
+        build.leaf({ id: 3, isChecked: false, isDisabled: true });
+        build.branch({ id: 4, isChecked: false, isIndeterminate: false, isDisabled: true });
+        build.leaf({ id: 5, isChecked: false, isDisabled: true });
+      });
+    });
+  });
+
   describe('expand/collapse', () => {
     it('allows to expands branches', async () => {
       // prettier-ignore
@@ -773,117 +879,6 @@ describe('UiCheckboxTree', () => {
 
           build.change(onChange, 2, 4, 5, 6);
         });
-      });
-    });
-  });
-
-  describe('disable', () => {
-    it('renders tree with disabled leafs', async () => {
-      // prettier-ignore
-      const tree: Tree = [
-        leafOf(1, true),
-        branchOf(2, [
-          leafOf(3, true),
-          leafOf(4),
-        ]),
-      ];
-
-      const { toggle } = renderTree({ tree });
-
-      await toggle(2);
-
-      verify((build) => {
-        build.header({ isChecked: false, isIndeterminate: false });
-
-        build.leaf({ id: 1, isChecked: false, isDisabled: true });
-        build.branch({ id: 2, isChecked: false, isIndeterminate: false, isDisabled: false });
-        build.leaf({ id: 3, isChecked: false, isDisabled: true });
-        build.leaf({ id: 4, isChecked: false, isDisabled: false });
-      });
-    });
-
-    it('renders tree with disabled branches', async () => {
-      // prettier-ignore
-      const tree: Tree = [
-        leafOf(1, true),
-        branchOf(2, [
-          leafOf(3, true),
-          branchOf(4, [
-            leafOf(5),
-            leafOf(6, true),
-          ], true),
-        ]),
-        branchOf(7, [
-          leafOf(8),
-          branchOf(9, [
-            leafOf(10),
-            branchOf(11, [
-              leafOf(12),
-              leafOf(13),
-            ]),
-          ]),
-        ], true)
-      ];
-
-      const { toggle } = renderTree({ tree });
-
-      for (const id of [2, 4, 7, 9, 11]) {
-        await toggle(id);
-      }
-
-      verify((build) => {
-        build.header({ isChecked: false, isIndeterminate: false });
-
-        build.leaf({ id: 1, isChecked: false, isDisabled: true });
-        build.branch({ id: 2, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 3, isChecked: false, isDisabled: true });
-        build.branch({ id: 4, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 5, isChecked: false, isDisabled: true });
-        build.leaf({ id: 6, isChecked: false, isDisabled: true });
-        build.branch({ id: 7, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 8, isChecked: false, isDisabled: true });
-        build.branch({ id: 9, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 10, isChecked: false, isDisabled: true });
-        build.branch({ id: 11, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 12, isChecked: false, isDisabled: true });
-        build.leaf({ id: 13, isChecked: false, isDisabled: true });
-      });
-    });
-
-    it('renders tree with disabled branch if its children are disabled', async () => {
-      // prettier-ignore
-      const tree: Tree = [
-        branchOf(1, [
-          leafOf(2, true),
-          leafOf(3, true),
-        ]),
-        branchOf(4, [
-          branchOf(5, [
-            leafOf(6),
-          ], true),
-          branchOf(7, [
-            leafOf(8, true),
-          ]),
-        ]),
-      ];
-
-      const { toggle } = renderTree({ tree });
-
-      for (const id of [1, 4, 5, 7]) {
-        await toggle(id);
-      }
-
-      verify((build) => {
-        build.header({ isChecked: false, isIndeterminate: false });
-
-        build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 2, isChecked: false, isDisabled: true });
-        build.leaf({ id: 3, isChecked: false, isDisabled: true });
-        build.branch({ id: 4, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.branch({ id: 5, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 6, isChecked: false, isDisabled: true });
-        build.branch({ id: 7, isChecked: false, isIndeterminate: false, isDisabled: true });
-        build.leaf({ id: 8, isChecked: false, isDisabled: true });
       });
     });
   });

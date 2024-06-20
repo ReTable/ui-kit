@@ -101,6 +101,7 @@ type ChangeItem = {
 };
 
 type HeaderItem = {
+  isDisabled?: boolean;
   isChecked: boolean;
   isIndeterminate: boolean;
 };
@@ -124,7 +125,7 @@ export type BranchItem = {
 
 export type PipelineItem = LeafItem | BranchItem;
 
-function verifyHeader(node: Node, { isChecked, isIndeterminate }: HeaderItem) {
+function verifyHeader(node: Node, { isChecked, isIndeterminate, isDisabled = false }: HeaderItem) {
   const inputTestId = 'tree--header--input';
 
   const input = screen.queryByTestId(inputTestId);
@@ -135,6 +136,12 @@ function verifyHeader(node: Node, { isChecked, isIndeterminate }: HeaderItem) {
 
   if (input == null) {
     return;
+  }
+
+  if (isDisabled) {
+    expect(input, `Header should have an input which is disabled`).toBeDisabled();
+  } else {
+    expect(input, `Header should have an input which is enabled`).toBeEnabled();
   }
 
   if (isChecked) {
