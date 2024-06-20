@@ -1,4 +1,4 @@
-import { ChangeEventHandler, RefObject, useCallback, useRef } from 'react';
+import { ChangeEventHandler, RefObject, useCallback, useEffect, useRef } from 'react';
 
 type Options = {
   isIndeterminate: boolean;
@@ -7,23 +7,27 @@ type Options = {
 
 type Result = [RefObject<HTMLInputElement>, ChangeEventHandler<HTMLInputElement>];
 
+function setIndeterminate(ref: RefObject<HTMLInputElement>, isIndeterminate: boolean) {
+  if (ref.current != null) {
+    ref.current.indeterminate = isIndeterminate;
+  }
+}
+
 export function useLifecycle({ isIndeterminate, onChange }: Options): Result {
   const ref = useRef<HTMLInputElement>(null);
 
-  // NOTE: Sets the `indeterminate` flag directly to the HTML element, because React doesn't support `indeterminate`
-  //       property natively.
+  // NOTE: We use `useEffect` to set `indeterminate` property on initial render.
   //
-  //       We don't use `useEffect` here, to avoid the following use case:
-  //
-  //         - input initially is indeterminate;
-  //         - user click by element;
-  //         - outer logic keep input is indeterminate;
-  //         - DOM element in same time can be not indeterminate;
-  //         - because of `isIndeterminate` not changed, DOM element don't changed, and `indeterminate` attribute
-  //           not changed.
-  if (ref.current != null) {
-    ref.current.indeterminate = Boolean(isIndeterminate);
-  }
+  //       And we should update `indeterminate` property on each render, because we can have case, when `isIndeterminate`
+  //       will not change after click, but `indeterminate` property will be changed by the browser after handling
+  //       click.
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => {
+    setIndeterminate(ref, isIndeterminate);
+  }, []);
+  /* eslint-enable */
+
+  setIndeterminate(ref, isIndeterminate);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = useCallback(
     ({ target }) => {
