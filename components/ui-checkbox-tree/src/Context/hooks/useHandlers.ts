@@ -4,11 +4,12 @@ import { depth } from '@tabula/tree-utils';
 
 import { ChangeHandler, Selected, Tree, TreeLeaf } from '../../types';
 
-import { ItemChangeHandler } from '../types';
+import { CheckboxesStates, ItemChangeHandler } from '../types';
 
 type Options<Leaf extends TreeLeaf> = {
   tree: Tree<Leaf>;
 
+  itemStates: CheckboxesStates<Leaf>;
   selected: Selected<Leaf>;
 
   onChange?: ChangeHandler<Leaf>;
@@ -20,6 +21,7 @@ type Result<Leaf extends TreeLeaf> = {
 };
 
 export function useHandlers<Leaf extends TreeLeaf>({
+  itemStates,
   onChange,
   selected,
   tree,
@@ -56,6 +58,12 @@ export function useHandlers<Leaf extends TreeLeaf>({
           continue;
         }
 
+        const state = itemStates.get(node.id);
+
+        if (state == null || state.isDisabled) {
+          continue;
+        }
+
         if (isChecked) {
           next.add(node.id);
         } else {
@@ -65,7 +73,7 @@ export function useHandlers<Leaf extends TreeLeaf>({
 
       onChange(next);
     },
-    [tree, selected, onChange],
+    [tree, selected, itemStates, onChange],
   );
 
   return {

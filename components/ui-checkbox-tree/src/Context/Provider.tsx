@@ -26,7 +26,7 @@ export function Provider<Leaf extends TreeLeaf>({
   tree,
 }: Props<Leaf>): ReactNode {
   const [headerState, itemStates] = useCheckboxesStates(tree, selected);
-  const { onChangeLeaf, onChangeBranch } = useHandlers({ onChange, selected, tree });
+  const { onChangeLeaf, onChangeBranch } = useHandlers({ itemStates, onChange, selected, tree });
 
   const value = useMemo(
     () =>
