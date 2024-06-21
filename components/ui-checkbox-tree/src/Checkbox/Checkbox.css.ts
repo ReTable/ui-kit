@@ -1,7 +1,7 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
-import { uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
 
 import { levelVar } from '../style.css';
 
@@ -41,6 +41,6 @@ const root = style({
 });
 
 export const variants = styleVariants({
-  branch: [root, uiTheme.fonts.sansSerif.semiBold14],
-  leaf: [root, uiTheme.fonts.sansSerif.medium14],
+  branch: [root, uiFonts.sansSerif.semiBold14],
+  leaf: [root, uiFonts.sansSerif.medium14],
 });
