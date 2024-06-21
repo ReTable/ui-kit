@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 2.7.2
+
+### Patch Changes
+
+- [#163](https://github.com/ReTable/ui-kit/pull/163) [`85182dd`](https://github.com/ReTable/ui-kit/commit/85182dd5f2f1995f265a85f6c7422626acfabd21) Thanks [@demiazz](https://github.com/demiazz)! - fix font parameters sharing
+
 ## 2.7.1
 
 ### Patch Changes
