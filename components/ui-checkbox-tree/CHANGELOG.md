@@ -1,5 +1,11 @@
 # @tabula/ui-checkbox-tree
 
+## 1.1.2
+
+### Patch Changes
+
+- [#166](https://github.com/ReTable/ui-kit/pull/166) [`5480acb`](https://github.com/ReTable/ui-kit/commit/5480acbc7caf2af9053a9fd5e05323cb55b69225) Thanks [@demiazz](https://github.com/demiazz)! - fix `Select All` behavior when top level empty branches are existed
+
 ## 1.1.1
 
 ### Patch Changes
