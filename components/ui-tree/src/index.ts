@@ -6,6 +6,7 @@ export type {
   BranchComponentType,
   LeafComponentProps,
   LeafComponentType,
+  Match,
 } from './types';
 
 export type { Tree, TreeLeaf, TreeNode, TreeBranch } from '@tabula/tree-utils';
