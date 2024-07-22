@@ -954,7 +954,49 @@ describe('UiCheckboxTree', () => {
         });
       });
 
-      it('select ignores disabled leafs inside tree', async () => {
+      it('toggles enabled leafs', async () => {
+        // prettier-ignore
+        const tree: Tree = [
+          branchOf(1, []),
+          branchOf(2, [
+            leafOf(3),
+          ]),
+        ];
+
+        const { changeAll, toggle } = renderTree({ tree, selected: new Set() });
+
+        await toggle(2);
+
+        verify((build) => {
+          build.header({ isChecked: false, isIndeterminate: false });
+
+          build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
+          build.branch({ id: 2, isChecked: false, isIndeterminate: false });
+          build.leaf({ id: 3, isChecked: false });
+        });
+
+        await changeAll();
+
+        verify((build) => {
+          build.header({ isChecked: false, isIndeterminate: true });
+
+          build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
+          build.branch({ id: 2, isChecked: true, isIndeterminate: false });
+          build.leaf({ id: 3, isChecked: true });
+        });
+
+        await changeAll();
+
+        verify((build) => {
+          build.header({ isChecked: false, isIndeterminate: false });
+
+          build.branch({ id: 1, isChecked: false, isIndeterminate: false, isDisabled: true });
+          build.branch({ id: 2, isChecked: false, isIndeterminate: false });
+          build.leaf({ id: 3, isChecked: false });
+        });
+      });
+
+      it('ignores disabled leafs inside tree', async () => {
         // prettier-ignore
         const tree: Tree = [
           branchOf(1, [

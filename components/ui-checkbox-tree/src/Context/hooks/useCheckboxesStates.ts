@@ -160,7 +160,7 @@ export function useCheckboxesStates<Leaf extends TreeLeaf>(
         disabled += 1;
       }
 
-      hasDisabled = hasDisabled || state.hasDisabled;
+      hasDisabled = hasDisabled || state.isDisabled || state.hasDisabled;
     }
 
     const isChecked = count > 0 && count == checked;
