@@ -14,7 +14,7 @@ runs:
       run: pnpm build
 
     - name: Configure ESLint cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/eslint
         key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml', '.eslintrc.json', '.eslintignore') }}
