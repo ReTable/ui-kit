@@ -1,6 +1,6 @@
 import { FC, useCallback, useState } from 'react';
 
-import { ChangeHandler, LabelGetter, UiCheckboxTree } from '~';
+import { ChangeHandler, LabelGetter, Match, UiCheckboxTree } from '~';
 
 import { Leaf, Tree } from './types';
 
@@ -13,12 +13,18 @@ type Props = {
 
   onChange: ChangeHandler<Leaf>;
 
+  pattern?: string;
+
+  match?: Match<Leaf>;
+
   testId: string;
 };
 
 export const CheckboxTree: FC<Props> = ({
   labelOf,
+  match,
   onChange,
+  pattern,
   selected: initialSelected,
   testId,
   tree,
@@ -37,7 +43,9 @@ export const CheckboxTree: FC<Props> = ({
   return (
     <UiCheckboxTree
       labelOf={labelOf}
+      match={match}
       onChange={handleChange}
+      pattern={pattern}
       selected={selected}
       testId={testId}
       tree={tree}
