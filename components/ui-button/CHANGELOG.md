@@ -1,5 +1,14 @@
 # @tabula/ui-button
 
+## 6.0.3
+
+### Patch Changes
+
+- [#169](https://github.com/ReTable/ui-kit/pull/169) [`4b3829d`](https://github.com/ReTable/ui-kit/commit/4b3829db6a0a58fadd22175d3a5ed344a4802c17) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
+- Updated dependencies [[`4b3829d`](https://github.com/ReTable/ui-kit/commit/4b3829db6a0a58fadd22175d3a5ed344a4802c17)]:
+  - @tabula/ui-theme@2.7.3
+
 ## 6.0.2
 
 ### Patch Changes
@@ -166,7 +175,7 @@
   Version with `testId` property:
 
   ```tsx
-  import { UiButton24 } from "@tabula/ui-button";
+  import { UiButton24 } from '@tabula/ui-button';
 
   <UiButton24 trackId="unique-id" variant="primary" />;
   ```
@@ -174,7 +183,7 @@
   Version with `data-testid` property:
 
   ```tsx
-  import { UiButton24 } from "@tabula/ui-button";
+  import { UiButton24 } from '@tabula/ui-button';
 
   <UiButton24 data-testid="unique-id" variant="primary" />;
   ```
@@ -184,9 +193,9 @@
   The `UiButtonElement` has another type which represent changes of supported button types.
 
   ```tsx
-  type UiButtonType = "button" | "link" | "visual";
+  type UiButtonType = 'button' | 'link' | 'visual';
 
-  type UiButtonElement = "button" | "a" | "div" | "link";
+  type UiButtonElement = 'button' | 'a' | 'div' | 'link';
   ```
 
 - [#62](https://github.com/ReTable/ui-kit/pull/62) [`ea25f3e`](https://github.com/ReTable/ui-kit/commit/ea25f3ef5f6b09a2fa6d46ef1475431005529a74) Thanks [@demiazz](https://github.com/demiazz)! - the `type` property replaced with `as` property
@@ -207,7 +216,7 @@
   Version with `trackId` property:
 
   ```tsx
-  import { UiButton24 } from "@tabula/ui-button";
+  import { UiButton24 } from '@tabula/ui-button';
 
   <UiButton24 trackId="unique-id" variant="primary" />;
   ```
@@ -215,7 +224,7 @@
   Version with `data-track-id` property:
 
   ```tsx
-  import { UiButton24 } from "@tabula/ui-button";
+  import { UiButton24 } from '@tabula/ui-button';
 
   <UiButton24 data-track-id="unique-id" variant="primary" />;
   ```
@@ -239,7 +248,7 @@
   Use `as="link"` and provide `Link` as `component` attribute. Additionally provide properties for `Link`.
 
   ```tsx
-  import { Link } from "react-router-dom";
+  import { Link } from 'react-router-dom';
 
   <UiButton24 as="link" component={Link} to="/my-url">
     Go to my URL

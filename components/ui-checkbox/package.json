@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-checkbox",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Checkbox control for forms.",
   "type": "module",
   "typings": "./typings/index.d.ts",
