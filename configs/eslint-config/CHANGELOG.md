@@ -1,5 +1,11 @@
 # @tabula/eslint-config
 
+## 0.1.5
+
+### Patch Changes
+
+- [#169](https://github.com/ReTable/ui-kit/pull/169) [`4b3829d`](https://github.com/ReTable/ui-kit/commit/4b3829db6a0a58fadd22175d3a5ed344a4802c17) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
 ## 0.1.4
 
 ### Patch Changes

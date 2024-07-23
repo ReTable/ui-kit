@@ -1,5 +1,16 @@
 # @tabula/ui-checkbox-tree
 
+## 1.1.3
+
+### Patch Changes
+
+- [#169](https://github.com/ReTable/ui-kit/pull/169) [`4b3829d`](https://github.com/ReTable/ui-kit/commit/4b3829db6a0a58fadd22175d3a5ed344a4802c17) Thanks [@demiazz](https://github.com/demiazz)! - update dependencies
+
+- Updated dependencies [[`4b3829d`](https://github.com/ReTable/ui-kit/commit/4b3829db6a0a58fadd22175d3a5ed344a4802c17)]:
+  - @tabula/ui-checkbox@1.0.3
+  - @tabula/ui-theme@2.7.3
+  - @tabula/ui-tree@0.1.1
+
 ## 1.1.2
 
 ### Patch Changes
