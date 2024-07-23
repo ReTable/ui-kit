@@ -1066,4 +1066,381 @@ describe('UiCheckboxTree', () => {
       });
     });
   });
+
+  describe('search', () => {
+    it('ignores search if pattern only was provided', () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1),
+        leafOf(2),
+        leafOf(3),
+      ];
+
+      renderTree({ tree, pattern: '2' });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.leaf({ id: 1, isChecked: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.leaf({ id: 3, isChecked: false });
+      });
+    });
+
+    it('ignores search if pattern is empty string', () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1),
+        leafOf(2),
+        leafOf(3),
+      ];
+
+      renderTree({ tree, pattern: '', match: () => false });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.leaf({ id: 1, isChecked: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.leaf({ id: 3, isChecked: false });
+      });
+    });
+
+    it('ignores search if match predicated only was provided', () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1),
+        leafOf(2),
+        leafOf(3),
+      ];
+
+      renderTree({ tree, match: () => false });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.leaf({ id: 1, isChecked: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.leaf({ id: 3, isChecked: false });
+      });
+    });
+
+    it('filters list', () => {
+      // prettier-ignore
+      const tree: Tree = [
+        leafOf(1),
+        leafOf(2),
+        leafOf(3),
+      ];
+
+      renderTree({ tree, pattern: '2', match: (node, pattern) => node.id.toString() === pattern });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.leaf({ id: 2, isChecked: false });
+      });
+    });
+
+    it('filters tree', () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2),
+          branchOf(3, [
+            leafOf(4),
+            leafOf(5),
+          ]),
+          leafOf(6),
+        ]),
+      ];
+
+      renderTree({ tree, pattern: '4', match: (node, pattern) => node.id.toString() === pattern });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+      });
+    });
+
+    it('allows to expand and collapse branches with filters', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2),
+          branchOf(3, [
+            leafOf(4),
+            leafOf(5),
+          ]),
+          leafOf(6),
+        ]),
+      ];
+
+      const { toggle } = renderTree({
+        tree,
+
+        pattern: '4',
+        match: (node, pattern) => node.id.toString() === pattern,
+      });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+      });
+
+      await toggle(1);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+      });
+
+      await toggle(1);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+      });
+
+      await toggle(3);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+      });
+    });
+
+    it('restores state after search', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2),
+          branchOf(3, [
+            leafOf(4),
+            leafOf(5),
+          ]),
+          leafOf(6),
+        ]),
+      ];
+
+      const { rerender, toggle } = renderTree({ tree });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+      });
+
+      await toggle(1);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 6, isChecked: false });
+      });
+
+      await toggle(3);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+        build.leaf({ id: 5, isChecked: false });
+        build.leaf({ id: 6, isChecked: false });
+      });
+
+      rerender({ pattern: '4', match: (node, pattern) => node.id.toString() === pattern });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+      });
+
+      rerender();
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+        build.leaf({ id: 5, isChecked: false });
+        build.leaf({ id: 6, isChecked: false });
+      });
+
+      rerender({ pattern: '4', match: (node, pattern) => node.id.toString() === pattern });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+      });
+
+      await toggle(1);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+      });
+
+      rerender();
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 2, isChecked: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+        build.leaf({ id: 5, isChecked: false });
+        build.leaf({ id: 6, isChecked: false });
+      });
+    });
+
+    it('resets state between searches', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2),
+          branchOf(3, [
+            leafOf(4),
+            leafOf(5),
+          ]),
+          leafOf(6),
+        ]),
+      ];
+
+      const { toggle, rerender } = renderTree({
+        tree,
+
+        pattern: '4',
+        match: (node, pattern) => node.id.toString() === pattern,
+      });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 4, isChecked: false });
+      });
+
+      await toggle(1);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+      });
+
+      rerender({
+        pattern: '5',
+        match: (node, pattern) => node.id.toString() === pattern,
+      });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 3, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 5, isChecked: false });
+      });
+    });
+
+    it('ignores search when select', async () => {
+      // prettier-ignore
+      const tree: Tree = [
+        branchOf(1, [
+          leafOf(2),
+          leafOf(3),
+          branchOf(4, [
+            leafOf(5),
+            leafOf(6),
+            branchOf(7, [
+              leafOf(8),
+              leafOf(9)
+            ])
+          ]),
+        ]),
+      ];
+
+      const { change, toggle, rerender } = renderTree({
+        tree,
+
+        pattern: '8',
+        match: (node, pattern) => node.id.toString() === pattern,
+      });
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: false });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 4, isChecked: false, isIndeterminate: false });
+        build.branch({ id: 7, isChecked: false, isIndeterminate: false });
+        build.leaf({ id: 8, isChecked: false });
+      });
+
+      await change(4);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: true });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: true });
+        build.branch({ id: 4, isChecked: true, isIndeterminate: false });
+        build.branch({ id: 7, isChecked: true, isIndeterminate: false });
+        build.leaf({ id: 8, isChecked: true });
+      });
+
+      rerender();
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: true });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: true });
+      });
+
+      await toggle(1);
+      await toggle(4);
+      await toggle(7);
+
+      verify((build) => {
+        build.header({ isChecked: false, isIndeterminate: true });
+
+        build.branch({ id: 1, isChecked: false, isIndeterminate: true });
+        build.leaf({ id: 2, isChecked: false });
+        build.leaf({ id: 3, isChecked: false });
+        build.branch({ id: 4, isChecked: true, isIndeterminate: false });
+        build.leaf({ id: 5, isChecked: true });
+        build.leaf({ id: 6, isChecked: true });
+        build.branch({ id: 7, isChecked: true, isIndeterminate: false });
+        build.leaf({ id: 8, isChecked: true });
+        build.leaf({ id: 9, isChecked: true });
+      });
+    });
+  });
 });

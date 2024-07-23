@@ -27,7 +27,7 @@ export function branchOf(
 
 type OnChangeMock = MockedFunction<ChangeHandler<Leaf>>;
 
-type Options = Pick<UiCheckboxTreeProps<Leaf>, 'tree'> &
+type Options = Pick<UiCheckboxTreeProps<Leaf>, 'tree' | 'match' | 'pattern'> &
   Partial<Pick<UiCheckboxTreeProps<Leaf>, 'selected'>>;
 
 type RenderTreeResult = {
@@ -45,13 +45,15 @@ function labelOf(node: Leaf) {
   return 'children' in node ? `Branch ${node.id}` : `Leaf ${node.id}`;
 }
 
-export function renderTree({ tree, selected }: Options): RenderTreeResult {
+export function renderTree({ tree, selected, match, pattern }: Options): RenderTreeResult {
   const onChange: OnChangeMock = vi.fn();
 
   const { rerender } = render(
     <CheckboxTree
       labelOf={labelOf}
+      match={match}
       onChange={onChange}
+      pattern={pattern}
       selected={selected}
       testId="tree"
       tree={tree}
@@ -91,8 +93,17 @@ export function renderTree({ tree, selected }: Options): RenderTreeResult {
 
     onChange,
 
-    rerender(_ = {}) {
-      rerender(<CheckboxTree labelOf={labelOf} onChange={onChange} tree={tree} testId="tree" />);
+    rerender(props = {}) {
+      rerender(
+        <CheckboxTree
+          labelOf={labelOf}
+          match={props.match}
+          onChange={onChange}
+          pattern={props.pattern}
+          testId="tree"
+          tree={tree}
+        />,
+      );
     },
   };
 }

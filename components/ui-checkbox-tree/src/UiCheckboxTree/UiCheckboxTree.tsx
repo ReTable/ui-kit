@@ -10,7 +10,7 @@ import { Branch as BranchComponent } from '../Branch';
 import { LabelGetter, Provider } from '../Context';
 import { Header } from '../Header';
 import { Leaf as LeafComponent } from '../Leaf';
-import { ChangeHandler, Selected, Tree, TreeLeaf } from '../types';
+import { ChangeHandler, Match, Selected, Tree, TreeLeaf } from '../types';
 
 export type Props<Leaf extends TreeLeaf> = {
   /**
@@ -39,6 +39,16 @@ export type Props<Leaf extends TreeLeaf> = {
   onChange: ChangeHandler<Leaf>;
 
   /**
+   * Match predicate which returns `true` if leaf matches with search value.
+   */
+  match?: Match<Leaf>;
+
+  /**
+   * Pattern to search nodes.
+   */
+  pattern?: string;
+
+  /**
    * Optional attribute for test purposes.
    */
   testId?: string;
@@ -47,7 +57,9 @@ export type Props<Leaf extends TreeLeaf> = {
 export function UiCheckboxTree<Leaf extends TreeLeaf>({
   className,
   labelOf,
+  match,
   onChange,
+  pattern,
   selected,
   testId,
   tree,
@@ -63,6 +75,8 @@ export function UiCheckboxTree<Leaf extends TreeLeaf>({
           branch={BranchComponent}
           className={styles.list}
           leaf={LeafComponent}
+          match={match}
+          pattern={pattern}
           testId={treeTestId}
           tree={tree}
         />

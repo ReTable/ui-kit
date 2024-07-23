@@ -24,3 +24,5 @@ export type Tree<Leaf extends TreeLeaf> = BaseTree<Leaf>;
 export type Selected<Leaf extends TreeLeaf> = Set<Leaf['id']>;
 
 export type ChangeHandler<Leaf extends TreeLeaf> = (ids: Selected<Leaf>) => void;
+
+export type Match<Leaf extends TreeLeaf> = (node: TreeNode<Leaf>, search: string) => boolean;
