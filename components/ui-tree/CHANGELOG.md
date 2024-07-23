@@ -1,5 +1,11 @@
 # @tabula/ui-tree
 
+## 0.1.2
+
+### Patch Changes
+
+- [#171](https://github.com/ReTable/ui-kit/pull/171) [`a3b612f`](https://github.com/ReTable/ui-kit/commit/a3b612f536ff1d8c6a63073ecb0dc86d71f67cef) Thanks [@demiazz](https://github.com/demiazz)! - export `Match` type
+
 ## 0.1.1
 
 ### Patch Changes
