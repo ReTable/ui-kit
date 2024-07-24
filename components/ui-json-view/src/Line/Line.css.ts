@@ -1,7 +1,7 @@
 import { createVar, style, styleVariants } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 import { basePadding, itemHeight, padding } from '../shared.css';
 
@@ -42,10 +42,11 @@ export const position = styleVariants(
 );
 
 const root = style([
-  uiFonts.monospace.semiBold12,
   {
     '@layer': {
       [uiLayers.components]: {
+        ...uiTheme.fonts.monospace.semiBold12,
+
         position: 'relative',
         display: 'flex',
         flexDirection: 'row',
@@ -116,10 +117,11 @@ export const variants = styleVariants(
 
 export const controls = styleVariants({
   toggle: [
-    uiFonts.monospace.regular12,
     {
       '@layer': {
         [uiLayers.components]: {
+          ...uiTheme.fonts.monospace.regular12,
+
           position: 'absolute',
           left: calc.subtract(paddingExpr, '19.5px'),
           top: '4px',
