@@ -1,46 +1,49 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { styleVariants } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 import { levelVar } from '../style.css';
 
-const root = style({
-  '@layer': {
-    [uiLayers.components]: {
-      display: 'flex',
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-      gap: '8px',
-      height: '40px',
-      padding: `0 12px 0 ${calc.add('34px', calc.multiply('24px', levelVar))}`,
-      borderRadius: '6px',
-      transition: `all ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+export const variants = styleVariants(
+  {
+    branch: uiTheme.fonts.sansSerif.semiBold14,
+    leaf: uiTheme.fonts.sansSerif.medium14,
+  },
+  (fontStyles) => ({
+    '@layer': {
+      [uiLayers.components]: {
+        ...fontStyles,
 
-      selectors: {
-        '&:hover': {
-          backgroundColor: uiTheme.colors.accentShades.secondary1,
-        },
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        gap: '8px',
+        height: '40px',
+        padding: `0 12px 0 ${calc.add('34px', calc.multiply('24px', levelVar))}`,
+        borderRadius: '6px',
+        transition: `all ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
 
-        '&:active': {
-          backgroundColor: uiTheme.colors.accentShades.secondary2,
-          transition: 'none',
-        },
+        selectors: {
+          '&:hover': {
+            backgroundColor: uiTheme.colors.accentShades.secondary1,
+          },
 
-        '&:has(input:disabled)': {
-          color: uiTheme.colors.content.tertiary,
-          cursor: 'default',
-        },
+          '&:active': {
+            backgroundColor: uiTheme.colors.accentShades.secondary2,
+            transition: 'none',
+          },
 
-        '&:has(input:disabled):hover': {
-          backgroundColor: 'unset',
+          '&:has(input:disabled)': {
+            color: uiTheme.colors.content.tertiary,
+            cursor: 'default',
+          },
+
+          '&:has(input:disabled):hover': {
+            backgroundColor: 'unset',
+          },
         },
       },
     },
-  },
-});
-
-export const variants = styleVariants({
-  branch: [root, uiTheme.fonts.sansSerif.semiBold14],
-  leaf: [root, uiTheme.fonts.sansSerif.medium14],
-});
+  }),
+);
