@@ -1,4 +1,4 @@
-import { uiFonts, uiTheme } from '@tabula/ui-theme';
+import { uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed, primaryShadow } from '../const.css';
 import { buildVariants } from '../variants.css';
@@ -17,7 +17,7 @@ const rootStyle = {
 
 const variantStyles = {
   primaryDesign: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiTheme.fonts.sansSerif.semiBold12,
     default: {
       background: uiTheme.colors.fillControl.btnPrimary,
       color: uiTheme.colors.content.contrast,
@@ -33,7 +33,7 @@ const variantStyles = {
   },
 
   secondaryDesign: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiTheme.fonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.neutralAlpha['5'],
       color: uiTheme.colors.content.primary,
@@ -47,7 +47,7 @@ const variantStyles = {
   },
 
   primaryList: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiTheme.fonts.sansSerif.semiBold12,
     default: {
       background: uiTheme.colors.accent['100'],
       color: uiTheme.colors.content.contrast,
@@ -63,7 +63,7 @@ const variantStyles = {
   },
 
   secondaryList: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiTheme.fonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.accentShades.secondary1,
       color: uiTheme.colors.content.primary,
@@ -77,7 +77,7 @@ const variantStyles = {
   },
 
   dangerousList: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiTheme.fonts.sansSerif.semiBold12,
     default: {
       background: uiTheme.colors.fillControl.btnDanger,
       color: uiTheme.colors.content.contrast,
@@ -94,7 +94,7 @@ const variantStyles = {
   },
 
   shadowList: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiTheme.fonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.background.primaryContent,
       color: uiTheme.colors.content.secondary,

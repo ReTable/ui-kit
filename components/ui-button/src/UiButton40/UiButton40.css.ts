@@ -1,4 +1,4 @@
-import { uiFonts, uiTheme } from '@tabula/ui-theme';
+import { uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed, primaryShadow } from '../const.css';
 import { buildVariants } from '../variants.css';
@@ -17,7 +17,7 @@ const rootStyle = {
 
 const variantStyles = {
   primary: {
-    font: uiFonts.sansSerif.semiBold14,
+    font: uiTheme.fonts.sansSerif.semiBold14,
     default: {
       background: uiTheme.colors.accent['100'],
       color: uiTheme.colors.content.contrast,
@@ -33,7 +33,7 @@ const variantStyles = {
   },
 
   secondary: {
-    font: uiFonts.sansSerif.medium14,
+    font: uiTheme.fonts.sansSerif.medium14,
     default: {
       borderColor: uiTheme.colors.borderControl.default,
       color: uiTheme.colors.content.primary,
@@ -48,7 +48,7 @@ const variantStyles = {
   },
 
   secondaryBlue: {
-    font: uiFonts.sansSerif.medium14,
+    font: uiTheme.fonts.sansSerif.medium14,
     default: {
       borderColor: uiTheme.colors.accentAlpha['40'],
       color: uiTheme.colors.accent['100'],
@@ -63,7 +63,7 @@ const variantStyles = {
   },
 
   secondaryFilled: {
-    font: uiFonts.sansSerif.medium14,
+    font: uiTheme.fonts.sansSerif.medium14,
     default: {
       background: uiTheme.colors.accentShades.secondary1,
       color: uiTheme.colors.content.primary,
@@ -77,7 +77,7 @@ const variantStyles = {
   },
 
   secondaryDark: {
-    font: uiFonts.sansSerif.semiBold14,
+    font: uiTheme.fonts.sansSerif.semiBold14,
     default: {
       borderColor: uiTheme.colors.content.contrast,
       color: uiTheme.colors.content.contrast,

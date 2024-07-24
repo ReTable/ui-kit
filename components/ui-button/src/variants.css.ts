@@ -25,7 +25,7 @@ type IconProperties = RequiredProperties<'paddingLeft'> | RequiredProperties<'pa
 type BaseStyle = BaseProperties & { icon: IconProperties };
 
 type VariantStyle = {
-  font: string;
+  font: CSSProperties;
 
   default?: CSSProperties;
   hover?: CSSProperties;
@@ -121,7 +121,7 @@ function buildVariant(base: string, variant: VariantStyle): ComplexStyleRule {
     selectors[`&${isDisabled}`] = variant.disabled;
   }
 
-  return [root, base, variant.font, wrap({ selectors })];
+  return [root, base, wrap(variant.font), wrap({ selectors })];
 }
 
 export function buildVariants<VariantStyles extends Record<string, VariantStyle>>(
