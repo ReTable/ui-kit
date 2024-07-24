@@ -1,5 +1,11 @@
 # @tabula/ui-checkbox
 
+## 1.0.4
+
+### Patch Changes
+
+- [#174](https://github.com/ReTable/ui-kit/pull/174) [`612ceff`](https://github.com/ReTable/ui-kit/commit/612ceffb084e17949e468eab5019f8d99cf0dd2d) Thanks [@demiazz](https://github.com/demiazz)! - use raw font styles instead of class
+
 ## 1.0.3
 
 ### Patch Changes

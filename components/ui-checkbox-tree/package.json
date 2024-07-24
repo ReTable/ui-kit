@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-checkbox-tree",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Allows to select items in the tree",
   "type": "module",
   "typings": "./typings/index.d.ts",
