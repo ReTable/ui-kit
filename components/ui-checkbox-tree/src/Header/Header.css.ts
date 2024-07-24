@@ -1,12 +1,13 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 export const root = style([
-  uiFonts.sansSerif.medium14,
   {
     '@layer': {
       [uiLayers.components]: {
+        ...uiTheme.fonts.sansSerif.medium14,
+
         padding: '12px 0',
         borderBottom: `1px solid ${uiTheme.colors.neutralAlpha['5']}`,
 
