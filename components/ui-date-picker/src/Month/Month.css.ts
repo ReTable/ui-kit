@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 const cellSize = '40px';
 
@@ -34,14 +34,23 @@ const day = style({
   },
 });
 
-export const dayOfWeek = style([day, uiFonts.sansSerif.semiBold12]);
+export const dayOfWeek = style([
+  day,
+  {
+    '@layer': {
+      [uiLayers.components]: uiTheme.fonts.sansSerif.semiBold12,
+    },
+  },
+]);
 
 export const dayOfMonth = style([
   day,
-  uiFonts.sansSerif.medium12,
+
   {
     '@layer': {
       [uiLayers.components]: {
+        ...uiTheme.fonts.sansSerif.medium12,
+
         position: 'relative',
         cursor: 'pointer',
 

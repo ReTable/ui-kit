@@ -1,6 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 export const root = style({
   '@layer': {
@@ -51,10 +51,11 @@ export const slots = styleVariants(
 );
 
 export const title = style([
-  uiFonts.sansSerif.semiBold14,
   {
     '@layer': {
       [uiLayers.components]: {
+        ...uiTheme.fonts.sansSerif.semiBold14,
+
         color: uiTheme.colors.content.primary,
       },
     },

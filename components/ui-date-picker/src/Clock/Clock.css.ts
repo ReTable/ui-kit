@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 export const root = style({
   '@layer': {
@@ -13,10 +13,11 @@ export const root = style({
 });
 
 export const title = style([
-  uiFonts.sansSerif.semiBold14,
   {
     '@layer': {
       [uiLayers.components]: {
+        ...uiTheme.fonts.sansSerif.semiBold14,
+
         margin: '0 auto',
         color: uiTheme.colors.content.primary,
       },
