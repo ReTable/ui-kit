@@ -1,5 +1,14 @@
 # @tabula/ui-node-icon
 
+## 9.0.0
+
+### Patch Changes
+
+- [#177](https://github.com/ReTable/ui-kit/pull/177) [`3497940`](https://github.com/ReTable/ui-kit/commit/3497940a1af3c96bfe7e6fca7820aefb220fcf10) Thanks [@demiazz](https://github.com/demiazz)! - import libraries styles after all explicit dependencies
+
+- Updated dependencies [[`c707289`](https://github.com/ReTable/ui-kit/commit/c70728934c2375e4402e1c6824ad9531e055a4e7), [`c707289`](https://github.com/ReTable/ui-kit/commit/c70728934c2375e4402e1c6824ad9531e055a4e7), [`3497940`](https://github.com/ReTable/ui-kit/commit/3497940a1af3c96bfe7e6fca7820aefb220fcf10)]:
+  - @tabula/ui-theme@3.0.0
+
 ## 9.0.0-next.0
 
 ### Patch Changes
