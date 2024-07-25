@@ -25,7 +25,7 @@ type IconProperties = RequiredProperties<'paddingLeft'> | RequiredProperties<'pa
 type BaseStyle = BaseProperties & { icon: IconProperties };
 
 type VariantStyle = {
-  font: string;
+  font: StyleRule;
 
   default?: CSSProperties;
   hover?: CSSProperties;

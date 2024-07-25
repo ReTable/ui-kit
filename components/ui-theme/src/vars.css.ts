@@ -11,7 +11,7 @@ type FontOptions = {
   weight: number | 'normal';
 };
 
-type Font = {
+export type Font = {
   font: string;
   fontFamily: string;
   fontSize: string;

@@ -1,13 +1,12 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
 export const root = style([
+  uiStyles.fonts.sansSerif.semiBold12,
   {
     '@layer': {
       [uiLayers.components]: {
-        ...uiTheme.fonts.sansSerif.semiBold12,
-
         position: 'relative',
 
         display: 'flex',
