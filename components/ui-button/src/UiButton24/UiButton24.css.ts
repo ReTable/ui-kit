@@ -1,4 +1,4 @@
-import { uiFonts, uiTheme } from '@tabula/ui-theme';
+import { uiStyles, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed, primaryShadow } from '../const.css';
 import { buildVariants } from '../variants.css';
@@ -19,7 +19,7 @@ const rootStyle = {
 
 const variantStyles = {
   primary: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiStyles.fonts.sansSerif.semiBold12,
     default: {
       background: uiTheme.colors.fillControl.btnPrimary,
       color: uiTheme.colors.content.contrast,
@@ -35,7 +35,7 @@ const variantStyles = {
   },
 
   secondary: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiStyles.fonts.sansSerif.medium12,
     default: {
       borderColor: uiTheme.colors.borderControl.default,
       color: uiTheme.colors.content.secondary,
@@ -51,7 +51,7 @@ const variantStyles = {
   },
 
   primaryHeader: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiStyles.fonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.accent['100'],
       color: uiTheme.colors.content.contrast,
@@ -67,7 +67,7 @@ const variantStyles = {
   },
 
   secondaryHeader: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiStyles.fonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.whiteAlpha['20'],
       color: uiTheme.colors.content.contrast,
@@ -84,7 +84,7 @@ const variantStyles = {
   },
 
   cancel: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiStyles.fonts.sansSerif.medium12,
     default: {
       borderColor: uiTheme.colors.borderControl.default,
       color: uiTheme.colors.content.primary,
@@ -100,7 +100,7 @@ const variantStyles = {
   },
 
   cancelFilled: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiStyles.fonts.sansSerif.medium12,
     default: {
       background: uiTheme.colors.neutralAlpha['7'],
       color: uiTheme.colors.content.primary,
@@ -114,7 +114,7 @@ const variantStyles = {
   },
 
   edit: {
-    font: uiFonts.sansSerif.medium12,
+    font: uiStyles.fonts.sansSerif.medium12,
     default: {
       borderColor: uiTheme.colors.accentAlpha['40'],
       color: uiTheme.colors.content.accentActive,
@@ -130,7 +130,7 @@ const variantStyles = {
   },
 
   test: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiStyles.fonts.sansSerif.semiBold12,
     default: {
       borderColor: uiTheme.colors.accentAlpha['40'],
       color: uiTheme.colors.content.accentActive,
@@ -146,7 +146,7 @@ const variantStyles = {
   },
 
   ai: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiStyles.fonts.sansSerif.semiBold12,
     default: {
       background: gradient(uiTheme.colors.fillControl.ai),
       color: uiTheme.colors.content.contrast,

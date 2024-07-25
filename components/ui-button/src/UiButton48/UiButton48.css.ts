@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiFonts, uiTheme } from '@tabula/ui-theme';
+import { uiStyles, uiTheme } from '@tabula/ui-theme';
 
 import { accentHover, accentPressed } from '../const.css';
 import { buildVariants } from '../variants.css';
@@ -21,7 +21,7 @@ const rootStyle = {
 
 const variantStyles = {
   primary: {
-    font: uiFonts.sansSerif.medium18,
+    font: uiStyles.fonts.sansSerif.medium18,
     default: {
       background: uiTheme.colors.accent['100'],
       color: uiTheme.colors.content.contrast,
@@ -37,7 +37,7 @@ const variantStyles = {
   },
 
   secondary: {
-    font: uiFonts.sansSerif.regular18,
+    font: uiStyles.fonts.sansSerif.regular18,
     default: {
       gap: '32px',
       background: uiTheme.colors.accentShades.secondary1,

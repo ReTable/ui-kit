@@ -1,4 +1,4 @@
-import { uiFonts, uiTheme } from '@tabula/ui-theme';
+import { uiStyles, uiTheme } from '@tabula/ui-theme';
 
 import { buildVariants } from '../variants.css';
 
@@ -16,7 +16,7 @@ const rootStyle = {
 
 const variantStyles = {
   contract: {
-    font: uiFonts.sansSerif.semiBold12,
+    font: uiStyles.fonts.sansSerif.semiBold12,
     default: {
       borderColor: uiTheme.colors.whiteAlpha['30'],
       color: uiTheme.colors.content.contrast,
