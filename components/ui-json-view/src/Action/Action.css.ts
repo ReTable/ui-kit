@@ -1,9 +1,9 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiFonts, uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
 export const root = style([
-  uiFonts.monospace.regular10,
+  uiStyles.fonts.monospace.regular10,
   {
     '@layer': {
       [uiLayers.components]: {
