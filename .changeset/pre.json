@@ -26,5 +26,11 @@
     "@tabula/track-id": "0.1.0",
     "@tabula/tree-utils": "0.1.0"
   },
-  "changesets": []
+  "changesets": [
+    "brave-items-grow",
+    "forty-plums-smoke",
+    "fresh-ghosts-knock",
+    "long-berries-ring",
+    "soft-buttons-watch"
+  ]
 }

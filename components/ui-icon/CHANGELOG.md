@@ -1,5 +1,11 @@
 # @tabula/ui-icon
 
+## 8.0.4-next.0
+
+### Patch Changes
+
+- [#177](https://github.com/ReTable/ui-kit/pull/177) [`3497940`](https://github.com/ReTable/ui-kit/commit/3497940a1af3c96bfe7e6fca7820aefb220fcf10) Thanks [@demiazz](https://github.com/demiazz)! - remove `@tabula/ui-theme` from dependencies
+
 ## 8.0.3
 
 ### Patch Changes

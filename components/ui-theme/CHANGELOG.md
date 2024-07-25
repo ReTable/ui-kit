@@ -1,5 +1,36 @@
 # @tabula/ui-theme
 
+## 3.0.0-next.0
+
+### Major Changes
+
+- [#179](https://github.com/ReTable/ui-kit/pull/179) [`c707289`](https://github.com/ReTable/ui-kit/commit/c70728934c2375e4402e1c6824ad9531e055a4e7) Thanks [@demiazz](https://github.com/demiazz)! - removed `uiFonts` CSS classes for fonts applying
+
+### Minor Changes
+
+- [#179](https://github.com/ReTable/ui-kit/pull/179) [`c707289`](https://github.com/ReTable/ui-kit/commit/c70728934c2375e4402e1c6824ad9531e055a4e7) Thanks [@demiazz](https://github.com/demiazz)! - exports `uiStyles` object with ready to use styles for usage at component layer
+
+  ```typescript
+  import { style } from '@vanilla-extract/css';
+
+  import { uiStyles, uiTheme } from '@tabula/ui-theme';
+
+  export const root = style([
+    uiStyles.fonts.sansSerif.bold12,
+    {
+      '@layer': {
+        [layers.components]: {
+          color: uiTheme.colors.content.primary,
+        },
+      },
+    },
+  ]);
+  ```
+
+### Patch Changes
+
+- [#177](https://github.com/ReTable/ui-kit/pull/177) [`3497940`](https://github.com/ReTable/ui-kit/commit/3497940a1af3c96bfe7e6fca7820aefb220fcf10) Thanks [@demiazz](https://github.com/demiazz)! - import libraries styles after all explicit dependencies
+
 ## 2.7.3
 
 ### Patch Changes
