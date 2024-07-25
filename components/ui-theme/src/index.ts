@@ -5,5 +5,3 @@ export { vars as uiTheme } from './theme.css';
 
 export { UiTheme, useUiTheme } from './UiTheme';
 export { styles as uiStyles } from './styles';
-
-export { fonts as uiFonts } from './variants.css';
