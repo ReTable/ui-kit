@@ -47,7 +47,6 @@
     "build:watch": "forge --watch"
   },
   "peerDependencies": {
-    "@tabula/ui-theme": "workspace:^",
     "react": "^18.3.1"
   }
 }
