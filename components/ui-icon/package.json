@@ -49,5 +49,8 @@
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",
     "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:^"
   }
 }
