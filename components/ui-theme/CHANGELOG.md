@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 3.1.0
+
+### Minor Changes
+
+- [#183](https://github.com/ReTable/ui-kit/pull/183) [`008c766`](https://github.com/ReTable/ui-kit/commit/008c7664a9c461e88a99885aed4368d861716ba4) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - add icons for EnrichmentNode
+
 ## 3.0.0
 
 ### Major Changes
