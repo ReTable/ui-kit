@@ -272,6 +272,17 @@ export const tokens = {
         primary: '#b3b3b3',
         secondary: '#ebebeb',
       },
+      enrichment: {
+        apolloPrimary: '#010202',
+        apolloSecondary: '#fcc02b',
+        clearbitPrimary: '#1ba2fe',
+        clearbitSecondary: '#5ebafd',
+        clearbitTertiary: '#d2e9fc',
+        leadReachPrimary: '#ffffff',
+        leadReachSecondary: '#000000',
+        zoomInfoPrimary: '#ffffff',
+        zoomInfoSecondary: '#f44238',
+      },
       group: {
         clean: '#aae5df',
         transformation: '#c2d8ef',
