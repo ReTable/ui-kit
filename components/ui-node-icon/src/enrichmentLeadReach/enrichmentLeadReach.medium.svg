@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+  <rect x="2" y="2" width="20" height="20" rx="10" fill="var(--tbl--colors--icons--enrichment--lead-reach-secondary)"/>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M11.7023 9.01006C12.0837 8.66331 12.6663 8.66331 13.0477 9.01006L17.1727 12.7601C17.5813 13.1316 17.6114 13.764 17.2399 14.1727C16.8684 14.5813 16.236 14.6114 15.8273 14.2399L12.375 11.1015L8.92267 14.2399C8.51402 14.6114 7.88157 14.5813 7.51006 14.1727C7.13855 13.764 7.16867 13.1316 7.57733 12.7601L11.7023 9.01006Z"
+    fill="var(--tbl--colors--icons--enrichment--lead-reach-primary)"
+  />
+</svg>

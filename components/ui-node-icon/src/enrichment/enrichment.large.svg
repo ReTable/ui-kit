@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M10 5C10 3.89543 10.8954 3 12 3H20C21.1046 3 22 3.89543 22 5V25C22 26.1046 21.1046 27 20 27H10V5ZM3 10C3 8.89543 3.89543 8 5 8H9V27H5C3.89543 27 3 26.1046 3 25V10ZM12 5H14V8H12V5ZM12 10H14V13H12V10ZM14 15H12V18H14V15ZM5 15H7V18H5V15ZM7 20H5V23H7V20ZM5 10H7V13H5V10Z"
+    fill="var(--tbl--colors--icons--output--secondary)"
+  />
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M21 22C23.2091 22 25 20.2091 25 18C25 15.7909 23.2091 14 21 14C18.7909 14 17 15.7909 17 18C17 20.2091 18.7909 22 21 22ZM18.1429 23C15.3025 23 13 25.3025 13 28.1429C13 28.6162 13.3856 29 13.859 29H28.141C28.6144 29 29 28.6162 29 28.1429C29 25.3025 26.6975 23 23.8571 23H18.1429Z"
+    fill="var(--tbl--colors--icons--output--primary)"
+  />
+</svg>

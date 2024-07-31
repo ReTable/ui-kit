@@ -107,6 +107,17 @@ const overrides = {
     primary: uiTheme.colors.icons.disabled.primary,
     secondary: uiTheme.colors.icons.disabled.secondary,
   }),
+  ...assignVars(uiTheme.colors.icons.enrichment, {
+    apolloPrimary: uiTheme.colors.icons.disabled.primary,
+    apolloSecondary: uiTheme.colors.icons.disabled.secondary,
+    clearbitPrimary: uiTheme.colors.icons.disabled.primary,
+    clearbitSecondary: uiTheme.colors.icons.disabled.secondary,
+    clearbitTertiary: uiTheme.colors.icons.disabled.secondary,
+    leadReachPrimary: uiTheme.colors.icons.disabled.primary,
+    leadReachSecondary: uiTheme.colors.icons.disabled.secondary,
+    zoomInfoPrimary: uiTheme.colors.icons.disabled.primary,
+    zoomInfoSecondary: uiTheme.colors.icons.disabled.secondary,
+  }),
   ...assignVars(uiTheme.colors.icons.group, {
     clean: uiTheme.colors.icons.disabled.secondary,
     transformation: uiTheme.colors.icons.disabled.secondary,
