@@ -1,50 +1,20 @@
-import { StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { UiStatusBadge, UiStatusBadgeIcon, UiStatusBadgeVariant } from '~';
+import { UiStatusBadge } from '~';
 
 import { CustomIcon } from './CustomIcon';
 
 // region Meta
 
-type Args = {
-  icon?: boolean;
-  customIcon: boolean;
-  label: string;
-};
-
-const meta = {
+const meta: Meta<typeof UiStatusBadge> = {
   title: 'UiStatusBadge',
 
   component: UiStatusBadge,
 
-  argTypes: {
-    icon: {
-      control: 'boolean',
-      name: 'Show icon?',
-    },
-
-    customIcon: {
-      control: 'boolean',
-      name: 'Use custom icon?',
-      if: {
-        arg: 'icon',
-        eq: true,
-      },
-    },
-
-    label: {
-      control: 'text',
-      name: 'Label',
-    },
-  },
-
-  args: {
-    customIcon: false,
-  },
-
   parameters: {
     controls: {
-      include: /(icon|Label)/,
+      include: /tree/g,
+      hideNoControlsWarning: true,
     },
   },
 };
@@ -55,40 +25,102 @@ export default meta;
 
 // region Story Utilities
 
-type Story = StoryObj<Args>;
-
-function createStory(initialLabel: string, variant: UiStatusBadgeVariant): Story {
-  return {
-    args: {
-      label: initialLabel,
-    },
-
-    render({ customIcon, icon, label }) {
-      let badgeIcon: boolean | UiStatusBadgeIcon | undefined = icon;
-
-      if (icon && customIcon) {
-        badgeIcon = CustomIcon;
-      }
-
-      return (
-        <UiStatusBadge icon={badgeIcon} variant={variant}>
-          {label}
-        </UiStatusBadge>
-      );
-    },
-  };
-}
+type Story = StoryObj<typeof UiStatusBadge>;
 
 // region Story Utilities
 
 // region Stories
 
-export const Success = createStory('Success', 'success');
+export const Success: Story = {
+  args: {
+    children: 'Success',
+    variant: 'success',
+  },
+};
 
-export const Active = createStory('Active', 'active');
+export const Active: Story = {
+  args: {
+    children: 'Active',
+    variant: 'active',
+  },
+};
 
-export const Error = createStory('Error', 'error');
+export const Error: Story = {
+  args: {
+    children: 'Error',
+    variant: 'error',
+  },
+};
 
-export const Inactive = createStory('Inactive', 'inactive');
+export const Inactive: Story = {
+  args: {
+    children: 'Inactive',
+    variant: 'inactive',
+  },
+};
+
+export const SuccessWithoutIcon: Story = {
+  args: {
+    children: 'Success',
+    icon: false,
+    variant: 'success',
+  },
+};
+
+export const ActiveWithoutIcon: Story = {
+  args: {
+    children: 'Active',
+    icon: false,
+    variant: 'active',
+  },
+};
+
+export const ErrorWithoutIcon: Story = {
+  args: {
+    children: 'Error',
+    icon: false,
+    variant: 'error',
+  },
+};
+
+export const InactiveWithoutIcon: Story = {
+  args: {
+    children: 'Inactive',
+    icon: false,
+    variant: 'inactive',
+  },
+};
+
+export const SuccessWithCustomIcon: Story = {
+  args: {
+    children: 'Success',
+    icon: CustomIcon,
+    variant: 'success',
+  },
+};
+
+export const ActiveWithCustomIcon: Story = {
+  args: {
+    children: 'Active',
+    icon: CustomIcon,
+    variant: 'active',
+  },
+};
+
+export const ErrorWithCustomIcon: Story = {
+  args: {
+    children: 'Error',
+    icon: CustomIcon,
+    variant: 'error',
+  },
+};
+
+export const InactiveWithCustomIcon: Story = {
+  args: {
+    children: 'Inactive',
+    icon: CustomIcon,
+    variant: 'inactive',
+  },
+};
 
 // endregion Stories
