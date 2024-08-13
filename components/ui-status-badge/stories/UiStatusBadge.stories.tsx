@@ -1,11 +1,13 @@
 import { StoryObj } from '@storybook/react';
 
-import { UiStatusBadge, UiStatusBadgeVariant } from '~';
+import { UiStatusBadge, UiStatusBadgeIcon, UiStatusBadgeVariant } from '~';
+
+import { CustomIcon } from './CustomIcon';
 
 // region Meta
 
 type Args = {
-  icon: boolean;
+  icon?: boolean;
   customIcon: boolean;
   label: string;
 };
@@ -37,7 +39,6 @@ const meta = {
   },
 
   args: {
-    icon: true,
     customIcon: false,
   },
 
@@ -62,9 +63,15 @@ function createStory(initialLabel: string, variant: UiStatusBadgeVariant): Story
       label: initialLabel,
     },
 
-    render({ icon, label }) {
+    render({ customIcon, icon, label }) {
+      let badgeIcon: boolean | UiStatusBadgeIcon | undefined = icon;
+
+      if (icon && customIcon) {
+        badgeIcon = CustomIcon;
+      }
+
       return (
-        <UiStatusBadge icon={icon} variant={variant}>
+        <UiStatusBadge icon={badgeIcon} variant={variant}>
           {label}
         </UiStatusBadge>
       );
