@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-status-badge",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Status badges are used for showing a small amount of color categorized metadata about something state",
   "type": "module",
   "typings": "./typings/index.d.ts",
