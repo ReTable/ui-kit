@@ -54,5 +54,12 @@ export const variants = styleVariants(
       color: uiTheme.colors.content.success,
     },
   },
-  (styles) => [root, styles],
+  (styles) => [
+    root,
+    {
+      '@layer': {
+        [uiLayers.components]: styles,
+      },
+    },
+  ],
 );
