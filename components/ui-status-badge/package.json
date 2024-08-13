@@ -1,7 +1,7 @@
 {
-  "name": "@tabula/ui-checkbox",
-  "version": "3.0.0",
-  "description": "Checkbox control for forms",
+  "name": "@tabula/ui-status-badge",
+  "version": "0.0.0",
+  "description": "Status badges are used for showing a small amount of color categorized metadata about something state",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
@@ -21,14 +21,14 @@
     "component",
     "react"
   ],
-  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-checkbox#readme",
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-status-badge#readme",
   "bugs": {
     "url": "https://github.com/ReTable/ui-kit/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ReTable/ui-kit.git",
-    "directory": "components/ui-checkbox"
+    "directory": "components/ui-status-badge"
   },
   "author": "Retable Inc.",
   "license": "ISC",
@@ -50,6 +50,6 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.0"
   }
 }

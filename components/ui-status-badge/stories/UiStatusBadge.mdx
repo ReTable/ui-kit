@@ -1,0 +1,53 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import { UiStatusBadge } from '~';
+
+import * as Stories from './UiStatusBadge.stories';
+
+<Meta of={Stories} />
+
+# UiStatusBadge
+
+Status badges are used for showing a small amount of color categorized metadata about something state.
+
+<Canvas of={Stories.Success} />
+
+## Variants
+
+There are 4 appearance variants, which you can use:
+
+<Canvas of={Stories.Success} />
+<Canvas of={Stories.Active} />
+<Canvas of={Stories.Error} />
+<Canvas of={Stories.Inactive} />
+
+## Options
+
+<br />
+
+### `icon`
+
+By default, we show default icon if possible:
+
+<Canvas of={Stories.Success} />
+<Canvas of={Stories.Active} />
+<Canvas of={Stories.Error} />
+<Canvas of={Stories.Inactive} />
+
+You can provide `false` as `icon` property to disable icon:
+
+<Canvas of={Stories.SuccessWithoutIcon} />
+<Canvas of={Stories.ActiveWithoutIcon} />
+<Canvas of={Stories.ErrorWithoutIcon} />
+<Canvas of={Stories.InactiveWithoutIcon} />
+
+Or you can provide your own icon as `icon` property:
+
+<Canvas of={Stories.SuccessWithCustomIcon} />
+<Canvas of={Stories.ActiveWithCustomIcon} />
+<Canvas of={Stories.ErrorWithCustomIcon} />
+<Canvas of={Stories.InactiveWithCustomIcon} />
+
+## Properties
+
+<ArgsTable of={UiStatusBadge} />

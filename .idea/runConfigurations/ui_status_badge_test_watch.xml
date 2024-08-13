@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-status-badge" name="ui-status-badge:test:watch" type="JavaScriptTestRunnerVitest">
+    <node-interpreter value="project" />
+    <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+    <working-dir value="$PROJECT_DIR$/components/ui-status-badge" />
+    <vitest-options value="--watch" />
+    <envs />
+    <scope-kind value="ALL" />
+    <method v="2">
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="ui-status-badge:build" run_configuration_type="js.build_tools.npm" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-status-badge" name="ui-status-badge:dev:server" type="CompoundRunConfigurationType">
+    <toRun name="docs:watch" type="js.build_tools.npm" />
+    <toRun name="ui-status-badge:build:watch" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
