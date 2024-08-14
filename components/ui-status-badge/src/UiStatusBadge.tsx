@@ -1,4 +1,4 @@
-import { ComponentType, ReactNode } from 'react';
+import { ComponentType, PropsWithChildren, ReactNode } from 'react';
 
 import { clsx } from 'clsx/lite';
 
@@ -18,12 +18,11 @@ const ICONS: Partial<Record<Variant, Icon>> = {
   success: SuccessIcon,
 };
 
-export type Props = {
-  children: string;
+export type Props = PropsWithChildren<{
   className?: string;
   icon?: boolean | Icon;
   variant: Variant;
-};
+}>;
 
 export function UiStatusBadge({ children, className, icon = true, variant }: Props): ReactNode {
   let Icon = ICONS[variant];
