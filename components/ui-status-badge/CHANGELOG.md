@@ -1,5 +1,11 @@
 # @tabula/ui-status-badge
 
+## 0.1.1
+
+### Patch Changes
+
+- [#187](https://github.com/ReTable/ui-kit/pull/187) [`def672d`](https://github.com/ReTable/ui-kit/commit/def672d4ed920d59b89570ca0cba3c494b9c3b7b) Thanks [@demiazz](https://github.com/demiazz)! - the `children` property's type has been weakened
+
 ## 0.1.0
 
 ### Minor Changes
