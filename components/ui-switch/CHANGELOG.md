@@ -1,5 +1,11 @@
 # @tabula/ui-switch
 
+## 0.1.2
+
+### Patch Changes
+
+- [#195](https://github.com/ReTable/ui-kit/pull/195) [`935dec2`](https://github.com/ReTable/ui-kit/commit/935dec2edc8a1d1b26243e03ccdea864a1b12eb5) Thanks [@demiazz](https://github.com/demiazz)! - use flex layout for switch label content
+
 ## 0.1.1
 
 ### Patch Changes
