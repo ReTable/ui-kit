@@ -15,7 +15,12 @@ import { ReactComponent as UiEditColumnMIconInner } from './editColumn/editColum
 import { ReactComponent as UiEnrichmentMIconInner } from './enrichment/enrichment.medium.svg';
 import { ReactComponent as UiEnrichmentApolloMIconInner } from './enrichmentApollo/enrichmentApollo.medium.svg';
 import { ReactComponent as UiEnrichmentClearbitMIconInner } from './enrichmentClearbit/enrichmentClearbit.medium.svg';
+import { ReactComponent as UiEnrichmentContactOutMIconInner } from './enrichmentContactOut/enrichmentContactOut.medium.svg';
+import { ReactComponent as UiEnrichmentLead411MIconInner } from './enrichmentLead411/enrichmentLead411.medium.svg';
 import { ReactComponent as UiEnrichmentLeadReachMIconInner } from './enrichmentLeadReach/enrichmentLeadReach.medium.svg';
+import { ReactComponent as UiEnrichmentPeopleDataLabsMIconInner } from './enrichmentPeopleDataLabs/enrichmentPeopleDataLabs.medium.svg';
+import { ReactComponent as UiEnrichmentReverseContactMIconInner } from './enrichmentReverseContact/enrichmentReverseContact.medium.svg';
+import { ReactComponent as UiEnrichmentSignalHireMIconInner } from './enrichmentSignalHire/enrichmentSignalHire.medium.svg';
 import { ReactComponent as UiEnrichmentZoomInfoMIconInner } from './enrichmentZoomInfo/enrichmentZoomInfo.medium.svg';
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
@@ -83,7 +88,18 @@ export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, icon);
 export const UiEnrichmentMIcon = createIcon(UiEnrichmentMIconInner, icon);
 export const UiEnrichmentApolloMIcon = createIcon(UiEnrichmentApolloMIconInner, icon);
 export const UiEnrichmentClearbitMIcon = createIcon(UiEnrichmentClearbitMIconInner, icon);
+export const UiEnrichmentContactOutMIcon = createIcon(UiEnrichmentContactOutMIconInner, icon);
+export const UiEnrichmentLead411MIcon = createIcon(UiEnrichmentLead411MIconInner, icon);
 export const UiEnrichmentLeadReachMIcon = createIcon(UiEnrichmentLeadReachMIconInner, icon);
+export const UiEnrichmentPeopleDataLabsMIcon = createIcon(
+  UiEnrichmentPeopleDataLabsMIconInner,
+  icon,
+);
+export const UiEnrichmentReverseContactMIcon = createIcon(
+  UiEnrichmentReverseContactMIconInner,
+  icon,
+);
+export const UiEnrichmentSignalHireMIcon = createIcon(UiEnrichmentSignalHireMIconInner, icon);
 export const UiEnrichmentZoomInfoMIcon = createIcon(UiEnrichmentZoomInfoMIconInner, icon);
 export const UiExtractMIcon = createIcon(UiExtractMIconInner, icon);
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon);
