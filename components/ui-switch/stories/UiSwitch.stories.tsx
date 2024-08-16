@@ -1,42 +1,143 @@
-import { FC, useState } from 'react';
+import { action } from '@storybook/addon-actions';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { UiSwitch } from '~';
 
-export default {
+// region Meta
+
+const meta: Meta<typeof UiSwitch> = {
+  title: 'UiSwitch',
+
   component: UiSwitch,
-  title: 'ui-switch',
 };
 
-export const Default: FC = () => {
-  const [isChecked, setIsChecked] = useState(false);
+export default meta;
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-      <UiSwitch isChecked={isChecked} onChange={setIsChecked}>
-        Switch me
-      </UiSwitch>
-      <UiSwitch isChecked={isChecked} isDisabled onChange={setIsChecked}>
-        Switch me
-      </UiSwitch>
-      <UiSwitch isChecked={isChecked} isReversed onChange={setIsChecked}>
-        Switch me
-      </UiSwitch>
-      <UiSwitch isChecked={isChecked} isDisabled isReversed onChange={setIsChecked}>
-        Switch me
-      </UiSwitch>
+// endregion Meta
 
-      <UiSwitch isChecked={isChecked} onChange={setIsChecked} size="small">
-        Switch me
-      </UiSwitch>
-      <UiSwitch isChecked={isChecked} isDisabled onChange={setIsChecked} size="small">
-        Switch me
-      </UiSwitch>
-      <UiSwitch isChecked={isChecked} isReversed onChange={setIsChecked} size="small">
-        Switch me
-      </UiSwitch>
-      <UiSwitch isChecked={isChecked} isDisabled isReversed onChange={setIsChecked} size="small">
-        Switch me
-      </UiSwitch>
-    </div>
-  );
+// region Story Utilities
+
+type Story = StoryObj<typeof UiSwitch>;
+
+const staticParameters = {
+  controls: {
+    exclude: /.*/g,
+    hideNoControlsWarning: true,
+  },
 };
+
+const onChangeAction = action('onChange');
+
+// region Story Utilities
+
+// region Stories
+
+export const Unchecked: Story = {
+  args: {
+    children: 'Is ugly?',
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const Checked: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const UncheckedDisabled: Story = {
+  args: {
+    children: 'Is ugly?',
+    isDisabled: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const CheckedDisabled: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    isDisabled: true,
+    onChange: onChangeAction,
+  },
+  parameters: staticParameters,
+};
+
+export const Reversed: Story = {
+  args: {
+    children: 'Is ugly?',
+    onChange: onChangeAction,
+    isReversed: true,
+  },
+  parameters: staticParameters,
+};
+
+export const UncheckedSmall: Story = {
+  args: {
+    children: 'Is ugly?',
+    onChange: onChangeAction,
+    size: 'small',
+  },
+  parameters: staticParameters,
+};
+
+export const CheckedSmall: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    onChange: onChangeAction,
+    size: 'small',
+  },
+  parameters: staticParameters,
+};
+
+// endregion Stories
+
+// region Playgrounds
+
+export const Playground: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    isReversed: false,
+    size: 'medium',
+  },
+  argTypes: {
+    children: {
+      name: 'Label',
+      type: 'string',
+    },
+    isChecked: {
+      name: 'Is checked?',
+      type: 'boolean',
+    },
+    isDisabled: {
+      name: 'Is disabled?',
+      type: 'boolean',
+    },
+    isReversed: {
+      name: 'Is reversed?',
+      type: 'boolean',
+    },
+    size: {
+      name: 'Size',
+      control: 'inline-radio',
+      options: {
+        Small: 'small',
+        Medium: 'medium',
+      },
+    },
+  },
+  parameters: {
+    controls: {
+      exclude: /^(className|id|isReversed|name|onChange|style|testId|trackId)$/g,
+    },
+  },
+};
+
+// endregion Playgrounds
