@@ -1,0 +1,56 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import * as Stories from './UiSwitch.stories';
+
+import { UiSwitch } from '~';
+
+<Meta of={Stories} />
+
+# UiSwitch
+
+Switches allows users to turn an individual option on or off.
+
+<Canvas>
+  <UiSwitch isChecked>Is our UI Kit awesome?</UiSwitch>
+</Canvas>
+
+## Options
+
+There are a few general properties which supported by component.
+
+### `isChecked`
+
+This property controls boolean value of checkbox.
+
+<Canvas of={Stories.Checked} />
+<Canvas of={Stories.Unchecked} />
+
+### `isDisabled`
+
+This property allows to disable a control.
+
+<Canvas of={Stories.CheckedDisabled} />
+<Canvas of={Stories.UncheckedDisabled} />
+<Canvas of={Stories.CheckedDisabledSmall} />
+<Canvas of={Stories.UncheckedDisabledSmall} />
+
+### `isReversed`
+
+This property allows to reverse layout.
+
+<Canvas of={Stories.Reversed} />
+<Canvas of={Stories.ReversedSmall} />
+
+### `size`
+
+This property allows to use one of supported sizes of control.
+
+<Canvas of={Stories.CheckedSmall} />
+<Canvas of={Stories.UncheckedSmall} />
+<Canvas of={Stories.CheckedDisabledSmall} />
+<Canvas of={Stories.UncheckedDisabledSmall} />
+<Canvas of={Stories.ReversedSmall} />
+
+## Properties
+
+<ArgsTable of={UiSwitch} />
