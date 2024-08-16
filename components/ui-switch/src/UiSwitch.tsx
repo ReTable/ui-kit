@@ -15,7 +15,7 @@ import * as styles from './UiSwitch.css';
 
 export type Size = keyof typeof styles.sizes;
 
-export type OnChangeFn = (isChecked: boolean) => void;
+export type ChangeHandler = (isChecked: boolean) => void;
 
 export type Props = PropsWithChildren<{
   /**
@@ -42,7 +42,7 @@ export type Props = PropsWithChildren<{
    * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#name)
    */
   name?: string;
-  onChange?: OnChangeFn;
+  onChange?: ChangeHandler;
   /**
    * Allows to switch between different sizes.
    */
