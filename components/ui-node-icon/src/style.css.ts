@@ -47,6 +47,14 @@ export const gradients = createGlobalThemeContract(
         },
       },
     },
+    enrichmentReverseContact: {
+      l: 'l',
+      m: 'm',
+    },
+    enrichmentContactOut: {
+      l: 'l',
+      m: 'm',
+    },
   },
   (_, path) => {
     const gradientName = path.map((it) => kebabCase(it)).join('-');
@@ -93,6 +101,14 @@ createGlobalTheme(':root', gradients, {
       },
     },
   },
+  enrichmentReverseContact: {
+    l: '',
+    m: '',
+  },
+  enrichmentContactOut: {
+    l: '',
+    m: '',
+  },
 });
 
 const overrides = {
@@ -113,8 +129,13 @@ const overrides = {
     clearbitPrimary: uiTheme.colors.icons.disabled.primary,
     clearbitSecondary: uiTheme.colors.icons.disabled.secondary,
     clearbitTertiary: uiTheme.colors.icons.disabled.secondary,
+    lead411Primary: uiTheme.colors.icons.disabled.primary,
+    lead411Secondary: uiTheme.colors.icons.disabled.secondary,
     leadReachPrimary: uiTheme.colors.icons.disabled.primary,
     leadReachSecondary: uiTheme.colors.icons.disabled.secondary,
+    peopleDataLabs: uiTheme.colors.icons.disabled.primary,
+    signalHirePrimary: uiTheme.colors.icons.disabled.primary,
+    signalHireSecondary: uiTheme.colors.icons.disabled.secondary,
     zoomInfoPrimary: uiTheme.colors.icons.disabled.primary,
     zoomInfoSecondary: uiTheme.colors.icons.disabled.secondary,
   }),
@@ -179,6 +200,14 @@ const overrides = {
           ['2']: uiTheme.colors.icons.disabled.primary,
         },
       },
+    },
+    enrichmentReverseContact: {
+      l: 'url(#tbl--ui-node-icon--enrichment-reverse-contact-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment-reverse-contact-m--disabled)',
+    },
+    enrichmentContactOut: {
+      l: 'url(#tbl--ui-node-icon--enrichment-contact-out-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment-contact-out-m--disabled)',
     },
   }),
 };
