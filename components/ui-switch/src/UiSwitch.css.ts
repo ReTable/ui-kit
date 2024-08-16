@@ -173,6 +173,11 @@ export const indicatorIcon = style({
 export const content = style({
   '@layer': {
     [uiLayers.components]: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+
       selectors: {
         [`${sizes.small} &`]: {
           color: uiTheme.colors.content.secondary,
