@@ -96,6 +96,37 @@ export const CheckedSmall: Story = {
   parameters: staticParameters,
 };
 
+export const UncheckedDisabledSmall: Story = {
+  args: {
+    children: 'Is ugly?',
+    isDisabled: true,
+    onChange: onChangeAction,
+    size: 'small',
+  },
+  parameters: staticParameters,
+};
+
+export const CheckedDisabledSmall: Story = {
+  args: {
+    children: 'Is awesome?',
+    isChecked: true,
+    isDisabled: true,
+    onChange: onChangeAction,
+    size: 'small',
+  },
+  parameters: staticParameters,
+};
+
+export const ReversedSmall: Story = {
+  args: {
+    children: 'Is ugly?',
+    onChange: onChangeAction,
+    isReversed: true,
+    size: 'small',
+  },
+  parameters: staticParameters,
+};
+
 // endregion Stories
 
 // region Playgrounds
