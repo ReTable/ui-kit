@@ -1,5 +1,11 @@
 # @tabula/ui-switch
 
+## 0.1.1
+
+### Patch Changes
+
+- [#193](https://github.com/ReTable/ui-kit/pull/193) [`4995170`](https://github.com/ReTable/ui-kit/commit/49951701b9d6643562a686ac6c47a2167769f707) Thanks [@demiazz](https://github.com/demiazz)! - re-export `UiSwitchSize` and `ChangeHandler` types
+
 ## 0.1.0
 
 ### Minor Changes
