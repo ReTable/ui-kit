@@ -10,5 +10,5 @@ export default {
 export const Default: FC = () => {
   const [value, setValue] = useState(0);
 
-  return <UiSlider value={value} onChange={setValue} range={[0, 15]} />;
+  return <UiSlider value={value} onChange={setValue} min={0} max={15} />;
 };

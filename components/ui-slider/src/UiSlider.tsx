@@ -4,17 +4,32 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './UiSlider.css';
 
+export type ChangeHandler = (value: number) => void;
+
 export type Props = {
+  /**
+   * User defined CSS class which be assigned to the root element.
+   */
   className?: string;
-  onChange: (v: number) => void;
-  range: [number, number];
+  onChange: ChangeHandler;
+  /**
+   * The lowest value in the range of permitted values.
+   */
+  min: number;
+  /**
+   * The greatest value in the range of permitted values.
+   */
+  max: number;
+  /**
+   * The input control's value.
+   */
   value: number;
 };
 
 const INTENTIONAL_DRAG_THRESHOLD = 0.005;
 
-function getStyles(value: number, range: [number, number]) {
-  const percent = ((value - range[0]) / (range[1] - range[0])) * 100;
+function getStyles(value: number, min: number, max: number) {
+  const percent = ((value - min) / (max - min)) * 100;
   return {
     line: {
       backgroundSize: `${percent}%`,
@@ -25,22 +40,22 @@ function getStyles(value: number, range: [number, number]) {
   };
 }
 
-function calculateValue(e: MouseEvent, root: HTMLDivElement, range: [number, number]) {
+function calculateValue(e: MouseEvent, root: HTMLDivElement, min: number, max: number) {
   const rect = root.getBoundingClientRect();
   const pos = (e.pageX - rect.x) / rect.width;
 
   const scale = Math.min(1, Math.max(0, pos));
 
-  return range[0] + scale * (range[1] - range[0]);
+  return min + scale * (max - min);
 }
 
-export function UiSlider({ className, value, onChange, range }: Props): ReactNode {
+export function UiSlider({ className, max, min, onChange, value }: Props): ReactNode {
   const rootRef = useRef<HTMLDivElement>(null);
 
   const [dragging, setDragging] = useState(false);
   const [mouseDown, setMouseDown] = useState(false);
 
-  const { line, circle } = getStyles(value, range);
+  const { line, circle } = getStyles(value, min, max);
 
   useEffect(() => {
     const handleMouseUp = () => {
@@ -55,7 +70,7 @@ export function UiSlider({ className, value, onChange, range }: Props): ReactNod
 
       e.preventDefault();
 
-      const newValue = calculateValue(e, rootRef.current, range);
+      const newValue = calculateValue(e, rootRef.current, min, max);
       const drag = Math.abs(value - newValue) / value;
 
       if (drag > INTENTIONAL_DRAG_THRESHOLD) {
@@ -71,7 +86,7 @@ export function UiSlider({ className, value, onChange, range }: Props): ReactNod
       window.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [mouseDown, range, onChange, value]);
+  }, [mouseDown, min, max, onChange, value]);
 
   const mouseDownHandler = useCallback<MouseEventHandler>(
     (e) => {
@@ -80,9 +95,9 @@ export function UiSlider({ className, value, onChange, range }: Props): ReactNod
       }
 
       setMouseDown(true);
-      onChange(calculateValue(e.nativeEvent, rootRef.current, range));
+      onChange(calculateValue(e.nativeEvent, rootRef.current, min, max));
     },
-    [range, onChange],
+    [min, max, onChange],
   );
 
   return (
