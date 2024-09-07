@@ -331,6 +331,19 @@ importers:
         specifier: ^4.4.10
         version: 4.4.10
 
+  components/ui-menu:
+    dependencies:
+      clsx:
+        specifier: ^2.1.0
+        version: 2.1.1
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+    devDependencies:
+      '@tabula/ui-theme':
+        specifier: workspace:^
+        version: link:../ui-theme
+
   components/ui-node-icon:
     dependencies:
       clsx:
