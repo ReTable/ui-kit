@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="use-previous-value" name="use-previous-value:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="use-previous-value:build:watch" type="js.build_tools.npm" />
+    <toRun name="use-previous-value:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>
