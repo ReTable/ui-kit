@@ -7,15 +7,15 @@ export function useSideEffect(
   callback: () => void,
   reverse = false,
 ): void {
-  const previousFlag = usePreviousValue(flag);
+  const previous = usePreviousValue(flag);
 
   useEffect(() => {
-    if (!reverse && !previousFlag && flag) {
+    if (!reverse && !previous && flag) {
       callback();
     }
 
-    if (reverse && previousFlag && !flag) {
+    if (reverse && previous && !flag) {
       callback();
     }
-  }, [previousFlag, flag, callback, reverse]);
+  }, [previous, flag, callback, reverse]);
 }
