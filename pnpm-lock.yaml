@@ -524,6 +524,12 @@ importers:
         specifier: ^14.12.3
         version: 14.12.3
 
+  hooks/use-flag:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+
   hooks/use-size:
     dependencies:
       react:
