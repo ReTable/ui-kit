@@ -1,12 +1,12 @@
 import { MouseEventHandler, ReactNode } from 'react';
 
-import { IconComponentType, Sizes, Variant } from '../Menu.types';
+import { IconComponentType } from '../types';
 
 export type ClickHandler = MouseEventHandler<HTMLButtonElement>;
 
-export type SelectHandler = (id: string) => void;
+export type SelectItemHandler = (id: string) => void;
 
-export type PublicProps = {
+export type ItemProps = {
   className?: string;
   contentClassName?: string;
 
@@ -28,11 +28,4 @@ export type PublicProps = {
 
   trackId?: string;
   trackData?: string;
-};
-
-export type Props = PublicProps & {
-  id: string;
-  size: Sizes;
-  view: Variant;
-  onSelect?: SelectHandler;
 };

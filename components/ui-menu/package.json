@@ -37,7 +37,7 @@
     "typings"
   ],
   "scripts": {
-    "build": "forge",
+    "build": "forge --no-production",
     "build:docs": "forge --storybook",
     "build:watch": "forge --watch",
     "lint": "eslint .",
@@ -51,6 +51,8 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.23",
+    "@tabula/use-flag": "workspace:^",
     "clsx": "^2.1.0"
   }
 }

@@ -1,14 +1,26 @@
 import { ReactNode, useCallback } from 'react';
 
 import clsx from 'clsx';
-import { RightChevron12Icon } from 'src/components/icons';
 
-import styles from './Menu.module.scss';
+import { ReactComponent as ChevronIcon } from '../assets/chevron.svg';
 
-import { Divider } from './Divider';
-import { Item } from './Item';
-import { MenuSubMenu } from './Menu.SubMenu';
-import { ConfigItem, Props } from './Menu.types';
+import * as shared from '../shared.css';
+import * as styles from './UiMenu.css';
+
+import { Divider } from '../Divider';
+import { Item, SelectItemHandler } from '../Item';
+import { SubMenu } from '../SubMenu';
+import { ConfigItem, Size, Variant } from '../types';
+
+export type Props = {
+  className?: string;
+  subMenuClassName?: string;
+  size: Size;
+  variant?: Variant;
+  config: ConfigItem[];
+  emptyContent?: ReactNode;
+  onSelect?: SelectItemHandler;
+};
 
 export function UiMenu({
   className,
@@ -23,7 +35,7 @@ export function UiMenu({
     ({ id: key, ...item }: ConfigItem) => {
       switch (true) {
         case 'divider' in item: {
-          return <Divider key={key} variant={variant} />;
+          return <Divider key={key} />;
         }
         case 'menuTitle' in item: {
           return (
@@ -41,9 +53,11 @@ export function UiMenu({
             rightIcon,
             ...restItem
           } = item;
-          const RightIcon = rightIcon ?? RightChevron12Icon;
+
+          const RightIcon = rightIcon ?? ChevronIcon;
+
           return (
-            <MenuSubMenu
+            <SubMenu
               key={key}
               config={childConfig}
               emptyContent={childEmptyContent ?? emptyContent}
@@ -53,29 +67,19 @@ export function UiMenu({
               size={size}
               variant={variant}
             >
-              <Item
-                id={key}
-                size={size}
-                view={variant}
-                rightIcon={RightIcon}
-                stopPropagation
-                preventDefault
-                {...restItem}
-              />
-            </MenuSubMenu>
+              <Item id={key} rightIcon={RightIcon} stopPropagation preventDefault {...restItem} />
+            </SubMenu>
           );
         }
         default: {
-          return (
-            <Item key={key} id={key} size={size} view={variant} onSelect={onSelect} {...item} />
-          );
+          return <Item key={key} id={key} onSelect={onSelect} {...item} />;
         }
       }
     },
     [className, emptyContent, onSelect, size, subMenuClassName, variant],
   );
 
-  const rootClassName = clsx(styles.root, styles[variant], className);
+  const rootClassName = clsx(styles.root, shared.variants[variant], shared.sizes[size], className);
 
   if (config.length === 0) {
     return (
@@ -85,5 +89,5 @@ export function UiMenu({
     );
   }
 
-  return <div className={rootClassName}>{config.map(renderConfigItem)}</div>;
+  return <div className={rootClassName}>{config.map((it) => renderConfigItem(it))}</div>;
 }

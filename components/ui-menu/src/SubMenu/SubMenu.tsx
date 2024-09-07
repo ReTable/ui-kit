@@ -15,18 +15,19 @@ import {
   useRole,
   useTransitionStyles,
 } from '@floating-ui/react';
-import { useFlag } from 'src/hooks/useFlag';
-import { isClickByButton } from 'src/utilities/dom';
 
-import { Menu } from './Menu';
-import { ItemWithSubMenu, Props as MenuProps } from './Menu.types';
+import { useFlag } from '@tabula/use-flag';
+
+import { UiMenu, UiMenuProps } from '../UiMenu';
+import { isClickByButton } from '../helpers';
+import { ItemWithSubMenu } from '../types';
 
 type Props = PropsWithChildren<
-  Pick<MenuProps, 'size' | 'view' | 'onSelect'> &
+  Pick<UiMenuProps, 'size' | 'variant' | 'onSelect'> &
     Pick<ItemWithSubMenu, 'config' | 'emptyContent' | 'popupClassName' | 'menuClassName'>
 >;
 
-export function MenuSubMenu({
+export function SubMenu({
   children,
   config,
   emptyContent,
@@ -34,7 +35,7 @@ export function MenuSubMenu({
   popupClassName,
   onSelect,
   size,
-  view,
+  variant,
 }: Props): ReactNode {
   const [open, { off: onClose, change: onOpenChange }] = useFlag(false);
 
@@ -87,8 +88,8 @@ export function MenuSubMenu({
   const style = {
     position: strategy,
 
-    top: `${y ?? 0}px`,
-    left: `${x ?? 0}px`,
+    top: `${y}px`,
+    left: `${x}px`,
 
     ...transitionStyles,
   };
@@ -106,6 +107,7 @@ export function MenuSubMenu({
             initialFocus={refs.floating}
             modal={false}
           >
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
             <div
               className={popupClassName}
               ref={refs.setFloating}
@@ -113,12 +115,12 @@ export function MenuSubMenu({
               onClick={onPopupClick}
               {...getFloatingProps()}
             >
-              <Menu
+              <UiMenu
                 className={menuClassName}
                 config={config}
                 emptyContent={emptyContent}
                 size={size}
-                view={view}
+                variant={variant}
                 onSelect={onSelect}
               />
             </div>
@@ -127,4 +129,8 @@ export function MenuSubMenu({
       </FloatingPortal>
     </>
   );
+}
+
+if (import.meta.env.DEV) {
+  SubMenu.displayName = 'UiMenu(SubMenu)';
 }
