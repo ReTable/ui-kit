@@ -1,0 +1,31 @@
+import { useCallback, useState } from 'react';
+
+export type Options = {
+  initialState?: number;
+};
+
+export type Result = {
+  counter: number;
+
+  decrement: () => void;
+  increment: () => void;
+};
+
+export function useAsyncState({ initialState = 0 }: Options = {}): Result {
+  const [counter, setCounter] = useState(initialState);
+
+  const decrement = useCallback(() => {
+    setCounter((value) => value - 1);
+  }, []);
+
+  const increment = useCallback(() => {
+    setCounter((value) => value + 1);
+  }, []);
+
+  return {
+    counter,
+
+    decrement,
+    increment,
+  };
+}
