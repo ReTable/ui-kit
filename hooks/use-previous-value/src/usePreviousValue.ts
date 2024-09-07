@@ -1,31 +1,11 @@
-import { useCallback, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-export type Options = {
-  initialState?: number;
-};
+export function usePreviousValue<T>(value: T | null): T | null {
+  const ref = useRef<T | null>(null);
 
-export type Result = {
-  counter: number;
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
 
-  decrement: () => void;
-  increment: () => void;
-};
-
-export function usePreviousValue({ initialState = 0 }: Options = {}): Result {
-  const [counter, setCounter] = useState(initialState);
-
-  const decrement = useCallback(() => {
-    setCounter((value) => value - 1);
-  }, []);
-
-  const increment = useCallback(() => {
-    setCounter((value) => value + 1);
-  }, []);
-
-  return {
-    counter,
-
-    decrement,
-    increment,
-  };
+  return ref.current;
 }
