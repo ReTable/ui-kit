@@ -374,6 +374,9 @@ importers:
       '@tabula/ui-menu':
         specifier: workspace:^
         version: link:../ui-menu
+      '@tabula/use-async-state':
+        specifier: workspace:^
+        version: link:../../hooks/use-async-state
       '@tabula/use-previous-value':
         specifier: workspace:^
         version: link:../../hooks/use-previous-value

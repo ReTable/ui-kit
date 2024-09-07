@@ -45,12 +45,17 @@
   },
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "react": "^18.3.1"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.23",
+    "@tabula/ui-menu": "workspace:^",
+    "@tabula/use-async-state": "workspace:^",
+    "@tabula/use-previous-value": "workspace:^",
     "clsx": "^2.1.0"
   }
 }
