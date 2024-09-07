@@ -1,31 +1,33 @@
-import { useCallback, useState } from 'react';
+import { useMemo, useState } from 'react';
 
-export type Options = {
-  initialState?: number;
+type Controls = {
+  change: (value: boolean) => void;
+  toggle: () => void;
+  on: () => void;
+  off: () => void;
 };
 
-export type Result = {
-  counter: number;
+export function useFlag(defaultValue: boolean): [boolean, Controls] {
+  const [flag, setFlag] = useState(defaultValue);
 
-  decrement: () => void;
-  increment: () => void;
-};
+  const controls = useMemo(
+    () => ({
+      change: setFlag,
 
-export function useFlag({ initialState = 0 }: Options = {}): Result {
-  const [counter, setCounter] = useState(initialState);
+      toggle() {
+        setFlag((value) => !value);
+      },
 
-  const decrement = useCallback(() => {
-    setCounter((value) => value - 1);
-  }, []);
+      on() {
+        setFlag(true);
+      },
 
-  const increment = useCallback(() => {
-    setCounter((value) => value + 1);
-  }, []);
+      off() {
+        setFlag(false);
+      },
+    }),
+    [],
+  );
 
-  return {
-    counter,
-
-    decrement,
-    increment,
-  };
+  return [flag, controls];
 }
