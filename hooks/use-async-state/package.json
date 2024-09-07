@@ -45,5 +45,8 @@
   },
   "peerDependencies": {
     "react": "^18.3.1"
+  },
+  "dependencies": {
+    "@tabula/use-side-effect": "workspace:^"
   }
 }

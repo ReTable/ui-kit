@@ -560,6 +560,9 @@ importers:
 
   hooks/use-async-state:
     dependencies:
+      '@tabula/use-side-effect':
+        specifier: workspace:^
+        version: link:../use-side-effect
       react:
         specifier: ^18.3.1
         version: 18.3.1
