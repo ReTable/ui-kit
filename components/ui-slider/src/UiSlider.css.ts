@@ -61,7 +61,10 @@ export const circle = style({
       backgroundColor: uiTheme.colors.neutral['0'],
       borderRadius: '50%',
       transition: `transform ${uiTheme.duration.moderate['1']}`,
-      boxShadow: ['0 4px 12px rgba(0, 0, 0, 0.16)', '0 1px 2px rgba(0, 0, 0, 0.12)'].join(', '),
+      boxShadow: [
+        `0 4px 12px ${uiTheme.colors.shadow['16']}`,
+        `0 1px 2px ${uiTheme.colors.shadow['12']}`,
+      ].join(', '),
 
       selectors: {
         [`${root}:hover &`]: {
