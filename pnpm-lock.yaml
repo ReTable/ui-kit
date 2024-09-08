@@ -488,14 +488,14 @@ importers:
   hooks/use-close-on-outside-events:
     dependencies:
       body-scroll-lock:
-        specifier: 3.1.5
+        specifier: ^3.1.5
         version: 3.1.5
       react:
         specifier: ^18.3.1
         version: 18.3.1
     devDependencies:
       '@types/body-scroll-lock':
-        specifier: 3.1.2
+        specifier: ^3.1.2
         version: 3.1.2
 
   hooks/use-flag:
