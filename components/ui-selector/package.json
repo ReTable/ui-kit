@@ -1,0 +1,62 @@
+{
+  "name": "@tabula/ui-selector",
+  "version": "0.0.0",
+  "description": "Selector allow users to choose a single option from a collapsible list of options when space is limited",
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-selector#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-selector"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:docs": "forge --storybook",
+    "build:watch": "forge --watch",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "@tabula/ui-theme": "workspace:^",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:^"
+  },
+  "dependencies": {
+    "@floating-ui/react": "^0.26.23",
+    "@tabula/portal-root-for": "workspace:^",
+    "@tabula/ui-menu": "workspace:^",
+    "@tabula/use-async-state": "workspace:^",
+    "@tabula/use-close-on-outside-events": "workspace:^",
+    "@tabula/use-previous-value": "workspace:^",
+    "clsx": "^2.1.0"
+  }
+}
