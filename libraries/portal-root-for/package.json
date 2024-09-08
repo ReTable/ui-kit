@@ -39,6 +39,7 @@
     "build": "forge",
     "build:docs": "forge --storybook",
     "build:watch": "forge --watch",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest run"
   }
 }

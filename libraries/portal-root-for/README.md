@@ -1,6 +1,6 @@
 # @tabula/portal-root-for
 
-:construction: WIP: Allows to get or create portal root.
+Allows to get or create portal root.
 
 ## Installation
 
@@ -11,6 +11,22 @@ pnpm add @tabula/portal-root-for
 ```
 
 You can use [npm](https://npmjs.com) or [yarn](https://yarnpkg.com) too.
+
+## Usage
+
+```typescript
+import { portalRootFor } from '@tabula/portal-root-for';
+
+const root = portalRootFor({ id: 'my-portal' });
+```
+
+You can provide optional `className` to automatically add `class` attribute to the root element.
+
+```typescript
+import { portalRootFor } from "@tabula/portal-root-for";
+
+const root = portalRootFor({ id: 'my-portal', className: 'my-class' });
+```
 
 ## License
 
