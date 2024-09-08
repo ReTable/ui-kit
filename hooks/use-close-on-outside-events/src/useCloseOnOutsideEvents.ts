@@ -31,10 +31,6 @@ export function useCloseOnOutsideEvents({
 
   const closeOnOutsideClick = useCallback(
     (event: Event) => {
-      if (listener == null) {
-        return;
-      }
-
       if (!(event.target instanceof Element)) {
         throw new TypeError('Target must be an Element');
       }
@@ -54,7 +50,7 @@ export function useCloseOnOutsideEvents({
             let current: Element | null = el;
 
             while (current && current !== domNode) {
-              if (current.hasAttribute && current.hasAttribute('data-allow-touch-move')) {
+              if (current instanceof HTMLElement && current.dataset.allowTouchMove) {
                 return true;
               }
 
@@ -66,13 +62,13 @@ export function useCloseOnOutsideEvents({
         });
       }
 
-      listenEvents.forEach((event) => {
+      for (const event of listenEvents) {
         window.addEventListener(event, closeOnOutsideClick, capture);
-      });
+      }
     } else {
-      listenEvents.forEach((event) => {
+      for (const event of listenEvents) {
         window.removeEventListener(event, closeOnOutsideClick, capture);
-      });
+      }
     }
 
     return () => {
@@ -80,9 +76,9 @@ export function useCloseOnOutsideEvents({
         enableBodyScroll(domNode);
       }
 
-      listenEvents.forEach((event) => {
+      for (const event of listenEvents) {
         window.removeEventListener(event, closeOnOutsideClick, capture);
-      });
+      }
     };
   }, [closeOnOutsideClick, listenEvents, disableBody, domNode, isOpen, capture]);
 }
