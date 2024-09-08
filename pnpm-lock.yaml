@@ -485,6 +485,18 @@ importers:
         specifier: ^14.12.3
         version: 14.12.3
 
+  hooks/use-close-on-outside-events:
+    dependencies:
+      '@types/body-scroll-lock':
+        specifier: 3.1.2
+        version: 3.1.2
+      body-scroll-lock:
+        specifier: 3.1.5
+        version: 3.1.5
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+
   hooks/use-flag:
     dependencies:
       react:
@@ -4977,6 +4989,10 @@ packages:
       '@types/node': 20.14.11
     dev: true
 
+  /@types/body-scroll-lock@3.1.2:
+    resolution: {integrity: sha512-ELhtuphE/YbhEcpBf/rIV9Tl3/O0A0gpCVD+oYFSS8bWstHFJUgA4nNw1ZakVlRC38XaQEIsBogUZKWIPBvpfQ==}
+    dev: false
+
   /@types/connect@3.4.38:
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
     dependencies:
@@ -6101,6 +6117,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /body-scroll-lock@3.1.5:
+    resolution: {integrity: sha512-Yi1Xaml0EvNA0OYWxXiYNqY24AfWkbA6w5vxE7GWxtKfzIbZM+Qw+aSmkgsbWzbHiy/RCSkUZBplVxTA+E4jJg==}
+    dev: false
 
   /boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}

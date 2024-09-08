@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="use-close-on-outside-events" name="use-close-on-outside-events:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="use-close-on-outside-events:build:watch" type="js.build_tools.npm" />
+    <toRun name="use-close-on-outside-events:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>
