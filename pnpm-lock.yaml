@@ -497,6 +497,12 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
+  hooks/use-side-effect:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+
   hooks/use-size:
     dependencies:
       react:
