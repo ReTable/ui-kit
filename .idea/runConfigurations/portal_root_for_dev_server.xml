@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="portal-root-for" name="portal-root-for:dev:server" type="CompoundRunConfigurationType">
+    <toRun name="docs:watch" type="js.build_tools.npm" />
+    <toRun name="portal-root-for:build:watch" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

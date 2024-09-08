@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="portal-root-for" name="portal-root-for:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="portal-root-for:build:watch" type="js.build_tools.npm" />
+    <toRun name="portal-root-for:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>
