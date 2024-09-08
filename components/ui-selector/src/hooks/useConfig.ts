@@ -1,8 +1,6 @@
 import { useMemo } from 'react';
 
-import { StaticGraphUtils } from 'src/constants/graph';
-
-import styles from '../Selector.module.scss';
+import * as styles from '../skeleton.css';
 
 import { Config, ConfigItem } from '../Selector.types';
 
@@ -18,13 +16,13 @@ const LOADING_CONFIG: Config = [
   {
     id: 'loading-1',
     content: '',
-    className: styles.skeleton,
+    className: styles.root,
     contentClassName: styles.content,
   },
   {
     id: 'loading-2',
     content: '',
-    className: styles.skeleton,
+    className: styles.root,
     contentClassName: styles.content,
   },
 ];
@@ -50,8 +48,8 @@ export function useConfig({
 
         if (
           !item.denyFilter &&
-          !StaticGraphUtils.startsWith(item.id, searchValue) &&
-          !StaticGraphUtils.startsWith(String(item.content), searchValue)
+          !item.id.startsWith(searchValue) &&
+          !String(item.content).startsWith(searchValue)
         ) {
           return acc;
         }

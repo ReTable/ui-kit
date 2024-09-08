@@ -1,38 +1,36 @@
 import { MouseEventHandler, ReactNode, useCallback } from 'react';
 
 import clsx from 'clsx';
-import { SearchInput, useSearchInput } from 'src/components/atoms/SearchInput';
 
-import styles from './Selector.module.scss';
+import * as styles from './UiSelector.css';
 
-import { SelectorPopup } from './Selector.Popup';
-import { SelectorTrigger } from './Selector.Trigger';
-import { Props } from './Selector.types';
-import { useConfig } from './hooks/useConfig';
-import { usePopup } from './hooks/usePopup';
-import { useVisibility } from './hooks/useVisibility';
+import { Popup } from '../Popup';
+import { Search, useSearch } from '../Search';
+import { Props } from '../Selector.types';
+import { Trigger } from '../Trigger';
+import { useConfig, usePopup, useVisibility } from '../hooks';
 
-export function Selector({
+export function UiSelector({
   children,
-  emptyContent,
   config: outerConfig,
   defaultItem,
-  loading,
-  readOnly,
+  emptyContent,
   invalid,
-  warning,
-  placeholder,
   isVisible: outerVisible,
+  loading,
+  offset,
   onChangeVisible: onChangeOuterVisible,
   onRenderTrigger,
-  offset,
-  triggerClassName,
-  triggerContainerClassName,
+  placeholder,
+  readOnly,
   searchClassName,
   showSearchClear,
   showSearchField,
+  triggerClassName,
+  triggerContainerClassName,
+  warning,
 }: Props): ReactNode {
-  const [searchValue, onChangeSearch, onClearSearch, searchRef] = useSearchInput();
+  const [searchValue, onChangeSearch, onClearSearch, searchRef] = useSearch();
   const onClickSearch = useCallback<MouseEventHandler<HTMLInputElement>>((event) => {
     // NOTE stop propagation event for prevent closing of popup on input clicks
     event.stopPropagation();
@@ -40,57 +38,57 @@ export function Selector({
 
   const { isVisible, onChangeVisible, onTriggerClick, onPopupClick } = useVisibility({
     disabled: readOnly,
-    outerVisible,
     onChangeOuterVisible,
     onClearSearch,
+    outerVisible,
   });
 
   const config = useConfig({ outerConfig, defaultItem, searchValue, showSearchField, loading });
 
   const { reference, floating, popupStyle } = usePopup({
-    offset,
     isVisible,
+    offset,
     onChangeVisible,
   });
 
   return (
     <>
       <div
-        ref={reference}
         className={clsx(styles.triggerContainer, triggerContainerClassName)}
         onClick={onTriggerClick}
+        ref={reference}
       >
         {children != null ? (
           children
         ) : (
-          <SelectorTrigger
-            isVisible={isVisible}
-            placeholder={placeholder}
-            loading={loading}
-            onRenderTrigger={onRenderTrigger}
+          <Trigger
             className={triggerClassName}
-            showSearchField={showSearchField}
             disabled={readOnly}
             invalid={invalid}
+            isVisible={isVisible}
+            loading={loading}
+            onRenderTrigger={onRenderTrigger}
+            placeholder={placeholder}
+            showSearchField={showSearchField}
             warning={warning}
           />
         )}
         {showSearchField && isVisible && (
-          <SearchInput
-            className={clsx(styles.search, searchClassName)}
-            inputClassName={styles.searchInput}
+          <Search
             autoFocus
+            className={clsx(styles.search, searchClassName)}
             forwardedRef={searchRef}
-            showClearControl={showSearchClear}
-            placeholder={placeholder}
-            value={searchValue}
+            inputClassName={styles.searchInput}
             onChange={onChangeSearch}
             onClear={onClearSearch}
             onClick={onClickSearch}
+            placeholder={placeholder}
+            showClearControl={showSearchClear}
+            value={searchValue}
           />
         )}
       </div>
-      <SelectorPopup
+      <Popup
         config={config}
         emptyContent={emptyContent}
         isVisible={isVisible}

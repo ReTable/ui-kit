@@ -371,12 +371,18 @@ importers:
       '@floating-ui/react':
         specifier: ^0.26.23
         version: 0.26.23(react-dom@18.3.1)(react@18.3.1)
+      '@tabula/portal-root-for':
+        specifier: workspace:^
+        version: link:../../libraries/portal-root-for
       '@tabula/ui-menu':
         specifier: workspace:^
         version: link:../ui-menu
       '@tabula/use-async-state':
         specifier: workspace:^
         version: link:../../hooks/use-async-state
+      '@tabula/use-close-on-outside-events':
+        specifier: workspace:^
+        version: link:../../hooks/use-close-on-outside-events
       '@tabula/use-previous-value':
         specifier: workspace:^
         version: link:../../hooks/use-previous-value

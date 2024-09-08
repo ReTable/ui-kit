@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
-import { SelectorTriggerContent } from '../Selector.TriggerContent';
 import { Item, ItemConfigGetter, OptionItem, TriggerRenderer } from '../Selector.types';
+import { TriggerContent } from '../TriggerContent';
 
 type OuterOptions = {
   itemConfig: Item;
@@ -24,9 +24,9 @@ export function useTriggerRenderer<T>(params: Options<T>): TriggerRenderer {
         return null;
       }
 
-      return <SelectorTriggerContent {...itemConfig} />;
+      return <TriggerContent {...itemConfig} />;
     }
 
-    return <SelectorTriggerContent {...params.itemConfig} />;
+    return <TriggerContent {...params.itemConfig} />;
   }, [params]);
 }

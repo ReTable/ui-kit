@@ -1,11 +1,14 @@
 import { ReactNode, useMemo } from 'react';
 
 import clsx from 'clsx';
-import { Chevron12Icon, Direction, RunningSIcon } from 'src/components/icons';
 
-import styles from './Selector.module.scss';
+import { ReactComponent as ChevronDownIcon } from '../assets/chevronDown.svg';
+import { ReactComponent as ChevronUpIcon } from '../assets/chevronUp.svg';
+import { ReactComponent as RunningIcon } from '../assets/running.svg';
 
-import { Props as SelectorProps } from './Selector.types';
+import * as styles from './Trigger.css';
+
+import { Props as SelectorProps } from '../Selector.types';
 
 type Props = Pick<
   SelectorProps,
@@ -14,20 +17,20 @@ type Props = Pick<
   className?: string;
   disabled?: boolean;
   invalid?: boolean;
-  warning?: boolean;
   isVisible: boolean;
+  warning?: boolean;
 };
 
-export function SelectorTrigger({
+export function Trigger({
   className,
   disabled,
   invalid,
-  warning,
   isVisible,
   loading,
   onRenderTrigger,
   placeholder,
   showSearchField,
+  warning,
 }: Props): ReactNode {
   const triggerContent = useMemo(() => {
     if (typeof onRenderTrigger === 'function') {
@@ -42,34 +45,37 @@ export function SelectorTrigger({
 
   const triggerIcon = useMemo(() => {
     if (loading) {
-      return <RunningSIcon className={styles.arrow} />;
+      return <RunningIcon className={styles.arrow} />;
     }
 
     if (showSearchField && isVisible) {
       return null;
     }
 
-    return (
-      <Chevron12Icon
-        className={styles.arrow}
-        direction={isVisible ? Direction.Up : Direction.Down}
-      />
+    return isVisible ? (
+      <ChevronUpIcon className={styles.arrow} />
+    ) : (
+      <ChevronDownIcon className={styles.arrow} />
     );
   }, [isVisible, loading, showSearchField]);
 
   return (
     <div
       className={clsx(
-        styles.trigger,
+        styles.root,
         className,
-        isVisible && styles.visible,
-        warning && styles.warning,
-        invalid && styles.invalid,
-        disabled && styles.disabled,
+        isVisible && styles.states.isVisible,
+        warning && styles.states.isWarning,
+        invalid && styles.states.isInvalid,
+        disabled && styles.states.isDisabled,
       )}
     >
       <div className={styles.content}>{triggerContent}</div>
       {triggerIcon}
     </div>
   );
+}
+
+if (import.meta.env.DEV) {
+  Trigger.displayName = 'UiSelector(Trigger)';
 }

@@ -1,7 +1,6 @@
 import { useCallback, useState } from 'react';
 
-import { useAsyncState } from 'src/hooks/useAsyncState';
-
+import { useAsyncState } from '@tabula/use-async-state';
 import { usePreviousValue } from '@tabula/use-previous-value';
 
 import { OptionItem } from '../Selector.types';
@@ -11,26 +10,26 @@ import { useSyncSelector } from './useSyncSelector';
 
 type Options<T> = BaseOptions<T> & {
   loadOnHidden?: boolean;
+  optionsGetter: () => Promise<Array<OptionItem<T>>>;
   refresh?: boolean;
-  optionsGetter(): Promise<Array<OptionItem<T>>>;
 };
 
 type Result = BaseResult & {
-  loading: boolean;
-  refreshing: boolean;
-  onRefresh: () => void;
-  showSearchField?: boolean;
   isVisible: boolean;
-  onChangeVisibleTo(visibility: boolean): void;
+  loading: boolean;
+  onChangeVisibleTo: (visibility: boolean) => void;
+  onRefresh: () => void;
+  refreshing: boolean;
+  showSearchField?: boolean;
 };
 
 export function useAsyncSelector<T>({
+  loadOnHidden = false,
   optionsGetter,
   refresh,
-  loadOnHidden = false,
   ...params
 }: Options<T>): Result {
-  const [isVisible, onChangeVisibleTo] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const prevVisible = usePreviousValue(isVisible);
 
   const skipLoading = useCallback(
@@ -43,12 +42,12 @@ export function useAsyncSelector<T>({
   );
 
   const [options, loading, refreshing, onRefresh] = useAsyncState({
-    initialState: [],
     initialLoading: false,
-    skipLoading,
-    skipWaiting,
+    initialState: [],
     promise: optionsGetter,
     refresh,
+    skipLoading,
+    skipWaiting,
   });
 
   const syncSelector = useSyncSelector({ ...params, options });
@@ -56,9 +55,9 @@ export function useAsyncSelector<T>({
   return {
     ...syncSelector,
     isVisible,
-    onChangeVisibleTo,
     loading,
-    refreshing,
+    onChangeVisibleTo: setIsVisible,
     onRefresh,
+    refreshing,
   };
 }

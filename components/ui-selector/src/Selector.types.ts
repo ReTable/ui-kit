@@ -40,23 +40,23 @@ export type ItemConfigGetter<T> = (options: ItemConfigGetterOptions<T>) => Item 
 // ----- Component types
 
 export type Props = PropsWithChildren<{
-  emptyContent?: ReactNode;
-  triggerClassName?: string;
-  triggerContainerClassName?: string;
-  searchClassName?: string;
   config: Config;
   defaultItem?: ConfigItem;
-  placeholder?: string;
-  showSearchField?: boolean;
-  showSearchClear?: boolean;
-  offset?: OffsetOptions;
-  loading?: boolean;
-  readOnly?: boolean;
+  emptyContent?: ReactNode;
   invalid?: boolean;
-  warning?: boolean;
   isVisible?: boolean;
+  loading?: boolean;
+  offset?: OffsetOptions;
   onChangeVisible?: ChangeVisibleHandler;
   onRenderTrigger?: TriggerRenderer;
+  placeholder?: string;
+  readOnly?: boolean;
+  searchClassName?: string;
+  showSearchClear?: boolean;
+  showSearchField?: boolean;
+  triggerClassName?: string;
+  triggerContainerClassName?: string;
+  warning?: boolean;
 }>;
 
 export { type OffsetOptions as Offset } from '@floating-ui/react';

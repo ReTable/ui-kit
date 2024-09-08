@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { Config, OptionItem } from '../Selector.types';
-import { useTriggerRenderer } from '../hooks/useTriggerRenderer';
+import { useTriggerRenderer } from '../hooks';
 
 import { BaseOptions, BaseResult } from './useSelector.types';
 
@@ -10,11 +10,11 @@ type Options<T> = BaseOptions<T> & {
 };
 
 export function useSyncSelector<T>({
-  value,
-  options,
-  onChange,
   itemConfigGetter,
   minItemsForSearch,
+  onChange,
+  options,
+  value,
 }: Options<T>): BaseResult {
   const triggerRenderer = useTriggerRenderer({ value, options, itemConfigGetter });
 

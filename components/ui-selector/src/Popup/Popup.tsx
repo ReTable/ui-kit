@@ -2,22 +2,22 @@ import { CSSProperties, MouseEventHandler, ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
 import clsx from 'clsx';
-import { portalRootFor } from 'src/utilities/portal';
 
+import { portalRootFor } from '@tabula/portal-root-for';
 import { UiMenu, UiMenuProps } from '@tabula/ui-menu';
 
-import styles from './Selector.module.scss';
+import * as styles from './Popup.css';
 
 type Props = Pick<UiMenuProps, 'config' | 'emptyContent'> & {
-  setRef: (node: HTMLElement | null) => void;
   isVisible: boolean;
-  style: CSSProperties;
   onClick: MouseEventHandler;
+  setRef: (node: HTMLElement | null) => void;
+  style: CSSProperties;
 };
 
-const portalRoot = portalRootFor({ id: 'selector' });
+const portalRoot = portalRootFor({ id: 'ui-selector' });
 
-export function SelectorPopup({
+export function Popup({
   config,
   emptyContent,
   isVisible,
@@ -27,13 +27,17 @@ export function SelectorPopup({
 }: Props): ReactNode {
   return createPortal(
     <div
-      ref={setRef}
-      className={clsx(styles.popup, isVisible && styles.visible)}
-      style={style}
+      className={clsx(styles.root, isVisible && styles.isVisible)}
       onClick={onClick}
+      ref={setRef}
+      style={style}
     >
-      <UiMenu className={styles.menu} config={config} size="medium" emptyContent={emptyContent} />
+      <UiMenu className={styles.menu} config={config} emptyContent={emptyContent} size="medium" />
     </div>,
     portalRoot,
   );
+}
+
+if (import.meta.env.DEV) {
+  Popup.displayName = 'UiSelector(Popup)';
 }

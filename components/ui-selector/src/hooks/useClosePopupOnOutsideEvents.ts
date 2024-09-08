@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
 
 import { ExtendedRefs } from '@floating-ui/react';
-import { OutsideListener, useCloseOnOutsideEvents } from 'src/hooks/useCloseOnOutsideEvents';
+
+import { OutsideListener, useCloseOnOutsideEvents } from '@tabula/use-close-on-outside-events';
 
 import { ChangeVisibleHandler, VisibleKind } from '../Selector.types';
 

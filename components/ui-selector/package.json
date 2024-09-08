@@ -53,8 +53,10 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.23",
+    "@tabula/portal-root-for": "workspace:^",
     "@tabula/ui-menu": "workspace:^",
     "@tabula/use-async-state": "workspace:^",
+    "@tabula/use-close-on-outside-events": "workspace:^",
     "@tabula/use-previous-value": "workspace:^",
     "clsx": "^2.1.0"
   }
