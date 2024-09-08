@@ -1,0 +1,33 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "@tabula/ui-analytics": "0.3.2",
+    "@tabula/ui-button": "8.0.1",
+    "@tabula/ui-checkbox": "3.0.1",
+    "@tabula/ui-checkbox-tree": "3.0.1",
+    "@tabula/ui-data-type-icon": "0.2.3",
+    "@tabula/ui-date-picker": "6.0.1",
+    "@tabula/ui-icon": "8.0.4",
+    "@tabula/ui-json-view": "6.0.1",
+    "@tabula/ui-layout-view": "7.0.1",
+    "@tabula/ui-node-icon": "10.1.0",
+    "@tabula/ui-separator-icon": "0.2.3",
+    "@tabula/ui-status-badge": "0.1.2",
+    "@tabula/ui-switch": "0.1.2",
+    "@tabula/ui-theme": "3.1.1",
+    "@tabula/ui-tree": "0.1.2",
+    "@tabula/eslint-config": "0.1.5",
+    "@tabula/prettier-config": "0.1.7",
+    "@tabula/svgr-config": "0.3.2",
+    "@tabula/typescript-config": "0.3.3",
+    "@tabula/vitest-config": "0.2.4",
+    "@tabula/use-previous-value": "0.0.0",
+    "@tabula/use-size": "0.2.1",
+    "@tabula/use-track-id": "0.1.1",
+    "@tabula/use-track-ids": "0.1.1",
+    "@tabula/track-id": "0.1.0",
+    "@tabula/tree-utils": "0.1.0"
+  },
+  "changesets": []
+}
