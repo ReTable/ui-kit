@@ -26,9 +26,9 @@ export function useAsyncState<S>({
   const mountedRef = useRef(false);
   const loadedOnceRef = useRef(false);
 
-  const [state, setStateTo] = useState<S>(initialState);
-  const [loading, setLoadingTo] = useState(initialLoading ?? true);
-  const [refreshing, setRefreshingTo] = useState(false);
+  const [state, setState] = useState<S>(initialState);
+  const [loading, setLoading] = useState(initialLoading ?? true);
+  const [refreshing, setRefreshing] = useState(false);
 
   // Step 1: create callbacks for fetch and re-fetch options
 
@@ -48,17 +48,17 @@ export function useAsyncState<S>({
       }
 
       try {
-        setLoadingTo(true);
+        setLoading(true);
         const nextState = await promise(clearCache);
         if (mountedRef.current) {
-          setStateTo(nextState);
+          setState(nextState);
         }
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error(error);
       } finally {
         if (mountedRef.current) {
-          setLoadingTo(false);
+          setLoading(false);
           loadedOnceRef.current = true;
         }
       }
@@ -67,13 +67,13 @@ export function useAsyncState<S>({
   );
 
   const reFetchOptions = useCallback(async () => {
-    setRefreshingTo(true);
+    setRefreshing(true);
 
     try {
       await fetchOptions(true);
     } finally {
       if (mountedRef.current) {
-        setRefreshingTo(false);
+        setRefreshing(false);
       }
     }
   }, [fetchOptions]);
@@ -91,12 +91,12 @@ export function useAsyncState<S>({
 
     if (skipWaiting?.()) {
       timeout = window.setTimeout(() => {
-        setLoadingTo(false);
+        setLoading(false);
 
         if (loadOnEachTime) {
           loadedOnceRef.current = false;
 
-          setStateTo(initialState);
+          setState(initialState);
         }
       }, 200);
     }
