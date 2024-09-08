@@ -487,15 +487,16 @@ importers:
 
   hooks/use-close-on-outside-events:
     dependencies:
-      '@types/body-scroll-lock':
-        specifier: 3.1.2
-        version: 3.1.2
       body-scroll-lock:
         specifier: 3.1.5
         version: 3.1.5
       react:
         specifier: ^18.3.1
         version: 18.3.1
+    devDependencies:
+      '@types/body-scroll-lock':
+        specifier: 3.1.2
+        version: 3.1.2
 
   hooks/use-flag:
     dependencies:
@@ -4991,7 +4992,7 @@ packages:
 
   /@types/body-scroll-lock@3.1.2:
     resolution: {integrity: sha512-ELhtuphE/YbhEcpBf/rIV9Tl3/O0A0gpCVD+oYFSS8bWstHFJUgA4nNw1ZakVlRC38XaQEIsBogUZKWIPBvpfQ==}
-    dev: false
+    dev: true
 
   /@types/connect@3.4.38:
     resolution: {integrity: sha512-K6uROf1LD88uDQqJCktA4yzL1YYAK6NgfsI0v/mTgyPKWsX1CnJ0XPSDhViejru1GcRkLWb8RlzFYJRqGUbaug==}
