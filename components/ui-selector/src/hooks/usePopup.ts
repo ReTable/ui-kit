@@ -25,8 +25,8 @@ type Options = {
 };
 
 type Result = {
-  reference(node: HTMLElement | null): void;
-  floating(node: HTMLElement | null): void;
+  reference: (node: HTMLElement | null) => void;
+  floating: (node: HTMLElement | null) => void;
   popupStyle: CSSProperties;
 };
 
@@ -77,7 +77,7 @@ export function usePopup({
   const popupStyle = useMemo<CSSProperties>(() => {
     const innerStyles: CSSProperties = { position: strategy };
 
-    if (x == null || y == null || !isVisible) {
+    if (!isVisible) {
       return innerStyles;
     }
 

@@ -5,11 +5,11 @@ import { ChangeValueHandler, ClearValueHandler, InputElement, InputRef } from '.
 type Result = [string, ChangeValueHandler, ClearValueHandler, InputRef];
 
 export function useSearch(): Result {
-  const [value, setValueTo] = useState('');
+  const [value, setValue] = useState('');
   const ref = useRef<InputElement>(null);
 
   const changeSearchHandler = useCallback<ChangeValueHandler>((event) => {
-    setValueTo(event.target.value);
+    setValue(event.target.value);
   }, []);
 
   const clearSearchHandler = useCallback<ClearValueHandler>((event, focusToField) => {
@@ -21,7 +21,7 @@ export function useSearch(): Result {
       ref.current.focus();
     }
 
-    setValueTo('');
+    setValue('');
   }, []);
 
   return [value, changeSearchHandler, clearSearchHandler, ref];

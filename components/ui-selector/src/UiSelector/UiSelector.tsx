@@ -51,30 +51,32 @@ export function UiSelector({
     onChangeVisible,
   });
 
+  const trigger = children ?? (
+    <Trigger
+      className={triggerClassName}
+      disabled={readOnly}
+      invalid={invalid}
+      isVisible={isVisible}
+      loading={loading}
+      onRenderTrigger={onRenderTrigger}
+      placeholder={placeholder}
+      showSearchField={showSearchField}
+      warning={warning}
+    />
+  );
+
   return (
     <>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <div
         className={clsx(styles.triggerContainer, triggerContainerClassName)}
         onClick={onTriggerClick}
         ref={reference}
       >
-        {children != null ? (
-          children
-        ) : (
-          <Trigger
-            className={triggerClassName}
-            disabled={readOnly}
-            invalid={invalid}
-            isVisible={isVisible}
-            loading={loading}
-            onRenderTrigger={onRenderTrigger}
-            placeholder={placeholder}
-            showSearchField={showSearchField}
-            warning={warning}
-          />
-        )}
+        {trigger}
         {showSearchField && isVisible && (
           <Search
+            /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus
             className={clsx(styles.search, searchClassName)}
             forwardedRef={searchRef}
@@ -98,4 +100,8 @@ export function UiSelector({
       />
     </>
   );
+}
+
+if (import.meta.env.DEV) {
+  UiSelector.displayName = 'ui-selector(UiSelector)';
 }

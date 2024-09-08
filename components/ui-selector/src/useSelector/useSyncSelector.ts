@@ -21,11 +21,13 @@ export function useSyncSelector<T>({
   const config = useMemo(
     () =>
       options.reduce((acc: Config, item) => {
-        if (typeof item === 'object' && item != null) {
-          if ('divider' in item || 'menuTitle' in item) {
-            acc.push(item);
-            return acc;
-          }
+        if (
+          typeof item === 'object' &&
+          item != null &&
+          ('divider' in item || 'menuTitle' in item)
+        ) {
+          acc.push(item);
+          return acc;
         }
 
         const itemConfig = itemConfigGetter({ item, options });

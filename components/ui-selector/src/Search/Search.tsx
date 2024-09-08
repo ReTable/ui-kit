@@ -25,6 +25,7 @@ export function Search({
       <div className={styles.root}>
         <div className={styles.inputWrapper}>
           <input
+            /* eslint-disable-next-line jsx-a11y/no-autofocus */
             autoFocus={autoFocus}
             className={clsx(styles.input, inputClassName)}
             onChange={onChange}

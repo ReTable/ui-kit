@@ -23,11 +23,11 @@ export function useVisibility({
   onChangeOuterVisible,
   onClearSearch,
 }: Options): Result {
-  const [innerVisible, setInnerVisibilityTo] = useState(false);
+  const [innerVisible, setInnerVisible] = useState(false);
   const onChangeVisible = useCallback<ChangeVisibleHandler>(
     (visible, kind) => {
       if (outerVisible == null) {
-        setInnerVisibilityTo(visible);
+        setInnerVisible(visible);
       }
 
       onChangeOuterVisible?.(visible, kind);

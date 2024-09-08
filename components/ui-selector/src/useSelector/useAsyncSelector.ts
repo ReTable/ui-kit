@@ -33,7 +33,7 @@ export function useAsyncSelector<T>({
   const prevVisible = usePreviousValue(isVisible);
 
   const skipLoading = useCallback(
-    () => !loadOnHidden && (prevVisible || !isVisible),
+    () => !loadOnHidden && (prevVisible ?? !isVisible),
     [loadOnHidden, prevVisible, isVisible],
   );
   const skipWaiting = useCallback(
