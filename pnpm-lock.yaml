@@ -499,6 +499,9 @@ importers:
 
   hooks/use-side-effect:
     dependencies:
+      '@tabula/use-previous-value':
+        specifier: workspace:^
+        version: link:../use-previous-value
       react:
         specifier: ^18.3.1
         version: 18.3.1
