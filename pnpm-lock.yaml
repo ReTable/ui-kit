@@ -337,6 +337,19 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
+  components/ui-slider:
+    dependencies:
+      clsx:
+        specifier: ^2.1.0
+        version: 2.1.1
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+    devDependencies:
+      '@tabula/ui-theme':
+        specifier: workspace:^
+        version: link:../ui-theme
+
   components/ui-status-badge:
     dependencies:
       clsx:

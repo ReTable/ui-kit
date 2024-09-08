@@ -1,0 +1,56 @@
+{
+  "name": "@tabula/ui-slider",
+  "version": "0.0.0",
+  "description": "Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable",
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-slider#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-slider"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:docs": "forge --storybook",
+    "build:watch": "forge --watch",
+    "lint": "eslint .",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "@tabula/ui-theme": "workspace:^",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:^"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0"
+  }
+}
