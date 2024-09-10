@@ -1,5 +1,12 @@
 # @tabula/ui-ai-chat
 
+## 1.0.0-next.3
+
+### Patch Changes
+
+- Updated dependencies [[`1c418c7`](https://github.com/ReTable/ui-kit/commit/1c418c79342030ab971f7191b3027bd7226ee20d)]:
+  - @tabula/ui-slider@1.0.0-next.1
+
 ## 1.0.0-next.2
 
 ### Patch Changes

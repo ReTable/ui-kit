@@ -1,5 +1,11 @@
 # @tabula/ui-slider
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- [#220](https://github.com/ReTable/ui-kit/pull/220) [`1c418c7`](https://github.com/ReTable/ui-kit/commit/1c418c79342030ab971f7191b3027bd7226ee20d) Thanks [@demiazz](https://github.com/demiazz)! - disable transition when dragging
+
 ## 1.0.0-next.0
 
 ### Minor Changes
