@@ -21,9 +21,11 @@ export const table = style({
   },
 });
 
-export const header = style({});
+export const empty = style({});
 
-export const row = style({});
+export const headerRow = style({});
+
+export const bodyRow = style({});
 
 export const headerCell = style([
   uiStyles.fonts.sansSerif.semiBold12,
@@ -46,8 +48,16 @@ export const headerCell = style([
             borderRight: `1px solid ${uiTheme.colors.table.borderHeader}`,
           },
 
-          [`${header}:last-child &`]: {
+          [`${empty} &`]: {
             borderBottom: `1px solid ${uiTheme.colors.table.borderHeader}`,
+          },
+
+          [`${empty} &:first-child`]: {
+            borderBottomLeftRadius: '8px',
+          },
+
+          [`${empty} &:last-child`]: {
+            borderBottomRightRadius: '8px',
           },
         },
       },
@@ -72,15 +82,15 @@ export const rowCell = style([
             borderRight: `1px solid ${uiTheme.colors.table.borderHeader}`,
           },
 
-          [`${row}:last-child &`]: {
+          [`${bodyRow}:last-child &`]: {
             borderBottom: `1px solid ${uiTheme.colors.table.borderHeader}`,
           },
 
-          [`${row}:last-child &:first-child`]: {
+          [`${bodyRow}:last-child &:first-child`]: {
             borderBottomLeftRadius: '8px',
           },
 
-          [`${row}:last-child &:last-child`]: {
+          [`${bodyRow}:last-child &:last-child`]: {
             borderBottomRightRadius: '8px',
           },
         },
