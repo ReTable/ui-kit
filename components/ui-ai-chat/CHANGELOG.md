@@ -1,5 +1,11 @@
 # @tabula/ui-ai-chat
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- [#218](https://github.com/ReTable/ui-kit/pull/218) [`e3357c6`](https://github.com/ReTable/ui-kit/commit/e3357c6983ab99ff6501da698231083d2b952868) Thanks [@demiazz](https://github.com/demiazz)! - fix render of empty tables
+
 ## 1.0.0-next.1
 
 ### Patch Changes
