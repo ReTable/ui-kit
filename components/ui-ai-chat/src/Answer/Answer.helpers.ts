@@ -56,7 +56,7 @@ function renderRows(rows: string[][]) {
 }
 
 function renderHeader(header: string[]) {
-  return `<th class="${styles.header}">${header.map((h) => `<th class="${styles.headerCell}">${h}</th>`).join('')}</th>`;
+  return `<tr class="${styles.header}">${header.map((h) => `<th class="${styles.headerCell}">${h}</th>`).join('')}</tr>`;
 }
 
 export function createTableRenderer(
@@ -76,18 +76,24 @@ export function createTableRenderer(
     };
 
     const renderedTable = DOMPurify.sanitize(`
-<table class="${styles.table}">
-  ${renderHeader(data.header)}
-  ${renderRows(data.rows)}
-</table>`);
+      <table class="${styles.table}">
+        <thead>
+          ${renderHeader(data.header)}
+        </thead>
+        <tbody>
+          ${renderRows(data.rows)}
+        </tbody>
+      </table>
+    `);
 
     const actions = tableActions
       .map((action) => createTableActionButton(requestId, data, action))
       .join('\n');
 
     return `
-<div class="${styles.tableContainer}">${renderedTable}</div>
-<div class="${styles.tableActions}">${actions}</div>`;
+      <div class="${styles.tableContainer}">${renderedTable}</div>
+      <div class="${styles.tableActions}">${actions}</div>
+    `;
   };
 }
 
