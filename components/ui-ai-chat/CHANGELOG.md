@@ -1,5 +1,11 @@
 # @tabula/ui-ai-chat
 
+## 1.0.0-next.4
+
+### Patch Changes
+
+- [#222](https://github.com/ReTable/ui-kit/pull/222) [`19eeafc`](https://github.com/ReTable/ui-kit/commit/19eeafce4de834a328fc225474634fe3790653d7) Thanks [@demiazz](https://github.com/demiazz)! - prompt shouldn't be resizable
+
 ## 1.0.0-next.3
 
 ### Patch Changes
