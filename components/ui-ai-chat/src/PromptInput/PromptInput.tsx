@@ -49,7 +49,7 @@ export function PromptInput({
   return (
     <div className={clsx(styles.root, className)}>
       <TextArea
-        className={className}
+        className={styles.input}
         maxLength={maxLength}
         onChange={onChange}
         onEnterPressed={handleEnterPressed}
