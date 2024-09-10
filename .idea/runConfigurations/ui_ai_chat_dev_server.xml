@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-ai-chat" name="ui-ai-chat:dev:server" type="CompoundRunConfigurationType">
+    <toRun name="docs:watch" type="js.build_tools.npm" />
+    <toRun name="ui-ai-chat:build:watch" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

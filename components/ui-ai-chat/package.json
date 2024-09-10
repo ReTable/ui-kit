@@ -1,0 +1,63 @@
+{
+  "name": "@tabula/ui-ai-chat",
+  "version": "0.0.0",
+  "description": "Allows to embed UI for conversation with AI assistant",
+  "type": "module",
+  "typings": "./typings/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./typings/index.d.ts",
+      "module": "./lib/index.js",
+      "import": "./lib/index.js",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "tabula.io",
+    "tomat.ai",
+    "ui-kit",
+    "component",
+    "react"
+  ],
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-ai-chat#readme",
+  "bugs": {
+    "url": "https://github.com/ReTable/ui-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReTable/ui-kit.git",
+    "directory": "components/ui-ai-chat"
+  },
+  "author": "Retable Inc.",
+  "license": "ISC",
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "scripts": {
+    "build": "forge",
+    "build:docs": "forge --storybook",
+    "build:watch": "forge --watch",
+    "lint": "eslint ."
+  },
+  "peerDependencies": {
+    "@tabula/ui-theme": "workspace:^",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tabula/ui-theme": "workspace:^",
+    "@types/dompurify": "^3.0.5",
+    "@types/marked": "^4.3.0"
+  },
+  "dependencies": {
+    "@tabula/ui-button": "workspace:^",
+    "@tabula/ui-selector": "workspace:^",
+    "@tabula/ui-slider": "workspace:^",
+    "clsx": "^2.1.0",
+    "dompurify": "^3.1.6",
+    "js-xxhash": "^4.0.0",
+    "marked": "^4.3.0"
+  }
+}
