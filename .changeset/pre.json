@@ -39,6 +39,7 @@
     "@tabula/portal-root-for": "0.0.0"
   },
   "changesets": [
+    "dry-years-carry",
     "empty-ladybugs-rescue",
     "itchy-ravens-eat",
     "nervous-papayas-punch",
