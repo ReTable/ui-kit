@@ -14,6 +14,8 @@ export const root = style([
         width: '100%',
         border: 'none',
         backgroundColor: 'transparent',
+        cursor: 'pointer',
+        textAlign: 'center',
 
         selectors: {
           '&:focus': {
