@@ -27,7 +27,28 @@
     "@tabula/use-track-id": "0.1.1",
     "@tabula/use-track-ids": "0.1.1",
     "@tabula/track-id": "0.1.0",
-    "@tabula/tree-utils": "0.1.0"
+    "@tabula/tree-utils": "0.1.0",
+    "@tabula/ui-ai-chat": "0.0.0",
+    "@tabula/ui-menu": "0.0.0",
+    "@tabula/ui-selector": "0.0.0",
+    "@tabula/ui-slider": "0.0.0",
+    "@tabula/use-async-state": "0.0.0",
+    "@tabula/use-close-on-outside-events": "0.0.0",
+    "@tabula/use-flag": "0.0.0",
+    "@tabula/use-side-effect": "0.0.0",
+    "@tabula/portal-root-for": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "nervous-papayas-punch",
+    "new-clouds-greet",
+    "poor-sloths-mix",
+    "red-rocks-study",
+    "rude-pens-smoke",
+    "sharp-bugs-end",
+    "stale-penguins-try",
+    "swift-squids-exercise",
+    "wet-rats-stare",
+    "wild-lies-yawn",
+    "wise-cooks-decide"
+  ]
 }

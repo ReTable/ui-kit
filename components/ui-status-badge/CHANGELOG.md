@@ -1,5 +1,12 @@
 # @tabula/ui-status-badge
 
+## 1.0.0-next.0
+
+### Patch Changes
+
+- Updated dependencies [[`8938c46`](https://github.com/ReTable/ui-kit/commit/8938c463fc9f3b5436f78897c09f31307af88e5a)]:
+  - @tabula/ui-theme@3.2.0-next.0
+
 ## 0.1.2
 
 ### Patch Changes
