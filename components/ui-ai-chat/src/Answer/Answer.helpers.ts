@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import DOMPurify from 'dompurify';
 import { xxHash32 } from 'js-xxhash';
 import { marked } from 'marked';
@@ -52,11 +53,11 @@ function renderRow(row: string[]) {
 }
 
 function renderRows(rows: string[][]) {
-  return rows.map((row) => `<tr class="${styles.row}">${renderRow(row)}</tr>`).join('');
+  return rows.map((row) => `<tr class="${styles.bodyRow}">${renderRow(row)}</tr>`).join('');
 }
 
 function renderHeader(header: string[]) {
-  return `<tr class="${styles.header}">${header.map((h) => `<th class="${styles.headerCell}">${h}</th>`).join('')}</tr>`;
+  return `<tr class="${styles.headerRow}">${header.map((h) => `<th class="${styles.headerCell}">${h}</th>`).join('')}</tr>`;
 }
 
 export function createTableRenderer(
@@ -75,8 +76,10 @@ export function createTableRenderer(
       rows: rows.map((row) => row.map((v) => v.text)),
     };
 
+    const tableClassName = clsx(styles.table, data.rows.length === 0 && styles.empty);
+
     const renderedTable = DOMPurify.sanitize(`
-      <table class="${styles.table}">
+      <table class="${tableClassName}">
         <thead>
           ${renderHeader(data.header)}
         </thead>
