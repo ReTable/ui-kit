@@ -33,6 +33,12 @@ export const line = style({
         'no-repeat',
       ].join(' '),
       transition: `background-size ${uiTheme.duration.moderate['1']} ${uiTheme.easing.standard.expressive}`,
+
+      selectors: {
+        [`${states.isDragging} &`]: {
+          transition: 'none',
+        },
+      },
     },
   },
 });
