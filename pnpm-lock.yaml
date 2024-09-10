@@ -582,6 +582,12 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
+  hooks/use-previous:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+
   hooks/use-previous-value:
     dependencies:
       react:
