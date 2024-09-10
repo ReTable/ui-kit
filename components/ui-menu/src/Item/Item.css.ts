@@ -15,7 +15,7 @@ export const root = style([
         border: 'none',
         backgroundColor: 'transparent',
         cursor: 'pointer',
-        textAlign: 'center',
+        textAlign: 'left',
 
         selectors: {
           '&:focus': {
