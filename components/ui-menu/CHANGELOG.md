@@ -1,5 +1,11 @@
 # @tabula/ui-menu
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- [#224](https://github.com/ReTable/ui-kit/pull/224) [`4221818`](https://github.com/ReTable/ui-kit/commit/4221818fa9e040007ad8cb55820e71cf24c9d071) Thanks [@demiazz](https://github.com/demiazz)! - fix align and cursor on items
+
 ## 1.0.0-next.0
 
 ### Minor Changes

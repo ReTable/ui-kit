@@ -1,5 +1,12 @@
 # @tabula/ui-ai-chat
 
+## 1.0.0-next.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @tabula/ui-selector@1.0.0-next.1
+
 ## 1.0.0-next.4
 
 ### Patch Changes
