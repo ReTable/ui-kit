@@ -85,6 +85,7 @@ export function RequestView({
             </div>
             <div className={styles.boxText}>{request.prompt}</div>
             {!editDisabled && (
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
               <div className={styles.editButton} onClick={handleEdit}>
                 <EditIcon />
               </div>
