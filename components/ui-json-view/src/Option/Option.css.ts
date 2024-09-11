@@ -60,7 +60,7 @@ export const handle = style({
     [uiLayers.components]: {
       backgroundColor: uiTheme.colors.background.primaryContent,
       borderRadius: '50%',
-      boxShadow: `0 1px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.16)`,
+      boxShadow: `0 1px 4px ${uiTheme.colors.shadow['8']}, 0 1px 2px ${uiTheme.colors.shadow['8']}, 0 4px 12px ${uiTheme.colors.shadow['16']}`,
       transition: `${uiTheme.duration.fast['1']} ${uiTheme.easing.entrance.productive}`,
       width: '10px',
       height: '10px',
