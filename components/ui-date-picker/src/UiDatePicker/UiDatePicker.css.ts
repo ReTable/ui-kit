@@ -12,9 +12,9 @@ const base = style({
       background: uiTheme.colors.background.primaryContent,
       borderRadius: '8px',
       boxShadow: [
-        '0px 4px 16px 0px rgba(0, 0, 0, 0.06)',
-        '0px 1px 4px 0px rgba(0, 0, 0, 0.12)',
-        '0px 1px 2px 0px rgba(0, 0, 0, 0.04)',
+        `0px 4px 16px 0px ${uiTheme.colors.shadow['6']}`,
+        `0px 1px 4px 0px ${uiTheme.colors.shadow['12']}`,
+        `0px 1px 2px 0px ${uiTheme.colors.shadow['4']}`,
       ].join(', '),
       overflow: 'hidden',
     },
