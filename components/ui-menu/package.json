@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.23",
+    "@tabula/dom-utils": "workspace:^",
     "@tabula/use-flag": "workspace:^",
     "clsx": "^2.1.0"
   }

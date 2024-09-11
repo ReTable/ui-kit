@@ -16,10 +16,10 @@ import {
   useTransitionStyles,
 } from '@floating-ui/react';
 
+import { isButtonTarget } from '@tabula/dom-utils';
 import { useFlag } from '@tabula/use-flag';
 
 import { UiMenu, UiMenuProps } from '../UiMenu';
-import { isClickByButton } from '../helpers';
 import { ItemWithSubMenu } from '../types';
 
 type Props = PropsWithChildren<
@@ -74,7 +74,7 @@ export function SubMenu({
 
   const onPopupClick = useCallback<MouseEventHandler>(
     (event) => {
-      if (isClickByButton(event)) {
+      if (isButtonTarget(event)) {
         onClose();
       }
     },

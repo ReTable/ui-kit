@@ -2,9 +2,9 @@ import { memo } from 'react';
 
 import clsx from 'clsx';
 
-import * as styles from './Divider.css';
+import { stopEvent } from '@tabula/dom-utils';
 
-import { stopEvent } from '../helpers';
+import * as styles from './Divider.css';
 
 export const Divider = memo(() => (
   // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
