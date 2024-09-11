@@ -1,6 +1,6 @@
 {
   "name": "@tabula/use-close-on-outside-events",
-  "version": "0.1.0-next.0",
+  "version": "0.1.0",
   "description": "Allows to call close handler on events which triggered outside target element",
   "type": "module",
   "typings": "./typings/index.d.ts",

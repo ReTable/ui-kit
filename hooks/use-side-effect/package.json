@@ -1,6 +1,6 @@
 {
   "name": "@tabula/use-side-effect",
-  "version": "0.1.0-next.0",
+  "version": "0.1.0",
   "description": "Allows to manage side effects",
   "type": "module",
   "typings": "./typings/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-theme",
-  "version": "3.2.0-next.0",
+  "version": "3.2.0",
   "description": "Theme provider for the UI kit",
   "type": "module",
   "sass": "sass/theme.scss",

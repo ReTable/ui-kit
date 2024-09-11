@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 3.2.0
+
+### Minor Changes
+
+- [#198](https://github.com/ReTable/ui-kit/pull/198) [`8938c46`](https://github.com/ReTable/ui-kit/commit/8938c463fc9f3b5436f78897c09f31307af88e5a) Thanks [@demiazz](https://github.com/demiazz)! - add `shadow` colors
+
 ## 3.2.0-next.0
 
 ### Minor Changes
