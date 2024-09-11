@@ -1,5 +1,14 @@
 # @tabula/ui-date-picker
 
+## 7.0.0-next.1
+
+### Patch Changes
+
+- [#229](https://github.com/ReTable/ui-kit/pull/229) [`cc03337`](https://github.com/ReTable/ui-kit/commit/cc033371feb2098b086ddcf1f05cd8b6876bcbf8) Thanks [@demiazz](https://github.com/demiazz)! - use shadow colors from `@tabula/ui-theme`
+
+- Updated dependencies [[`cc03337`](https://github.com/ReTable/ui-kit/commit/cc033371feb2098b086ddcf1f05cd8b6876bcbf8)]:
+  - @tabula/ui-button@9.0.0-next.1
+
 ## 7.0.0-next.0
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @tabula/ui-selector
 
+## 1.0.0-next.3
+
+### Patch Changes
+
+- [#229](https://github.com/ReTable/ui-kit/pull/229) [`bdfe2ac`](https://github.com/ReTable/ui-kit/commit/bdfe2ac47bb01c93316784b36be173b2931f671d) Thanks [@demiazz](https://github.com/demiazz)! - fix styles of search input
+
 ## 1.0.0-next.2
 
 ### Patch Changes

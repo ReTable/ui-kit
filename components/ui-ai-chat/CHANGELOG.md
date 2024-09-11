@@ -1,5 +1,13 @@
 # @tabula/ui-ai-chat
 
+## 1.0.0-next.7
+
+### Patch Changes
+
+- Updated dependencies [[`cc03337`](https://github.com/ReTable/ui-kit/commit/cc033371feb2098b086ddcf1f05cd8b6876bcbf8), [`bdfe2ac`](https://github.com/ReTable/ui-kit/commit/bdfe2ac47bb01c93316784b36be173b2931f671d)]:
+  - @tabula/ui-button@9.0.0-next.1
+  - @tabula/ui-selector@1.0.0-next.3
+
 ## 1.0.0-next.6
 
 ### Patch Changes
