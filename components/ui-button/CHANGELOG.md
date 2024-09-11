@@ -1,5 +1,14 @@
 # @tabula/ui-button
 
+## 9.0.0
+
+### Patch Changes
+
+- [#229](https://github.com/ReTable/ui-kit/pull/229) [`cc03337`](https://github.com/ReTable/ui-kit/commit/cc033371feb2098b086ddcf1f05cd8b6876bcbf8) Thanks [@demiazz](https://github.com/demiazz)! - use shadow colors from `@tabula/ui-theme`
+
+- Updated dependencies [[`8938c46`](https://github.com/ReTable/ui-kit/commit/8938c463fc9f3b5436f78897c09f31307af88e5a)]:
+  - @tabula/ui-theme@3.2.0
+
 ## 9.0.0-next.1
 
 ### Patch Changes

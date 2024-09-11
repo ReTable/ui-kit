@@ -1,6 +1,6 @@
 {
   "name": "@tabula/use-flag",
-  "version": "0.1.0-next.0",
+  "version": "0.1.0",
   "description": "Allows to use boolean state as flag",
   "type": "module",
   "typings": "./typings/index.d.ts",
