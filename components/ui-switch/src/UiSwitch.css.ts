@@ -111,9 +111,9 @@ export const indicatorHandle = style({
       display: 'block',
       padding: '1px',
       boxShadow: [
-        '0 4px 12px 0 rgba(0, 0, 0, 0.16)',
-        '0 1px 2px 0 rgba(0, 0, 0, 0.08)',
-        '0 1px 4px 0 rgba(0, 0, 0, 0.08)',
+        `0 4px 12px 0 ${uiTheme.colors.shadow['16']}`,
+        `0 1px 2px 0 ${uiTheme.colors.shadow['8']}`,
+        `0 1px 4px 0 ${uiTheme.colors.shadow['8']}`,
       ].join(', '),
       backgroundColor: uiTheme.colors.background.primaryContent,
       color: uiTheme.colors.content.tertiary,
