@@ -85,7 +85,7 @@ export const input = style([
         width: '100%',
         border: 'none',
         backgroundColor: 'transparent',
-        color: 'uiTheme.colors.content.primary',
+        color: uiTheme.colors.content.primary,
         boxSizing: 'border-box',
 
         selectors: {
