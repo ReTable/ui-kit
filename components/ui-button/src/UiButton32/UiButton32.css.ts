@@ -98,7 +98,7 @@ const variantStyles = {
     default: {
       background: uiTheme.colors.background.primaryContent,
       color: uiTheme.colors.content.secondary,
-      boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.06), 0 1px 12px 0 rgba(0, 0, 0, 0.08)',
+      boxShadow: `0 1px 2px 0 ${uiTheme.colors.shadow['6']}, 0 1px 12px 0 ${uiTheme.colors.shadow['8']}`,
     },
     hover: {
       color: uiTheme.colors.content.primary,
