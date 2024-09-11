@@ -1,6 +1,6 @@
 {
   "name": "@tabula/dom-utils",
-  "version": "0.0.0",
+  "version": "0.1.0-next.0",
   "description": "Set of utilities for working with DOM",
   "type": "module",
   "typings": "./typings/index.d.ts",
