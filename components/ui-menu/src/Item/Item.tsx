@@ -2,10 +2,11 @@ import { ReactNode, useCallback, useMemo } from 'react';
 
 import clsx from 'clsx';
 
+import { stopEvent } from '@tabula/dom-utils';
+
 import * as styles from './Item.css';
 
 import { ItemIcon } from '../ItemIcon';
-import { stopEvent } from '../helpers';
 
 import { ClickHandler, ItemProps, SelectItemHandler } from './Item.types';
 

@@ -1,7 +1,7 @@
 {
-  "name": "@tabula/ui-menu",
-  "version": "1.0.0-next.1",
-  "description": "Menus display a list of actions or options that a user can choose",
+  "name": "@tabula/dom-utils",
+  "version": "0.0.0",
+  "description": "Set of utilities for working with DOM",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
@@ -18,17 +18,16 @@
     "tabula.io",
     "tomat.ai",
     "ui-kit",
-    "component",
-    "react"
+    "library"
   ],
-  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-menu#readme",
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/libraries/dom-utils#readme",
   "bugs": {
     "url": "https://github.com/ReTable/ui-kit/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ReTable/ui-kit.git",
-    "directory": "components/ui-menu"
+    "directory": "libraries/dom-utils"
   },
   "author": "Retable Inc.",
   "license": "ISC",
@@ -43,16 +42,6 @@
     "lint": "eslint ."
   },
   "peerDependencies": {
-    "@tabula/ui-theme": "workspace:^",
     "react": "^18.3.1"
-  },
-  "devDependencies": {
-    "@tabula/ui-theme": "workspace:^"
-  },
-  "dependencies": {
-    "@floating-ui/react": "^0.26.23",
-    "@tabula/dom-utils": "workspace:^",
-    "@tabula/use-flag": "workspace:^",
-    "clsx": "^2.1.0"
   }
 }

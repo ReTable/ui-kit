@@ -1,7 +1,8 @@
 import { MouseEventHandler, useCallback, useMemo, useState } from 'react';
 
+import { isButtonTarget } from '@tabula/dom-utils';
+
 import { ChangeVisibleHandler, VisibleKind } from '../Selector.types';
-import { isClickByButton } from '../helpers';
 
 type Options = {
   disabled?: boolean;
@@ -51,7 +52,7 @@ export function useVisibility({
 
   const onPopupClick = useCallback<MouseEventHandler>(
     (event) => {
-      if (isClickByButton(event)) {
+      if (isButtonTarget(event)) {
         onChangeVisible(false, VisibleKind.Select);
       }
     },

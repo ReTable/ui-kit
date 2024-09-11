@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 
-export function isClickByButton(event: MouseEvent | globalThis.MouseEvent): boolean {
+export function isButtonTarget(event: MouseEvent | globalThis.MouseEvent): boolean {
   if (!(event.target instanceof Element)) {
     throw new TypeError('Target must be an Element');
   }
