@@ -39,8 +39,7 @@
     "build": "forge",
     "build:docs": "forge --storybook",
     "build:watch": "forge --watch",
-    "lint": "eslint .",
-    "test": "vitest run"
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "react": "^18.3.1"
