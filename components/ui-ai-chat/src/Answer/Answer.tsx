@@ -46,5 +46,5 @@ export function Answer({ className, request, tableActions }: Props): ReactNode {
 }
 
 if (import.meta.env.DEV) {
-  Answer.displayName = 'UiAiChat(Answer)';
+  Answer.displayName = 'ui-ai-chat(Answer)';
 }

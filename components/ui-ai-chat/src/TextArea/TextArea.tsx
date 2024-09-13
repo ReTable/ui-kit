@@ -63,5 +63,5 @@ export function TextArea({
 }
 
 if (import.meta.env.DEV) {
-  TextArea.displayName = 'UiAiChat(TextArea)';
+  TextArea.displayName = 'ui-ai-chat(TextArea)';
 }
