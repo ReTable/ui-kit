@@ -69,5 +69,5 @@ export function PromptInput({
 }
 
 if (import.meta.env.DEV) {
-  PromptInput.displayName = 'UiAiChat(PromptInput)';
+  PromptInput.displayName = 'ui-ai-chat(PromptInput)';
 }

@@ -104,5 +104,5 @@ export function RequestView({
 }
 
 if (import.meta.env.DEV) {
-  RequestView.displayName = 'UiAiChat(RequestView)';
+  RequestView.displayName = 'ui-ai-chat(RequestView)';
 }

@@ -35,5 +35,5 @@ export function ModeSelector({ className, onChange, options, value }: Props): Re
 }
 
 if (import.meta.env.DEV) {
-  ModeSelector.displayName = 'UiAiChat(ModeSelector)';
+  ModeSelector.displayName = 'ui-ai-chat(ModeSelector)';
 }
