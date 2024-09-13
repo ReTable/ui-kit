@@ -39,7 +39,7 @@ type ContextProps =
       onChangeContext?: never;
     };
 
-type Props = {
+export type Props = {
   className?: string;
   conversation: Request[];
   inputAtTheBottom: boolean;
