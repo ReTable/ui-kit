@@ -50,8 +50,8 @@ export type Props = {
   minTemperature: number;
   onChangePrompt: (prompt: string) => void;
   onChangeTemperature: (temperature: number) => void;
-  onEdit: (index: number, prompt: string) => void;
-  onSend: () => void;
+  onEdit: (index: number, prompt: string) => Promise<void> | void;
+  onSend: () => Promise<void> | void;
   onStartNewChat?: () => void;
   placeholder?: string;
   prompt: string;
