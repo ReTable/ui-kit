@@ -3,36 +3,33 @@ import { ForwardedRef, forwardRef } from 'react';
 import clsx from 'clsx';
 
 import { UiButton24 } from '@tabula/ui-button';
-import { UiSlider } from '@tabula/ui-slider';
 import { useFlag } from '@tabula/use-flag';
 
 import { ReactComponent as AddIcon } from './assets/add.svg';
 
 import * as styles from './UiAiChat.css';
 
-import { Drawer } from '../Drawer';
 import { Header } from '../Header';
-import { ModeSelector } from '../ModeSelector';
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
-import { TextArea } from '../TextArea';
+import { Settings } from '../Settings';
 import { Controller, Mode, Request, TableAction } from '../types';
 
 import { useController } from './UiAiChat.hooks';
 
-type ModeProps =
+export type ModeProps =
   | {
       mode: Mode;
       supportedModes: Mode[];
       onChangeMode: (mode: Mode) => void;
     }
   | {
-      mode?: never;
+      mode: Mode;
       supportedModes?: never;
       onChangeMode?: never;
     };
 
-type ContextProps =
+export type ContextProps =
   | {
       context: string;
       onChangeContext: (context: string) => void;
@@ -93,24 +90,14 @@ export const UiAiChat = forwardRef<Controller, Props>(
   ) => {
     const conversationRef = useController(ref);
 
-    const creativityLevel = `${Math.round(temperature * 10)} / 10`;
-
     const [settingsIsOpened, { on: onOpenSettings, off: onCloseSettings }] = useFlag(false);
 
     return (
       <div className={clsx(styles.root, inputAtTheBottom && styles.isReversed, className)}>
         <Header onStartNewChat={() => {}} onFullscreen={() => {}} onOpenSettings={onOpenSettings}>
-          {mode?.name ?? ''}
+          {mode.name}
         </Header>
         <div className={styles.input}>
-          {mode != null && (
-            <ModeSelector
-              className={styles.mode}
-              onChange={onChangeMode}
-              options={supportedModes}
-              value={mode}
-            />
-          )}
           <PromptInput
             className={styles.inputControl}
             isSendable={isSendAllowed}
@@ -132,33 +119,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
               Start new chat
             </UiButton24>
           )}
-          <div className={styles.creativity}>
-            <div className={styles.creativityTitleContainer}>
-              <div className={styles.creativityTitle}>AI creativity</div>
-              <div className={styles.creativityLevel}>{creativityLevel}</div>
-            </div>
-            <UiSlider
-              max={maxTemperature}
-              min={minTemperature}
-              onChange={onChangeTemperature}
-              step={0.005}
-              value={temperature}
-              variant="ai"
-            />
-          </div>
         </div>
-        {context != null && (
-          <div className={styles.experimental}>
-            <div className={styles.label}>Context</div>
-            <TextArea
-              className={styles.textarea}
-              onChange={onChangeContext}
-              placeholder="Context"
-              rows={3}
-              value={context}
-            />
-          </div>
-        )}
         <div className={styles.chat} ref={conversationRef}>
           {conversation.map((request) => (
             <RequestView
@@ -171,7 +132,19 @@ export const UiAiChat = forwardRef<Controller, Props>(
             />
           ))}
         </div>
-        <Drawer isOpened={settingsIsOpened} onClose={onCloseSettings} title="Chat settings" />
+        <Settings
+          context={context}
+          isOpened={settingsIsOpened}
+          maxTemperature={maxTemperature}
+          minTemperature={minTemperature}
+          mode={mode}
+          onChangeContext={onChangeContext}
+          onChangeMode={onChangeMode}
+          onChangeTemperature={onChangeTemperature}
+          onClose={onCloseSettings}
+          supportedModes={supportedModes}
+          temperature={temperature}
+        />
       </div>
     );
   },
