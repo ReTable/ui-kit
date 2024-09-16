@@ -94,7 +94,9 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
         supportedModes: options.supportedModes,
         onChangeMode: options.onChangeMode,
       }
-    : {};
+    : {
+        mode: options.mode,
+      };
 
   const context = features.context
     ? {
