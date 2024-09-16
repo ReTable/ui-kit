@@ -42,7 +42,6 @@ export type ContextProps =
 export type Props = {
   className?: string;
   conversation: Request[];
-  inputAtTheBottom?: boolean;
   isPending?: boolean;
   isSendAllowed?: boolean;
   maxPromptLength?: number;
@@ -66,7 +65,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
       className,
       context,
       conversation,
-      inputAtTheBottom = false,
       isPending = false,
       isSendAllowed = true,
       maxPromptLength,
@@ -93,7 +91,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
     const [settingsIsOpened, { on: onOpenSettings, off: onCloseSettings }] = useFlag(false);
 
     return (
-      <div className={clsx(styles.root, inputAtTheBottom && styles.isReversed, className)}>
+      <div className={clsx(styles.root, className)}>
         <Header onStartNewChat={() => {}} onFullscreen={() => {}} onOpenSettings={onOpenSettings}>
           {mode.name}
         </Header>

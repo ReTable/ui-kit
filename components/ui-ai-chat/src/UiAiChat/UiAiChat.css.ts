@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiLayers, uiTheme } from '@tabula/ui-theme';
+import { uiLayers } from '@tabula/ui-theme';
 
 export const root = style({
   '@layer': {
@@ -14,26 +14,12 @@ export const root = style({
   },
 });
 
-export const isReversed = style({
-  '@layer': {
-    [uiLayers.components]: {
-      flexDirection: 'column-reverse',
-    },
-  },
-});
-
 export const input = style({
   '@layer': {
     [uiLayers.components]: {
       display: 'flex',
       flexDirection: 'column',
       padding: '12px 16px',
-
-      selectors: {
-        [`${isReversed} &`]: {
-          borderTop: `1px solid ${uiTheme.colors.neutral['100']}`,
-        },
-      },
     },
   },
 });
@@ -60,12 +46,6 @@ export const chat = style({
     [uiLayers.components]: {
       flexGrow: '1',
       overflowY: 'auto',
-
-      selectors: {
-        [`${root}:not(${isReversed}) ${input} + &:not(:empty)`]: {
-          borderTop: `1px solid ${uiTheme.colors.neutral['100']}`,
-        },
-      },
     },
   },
 });

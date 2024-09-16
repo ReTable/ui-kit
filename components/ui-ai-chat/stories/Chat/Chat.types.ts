@@ -3,7 +3,6 @@ import { Mode } from '~';
 export type Features = {
   mode: boolean;
   context: boolean;
-  inputAtTheBottom: boolean;
   startNewChat: boolean;
 };
 

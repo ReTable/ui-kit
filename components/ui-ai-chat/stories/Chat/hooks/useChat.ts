@@ -188,8 +188,6 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
     ...context,
     ...mode,
 
-    inputAtTheBottom: features.inputAtTheBottom,
-
     conversation: state.conversation,
 
     isPending: state.isPending,

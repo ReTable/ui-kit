@@ -304,29 +304,6 @@ export const WithNewChat = {
   parameters: staticParameters,
 };
 
-export const WithInputAtBottom = {
-  args: {
-    ...DEFAULT_ARGS,
-
-    conversation: [
-      {
-        id: 1,
-        prompt: 'Please, help me with my task.',
-        answer: [
-          'OK, follow my recommendations:',
-          '- keep work/life balance;',
-          '- do things which helps to solve business task;',
-          '- ...',
-        ].join('\n'),
-      },
-    ],
-
-    inputAtTheBottom: true,
-  },
-
-  parameters: staticParameters,
-};
-
 // endregion Stories
 
 // region Playgrounds
@@ -334,7 +311,6 @@ export const WithInputAtBottom = {
 export const Playground: StoryObj<typeof Chat> = {
   args: {
     context: false,
-    inputAtTheBottom: false,
     mode: true,
     startNewChat: false,
     tableActions: [
@@ -348,10 +324,6 @@ export const Playground: StoryObj<typeof Chat> = {
   argTypes: {
     context: {
       name: 'Allow to set context?',
-      type: 'boolean',
-    },
-    inputAtTheBottom: {
-      name: 'Input at the bottom?',
       type: 'boolean',
     },
     mode: {
@@ -371,15 +343,9 @@ export const Playground: StoryObj<typeof Chat> = {
     },
   },
 
-  render({ context, inputAtTheBottom, mode, startNewChat, tableActions }) {
+  render({ context, mode, startNewChat, tableActions }) {
     return (
-      <Chat
-        context={context}
-        inputAtTheBottom={inputAtTheBottom}
-        mode={mode}
-        startNewChat={startNewChat}
-        tableActions={tableActions}
-      />
+      <Chat context={context} mode={mode} startNewChat={startNewChat} tableActions={tableActions} />
     );
   },
 };
