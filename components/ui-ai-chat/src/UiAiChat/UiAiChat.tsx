@@ -2,10 +2,7 @@ import { ForwardedRef, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
-import { UiButton24 } from '@tabula/ui-button';
 import { useFlag } from '@tabula/use-flag';
-
-import { ReactComponent as AddIcon } from './assets/add.svg';
 
 import * as styles from './UiAiChat.css';
 
@@ -92,7 +89,11 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     return (
       <div className={clsx(styles.root, className)}>
-        <Header onStartNewChat={() => {}} onFullscreen={() => {}} onOpenSettings={onOpenSettings}>
+        <Header
+          onStartNewChat={onStartNewChat}
+          onFullscreen={() => {}}
+          onOpenSettings={onOpenSettings}
+        >
           {mode.name}
         </Header>
         <div className={styles.input}>
@@ -106,17 +107,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
             placeholder={placeholder ?? 'Ask GPT'}
             value={prompt}
           />
-          {onStartNewChat != null && conversation.length > 0 && (
-            <UiButton24
-              className={styles.startNewChat}
-              icon={AddIcon}
-              isDisabled={isPending}
-              onClick={onStartNewChat}
-              variant="edit"
-            >
-              Start new chat
-            </UiButton24>
-          )}
         </div>
         <div className={styles.chat} ref={conversationRef}>
           {conversation.map((request) => (
