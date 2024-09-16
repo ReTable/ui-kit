@@ -10,11 +10,11 @@ import { ReactComponent as AddIcon } from './assets/add.svg';
 
 import * as styles from './UiAiChat.css';
 
+import { Drawer } from '../Drawer';
 import { Header } from '../Header';
 import { ModeSelector } from '../ModeSelector';
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
-import { Settings } from '../Settings';
 import { TextArea } from '../TextArea';
 import { Controller, Mode, Request, TableAction } from '../types';
 
@@ -169,7 +169,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             />
           ))}
         </div>
-        <Settings isOpened={settingsIsOpened} onClose={onCloseSettings} />
+        <Drawer isOpened={settingsIsOpened} onClose={onCloseSettings} title="Chat settings" />
       </div>
     );
   },

@@ -62,3 +62,7 @@ export function Header({
     </div>
   );
 }
+
+if (import.meta.env.DEV) {
+  Header.displayName = 'ui-ai-chat(Header)';
+}
