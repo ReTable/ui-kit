@@ -54,16 +54,13 @@ export function Settings({
         onChange={onChangeTemperature}
       />
       {context != null && onChangeContext != null && (
-        <div className={styles.experimental}>
-          <div className={styles.label}>Context</div>
-          <TextArea
-            className={styles.textarea}
-            onChange={onChangeContext}
-            placeholder="Context"
-            rows={3}
-            value={context}
-          />
-        </div>
+        <TextArea
+          className={styles.context}
+          onChange={onChangeContext}
+          placeholder="Context"
+          rows={3}
+          value={context}
+        />
       )}
     </Drawer>
   );
