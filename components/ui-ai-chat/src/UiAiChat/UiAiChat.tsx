@@ -42,9 +42,9 @@ type ContextProps =
 export type Props = {
   className?: string;
   conversation: Request[];
-  inputAtTheBottom: boolean;
-  isPending: boolean;
-  isSendAllowed: boolean;
+  inputAtTheBottom?: boolean;
+  isPending?: boolean;
+  isSendAllowed?: boolean;
   maxPromptLength?: number;
   maxTemperature: number;
   minTemperature: number;
@@ -55,7 +55,7 @@ export type Props = {
   onStartNewChat?: () => void;
   placeholder?: string;
   prompt: string;
-  tableActions: TableAction[];
+  tableActions?: TableAction[];
   temperature: number;
 } & ModeProps &
   ContextProps;
@@ -66,9 +66,9 @@ export const UiAiChat = forwardRef<Controller, Props>(
       className,
       context,
       conversation,
-      inputAtTheBottom,
-      isPending,
-      isSendAllowed,
+      inputAtTheBottom = false,
+      isPending = false,
+      isSendAllowed = true,
       maxPromptLength,
       maxTemperature,
       minTemperature,
@@ -83,7 +83,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       placeholder,
       prompt,
       supportedModes,
-      tableActions,
+      tableActions = [],
       temperature,
     }: Props,
     ref: ForwardedRef<Controller>,
