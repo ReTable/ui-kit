@@ -1,5 +1,6 @@
 import { PropsWithChildren, ReactNode } from 'react';
 
+import { clsx } from 'clsx/lite';
 import { CSSTransition } from 'react-transition-group';
 
 import { ReactComponent as CloseIcon } from './assets/close.svg';
@@ -9,6 +10,8 @@ import * as styles from './Drawer.css';
 import { useKeyboardClose, useTransition } from './hooks';
 
 type Props = PropsWithChildren<{
+  className?: string;
+
   isOpened: boolean;
 
   onClose: () => void;
@@ -16,7 +19,7 @@ type Props = PropsWithChildren<{
   title: string;
 }>;
 
-export function Drawer({ children, isOpened, onClose, title }: Props): ReactNode {
+export function Drawer({ children, className, isOpened, onClose, title }: Props): ReactNode {
   const [nodeRef, endListener] = useTransition();
 
   useKeyboardClose(onClose);
@@ -30,7 +33,7 @@ export function Drawer({ children, isOpened, onClose, title }: Props): ReactNode
       nodeRef={nodeRef}
       unmountOnExit
     >
-      <div className={styles.root} aria-modal="true" ref={nodeRef}>
+      <div className={clsx(styles.root, className)} aria-modal="true" ref={nodeRef}>
         {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/interactive-supports-focus */}
         <div className={styles.overlay} onClick={onClose} role="button" />
         <div className={styles.body}>

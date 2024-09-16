@@ -14,6 +14,14 @@ export const root = style({
   },
 });
 
+export const header = style({
+  '@layer': {
+    [uiLayers.components]: {
+      zIndex: 1,
+    },
+  },
+});
+
 export const input = style({
   '@layer': {
     [uiLayers.components]: {
@@ -32,20 +40,19 @@ export const inputControl = style({
   },
 });
 
-export const startNewChat = style({
-  '@layer': {
-    [uiLayers.components]: {
-      alignSelf: 'flex-end',
-      marginTop: '12px',
-    },
-  },
-});
-
 export const chat = style({
   '@layer': {
     [uiLayers.components]: {
       flexGrow: '1',
       overflowY: 'auto',
+    },
+  },
+});
+
+export const drawer = style({
+  '@layer': {
+    [uiLayers.components]: {
+      zIndex: 2,
     },
   },
 });

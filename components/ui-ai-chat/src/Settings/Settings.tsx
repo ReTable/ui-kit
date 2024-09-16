@@ -9,6 +9,8 @@ import { TextArea } from '../TextArea';
 import { Mode } from '../types';
 
 type Props = {
+  className?: string;
+
   isOpened: boolean;
 
   onClose: () => void;
@@ -29,6 +31,7 @@ type Props = {
 };
 
 export function Settings({
+  className,
   context,
   isOpened,
   maxTemperature,
@@ -42,7 +45,7 @@ export function Settings({
   temperature,
 }: Props): ReactNode {
   return (
-    <Drawer isOpened={isOpened} onClose={onClose} title="Chat settings">
+    <Drawer className={className} isOpened={isOpened} onClose={onClose} title="Chat settings">
       {supportedModes != null && onChangeMode != null && (
         <ModeSelector onChange={onChangeMode} options={supportedModes} value={mode} />
       )}

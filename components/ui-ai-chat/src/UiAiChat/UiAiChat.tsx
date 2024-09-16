@@ -90,24 +90,13 @@ export const UiAiChat = forwardRef<Controller, Props>(
     return (
       <div className={clsx(styles.root, className)}>
         <Header
+          className={styles.header}
           onStartNewChat={onStartNewChat}
           onFullscreen={() => {}}
           onOpenSettings={onOpenSettings}
         >
           {mode.name}
         </Header>
-        <div className={styles.input}>
-          <PromptInput
-            className={styles.inputControl}
-            isSendable={isSendAllowed}
-            isSending={isPending}
-            maxLength={maxPromptLength}
-            onChange={onChangePrompt}
-            onSend={onSend}
-            placeholder={placeholder ?? 'Ask GPT'}
-            value={prompt}
-          />
-        </div>
         <div className={styles.chat} ref={conversationRef}>
           {conversation.map((request) => (
             <RequestView
@@ -120,7 +109,20 @@ export const UiAiChat = forwardRef<Controller, Props>(
             />
           ))}
         </div>
+        <div className={styles.input}>
+          <PromptInput
+            className={styles.inputControl}
+            isSendable={isSendAllowed}
+            isSending={isPending}
+            maxLength={maxPromptLength}
+            onChange={onChangePrompt}
+            onSend={onSend}
+            placeholder={placeholder ?? 'Ask GPT'}
+            value={prompt}
+          />
+        </div>
         <Settings
+          className={styles.drawer}
           context={context}
           isOpened={settingsIsOpened}
           maxTemperature={maxTemperature}
