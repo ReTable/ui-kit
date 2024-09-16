@@ -1,11 +1,10 @@
 import { ReactNode } from 'react';
 
-import { UiSlider } from '@tabula/ui-slider';
-
 import * as styles from './Settings.css';
 
 import { Drawer } from '../Drawer';
 import { ModeSelector } from '../ModeSelector';
+import { Temperature } from '../Temperature';
 import { TextArea } from '../TextArea';
 import { Mode } from '../types';
 
@@ -42,30 +41,18 @@ export function Settings({
   supportedModes,
   temperature,
 }: Props): ReactNode {
-  const creativityLevel = `${Math.round(temperature * 10)} / 10`;
-
   return (
     <Drawer isOpened={isOpened} onClose={onClose} title="Chat settings">
       {supportedModes != null && onChangeMode != null && (
-        <ModeSelector
-          className={styles.mode}
-          onChange={onChangeMode}
-          options={supportedModes}
-          value={mode}
-        />
+        <ModeSelector onChange={onChangeMode} options={supportedModes} value={mode} />
       )}
-      <div className={styles.creativity}>
-        <div className={styles.creativityTitleContainer}>
-          <div className={styles.creativityTitle}>AI creativity</div>
-          <div className={styles.creativityLevel}>{creativityLevel}</div>
-        </div>
-        <UiSlider
-          onChange={onChangeTemperature}
-          min={minTemperature}
-          max={maxTemperature}
-          value={temperature}
-        />
-      </div>
+      <Temperature
+        className={styles.temperature}
+        min={minTemperature}
+        max={maxTemperature}
+        value={temperature}
+        onChange={onChangeTemperature}
+      />
       {context != null && onChangeContext != null && (
         <div className={styles.experimental}>
           <div className={styles.label}>Context</div>
