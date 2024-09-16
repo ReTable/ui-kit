@@ -173,6 +173,9 @@ importers:
       '@tabula/ui-slider':
         specifier: workspace:^
         version: link:../ui-slider
+      '@tabula/use-flag':
+        specifier: workspace:^
+        version: link:../../hooks/use-flag
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
