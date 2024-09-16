@@ -5,6 +5,7 @@ import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'relative',
       display: 'flex',
       flexDirection: 'column',
       height: '100%',

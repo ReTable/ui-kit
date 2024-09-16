@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { UiButton24 } from '@tabula/ui-button';
 import { UiSlider } from '@tabula/ui-slider';
+import { useFlag } from '@tabula/use-flag';
 
 import { ReactComponent as AddIcon } from './assets/add.svg';
 
@@ -13,6 +14,7 @@ import { Header } from '../Header';
 import { ModeSelector } from '../ModeSelector';
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
+import { Settings } from '../Settings';
 import { TextArea } from '../TextArea';
 import { Controller, Mode, Request, TableAction } from '../types';
 
@@ -93,9 +95,11 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     const creativityLevel = `${Math.round(temperature * 10)} / 10`;
 
+    const [settingsIsOpened, { on: onOpenSettings, off: onCloseSettings }] = useFlag(false);
+
     return (
       <div className={clsx(styles.root, inputAtTheBottom && styles.isReversed, className)}>
-        <Header onStartNewChat={() => {}} onFullscreen={() => {}} onOpenSettings={() => {}}>
+        <Header onStartNewChat={() => {}} onFullscreen={() => {}} onOpenSettings={onOpenSettings}>
           {mode?.name ?? ''}
         </Header>
         <div className={styles.input}>
@@ -167,6 +171,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             />
           ))}
         </div>
+        <Settings isOpened={settingsIsOpened} onClose={onCloseSettings} />
       </div>
     );
   },

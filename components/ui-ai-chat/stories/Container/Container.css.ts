@@ -12,4 +12,6 @@ globalStyle('#storybook-root', {
 export const root = style({
   height: '100%',
   width: '350px',
+
+  borderRight: '1px solid #eee',
 });
