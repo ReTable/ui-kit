@@ -34,6 +34,8 @@ type Story = StoryObj<typeof UiAiChat>;
 const DEFAULT_ARGS = {
   conversation: [],
 
+  mode: DEFAULT_MODE,
+
   minTemperature: MIN_TEMPERATURE,
   maxTemperature: MAX_TEMPERATURE,
 
@@ -251,7 +253,6 @@ export const WithMode = {
       },
     ],
 
-    mode: DEFAULT_MODE,
     supportedModes: MODES,
   },
 
