@@ -1,5 +1,7 @@
 import { ReactNode } from 'react';
 
+import { clsx } from 'clsx/lite';
+
 import { ReactComponent as CollapseIcon } from './assets/collapse.svg';
 import { ReactComponent as EditIcon } from './assets/edit.svg';
 import { ReactComponent as FullScreenIcon } from './assets/fullScreen.svg';
@@ -8,6 +10,8 @@ import { ReactComponent as SettingsIcon } from './assets/settings.svg';
 import * as styles from './Header.css';
 
 type Props = {
+  className?: string;
+
   children?: string;
 
   onFullscreen?: () => void;
@@ -18,13 +22,14 @@ type Props = {
 
 export function Header({
   children,
+  className,
   onFullscreen,
   onHide,
   onOpenSettings,
   onStartNewChat,
 }: Props): ReactNode {
   return (
-    <div className={styles.root}>
+    <div className={clsx(styles.root, className)}>
       <div className={styles.title}>{children}</div>
       <div className={styles.actions}>
         {onStartNewChat && (
