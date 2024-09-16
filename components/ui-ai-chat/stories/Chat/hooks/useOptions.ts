@@ -8,7 +8,8 @@ import {
   MAX_TEMPERATURE,
   MIN_TEMPERATURE,
   MODES,
-} from '../Chat.const';
+} from '../../const';
+
 import { Options } from '../Chat.types';
 
 export function useOptions(): Options {
