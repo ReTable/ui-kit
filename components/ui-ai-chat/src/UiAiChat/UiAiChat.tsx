@@ -9,6 +9,7 @@ import { ReactComponent as AddIcon } from './assets/add.svg';
 
 import * as styles from './UiAiChat.css';
 
+import { Header } from '../Header';
 import { ModeSelector } from '../ModeSelector';
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
@@ -94,6 +95,9 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     return (
       <div className={clsx(styles.root, inputAtTheBottom && styles.isReversed, className)}>
+        <Header onStartNewChat={() => {}} onFullscreen={() => {}} onOpenSettings={() => {}}>
+          {mode?.name ?? ''}
+        </Header>
         <div className={styles.input}>
           {mode != null && (
             <ModeSelector
