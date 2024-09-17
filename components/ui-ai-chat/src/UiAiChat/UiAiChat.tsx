@@ -7,7 +7,7 @@ import { useFlag } from '@tabula/use-flag';
 import * as styles from './UiAiChat.css';
 
 import { Header } from '../Header';
-import { PromptInput } from '../PromptInput';
+import { Prompt } from '../Prompt';
 import { RequestView } from '../RequestView';
 import { Settings } from '../Settings';
 import { Controller, Mode, Request, TableAction } from '../types';
@@ -109,18 +109,16 @@ export const UiAiChat = forwardRef<Controller, Props>(
             />
           ))}
         </div>
-        <div className={styles.input}>
-          <PromptInput
-            className={styles.inputControl}
-            isSendable={isSendAllowed}
-            isSending={isPending}
-            maxLength={maxPromptLength}
-            onChange={onChangePrompt}
-            onSend={onSend}
-            placeholder={placeholder ?? 'Ask GPT'}
-            value={prompt}
-          />
-        </div>
+        <Prompt
+          className={styles.prompt}
+          isSendable={isSendAllowed}
+          isSending={isPending}
+          maxLength={maxPromptLength}
+          onChange={onChangePrompt}
+          onSend={onSend}
+          placeholder={placeholder ?? 'Ask GPT'}
+          value={prompt}
+        />
         <Settings
           className={styles.drawer}
           context={context}

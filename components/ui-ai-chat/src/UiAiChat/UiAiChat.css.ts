@@ -22,20 +22,10 @@ export const header = style({
   },
 });
 
-export const input = style({
+export const prompt = style({
   '@layer': {
     [uiLayers.components]: {
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '12px 16px',
-    },
-  },
-});
-
-export const inputControl = style({
-  '@layer': {
-    [uiLayers.components]: {
-      height: '64px',
+      margin: '0 16px 16px',
     },
   },
 });
