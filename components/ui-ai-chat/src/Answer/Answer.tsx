@@ -25,7 +25,12 @@ export function Answer({ className, request, tableActions }: Props): ReactNode {
       extensions: [{ name: 'table', renderer: createTableRenderer(request.id, tableActions) }],
     });
 
-    const parsed = marked.parse(request.answer);
+    // NOTE: The `marked.parse` could return `Promise<string>` if extension requires `async` operation.
+    //
+    //       We use the only one extension, which we controlled, and can be sure it's synchronous.
+    //
+    // FIXME(demiazz): rewrite this piece of code in async style, to avoid type type casting.
+    const parsed = marked.parse(request.answer, { async: false }) as string;
     const sanitized = DOMPurify.sanitize(parsed);
 
     setSanitizedParsedHtml(sanitized);

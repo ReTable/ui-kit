@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import DOMPurify from 'dompurify';
 import { xxHash32 } from 'js-xxhash';
-import { marked } from 'marked';
+import { Tokens } from 'marked';
 
 import * as styles from './Answer.css';
 
@@ -63,13 +63,13 @@ function renderHeader(header: string[]) {
 export function createTableRenderer(
   requestId: number,
   tableActions: TableAction[],
-): (token: marked.Tokens.Generic) => string | false {
-  return (token: marked.Tokens.Generic) => {
+): (token: Tokens.Generic) => string | false {
+  return (token: Tokens.Generic) => {
     if (token.type !== 'table') {
       return false;
     }
 
-    const { header, rows } = token as marked.Tokens.Table;
+    const { header, rows } = token as Tokens.Table;
 
     const data: TableData = {
       header: header.map((h) => h.text),
