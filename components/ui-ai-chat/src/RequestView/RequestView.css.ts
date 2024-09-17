@@ -9,10 +9,24 @@ export const root = style({
       flexDirection: 'column',
       gap: '12px',
       padding: '12px 16px',
-      borderBottom: `1px solid ${uiTheme.colors.neutral['100']}`,
     },
   },
 });
+
+export const prompt = style([
+  uiStyles.fonts.sansSerif.medium14,
+  {
+    '@layer': {
+      [uiLayers.components]: {
+        marginLeft: '32px',
+        padding: '8px 16px',
+        borderRadius: '12px',
+        backgroundColor: uiTheme.colors.background.controlsDetails,
+        color: uiTheme.colors.content.primary,
+      },
+    },
+  },
+]);
 
 export const box = style({
   '@layer': {

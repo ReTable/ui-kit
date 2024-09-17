@@ -49,7 +49,7 @@ export function RequestView({
 
   return (
     <div className={styles.root}>
-      <div className={styles.box}>
+      <div className={styles.prompt}>
         {isEditing ? (
           <div className={styles.editGroupContainer}>
             <div className={styles.editTextAreaContainer}>
@@ -75,7 +75,7 @@ export function RequestView({
           </div>
         ) : (
           <>
-            <div className={styles.boxText}>{request.prompt}</div>
+            {request.prompt}
             {!editDisabled && (
               // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
               <div className={styles.editButton} onClick={handleEdit}>
