@@ -2,10 +2,8 @@ import { ReactNode, useCallback, useState } from 'react';
 
 import { UiButton24 } from '@tabula/ui-button';
 
-import { ReactComponent as AiIcon } from './assets/ai.svg';
 import { ReactComponent as CheckedIcon } from './assets/checked.svg';
 import { ReactComponent as EditIcon } from './assets/edit.svg';
-import { ReactComponent as UserIcon } from './assets/user.svg';
 
 import * as styles from './RequestView.css';
 
@@ -55,9 +53,6 @@ export function RequestView({
         {isEditing ? (
           <div className={styles.editGroupContainer}>
             <div className={styles.editTextAreaContainer}>
-              <div className={styles.editProfileIcon}>
-                <UserIcon />
-              </div>
               <TextArea
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus
@@ -80,9 +75,6 @@ export function RequestView({
           </div>
         ) : (
           <>
-            <div className={styles.boxIconContainer}>
-              <UserIcon className={styles.boxIcon} />
-            </div>
             <div className={styles.boxText}>{request.prompt}</div>
             {!editDisabled && (
               // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
@@ -94,9 +86,6 @@ export function RequestView({
         )}
       </div>
       <div className={styles.box}>
-        <div className={styles.boxIconContainer}>
-          <AiIcon className={styles.boxIcon} />
-        </div>
         <Answer className={styles.boxText} request={request} tableActions={tableActions} />
       </div>
     </div>
