@@ -1,8 +1,8 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
-export const tableContainer = style({
+export const tableScroll = style({
   '@layer': {
     [uiLayers.components]: {
       overflowX: 'scroll',
@@ -10,100 +10,12 @@ export const tableContainer = style({
   },
 });
 
-export const table = style({
-  '@layer': {
-    [uiLayers.components]: {
-      borderSpacing: '0',
-      borderRadius: '8.5px',
-      margin: '8px 0',
-      borderCollapse: 'separate',
-    },
-  },
-});
-
-export const empty = style({});
-
-export const headerRow = style({});
-
-export const bodyRow = style({});
-
-export const headerCell = style([
-  uiStyles.fonts.sansSerif.semiBold12,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        padding: '8px 12px',
-        whiteSpace: 'nowrap',
-        border: `1px solid ${uiTheme.colors.table.borderHeader}`,
-        borderRight: 'none',
-        borderBottom: 'none',
-
-        selectors: {
-          '&:first-child': {
-            borderTopLeftRadius: '8px',
-          },
-
-          '&:last-child': {
-            borderTopRightRadius: '8px',
-            borderRight: `1px solid ${uiTheme.colors.table.borderHeader}`,
-          },
-
-          [`${empty} &`]: {
-            borderBottom: `1px solid ${uiTheme.colors.table.borderHeader}`,
-          },
-
-          [`${empty} &:first-child`]: {
-            borderBottomLeftRadius: '8px',
-          },
-
-          [`${empty} &:last-child`]: {
-            borderBottomRightRadius: '8px',
-          },
-        },
-      },
-    },
-  },
-]);
-
-export const rowCell = style([
-  uiStyles.fonts.monospace.regular12,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        padding: '4px 10px',
-        whiteSpace: 'nowrap',
-        border: `1px solid ${uiTheme.colors.table.borderHeader}`,
-        borderRight: 'none',
-        borderBottom: 'none',
-        height: '25px',
-
-        selectors: {
-          '&:last-child': {
-            borderRight: `1px solid ${uiTheme.colors.table.borderHeader}`,
-          },
-
-          [`${bodyRow}:last-child &`]: {
-            borderBottom: `1px solid ${uiTheme.colors.table.borderHeader}`,
-          },
-
-          [`${bodyRow}:last-child &:first-child`]: {
-            borderBottomLeftRadius: '8px',
-          },
-
-          [`${bodyRow}:last-child &:last-child`]: {
-            borderBottomRightRadius: '8px',
-          },
-        },
-      },
-    },
-  },
-]);
-
 export const tableActions = style({
   '@layer': {
     [uiLayers.components]: {
       display: 'flex',
       gap: '8px',
+      marginTop: '8px',
       marginBottom: '1em',
     },
   },
@@ -134,3 +46,80 @@ export const tableActionButton = style([
     },
   },
 ]);
+
+export const tableContainer = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'flex',
+      flexDirection: 'column',
+
+      width: 'fit-content',
+
+      border: `1px solid ${uiTheme.colors.neutralAlpha['10']}`,
+      borderRadius: '12px',
+
+      overflow: 'hidden',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} :where(th, td)`, {
+  '@layer': {
+    [uiLayers.components]: {
+      border: `1px solid ${uiTheme.colors.table.borderCells}`,
+      borderCollapse: 'collapse',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} th`, uiStyles.fonts.sansSerif.semiBold12);
+
+globalStyle(`${tableContainer} th`, {
+  '@layer': {
+    [uiLayers.components]: {
+      padding: '8px',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} td`, uiStyles.fonts.monospace.regular12);
+
+globalStyle(`${tableContainer} td`, {
+  '@layer': {
+    [uiLayers.components]: {
+      padding: '4px 10px',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} thead tr:first-child :where(th, td)`, {
+  '@layer': {
+    [uiLayers.components]: {
+      borderTop: 'none',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} tr:last-child :where(th, td)`, {
+  '@layer': {
+    [uiLayers.components]: {
+      borderBottom: 'none',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} :where(th, td):first-child`, {
+  '@layer': {
+    [uiLayers.components]: {
+      borderLeft: 'none',
+    },
+  },
+});
+
+globalStyle(`${tableContainer} :where(th, td):last-child`, {
+  '@layer': {
+    [uiLayers.components]: {
+      borderRight: 'none',
+    },
+  },
+});
