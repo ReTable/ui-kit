@@ -60,6 +60,7 @@
     "dompurify": "^3.1.6",
     "js-xxhash": "^4.0.0",
     "marked": "^14.1.2",
+    "react-textarea-autosize": "^8.5.3",
     "react-transition-group": "^4.4.5"
   }
 }
