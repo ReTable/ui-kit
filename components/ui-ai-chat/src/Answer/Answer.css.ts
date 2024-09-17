@@ -104,7 +104,7 @@ export const tableActions = style({
     [uiLayers.components]: {
       display: 'flex',
       gap: '8px',
-      marginBottom: '12px',
+      marginBottom: '1em',
     },
   },
 });
