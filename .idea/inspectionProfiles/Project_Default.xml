@@ -3,7 +3,7 @@
     <option name="myName" value="Project Default" />
     <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RequiredAttributes" enabled="true" level="WARNING" enabled_by_default="true">
-      <option name="myAdditionalRequiredHtmlAttributes" value="timeout" />
+      <option name="myAdditionalRequiredHtmlAttributes" value="timeout,to,component" />
     </inspection_tool>
   </profile>
 </component>
