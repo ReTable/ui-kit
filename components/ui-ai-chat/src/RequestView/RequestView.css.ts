@@ -7,8 +7,13 @@ export const root = style({
     [uiLayers.components]: {
       display: 'flex',
       flexDirection: 'column',
-      gap: '12px',
-      padding: '12px 16px',
+      gap: '16px',
+
+      selectors: {
+        '&:not(:last-child)': {
+          marginBottom: '16px',
+        },
+      },
     },
   },
 });
@@ -42,26 +47,8 @@ export const box = style({
   },
 });
 
-export const boxIconContainer = style({
-  '@layer': {
-    [uiLayers.components]: {
-      flexShrink: '0',
-      marginTop: '-2px',
-    },
-  },
-});
-
-export const boxIcon = style({
-  '@layer': {
-    [uiLayers.components]: {
-      width: '12px',
-      height: '12px',
-    },
-  },
-});
-
 export const boxText = style([
-  uiStyles.fonts.sansSerif.medium12,
+  uiStyles.fonts.sansSerif.medium14,
   {
     '@layer': {
       [uiLayers.components]: {

@@ -85,9 +85,7 @@ export function RequestView({
           </>
         )}
       </div>
-      <div className={styles.box}>
-        <Answer className={styles.boxText} request={request} tableActions={tableActions} />
-      </div>
+      <Answer className={styles.boxText} request={request} tableActions={tableActions} />
     </div>
   );
 }

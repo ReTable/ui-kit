@@ -97,7 +97,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
         >
           {mode.name}
         </Header>
-        <div className={styles.chat} ref={conversationRef}>
+        <div className={styles.conversation} ref={conversationRef}>
           {conversation.map((request) => (
             <RequestView
               editDisabled={isPending}
