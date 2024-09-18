@@ -50,6 +50,8 @@ const DEFAULT_ARGS = {
   temperature: 0.5,
 
   placeholder: 'Ask AI',
+
+  prompt: '',
 };
 
 const staticParameters = {
@@ -88,8 +90,6 @@ export const Pending: Story = {
         prompt: 'Please, help me with my task.',
       },
     ],
-
-    isPending: true,
   },
 
   parameters: staticParameters,

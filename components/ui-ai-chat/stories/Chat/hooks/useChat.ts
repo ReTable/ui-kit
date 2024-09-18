@@ -115,8 +115,6 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
     conversation: [],
   });
 
-  const isSendAllowed = !state.isPending && state.prompt.trim().length > 0;
-
   const handleChangePrompt = useCallback((prompt: string) => {
     setState((current) => ({ ...current, prompt }));
   }, []);
@@ -189,9 +187,6 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
     ...mode,
 
     conversation: state.conversation,
-
-    isPending: state.isPending,
-    isSendAllowed,
 
     prompt: state.prompt,
     onChangePrompt: handleChangePrompt,

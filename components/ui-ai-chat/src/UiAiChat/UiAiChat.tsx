@@ -40,8 +40,6 @@ export type ContextProps =
 export type Props = {
   className?: string;
   conversation: Request[];
-  isPending?: boolean;
-  isSendAllowed?: boolean;
   maxPromptLength?: number;
   maxTemperature: number;
   minTemperature: number;
@@ -64,8 +62,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
       className,
       context,
       conversation,
-      isPending = false,
-      isSendAllowed = true,
       maxPromptLength,
       maxTemperature,
       minTemperature,
@@ -87,6 +83,9 @@ export const UiAiChat = forwardRef<Controller, Props>(
     ref: ForwardedRef<Controller>,
   ) => {
     const conversationRef = useController(ref);
+
+    const isPending = conversation.some((it) => it.id == null);
+    const isSendAllowed = !isPending && prompt.trim().length > 0;
 
     const [settingsIsOpened, { on: onOpenSettings, off: onCloseSettings }] = useFlag(false);
 
