@@ -52,6 +52,7 @@ export type Props = {
   prompt: string;
   tableActions?: TableAction[];
   temperature: number;
+  title?: string;
   variant?: Variant;
 } & ModeProps &
   ContextProps;
@@ -78,6 +79,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       supportedModes,
       tableActions = [],
       temperature,
+      title = '',
       variant = 'normal',
     }: Props,
     ref: ForwardedRef<Controller>,
@@ -110,7 +112,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             onFullscreen={() => {}}
             onOpenSettings={onOpenSettings}
           >
-            {mode.name}
+            {title}
           </Header>
         )}
         <div className={styles.conversation} ref={conversationRef}>
