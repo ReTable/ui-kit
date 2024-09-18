@@ -31,3 +31,8 @@ export const iconsTableItem = style([
     justifyContent: 'center',
   },
 ]);
+
+export const switcher = style({
+  display: 'flex',
+  gap: '8px',
+});

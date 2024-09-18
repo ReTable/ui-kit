@@ -4,7 +4,7 @@ import { clsx } from 'clsx/lite';
 
 import { disabled } from './style.css';
 
-type Props = HTMLProps<SVGSVGElement> & {
+export type Props = HTMLProps<SVGSVGElement> & {
   isDisabled?: boolean;
   testId?: string;
 };
