@@ -1,5 +1,9 @@
 import { ReactNode, useEffect, useMemo } from 'react';
 
+import { clsx } from 'clsx/lite';
+
+import * as styles from './Answer.css';
+
 import { Request, TableAction } from '../types';
 
 import { render, unregisterActions } from './Answer.helpers';
@@ -31,7 +35,7 @@ export function Answer({ className, request, tableActions }: Props): ReactNode {
   );
 
   if (content == null) {
-    return <div className={className}>Analyzing...</div>;
+    return <div className={clsx(styles.placeholder, className)}>Analyzing...</div>;
   }
 
   return (
