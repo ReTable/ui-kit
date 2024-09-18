@@ -9,6 +9,7 @@ import { TableAction, TableData } from '../types';
 // region Actions
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Window {
     UI_AI_CHAT_TABLE_ACTIONS: Map<string, () => void>;
   }
@@ -26,9 +27,8 @@ function registerActions(id: number, table: TableData, actions: TableAction[]): 
 
   const vtable: string[][] = [];
 
-  for (let idx = 0; idx < actions.length; idx += 1) {
+  for (const [idx, { label, action }] of actions.entries()) {
     const key = `${prefix}__${idx}`;
-    const { label, action } = actions[idx];
 
     const call = `window.UI_AI_CHAT_TABLE_ACTIONS.get('${key}')?.()`;
 
@@ -61,7 +61,7 @@ function renderActions(id: number, table: TableData, actions: TableAction[]): st
         <button class="${styles.tableActionButton}" onclick="${call}" type="button">${label}</button>
     `,
     )
-    .join();
+    .join('');
 
   return `<div class="${styles.tableActions}">${items}</div>`;
 }
@@ -116,8 +116,6 @@ export function render(id: number, input: string, tableActions: TableAction[]): 
           rows: rows.map((row) => row.map((v) => v.text)),
         };
 
-        console.log(renderTable(table));
-
         return `${renderTable(table)}${renderActions(id, table, tableActions)}`;
       },
     },
@@ -132,8 +130,7 @@ export function render(id: number, input: string, tableActions: TableAction[]): 
 
 // region DOMPurify
 
-const allowedOnClickContent =
-  /^window\.UI_AI_CHAT_TABLE_ACTIONS\.get\('\d+__[\d\w]+__\d+'\)\?\.\(\)$/;
+const allowedOnClickContent = /^window\.UI_AI_CHAT_TABLE_ACTIONS\.get\('\d+__\w+__\d+'\)\?\.\(\)$/;
 
 DOMPurify.addHook('uponSanitizeAttribute', (_, data) => {
   if (data.attrName === 'onclick' && allowedOnClickContent.test(data.attrValue)) {

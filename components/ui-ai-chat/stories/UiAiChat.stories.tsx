@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Meta, StoryObj } from '@storybook/react';
+import { Decorator, Meta, StoryObj } from '@storybook/react';
 
 import { UiAiChat } from '~';
 
@@ -9,18 +9,18 @@ import { DEFAULT_MODE, MAX_PROMPT_LENGTH, MAX_TEMPERATURE, MIN_TEMPERATURE, MODE
 
 // region Meta
 
+const ContainerDecorator: Decorator = (Story) => (
+  <Container>
+    <Story />
+  </Container>
+);
+
 const meta: Meta<typeof UiAiChat> = {
   title: 'UiAiChat',
 
   component: UiAiChat,
 
-  decorators: [
-    (Story) => (
-      <Container>
-        <Story />
-      </Container>
-    ),
-  ],
+  decorators: [ContainerDecorator],
 };
 
 export default meta;
