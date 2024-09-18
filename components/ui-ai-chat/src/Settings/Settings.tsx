@@ -61,7 +61,6 @@ export function Settings({
           className={styles.context}
           onChange={onChangeContext}
           placeholder="Context"
-          rows={3}
           value={context}
         />
       )}
