@@ -4,8 +4,11 @@ import { Controller } from '../types';
 
 type Direction = 'top' | 'bottom';
 
-export function useController(ref: Ref<Controller>): RefObject<HTMLDivElement> {
+export function useController(
+  ref: Ref<Controller>,
+): [RefObject<HTMLDivElement>, RefObject<HTMLTextAreaElement>] {
   const conversationRef = useRef<HTMLDivElement>(null);
+  const promptRef = useRef<HTMLTextAreaElement>(null);
 
   // NOTE: We use state to scroll conversation, because usually we want to
   //       scroll after some message has been added.
@@ -30,6 +33,10 @@ export function useController(ref: Ref<Controller>): RefObject<HTMLDivElement> {
   useImperativeHandle(
     ref,
     () => ({
+      focus: () => {
+        promptRef.current?.focus();
+      },
+
       scrollToTop: () => {
         setDirection('top');
       },
@@ -41,5 +48,5 @@ export function useController(ref: Ref<Controller>): RefObject<HTMLDivElement> {
     [],
   );
 
-  return conversationRef;
+  return [conversationRef, promptRef];
 }

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 
 import { UiButton24 } from '@tabula/ui-button';
 
@@ -17,15 +17,21 @@ type Props = {
 };
 
 export function Edit({ onApply, maxLength, onChange, onCancel, value }: Props): ReactNode {
+  const ref = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    ref.current?.select();
+  });
+
   return (
     <div className={styles.edit}>
       <TextArea
-        autoSelect
         className={styles.input}
         maxLength={maxLength}
         onChange={onChange}
         onEnter={onApply}
         onEscape={onCancel}
+        ref={ref}
         value={value}
       />
       <div className={styles.controls}>

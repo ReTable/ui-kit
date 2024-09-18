@@ -88,7 +88,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
     }: Props,
     ref: ForwardedRef<Controller>,
   ) => {
-    const conversationRef = useController(ref);
+    const [conversationRef, promptRef] = useController(ref);
 
     const isEmpty = conversation.length === 0;
     const isPending = conversation.some((it) => it.id == null);
@@ -126,6 +126,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             onChange={onChangePrompt}
             onSend={onSend}
             placeholder={placeholder ?? 'Ask GPT'}
+            ref={promptRef}
             value={prompt}
           />
         </div>

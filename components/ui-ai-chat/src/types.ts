@@ -17,6 +17,7 @@ export type Request =
     };
 
 export type Controller = {
+  focus: () => void;
   scrollToTop: () => void;
   scrollToBottom: () => void;
 };
