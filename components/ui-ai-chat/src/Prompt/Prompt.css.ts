@@ -96,24 +96,6 @@ export const input = style({
   '@layer': {
     [uiLayers.components]: {
       width: '100%',
-      border: 'none',
-      background: 'transparent',
-      color: uiTheme.colors.content.primary,
-      resize: 'none',
-
-      selectors: {
-        '&::-webkit-scrollbar': {
-          display: 'none',
-        },
-
-        '&:focus': {
-          outline: 'none',
-        },
-
-        '&::placeholder': {
-          color: uiTheme.colors.content.tertiary,
-        },
-      },
     },
   },
 });
