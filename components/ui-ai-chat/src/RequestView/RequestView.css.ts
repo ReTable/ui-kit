@@ -2,6 +2,8 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
+import { variants } from '../shared.css';
+
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
@@ -28,33 +30,6 @@ export const prompt = style([
         borderRadius: '12px',
         backgroundColor: uiTheme.colors.background.controlsDetails,
         color: uiTheme.colors.content.primary,
-      },
-    },
-  },
-]);
-
-export const box = style({
-  '@layer': {
-    [uiLayers.components]: {
-      display: 'flex',
-      gap: '6px',
-      minHeight: '44px',
-      padding: '10px 12px',
-      backgroundColor: uiTheme.colors.background.primaryContent,
-      borderRadius: '6px',
-      boxShadow: `0 1px 12px ${uiTheme.colors.shadow['4']}`,
-    },
-  },
-});
-
-export const boxText = style([
-  uiStyles.fonts.sansSerif.medium14,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        flexGrow: '1',
-        maxWidth: 'calc(100% - 18px)',
-        overflowWrap: 'break-word',
       },
     },
   },
@@ -94,10 +69,6 @@ export const editButton = style({
         '&:hover': {
           backgroundColor: uiTheme.colors.neutral['50'],
         },
-
-        [`${box}:hover &`]: {
-          display: 'flex',
-        },
       },
     },
   },
@@ -130,3 +101,49 @@ export const editControls = style({
     },
   },
 });
+
+// region Answer
+
+export const answer = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'relative',
+    },
+  },
+});
+
+export const answerBody = style([
+  uiStyles.fonts.sansSerif.medium14,
+  {
+    '@layer': {
+      [uiLayers.components]: {
+        flexGrow: '1',
+        maxWidth: 'calc(100% - 18px)',
+        overflowWrap: 'break-word',
+      },
+    },
+  },
+]);
+
+export const answerIcon = style({
+  '@layer': {
+    [uiLayers.components]: {
+      selectors: {
+        [`${variants.normal} &`]: {
+          position: 'absolute',
+          top: '0',
+          left: '-36px',
+          width: '24px',
+          height: '24px',
+          color: uiTheme.colors.accent['100'],
+        },
+
+        [`${variants.condensed} &`]: {
+          display: 'none',
+        },
+      },
+    },
+  },
+});
+
+// endregion Answer

@@ -2,6 +2,7 @@ import { ReactNode, useCallback, useState } from 'react';
 
 import { UiButton24 } from '@tabula/ui-button';
 
+import { ReactComponent as AiIcon } from './assets/ai.svg';
 import { ReactComponent as CheckedIcon } from './assets/checked.svg';
 import { ReactComponent as EditIcon } from './assets/edit.svg';
 
@@ -85,7 +86,10 @@ export function RequestView({
           </>
         )}
       </div>
-      <Answer className={styles.boxText} request={request} tableActions={tableActions} />
+      <div className={styles.answer}>
+        <AiIcon className={styles.answerIcon} />
+        <Answer className={styles.answerBody} request={request} tableActions={tableActions} />
+      </div>
     </div>
   );
 }
