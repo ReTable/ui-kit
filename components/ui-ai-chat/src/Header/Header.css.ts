@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
-import { headerHeight } from '../shared.css';
+import { HEADER_HEIGHT } from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -14,7 +14,7 @@ export const root = style({
       gap: '16px',
 
       width: '100%',
-      height: headerHeight,
+      height: HEADER_HEIGHT,
 
       background: uiTheme.colors.background.primaryContent,
       boxShadow: `
