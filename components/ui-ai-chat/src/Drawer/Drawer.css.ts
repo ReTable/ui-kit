@@ -44,7 +44,7 @@ export const overlay = style({
 
       selectors: {
         [`${transition.enter} &`]: {
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
         },
 
         [`${transition.enterActive} &`]: {
@@ -62,12 +62,12 @@ export const overlay = style({
         },
 
         [`${transition.exitActive} &`]: {
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
           transition: `background-color ${uiTheme.duration.moderate['2']} ${uiTheme.easing.exit.productive}`,
         },
 
         [`${transition.exitDone} &`]: {
-          backgroundColor: 'transparent',
+          backgroundColor: 'rgba(0, 0, 0, 0)',
           transition: `none`,
         },
       },
