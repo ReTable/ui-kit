@@ -9,11 +9,17 @@ import { DEFAULT_MODE, MAX_PROMPT_LENGTH, MAX_TEMPERATURE, MIN_TEMPERATURE, MODE
 
 // region Meta
 
-const ContainerDecorator: Decorator = (Story) => (
-  <Container>
-    <Story />
-  </Container>
-);
+const ContainerDecorator: Decorator = (Story, context) => {
+  if (context.args.variant === 'condensed') {
+    return (
+      <Container>
+        <Story />
+      </Container>
+    );
+  }
+
+  return <Story />;
+};
 
 const meta: Meta<typeof UiAiChat> = {
   title: 'UiAiChat',
@@ -63,6 +69,16 @@ export const Empty: Story = {
   parameters: staticParameters,
 };
 
+export const EmptyCondensed: Story = {
+  args: {
+    ...Empty.args,
+
+    variant: 'condensed',
+  },
+
+  parameters: staticParameters,
+};
+
 export const Pending: Story = {
   args: {
     ...DEFAULT_ARGS,
@@ -74,6 +90,16 @@ export const Pending: Story = {
     ],
 
     isPending: true,
+  },
+
+  parameters: staticParameters,
+};
+
+export const PendingCondensed: Story = {
+  args: {
+    ...Pending.args,
+
+    variant: 'condensed',
   },
 
   parameters: staticParameters,
@@ -95,6 +121,16 @@ export const Answered: Story = {
         ].join('\n'),
       },
     ],
+  },
+
+  parameters: staticParameters,
+};
+
+export const AnsweredCondensed: Story = {
+  args: {
+    ...Answered.args,
+
+    variant: 'condensed',
   },
 
   parameters: staticParameters,
@@ -136,6 +172,16 @@ export const TableAnswered: Story = {
   },
 };
 
+export const TableAnsweredCondensed: Story = {
+  args: {
+    ...TableAnswered.args,
+
+    variant: 'condensed',
+  },
+
+  parameters: staticParameters,
+};
+
 export const Resend: Story = {
   args: {
     ...DEFAULT_ARGS,
@@ -173,6 +219,16 @@ export const Resend: Story = {
       },
     ],
   },
+};
+
+export const ResendCondensed: Story = {
+  args: {
+    ...Resend.args,
+
+    variant: 'condensed',
+  },
+
+  parameters: staticParameters,
 };
 
 export const Long: Story = {
@@ -236,6 +292,16 @@ export const Long: Story = {
   },
 };
 
+export const LongCondensed: Story = {
+  args: {
+    ...Long.args,
+
+    variant: 'condensed',
+  },
+
+  parameters: staticParameters,
+};
+
 export const WithMode = {
   args: {
     ...DEFAULT_ARGS,
@@ -254,6 +320,16 @@ export const WithMode = {
     ],
 
     supportedModes: MODES,
+  },
+
+  parameters: staticParameters,
+};
+
+export const WithModeCondensed: Story = {
+  args: {
+    ...WithMode.args,
+
+    variant: 'condensed',
   },
 
   parameters: staticParameters,
@@ -282,6 +358,16 @@ export const WithContext = {
   parameters: staticParameters,
 };
 
+export const WithContextCondensed: Story = {
+  args: {
+    ...WithContext.args,
+
+    variant: 'condensed',
+  },
+
+  parameters: staticParameters,
+};
+
 export const WithNewChat = {
   args: {
     ...DEFAULT_ARGS,
@@ -300,6 +386,16 @@ export const WithNewChat = {
     ],
 
     onStartNewChat: action('start-new-chat'),
+  },
+
+  parameters: staticParameters,
+};
+
+export const WithNewChatCondensed: Story = {
+  args: {
+    ...WithNewChat.args,
+
+    variant: 'condensed',
   },
 
   parameters: staticParameters,
