@@ -119,20 +119,6 @@ export const editTextAreaContainer = style({
   },
 });
 
-export const editProfileIcon = style({
-  '@layer': {
-    [uiLayers.components]: {
-      position: 'relative',
-      right: '-26px',
-      display: 'flex',
-      alignItems: 'flex-start',
-      width: '12px',
-      marginLeft: '-12px',
-      paddingTop: '4px',
-    },
-  },
-});
-
 export const editControls = style({
   '@layer': {
     [uiLayers.components]: {
