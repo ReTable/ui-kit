@@ -1,3 +1,5 @@
+import { variants } from './shared.css';
+
 export type Request =
   | {
       id: number;
@@ -31,3 +33,5 @@ export type TableAction = {
   label: string;
   action: (data: TableData) => void;
 };
+
+export type Variant = keyof typeof variants;

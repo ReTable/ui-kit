@@ -5,12 +5,13 @@ import clsx from 'clsx';
 import { useFlag } from '@tabula/use-flag';
 
 import * as styles from './UiAiChat.css';
+import { variants } from '../shared.css';
 
 import { Header } from '../Header';
 import { Prompt } from '../Prompt';
 import { RequestView } from '../RequestView';
 import { Settings } from '../Settings';
-import { Controller, Mode, Request, TableAction } from '../types';
+import { Controller, Mode, Request, TableAction, Variant } from '../types';
 
 import { useController } from './UiAiChat.hooks';
 
@@ -53,6 +54,7 @@ export type Props = {
   prompt: string;
   tableActions?: TableAction[];
   temperature: number;
+  variant?: Variant;
 } & ModeProps &
   ContextProps;
 
@@ -80,6 +82,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       supportedModes,
       tableActions = [],
       temperature,
+      variant = 'normal',
     }: Props,
     ref: ForwardedRef<Controller>,
   ) => {
@@ -99,7 +102,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
     }, [onSend]);
 
     return (
-      <div className={clsx(styles.root, className)}>
+      <div className={clsx(styles.root, variants[variant], className)}>
         <Header
           className={styles.header}
           onStartNewChat={onStartNewChat}
