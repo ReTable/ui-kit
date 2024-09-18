@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
   <path
     d="M2 5C2 3.34315 3.34315 2 5 2H12V22H5C3.34315 22 2 20.6569 2 19V5Z"
-    fill="var(--tbl--colors--icons--enrichment--clearbit-primary)"
+    fill="var(--tbl--ui-node-icon--enrichment--clearbit-primary)"
   />
   <path
     d="M22 5C22 3.34315 20.6569 2 19 2H12V12H22V5Z"
-    fill="var(--tbl--colors--icons--enrichment--clearbit-secondary)"
+    fill="var(--tbl--ui-node-icon--enrichment--clearbit-secondary)"
   />
   <path
     d="M22 19C22 20.6569 20.6569 22 19 22H12V12H22V19Z"
-    fill="var(--tbl--colors--icons--enrichment--clearbit-tertiary)"
+    fill="var(--tbl--ui-node-icon--enrichment--clearbit-tertiary)"
   />
 </svg>

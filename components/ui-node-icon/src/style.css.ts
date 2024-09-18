@@ -8,6 +8,8 @@ import { kebabCase } from 'change-case';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
+// region Gradients
+
 export const gradients = createGlobalThemeContract(
   {
     addGPTColumn: {
@@ -46,14 +48,6 @@ export const gradients = createGlobalThemeContract(
           ['2']: 'primary-2',
         },
       },
-    },
-    enrichmentReverseContact: {
-      l: 'l',
-      m: 'm',
-    },
-    enrichmentContactOut: {
-      l: 'l',
-      m: 'm',
     },
   },
   (_, path) => {
@@ -101,15 +95,96 @@ createGlobalTheme(':root', gradients, {
       },
     },
   },
-  enrichmentReverseContact: {
+});
+
+// endregion gradients
+
+// region Enrichments colors
+
+export const enrichments = createGlobalThemeContract(
+  {
+    apollo: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    clearbit: {
+      primary: 'primary',
+      secondary: 'secondary',
+      tertiary: 'tTertiary',
+    },
+    contactOut: {
+      l: 'l',
+      m: 'm',
+    },
+    lead411: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    leadReach: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    peopleDataLabs: 'peopleDataLabs',
+    reverseContact: {
+      l: 'l',
+      m: 'm',
+    },
+    signalHire: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    zoomInfo: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+  },
+  (_, path) => {
+    const gradientName = path.map((it) => kebabCase(it)).join('-');
+
+    return `tbl--ui-node-icon--enrichment--${gradientName}`;
+  },
+);
+
+createGlobalTheme(':root', enrichments, {
+  apollo: {
+    primary: '#010202',
+    secondary: '#fcc02b',
+  },
+  clearbit: {
+    primary: '#1ba2fe',
+    secondary: '#5ebafd',
+    tertiary: '#d2e9fc',
+  },
+  contactOut: {
     l: '',
     m: '',
   },
-  enrichmentContactOut: {
+  lead411: {
+    primary: '#5e5e5e',
+    secondary: '#5183b0',
+  },
+  leadReach: {
+    primary: '#ffffff',
+    secondary: '#000000',
+  },
+  peopleDataLabs: '#7f35fd',
+  reverseContact: {
     l: '',
     m: '',
+  },
+  signalHire: {
+    primary: '#000000',
+    secondary: '#478acc',
+  },
+  zoomInfo: {
+    primary: '#ffffff',
+    secondary: '#f44238',
   },
 });
+
+// endregion enrichments
+
+// region Overrides
 
 const overrides = {
   ...assignVars(uiTheme.colors.brand, {
@@ -122,22 +197,6 @@ const overrides = {
   ...assignVars(uiTheme.colors.icons.clean, {
     primary: uiTheme.colors.icons.disabled.primary,
     secondary: uiTheme.colors.icons.disabled.secondary,
-  }),
-  ...assignVars(uiTheme.colors.icons.enrichment, {
-    apolloPrimary: uiTheme.colors.icons.disabled.primary,
-    apolloSecondary: uiTheme.colors.icons.disabled.secondary,
-    clearbitPrimary: uiTheme.colors.icons.disabled.primary,
-    clearbitSecondary: uiTheme.colors.icons.disabled.secondary,
-    clearbitTertiary: uiTheme.colors.icons.disabled.secondary,
-    lead411Primary: uiTheme.colors.icons.disabled.primary,
-    lead411Secondary: uiTheme.colors.icons.disabled.secondary,
-    leadReachPrimary: uiTheme.colors.icons.disabled.primary,
-    leadReachSecondary: uiTheme.colors.icons.disabled.secondary,
-    peopleDataLabs: uiTheme.colors.icons.disabled.primary,
-    signalHirePrimary: uiTheme.colors.icons.disabled.primary,
-    signalHireSecondary: uiTheme.colors.icons.disabled.secondary,
-    zoomInfoPrimary: uiTheme.colors.icons.disabled.primary,
-    zoomInfoSecondary: uiTheme.colors.icons.disabled.secondary,
   }),
   ...assignVars(uiTheme.colors.icons.group, {
     clean: uiTheme.colors.icons.disabled.secondary,
@@ -201,16 +260,46 @@ const overrides = {
         },
       },
     },
-    enrichmentReverseContact: {
-      l: 'url(#tbl--ui-node-icon--enrichment-reverse-contact-l--disabled)',
-      m: 'url(#tbl--ui-node-icon--enrichment-reverse-contact-m--disabled)',
+  }),
+  ...assignVars(enrichments, {
+    apollo: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
     },
-    enrichmentContactOut: {
-      l: 'url(#tbl--ui-node-icon--enrichment-contact-out-l--disabled)',
-      m: 'url(#tbl--ui-node-icon--enrichment-contact-out-m--disabled)',
+    clearbit: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+      tertiary: uiTheme.colors.icons.disabled.secondary,
+    },
+    contactOut: {
+      l: 'url(#tbl--ui-node-icon--enrichment--contact-out-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
+    },
+    lead411: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    leadReach: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    peopleDataLabs: uiTheme.colors.icons.disabled.primary,
+    reverseContact: {
+      l: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--disabled)',
+    },
+    signalHire: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    zoomInfo: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
     },
   }),
 };
+
+// endregion Overrides
 
 export const disabled = style({});
 

@@ -1,5 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g filter="var(--tbl--ui-node-icon--enrichment-contact-out-m)">
+  <g filter="var(--tbl--ui-node-icon--enrichment--contact-out-m)">
     <path d="M6.53847 10.6942H17.4615V19.3058H6.53847L6.53847 10.6942ZM5.53847 7.45454C4.28741 7.45454 3.36365 8.50858 3.36365 9.69421V20.3058C3.36365 21.4914 4.28741 22.5455 5.53847 22.5455H18.4615C19.7126 22.5455 20.6364 21.4914 20.6364 20.3058V9.69421C20.6364 8.50858 19.7126 7.45454 18.4615 7.45454H5.53847Z" fill="#146030" stroke="white" stroke-width="2" stroke-linejoin="round"/>
     <rect x="5.45454" y="9.54546" width="13.0909" height="10.9091" fill="#29DF6E"/>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.42435 15.0063C8.64097 14.9891 8.85344 15.007 9.06175 15.0602C10.2215 16.0091 11.5813 16.2965 13.1411 15.9221C13.8341 15.6565 14.4928 15.3512 15.117 15.0063C15.5334 15.0171 15.7672 15.1967 15.8182 15.545C15.4082 16.1335 14.8133 16.5464 14.0335 16.784C11.8743 17.5311 9.9621 17.2259 8.29687 15.8682C8.10881 15.5512 8.1513 15.2639 8.42435 15.0063Z" fill="#116230"/>
@@ -11,7 +11,7 @@
     <circle cx="18.5455" cy="8.45455" r="1.63636" fill="#1A6233"/>
   </g>
   <defs>
-    <filter id="tbl--ui-node-icon--enrichment-contact-out-m--disabled">
+    <filter id="tbl--ui-node-icon--enrichment--contact-out-m--disabled">
       <feColorMatrix type="saturate" values="0.01" />
     </filter>
   </defs>

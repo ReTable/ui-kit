@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
-  <rect x="2" y="2" width="28" height="28" rx="4" fill="var(--tbl--colors--icons--enrichment--apollo-secondary)"/>
+  <rect x="2" y="2" width="28" height="28" rx="4" fill="var(--tbl--ui-node-icon--enrichment--apollo-secondary)"/>
   <path
     d="M22 10H20L21.0367 12L22 10Z"
-    fill="var(--tbl--colors--icons--enrichment--apollo-primary)"
+    fill="var(--tbl--ui-node-icon--enrichment--apollo-primary)"
   />
   <path
     d="M23.68 19.0271L21.9552 16.1207L16.5115 7L7 23H12.0941C12.775 22.9992 13.4433 22.8261 14.0339 22.4978C14.6244 22.1695 15.1163 21.6969 15.4617 21.1268L18.0657 16.7145L16.6194 14.2823L13.476 19.5972C13.2978 19.8925 13.0435 20.1368 12.7382 20.3065C12.4329 20.477 12.0874 20.5661 11.7353 20.5669H11.3488L16.5132 11.8789L23.1255 23H25V21.2295L23.6867 19.028H23.68V19.0271Z"
-    fill="var(--tbl--colors--icons--enrichment--apollo-primary)"
+    fill="var(--tbl--ui-node-icon--enrichment--apollo-primary)"
   />
 </svg>
