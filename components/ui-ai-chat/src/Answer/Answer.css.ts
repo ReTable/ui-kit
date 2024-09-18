@@ -2,6 +2,14 @@ import { globalStyle, style } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
+export const placeholder = style({
+  '@layer': {
+    [uiLayers.components]: {
+      color: uiTheme.colors.content.placeholder,
+    },
+  },
+});
+
 export const tableScroll = style({
   '@layer': {
     [uiLayers.components]: {
