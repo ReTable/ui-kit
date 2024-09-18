@@ -13,7 +13,7 @@ type Props = {
 
   isOpened: boolean;
 
-  onClose: () => void;
+  onClose?: () => void;
 
   mode: Mode;
   supportedModes?: Mode[];

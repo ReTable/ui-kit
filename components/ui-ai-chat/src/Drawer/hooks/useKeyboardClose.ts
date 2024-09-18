@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
-export function useKeyboardClose(onClose: () => void): void {
+export function useKeyboardClose(onClose?: () => void): void {
   useEffect(() => {
     const listener = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        onClose();
+        onClose?.();
       }
     };
 

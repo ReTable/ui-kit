@@ -2,8 +2,6 @@ import { ForwardedRef, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
-import { useFlag } from '@tabula/use-flag';
-
 import * as styles from './UiAiChat.css';
 import { variants } from '../shared.css';
 
@@ -47,8 +45,10 @@ export type Props = {
   onChangeTemperature: (temperature: number) => void;
   onEdit: (index: number, prompt: string) => void;
   onSend: () => void;
+  onCloseSettings?: () => void;
   placeholder?: string;
   prompt: string;
+  showSettings?: boolean;
   tableActions?: TableAction[];
   temperature: number;
   title?: string;
@@ -75,10 +75,12 @@ export const UiAiChat = forwardRef<Controller, Props>(
       onSend,
       placeholder,
       prompt,
+      showSettings = false,
       supportedModes,
       tableActions = [],
       temperature,
       title = '',
+      onCloseSettings,
       toolbarItems,
       variant = 'normal',
     }: Props,
@@ -88,8 +90,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     const isPending = conversation.some((it) => it.id == null);
     const isSendAllowed = !isPending && prompt.trim().length > 0;
-
-    const [settingsIsOpened, { off: onCloseSettings }] = useFlag(false);
 
     return (
       <div className={clsx(styles.root, variants[variant], className)}>
@@ -127,7 +127,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
         <Settings
           className={styles.drawer}
           context={context}
-          isOpened={settingsIsOpened}
+          isOpened={showSettings}
           maxTemperature={maxTemperature}
           minTemperature={minTemperature}
           mode={mode}
