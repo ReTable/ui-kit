@@ -103,15 +103,17 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     return (
       <div className={clsx(styles.root, variants[variant], className)}>
-        <Header
-          className={styles.header}
-          onStartNewChat={onStartNewChat}
-          /* eslint-disable-next-line @typescript-eslint/no-empty-function */
-          onFullscreen={() => {}}
-          onOpenSettings={onOpenSettings}
-        >
-          {mode.name}
-        </Header>
+        {variant === 'condensed' && (
+          <Header
+            className={styles.header}
+            onStartNewChat={onStartNewChat}
+            /* eslint-disable-next-line @typescript-eslint/no-empty-function */
+            onFullscreen={() => {}}
+            onOpenSettings={onOpenSettings}
+          >
+            {mode.name}
+          </Header>
+        )}
         <div className={styles.conversation} ref={conversationRef}>
           {conversation.map((request) => (
             <RequestView
