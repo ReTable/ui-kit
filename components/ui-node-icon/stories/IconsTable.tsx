@@ -1,12 +1,12 @@
-import { ComponentType, FC, ReactNode, useMemo } from 'react';
+import { ComponentType, FC, ReactNode, useMemo, useState } from 'react';
 
-import { UiNodeLIcons, UiNodeMIcons, UiNodeSIcons } from '~';
+import { IconProps, UiNodeLIcons, UiNodeMIcons, UiNodeSIcons } from '~';
 
-import { iconsTable, iconsTableItem } from './styles.css';
+import { iconsTable, iconsTableItem, switcher } from './styles.css';
 
 // region Types
 
-type Icon = Record<'small' | 'medium' | 'large', ComponentType | undefined>;
+type Icon = Record<'small' | 'medium' | 'large', ComponentType<IconProps> | undefined>;
 
 type Icons = Map<string, Icon>;
 
@@ -47,6 +47,8 @@ for (const [iconName, Icon] of Object.entries(UiNodeLIcons)) {
 // region Icons Table
 
 export const IconsTable: FC = () => {
+  const [isDisabled, setIsDisabled] = useState(false);
+
   const rows = useMemo(() => {
     const nodes: ReactNode[] = [];
 
@@ -63,21 +65,21 @@ export const IconsTable: FC = () => {
           <td>
             {Small && (
               <div className={iconsTableItem}>
-                <Small />
+                <Small isDisabled={isDisabled} />
               </div>
             )}
           </td>
           <td>
             {Medium && (
               <div className={iconsTableItem}>
-                <Medium />
+                <Medium isDisabled={isDisabled} />
               </div>
             )}
           </td>
           <td>
             {Large && (
               <div className={iconsTableItem}>
-                <Large />
+                <Large isDisabled={isDisabled} />
               </div>
             )}
           </td>
@@ -86,10 +88,20 @@ export const IconsTable: FC = () => {
     }
 
     return nodes;
-  }, []);
+  }, [isDisabled]);
 
-  return (
-    <table className={iconsTable}>
+  return [
+    <label key="switcher" className={switcher}>
+      <input
+        type="checkbox"
+        checked={isDisabled}
+        onChange={() => {
+          setIsDisabled((prevState) => !prevState);
+        }}
+      />
+      Is disabled
+    </label>,
+    <table key="table" className={iconsTable}>
       <thead>
         <tr>
           <th>Name</th>
@@ -99,8 +111,8 @@ export const IconsTable: FC = () => {
         </tr>
       </thead>
       <tbody>{rows}</tbody>
-    </table>
-  );
+    </table>,
+  ];
 };
 
 // endregion

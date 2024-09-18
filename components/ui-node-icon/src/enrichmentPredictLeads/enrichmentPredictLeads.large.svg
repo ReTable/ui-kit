@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M20.4209 4H28V28H13.5788V17H19.4209H20.4209V16V4ZM18.4209 4H4V28H11.5788V16V15H12.5788H18.4209V4ZM2 2H4H28H30V4V28V30H28H4H2V28V4V2Z"
+    fill="var(--tbl--ui-node-icon--enrichment--predict-leads)"
+  />
+</svg>
