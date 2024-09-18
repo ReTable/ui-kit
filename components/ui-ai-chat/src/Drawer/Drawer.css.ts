@@ -2,7 +2,7 @@ import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
-import { headerHeight, variants } from '../shared.css';
+import { HEADER_HEIGHT, variants } from '../shared.css';
 
 export const transition = styleVariants({
   enter: {},
@@ -33,7 +33,7 @@ export const root = style({
         },
 
         [`${variants.condensed} &`]: {
-          top: headerHeight,
+          top: HEADER_HEIGHT,
         },
       },
     },

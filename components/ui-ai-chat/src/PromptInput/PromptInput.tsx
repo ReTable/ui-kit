@@ -7,9 +7,7 @@ import { ReactComponent as SendIcon } from './assets/send.svg';
 import { ReactComponent as SendingIcon } from './assets/sending.svg';
 
 import * as styles from './PromptInput.css';
-
-const MIN_VISIBLE_ROWS_COUNT = 1;
-const MAX_VISIBLE_ROWS_COUNT = 10;
+import { MAX_VISIBLE_ROWS_COUNT, MIN_VISIBLE_ROWS_COUNT } from '../shared.css';
 
 type Props = {
   className?: string;

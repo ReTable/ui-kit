@@ -20,20 +20,13 @@ export const root = style({
   },
 });
 
-export const prompt = style([
-  uiStyles.fonts.sansSerif.medium14,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        marginLeft: '32px',
-        padding: '8px 16px',
-        borderRadius: '12px',
-        backgroundColor: uiTheme.colors.background.controlsDetails,
-        color: uiTheme.colors.content.primary,
-      },
+export const prompt = style({
+  '@layer': {
+    [uiLayers.components]: {
+      marginLeft: '32px',
     },
   },
-]);
+});
 
 export const textarea = style({
   '@layer': {
