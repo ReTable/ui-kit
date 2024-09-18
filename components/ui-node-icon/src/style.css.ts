@@ -116,7 +116,19 @@ export const enrichments = createGlobalThemeContract(
       l: 'l',
       m: 'm',
     },
+    findymail: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    hunter: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     lead411: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    leadMagic: {
       primary: 'primary',
       secondary: 'secondary',
     },
@@ -125,6 +137,11 @@ export const enrichments = createGlobalThemeContract(
       secondary: 'secondary',
     },
     peopleDataLabs: 'peopleDataLabs',
+    predictLeads: 'predictLeads',
+    prospeo: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     reverseContact: {
       l: 'l',
       m: 'm',
@@ -133,6 +150,7 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    upLead: 'upLead',
     zoomInfo: {
       primary: 'primary',
       secondary: 'secondary',
@@ -159,15 +177,32 @@ createGlobalTheme(':root', enrichments, {
     l: '',
     m: '',
   },
+  findymail: {
+    primary: '#e3243b',
+    secondary: '#000000',
+  },
+  hunter: {
+    primary: '#fa5320',
+    secondary: '#ffffff',
+  },
   lead411: {
     primary: '#5e5e5e',
     secondary: '#5183b0',
+  },
+  leadMagic: {
+    primary: '#473bf0',
+    secondary: '#ffffff',
   },
   leadReach: {
     primary: '#ffffff',
     secondary: '#000000',
   },
   peopleDataLabs: '#7f35fd',
+  predictLeads: '#76508e',
+  prospeo: {
+    primary: '#f44238',
+    secondary: '#ffffff',
+  },
   reverseContact: {
     l: '',
     m: '',
@@ -176,6 +211,7 @@ createGlobalTheme(':root', enrichments, {
     primary: '#000000',
     secondary: '#478acc',
   },
+  upLead: '#5e707d',
   zoomInfo: {
     primary: '#ffffff',
     secondary: '#f44238',
@@ -268,14 +304,26 @@ const overrides = {
     },
     clearbit: {
       primary: uiTheme.colors.icons.disabled.primary,
-      secondary: uiTheme.colors.icons.disabled.secondary,
+      secondary: '#d9d9d9',
       tertiary: uiTheme.colors.icons.disabled.secondary,
     },
     contactOut: {
       l: 'url(#tbl--ui-node-icon--enrichment--contact-out-l--disabled)',
       m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
     },
+    findymail: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.primary,
+    },
+    hunter: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     lead411: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    leadMagic: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
@@ -284,6 +332,11 @@ const overrides = {
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
     peopleDataLabs: uiTheme.colors.icons.disabled.primary,
+    predictLeads: uiTheme.colors.icons.disabled.primary,
+    prospeo: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     reverseContact: {
       l: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--disabled)',
       m: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--disabled)',
@@ -292,6 +345,7 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    upLead: uiTheme.colors.icons.disabled.primary,
     zoomInfo: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
