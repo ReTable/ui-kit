@@ -115,27 +115,31 @@ export const UiAiChat = forwardRef<Controller, Props>(
           </Header>
         )}
         <div className={styles.conversation} ref={conversationRef}>
-          {conversation.map((request) => (
-            <RequestView
-              editDisabled={isPending}
-              key={request.id ?? 'pending-request'}
-              maxPromptLength={maxPromptLength}
-              onEdit={handleEdit}
-              request={request}
-              tableActions={tableActions}
-            />
-          ))}
+          <div className={styles.requests}>
+            {conversation.map((request) => (
+              <RequestView
+                editDisabled={isPending}
+                key={request.id ?? 'pending-request'}
+                maxPromptLength={maxPromptLength}
+                onEdit={handleEdit}
+                request={request}
+                tableActions={tableActions}
+              />
+            ))}
+          </div>
         </div>
-        <PromptInput
-          className={styles.prompt}
-          isSendable={isSendAllowed}
-          isSending={isPending}
-          maxLength={maxPromptLength}
-          onChange={onChangePrompt}
-          onSend={handleSend}
-          placeholder={placeholder ?? 'Ask GPT'}
-          value={prompt}
-        />
+        <div className={styles.prompt}>
+          <PromptInput
+            className={styles.promptInput}
+            isSendable={isSendAllowed}
+            isSending={isPending}
+            maxLength={maxPromptLength}
+            onChange={onChangePrompt}
+            onSend={handleSend}
+            placeholder={placeholder ?? 'Ask GPT'}
+            value={prompt}
+          />
+        </div>
         <Settings
           className={styles.drawer}
           context={context}
