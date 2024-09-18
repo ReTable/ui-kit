@@ -14,7 +14,7 @@ type Props = PropsWithChildren<{
 
   isOpened: boolean;
 
-  onClose: () => void;
+  onClose?: () => void;
 
   title: string;
 }>;
