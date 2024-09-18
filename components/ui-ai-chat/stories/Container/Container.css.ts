@@ -15,5 +15,5 @@ export const root = style({
 
   marginLeft: 'auto',
 
-  borderRight: '1px solid #eee',
+  borderLeft: '1px solid #eee',
 });
