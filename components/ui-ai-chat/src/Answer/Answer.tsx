@@ -27,7 +27,7 @@ export function Answer({ className, request, tableActions }: Props): ReactNode {
 
       unregisterActions(request.id);
     },
-    [request?.id],
+    [request.id],
   );
 
   if (content == null) {
