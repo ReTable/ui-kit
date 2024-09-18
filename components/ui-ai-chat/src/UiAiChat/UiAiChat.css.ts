@@ -19,7 +19,7 @@ export const root = style({
 export const header = style({
   '@layer': {
     [uiLayers.components]: {
-      zIndex: 1,
+      zIndex: 2,
     },
   },
 });
@@ -84,7 +84,7 @@ export const requests = style({
 export const drawer = style({
   '@layer': {
     [uiLayers.components]: {
-      zIndex: 2,
+      zIndex: 1,
     },
   },
 });
