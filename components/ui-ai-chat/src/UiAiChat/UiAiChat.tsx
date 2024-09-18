@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useCallback } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -45,8 +45,8 @@ export type Props = {
   minTemperature: number;
   onChangePrompt: (prompt: string) => void;
   onChangeTemperature: (temperature: number) => void;
-  onEdit: (index: number, prompt: string) => Promise<void> | void;
-  onSend: () => Promise<void> | void;
+  onEdit: (index: number, prompt: string) => void;
+  onSend: () => void;
   placeholder?: string;
   prompt: string;
   tableActions?: TableAction[];
@@ -91,17 +91,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     const [settingsIsOpened, { off: onCloseSettings }] = useFlag(false);
 
-    const handleEdit = useCallback(
-      (id: number, nextPrompt: string) => {
-        void onEdit(id, nextPrompt);
-      },
-      [onEdit],
-    );
-
-    const handleSend = useCallback(() => {
-      void onSend();
-    }, [onSend]);
-
     return (
       <div className={clsx(styles.root, variants[variant], className)}>
         {variant === 'condensed' && (
@@ -116,7 +105,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
                 editDisabled={isPending}
                 key={request.id ?? 'pending-request'}
                 maxPromptLength={maxPromptLength}
-                onEdit={handleEdit}
+                onEdit={onEdit}
                 request={request}
                 tableActions={tableActions}
               />
@@ -130,7 +119,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             isSending={isPending}
             maxLength={maxPromptLength}
             onChange={onChangePrompt}
-            onSend={handleSend}
+            onSend={onSend}
             placeholder={placeholder ?? 'Ask GPT'}
             value={prompt}
           />
