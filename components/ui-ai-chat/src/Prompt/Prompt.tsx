@@ -35,7 +35,7 @@ export function Prompt({ className, id, isEditable, maxLength, onEdit, prompt }:
     if (id != null) {
       onEdit(id, editInput);
     }
-  }, [editInput]);
+  }, [editInput, id, onEdit]);
 
   const handleStartEdit = useCallback(() => {
     setIsEditing(true);

@@ -20,7 +20,7 @@ export function Edit({ onApply, maxLength, onChange, onCancel, value }: Props): 
   return (
     <div className={styles.edit}>
       <TextArea
-        autoFocus
+        autoSelect
         className={styles.input}
         maxLength={maxLength}
         onChange={onChange}

@@ -36,7 +36,7 @@ export function PromptInput({
     if (isAllowToSend) {
       onSend();
     }
-  }, [onSend]);
+  }, [isAllowToSend, onSend]);
 
   return (
     <div className={clsx(styles.root, isSending && styles.isSending, className)}>
