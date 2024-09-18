@@ -1,20 +1,12 @@
-import {
-  ChangeEventHandler,
-  KeyboardEventHandler,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react';
-
-import TextArea from 'react-textarea-autosize';
+import { ReactNode } from 'react';
 
 import { UiButton24 } from '@tabula/ui-button';
 
 import { ReactComponent as CheckedIcon } from './assets/checked.svg';
 
 import * as styles from './Prompt.css';
-import { MAX_VISIBLE_ROWS_COUNT, MIN_VISIBLE_ROWS_COUNT } from '../shared.css';
+
+import { TextArea } from '../TextArea';
 
 type Props = {
   maxLength?: number;
@@ -25,50 +17,15 @@ type Props = {
 };
 
 export function Edit({ onApply, maxLength, onChange, onCancel, value }: Props): ReactNode {
-  const ref = useRef<HTMLTextAreaElement>(null);
-
-  useEffect(() => {
-    ref.current?.select();
-  }, []);
-
-  const handleChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>(
-    (event) => {
-      onChange(event.target.value);
-    },
-    [onChange],
-  );
-
-  const handleKeyDown = useCallback<KeyboardEventHandler<HTMLTextAreaElement>>(
-    (event) => {
-      if (event.shiftKey) {
-        return;
-      }
-
-      if (event.key !== 'Enter' && event.key !== 'Escape') {
-        return;
-      }
-
-      event.preventDefault();
-
-      if (event.key === 'Enter') {
-        onApply();
-      } else {
-        onCancel();
-      }
-    },
-    [onApply, onCancel],
-  );
-
   return (
     <div className={styles.edit}>
       <TextArea
+        autoFocus
         className={styles.input}
         maxLength={maxLength}
-        maxRows={MAX_VISIBLE_ROWS_COUNT}
-        minRows={MIN_VISIBLE_ROWS_COUNT}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        ref={ref}
+        onChange={onChange}
+        onEnter={onApply}
+        onEscape={onCancel}
         value={value}
       />
       <div className={styles.controls}>

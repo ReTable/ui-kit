@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css';
 
-import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 import { variants } from '../shared.css';
 
@@ -32,34 +32,13 @@ export const root = style({
 
 export const isSending = style({});
 
-export const input = style([
-  uiStyles.fonts.sansSerif.medium14,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        flex: '1 1 auto',
-        border: 'none',
-        background: 'transparent',
-        color: uiTheme.colors.content.primary,
-        resize: 'none',
-
-        selectors: {
-          '&::-webkit-scrollbar': {
-            display: 'none',
-          },
-
-          '&:focus': {
-            outline: 'none',
-          },
-
-          '&::placeholder': {
-            color: uiTheme.colors.content.tertiary,
-          },
-        },
-      },
+export const input = style({
+  '@layer': {
+    [uiLayers.components]: {
+      flex: '1 1 auto',
     },
   },
-]);
+});
 
 export const send = style({
   '@layer': {

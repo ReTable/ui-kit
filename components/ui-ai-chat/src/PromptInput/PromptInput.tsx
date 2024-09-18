@@ -1,13 +1,13 @@
-import { ChangeEventHandler, KeyboardEventHandler, ReactNode, useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 
 import clsx from 'clsx';
-import TextArea from 'react-textarea-autosize';
 
 import { ReactComponent as SendIcon } from './assets/send.svg';
 import { ReactComponent as SendingIcon } from './assets/sending.svg';
 
 import * as styles from './PromptInput.css';
-import { MAX_VISIBLE_ROWS_COUNT, MIN_VISIBLE_ROWS_COUNT } from '../shared.css';
+
+import { TextArea } from '../TextArea';
 
 type Props = {
   className?: string;
@@ -32,37 +32,19 @@ export function PromptInput({
 }: Props): ReactNode {
   const isAllowToSend = isSendable && !isSending;
 
-  const handleChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>(
-    (event) => {
-      onChange(event.target.value);
-    },
-    [onChange],
-  );
-
-  const handleKeyDown = useCallback<KeyboardEventHandler<HTMLTextAreaElement>>(
-    (event) => {
-      if (event.shiftKey || event.key !== 'Enter') {
-        return;
-      }
-
-      event.preventDefault();
-
-      if (isAllowToSend) {
-        onSend();
-      }
-    },
-    [isAllowToSend, onSend],
-  );
+  const handleEnter = useCallback(() => {
+    if (isAllowToSend) {
+      onSend();
+    }
+  }, [onSend]);
 
   return (
     <div className={clsx(styles.root, isSending && styles.isSending, className)}>
       <TextArea
         className={styles.input}
         maxLength={maxLength}
-        maxRows={MAX_VISIBLE_ROWS_COUNT}
-        minRows={MIN_VISIBLE_ROWS_COUNT}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
+        onChange={onChange}
+        onEnter={handleEnter}
         placeholder={placeholder}
         value={value}
       />

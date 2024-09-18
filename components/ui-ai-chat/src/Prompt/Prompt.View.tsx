@@ -16,7 +16,7 @@ export function View({ isEditable, onStartEdit, prompt }: Props): ReactNode {
   return (
     <div className={styles.view}>
       {isEditable && (
-        <button className={styles.startEdit} onClick={onStartEdit} type="button">
+        <button className={styles.startEdit} onClick={onStartEdit} title="Edit" type="button">
           <EditIcon />
         </button>
       )}

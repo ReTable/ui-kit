@@ -1,21 +1,27 @@
 import {
   ChangeEventHandler,
-  KeyboardEvent,
   KeyboardEventHandler,
   ReactNode,
   useCallback,
+  useEffect,
+  useRef,
 } from 'react';
 
 import clsx from 'clsx';
+import BaseTextArea from 'react-textarea-autosize';
 
 import * as styles from './TextArea.css';
+
+export const MIN_VISIBLE_ROWS_COUNT = 1;
+export const MAX_VISIBLE_ROWS_COUNT = 10;
 
 export type Props = {
   autoFocus?: boolean;
   className?: string;
   maxLength?: number;
-  onChange?: (value: string) => void;
-  onEnterPressed?: (event: KeyboardEvent<HTMLTextAreaElement>) => void;
+  onChange: (value: string) => void;
+  onEnter?: () => void;
+  onEscape?: () => void;
   placeholder?: string;
   rows?: number;
   value: string;
@@ -26,37 +32,55 @@ export function TextArea({
   className,
   maxLength,
   onChange,
-  onEnterPressed,
+  onEnter,
+  onEscape,
   placeholder,
-  rows,
   value,
 }: Props): ReactNode {
+  const ref = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (autoFocus) {
+      ref.current?.select();
+    }
+  }, []);
+
   const handleKeyDown = useCallback<KeyboardEventHandler<HTMLTextAreaElement>>(
     (event) => {
-      if (event.key === 'Enter') {
-        onEnterPressed?.(event);
+      if (event.shiftKey) {
+        return;
+      }
+
+      if (event.key === 'Enter' && onEnter != null) {
+        event.preventDefault();
+
+        onEnter();
+      } else if (event.key === 'Escape' && onEscape != null) {
+        event.preventDefault();
+
+        onEscape();
       }
     },
-    [onEnterPressed],
+    [onEnter, onEscape],
   );
 
   const handleChange = useCallback<ChangeEventHandler<HTMLTextAreaElement>>(
     (event) => {
-      onChange?.(event.target.value);
+      onChange(event.target.value);
     },
     [onChange],
   );
 
   return (
-    <textarea
-      // eslint-disable-next-line jsx-a11y/no-autofocus
-      autoFocus={autoFocus}
+    <BaseTextArea
       className={clsx(styles.root, className, 'input-root')}
       maxLength={maxLength}
+      maxRows={MAX_VISIBLE_ROWS_COUNT}
+      minRows={MIN_VISIBLE_ROWS_COUNT}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       placeholder={placeholder}
-      rows={rows}
+      ref={ref}
       value={value}
     />
   );
