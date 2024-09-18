@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <rect x="3" y="3" width="18" height="18" rx="3" fill="var(--tbl--colors--icons--enrichment--zoom-info-secondary)"/>
+  <rect x="2" y="2" width="20" height="20" rx="3" fill="var(--tbl--colors--icons--enrichment--zoom-info-secondary)"/>
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"
-    d="M6 6H6.5H13V7H7V9H6V6.5V6ZM16.2832 7H15V6H17.5H18V6.5L18 9L17 9L17 7.69753L7.59182 17H9V18H6.375L6.02345 17.1445L16.2832 7ZM18 15L18 17.5V18H17.5H11V17H17L17 15H18Z"
+    d="M6.625 6.625H7.125H13.5V7.625H7.625V9.375H6.625V7.125V6.625ZM15.6679 7.625H15V6.625H16.875H17.375V7.125V9H16.375V8.33211L8.33211 16.375H9.75V17.375H7.125L6.77145 16.5214L15.6679 7.625ZM17 14.25V16.875V17.375H16.5H11.25V16.375H16V14.25H17Z"
     fill="var(--tbl--colors--icons--enrichment--zoom-info-primary)"
   />
 </svg>

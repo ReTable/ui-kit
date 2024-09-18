@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
-  <rect x="4" y="4" width="24" height="24" rx="4" fill="var(--tbl--colors--icons--enrichment--zoom-info-secondary)"/>
+  <rect x="2" y="2" width="28" height="28" rx="4" fill="var(--tbl--colors--icons--enrichment--zoom-info-secondary)"/>
   <path
     fill-rule="evenodd"
     clip-rule="evenodd"
