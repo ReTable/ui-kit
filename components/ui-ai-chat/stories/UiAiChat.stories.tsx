@@ -252,6 +252,7 @@ export const Playground: StoryObj<typeof Chat> = {
         action: action('copy-table'),
       },
     ],
+    variant: 'normal',
   },
 
   argTypes: {
@@ -267,18 +268,28 @@ export const Playground: StoryObj<typeof Chat> = {
       name: 'Allow to start new chat?',
       type: 'boolean',
     },
+    variant: {
+      control: 'radio',
+      options: ['normal', 'condensed'],
+    },
   },
 
   parameters: {
     controls: {
-      exclude: /(showSettings|title|tableActions|variant)/g,
+      exclude: /(showSettings|title|tableActions)/g,
       hideNoControlsWarning: true,
     },
   },
 
-  render({ context, mode, startNewChat, tableActions }) {
+  render({ context, mode, startNewChat, tableActions, variant }) {
     return (
-      <Chat context={context} mode={mode} startNewChat={startNewChat} tableActions={tableActions} />
+      <Chat
+        context={context}
+        mode={mode}
+        startNewChat={startNewChat}
+        tableActions={tableActions}
+        variant={variant}
+      />
     );
   },
 };
