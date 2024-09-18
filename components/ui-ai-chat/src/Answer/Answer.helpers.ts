@@ -58,12 +58,12 @@ function renderActions(id: number, table: TableData, actions: TableAction[]): st
   const items = vtable
     .map(
       ([label, call]) => `
-        <button class="${styles.tableActionButton}" onclick="${call}" type="button">${label}</button>
+        <button class="${styles.action}" onclick="${call}" type="button">${label}</button>
     `,
     )
     .join('');
 
-  return `<div class="${styles.tableActions}">${items}</div>`;
+  return `<div class="${styles.actions}">${items}</div>`;
 }
 
 // endregion Actions

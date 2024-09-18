@@ -10,6 +10,8 @@ export const placeholder = style({
   },
 });
 
+// region Table
+
 export const tableScroll = style({
   '@layer': {
     [uiLayers.components]: {
@@ -17,43 +19,6 @@ export const tableScroll = style({
     },
   },
 });
-
-export const tableActions = style({
-  '@layer': {
-    [uiLayers.components]: {
-      display: 'flex',
-      gap: '8px',
-      marginTop: '8px',
-      marginBottom: '1em',
-    },
-  },
-});
-
-export const tableActionButton = style([
-  uiStyles.fonts.sansSerif.medium12,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        border: '0',
-        borderRadius: '6px',
-        padding: '4px 12px',
-        userSelect: 'none',
-        cursor: 'pointer',
-        backgroundColor: uiTheme.colors.neutralAlpha['5'],
-
-        selectors: {
-          '&:hover': {
-            backgroundColor: uiTheme.colors.neutralAlpha['7'],
-          },
-
-          '&:active': {
-            backgroundColor: uiTheme.colors.neutralAlpha['10'],
-          },
-        },
-      },
-    },
-  },
-]);
 
 export const tableContainer = style({
   '@layer': {
@@ -131,3 +96,61 @@ globalStyle(`${tableContainer} :where(th, td):last-child`, {
     },
   },
 });
+
+// endregion Table
+
+// region Actions
+
+export const actions = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'flex',
+      gap: '8px',
+      marginTop: '8px',
+      marginBottom: '24px',
+    },
+  },
+});
+
+export const action = style([
+  uiStyles.fonts.sansSerif.medium12,
+  {
+    '@layer': {
+      [uiLayers.components]: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '24px',
+        padding: '0 12px',
+        border: '1px solid transparent',
+        borderRadius: '12px',
+        background: uiTheme.colors.neutralAlpha['7'],
+        color: uiTheme.colors.content.primary,
+        cursor: 'pointer',
+        whiteSpace: 'nowrap',
+        userSelect: 'none',
+        transition: `${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+
+        selectors: {
+          '&:focus': {
+            outlineStyle: 'solid',
+            outlineColor: uiTheme.colors.borderControl.focus2,
+            outlineOffset: '0',
+          },
+
+          '&:hover': {
+            background: uiTheme.colors.neutralAlpha['10'],
+          },
+
+          '&:active': {
+            background: uiTheme.colors.neutralAlpha['15'],
+            transition: 'none',
+          },
+        },
+      },
+    },
+  },
+]);
+
+// endregion Actions
