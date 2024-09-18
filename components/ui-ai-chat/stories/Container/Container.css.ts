@@ -13,5 +13,7 @@ export const root = style({
   height: '100%',
   width: '350px',
 
+  marginLeft: 'auto',
+
   borderRight: '1px solid #eee',
 });
