@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, forwardRef, useCallback } from 'react';
 
 import clsx from 'clsx';
 
@@ -87,11 +87,23 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     const [settingsIsOpened, { on: onOpenSettings, off: onCloseSettings }] = useFlag(false);
 
+    const handleEdit = useCallback(
+      (id: number, nextPrompt: string) => {
+        void onEdit(id, nextPrompt);
+      },
+      [onEdit],
+    );
+
+    const handleSend = useCallback(() => {
+      void onSend();
+    }, [onSend]);
+
     return (
       <div className={clsx(styles.root, className)}>
         <Header
           className={styles.header}
           onStartNewChat={onStartNewChat}
+          /* eslint-disable-next-line @typescript-eslint/no-empty-function */
           onFullscreen={() => {}}
           onOpenSettings={onOpenSettings}
         >
@@ -103,7 +115,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
               editDisabled={isPending}
               key={request.id ?? 'pending-request'}
               maxPromptLength={maxPromptLength}
-              onEdit={onEdit}
+              onEdit={handleEdit}
               request={request}
               tableActions={tableActions}
             />
@@ -115,7 +127,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
           isSending={isPending}
           maxLength={maxPromptLength}
           onChange={onChangePrompt}
-          onSend={onSend}
+          onSend={handleSend}
           placeholder={placeholder ?? 'Ask GPT'}
           value={prompt}
         />
