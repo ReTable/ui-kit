@@ -16,6 +16,8 @@ export const root = style({
   },
 });
 
+export const isEmpty = style({});
+
 export const header = style({
   '@layer': {
     [uiLayers.components]: {
@@ -75,6 +77,10 @@ export const requests = style({
           maxWidth: '1104px',
           margin: '0 auto',
           padding: '0 52px 0 52px',
+        },
+
+        [`${isEmpty} &`]: {
+          height: '100%',
         },
       },
     },

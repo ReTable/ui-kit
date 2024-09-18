@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, ReactNode, forwardRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -38,14 +38,15 @@ export type ContextProps =
 export type Props = {
   className?: string;
   conversation: Request[];
+  empty?: () => ReactNode;
   maxPromptLength?: number;
   maxTemperature: number;
   minTemperature: number;
   onChangePrompt: (prompt: string) => void;
   onChangeTemperature: (temperature: number) => void;
+  onCloseSettings?: () => void;
   onEdit: (index: number, prompt: string) => void;
   onSend: () => void;
-  onCloseSettings?: () => void;
   placeholder?: string;
   prompt: string;
   showSettings?: boolean;
@@ -63,6 +64,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       className,
       context,
       conversation,
+      empty,
       maxPromptLength,
       maxTemperature,
       minTemperature,
@@ -88,11 +90,12 @@ export const UiAiChat = forwardRef<Controller, Props>(
   ) => {
     const conversationRef = useController(ref);
 
+    const isEmpty = conversation.length === 0;
     const isPending = conversation.some((it) => it.id == null);
     const isSendAllowed = !isPending && prompt.trim().length > 0;
 
     return (
-      <div className={clsx(styles.root, variants[variant], className)}>
+      <div className={clsx(styles.root, variants[variant], isEmpty && styles.isEmpty, className)}>
         {variant === 'condensed' && (
           <Header className={styles.header} toolbarItems={toolbarItems}>
             {title}
@@ -100,16 +103,18 @@ export const UiAiChat = forwardRef<Controller, Props>(
         )}
         <div className={styles.conversation} ref={conversationRef}>
           <div className={styles.requests}>
-            {conversation.map((request) => (
-              <RequestView
-                editDisabled={isPending}
-                key={request.id ?? 'pending-request'}
-                maxPromptLength={maxPromptLength}
-                onEdit={onEdit}
-                request={request}
-                tableActions={tableActions}
-              />
-            ))}
+            {isEmpty
+              ? empty?.()
+              : conversation.map((request) => (
+                  <RequestView
+                    editDisabled={isPending}
+                    key={request.id ?? 'pending-request'}
+                    maxPromptLength={maxPromptLength}
+                    onEdit={onEdit}
+                    request={request}
+                    tableActions={tableActions}
+                  />
+                ))}
           </div>
         </div>
         <div className={styles.prompt}>
