@@ -31,7 +31,7 @@ export function Answer({ className, request, tableActions }: Props): ReactNode {
   );
 
   if (content == null) {
-    return <div className={className}>...</div>;
+    return <div className={className}>Analyzing...</div>;
   }
 
   return (
