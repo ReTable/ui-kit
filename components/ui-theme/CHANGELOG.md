@@ -1,5 +1,16 @@
 # @tabula/ui-theme
 
+## 3.2.1
+
+### Patch Changes
+
+- [#234](https://github.com/ReTable/ui-kit/pull/234) [`d7c1254`](https://github.com/ReTable/ui-kit/commit/d7c12545c1cc8120090bdcf3af338f860a69a7f9) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Update icons of enrichment providers
+
+  feat: update existing enrichment icons
+  feat: move enrichment colors from ui-theme to ui-node-icon
+  feat: add isDisabled toggle to IconsTable
+  feat: add icons for new enrichment providers
+
 ## 3.2.0
 
 ### Minor Changes
