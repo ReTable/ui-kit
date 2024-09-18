@@ -6,7 +6,7 @@ import TextArea from 'react-textarea-autosize';
 import { ReactComponent as SendIcon } from './assets/send.svg';
 import { ReactComponent as SendingIcon } from './assets/sending.svg';
 
-import * as styles from './Prompt.css';
+import * as styles from './PromptInput.css';
 
 const MIN_VISIBLE_ROWS_COUNT = 1;
 const MAX_VISIBLE_ROWS_COUNT = 10;
@@ -22,7 +22,7 @@ type Props = {
   value: string;
 };
 
-export function Prompt({
+export function PromptInput({
   className,
   isSendable,
   isSending,
@@ -82,5 +82,5 @@ export function Prompt({
 }
 
 if (import.meta.env.DEV) {
-  Prompt.displayName = 'ui-ai-chat(Prompt)';
+  PromptInput.displayName = 'ui-ai-chat(PromptInput)';
 }

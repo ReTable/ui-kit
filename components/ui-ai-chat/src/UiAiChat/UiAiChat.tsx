@@ -8,7 +8,7 @@ import * as styles from './UiAiChat.css';
 import { variants } from '../shared.css';
 
 import { Header } from '../Header';
-import { Prompt } from '../Prompt';
+import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
 import { Settings } from '../Settings';
 import { Controller, Mode, Request, TableAction, Variant } from '../types';
@@ -126,7 +126,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             />
           ))}
         </div>
-        <Prompt
+        <PromptInput
           className={styles.prompt}
           isSendable={isSendAllowed}
           isSending={isPending}
