@@ -11,7 +11,7 @@ import { Header } from '../Header';
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
 import { Settings } from '../Settings';
-import { Controller, Mode, Request, TableAction, Variant } from '../types';
+import { Controller, Mode, Request, TableAction, ToolbarItem, Variant } from '../types';
 
 import { useController } from './UiAiChat.hooks';
 
@@ -47,12 +47,12 @@ export type Props = {
   onChangeTemperature: (temperature: number) => void;
   onEdit: (index: number, prompt: string) => Promise<void> | void;
   onSend: () => Promise<void> | void;
-  onStartNewChat?: () => void;
   placeholder?: string;
   prompt: string;
   tableActions?: TableAction[];
   temperature: number;
   title?: string;
+  toolbarItems?: ToolbarItem[];
   variant?: Variant;
 } & ModeProps &
   ContextProps;
@@ -73,13 +73,13 @@ export const UiAiChat = forwardRef<Controller, Props>(
       onChangeTemperature,
       onEdit,
       onSend,
-      onStartNewChat,
       placeholder,
       prompt,
       supportedModes,
       tableActions = [],
       temperature,
       title = '',
+      toolbarItems,
       variant = 'normal',
     }: Props,
     ref: ForwardedRef<Controller>,
@@ -89,7 +89,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
     const isPending = conversation.some((it) => it.id == null);
     const isSendAllowed = !isPending && prompt.trim().length > 0;
 
-    const [settingsIsOpened, { on: onOpenSettings, off: onCloseSettings }] = useFlag(false);
+    const [settingsIsOpened, { off: onCloseSettings }] = useFlag(false);
 
     const handleEdit = useCallback(
       (id: number, nextPrompt: string) => {
@@ -105,13 +105,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
     return (
       <div className={clsx(styles.root, variants[variant], className)}>
         {variant === 'condensed' && (
-          <Header
-            className={styles.header}
-            onStartNewChat={onStartNewChat}
-            /* eslint-disable-next-line @typescript-eslint/no-empty-function */
-            onFullscreen={() => {}}
-            onOpenSettings={onOpenSettings}
-          >
+          <Header className={styles.header} toolbarItems={toolbarItems}>
             {title}
           </Header>
         )}
