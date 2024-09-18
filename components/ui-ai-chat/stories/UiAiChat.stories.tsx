@@ -49,9 +49,11 @@ const DEFAULT_ARGS = {
 
   temperature: 0.5,
 
-  placeholder: 'Ask AI',
+  placeholder: 'Ask Universe',
 
   prompt: '',
+
+  title: 'Chat with Universe',
 };
 
 const staticParameters = {
