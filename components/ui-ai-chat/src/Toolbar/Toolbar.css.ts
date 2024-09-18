@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
-const itemSize = '32px';
+import { headerHeight } from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -33,8 +33,8 @@ export const action = style({
       justifyContent: 'center',
       alignItems: 'center',
 
-      width: itemSize,
-      height: itemSize,
+      width: headerHeight,
+      height: headerHeight,
 
       background: 'transparent',
       border: 'none',
@@ -69,7 +69,7 @@ export const divider = style({
   '@layer': {
     [uiLayers.components]: {
       width: '1px',
-      height: itemSize,
+      height: headerHeight,
 
       background: uiTheme.colors.neutralAlpha['10'],
     },
@@ -105,8 +105,8 @@ export const toggle = style({
       justifyContent: 'center',
       alignItems: 'center',
 
-      width: itemSize,
-      height: itemSize,
+      width: headerHeight,
+      height: headerHeight,
 
       background: 'transparent',
       border: 'none',

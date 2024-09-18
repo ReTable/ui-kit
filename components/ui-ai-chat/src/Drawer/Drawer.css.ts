@@ -2,6 +2,8 @@ import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
+import { headerHeight, variants } from '../shared.css';
+
 export const transition = styleVariants({
   enter: {},
   enterActive: {},
@@ -16,15 +18,24 @@ export const root = style({
     [uiLayers.components]: {
       position: 'absolute',
 
-      top: '0',
       left: '0',
+      bottom: '0',
 
       display: 'flex',
       flexDirection: 'row',
       justifyContent: 'flex-end',
 
       width: '100%',
-      height: '100%',
+
+      selectors: {
+        [`${variants.normal} &`]: {
+          top: '0px',
+        },
+
+        [`${variants.condensed} &`]: {
+          top: headerHeight,
+        },
+      },
     },
   },
 });
