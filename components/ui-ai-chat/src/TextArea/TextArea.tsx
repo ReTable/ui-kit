@@ -16,19 +16,18 @@ export const MIN_VISIBLE_ROWS_COUNT = 1;
 export const MAX_VISIBLE_ROWS_COUNT = 10;
 
 export type Props = {
-  autoFocus?: boolean;
+  autoSelect?: boolean;
   className?: string;
   maxLength?: number;
   onChange: (value: string) => void;
   onEnter?: () => void;
   onEscape?: () => void;
   placeholder?: string;
-  rows?: number;
   value: string;
 };
 
 export function TextArea({
-  autoFocus,
+  autoSelect,
   className,
   maxLength,
   onChange,
@@ -39,11 +38,14 @@ export function TextArea({
 }: Props): ReactNode {
   const ref = useRef<HTMLTextAreaElement>(null);
 
+  // NOTE: Select content only on initial render.
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    if (autoFocus) {
+    if (autoSelect) {
       ref.current?.select();
     }
   }, []);
+  /* eslint-enable */
 
   const handleKeyDown = useCallback<KeyboardEventHandler<HTMLTextAreaElement>>(
     (event) => {
