@@ -42,6 +42,8 @@ export const overlay = style({
       width: '100%',
       height: '100%',
 
+      backgroundColor: overlayColor,
+
       selectors: {
         [`${transition.enter} &`]: {
           backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -80,6 +82,8 @@ const rootWidth = '228px';
 export const body = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'relative',
+
       flex: `0 0 ${rootWidth}`,
       height: '100%',
 
