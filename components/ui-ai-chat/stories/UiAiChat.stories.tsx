@@ -5,6 +5,7 @@ import { UiAiChat, UiAiChatProps, Variant } from '~';
 
 import { Chat } from './Chat';
 import { Container } from './Container';
+import { EmptyPlaceholder } from './EmptyPlaceholder';
 import { DEFAULT_MODE, MAX_PROMPT_LENGTH, MAX_TEMPERATURE, MIN_TEMPERATURE } from './const';
 
 // region Meta
@@ -235,6 +236,10 @@ export const Long: Story = storyOf({
 
 export const Settings: Story = storyOf({
   showSettings: true,
+});
+
+export const Placeholder: Story = storyOf({
+  empty: () => <EmptyPlaceholder />,
 });
 
 // endregion Stories
