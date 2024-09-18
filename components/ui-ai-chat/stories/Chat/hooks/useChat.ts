@@ -119,7 +119,7 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
     setState((current) => ({ ...current, prompt }));
   }, []);
 
-  const handleSend = useCallback(async () => {
+  const handleSend = useCallback(() => {
     setState((current) => ({
       prompt: '',
 
@@ -130,25 +130,25 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
 
     controllerRef.current?.scrollToBottom();
 
-    await delay();
+    void delay().then(() => {
+      setState((current) => {
+        const conversation = current.conversation.map((it) => {
+          if (it.id != null) {
+            return it;
+          }
 
-    setState((current) => {
-      const conversation = current.conversation.map((it) => {
-        if (it.id != null) {
-          return it;
-        }
+          const id = counter.next();
+          const answer = answerFor(it.prompt);
 
-        const id = counter.next();
-        const answer = answerFor(it.prompt);
+          return { id, prompt: it.prompt, answer };
+        });
 
-        return { id, prompt: it.prompt, answer };
+        return { ...current, isPending: false, conversation };
       });
-
-      return { ...current, isPending: false, conversation };
     });
   }, []);
 
-  const handleEdit = useCallback(async (id: number, prompt: string) => {
+  const handleEdit = useCallback((id: number, prompt: string) => {
     setState((current) => {
       const conversation = current.conversation.map((it) => {
         if (it.id !== id) {
@@ -161,25 +161,21 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
       return { ...current, isPending: true, conversation };
     });
 
-    await delay();
+    void delay().then(() => {
+      setState((current) => {
+        const conversation = current.conversation.map((it) => {
+          if (it.id != null) {
+            return it;
+          }
 
-    setState((current) => {
-      const conversation = current.conversation.map((it) => {
-        if (it.id != null) {
-          return it;
-        }
+          const answer = answerFor(it.prompt);
 
-        const answer = answerFor(it.prompt);
+          return { id, prompt: it.prompt, answer };
+        });
 
-        return { id, prompt: it.prompt, answer };
+        return { ...current, isPending: false, conversation };
       });
-
-      return { ...current, isPending: false, conversation };
     });
-  }, []);
-
-  const handleStartNew = useCallback(() => {
-    setState(() => ({ prompt: '', isPending: false, conversation: [] }));
   }, []);
 
   return {
@@ -194,7 +190,6 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
 
     onEdit: handleEdit,
     onSend: handleSend,
-    onStartNewChat: features.startNewChat ? handleStartNew : undefined,
 
     minTemperature: options.minTemperature,
     maxTemperature: options.maxTemperature,
