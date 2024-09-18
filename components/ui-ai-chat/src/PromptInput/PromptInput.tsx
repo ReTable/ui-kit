@@ -1,4 +1,4 @@
-import { ReactNode, useCallback } from 'react';
+import { forwardRef, useCallback } from 'react';
 
 import clsx from 'clsx';
 
@@ -20,46 +20,40 @@ type Props = {
   value: string;
 };
 
-export function PromptInput({
-  className,
-  isSendable,
-  isSending,
-  maxLength,
-  onChange,
-  onSend,
-  placeholder,
-  value,
-}: Props): ReactNode {
-  const isAllowToSend = isSendable && !isSending;
+export const PromptInput = forwardRef<HTMLTextAreaElement, Props>(
+  ({ className, isSendable, isSending, maxLength, onChange, onSend, placeholder, value }, ref) => {
+    const isAllowToSend = isSendable && !isSending;
 
-  const handleEnter = useCallback(() => {
-    if (isAllowToSend) {
-      onSend();
-    }
-  }, [isAllowToSend, onSend]);
+    const handleEnter = useCallback(() => {
+      if (isAllowToSend) {
+        onSend();
+      }
+    }, [isAllowToSend, onSend]);
 
-  return (
-    <div className={clsx(styles.root, isSending && styles.isSending, className)}>
-      <TextArea
-        className={styles.input}
-        maxLength={maxLength}
-        onChange={onChange}
-        onEnter={handleEnter}
-        placeholder={placeholder}
-        value={value}
-      />
-      <button
-        className={styles.send}
-        disabled={!isAllowToSend}
-        onClick={onSend}
-        title="Send"
-        type="button"
-      >
-        {isSending ? <SendingIcon /> : <SendIcon />}
-      </button>
-    </div>
-  );
-}
+    return (
+      <div className={clsx(styles.root, isSending && styles.isSending, className)}>
+        <TextArea
+          className={styles.input}
+          maxLength={maxLength}
+          onChange={onChange}
+          onEnter={handleEnter}
+          placeholder={placeholder}
+          ref={ref}
+          value={value}
+        />
+        <button
+          className={styles.send}
+          disabled={!isAllowToSend}
+          onClick={onSend}
+          title="Send"
+          type="button"
+        >
+          {isSending ? <SendingIcon /> : <SendIcon />}
+        </button>
+      </div>
+    );
+  },
+);
 
 if (import.meta.env.DEV) {
   PromptInput.displayName = 'ui-ai-chat(PromptInput)';
