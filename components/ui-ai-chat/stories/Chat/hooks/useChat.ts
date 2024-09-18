@@ -6,6 +6,7 @@ import { Controller, Request, UiAiChatProps } from '~';
 
 import { Features } from '../Chat.types';
 
+import { useControls } from './useControls';
 import { useOptions } from './useOptions';
 
 async function delay(): Promise<void> {
@@ -178,9 +179,16 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
     });
   }, []);
 
+  const handleStartNewChat = useCallback(() => {
+    setState(() => ({ conversation: [], isPending: false, prompt: '' }));
+  }, []);
+
+  const controls = useControls(features.startNewChat ? handleStartNewChat : undefined);
+
   return {
     ...context,
     ...mode,
+    ...controls,
 
     conversation: state.conversation,
 
