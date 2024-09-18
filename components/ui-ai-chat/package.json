@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-ai-chat",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Allows to embed UI for conversation with AI assistant",
   "type": "module",
   "typings": "./typings/index.d.ts",
