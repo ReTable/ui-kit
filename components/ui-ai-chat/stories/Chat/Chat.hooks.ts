@@ -73,39 +73,15 @@ const counter = {
   },
 };
 
-type State = {
-  prompt: string;
-
-  isPending: boolean;
-
-  conversation: Request[];
-};
-
 export function useChat(): UiAiChatProps {
-  const [state, setState] = useState<State>({
-    prompt: '',
+  const [conversation, setConversation] = useState<Request[]>([]);
 
-    isPending: false,
-
-    conversation: [],
-  });
-
-  const handleChangePrompt = useCallback((prompt: string) => {
-    setState((current) => ({ ...current, prompt }));
-  }, []);
-
-  const handleSend = useCallback(() => {
-    setState((current) => ({
-      prompt: '',
-
-      isPending: true,
-
-      conversation: [...current.conversation, { prompt: current.prompt }],
-    }));
+  const handleSend = useCallback((prompt: string) => {
+    setConversation((current) => [...current, { prompt }]);
 
     void delay().then(() => {
-      setState((current) => {
-        const conversation = current.conversation.map((it) => {
+      setConversation((current) =>
+        current.map((it) => {
           if (it.id != null) {
             return it;
           }
@@ -114,29 +90,25 @@ export function useChat(): UiAiChatProps {
           const answer = answerFor(it.prompt);
 
           return { id, prompt: it.prompt, answer };
-        });
-
-        return { ...current, isPending: false, conversation };
-      });
+        }),
+      );
     });
   }, []);
 
   const handleEdit = useCallback((id: number, prompt: string) => {
-    setState((current) => {
-      const conversation = current.conversation.map((it) => {
+    setConversation((current) =>
+      current.map((it) => {
         if (it.id !== id) {
           return it;
         }
 
         return { prompt };
-      });
-
-      return { ...current, isPending: true, conversation };
-    });
+      }),
+    );
 
     void delay().then(() => {
-      setState((current) => {
-        const conversation = current.conversation.map((it) => {
+      setConversation((current) =>
+        current.map((it) => {
           if (it.id != null) {
             return it;
           }
@@ -144,18 +116,13 @@ export function useChat(): UiAiChatProps {
           const answer = answerFor(it.prompt);
 
           return { id, prompt: it.prompt, answer };
-        });
-
-        return { ...current, isPending: false, conversation };
-      });
+        }),
+      );
     });
   }, []);
 
   return {
-    conversation: state.conversation,
-
-    prompt: state.prompt,
-    onChangePrompt: handleChangePrompt,
+    conversation,
 
     onEdit: handleEdit,
     onSend: handleSend,

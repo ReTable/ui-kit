@@ -1,4 +1,4 @@
-import { forwardRef, useCallback } from 'react';
+import { forwardRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -29,19 +29,13 @@ export const PromptInput = forwardRef<PromptInputController, Props>(
 
     const isAllowToSend = isSendable && !isSending;
 
-    const handleEnter = useCallback(() => {
-      if (isAllowToSend) {
-        onSend();
-      }
-    }, [isAllowToSend, onSend]);
-
     return (
       <div className={clsx(styles.root, isSending && styles.isSending, className)}>
         <TextArea
           className={styles.input}
           maxLength={maxLength}
           onChange={onChange}
-          onEnter={handleEnter}
+          onEnter={onSend}
           placeholder={placeholder}
           ref={inputRef}
           value={value}

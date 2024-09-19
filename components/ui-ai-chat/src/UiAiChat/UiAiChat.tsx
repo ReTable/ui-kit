@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactNode, forwardRef, useCallback, useRef } from 'react';
+import { ForwardedRef, ReactNode, forwardRef, useRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -16,18 +16,16 @@ import {
   Variant,
 } from '../types';
 
-import { useAutoScroll, useController } from './hooks';
+import { useAutoScroll, useController, usePrompt } from './hooks';
 
 export type Props = {
   className?: string;
   conversation: Request[];
   empty?: () => ReactNode;
   maxPromptLength?: number;
-  onChangePrompt: (prompt: string) => void;
   onEdit: (index: number, prompt: string) => void;
-  onSend: () => void;
+  onSend: (prompt: string) => void;
   placeholder?: string;
-  prompt: string;
   tableActions?: TableAction[];
   variant?: Variant;
 };
@@ -39,11 +37,9 @@ export const UiAiChat = forwardRef<Controller, Props>(
       conversation,
       empty,
       maxPromptLength,
-      onChangePrompt,
       onEdit,
       onSend,
       placeholder,
-      prompt,
       tableActions = [],
       variant = 'normal',
     }: Props,
@@ -56,14 +52,17 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     useAutoScroll(conversation, conversationRef);
 
-    const handleSend = useCallback(() => {
-      onSend();
-
-      promptInputRef.current?.focus();
-    }, [onSend]);
-
-    const isPending = conversation.some((it) => it.id == null);
-    const isSendAllowed = !isPending && prompt.trim().length > 0;
+    const {
+      isPending,
+      isSendable,
+      onChangePrompt,
+      onSend: handleSend,
+      prompt,
+    } = usePrompt({
+      conversation,
+      onSend,
+      promptInputRef,
+    });
 
     return (
       <div className={clsx(styles.root, variants[variant], className)}>
@@ -80,7 +79,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
         <div className={styles.prompt}>
           <PromptInput
             className={styles.promptInput}
-            isSendable={isSendAllowed}
+            isSendable={isSendable}
             isSending={isPending}
             maxLength={maxPromptLength}
             onChange={onChangePrompt}
