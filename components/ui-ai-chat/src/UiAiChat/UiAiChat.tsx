@@ -25,6 +25,7 @@ export type Props = {
   maxPromptLength?: number;
   onEdit: (index: number, prompt: string) => void;
   onSend: (prompt: string) => void;
+  pendingPlaceholder?: string;
   placeholder?: string;
   tableActions?: TableAction[];
   variant?: Variant;
@@ -39,6 +40,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       maxPromptLength,
       onEdit,
       onSend,
+      pendingPlaceholder,
       placeholder,
       tableActions = [],
       variant = 'normal',
@@ -73,8 +75,9 @@ export const UiAiChat = forwardRef<Controller, Props>(
           isPending={isPending}
           maxPromptLength={maxPromptLength}
           onEdit={onEdit}
-          tableActions={tableActions}
+          pendingPlaceholder={pendingPlaceholder}
           ref={conversationRef}
+          tableActions={tableActions}
         />
         <div className={styles.prompt}>
           <PromptInput

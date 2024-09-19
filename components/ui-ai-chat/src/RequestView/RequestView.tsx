@@ -12,6 +12,7 @@ type Props = {
   editDisabled: boolean;
   maxPromptLength?: number;
   onEdit: (id: number, prompt: string) => void;
+  pendingPlaceholder?: string;
   request: Request;
   tableActions: TableAction[];
 };
@@ -20,6 +21,7 @@ export function RequestView({
   editDisabled,
   maxPromptLength,
   onEdit,
+  pendingPlaceholder,
   request,
   tableActions,
 }: Props): ReactNode {
@@ -35,7 +37,12 @@ export function RequestView({
       />
       <div className={styles.answer}>
         <AiIcon className={styles.answerIcon} />
-        <Answer className={styles.answerBody} request={request} tableActions={tableActions} />
+        <Answer
+          className={styles.answerBody}
+          pendingPlaceholder={pendingPlaceholder}
+          request={request}
+          tableActions={tableActions}
+        />
       </div>
     </div>
   );

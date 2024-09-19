@@ -16,11 +16,24 @@ export type Props = {
   isPending: boolean;
   maxPromptLength?: number;
   onEdit: (index: number, prompt: string) => void;
+  pendingPlaceholder?: string;
   tableActions: TableAction[];
 };
 
 export const Conversation = forwardRef<InternalConversationController, Props>(
-  ({ className, conversation, empty, isPending, maxPromptLength, onEdit, tableActions }, ref) => {
+  (
+    {
+      className,
+      conversation,
+      empty,
+      isPending,
+      maxPromptLength,
+      onEdit,
+      pendingPlaceholder,
+      tableActions,
+    },
+    ref,
+  ) => {
     const conversationRef = useController(ref);
 
     const isEmpty = conversation.length === 0;
@@ -36,6 +49,7 @@ export const Conversation = forwardRef<InternalConversationController, Props>(
                   key={request.id ?? 'pending-request'}
                   maxPromptLength={maxPromptLength}
                   onEdit={onEdit}
+                  pendingPlaceholder={pendingPlaceholder}
                   request={request}
                   tableActions={tableActions}
                 />

@@ -40,7 +40,8 @@ function storyOf(args: Partial<UiAiChatProps> = {}): Story {
 
       placeholder: 'Ask Universe',
 
-      prompt: '',
+      onSend: action('on-send'),
+      onEdit: action('on-resend'),
 
       variant: 'normal',
 
@@ -77,6 +78,16 @@ export const Pending: Story = storyOf({
       prompt: 'Please, help me with my task.',
     },
   ],
+});
+
+export const PendingPlaceholder: Story = storyOf({
+  conversation: [
+    {
+      prompt: 'Please, help me with my task.',
+    },
+  ],
+
+  pendingPlaceholder: 'Searching answer for 42...',
 });
 
 export const Answered: Story = storyOf({

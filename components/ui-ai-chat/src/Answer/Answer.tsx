@@ -10,11 +10,17 @@ import { render, unregisterActions } from './Answer.helpers';
 
 type Props = {
   className?: string;
+  pendingPlaceholder?: string;
   request: Request;
   tableActions: TableAction[];
 };
 
-export function Answer({ className, request, tableActions }: Props): ReactNode {
+export function Answer({
+  className,
+  pendingPlaceholder = 'Analyzing...',
+  request,
+  tableActions,
+}: Props): ReactNode {
   const content = useMemo(() => {
     if (request.id == null) {
       return null;
@@ -35,7 +41,7 @@ export function Answer({ className, request, tableActions }: Props): ReactNode {
   );
 
   if (content == null) {
-    return <div className={clsx(styles.placeholder, className)}>Analyzing...</div>;
+    return <div className={clsx(styles.placeholder, className)}>{pendingPlaceholder}</div>;
   }
 
   return (
