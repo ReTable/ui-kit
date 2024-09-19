@@ -1,5 +1,3 @@
-import { ComponentType } from 'react';
-
 import { variants } from './shared.css';
 
 export type Request =
@@ -38,37 +36,3 @@ export type TableAction = {
 };
 
 export type Variant = keyof typeof variants;
-
-export type ToolbarItemIcon = ComponentType<{ className?: string }>;
-
-export type ToolbarAction = {
-  type: 'action';
-
-  id: string;
-
-  icon: ToolbarItemIcon;
-  label: string;
-
-  onAction: () => void;
-};
-
-export type ToolbarToggle = {
-  type: 'toggle';
-
-  id: string;
-
-  icon: ToolbarItemIcon;
-  label: string;
-
-  onToggle: (value: boolean) => void;
-
-  value: boolean;
-};
-
-export type ToolbarDivider = {
-  type: 'divider';
-
-  id: string;
-};
-
-export type ToolbarItem = ToolbarAction | ToolbarToggle | ToolbarDivider;

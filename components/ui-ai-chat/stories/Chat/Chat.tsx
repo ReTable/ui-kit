@@ -19,7 +19,6 @@ export function Chat({ tableActions, variant, ...features }: Props): ReactNode {
     <Container variant={variant}>
       <UiAiChat
         {...chat}
-        title={chat.mode.name}
         placeholder="Ask Universe"
         tableActions={tableActions}
         variant={variant}

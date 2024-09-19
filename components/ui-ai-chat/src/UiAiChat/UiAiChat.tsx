@@ -5,11 +5,10 @@ import clsx from 'clsx';
 import * as styles from './UiAiChat.css';
 import { variants } from '../shared.css';
 
-import { Header } from '../Header';
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
 import { Settings } from '../Settings';
-import { Controller, Mode, Request, TableAction, ToolbarItem, Variant } from '../types';
+import { Controller, Mode, Request, TableAction, Variant } from '../types';
 
 import { useController } from './UiAiChat.hooks';
 
@@ -52,8 +51,6 @@ export type Props = {
   showSettings?: boolean;
   tableActions?: TableAction[];
   temperature: number;
-  title?: string;
-  toolbarItems?: ToolbarItem[];
   variant?: Variant;
 } & ModeProps &
   ContextProps;
@@ -81,9 +78,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       supportedModes,
       tableActions = [],
       temperature,
-      title = '',
       onCloseSettings,
-      toolbarItems,
       variant = 'normal',
     }: Props,
     ref: ForwardedRef<Controller>,
@@ -96,11 +91,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     return (
       <div className={clsx(styles.root, variants[variant], isEmpty && styles.isEmpty, className)}>
-        {variant === 'condensed' && (
-          <Header className={styles.header} toolbarItems={toolbarItems}>
-            {title}
-          </Header>
-        )}
         <div className={styles.conversation} ref={conversationRef}>
           <div className={styles.requests}>
             {isEmpty

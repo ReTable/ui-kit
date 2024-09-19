@@ -18,14 +18,6 @@ export const root = style({
 
 export const isEmpty = style({});
 
-export const header = style({
-  '@layer': {
-    [uiLayers.components]: {
-      zIndex: 2,
-    },
-  },
-});
-
 export const prompt = style({
   '@layer': {
     [uiLayers.components]: {

@@ -50,8 +50,6 @@ function storyOf(args: Partial<UiAiChatProps> = {}): Story {
 
       prompt: '',
 
-      title: 'Chat with Universe',
-
       showSettings: false,
 
       variant: 'normal',
