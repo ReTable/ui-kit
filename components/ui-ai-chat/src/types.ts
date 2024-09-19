@@ -29,11 +29,6 @@ export type PromptInputController = {
   select: () => void;
 };
 
-export type InternalController = {
-  conversation: InternalConversationController;
-  prompt: PromptInputController;
-};
-
 export type Controller = {
   conversation: ConversationController;
   prompt: PromptInputController;
