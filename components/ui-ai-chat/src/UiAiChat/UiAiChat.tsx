@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactNode, forwardRef, useEffect, useRef } from 'react';
+import { ForwardedRef, ReactNode, forwardRef, useCallback, useRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -9,14 +9,14 @@ import { Conversation } from '../Conversation';
 import { PromptInput } from '../PromptInput';
 import {
   Controller,
-  ConversationController,
+  InternalConversationController,
   PromptInputController,
   Request,
   TableAction,
   Variant,
 } from '../types';
 
-import { useController } from './UiAiChat.hooks';
+import { useAutoScroll, useController } from './hooks';
 
 export type Props = {
   className?: string;
@@ -49,16 +49,18 @@ export const UiAiChat = forwardRef<Controller, Props>(
     }: Props,
     ref: ForwardedRef<Controller>,
   ) => {
-    const conversationRef = useRef<ConversationController>(null);
+    const conversationRef = useRef<InternalConversationController>(null);
     const promptInputRef = useRef<PromptInputController>(null);
 
     useController({ ref, conversationRef, promptInputRef });
 
-    useEffect(() => {
-      if (conversation.length > 0) {
-        conversationRef.current?.scrollToBottom();
-      }
-    });
+    useAutoScroll(conversation, conversationRef);
+
+    const handleSend = useCallback(() => {
+      onSend();
+
+      promptInputRef.current?.focus();
+    }, [onSend]);
 
     const isPending = conversation.some((it) => it.id == null);
     const isSendAllowed = !isPending && prompt.trim().length > 0;
@@ -82,7 +84,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             isSending={isPending}
             maxLength={maxPromptLength}
             onChange={onChangePrompt}
-            onSend={onSend}
+            onSend={handleSend}
             placeholder={placeholder ?? 'Ask GPT'}
             ref={promptInputRef}
             value={prompt}

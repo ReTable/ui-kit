@@ -21,7 +21,7 @@ export function Edit({ onApply, maxLength, onChange, onCancel, value }: Props): 
 
   useEffect(() => {
     ref.current?.select();
-  });
+  }, []);
 
   return (
     <div className={styles.edit}>

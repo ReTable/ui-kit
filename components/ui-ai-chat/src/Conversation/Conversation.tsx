@@ -5,7 +5,7 @@ import { clsx } from 'clsx/lite';
 import * as styles from './Conversation.css';
 
 import { RequestView } from '../RequestView';
-import { ConversationController, Request, TableAction } from '../types';
+import { InternalConversationController, Request, TableAction } from '../types';
 
 import { useController } from './Conversation.hooks';
 
@@ -19,7 +19,7 @@ export type Props = {
   tableActions: TableAction[];
 };
 
-export const Conversation = forwardRef<ConversationController, Props>(
+export const Conversation = forwardRef<InternalConversationController, Props>(
   ({ className, conversation, empty, isPending, maxPromptLength, onEdit, tableActions }, ref) => {
     const conversationRef = useController(ref);
 

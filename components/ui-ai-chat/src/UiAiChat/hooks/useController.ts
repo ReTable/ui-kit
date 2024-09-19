@@ -1,6 +1,6 @@
 import { Ref, RefObject, useImperativeHandle } from 'react';
 
-import { Controller, ConversationController, PromptInputController } from '../types';
+import { Controller, ConversationController, PromptInputController } from '../../types';
 
 type Options = {
   ref: Ref<Controller>;

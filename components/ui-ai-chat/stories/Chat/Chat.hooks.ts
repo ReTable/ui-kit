@@ -1,11 +1,11 @@
-import { RefObject, useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { randNumber, randParagraph, randWord } from '@ngneat/falso';
 
-import { Controller, Request, UiAiChatProps } from '~';
+import { Request, UiAiChatProps } from '~';
 
 async function delay(): Promise<void> {
-  return new Promise((resolve) => window.setTimeout(resolve, 3000));
+  return new Promise((resolve) => window.setTimeout(resolve, 1500));
 }
 
 function answerWithTable(noRows = false): string {
@@ -81,9 +81,7 @@ type State = {
   conversation: Request[];
 };
 
-export function useChat(): UiAiChatProps & { ref: RefObject<Controller> } {
-  const controllerRef = useRef<Controller>(null);
-
+export function useChat(): UiAiChatProps {
   const [state, setState] = useState<State>({
     prompt: '',
 
@@ -104,10 +102,6 @@ export function useChat(): UiAiChatProps & { ref: RefObject<Controller> } {
 
       conversation: [...current.conversation, { prompt: current.prompt }],
     }));
-
-    if (controllerRef.current != null) {
-      controllerRef.current.conversation.scrollToBottom();
-    }
 
     void delay().then(() => {
       setState((current) => {
@@ -167,7 +161,5 @@ export function useChat(): UiAiChatProps & { ref: RefObject<Controller> } {
     onSend: handleSend,
 
     tableActions: [],
-
-    ref: controllerRef,
   };
 }
