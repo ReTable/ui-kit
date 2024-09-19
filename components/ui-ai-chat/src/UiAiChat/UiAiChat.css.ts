@@ -16,8 +16,6 @@ export const root = style({
   },
 });
 
-export const isEmpty = style({});
-
 export const prompt = style({
   '@layer': {
     [uiLayers.components]: {
@@ -55,24 +53,6 @@ export const conversation = style({
   '@layer': {
     [uiLayers.components]: {
       flexGrow: '1',
-    },
-  },
-});
-
-export const requests = style({
-  '@layer': {
-    [uiLayers.components]: {
-      selectors: {
-        [`${variants.normal} &`]: {
-          maxWidth: '1104px',
-          margin: '0 auto',
-          padding: '0 52px 0 52px',
-        },
-
-        [`${isEmpty} &`]: {
-          height: '100%',
-        },
-      },
     },
   },
 });

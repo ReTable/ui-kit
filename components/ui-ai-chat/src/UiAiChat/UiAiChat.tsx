@@ -1,4 +1,4 @@
-import { ForwardedRef, ReactNode, forwardRef, useRef } from 'react';
+import { ForwardedRef, ReactNode, forwardRef, useEffect, useRef } from 'react';
 
 import clsx from 'clsx';
 
@@ -54,12 +54,17 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     useController({ ref, conversationRef, promptInputRef });
 
-    const isEmpty = conversation.length === 0;
+    useEffect(() => {
+      if (conversation.length > 0) {
+        conversationRef.current?.scrollToBottom();
+      }
+    });
+
     const isPending = conversation.some((it) => it.id == null);
     const isSendAllowed = !isPending && prompt.trim().length > 0;
 
     return (
-      <div className={clsx(styles.root, variants[variant], isEmpty && styles.isEmpty, className)}>
+      <div className={clsx(styles.root, variants[variant], className)}>
         <Conversation
           className={styles.conversation}
           conversation={conversation}

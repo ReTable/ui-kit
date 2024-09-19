@@ -13,20 +13,27 @@ export const root = style({
   },
 });
 
-export const isEmpty = style({});
+export const placeholder = style({
+  '@layer': {
+    [uiLayers.components]: {
+      height: '100%',
+    },
+  },
+});
 
 export const requests = style({
   '@layer': {
     [uiLayers.components]: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      minHeight: '100%',
+
       selectors: {
         [`${variants.normal} &`]: {
           maxWidth: '1104px',
           margin: '0 auto',
           padding: '0 52px 0 52px',
-        },
-
-        [`${isEmpty} &`]: {
-          height: '100%',
         },
       },
     },

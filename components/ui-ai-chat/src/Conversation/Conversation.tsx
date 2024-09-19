@@ -26,11 +26,8 @@ export const Conversation = forwardRef<ConversationController, Props>(
     const isEmpty = conversation.length === 0;
 
     return (
-      <div
-        className={clsx(styles.root, isEmpty && styles.isEmpty, className)}
-        ref={conversationRef}
-      >
-        <div className={styles.requests}>
+      <div className={clsx(styles.root, className)} ref={conversationRef}>
+        <div className={isEmpty ? styles.placeholder : styles.requests}>
           {isEmpty
             ? empty?.()
             : conversation.map((request) => (
