@@ -20,14 +20,46 @@ import { useAutoScroll, useController, usePrompt } from './hooks';
 
 export type Props = {
   className?: string;
+  /**
+   * List of requests.
+   */
   conversation: Request[];
+  /**
+   * Optional placeholder for empty chat.
+   */
   empty?: () => ReactNode;
+  /**
+   * Optional maximal length allowed for prompt.
+   */
   maxPromptLength?: number;
-  onResend: (index: number, prompt: string) => void;
+  /**
+   * Allows to resend existing prompt.
+   *
+   * @param id ID of request.
+   * @param prompt New prompt.
+   */
+  onResend: (id: number, prompt: string) => void;
+  /**
+   * Allows to send a new prompt.
+   *
+   * @param prompt New prompt.
+   */
   onSend: (prompt: string) => void;
+  /**
+   * Optional message for pending requests.
+   */
   pendingPlaceholder?: string;
+  /**
+   * Optional placeholder for prompt input.
+   */
   placeholder?: string;
+  /**
+   * Optional table actions.
+   */
   tableActions?: TableAction[];
+  /**
+   * Optional look and feel variant.
+   */
   variant?: Variant;
 };
 
