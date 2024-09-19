@@ -14,10 +14,20 @@ export type Request =
       answer?: never;
     };
 
-export type Controller = {
+export type ConversationController = {
+  scrollToTop: (behavior?: ScrollBehavior) => void;
+  scrollToBottom: (behavior?: ScrollBehavior) => void;
+};
+
+export type PromptInputController = {
   focus: () => void;
-  scrollToTop: () => void;
-  scrollToBottom: () => void;
+  blur: () => void;
+  select: () => void;
+};
+
+export type Controller = {
+  conversation: ConversationController;
+  prompt: PromptInputController;
 };
 
 export type TableData = {

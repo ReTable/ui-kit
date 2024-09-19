@@ -105,7 +105,9 @@ export function useChat(): UiAiChatProps & { ref: RefObject<Controller> } {
       conversation: [...current.conversation, { prompt: current.prompt }],
     }));
 
-    controllerRef.current?.scrollToBottom();
+    if (controllerRef.current != null) {
+      controllerRef.current.conversation.scrollToBottom();
+    }
 
     void delay().then(() => {
       setState((current) => {

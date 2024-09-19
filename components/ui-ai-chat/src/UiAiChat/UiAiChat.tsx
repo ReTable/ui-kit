@@ -1,13 +1,20 @@
-import { ForwardedRef, ReactNode, forwardRef } from 'react';
+import { ForwardedRef, ReactNode, forwardRef, useRef } from 'react';
 
 import clsx from 'clsx';
 
 import * as styles from './UiAiChat.css';
 import { variants } from '../shared.css';
 
+import { Conversation } from '../Conversation';
 import { PromptInput } from '../PromptInput';
-import { RequestView } from '../RequestView';
-import { Controller, Request, TableAction, Variant } from '../types';
+import {
+  Controller,
+  ConversationController,
+  PromptInputController,
+  Request,
+  TableAction,
+  Variant,
+} from '../types';
 
 import { useController } from './UiAiChat.hooks';
 
@@ -42,7 +49,10 @@ export const UiAiChat = forwardRef<Controller, Props>(
     }: Props,
     ref: ForwardedRef<Controller>,
   ) => {
-    const [conversationRef, promptRef] = useController(ref);
+    const conversationRef = useRef<ConversationController>(null);
+    const promptInputRef = useRef<PromptInputController>(null);
+
+    useController({ ref, conversationRef, promptInputRef });
 
     const isEmpty = conversation.length === 0;
     const isPending = conversation.some((it) => it.id == null);
@@ -50,22 +60,16 @@ export const UiAiChat = forwardRef<Controller, Props>(
 
     return (
       <div className={clsx(styles.root, variants[variant], isEmpty && styles.isEmpty, className)}>
-        <div className={styles.conversation} ref={conversationRef}>
-          <div className={styles.requests}>
-            {isEmpty
-              ? empty?.()
-              : conversation.map((request) => (
-                  <RequestView
-                    editDisabled={isPending}
-                    key={request.id ?? 'pending-request'}
-                    maxPromptLength={maxPromptLength}
-                    onEdit={onEdit}
-                    request={request}
-                    tableActions={tableActions}
-                  />
-                ))}
-          </div>
-        </div>
+        <Conversation
+          className={styles.conversation}
+          conversation={conversation}
+          empty={empty}
+          isPending={isPending}
+          maxPromptLength={maxPromptLength}
+          onEdit={onEdit}
+          tableActions={tableActions}
+          ref={conversationRef}
+        />
         <div className={styles.prompt}>
           <PromptInput
             className={styles.promptInput}
@@ -75,7 +79,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
             onChange={onChangePrompt}
             onSend={onSend}
             placeholder={placeholder ?? 'Ask GPT'}
-            ref={promptRef}
+            ref={promptInputRef}
             value={prompt}
           />
         </div>

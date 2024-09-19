@@ -55,8 +55,6 @@ export const conversation = style({
   '@layer': {
     [uiLayers.components]: {
       flexGrow: '1',
-      padding: '16px',
-      overflowY: 'auto',
     },
   },
 });

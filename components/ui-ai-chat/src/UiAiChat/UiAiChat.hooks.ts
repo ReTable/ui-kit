@@ -1,42 +1,42 @@
-import { Ref, RefObject, useImperativeHandle, useRef } from 'react';
+import { Ref, RefObject, useImperativeHandle } from 'react';
 
-import { Controller } from '../types';
+import { Controller, ConversationController, PromptInputController } from '../types';
 
-export function useController(
-  ref: Ref<Controller>,
-): [RefObject<HTMLDivElement>, RefObject<HTMLTextAreaElement>] {
-  const conversationRef = useRef<HTMLDivElement>(null);
-  const promptRef = useRef<HTMLTextAreaElement>(null);
+type Options = {
+  ref: Ref<Controller>;
 
+  conversationRef: RefObject<ConversationController>;
+  promptInputRef: RefObject<PromptInputController>;
+};
+
+export function useController({ ref, conversationRef, promptInputRef }: Options): void {
   useImperativeHandle(
     ref,
     () => ({
-      focus: () => {
-        promptRef.current?.focus();
+      prompt: {
+        focus: () => {
+          promptInputRef.current?.focus();
+        },
+
+        blur: () => {
+          promptInputRef.current?.blur();
+        },
+
+        select: () => {
+          promptInputRef.current?.select();
+        },
       },
 
-      scrollToTop: (behavior?: ScrollBehavior) => {
-        const { current: conversation } = conversationRef;
+      conversation: {
+        scrollToTop: (behavior?: ScrollBehavior) => {
+          conversationRef.current?.scrollToTop(behavior);
+        },
 
-        if (conversation == null) {
-          return;
-        }
-
-        conversation.scrollTo({ left: 0, top: 0, behavior });
-      },
-
-      scrollToBottom: (behavior?: ScrollBehavior) => {
-        const { current: conversation } = conversationRef;
-
-        if (conversation == null) {
-          return;
-        }
-
-        conversation.scrollTo({ left: 0, top: conversation.scrollHeight, behavior });
+        scrollToBottom: (behavior?: ScrollBehavior) => {
+          conversationRef.current?.scrollToBottom(behavior);
+        },
       },
     }),
-    [],
+    [conversationRef, promptInputRef],
   );
-
-  return [conversationRef, promptRef];
 }

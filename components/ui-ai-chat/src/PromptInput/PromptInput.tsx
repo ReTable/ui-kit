@@ -8,6 +8,9 @@ import { ReactComponent as SendingIcon } from './assets/sending.svg';
 import * as styles from './PromptInput.css';
 
 import { TextArea } from '../TextArea';
+import { PromptInputController } from '../types';
+
+import { useController } from './PromptInput.hooks';
 
 type Props = {
   className?: string;
@@ -20,8 +23,10 @@ type Props = {
   value: string;
 };
 
-export const PromptInput = forwardRef<HTMLTextAreaElement, Props>(
+export const PromptInput = forwardRef<PromptInputController, Props>(
   ({ className, isSendable, isSending, maxLength, onChange, onSend, placeholder, value }, ref) => {
+    const inputRef = useController(ref);
+
     const isAllowToSend = isSendable && !isSending;
 
     const handleEnter = useCallback(() => {
@@ -38,7 +43,7 @@ export const PromptInput = forwardRef<HTMLTextAreaElement, Props>(
           onChange={onChange}
           onEnter={handleEnter}
           placeholder={placeholder}
-          ref={ref}
+          ref={inputRef}
           value={value}
         />
         <button
