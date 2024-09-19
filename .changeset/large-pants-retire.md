@@ -10,6 +10,8 @@ The `Controller` now allows to control prompt input and conversation window.
 
 Methods of old `Controller` moved to `Controller.conversation`.
 
+Scroll methods allows to use `behavior` parameter.
+
 #### Settings
 
 Removed settings from the chat. They should be handled outside component.
