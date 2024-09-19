@@ -16,10 +16,17 @@ type Props = {
 
   isEditable: boolean;
 
-  onEdit: (id: number, prompt: string) => void;
+  onResend: (id: number, prompt: string) => void;
 };
 
-export function Prompt({ className, id, isEditable, maxLength, onEdit, prompt }: Props): ReactNode {
+export function Prompt({
+  className,
+  id,
+  isEditable,
+  maxLength,
+  onResend,
+  prompt,
+}: Props): ReactNode {
   const [isEditing, setIsEditing] = useState(false);
   const [editInput, setEditInput] = useState(prompt);
 
@@ -33,9 +40,9 @@ export function Prompt({ className, id, isEditable, maxLength, onEdit, prompt }:
     setIsEditing(false);
 
     if (id != null) {
-      onEdit(id, editInput);
+      onResend(id, editInput);
     }
-  }, [editInput, id, onEdit]);
+  }, [editInput, id, onResend]);
 
   const handleStartEdit = useCallback(() => {
     setIsEditing(true);

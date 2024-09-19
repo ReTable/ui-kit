@@ -41,7 +41,7 @@ function storyOf(args: Partial<UiAiChatProps> = {}): Story {
       placeholder: 'Ask Universe',
 
       onSend: action('on-send'),
-      onEdit: action('on-resend'),
+      onResend: action('on-resend'),
 
       variant: 'normal',
 

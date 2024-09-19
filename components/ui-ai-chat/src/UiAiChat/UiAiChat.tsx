@@ -23,7 +23,7 @@ export type Props = {
   conversation: Request[];
   empty?: () => ReactNode;
   maxPromptLength?: number;
-  onEdit: (index: number, prompt: string) => void;
+  onResend: (index: number, prompt: string) => void;
   onSend: (prompt: string) => void;
   pendingPlaceholder?: string;
   placeholder?: string;
@@ -38,7 +38,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       conversation,
       empty,
       maxPromptLength,
-      onEdit,
+      onResend,
       onSend,
       pendingPlaceholder,
       placeholder,
@@ -74,7 +74,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
           empty={empty}
           isPending={isPending}
           maxPromptLength={maxPromptLength}
-          onEdit={onEdit}
+          onResend={onResend}
           pendingPlaceholder={pendingPlaceholder}
           ref={conversationRef}
           tableActions={tableActions}

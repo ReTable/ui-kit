@@ -11,7 +11,7 @@ import { Request, TableAction } from '../types';
 type Props = {
   editDisabled: boolean;
   maxPromptLength?: number;
-  onEdit: (id: number, prompt: string) => void;
+  onResend: (id: number, prompt: string) => void;
   pendingPlaceholder?: string;
   request: Request;
   tableActions: TableAction[];
@@ -20,7 +20,7 @@ type Props = {
 export function RequestView({
   editDisabled,
   maxPromptLength,
-  onEdit,
+  onResend,
   pendingPlaceholder,
   request,
   tableActions,
@@ -32,7 +32,7 @@ export function RequestView({
         id={request.id}
         isEditable={!editDisabled}
         maxLength={maxPromptLength}
-        onEdit={onEdit}
+        onResend={onResend}
         prompt={request.prompt}
       />
       <div className={styles.answer}>

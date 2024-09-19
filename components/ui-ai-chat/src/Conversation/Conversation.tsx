@@ -15,7 +15,7 @@ export type Props = {
   empty?: () => ReactNode;
   isPending: boolean;
   maxPromptLength?: number;
-  onEdit: (index: number, prompt: string) => void;
+  onResend: (index: number, prompt: string) => void;
   pendingPlaceholder?: string;
   tableActions: TableAction[];
 };
@@ -28,7 +28,7 @@ export const Conversation = forwardRef<InternalConversationController, Props>(
       empty,
       isPending,
       maxPromptLength,
-      onEdit,
+      onResend,
       pendingPlaceholder,
       tableActions,
     },
@@ -48,7 +48,7 @@ export const Conversation = forwardRef<InternalConversationController, Props>(
                   editDisabled={isPending}
                   key={request.id ?? 'pending-request'}
                   maxPromptLength={maxPromptLength}
-                  onEdit={onEdit}
+                  onResend={onResend}
                   pendingPlaceholder={pendingPlaceholder}
                   request={request}
                   tableActions={tableActions}
