@@ -45,3 +45,7 @@ export const Conversation = forwardRef<ConversationController, Props>(
     );
   },
 );
+
+if (import.meta.env.DEV) {
+  Conversation.displayName = 'ui-ai-chat(Conversation)';
+}
