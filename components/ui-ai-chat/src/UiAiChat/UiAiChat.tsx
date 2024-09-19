@@ -7,78 +7,37 @@ import { variants } from '../shared.css';
 
 import { PromptInput } from '../PromptInput';
 import { RequestView } from '../RequestView';
-import { Settings } from '../Settings';
-import { Controller, Mode, Request, TableAction, Variant } from '../types';
+import { Controller, Request, TableAction, Variant } from '../types';
 
 import { useController } from './UiAiChat.hooks';
-
-export type ModeProps =
-  | {
-      mode: Mode;
-      supportedModes: Mode[];
-      onChangeMode: (mode: Mode) => void;
-    }
-  | {
-      mode: Mode;
-      supportedModes?: never;
-      onChangeMode?: never;
-    };
-
-export type ContextProps =
-  | {
-      context: string;
-      onChangeContext: (context: string) => void;
-    }
-  | {
-      context?: never;
-      onChangeContext?: never;
-    };
 
 export type Props = {
   className?: string;
   conversation: Request[];
   empty?: () => ReactNode;
   maxPromptLength?: number;
-  maxTemperature: number;
-  minTemperature: number;
   onChangePrompt: (prompt: string) => void;
-  onChangeTemperature: (temperature: number) => void;
-  onCloseSettings?: () => void;
   onEdit: (index: number, prompt: string) => void;
   onSend: () => void;
   placeholder?: string;
   prompt: string;
-  showSettings?: boolean;
   tableActions?: TableAction[];
-  temperature: number;
   variant?: Variant;
-} & ModeProps &
-  ContextProps;
+};
 
 export const UiAiChat = forwardRef<Controller, Props>(
   (
     {
       className,
-      context,
       conversation,
       empty,
       maxPromptLength,
-      maxTemperature,
-      minTemperature,
-      mode,
-      onChangeContext,
-      onChangeMode,
       onChangePrompt,
-      onChangeTemperature,
       onEdit,
       onSend,
       placeholder,
       prompt,
-      showSettings = false,
-      supportedModes,
       tableActions = [],
-      temperature,
-      onCloseSettings,
       variant = 'normal',
     }: Props,
     ref: ForwardedRef<Controller>,
@@ -120,20 +79,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
             value={prompt}
           />
         </div>
-        <Settings
-          className={styles.drawer}
-          context={context}
-          isOpened={showSettings}
-          maxTemperature={maxTemperature}
-          minTemperature={minTemperature}
-          mode={mode}
-          onChangeContext={onChangeContext}
-          onChangeMode={onChangeMode}
-          onChangeTemperature={onChangeTemperature}
-          onClose={onCloseSettings}
-          supportedModes={supportedModes}
-          temperature={temperature}
-        />
       </div>
     );
   },

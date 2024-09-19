@@ -4,10 +4,6 @@ import { randNumber, randParagraph, randWord } from '@ngneat/falso';
 
 import { Controller, Request, UiAiChatProps } from '~';
 
-import { Features } from '../Chat.types';
-
-import { useOptions } from './useOptions';
-
 async function delay(): Promise<void> {
   return new Promise((resolve) => window.setTimeout(resolve, 3000));
 }
@@ -85,26 +81,7 @@ type State = {
   conversation: Request[];
 };
 
-export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Controller> } {
-  const options = useOptions();
-
-  const mode = features.mode
-    ? {
-        mode: options.mode,
-        supportedModes: options.supportedModes,
-        onChangeMode: options.onChangeMode,
-      }
-    : {
-        mode: options.mode,
-      };
-
-  const context = features.context
-    ? {
-        context: options.context,
-        onChangeContext: options.onChangeContext,
-      }
-    : {};
-
+export function useChat(): UiAiChatProps & { ref: RefObject<Controller> } {
   const controllerRef = useRef<Controller>(null);
 
   const [state, setState] = useState<State>({
@@ -179,22 +156,13 @@ export function useChat(features: Features): UiAiChatProps & { ref: RefObject<Co
   }, []);
 
   return {
-    ...context,
-    ...mode,
-
     conversation: state.conversation,
 
     prompt: state.prompt,
     onChangePrompt: handleChangePrompt,
-    maxPromptLength: options.maxPromptLength,
 
     onEdit: handleEdit,
     onSend: handleSend,
-
-    minTemperature: options.minTemperature,
-    maxTemperature: options.maxTemperature,
-    temperature: options.temperature,
-    onChangeTemperature: options.onChangeTemperature,
 
     tableActions: [],
 

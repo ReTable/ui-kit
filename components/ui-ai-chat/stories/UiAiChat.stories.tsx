@@ -6,7 +6,7 @@ import { UiAiChat, UiAiChatProps, Variant } from '~';
 import { Chat } from './Chat';
 import { Container } from './Container';
 import { EmptyPlaceholder } from './EmptyPlaceholder';
-import { DEFAULT_MODE, MAX_PROMPT_LENGTH, MAX_TEMPERATURE, MIN_TEMPERATURE } from './const';
+import { MAX_PROMPT_LENGTH } from './const';
 
 // region Meta
 
@@ -36,21 +36,11 @@ function storyOf(args: Partial<UiAiChatProps> = {}): Story {
   return {
     args: {
       conversation: [],
-
-      mode: DEFAULT_MODE,
-
-      minTemperature: MIN_TEMPERATURE,
-      maxTemperature: MAX_TEMPERATURE,
-
       maxPromptLength: MAX_PROMPT_LENGTH,
-
-      temperature: 0.5,
 
       placeholder: 'Ask Universe',
 
       prompt: '',
-
-      showSettings: false,
 
       variant: 'normal',
 
@@ -58,10 +48,6 @@ function storyOf(args: Partial<UiAiChatProps> = {}): Story {
     },
 
     argTypes: {
-      showSettings: {
-        control: 'boolean',
-      },
-
       variant: {
         control: 'radio',
         options: ['normal', 'condensed'],
@@ -70,7 +56,7 @@ function storyOf(args: Partial<UiAiChatProps> = {}): Story {
 
     parameters: {
       controls: {
-        include: /(showSettings|variant)/g,
+        include: /(variant)/g,
         hideNoControlsWarning: true,
       },
     },
@@ -232,10 +218,6 @@ export const Long: Story = storyOf({
   ],
 });
 
-export const Settings: Story = storyOf({
-  showSettings: true,
-});
-
 export const Placeholder: Story = storyOf({
   empty: () => <EmptyPlaceholder />,
 });
@@ -246,9 +228,6 @@ export const Placeholder: Story = storyOf({
 
 export const Playground: StoryObj<typeof Chat> = {
   args: {
-    context: false,
-    mode: true,
-    startNewChat: false,
     tableActions: [
       {
         label: 'Copy Table',
@@ -259,18 +238,6 @@ export const Playground: StoryObj<typeof Chat> = {
   },
 
   argTypes: {
-    context: {
-      name: 'Allow to set context?',
-      type: 'boolean',
-    },
-    mode: {
-      name: 'Allow to select mode?',
-      type: 'boolean',
-    },
-    startNewChat: {
-      name: 'Allow to start new chat?',
-      type: 'boolean',
-    },
     variant: {
       control: 'radio',
       options: ['normal', 'condensed'],
@@ -279,21 +246,13 @@ export const Playground: StoryObj<typeof Chat> = {
 
   parameters: {
     controls: {
-      exclude: /(showSettings|title|tableActions)/g,
+      exclude: /(tableActions)/g,
       hideNoControlsWarning: true,
     },
   },
 
-  render({ context, mode, startNewChat, tableActions, variant }) {
-    return (
-      <Chat
-        context={context}
-        mode={mode}
-        startNewChat={startNewChat}
-        tableActions={tableActions}
-        variant={variant}
-      />
-    );
+  render({ tableActions, variant }) {
+    return <Chat tableActions={tableActions} variant={variant} />;
   },
 };
 

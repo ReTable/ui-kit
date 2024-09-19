@@ -78,11 +78,3 @@ export const requests = style({
     },
   },
 });
-
-export const drawer = style({
-  '@layer': {
-    [uiLayers.components]: {
-      zIndex: 1,
-    },
-  },
-});

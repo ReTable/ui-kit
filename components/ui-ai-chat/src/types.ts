@@ -20,11 +20,6 @@ export type Controller = {
   scrollToBottom: () => void;
 };
 
-export type Mode = {
-  id: string;
-  name: string;
-};
-
 export type TableData = {
   header: string[];
   rows: string[][];
