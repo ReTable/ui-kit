@@ -53,8 +53,6 @@
   },
   "dependencies": {
     "@tabula/ui-button": "workspace:^",
-    "@tabula/ui-selector": "workspace:^",
-    "@tabula/ui-slider": "workspace:^",
     "clsx": "^2.1.0",
     "dompurify": "^3.1.6",
     "js-xxhash": "^4.0.0",

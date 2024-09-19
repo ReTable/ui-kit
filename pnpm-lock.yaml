@@ -167,12 +167,6 @@ importers:
       '@tabula/ui-button':
         specifier: workspace:^
         version: link:../ui-button
-      '@tabula/ui-selector':
-        specifier: workspace:^
-        version: link:../ui-selector
-      '@tabula/ui-slider':
-        specifier: workspace:^
-        version: link:../ui-slider
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
