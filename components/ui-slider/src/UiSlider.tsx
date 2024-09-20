@@ -28,11 +28,11 @@ export type Props = {
   /**
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#max)
    */
-  max?: number;
+  max: number;
   /**
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#min)
    */
-  min?: number;
+  min: number;
   /**
    * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#name)
    */
@@ -41,7 +41,7 @@ export type Props = {
   /**
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#step)
    */
-  step?: number;
+  step: number;
   /**
    * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#value)
    */
