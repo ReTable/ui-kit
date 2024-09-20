@@ -116,19 +116,19 @@ export const DecimalStep = storyOf({
 export const Disabled = storyOf({
   isDisabled: true,
 
-  initialValue: 50,
+  initialValue: 75,
 });
 
 export const NormalVariant = storyOf({
   variant: 'normal',
 
-  initialValue: 50,
+  initialValue: 75,
 });
 
 export const AiVariant = storyOf({
   variant: 'ai',
 
-  initialValue: 50,
+  initialValue: 75,
 });
 
 export const DisabledNormalVariant = storyOf({
@@ -136,7 +136,7 @@ export const DisabledNormalVariant = storyOf({
 
   variant: 'normal',
 
-  initialValue: 50,
+  initialValue: 75,
 });
 
 export const DisabledAiVariant = storyOf({
@@ -144,7 +144,7 @@ export const DisabledAiVariant = storyOf({
 
   variant: 'ai',
 
-  initialValue: 50,
+  initialValue: 75,
 });
 
 export const Playground = storyOf(
