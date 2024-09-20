@@ -130,10 +130,12 @@ export const UiAiChat = forwardRef<Controller, Props>(
               <div className={styles.creativityLevel}>{creativityLevel}</div>
             </div>
             <UiSlider
-              onChange={onChangeTemperature}
-              min={minTemperature}
               max={maxTemperature}
+              min={minTemperature}
+              onChange={onChangeTemperature}
+              step={0.005}
               value={temperature}
+              variant="ai"
             />
           </div>
         </div>

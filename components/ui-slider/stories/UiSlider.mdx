@@ -1,0 +1,71 @@
+import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+
+import * as Stories from './UiSlider.stories';
+
+import { UiSlider } from '~';
+
+<Meta of={Stories} />
+
+# UiSlider
+
+Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable.
+
+<Canvas>
+  <UiSlider value={50} />
+</Canvas>
+
+## Variants
+
+There are two appearance variants:
+
+## Options
+
+There are a few general properties which supported by component.
+
+### `min` and `max`
+
+Allows to specify value constraints. Default values are `0` for `min` and `100` for `max`.
+
+Example with negative constraints:
+
+<Canvas of={Stories.NegativeMinMax} />
+
+Example with mixed constraints:
+
+<Canvas of={Stories.MixedMinMax} />
+
+Example with positive constraints:
+
+<Canvas of={Stories.PositiveMinMax} />
+
+### `step`
+
+Allows to specify step of value changes. Default value is `0`. The step can be integer or decimal value.
+
+Example with an integer step:
+
+<Canvas of={Stories.IntegerStep} />
+
+Example with a decimal step:
+
+<Canvas of={Stories.DecimalStep} />
+
+### `isDisabled`
+
+This property allows to disable a control.
+
+<Canvas of={Stories.DisabledNormalVariant} />
+<Canvas of={Stories.DisabledAiVariant} />
+
+### `variant`
+
+Allows to use one of available look & feel variants:
+
+<Canvas of={Stories.NormalVariant} />
+<Canvas of={Stories.AiVariant} />
+
+The `normal` variant is used by default.
+
+## Properties
+
+<ArgsTable of={UiSlider} />
