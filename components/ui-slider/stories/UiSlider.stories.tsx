@@ -56,11 +56,18 @@ type Story = StoryObj<typeof Range>;
 
 function storyOf(args: Story['args'] = {}, isInteractive = false): Story {
   return {
-    args,
+    args: {
+      min: 0,
+      max: 100,
+
+      step: 1,
+
+      ...args,
+    },
 
     parameters: {
       controls: {
-        exclude: isInteractive ? /(initialValue)/g : /(.*)/g,
+        exclude: isInteractive ? /^(className|id|initialValue|name|onChange|value)$/g : /(.*)/g,
       },
     },
 
