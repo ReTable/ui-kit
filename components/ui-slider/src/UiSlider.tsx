@@ -6,6 +6,8 @@ import { clsx } from 'clsx/lite';
 import * as styles from './UiSlider.css';
 import { progressVar } from './UiSlider.css';
 
+import { usePercents } from './UiSlider.hooks';
+
 export type ChangeHandler = (value: number) => void;
 
 export type Variant = keyof typeof styles.variants;
@@ -69,14 +71,13 @@ export function UiSlider({
     [onChange],
   );
 
-  const style = useMemo(() => {
-    // NOTE: Prevent division by zero.
-    const progress = max === 0 ? 0 : Math.min((value / max) * 100, 100);
+  const percents = usePercents(value, min, max);
 
+  const style = useMemo(() => {
     return assignInlineVars({
-      [progressVar]: `${progress}%`,
+      [progressVar]: `${percents}%`,
     });
-  }, [value, max]);
+  }, [percents]);
 
   return (
     <input
