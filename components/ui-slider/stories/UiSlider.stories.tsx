@@ -92,7 +92,7 @@ export const NegativeMinMax = storyOf({
   min: -20,
   max: -10,
 
-  initialValue: -20,
+  initialValue: -15,
 });
 
 export const IntegerStep = storyOf({
