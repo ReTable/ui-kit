@@ -42,7 +42,7 @@ You can use indeterminate state of checkbox.
 
 ### `isDisabled`
 
-This property allows to disable a control.
+This property allows to disable a control.`
 
 ## Additional options
 
