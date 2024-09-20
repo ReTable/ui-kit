@@ -26,16 +26,16 @@ export type Props = {
   /**
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#max)
    */
-  max: number;
+  max?: number;
   /**
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#min)
    */
-  min: number;
+  min?: number;
   /**
    * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#name)
    */
   name?: string;
-  onChange: ChangeHandler;
+  onChange?: ChangeHandler;
   /**
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#step)
    */
@@ -54,17 +54,17 @@ export function UiSlider({
   className,
   id,
   isDisabled,
-  max,
-  min,
+  max = 100,
+  min = 0,
   name,
   onChange,
-  step,
+  step = 1,
   value,
   variant = 'normal',
 }: Props): ReactNode {
   const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (event) => {
-      onChange(event.target.valueAsNumber);
+      onChange?.(event.target.valueAsNumber);
     },
     [onChange],
   );
