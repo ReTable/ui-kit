@@ -1,5 +1,14 @@
 # @tabula/ui-ai-chat
 
+## 1.0.2
+
+### Patch Changes
+
+- [#236](https://github.com/ReTable/ui-kit/pull/236) [`633a878`](https://github.com/ReTable/ui-kit/commit/633a8785c9393ff0a16cd25a2815df0defcec1d8) Thanks [@demiazz](https://github.com/demiazz)! - fix usage of `@tabula/ui-slider`
+
+- Updated dependencies [[`633a878`](https://github.com/ReTable/ui-kit/commit/633a8785c9393ff0a16cd25a2815df0defcec1d8)]:
+  - @tabula/ui-slider@2.0.0
+
 ## 1.0.1
 
 ### Patch Changes
