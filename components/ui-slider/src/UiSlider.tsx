@@ -11,15 +11,42 @@ export type ChangeHandler = (value: number) => void;
 export type Variant = keyof typeof styles.variants;
 
 export type Props = {
+  /**
+   * User defined CSS class which be assigned to the root element.
+   */
   className?: string;
+  /**
+   * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Global_attributes/id)
+   */
   id?: string;
+  /**
+   * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#disabled)
+   */
   isDisabled?: boolean;
+  /**
+   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#max)
+   */
   max: number;
+  /**
+   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#min)
+   */
   min: number;
+  /**
+   * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#name)
+   */
   name?: string;
   onChange: ChangeHandler;
+  /**
+   * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#step)
+   */
   step?: number;
+  /**
+   * See [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#value)
+   */
   value: number;
+  /**
+   * The visual style of the control.
+   */
   variant?: Variant;
 };
 
