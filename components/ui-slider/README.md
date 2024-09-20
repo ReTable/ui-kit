@@ -24,7 +24,7 @@ import { UiSlider } from '@tabula/ui-slider';
 export function CreativityLevel() {
   const [level, setLevel] = useState(0);
 
-  return <UiSlider min={0} max={1} step={0.1} onChange={setLevel} value{level} />
+  return <UiSlider min={0} max={1} step={0.1} onChange={setLevel} value={level} />
 }
 ```
 
