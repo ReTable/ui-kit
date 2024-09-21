@@ -1,8 +1,6 @@
-import { KeyboardEvent, ReactNode } from 'react';
+import { forwardRef } from 'react';
 
 import clsx from 'clsx';
-
-import { UiButton24 } from '@tabula/ui-button';
 
 import { ReactComponent as SendIcon } from './assets/send.svg';
 import { ReactComponent as SendingIcon } from './assets/sending.svg';
@@ -10,8 +8,9 @@ import { ReactComponent as SendingIcon } from './assets/sending.svg';
 import * as styles from './PromptInput.css';
 
 import { TextArea } from '../TextArea';
+import { PromptInputController } from '../types';
 
-const ROWS_COUNT = 3;
+import { useController } from './PromptInput.hooks';
 
 type Props = {
   className?: string;
@@ -24,50 +23,37 @@ type Props = {
   value: string;
 };
 
-export function PromptInput({
-  className,
-  isSendable,
-  isSending,
-  maxLength,
-  onChange,
-  onSend,
-  placeholder,
-  value,
-}: Props): ReactNode {
-  const handleEnterPressed = (event: KeyboardEvent<HTMLTextAreaElement>) => {
-    if (event.shiftKey) {
-      return;
-    }
+export const PromptInput = forwardRef<PromptInputController, Props>(
+  ({ className, isSendable, isSending, maxLength, onChange, onSend, placeholder, value }, ref) => {
+    const inputRef = useController(ref);
 
-    event.preventDefault();
+    const isAllowToSend = isSendable && !isSending;
 
-    if (isSendable && !isSending) {
-      onSend();
-    }
-  };
-
-  return (
-    <div className={clsx(styles.root, className)}>
-      <TextArea
-        className={styles.input}
-        maxLength={maxLength}
-        onChange={onChange}
-        onEnterPressed={handleEnterPressed}
-        placeholder={placeholder}
-        rows={ROWS_COUNT}
-        value={value}
-      />
-      <UiButton24
-        className={styles.send}
-        icon={isSending ? SendingIcon : SendIcon}
-        isDisabled={!isSendable || isSending}
-        onClick={onSend}
-        variant="ai"
-      />
-    </div>
-  );
-}
+    return (
+      <div className={clsx(styles.root, isSending && styles.isSending, className)}>
+        <TextArea
+          className={styles.input}
+          maxLength={maxLength}
+          onChange={onChange}
+          onEnter={onSend}
+          placeholder={placeholder}
+          ref={inputRef}
+          value={value}
+        />
+        <button
+          className={styles.send}
+          disabled={!isAllowToSend}
+          onClick={onSend}
+          title="Send"
+          type="button"
+        >
+          {isSending ? <SendingIcon /> : <SendIcon />}
+        </button>
+      </div>
+    );
+  },
+);
 
 if (import.meta.env.DEV) {
-  PromptInput.displayName = 'UiAiChat(PromptInput)';
+  PromptInput.displayName = 'ui-ai-chat(PromptInput)';
 }

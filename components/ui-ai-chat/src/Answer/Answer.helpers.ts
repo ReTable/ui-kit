@@ -1,109 +1,141 @@
-import clsx from 'clsx';
 import DOMPurify from 'dompurify';
 import { xxHash32 } from 'js-xxhash';
-import { marked } from 'marked';
+import { Marked, Tokens } from 'marked';
 
 import * as styles from './Answer.css';
 
 import { TableAction, TableData } from '../types';
 
+// region Actions
+
 declare global {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
   interface Window {
-    UI_AI_CHAT_TABLE_ACTIONS_STORAGE: Map<string, () => void>;
+    UI_AI_CHAT_TABLE_ACTIONS: Map<string, () => void>;
   }
 }
 
-window.UI_AI_CHAT_TABLE_ACTIONS_STORAGE =
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-  window.UI_AI_CHAT_TABLE_ACTIONS_STORAGE || new Map<string, () => void>();
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+window.UI_AI_CHAT_TABLE_ACTIONS = window.UI_AI_CHAT_TABLE_ACTIONS || new Map();
 
-function hashTable(table: TableData) {
-  const str = JSON.stringify(table);
-
-  return xxHash32(str);
+function hashOf(table: TableData): string {
+  return xxHash32(JSON.stringify(table)).toString(16);
 }
 
-function createTableActionButton(requestId: number, table: TableData, action: TableAction): string {
-  const key = `${requestId}_${action.label}_${hashTable(table)}`;
+function registerActions(id: number, table: TableData, actions: TableAction[]): string[][] {
+  const prefix = `${id}__${hashOf(table)}`;
 
-  window.UI_AI_CHAT_TABLE_ACTIONS_STORAGE.set(key, () => {
-    action.action(table);
+  const vtable: string[][] = [];
+
+  for (const [idx, { label, action }] of actions.entries()) {
+    const key = `${prefix}__${idx}`;
+
+    const call = `window.UI_AI_CHAT_TABLE_ACTIONS.get('${key}')?.()`;
+
+    window.UI_AI_CHAT_TABLE_ACTIONS.set(key, () => {
+      action(table);
+    });
+
+    vtable.push([label, call]);
+  }
+
+  return vtable;
+}
+
+export function unregisterActions(id: number): void {
+  for (const [key] of window.UI_AI_CHAT_TABLE_ACTIONS.entries()) {
+    if (!key.startsWith(`${id}__`)) {
+      return;
+    }
+
+    window.UI_AI_CHAT_TABLE_ACTIONS.delete(key);
+  }
+}
+
+function renderActions(id: number, table: TableData, actions: TableAction[]): string {
+  const vtable = registerActions(id, table, actions);
+
+  const items = vtable
+    .map(
+      ([label, call]) => `
+        <button class="${styles.action}" onclick="${call}" type="button">${label}</button>
+    `,
+    )
+    .join('');
+
+  return `<div class="${styles.actions}">${items}</div>`;
+}
+
+// endregion Actions
+
+// region Table
+
+function renderHead(data: string[]): string {
+  const cells = data.map((it) => `<th>${it}</th>`).join('');
+
+  return `<thead><tr>${cells}</tr></thead>`;
+}
+
+function renderBody(data: string[][]): string {
+  const rows = data
+    .map((row) => {
+      const cells = row.map((it) => `<td>${it}</td>`).join('');
+
+      return `<tr>${cells}</tr>`;
+    })
+    .join('');
+
+  return `<tbody>${rows}</tbody>`;
+}
+
+function renderTable(table: TableData): string {
+  return `
+    <div class="${styles.tableScroll}">
+      <div class="${styles.tableContainer}">
+        <table>
+          ${renderHead(table.header)}
+          ${renderBody(table.rows)}
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+// endregion Table
+
+// region Render
+
+export function render(id: number, input: string, tableActions: TableAction[]): string {
+  const parser = new Marked({
+    async: false,
+
+    renderer: {
+      table({ header, rows }: Tokens.Table): string {
+        const table: TableData = {
+          header: header.map((h) => h.text),
+          rows: rows.map((row) => row.map((v) => v.text)),
+        };
+
+        return `${renderTable(table)}${renderActions(id, table, tableActions)}`;
+      },
+    },
   });
 
-  return `
-<button
-  class="${styles.tableActionButton}"
-  onclick="window.UI_AI_CHAT_TABLE_ACTIONS_STORAGE.get('${key}')()"
->
-  ${action.label}
-</button>`;
+  const output = parser.parse(input, { async: false });
+
+  return DOMPurify.sanitize(output);
 }
 
-export function clearActionsForRequest(requestId: number): void {
-  for (const [key] of window.UI_AI_CHAT_TABLE_ACTIONS_STORAGE.entries()) {
-    if (key.startsWith(`${requestId}_`)) {
-      window.UI_AI_CHAT_TABLE_ACTIONS_STORAGE.delete(key);
-    }
-  }
-}
+// endregion Render
 
-function renderRow(row: string[]) {
-  return row.map((value) => `<td class="${styles.rowCell}">${value}</td>`).join('');
-}
+// region DOMPurify
 
-function renderRows(rows: string[][]) {
-  return rows.map((row) => `<tr class="${styles.bodyRow}">${renderRow(row)}</tr>`).join('');
-}
-
-function renderHeader(header: string[]) {
-  return `<tr class="${styles.headerRow}">${header.map((h) => `<th class="${styles.headerCell}">${h}</th>`).join('')}</tr>`;
-}
-
-export function createTableRenderer(
-  requestId: number,
-  tableActions: TableAction[],
-): (token: marked.Tokens.Generic) => string | false {
-  return (token: marked.Tokens.Generic) => {
-    if (token.type !== 'table') {
-      return false;
-    }
-
-    const { header, rows } = token as marked.Tokens.Table;
-
-    const data: TableData = {
-      header: header.map((h) => h.text),
-      rows: rows.map((row) => row.map((v) => v.text)),
-    };
-
-    const tableClassName = clsx(styles.table, data.rows.length === 0 && styles.empty);
-
-    const renderedTable = DOMPurify.sanitize(`
-      <table class="${tableClassName}">
-        <thead>
-          ${renderHeader(data.header)}
-        </thead>
-        <tbody>
-          ${renderRows(data.rows)}
-        </tbody>
-      </table>
-    `);
-
-    const actions = tableActions
-      .map((action) => createTableActionButton(requestId, data, action))
-      .join('\n');
-
-    return `
-      <div class="${styles.tableContainer}">${renderedTable}</div>
-      <div class="${styles.tableActions}">${actions}</div>
-    `;
-  };
-}
-
-const allowedOnClickContent = /^window\.UI_AI_CHAT_TABLE_ACTIONS_STORAGE\.get\('[\w -]+'\)\(\)$/;
+const allowedOnClickContent = /^window\.UI_AI_CHAT_TABLE_ACTIONS\.get\('\d+__\w+__\d+'\)\?\.\(\)$/;
 
 DOMPurify.addHook('uponSanitizeAttribute', (_, data) => {
   if (data.attrName === 'onclick' && allowedOnClickContent.test(data.attrValue)) {
     data.forceKeepAttr = true;
   }
 });
+
+// endregion DOMPurify

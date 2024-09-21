@@ -12,14 +12,24 @@ export type Request =
       answer?: never;
     };
 
-export type Controller = {
-  scrollToTop: () => void;
-  scrollToBottom: () => void;
+export type InternalConversationController = {
+  hasTextArea: boolean;
+
+  scrollToTop: (behavior?: ScrollBehavior) => void;
+  scrollToBottom: (behavior?: ScrollBehavior) => void;
 };
 
-export type Mode = {
-  id: string;
-  name: string;
+export type ConversationController = Omit<InternalConversationController, 'hasTextArea'>;
+
+export type PromptInputController = {
+  focus: () => void;
+  blur: () => void;
+  select: () => void;
+};
+
+export type Controller = {
+  conversation: ConversationController;
+  prompt: PromptInputController;
 };
 
 export type TableData = {

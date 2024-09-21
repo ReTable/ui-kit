@@ -1,5 +1,5 @@
 import { readdirSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
@@ -44,6 +44,24 @@ function searchStories(workspace) {
   }
 }
 
+const alias = {
+  find: /^~(.*)/,
+
+  replacement: `$1`,
+
+  customResolver(target, importer) {
+    if (importer == null) {
+      return null;
+    }
+
+    const [ns, pkgName] = relative(ROOT_DIR, importer).split(sep);
+
+    const resolvedTarget = target === '' ? 'lib/index.js' : `lib${target}.js`;
+
+    return join(ROOT_DIR, ns, pkgName, resolvedTarget);
+  },
+};
+
 export default {
   addons: [
     '@storybook/addon-essentials',
@@ -79,18 +97,10 @@ export default {
 
   async viteFinal(config) {
     return mergeConfig(config, {
-      // NOTE: Workaround for https://github.com/storybookjs/storybook/issues/25256
-      assetsInclude: ['/sb-preview/**'],
-
       plugins: [vanillaExtractPlugin()],
 
       resolve: {
-        alias: [
-          {
-            find: /~(.*)$/,
-            replacement: `../lib/$1`,
-          },
-        ],
+        alias: [alias],
       },
     });
   },

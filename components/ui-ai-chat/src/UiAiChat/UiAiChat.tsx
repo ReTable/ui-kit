@@ -1,167 +1,121 @@
-import { ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, ReactNode, forwardRef, useRef } from 'react';
 
 import clsx from 'clsx';
 
-import { UiButton24 } from '@tabula/ui-button';
-import { UiSlider } from '@tabula/ui-slider';
-
-import { ReactComponent as AddIcon } from './assets/add.svg';
-
 import * as styles from './UiAiChat.css';
 
-import { ModeSelector } from '../ModeSelector';
+import { Conversation } from '../Conversation';
 import { PromptInput } from '../PromptInput';
-import { RequestView } from '../RequestView';
-import { TextArea } from '../TextArea';
-import { Controller, Mode, Request, TableAction } from '../types';
+import {
+  Controller,
+  InternalConversationController,
+  PromptInputController,
+  Request,
+  TableAction,
+} from '../types';
 
-import { useController } from './UiAiChat.hooks';
+import { useAutoScroll, useController, usePrompt } from './hooks';
 
-type ModeProps =
-  | {
-      mode: Mode;
-      supportedModes: Mode[];
-      onChangeMode: (mode: Mode) => void;
-    }
-  | {
-      mode?: never;
-      supportedModes?: never;
-      onChangeMode?: never;
-    };
-
-type ContextProps =
-  | {
-      context: string;
-      onChangeContext: (context: string) => void;
-    }
-  | {
-      context?: never;
-      onChangeContext?: never;
-    };
-
-type Props = {
+export type Props = {
   className?: string;
+  /**
+   * List of requests.
+   */
   conversation: Request[];
-  inputAtTheBottom: boolean;
-  isPending: boolean;
-  isSendAllowed: boolean;
+  /**
+   * Optional placeholder for empty chat.
+   */
+  empty?: () => ReactNode;
+  /**
+   * Optional maximal length allowed for prompt.
+   */
   maxPromptLength?: number;
-  maxTemperature: number;
-  minTemperature: number;
-  onChangePrompt: (prompt: string) => void;
-  onChangeTemperature: (temperature: number) => void;
-  onEdit: (index: number, prompt: string) => void;
-  onSend: () => void;
-  onStartNewChat?: () => void;
+  /**
+   * Allows to resend existing prompt.
+   *
+   * @param id ID of request.
+   * @param prompt New prompt.
+   */
+  onResend: (id: number, prompt: string) => void;
+  /**
+   * Allows to send a new prompt.
+   *
+   * @param prompt New prompt.
+   */
+  onSend: (prompt: string) => void;
+  /**
+   * Optional message for pending requests.
+   */
+  pendingPlaceholder?: string;
+  /**
+   * Optional placeholder for prompt input.
+   */
   placeholder?: string;
-  prompt: string;
-  tableActions: TableAction[];
-  temperature: number;
-} & ModeProps &
-  ContextProps;
+  /**
+   * Optional table actions.
+   */
+  tableActions?: TableAction[];
+};
 
 export const UiAiChat = forwardRef<Controller, Props>(
   (
     {
       className,
-      context,
       conversation,
-      inputAtTheBottom,
-      isPending,
-      isSendAllowed,
+      empty,
       maxPromptLength,
-      maxTemperature,
-      minTemperature,
-      mode,
-      onChangeContext,
-      onChangeMode,
-      onChangePrompt,
-      onChangeTemperature,
-      onEdit,
+      onResend,
       onSend,
-      onStartNewChat,
+      pendingPlaceholder,
       placeholder,
-      prompt,
-      supportedModes,
-      tableActions,
-      temperature,
+      tableActions = [],
     }: Props,
     ref: ForwardedRef<Controller>,
   ) => {
-    const conversationRef = useController(ref);
+    const conversationRef = useRef<InternalConversationController>(null);
+    const promptInputRef = useRef<PromptInputController>(null);
 
-    const creativityLevel = `${Math.round(temperature * 10)} / 10`;
+    useController({ ref, conversationRef, promptInputRef });
+
+    useAutoScroll(conversation, conversationRef);
+
+    const {
+      isPending,
+      isSendable,
+      onChangePrompt,
+      onSend: handleSend,
+      prompt,
+    } = usePrompt({
+      conversation,
+      onSend,
+      promptInputRef,
+    });
 
     return (
-      <div className={clsx(styles.root, inputAtTheBottom && styles.isReversed, className)}>
-        <div className={styles.input}>
-          {mode != null && (
-            <ModeSelector
-              className={styles.mode}
-              onChange={onChangeMode}
-              options={supportedModes}
-              value={mode}
-            />
-          )}
+      <div className={clsx(styles.root, className)}>
+        <Conversation
+          className={styles.conversation}
+          conversation={conversation}
+          empty={empty}
+          isPending={isPending}
+          maxPromptLength={maxPromptLength}
+          onResend={onResend}
+          pendingPlaceholder={pendingPlaceholder}
+          ref={conversationRef}
+          tableActions={tableActions}
+        />
+        <div className={styles.prompt}>
           <PromptInput
-            className={styles.inputControl}
-            isSendable={isSendAllowed}
+            className={styles.promptInput}
+            isSendable={isSendable}
             isSending={isPending}
             maxLength={maxPromptLength}
             onChange={onChangePrompt}
-            onSend={onSend}
+            onSend={handleSend}
             placeholder={placeholder ?? 'Ask GPT'}
+            ref={promptInputRef}
             value={prompt}
           />
-          {onStartNewChat != null && conversation.length > 0 && (
-            <UiButton24
-              className={styles.startNewChat}
-              icon={AddIcon}
-              isDisabled={isPending}
-              onClick={onStartNewChat}
-              variant="edit"
-            >
-              Start new chat
-            </UiButton24>
-          )}
-          <div className={styles.creativity}>
-            <div className={styles.creativityTitleContainer}>
-              <div className={styles.creativityTitle}>AI creativity</div>
-              <div className={styles.creativityLevel}>{creativityLevel}</div>
-            </div>
-            <UiSlider
-              max={maxTemperature}
-              min={minTemperature}
-              onChange={onChangeTemperature}
-              step={0.005}
-              value={temperature}
-              variant="ai"
-            />
-          </div>
-        </div>
-        {context != null && (
-          <div className={styles.experimental}>
-            <div className={styles.label}>Context</div>
-            <TextArea
-              className={styles.textarea}
-              onChange={onChangeContext}
-              placeholder="Context"
-              rows={3}
-              value={context}
-            />
-          </div>
-        )}
-        <div className={styles.chat} ref={conversationRef}>
-          {conversation.map((request) => (
-            <RequestView
-              editDisabled={isPending}
-              key={request.id ?? 'pending-request'}
-              maxPromptLength={maxPromptLength}
-              onEdit={onEdit}
-              request={request}
-              tableActions={tableActions}
-            />
-          ))}
         </div>
       </div>
     );

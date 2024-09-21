@@ -1,50 +1,55 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useMemo } from 'react';
 
-import DOMPurify from 'dompurify';
-import { marked } from 'marked';
+import { clsx } from 'clsx/lite';
+
+import * as styles from './Answer.css';
 
 import { Request, TableAction } from '../types';
 
-import { clearActionsForRequest, createTableRenderer } from './Answer.helpers';
+import { render, unregisterActions } from './Answer.helpers';
 
 type Props = {
   className?: string;
+  pendingPlaceholder?: string;
   request: Request;
   tableActions: TableAction[];
 };
 
-export function Answer({ className, request, tableActions }: Props): ReactNode {
-  const [sanitizedParsedHtml, setSanitizedParsedHtml] = useState<string>();
-
-  useEffect(() => {
+export function Answer({
+  className,
+  pendingPlaceholder = 'Analyzing...',
+  request,
+  tableActions,
+}: Props): ReactNode {
+  const content = useMemo(() => {
     if (request.id == null) {
-      return;
+      return null;
     }
 
-    marked.use({
-      extensions: [{ name: 'table', renderer: createTableRenderer(request.id, tableActions) }],
-    });
+    return render(request.id, request.answer, tableActions);
+  }, [request.id, request.answer, tableActions]);
 
-    const parsed = marked.parse(request.answer);
-    const sanitized = DOMPurify.sanitize(parsed);
+  useEffect(
+    () => () => {
+      if (request.id == null) {
+        return;
+      }
 
-    setSanitizedParsedHtml(sanitized);
+      unregisterActions(request.id);
+    },
+    [request.id],
+  );
 
-    return () => {
-      clearActionsForRequest(request.id);
-    };
-  }, [request, tableActions]);
-
-  if (sanitizedParsedHtml == null) {
-    return <div className={className}>...</div>;
+  if (content == null) {
+    return <div className={clsx(styles.placeholder, className)}>{pendingPlaceholder}</div>;
   }
 
   return (
     // eslint-disable-next-line react/no-danger
-    <div className={className} dangerouslySetInnerHTML={{ __html: sanitizedParsedHtml }} />
+    <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
   );
 }
 
 if (import.meta.env.DEV) {
-  Answer.displayName = 'UiAiChat(Answer)';
+  Answer.displayName = 'ui-ai-chat(Answer)';
 }
