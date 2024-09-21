@@ -1,10 +1,10 @@
 import { action } from '@storybook/addon-actions';
 import { Decorator, Meta, StoryObj } from '@storybook/react';
 
-import { UiAiChat, UiAiChatProps, Variant } from '~';
+import { UiAiChat, UiAiChatProps } from '~';
 
 import { Chat } from './Chat';
-import { Container } from './Container';
+import { Container, Variant } from './Container';
 import { EmptyPlaceholder } from './EmptyPlaceholder';
 import { MAX_PROMPT_LENGTH } from './const';
 
@@ -22,7 +22,7 @@ export default meta;
 
 // region Story Utilities
 
-type Story = StoryObj<typeof UiAiChat>;
+type Story = StoryObj<UiAiChatProps & { variant: Variant }>;
 
 const StoryDecorator: Decorator = (Story, context) => {
   return (
@@ -32,7 +32,7 @@ const StoryDecorator: Decorator = (Story, context) => {
   );
 };
 
-function storyOf(args: Partial<UiAiChatProps> = {}): Story {
+function storyOf(args: Partial<UiAiChatProps & { variant: Variant }> = {}): Story {
   return {
     args: {
       conversation: [],

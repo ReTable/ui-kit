@@ -2,8 +2,10 @@ import { PropsWithChildren, ReactNode } from 'react';
 
 import * as styles from './Container.css';
 
+export type Variant = keyof typeof styles.variants;
+
 type Props = PropsWithChildren<{
-  variant: keyof typeof styles.variants;
+  variant: Variant;
 }>;
 
 export function Container({ children, variant }: Props): ReactNode {

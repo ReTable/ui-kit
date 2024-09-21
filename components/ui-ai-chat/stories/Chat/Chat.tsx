@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import { TableAction, UiAiChat, Variant } from '~';
+import { TableAction, UiAiChat } from '~';
 
-import { Container } from '../Container';
+import { Container, Variant } from '../Container';
 import { MAX_PROMPT_LENGTH } from '../const';
 
 import { useChat } from './Chat.hooks';
@@ -22,7 +22,6 @@ export function Chat({ tableActions, variant }: Props): ReactNode {
         maxPromptLength={MAX_PROMPT_LENGTH}
         placeholder="Ask Universe"
         tableActions={tableActions}
-        variant={variant}
       />
     </Container>
   );
