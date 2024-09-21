@@ -49,7 +49,7 @@ export const send = style({
       height: '32px',
       border: 'none',
       borderRadius: '16px',
-      background: uiTheme.colors.fillControl.btnPrimary,
+      background: `linear-gradient(to bottom, ${uiTheme.colors.fillControl.ai.from}, ${uiTheme.colors.fillControl.ai.to})`,
       color: uiTheme.colors.content.contrast,
       cursor: 'pointer',
       transition: `all ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
@@ -61,11 +61,11 @@ export const send = style({
         },
 
         '&:hover': {
-          background: uiTheme.colors.fillControl.btnPrimaryHover,
+          background: `linear-gradient(to bottom, ${uiTheme.colors.fillControl.aiPrimaryHover.from}, ${uiTheme.colors.fillControl.aiPrimaryHover.to})`,
         },
 
         '&:active': {
-          background: uiTheme.colors.fillControl.btnPrimaryPressed,
+          background: `linear-gradient(to bottom, ${uiTheme.colors.fillControl.aiPrimaryPressed.from}, ${uiTheme.colors.fillControl.aiPrimaryPressed.to})`,
           transition: 'none',
         },
 
@@ -75,7 +75,7 @@ export const send = style({
         },
 
         [`${isSending} &:disabled`]: {
-          background: uiTheme.colors.fillControl.btnPrimary,
+          background: `linear-gradient(to bottom, ${uiTheme.colors.fillControl.ai.from}, ${uiTheme.colors.fillControl.ai.to})`,
         },
       },
     },
