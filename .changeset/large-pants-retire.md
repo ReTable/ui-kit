@@ -30,13 +30,6 @@ Removed properties:
 
 #### Design
 
-Different variants are supported now: `normal` and `condensed`. Variant can be set through `variant` property.
-
-Removed properties:
-
-  - `inputAtTheBottom`
-
-Input at the bottom always now, and chat direction always from top to bottom.
 
 #### Control
 
@@ -69,8 +62,16 @@ Removed property `onStartNewChat`.
 
 #### Look and Feel
 
+Removed properties:
+
+- `inputAtTheBottom`
+
+Input at the bottom always now, and chat direction always from top to bottom.
+
 Property `empty` allows to provide placeholder for empty chat.
 
 Property `pendingPlaceholder` allows to change pending message.
 
 Prompt is autosized now and allows max height to 10 lines of text.
+
+Chat has adapted to the root width, and use condensed styles on small width.
