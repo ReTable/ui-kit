@@ -124,7 +124,7 @@ export function useChat(): UiAiChatProps {
   return {
     conversation,
 
-    onEdit: handleEdit,
+    onResend: handleEdit,
     onSend: handleSend,
 
     tableActions: [],
