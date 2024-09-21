@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
-import { variants } from '../shared.css';
+import { containerQuery } from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -54,18 +54,17 @@ export const answerBody = style([
 export const answerIcon = style({
   '@layer': {
     [uiLayers.components]: {
-      selectors: {
-        [`${variants.normal} &`]: {
+      display: 'none',
+
+      '@container': {
+        [containerQuery]: {
           position: 'absolute',
           top: '0',
           left: '-36px',
+          display: 'block',
           width: '24px',
           height: '24px',
           color: uiTheme.colors.accent['100'],
-        },
-
-        [`${variants.condensed} &`]: {
-          display: 'none',
         },
       },
     },

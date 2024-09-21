@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
-import { variants } from '../shared.css';
+import { containerQuery } from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -29,8 +29,8 @@ export const requests = style({
       justifyContent: 'flex-end',
       minHeight: '100%',
 
-      selectors: {
-        [`${variants.normal} &`]: {
+      '@container': {
+        [containerQuery]: {
           maxWidth: '1104px',
           margin: '0 auto',
           padding: '0 52px 0 52px',

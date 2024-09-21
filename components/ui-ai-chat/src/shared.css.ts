@@ -1,6 +1,5 @@
-import { styleVariants } from '@vanilla-extract/css';
+import { createContainer } from '@vanilla-extract/css';
 
-export const variants = styleVariants({
-  normal: {},
-  condensed: {},
-});
+export const container = createContainer();
+
+export const containerQuery = `${container} (min-width: 700px)`;

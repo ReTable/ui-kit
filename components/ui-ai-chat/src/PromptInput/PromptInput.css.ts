@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
-import { variants } from '../shared.css';
+import { containerQuery } from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -11,19 +11,16 @@ export const root = style({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      gap: '8px',
+      padding: '8px',
+      borderRadius: '16px',
       backgroundColor: uiTheme.colors.background.controlsDetails,
 
-      selectors: {
-        [`${variants.normal} &`]: {
+      '@container': {
+        [containerQuery]: {
           gap: '12px',
           padding: '12px 12px 12px 24px',
           borderRadius: '28px',
-        },
-
-        [`${variants.condensed} &`]: {
-          gap: '8px',
-          padding: '8px',
-          borderRadius: '16px',
         },
       },
     },

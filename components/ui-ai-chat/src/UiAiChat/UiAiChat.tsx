@@ -3,7 +3,6 @@ import { ForwardedRef, ReactNode, forwardRef, useRef } from 'react';
 import clsx from 'clsx';
 
 import * as styles from './UiAiChat.css';
-import { variants } from '../shared.css';
 
 import { Conversation } from '../Conversation';
 import { PromptInput } from '../PromptInput';
@@ -13,7 +12,6 @@ import {
   PromptInputController,
   Request,
   TableAction,
-  Variant,
 } from '../types';
 
 import { useAutoScroll, useController, usePrompt } from './hooks';
@@ -57,10 +55,6 @@ export type Props = {
    * Optional table actions.
    */
   tableActions?: TableAction[];
-  /**
-   * Optional look and feel variant.
-   */
-  variant?: Variant;
 };
 
 export const UiAiChat = forwardRef<Controller, Props>(
@@ -75,7 +69,6 @@ export const UiAiChat = forwardRef<Controller, Props>(
       pendingPlaceholder,
       placeholder,
       tableActions = [],
-      variant = 'normal',
     }: Props,
     ref: ForwardedRef<Controller>,
   ) => {
@@ -99,7 +92,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
     });
 
     return (
-      <div className={clsx(styles.root, variants[variant], className)}>
+      <div className={clsx(styles.root, className)}>
         <Conversation
           className={styles.conversation}
           conversation={conversation}
