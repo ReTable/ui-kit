@@ -28,8 +28,6 @@ Removed properties:
   - `temperature`
   - `onChangeTemperature`
 
-#### Design
-
 
 #### Control
 
