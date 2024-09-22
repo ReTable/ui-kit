@@ -18,8 +18,9 @@ export function Suggestions({ className, suggestions, onSuggest }: Props): React
   return (
     <div className={clsx(styles.root, className)}>
       <div className={styles.items}>
-        {suggestions.map((it) => (
-          <Item key={it} onSuggest={onSuggest} suggestion={it} />
+        {suggestions.map((it, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <Item key={idx} onSuggest={onSuggest} suggestion={it} />
         ))}
       </div>
     </div>
