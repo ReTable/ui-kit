@@ -9,6 +9,25 @@ export const root = style({
     [uiLayers.components]: {
       padding: '16px',
       overflowY: 'auto',
+      maskImage: [
+        'linear-gradient(to top, black, black)',
+        'linear-gradient(to top, black, black)',
+        'linear-gradient(to top, transparent 0, black 16px, black 100%)',
+      ].join(', '),
+      maskSize: '16px 100%, 16px 100%, calc(100% - 16px) 100%',
+      maskPosition: 'center left, center right, bottom center',
+      maskRepeat: 'no-repeat',
+
+      '@container': {
+        [containerQuery]: {
+          maskImage: [
+            'linear-gradient(to top, black, black)',
+            'linear-gradient(to top, black, black)',
+            'linear-gradient(to top, transparent 0, black 16px, black 100%)',
+          ].join(', '),
+          maskSize: '52px 100%, 52px 100%, calc(100% - 52px) 100%',
+        },
+      },
     },
   },
 });
@@ -24,6 +43,7 @@ export const placeholder = style({
 export const requests = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'relative',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-end',
