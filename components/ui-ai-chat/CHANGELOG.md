@@ -1,5 +1,11 @@
 # @tabula/ui-ai-chat
 
+## 2.0.0-next.1
+
+### Minor Changes
+
+- [#244](https://github.com/ReTable/ui-kit/pull/244) [`a725762`](https://github.com/ReTable/ui-kit/commit/a7257625514db5c966dfebc0be355fcc20e56382) Thanks [@demiazz](https://github.com/demiazz)! - added support of 'suggestions' and 'context' properties
+
 ## 2.0.0-next.0
 
 ### Major Changes
