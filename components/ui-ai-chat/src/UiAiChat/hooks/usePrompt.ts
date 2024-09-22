@@ -18,6 +18,8 @@ type Result = {
 
   prompt: string;
   onChangePrompt: (prompt: string) => void;
+
+  onSuggest: (suggestion: string) => void;
 };
 
 export function usePrompt({ conversation, promptInputRef, onSend }: Options): Result {
@@ -38,6 +40,15 @@ export function usePrompt({ conversation, promptInputRef, onSend }: Options): Re
     promptInputRef.current?.focus();
   }, [isPending, isSendable, onSend, prompt, promptInputRef]);
 
+  const handleSuggest = useCallback(
+    (suggestion: string) => {
+      setPrompt(suggestion);
+
+      promptInputRef.current?.focus();
+    },
+    [promptInputRef],
+  );
+
   return {
     onSend: handleSend,
 
@@ -46,5 +57,7 @@ export function usePrompt({ conversation, promptInputRef, onSend }: Options): Re
 
     prompt,
     onChangePrompt: setPrompt,
+
+    onSuggest: handleSuggest,
   };
 }

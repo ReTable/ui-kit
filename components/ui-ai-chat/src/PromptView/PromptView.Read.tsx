@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { ReactComponent as EditIcon } from './assets/edit.svg';
 
-import * as styles from './Prompt.css';
+import * as styles from './PromptView.css';
 
 type Props = {
   isEditable: boolean;
@@ -12,7 +12,7 @@ type Props = {
   prompt: string;
 };
 
-export function View({ isEditable, onStartEdit, prompt }: Props): ReactNode {
+export function Read({ isEditable, onStartEdit, prompt }: Props): ReactNode {
   return (
     <div className={styles.view}>
       {isEditable && (
@@ -26,5 +26,5 @@ export function View({ isEditable, onStartEdit, prompt }: Props): ReactNode {
 }
 
 if (import.meta.env.DEV) {
-  View.displayName = 'ui-ai-chat(PromptView)';
+  Read.displayName = 'ui-ai-chat(PromptView.Read)';
 }

@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
-import { container, containerQuery } from '../shared.css';
+import { container } from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -19,41 +19,18 @@ export const root = style({
   },
 });
 
-export const prompt = style({
-  '@layer': {
-    [uiLayers.components]: {
-      padding: '0 16px 16px',
-
-      '@container': {
-        [containerQuery]: {
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignItems: 'flex-start',
-          padding: '0 52px 24px',
-        },
-      },
-    },
-  },
-});
-
-export const promptInput = style({
-  '@layer': {
-    [uiLayers.components]: {
-      '@container': {
-        [containerQuery]: {
-          flex: '1 1 auto',
-          maxWidth: '1000px',
-        },
-      },
-    },
-  },
-});
-
 export const conversation = style({
   '@layer': {
     [uiLayers.components]: {
       flexGrow: '1',
+    },
+  },
+});
+
+export const suggestions = style({
+  '@layer': {
+    [uiLayers.components]: {
+      marginBottom: '8px',
     },
   },
 });

@@ -5,7 +5,8 @@ import clsx from 'clsx';
 import * as styles from './UiAiChat.css';
 
 import { Conversation } from '../Conversation';
-import { PromptInput } from '../PromptInput';
+import { Prompt } from '../Prompt';
+import { Suggestions } from '../Suggestions';
 import {
   Controller,
   InternalConversationController,
@@ -19,6 +20,10 @@ import { useAutoScroll, useController, usePrompt } from './hooks';
 export type Props = {
   className?: string;
   /**
+   * Optional context of prompt.
+   */
+  context?: string;
+  /**
    * List of requests.
    */
   conversation: Request[];
@@ -30,6 +35,10 @@ export type Props = {
    * Optional maximal length allowed for prompt.
    */
   maxPromptLength?: number;
+  /**
+   * Optional context reset handler.
+   */
+  onClearContext?: () => void;
   /**
    * Allows to resend existing prompt.
    *
@@ -52,6 +61,10 @@ export type Props = {
    */
   placeholder?: string;
   /**
+   * Optional prompt suggestions.
+   */
+  suggestions?: string[];
+  /**
    * Optional table actions.
    */
   tableActions?: TableAction[];
@@ -61,13 +74,16 @@ export const UiAiChat = forwardRef<Controller, Props>(
   (
     {
       className,
+      context,
       conversation,
       empty,
       maxPromptLength,
+      onClearContext,
       onResend,
       onSend,
       pendingPlaceholder,
       placeholder,
+      suggestions = [],
       tableActions = [],
     }: Props,
     ref: ForwardedRef<Controller>,
@@ -84,6 +100,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       isSendable,
       onChangePrompt,
       onSend: handleSend,
+      onSuggest,
       prompt,
     } = usePrompt({
       conversation,
@@ -104,19 +121,25 @@ export const UiAiChat = forwardRef<Controller, Props>(
           ref={conversationRef}
           tableActions={tableActions}
         />
-        <div className={styles.prompt}>
-          <PromptInput
-            className={styles.promptInput}
-            isSendable={isSendable}
-            isSending={isPending}
-            maxLength={maxPromptLength}
-            onChange={onChangePrompt}
-            onSend={handleSend}
-            placeholder={placeholder ?? 'Ask GPT'}
-            ref={promptInputRef}
-            value={prompt}
+        {suggestions.length > 0 && (
+          <Suggestions
+            className={styles.suggestions}
+            onSuggest={onSuggest}
+            suggestions={suggestions}
           />
-        </div>
+        )}
+        <Prompt
+          context={context}
+          isSendable={isSendable}
+          isSending={isPending}
+          maxLength={maxPromptLength}
+          onChangePrompt={onChangePrompt}
+          onClearContext={onClearContext}
+          onSend={handleSend}
+          placeholder={placeholder ?? 'Ask GPT'}
+          prompt={prompt}
+          ref={promptInputRef}
+        />
       </div>
     );
   },

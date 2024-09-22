@@ -4,8 +4,8 @@ import { ReactComponent as AiIcon } from './assets/ai.svg';
 
 import * as styles from './RequestView.css';
 
-import { Answer } from '../Answer';
-import { Prompt } from '../Prompt';
+import { AnswerView } from '../AnswerView';
+import { PromptView } from '../PromptView';
 import { Request, TableAction } from '../types';
 
 type Props = {
@@ -27,7 +27,7 @@ export function RequestView({
 }: Props): ReactNode {
   return (
     <div className={styles.root}>
-      <Prompt
+      <PromptView
         className={styles.prompt}
         id={request.id}
         isEditable={!editDisabled}
@@ -37,7 +37,7 @@ export function RequestView({
       />
       <div className={styles.answer}>
         <AiIcon className={styles.answerIcon} />
-        <Answer
+        <AnswerView
           className={styles.answerBody}
           pendingPlaceholder={pendingPlaceholder}
           request={request}

@@ -229,6 +229,45 @@ export const Long: Story = storyOf({
   ],
 });
 
+export const Context: Story = storyOf({
+  conversation: [
+    {
+      id: 1,
+      prompt: 'Please, help me with my task.',
+      answer: [
+        'OK, follow my recommendations:',
+        '- keep work/life balance;',
+        '- do things which helps to solve business task;',
+        '- ...',
+      ].join('\n'),
+    },
+  ],
+
+  context: '"Role" column selected',
+  onClearContext: action('clear-context'),
+});
+
+export const Suggestions: Story = storyOf({
+  conversation: [
+    {
+      id: 1,
+      prompt: 'Please, help me with my task.',
+      answer: [
+        'OK, follow my recommendations:',
+        '- keep work/life balance;',
+        '- do things which helps to solve business task;',
+        '- ...',
+      ].join('\n'),
+    },
+  ],
+
+  suggestions: [
+    'How do review scores vary by platform?',
+    'Show all new leads last month with city',
+    'How do review scores vary by platform?',
+  ],
+});
+
 export const Placeholder: Story = storyOf({
   empty: () => <EmptyPlaceholder />,
 });
@@ -239,6 +278,13 @@ export const Placeholder: Story = storyOf({
 
 export const Playground: StoryObj<typeof Chat> = {
   args: {
+    context: '"Role" column selected',
+    onClearContext: action('clear-context'),
+    suggestions: [
+      'How do review scores vary by platform?',
+      'Show all new leads last month with city',
+      'How do review scores vary by platform?',
+    ],
     tableActions: [
       {
         label: 'Copy Table',
@@ -249,6 +295,9 @@ export const Playground: StoryObj<typeof Chat> = {
   },
 
   argTypes: {
+    suggestions: {
+      control: 'object',
+    },
     variant: {
       control: 'radio',
       options: ['normal', 'condensed'],
@@ -257,13 +306,21 @@ export const Playground: StoryObj<typeof Chat> = {
 
   parameters: {
     controls: {
-      exclude: /(tableActions)/g,
+      exclude: /(onClearContext|tableActions)/g,
       hideNoControlsWarning: true,
     },
   },
 
-  render({ tableActions, variant }) {
-    return <Chat tableActions={tableActions} variant={variant} />;
+  render({ context, onClearContext, suggestions, tableActions, variant }) {
+    return (
+      <Chat
+        context={context}
+        onClearContext={onClearContext}
+        suggestions={suggestions}
+        tableActions={tableActions}
+        variant={variant}
+      />
+    );
   },
 };
 
