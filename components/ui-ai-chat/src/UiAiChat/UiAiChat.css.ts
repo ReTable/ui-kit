@@ -26,3 +26,11 @@ export const conversation = style({
     },
   },
 });
+
+export const suggestions = style({
+  '@layer': {
+    [uiLayers.components]: {
+      marginBottom: '8px',
+    },
+  },
+});

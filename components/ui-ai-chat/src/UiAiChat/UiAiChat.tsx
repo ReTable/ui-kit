@@ -6,6 +6,7 @@ import * as styles from './UiAiChat.css';
 
 import { Conversation } from '../Conversation';
 import { Prompt } from '../Prompt';
+import { Suggestions } from '../Suggestions';
 import {
   Controller,
   InternalConversationController,
@@ -60,6 +61,10 @@ export type Props = {
    */
   placeholder?: string;
   /**
+   * Optional prompt suggestions.
+   */
+  suggestions?: string[];
+  /**
    * Optional table actions.
    */
   tableActions?: TableAction[];
@@ -78,6 +83,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       onSend,
       pendingPlaceholder,
       placeholder,
+      suggestions = [],
       tableActions = [],
     }: Props,
     ref: ForwardedRef<Controller>,
@@ -94,6 +100,7 @@ export const UiAiChat = forwardRef<Controller, Props>(
       isSendable,
       onChangePrompt,
       onSend: handleSend,
+      onSuggest,
       prompt,
     } = usePrompt({
       conversation,
@@ -114,6 +121,13 @@ export const UiAiChat = forwardRef<Controller, Props>(
           ref={conversationRef}
           tableActions={tableActions}
         />
+        {suggestions.length > 0 && (
+          <Suggestions
+            className={styles.suggestions}
+            onSuggest={onSuggest}
+            suggestions={suggestions}
+          />
+        )}
         <Prompt
           context={context}
           isSendable={isSendable}
