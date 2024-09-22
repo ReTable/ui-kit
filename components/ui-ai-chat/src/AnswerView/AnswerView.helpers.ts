@@ -2,7 +2,7 @@ import DOMPurify from 'dompurify';
 import { xxHash32 } from 'js-xxhash';
 import { Marked, Tokens } from 'marked';
 
-import * as styles from './Answer.css';
+import * as styles from './AnswerView.css';
 
 import { TableAction, TableData } from '../types';
 

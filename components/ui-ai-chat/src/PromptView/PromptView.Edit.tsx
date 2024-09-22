@@ -4,7 +4,7 @@ import { UiButton24 } from '@tabula/ui-button';
 
 import { ReactComponent as CheckedIcon } from './assets/checked.svg';
 
-import * as styles from './Prompt.css';
+import * as styles from './PromptView.css';
 
 import { TextArea } from '../TextArea';
 
@@ -47,5 +47,5 @@ export function Edit({ onApply, maxLength, onChange, onCancel, value }: Props): 
 }
 
 if (import.meta.env.DEV) {
-  Edit.displayName = 'ui-ai-chat(PromptEdit)';
+  Edit.displayName = 'ui-ai-chat(PromptView.Edit)';
 }

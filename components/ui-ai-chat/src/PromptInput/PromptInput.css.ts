@@ -13,14 +13,24 @@ export const root = style({
       alignItems: 'center',
       gap: '8px',
       padding: '8px',
-      borderRadius: '16px',
       backgroundColor: uiTheme.colors.background.controlsDetails,
+
+      selectors: {
+        '&:not(:first-child)': {
+          paddingTop: '4px',
+        },
+      },
 
       '@container': {
         [containerQuery]: {
           gap: '12px',
-          padding: '12px 12px 12px 24px',
-          borderRadius: '28px',
+          padding: '12px',
+
+          selectors: {
+            '&:not(:first-child)': {
+              paddingTop: '8px',
+            },
+          },
         },
       },
     },

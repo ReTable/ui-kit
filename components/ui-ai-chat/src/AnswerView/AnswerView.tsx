@@ -2,11 +2,11 @@ import { ReactNode, useEffect, useMemo } from 'react';
 
 import { clsx } from 'clsx/lite';
 
-import * as styles from './Answer.css';
+import * as styles from './AnswerView.css';
 
 import { Request, TableAction } from '../types';
 
-import { render, unregisterActions } from './Answer.helpers';
+import { render, unregisterActions } from './AnswerView.helpers';
 
 type Props = {
   className?: string;
@@ -15,7 +15,7 @@ type Props = {
   tableActions: TableAction[];
 };
 
-export function Answer({
+export function AnswerView({
   className,
   pendingPlaceholder = 'Analyzing...',
   request,
@@ -51,5 +51,5 @@ export function Answer({
 }
 
 if (import.meta.env.DEV) {
-  Answer.displayName = 'ui-ai-chat(Answer)';
+  AnswerView.displayName = 'ui-ai-chat(AnswerView)';
 }

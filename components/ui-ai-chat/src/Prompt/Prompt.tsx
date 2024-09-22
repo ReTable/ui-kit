@@ -1,69 +1,56 @@
-import { ReactNode, useCallback, useState } from 'react';
-
-import { clsx } from 'clsx/lite';
+import { forwardRef } from 'react';
 
 import * as styles from './Prompt.css';
 
-import { Edit } from './Prompt.Edit';
-import { View } from './Prompt.View';
+import { PromptContext } from '../PromptContext';
+import { PromptInput } from '../PromptInput';
+import { PromptInputController } from '../types';
 
 type Props = {
-  className?: string;
-
-  id?: number;
-  prompt: string;
+  context?: string;
+  isSendable: boolean;
+  isSending: boolean;
   maxLength?: number;
-
-  isEditable: boolean;
-
-  onResend: (id: number, prompt: string) => void;
+  onChangePrompt: (nextValue: string) => void;
+  onClearContext?: () => void;
+  onSend: () => void;
+  placeholder: string;
+  prompt: string;
 };
 
-export function Prompt({
-  className,
-  id,
-  isEditable,
-  maxLength,
-  onResend,
-  prompt,
-}: Props): ReactNode {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editInput, setEditInput] = useState(prompt);
-
-  const handleCancel = useCallback(() => {
-    setIsEditing(false);
-
-    setEditInput(prompt);
-  }, [prompt]);
-
-  const handleApply = useCallback(() => {
-    setIsEditing(false);
-
-    if (id != null) {
-      onResend(id, editInput);
-    }
-  }, [editInput, id, onResend]);
-
-  const handleStartEdit = useCallback(() => {
-    setIsEditing(true);
-  }, []);
-
-  return (
-    <div className={clsx(styles.root, className)}>
-      {isEditing ? (
-        <Edit
-          maxLength={maxLength}
-          onApply={handleApply}
-          onCancel={handleCancel}
-          onChange={setEditInput}
-          value={editInput}
-        />
-      ) : (
-        <View isEditable={isEditable && id != null} onStartEdit={handleStartEdit} prompt={prompt} />
+export const Prompt = forwardRef<PromptInputController, Props>(
+  (
+    {
+      context,
+      isSendable,
+      isSending,
+      maxLength,
+      onChangePrompt,
+      onClearContext,
+      onSend,
+      placeholder,
+      prompt,
+    },
+    ref,
+  ) => (
+    <div className={styles.root}>
+      {context != null && (
+        <PromptContext className={styles.context} onClear={onClearContext} value={context} />
       )}
+      <PromptInput
+        className={styles.input}
+        isSendable={isSendable}
+        isSending={isSending}
+        maxLength={maxLength}
+        onChange={onChangePrompt}
+        onSend={onSend}
+        placeholder={placeholder}
+        ref={ref}
+        value={prompt}
+      />
     </div>
-  );
-}
+  ),
+);
 
 if (import.meta.env.DEV) {
   Prompt.displayName = 'ui-ai-chat(Prompt)';

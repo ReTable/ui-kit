@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import * as styles from './UiAiChat.css';
 
 import { Conversation } from '../Conversation';
-import { PromptInput } from '../PromptInput';
+import { Prompt } from '../Prompt';
 import {
   Controller,
   InternalConversationController,
@@ -19,6 +19,10 @@ import { useAutoScroll, useController, usePrompt } from './hooks';
 export type Props = {
   className?: string;
   /**
+   * Optional context of prompt.
+   */
+  context?: string;
+  /**
    * List of requests.
    */
   conversation: Request[];
@@ -30,6 +34,10 @@ export type Props = {
    * Optional maximal length allowed for prompt.
    */
   maxPromptLength?: number;
+  /**
+   * Optional context reset handler.
+   */
+  onClearContext?: () => void;
   /**
    * Allows to resend existing prompt.
    *
@@ -61,9 +69,11 @@ export const UiAiChat = forwardRef<Controller, Props>(
   (
     {
       className,
+      context,
       conversation,
       empty,
       maxPromptLength,
+      onClearContext,
       onResend,
       onSend,
       pendingPlaceholder,
@@ -104,19 +114,18 @@ export const UiAiChat = forwardRef<Controller, Props>(
           ref={conversationRef}
           tableActions={tableActions}
         />
-        <div className={styles.prompt}>
-          <PromptInput
-            className={styles.promptInput}
-            isSendable={isSendable}
-            isSending={isPending}
-            maxLength={maxPromptLength}
-            onChange={onChangePrompt}
-            onSend={handleSend}
-            placeholder={placeholder ?? 'Ask GPT'}
-            ref={promptInputRef}
-            value={prompt}
-          />
-        </div>
+        <Prompt
+          context={context}
+          isSendable={isSendable}
+          isSending={isPending}
+          maxLength={maxPromptLength}
+          onChangePrompt={onChangePrompt}
+          onClearContext={onClearContext}
+          onSend={handleSend}
+          placeholder={placeholder ?? 'Ask GPT'}
+          prompt={prompt}
+          ref={promptInputRef}
+        />
       </div>
     );
   },
