@@ -40,11 +40,14 @@ export function usePrompt({ conversation, promptInputRef, onSend }: Options): Re
     promptInputRef.current?.focus();
   }, [isPending, isSendable, onSend, prompt, promptInputRef]);
 
-  const handleSuggest = useCallback((suggestion: string) => {
-    setPrompt(suggestion);
+  const handleSuggest = useCallback(
+    (suggestion: string) => {
+      setPrompt(suggestion);
 
-    promptInputRef.current?.focus();
-  }, []);
+      promptInputRef.current?.focus();
+    },
+    [promptInputRef],
+  );
 
   return {
     onSend: handleSend,
