@@ -34,7 +34,7 @@ export const Prompt = forwardRef<PromptInputController, Props>(
     ref,
   ) => (
     <div className={styles.root}>
-      {context != null && (
+      {context != null && context.trim().length > 0 && (
         <PromptContext className={styles.context} onClear={onClearContext} value={context} />
       )}
       <PromptInput
