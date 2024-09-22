@@ -12,7 +12,9 @@ export const root = style({
       '@container': {
         [containerQuery]: {
           display: 'grid',
-          maxWidth: '1136px',
+          gridTemplateColumns: 'minmax(auto, 1000px)',
+          gridTemplateRows: 'auto auto',
+          justifyContent: 'space-around',
           padding: '0 68px',
         },
       },
