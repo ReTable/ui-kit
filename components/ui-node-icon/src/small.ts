@@ -1,6 +1,7 @@
 export { ReactComponent as UiAddGPTColumnSIcon } from './addGPTColumn/addGPTColumn.small.svg';
 export { ReactComponent as UiAddNewColumnSIcon } from './addNewColumn/addNewColumn.small.svg';
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
+export { ReactComponent as UiApiTableSIcon } from './apiTable/apiTable.small.svg';
 export { ReactComponent as UiBlankTableSIcon } from './blankTable/blankTable.small.svg';
 export { ReactComponent as UiByExampleSIcon } from './byExample/byExample.small.svg';
 export { ReactComponent as UiChangeDataTypeSIcon } from './changeDataType/changeDataType.small.svg';

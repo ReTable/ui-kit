@@ -1,6 +1,7 @@
 import { ReactComponent as UiAddGPTColumnMIconInner } from './addGPTColumn/addGPTColumn.medium.svg';
 import { ReactComponent as UiAddNewColumnMIconInner } from './addNewColumn/addNewColumn.medium.svg';
 import { ReactComponent as UiApiColumnMIconInner } from './apiColumn/apiColumn.medium.svg';
+import { ReactComponent as UiApiTableMIconInner } from './apiTable/apiTable.medium.svg';
 import { ReactComponent as UiBlankTableMIconInner } from './blankTable/blankTable.medium.svg';
 import { ReactComponent as UiByExampleMIconInner } from './byExample/byExample.medium.svg';
 import { ReactComponent as UiChangeDataTypeMIconInner } from './changeDataType/changeDataType.medium.svg';
@@ -80,6 +81,7 @@ import { createIcon } from './utils';
 export const UiAddGPTColumnMIcon = createIcon(UiAddGPTColumnMIconInner, icon);
 export const UiAddNewColumnMIcon = createIcon(UiAddNewColumnMIconInner, icon);
 export const UiApiColumnMIcon = createIcon(UiApiColumnMIconInner, icon);
+export const UiApiTableMIcon = createIcon(UiApiTableMIconInner, icon);
 export const UiBlankTableMIcon = createIcon(UiBlankTableMIconInner, icon);
 export const UiByExampleMIcon = createIcon(UiByExampleMIconInner, icon);
 export const UiChangeDataTypeMIcon = createIcon(UiChangeDataTypeMIconInner, icon);

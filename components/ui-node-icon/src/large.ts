@@ -1,6 +1,7 @@
 import { ReactComponent as UiAddGPTColumnLIconInner } from './addGPTColumn/addGPTColumn.large.svg';
 import { ReactComponent as UiAddNewColumnLIconInner } from './addNewColumn/addNewColumn.large.svg';
 import { ReactComponent as UiApiColumnLIconInner } from './apiColumn/apiColumn.large.svg';
+import { ReactComponent as UiApiTableLIconInner } from './apiTable/apiTable.large.svg';
 import { ReactComponent as UiBlankTableLIconInner } from './blankTable/blankTable.large.svg';
 import { ReactComponent as UiByExampleLIconInner } from './byExample/byExample.large.svg';
 import { ReactComponent as UiChangeDataTypeLIconInner } from './changeDataType/changeDataType.large.svg';
@@ -79,6 +80,7 @@ import { createIcon } from './utils';
 export const UiAddGPTColumnLIcon = createIcon(UiAddGPTColumnLIconInner, icon);
 export const UiAddNewColumnLIcon = createIcon(UiAddNewColumnLIconInner, icon);
 export const UiApiColumnLIcon = createIcon(UiApiColumnLIconInner, icon);
+export const UiApiTableLIcon = createIcon(UiApiTableLIconInner, icon);
 export const UiBlankTableLIcon = createIcon(UiBlankTableLIconInner, icon);
 export const UiByExampleLIcon = createIcon(UiByExampleLIconInner, icon);
 export const UiChangeDataTypeLIcon = createIcon(UiChangeDataTypeLIconInner, icon);
