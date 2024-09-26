@@ -1,5 +1,11 @@
 # @tabula/ui-menu
 
+## 1.0.2
+
+### Patch Changes
+
+- [#249](https://github.com/ReTable/ui-kit/pull/249) [`62062e6`](https://github.com/ReTable/ui-kit/commit/62062e60b5d80137e86cd65c588107efd2568921) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix focus on sub-menu reference
+
 ## 1.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 11.2.0
+
+### Minor Changes
+
+- [#246](https://github.com/ReTable/ui-kit/pull/246) [`fe610a2`](https://github.com/ReTable/ui-kit/commit/fe610a2706b77b93ede61284eb82dda65cac2e08) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Add icons for APITable node
+
 ## 11.1.0
 
 ### Minor Changes
