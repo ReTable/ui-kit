@@ -175,10 +175,3 @@ export const AlternateGlyphs02 = storyOf('ss02', [
     after: '0Illß',
   },
 ]);
-
-export const AlternateGlyphs03 = storyOf('ss03', [
-  {
-    before: 'baroreceptor',
-    after: 'baroreceptor',
-  },
-]);

@@ -64,17 +64,3 @@ export const Ordinals = storyOf('ordn', [
     after: 'No',
   },
 ]);
-
-export const AlternateGlyphs01 = storyOf('ss01', [
-  {
-    before: 'a',
-    after: 'a',
-  },
-]);
-
-export const AlternateGlyphs02 = storyOf('ss02', [
-  {
-    before: 'g',
-    after: 'g',
-  },
-]);
