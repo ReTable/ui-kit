@@ -4,19 +4,24 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './FontFeature.css';
 
-type Sample = { before?: string; after?: string };
+export type Sample = { before?: string; after?: string };
 
 type Props = {
+  defaultSettings: string[];
   family: 'sans-serif' | 'monospace';
-  fontFeatureSettings: string | string[];
   samples: Sample[];
+  settings: string | string[];
 };
 
-export function FontFeature({ family, fontFeatureSettings, samples }: Props): ReactNode {
-  const settings =
-    typeof fontFeatureSettings === 'string'
-      ? JSON.stringify(fontFeatureSettings)
-      : fontFeatureSettings.map((it) => JSON.stringify(it)).join(', ');
+export function FontFeature({ defaultSettings = [], family, samples, settings }: Props): ReactNode {
+  const fontFeatureSettings =
+    typeof settings === 'string'
+      ? JSON.stringify(settings)
+      : settings.map((it) => JSON.stringify(it)).join(', ');
+
+  const defaultFontFeatureSettings = defaultSettings
+    .map((it) => `${JSON.stringify(it)} off`)
+    .join(', ');
 
   return (
     <div
@@ -28,9 +33,16 @@ export function FontFeature({ family, fontFeatureSettings, samples }: Props): Re
       <div className={styles.samples}>
         {samples.map(({ before, after }) => (
           <div key={`${before}-${after}`} className={styles.sample}>
-            {before != null && <span className={styles.before}>{before}</span>}
+            {before != null && (
+              <span
+                className={styles.before}
+                style={{ fontFeatureSettings: defaultFontFeatureSettings }}
+              >
+                {before}
+              </span>
+            )}
             {after != null && (
-              <span className={styles.after} style={{ fontFeatureSettings: settings }}>
+              <span className={styles.after} style={{ fontFeatureSettings }}>
                 {after}
               </span>
             )}
@@ -39,7 +51,7 @@ export function FontFeature({ family, fontFeatureSettings, samples }: Props): Re
       </div>
       <pre>
         <span className={styles.property}>font-feature-settings</span>:{' '}
-        <span className={styles.value}>{settings}</span>;
+        <span className={styles.value}>{fontFeatureSettings}</span>;
       </pre>
     </div>
   );

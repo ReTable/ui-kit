@@ -27,7 +27,7 @@ export const sample = style({
   gap: '8px',
 
   fontSize: '48px',
-  lineHeight: '48px',
+  lineHeight: '56px',
 
   selectors: {
     [`${variants.sansSerif} &`]: {
