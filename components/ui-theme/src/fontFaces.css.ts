@@ -27,6 +27,9 @@ const UNICODE_RANGES = {
     'U+02C6',
     'U+02DA',
     'U+02DC',
+    'U+0304',
+    'U+0308',
+    'U+0329',
     'U+2000-206F',
     'U+2074',
     'U+20AC',
@@ -39,18 +42,21 @@ const UNICODE_RANGES = {
     'U+FFFD',
   ].join(', '),
   latinExt: [
-    'U+0100-024F',
-    'U+0259',
-    'U+1E00-1EFF',
+    'U+0100-02AF',
+    'U+0304',
+    'U+0308',
+    'U+0329',
+    'U+1E00-1E9F',
+    'U+1EF2-1EFF',
     'U+2020',
     'U+20A0-20AB',
-    'U+20AD-20CF',
+    'U+20AD-20C0',
     'U+2113',
     'U+2C60-2C7F',
     'U+A720-A7FF',
   ].join(', '),
 
-  cyrillic: ['U+0400-045F', 'U+0490-0491', 'U+04B0-04B1', 'U+2116'].join(', '),
+  cyrillic: ['U+0301', 'U+0400-045F', 'U+0490-0491', 'U+04B0-04B1', 'U+2116'].join(', '),
   cyrillicExt: [
     'U+0460-052F',
     'U+1C80-1C88',
@@ -60,10 +66,26 @@ const UNICODE_RANGES = {
     'U+FE2E-FE2F',
   ].join(', '),
 
-  greek: 'U+0370-03FF',
+  greek: ['U+0370-0377', 'U+037A-037F', 'U+0384-038A', 'U+038C', 'U+038E-03A1', 'U+03A3-03FF'].join(
+    ', ',
+  ),
   greekExt: 'U+1F00-1FFF',
 
-  vietnamese: ['U+0102-0103', 'U+0110-0111', 'U+1EA0-1EF9', 'U+20AB'].join(', '),
+  vietnamese: [
+    'U+0102-0103',
+    'U+0110-0111',
+    'U+0128-0129',
+    'U+0168-0169',
+    'U+01A0-01A1',
+    'U+01AF-01B0',
+    'U+0300-0301',
+    'U+0303-0304',
+    'U+0308-0309',
+    'U+0323',
+    'U+0329',
+    'U+1EA0-1EF9',
+    'U+20AB',
+  ].join(', '),
 };
 
 type UnicodeRange = keyof typeof UNICODE_RANGES;
@@ -72,7 +94,7 @@ type UnicodeRange = keyof typeof UNICODE_RANGES;
 
 // region Helpers
 
-function globalFontFaces(
+function staticFontFaces(
   fontFamily: string,
   fontWeight: number | 'bold' | 'normal',
   urls: Partial<Record<UnicodeRange, string>>,
@@ -82,9 +104,29 @@ function globalFontFaces(
 
     globalFontFace(`'${fontFamily}'`, {
       fontStyle: 'normal',
-      fontWeight: fontWeight,
+      fontWeight,
       fontDisplay: 'swap',
-      src: `url(${url}) format('woff2')`,
+      src: `url('${url}') format('woff2')`,
+      unicodeRange: range,
+    });
+  }
+}
+
+function variableFontFaces(
+  fontFamily: string,
+  fontStyle: 'normal' | 'italic',
+  fontWeightFrom: number,
+  fontWeightTo: number,
+  urls: Partial<Record<UnicodeRange, string>>,
+) {
+  for (const [rangeName, url] of Object.entries(urls) as Array<[UnicodeRange, string]>) {
+    const range = UNICODE_RANGES[rangeName];
+
+    globalFontFace(`'${fontFamily}'`, {
+      fontStyle,
+      fontWeight: `${fontWeightFrom} ${fontWeightTo}`,
+      fontDisplay: 'swap',
+      src: `url('${url}') format('woff2')`,
       unicodeRange: range,
     });
   }
@@ -92,94 +134,52 @@ function globalFontFaces(
 
 // endregion
 
-// region Inter Regular
+// region Inter
 
-globalFontFaces(INTER, 'normal', {
-  latin: './fonts/Inter-Regular/Inter-Regular.latin.woff2',
-  latinExt: './fonts/Inter-Regular/Inter-Regular.latin-ext.woff2',
-  cyrillic: './fonts/Inter-Regular/Inter-Regular.cyrillic.woff2',
-  cyrillicExt: './fonts/Inter-Regular/Inter-Regular.cyrillic-ext.woff2',
-  greek: './fonts/Inter-Regular/Inter-Regular.greek.woff2',
-  greekExt: './fonts/Inter-Regular/Inter-Regular.greek-ext.woff2',
-  vietnamese: './fonts/Inter-Regular/Inter-Regular.vietnamese.woff2',
+variableFontFaces(INTER, 'normal', 100, 900, {
+  latin: './fonts/Inter/Inter.latin.woff2',
+  latinExt: './fonts/Inter/Inter.latin-ext.woff2',
+  cyrillic: './fonts/Inter/Inter.cyrillic.woff2',
+  cyrillicExt: './fonts/Inter/Inter.cyrillic-ext.woff2',
+  greek: './fonts/Inter/Inter.greek.woff2',
+  greekExt: './fonts/Inter/Inter.greek-ext.woff2',
+  vietnamese: './fonts/Inter/Inter.vietnamese.woff2',
 });
 
-// endregion
-
-// region Inter Medium
-
-globalFontFaces(INTER, 500, {
-  latin: './fonts/Inter-Medium/Inter-Medium.latin.woff2',
-  latinExt: './fonts/Inter-Medium/Inter-Medium.latin-ext.woff2',
-  cyrillic: './fonts/Inter-Medium/Inter-Medium.cyrillic.woff2',
-  cyrillicExt: './fonts/Inter-Medium/Inter-Medium.cyrillic-ext.woff2',
-  greek: './fonts/Inter-Medium/Inter-Medium.greek.woff2',
-  greekExt: './fonts/Inter-Medium/Inter-Medium.greek-ext.woff2',
-  vietnamese: './fonts/Inter-Medium/Inter-Medium.vietnamese.woff2',
-});
-
-// endregion
-
-// region Inter SemiBold
-
-globalFontFaces(INTER, 600, {
-  latin: './fonts/Inter-SemiBold/Inter-SemiBold.latin.woff2',
-  latinExt: './fonts/Inter-SemiBold/Inter-SemiBold.latin-ext.woff2',
-  cyrillic: './fonts/Inter-SemiBold/Inter-SemiBold.cyrillic.woff2',
-  cyrillicExt: './fonts/Inter-SemiBold/Inter-SemiBold.cyrillic-ext.woff2',
-  greek: './fonts/Inter-SemiBold/Inter-SemiBold.greek.woff2',
-  greekExt: './fonts/Inter-SemiBold/Inter-SemiBold.greek-ext.woff2',
-  vietnamese: './fonts/Inter-SemiBold/Inter-SemiBold.vietnamese.woff2',
-});
-
-// endregion
-
-// region Inter Bold
-
-globalFontFaces(INTER, 700, {
-  latin: './fonts/Inter-Bold/Inter-Bold.latin.woff2',
-  latinExt: './fonts/Inter-Bold/Inter-Bold.latin-ext.woff2',
-  cyrillic: './fonts/Inter-Bold/Inter-Bold.cyrillic.woff2',
-  cyrillicExt: './fonts/Inter-Bold/Inter-Bold.cyrillic-ext.woff2',
-  greek: './fonts/Inter-Bold/Inter-Bold.greek.woff2',
-  greekExt: './fonts/Inter-Bold/Inter-Bold.greek-ext.woff2',
-  vietnamese: './fonts/Inter-Bold/Inter-Bold.vietnamese.woff2',
-});
-
-// endregion
+// endregion Inter
 
 // region IBM Plex Mono Regular
 
-globalFontFaces(IBM_PLEX_MONO, 'normal', {
-  latin: './fonts/IBMPlexMono-Regular/IBMPlexMono-Regular.latin.woff2',
-  latinExt: './fonts/IBMPlexMono-Regular/IBMPlexMono-Regular.latin-ext.woff2',
-  cyrillic: './fonts/IBMPlexMono-Regular/IBMPlexMono-Regular.cyrillic.woff2',
-  cyrillicExt: './fonts/IBMPlexMono-Regular/IBMPlexMono-Regular.cyrillic-ext.woff2',
-  vietnamese: './fonts/IBMPlexMono-Regular/IBMPlexMono-Regular.vietnamese.woff2',
+staticFontFaces(IBM_PLEX_MONO, 400, {
+  latin: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.latin.woff2',
+  latinExt: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.latin-ext.woff2',
+  cyrillic: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.cyrillic.woff2',
+  cyrillicExt: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.cyrillic-ext.woff2',
+  vietnamese: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.vietnamese.woff2',
 });
 
 // endregion
 
 // region IBM Plex Mono Medium
 
-globalFontFaces(IBM_PLEX_MONO, 500, {
-  latin: './fonts/IBMPlexMono-Medium/IBMPlexMono-Medium.latin.woff2',
-  latinExt: './fonts/IBMPlexMono-Medium/IBMPlexMono-Medium.latin-ext.woff2',
-  cyrillic: './fonts/IBMPlexMono-Medium/IBMPlexMono-Medium.cyrillic.woff2',
-  cyrillicExt: './fonts/IBMPlexMono-Medium/IBMPlexMono-Medium.cyrillic-ext.woff2',
-  vietnamese: './fonts/IBMPlexMono-Medium/IBMPlexMono-Medium.vietnamese.woff2',
+staticFontFaces(IBM_PLEX_MONO, 500, {
+  latin: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.latin.woff2',
+  latinExt: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.latin-ext.woff2',
+  cyrillic: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.cyrillic.woff2',
+  cyrillicExt: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.cyrillic-ext.woff2',
+  vietnamese: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.vietnamese.woff2',
 });
 
 // endregion
 
 // region IBM Plex Mono Bold
 
-globalFontFaces(IBM_PLEX_MONO, 700, {
-  latin: './fonts/IBMPlexMono-Bold/IBMPlexMono-Bold.latin.woff2',
-  latinExt: './fonts/IBMPlexMono-Bold/IBMPlexMono-Bold.latin-ext.woff2',
-  cyrillic: './fonts/IBMPlexMono-Bold/IBMPlexMono-Bold.cyrillic.woff2',
-  cyrillicExt: './fonts/IBMPlexMono-Bold/IBMPlexMono-Bold.cyrillic-ext.woff2',
-  vietnamese: './fonts/IBMPlexMono-Bold/IBMPlexMono-Bold.vietnamese.woff2',
+staticFontFaces(IBM_PLEX_MONO, 700, {
+  latin: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.latin.woff2',
+  latinExt: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.latin-ext.woff2',
+  cyrillic: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.cyrillic.woff2',
+  cyrillicExt: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.cyrillic-ext.woff2',
+  vietnamese: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.vietnamese.woff2',
 });
 
 // endregion
