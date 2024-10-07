@@ -35,7 +35,7 @@ export const sample = style({
     },
 
     [`${variants.monospace} &`]: {
-      fontFamily: 'var(--tbl--fonts--sans-serif--bold-10--font-family)',
+      fontFamily: 'var(--tbl--fonts--monospace--bold-10--font-family)',
     },
   },
 });

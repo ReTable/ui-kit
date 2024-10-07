@@ -51,7 +51,7 @@ export const Fractions = storyOf('frac', [
 export const Superscripts = storyOf('sups', [
   {
     before: 'A',
-    after: '1 2 3 4 5 6 7 8 9 0',
+    after: '1234567890',
   },
 ]);
 
@@ -67,5 +67,19 @@ export const Ordinals = storyOf('ordn', [
   {
     before: 'No',
     after: 'No',
+  },
+]);
+
+export const AlternateGlyphs01 = storyOf('ss01', [
+  {
+    before: 'a',
+    after: 'a',
+  },
+]);
+
+export const AlternateGlyphs02 = storyOf('ss02', [
+  {
+    before: 'g',
+    after: 'g',
   },
 ]);
