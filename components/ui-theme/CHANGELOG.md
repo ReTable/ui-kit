@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 3.2.3
+
+### Patch Changes
+
+- [#254](https://github.com/ReTable/ui-kit/pull/254) [`96e9610`](https://github.com/ReTable/ui-kit/commit/96e96105c9aa8ef2ab8f8434d860c4dd7025be13) Thanks [@demiazz](https://github.com/demiazz)! - fix unicode ranges
+
 ## 3.2.2
 
 ### Patch Changes
