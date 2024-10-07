@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-menu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Menus display a list of actions or options that a user can choose",
   "type": "module",
   "typings": "./typings/index.d.ts",
