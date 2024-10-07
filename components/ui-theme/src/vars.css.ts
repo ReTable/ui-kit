@@ -40,7 +40,7 @@ type SansSerifOptions = Pick<
   weight: 700 | 600 | 500 | 400;
 };
 
-const SANS_SERIF_FAMILY = `${JSON.stringify('Inter')}, sans-serif`;
+const SANS_SERIF_FAMILY = `${JSON.stringify('Inter var')}, sans-serif`;
 
 function sansSerif(options: SansSerifOptions): Font {
   return font({ family: SANS_SERIF_FAMILY, ...options });

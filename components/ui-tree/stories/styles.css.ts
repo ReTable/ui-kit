@@ -1,12 +1,10 @@
 import { createVar, style } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
-import { uiTheme } from '@tabula/ui-theme';
-
 export const tree = style({
   width: '264px',
   height: '500px',
-  border: `1px solid ${uiTheme.colors.borderControl.default}`,
+  border: `1px solid rgba(0, 0, 0, 0.1)`,
   borderRadius: '8px',
   padding: '8px',
   overflow: 'auto',
@@ -24,11 +22,11 @@ export const item = style({
   padding: '0 6px',
   marginLeft: calc.multiply(level, '22px'),
   borderRadius: '6px',
-  transition: `all ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+  transition: `all 70ms cubic-bezier(0.2, 0, 0.38, 0.9)`,
 
   selectors: {
     '&:hover': {
-      backgroundColor: uiTheme.colors.accentShades.secondary1,
+      backgroundColor: '#f1f5fa',
     },
   },
 
