@@ -118,7 +118,7 @@ globalFontFace(INTER, {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: '100 900',
-  src: `url('./fonts/Inter/Inter Variable.woff2') format('woff2')`,
+  src: `url('./fonts/Inter Variable.woff2') format('woff2')`,
 });
 
 // endregion Inter
