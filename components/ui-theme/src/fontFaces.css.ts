@@ -39,7 +39,7 @@ const MONOSPACE_UNICODE_RANGES = {
     'U+2122',
     'U+2212',
     'U+FB01-FB02',
-  ],
+  ].join(', '),
   latin2: [
     'U+0100-0101',
     'U+0104-0130',
@@ -65,8 +65,8 @@ const MONOSPACE_UNICODE_RANGES = {
     'U+20B8-20BA',
     'U+20BD',
     'U+20BF',
-  ],
-  latin3: ['U+0102-0103', 'U+01CD-01DC', 'U+1EA0-1EF9', 'U+20AB'],
+  ].join(', '),
+  latin3: ['U+0102-0103', 'U+01CD-01DC', 'U+1EA0-1EF9', 'U+20AB'].join(', '),
   cyrillic: [
     'U+0400-045F',
     'U+0462-0463',
@@ -77,7 +77,7 @@ const MONOSPACE_UNICODE_RANGES = {
     'U+04DC-04E9',
     'U+04EE-04F9',
     'U+0524-0525',
-  ],
+  ].join(', '),
   pi: [
     'U+03C0',
     'U+0E3F',
@@ -121,7 +121,7 @@ const MONOSPACE_UNICODE_RANGES = {
     'U+3000',
     'U+FEFF',
     'U+FFFD',
-  ],
+  ].join(', '),
 };
 
 type MonospaceUnicodeRange = keyof typeof MONOSPACE_UNICODE_RANGES;
@@ -137,7 +137,7 @@ function monospaceFontFaces(
   for (const [rangeName, url] of Object.entries(urls) as Array<[MonospaceUnicodeRange, string]>) {
     const range = MONOSPACE_UNICODE_RANGES[rangeName];
 
-    globalFontFace(`'${IBM_PLEX_MONO}'`, {
+    globalFontFace(`${JSON.stringify(IBM_PLEX_MONO)}`, {
       fontStyle: 'normal',
       fontWeight,
       fontDisplay: 'swap',
@@ -149,7 +149,7 @@ function monospaceFontFaces(
 
 // region Inter
 
-globalFontFace(INTER, {
+globalFontFace(JSON.stringify(INTER), {
   fontStyle: 'normal',
   fontDisplay: 'swap',
   fontWeight: '100 900',
