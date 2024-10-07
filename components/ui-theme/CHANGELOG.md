@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 3.2.2
+
+### Patch Changes
+
+- [#251](https://github.com/ReTable/ui-kit/pull/251) [`ac72e31`](https://github.com/ReTable/ui-kit/commit/ac72e3112e690745eda38615a637fd4b73b112e4) Thanks [@demiazz](https://github.com/demiazz)! - update Inter and IBM Plex Mono fonts
+
 ## 3.2.1
 
 ### Patch Changes
