@@ -2,7 +2,7 @@ import { globalFontFace } from '@vanilla-extract/css';
 
 // region Families
 
-const INTER = 'Inter';
+const INTER = 'Inter var';
 
 const IBM_PLEX_MONO = 'IBM Plex Mono';
 
@@ -94,7 +94,7 @@ type UnicodeRange = keyof typeof UNICODE_RANGES;
 
 // region Helpers
 
-function staticFontFaces(
+function globalFontFaces(
   fontFamily: string,
   fontWeight: number | 'bold' | 'normal',
   urls: Partial<Record<UnicodeRange, string>>,
@@ -112,45 +112,20 @@ function staticFontFaces(
   }
 }
 
-function variableFontFaces(
-  fontFamily: string,
-  fontStyle: 'normal' | 'italic',
-  fontWeightFrom: number,
-  fontWeightTo: number,
-  urls: Partial<Record<UnicodeRange, string>>,
-) {
-  for (const [rangeName, url] of Object.entries(urls) as Array<[UnicodeRange, string]>) {
-    const range = UNICODE_RANGES[rangeName];
-
-    globalFontFace(`'${fontFamily}'`, {
-      fontStyle,
-      fontWeight: `${fontWeightFrom} ${fontWeightTo}`,
-      fontDisplay: 'swap',
-      src: `url('${url}') format('woff2')`,
-      unicodeRange: range,
-    });
-  }
-}
-
-// endregion
-
 // region Inter
 
-variableFontFaces(INTER, 'normal', 100, 900, {
-  latin: './fonts/Inter/Inter.latin.woff2',
-  latinExt: './fonts/Inter/Inter.latin-ext.woff2',
-  cyrillic: './fonts/Inter/Inter.cyrillic.woff2',
-  cyrillicExt: './fonts/Inter/Inter.cyrillic-ext.woff2',
-  greek: './fonts/Inter/Inter.greek.woff2',
-  greekExt: './fonts/Inter/Inter.greek-ext.woff2',
-  vietnamese: './fonts/Inter/Inter.vietnamese.woff2',
+globalFontFace(INTER, {
+  fontStyle: 'normal',
+  fontDisplay: 'swap',
+  fontWeight: '100 900',
+  src: `url('./fonts/Inter/Inter Variable.woff2') format('woff2')`,
 });
 
 // endregion Inter
 
 // region IBM Plex Mono Regular
 
-staticFontFaces(IBM_PLEX_MONO, 400, {
+globalFontFaces(IBM_PLEX_MONO, 400, {
   latin: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.latin.woff2',
   latinExt: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.latin-ext.woff2',
   cyrillic: './fonts/IBM Plex Mono Regular/IBM Plex Mono Regular.cyrillic.woff2',
@@ -162,7 +137,7 @@ staticFontFaces(IBM_PLEX_MONO, 400, {
 
 // region IBM Plex Mono Medium
 
-staticFontFaces(IBM_PLEX_MONO, 500, {
+globalFontFaces(IBM_PLEX_MONO, 500, {
   latin: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.latin.woff2',
   latinExt: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.latin-ext.woff2',
   cyrillic: './fonts/IBM Plex Mono Medium/IBM Plex Mono Medium.cyrillic.woff2',
@@ -174,7 +149,7 @@ staticFontFaces(IBM_PLEX_MONO, 500, {
 
 // region IBM Plex Mono Bold
 
-staticFontFaces(IBM_PLEX_MONO, 700, {
+globalFontFaces(IBM_PLEX_MONO, 700, {
   latin: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.latin.woff2',
   latinExt: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.latin-ext.woff2',
   cyrillic: './fonts/IBM Plex Mono Bold/IBM Plex Mono Bold.cyrillic.woff2',
