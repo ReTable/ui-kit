@@ -18,6 +18,11 @@ function storyOf(settings: string | string[], samples: Sample[]): StoryObj<typeo
       settings,
       samples,
     },
+    parameters: {
+      controls: {
+        exclude: /.*/,
+      },
+    },
   };
 }
 
