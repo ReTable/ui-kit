@@ -249,8 +249,8 @@ importers:
         specifier: workspace:^
         version: link:../ui-tree
       '@vanilla-extract/dynamic':
-        specifier: ^2.1.1
-        version: 2.1.1
+        specifier: ^2.1.2
+        version: 2.1.2
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
