@@ -78,7 +78,7 @@ function storyOf({
       const tagProps: UiTagProps = {
         size: props.size,
         children: props.label ?? 'created_at',
-        variant: props.variant ?? 'contrast',
+        variant: props.variant,
       };
 
       if (props.hasIcon) {
