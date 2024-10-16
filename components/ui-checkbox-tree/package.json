@@ -55,7 +55,7 @@
     "@tabula/tree-utils": "workspace:^",
     "@tabula/ui-checkbox": "workspace:^",
     "@tabula/ui-tree": "workspace:^",
-    "@vanilla-extract/dynamic": "^2.1.1",
+    "@vanilla-extract/dynamic": "^2.1.2",
     "clsx": "^2.1.1"
   }
 }

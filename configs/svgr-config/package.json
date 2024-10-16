@@ -46,6 +46,6 @@
     "@svgr/plugin-jsx": "^8.1.0"
   },
   "dependencies": {
-    "@babel/types": "^7.24.9"
+    "@babel/types": "^7.25.8"
   }
 }

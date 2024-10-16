@@ -50,9 +50,9 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.23",
+    "@floating-ui/react": "^0.26.25",
     "@tabula/dom-utils": "workspace:^",
     "@tabula/use-flag": "workspace:^",
-    "clsx": "^2.1.0"
+    "clsx": "^2.1.1"
   }
 }
