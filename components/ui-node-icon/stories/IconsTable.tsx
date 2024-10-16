@@ -19,7 +19,7 @@ const icons: Icons = new Map();
 for (const [iconName, Icon] of Object.entries(UiNodeSIcons)) {
   const key = iconName.slice(2, -5);
 
-  icons.set(key, { small: Icon } as Icon);
+  icons.set(key, { medium: Icon } as Icon);
 }
 
 for (const [iconName, Icon] of Object.entries(UiNodeMIcons)) {
@@ -57,7 +57,7 @@ export const IconsTable: FC = () => {
     allIcons.sort(([left], [right]) => left.localeCompare(right));
 
     for (const [key, icon] of allIcons) {
-      const { small: Small, medium: Medium, large: Large } = icon;
+      const { medium: Small, medium: Medium, large: Large } = icon;
 
       nodes.push(
         <tr key={key}>
