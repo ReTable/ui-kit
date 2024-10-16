@@ -32,6 +32,7 @@ type Options = {
   isRemovable?: boolean;
   label?: string;
   size: UiTagProps['size'];
+  variant: UiTagProps['variant'];
 };
 
 function storyOf({
@@ -77,6 +78,7 @@ function storyOf({
       const tagProps: UiTagProps = {
         size: props.size,
         children: props.label ?? 'created_at',
+        variant: props.variant ?? 'contrast',
       };
 
       if (props.hasIcon) {
@@ -102,76 +104,110 @@ function storyOf({
 
 // endregion Story Utilities
 
-export const Default = storyOf({ size: 'medium' });
+export const Default = storyOf({ size: 'medium', variant: 'contrast' });
 
 // region Non-Interactive
 
-export const NonInteractiveSmall = storyOf({ size: 'small' });
+export const NonInteractiveSmall = storyOf({ size: 'small', variant: 'contrast' });
 
-export const NonInteractiveMedium = storyOf({ size: 'medium' });
+export const NonInteractiveMedium = storyOf({ size: 'medium', variant: 'contrast' });
 
-export const NonInteractiveLarge = storyOf({ size: 'large' });
+export const NonInteractiveLarge = storyOf({ size: 'large', variant: 'contrast' });
 
-export const NonInteractiveSmallReadOnly = storyOf({ isDisabled: true, size: 'small' });
+export const NonInteractiveSmallReadOnly = storyOf({
+  isDisabled: true,
+  size: 'small',
+  variant: 'contrast',
+});
 
-export const NonInteractiveMediumReadOnly = storyOf({ isDisabled: true, size: 'medium' });
+export const NonInteractiveMediumReadOnly = storyOf({
+  isDisabled: true,
+  size: 'medium',
+  variant: 'contrast',
+});
 
-export const NonInteractiveLargeReadOnly = storyOf({ isDisabled: true, size: 'large' });
+export const NonInteractiveLargeReadOnly = storyOf({
+  isDisabled: true,
+  size: 'large',
+  variant: 'contrast',
+});
 
 // endregion Non-Interactive
 
 // region Non-Interactive Deletable
 
-export const NonInteractiveDeletableSmall = storyOf({ isRemovable: true, size: 'small' });
+export const NonInteractiveDeletableSmall = storyOf({
+  isRemovable: true,
+  size: 'small',
+  variant: 'contrast',
+});
 
-export const NonInteractiveDeletableMedium = storyOf({ isRemovable: true, size: 'medium' });
+export const NonInteractiveDeletableMedium = storyOf({
+  isRemovable: true,
+  size: 'medium',
+  variant: 'contrast',
+});
 
-export const NonInteractiveDeletableLarge = storyOf({ isRemovable: true, size: 'large' });
+export const NonInteractiveDeletableLarge = storyOf({
+  isRemovable: true,
+  size: 'large',
+  variant: 'contrast',
+});
 
 export const NonInteractiveDeletableSmallReadOnly = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableMediumReadOnly = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableLargeReadOnly = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Non-Interactive Deletable
 
 // region Interactive
 
-export const InteractiveSmall = storyOf({ isClickable: true, size: 'small' });
+export const InteractiveSmall = storyOf({ isClickable: true, size: 'small', variant: 'contrast' });
 
-export const InteractiveMedium = storyOf({ isClickable: true, size: 'medium' });
+export const InteractiveMedium = storyOf({
+  isClickable: true,
+  size: 'medium',
+  variant: 'contrast',
+});
 
-export const InteractiveLarge = storyOf({ isClickable: true, size: 'large' });
+export const InteractiveLarge = storyOf({ isClickable: true, size: 'large', variant: 'contrast' });
 
 export const InteractiveSmallReadOnly = storyOf({
   isClickable: true,
   isDisabled: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveMediumReadOnly = storyOf({
   isClickable: true,
   isDisabled: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveLargeReadOnly = storyOf({
   isClickable: true,
   isDisabled: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Interactive
@@ -182,18 +218,21 @@ export const InteractiveDeletableSmall = storyOf({
   isClickable: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableMedium = storyOf({
   isClickable: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableLarge = storyOf({
   isClickable: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableSmallReadOnly = storyOf({
@@ -201,6 +240,7 @@ export const InteractiveDeletableSmallReadOnly = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableMediumReadOnly = storyOf({
@@ -208,6 +248,7 @@ export const InteractiveDeletableMediumReadOnly = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableLargeReadOnly = storyOf({
@@ -215,34 +256,50 @@ export const InteractiveDeletableLargeReadOnly = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Interactive Deletable
 
 // region Non-Interactive With Icon
 
-export const NonInteractiveSmallWithIcon = storyOf({ hasIcon: true, size: 'small' });
+export const NonInteractiveSmallWithIcon = storyOf({
+  hasIcon: true,
+  size: 'small',
+  variant: 'contrast',
+});
 
-export const NonInteractiveMediumWithIcon = storyOf({ hasIcon: true, size: 'medium' });
+export const NonInteractiveMediumWithIcon = storyOf({
+  hasIcon: true,
+  size: 'medium',
+  variant: 'contrast',
+});
 
-export const NonInteractiveLargeWithIcon = storyOf({ hasIcon: true, size: 'large' });
+export const NonInteractiveLargeWithIcon = storyOf({
+  hasIcon: true,
+  size: 'large',
+  variant: 'contrast',
+});
 
 export const NonInteractiveSmallReadOnlyWithIcon = storyOf({
   hasIcon: true,
   isDisabled: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const NonInteractiveMediumReadOnlyWithIcon = storyOf({
   hasIcon: true,
   isDisabled: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const NonInteractiveLargeReadOnlyWithIcon = storyOf({
   hasIcon: true,
   isDisabled: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Non-Interactive With Icon
@@ -253,18 +310,21 @@ export const NonInteractiveDeletableSmallWithIcon = storyOf({
   hasIcon: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableMediumWithIcon = storyOf({
   hasIcon: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableLargeWithIcon = storyOf({
   hasIcon: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableSmallReadOnlyWithIcon = storyOf({
@@ -272,6 +332,7 @@ export const NonInteractiveDeletableSmallReadOnlyWithIcon = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableMediumReadOnlyWithIcon = storyOf({
@@ -279,6 +340,7 @@ export const NonInteractiveDeletableMediumReadOnlyWithIcon = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const NonInteractiveDeletableLargeReadOnlyWithIcon = storyOf({
@@ -286,6 +348,7 @@ export const NonInteractiveDeletableLargeReadOnlyWithIcon = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Non-Interactive Deletable With Icon
@@ -296,18 +359,21 @@ export const InteractiveSmallWithIcon = storyOf({
   hasIcon: true,
   isClickable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveMediumWithIcon = storyOf({
   hasIcon: true,
   isClickable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveLargeWithIcon = storyOf({
   hasIcon: true,
   isClickable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 export const InteractiveSmallReadOnlyWithIcon = storyOf({
@@ -315,6 +381,7 @@ export const InteractiveSmallReadOnlyWithIcon = storyOf({
   isClickable: true,
   isDisabled: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveMediumReadOnlyWithIcon = storyOf({
@@ -322,6 +389,7 @@ export const InteractiveMediumReadOnlyWithIcon = storyOf({
   isClickable: true,
   isDisabled: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveLargeReadOnlyWithIcon = storyOf({
@@ -329,6 +397,7 @@ export const InteractiveLargeReadOnlyWithIcon = storyOf({
   isClickable: true,
   isDisabled: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Interactive With Icon
@@ -340,6 +409,7 @@ export const InteractiveDeletableSmallWithIcon = storyOf({
   isClickable: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableMediumWithIcon = storyOf({
@@ -347,6 +417,7 @@ export const InteractiveDeletableMediumWithIcon = storyOf({
   isClickable: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableLargeWithIcon = storyOf({
@@ -354,6 +425,7 @@ export const InteractiveDeletableLargeWithIcon = storyOf({
   isClickable: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableSmallReadOnlyWithIcon = storyOf({
@@ -362,6 +434,7 @@ export const InteractiveDeletableSmallReadOnlyWithIcon = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'small',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableMediumReadOnlyWithIcon = storyOf({
@@ -370,6 +443,7 @@ export const InteractiveDeletableMediumReadOnlyWithIcon = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'medium',
+  variant: 'contrast',
 });
 
 export const InteractiveDeletableLargeReadOnlyWithIcon = storyOf({
@@ -378,6 +452,7 @@ export const InteractiveDeletableLargeReadOnlyWithIcon = storyOf({
   isDisabled: true,
   isRemovable: true,
   size: 'large',
+  variant: 'contrast',
 });
 
 // endregion Interactive Deletable With Icon

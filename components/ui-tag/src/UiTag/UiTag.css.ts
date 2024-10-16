@@ -1,32 +1,255 @@
-import { style, styleVariants } from '@vanilla-extract/css';
+import { assignVars, createThemeContract, style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
+
+// region Themes
+
+export const size = createThemeContract({
+  body: {
+    height: null,
+    horizontalPadding: null,
+    leftPaddingWhenIcon: null,
+    rightPaddingWhenRemove: null,
+    gap: null,
+    boxShadow: null,
+  },
+
+  remove: {
+    position: {
+      top: null,
+      right: null,
+    },
+    focus: {
+      outlineOffset: null,
+    },
+  },
+});
+
+export const variant = createThemeContract({
+  root: {
+    color: null,
+  },
+
+  body: {
+    default: {
+      backgroundColor: null,
+    },
+    hover: {
+      backgroundColor: null,
+    },
+    active: {
+      backgroundColor: null,
+    },
+    disabled: {
+      backgroundColor: null,
+    },
+  },
+
+  remove: {
+    default: {
+      backgroundColor: null,
+      color: null,
+    },
+    focus: {
+      outlineColor: null,
+    },
+    hover: {
+      color: null,
+    },
+    active: {
+      backgroundColor: null,
+    },
+  },
+});
+
+// endregion Themes
 
 // region States & Variants
 
 export const isDisabled = style({});
 
-export const sizes = styleVariants({
-  small: {},
-  medium: {},
-  large: {},
-});
+export const sizes = styleVariants(
+  {
+    small: {
+      body: {
+        height: '20px',
+        horizontalPadding: '8px',
+        leftPaddingWhenIcon: '4px',
+        rightPaddingWhenRemove: '24px',
+        gap: '4px',
+        boxShadow: `
+          0 1px 12px 0 ${uiTheme.colors.shadow['4']}
+        `,
+      },
+
+      remove: {
+        position: {
+          top: '2px',
+          right: '4px',
+        },
+        focus: {
+          outlineOffset: '-2px',
+        },
+      },
+    },
+    medium: {
+      body: {
+        height: '28px',
+        horizontalPadding: '12px',
+        leftPaddingWhenIcon: '6px',
+        rightPaddingWhenRemove: '28px',
+        gap: '4px',
+        boxShadow: `
+          0 1px 12px 0 ${uiTheme.colors.shadow['4']}
+        `,
+      },
+
+      remove: {
+        position: {
+          top: '6px',
+          right: '4px',
+        },
+        focus: {
+          outlineOffset: '0',
+        },
+      },
+    },
+    large: {
+      body: {
+        height: '32px',
+        horizontalPadding: '16px',
+        leftPaddingWhenIcon: '12px',
+        rightPaddingWhenRemove: '30px',
+        gap: '6px',
+        boxShadow: `
+          0 1px 2px 0 ${uiTheme.colors.shadow['4']},
+          0 4px 12px 0 ${uiTheme.colors.shadow['6']}
+        `,
+      },
+
+      remove: {
+        position: {
+          top: '8px',
+          right: '8px',
+        },
+        focus: {
+          outlineOffset: '0',
+        },
+      },
+    },
+  },
+  (vars) => ({
+    '@layer': {
+      [uiLayers.components]: {
+        vars: assignVars(size, vars),
+      },
+    },
+  }),
+);
+
+export const variants = styleVariants(
+  {
+    accent: {
+      root: {
+        color: uiTheme.colors.content.contrast,
+      },
+
+      body: {
+        default: {
+          backgroundColor: uiTheme.colors.accentAlpha['60'],
+        },
+        hover: {
+          backgroundColor: uiTheme.colors.accentAlpha['60'],
+        },
+        active: {
+          backgroundColor: uiTheme.colors.accentAlpha['60'],
+        },
+        disabled: {
+          backgroundColor: uiTheme.colors.accentAlpha['60'],
+        },
+      },
+
+      remove: {
+        default: {
+          backgroundColor: 'transparent',
+          color: uiTheme.colors.whiteAlpha['70'],
+        },
+        focus: {
+          outlineColor: uiTheme.colors.whiteAlpha['30'],
+        },
+        hover: {
+          color: uiTheme.colors.whiteAlpha['80'],
+        },
+        active: {
+          backgroundColor: uiTheme.colors.whiteAlpha['10'],
+        },
+      },
+    },
+    contrast: {
+      root: {
+        color: uiTheme.colors.content.primary,
+      },
+
+      body: {
+        default: {
+          backgroundColor: uiTheme.colors.background.primaryContent,
+        },
+        hover: {
+          backgroundColor: uiTheme.colors.background.panels,
+        },
+        active: {
+          backgroundColor: uiTheme.colors.background.controlsDetails,
+        },
+        disabled: {
+          backgroundColor: uiTheme.colors.background.controlsDetails,
+        },
+      },
+
+      remove: {
+        default: {
+          backgroundColor: 'transparent',
+          color: uiTheme.colors.content.tertiary,
+        },
+        focus: {
+          outlineColor: uiTheme.colors.borderControl.focus2,
+        },
+        hover: {
+          color: uiTheme.colors.content.primary,
+        },
+        active: {
+          backgroundColor: uiTheme.colors.background.panels,
+        },
+      },
+    },
+  },
+  (vars) => ({
+    '@layer': {
+      [uiLayers.components]: {
+        vars: assignVars(variant, vars),
+      },
+    },
+  }),
+);
 
 // endregion States & Variants
 
 // region Styles
 
 export const root = style({
-  position: 'relative',
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'relative',
 
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
 
-  width: 'fit-content',
-  height: 'fit-content',
+      width: 'fit-content',
+      height: 'fit-content',
 
-  color: uiTheme.colors.content.primary,
+      color: variant.root.color,
+    },
+  },
 });
 
 export const icon = style({});
@@ -36,8 +259,8 @@ export const remove = style({
     [uiLayers.components]: {
       position: 'absolute',
 
-      top: '0',
-      right: '0',
+      top: size.remove.position.top,
+      right: size.remove.position.right,
 
       display: 'flex',
       justifyContent: 'center',
@@ -48,40 +271,26 @@ export const remove = style({
 
       padding: '0',
 
-      background: 'transparent',
+      background: variant.remove.default.backgroundColor,
       borderRadius: '2px',
       border: 'none',
 
-      color: uiTheme.colors.content.tertiary,
+      color: variant.remove.default.color,
 
       selectors: {
         '&:focus': {
-          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
+          outline: `2px solid ${variant.remove.focus.outlineColor}`,
+          outlineOffset: size.remove.focus.outlineOffset,
         },
 
         '&:hover': {
-          color: uiTheme.colors.content.primary,
+          color: variant.remove.hover.color,
           transition: `color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
         },
 
         '&:active': {
-          backgroundColor: uiTheme.colors.background.panels,
+          backgroundColor: variant.remove.active.backgroundColor,
           transition: 'none',
-        },
-
-        [`${sizes.small} &`]: {
-          top: '2px',
-          right: '4px',
-        },
-
-        [`${sizes.medium} &`]: {
-          top: '6px',
-          right: '4px',
-        },
-
-        [`${sizes.large} &`]: {
-          top: '8px',
-          right: '8px',
         },
       },
     },
@@ -97,9 +306,16 @@ export const body = style([
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        gap: size.body.gap,
 
-        background: uiTheme.colors.background.primaryContent,
+        height: size.body.height,
+        padding: `0 ${size.body.horizontalPadding}`,
+
         borderRadius: '6px',
+
+        backgroundColor: variant.body.default.backgroundColor,
+
+        boxShadow: size.body.boxShadow,
 
         userSelect: 'none',
 
@@ -117,12 +333,12 @@ export const body = style([
           },
 
           '&:is(button):hover': {
-            backgroundColor: uiTheme.colors.background.panels,
+            backgroundColor: variant.body.hover.backgroundColor,
             transition: `backgroundColor ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
           },
 
           '&:is(button):active': {
-            backgroundColor: uiTheme.colors.background.controlsDetails,
+            backgroundColor: variant.body.active.backgroundColor,
             transition: 'none',
           },
 
@@ -130,60 +346,23 @@ export const body = style([
             cursor: 'default',
           },
 
-          [`${sizes.small} &`]: {
-            gap: '2px',
-            height: '20px',
-            padding: '0 8px',
-            boxShadow: `
-              0 1px 12px 0 ${uiTheme.colors.shadow['4']}
-            `,
+          [`${root}:has(${icon}) &`]: {
+            paddingLeft: size.body.leftPaddingWhenIcon,
           },
 
-          [`${sizes.small}:has(${icon}) &`]: {
-            paddingLeft: '4px',
-          },
-
-          [`${sizes.small}:has(${remove}) &`]: {
-            paddingRight: '24px',
-          },
-
-          [`${sizes.medium} &`]: {
-            gap: '4px',
-            height: '28px',
-            padding: '0 12px',
-            boxShadow: `
-              0 1px 12px 0 ${uiTheme.colors.shadow['4']}
-            `,
-          },
-
-          [`${sizes.medium}:has(${icon}) &`]: {
-            paddingLeft: '6px',
-          },
-
-          [`${sizes.medium}:has(${remove}) &`]: {
-            paddingRight: '28px',
-          },
-
-          [`${sizes.large} &`]: {
-            gap: '6px',
-            height: '32px',
-            padding: '0 16px',
-            boxShadow: `
-              0 1px 2px 0 ${uiTheme.colors.shadow['4']},
-              0 4px 12px 0 ${uiTheme.colors.shadow['6']}
-            `,
-          },
-
-          [`${sizes.large}:has(${icon}) &`]: {
-            paddingLeft: '12px',
-          },
-
-          [`${sizes.large}:has(${remove}) &`]: {
-            paddingRight: '30px',
+          [`${root}:has(${remove}) &`]: {
+            paddingRight: size.body.rightPaddingWhenRemove,
           },
 
           [`${isDisabled} &`]: {
-            backgroundColor: uiTheme.colors.background.controlsDetails,
+            backgroundColor: variant.body.disabled.backgroundColor,
+          },
+
+          [`${variants.accent} &`]: {
+            boxShadow: 'none',
+          },
+
+          [`${variants.contrast}${isDisabled} &`]: {
             boxShadow: `inset 0 0 0 1px ${uiTheme.colors.borderControl.default}`,
           },
         },
