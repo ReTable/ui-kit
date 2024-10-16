@@ -7,6 +7,7 @@ import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 export const isDisabled = style({});
 
 export const sizes = styleVariants({
+  small: {},
   medium: {},
   large: {},
 });
@@ -68,6 +69,11 @@ export const remove = style({
           transition: 'none',
         },
 
+        [`${sizes.small} &`]: {
+          top: '2px',
+          right: '4px',
+        },
+
         [`${sizes.medium} &`]: {
           top: '6px',
           right: '4px',
@@ -122,6 +128,23 @@ export const body = style([
 
           '&:is(button):disabled': {
             cursor: 'default',
+          },
+
+          [`${sizes.small} &`]: {
+            gap: '2px',
+            height: '20px',
+            padding: '0 8px',
+            boxShadow: `
+              0 1px 12px 0 ${uiTheme.colors.shadow['4']}
+            `,
+          },
+
+          [`${sizes.small}:has(${icon}) &`]: {
+            paddingLeft: '4px',
+          },
+
+          [`${sizes.small}:has(${remove}) &`]: {
+            paddingRight: '24px',
           },
 
           [`${sizes.medium} &`]: {
