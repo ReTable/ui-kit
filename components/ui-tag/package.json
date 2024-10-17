@@ -1,7 +1,7 @@
 {
-  "name": "@tabula/{{packageName}}",
+  "name": "@tabula/ui-tag",
   "version": "0.0.0",
-  "description": "{{{description}}}",
+  "description": "Tags allow users to categorize content. They can represent keywords or people, and are grouped to describe an item or a search request",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
@@ -21,14 +21,14 @@
     "component",
     "react"
   ],
-  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/{{packageName}}#readme",
+  "homepage": "https://github.com/ReTable/ui-kit/tree/main/components/ui-tag#readme",
   "bugs": {
     "url": "https://github.com/ReTable/ui-kit/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ReTable/ui-kit.git",
-    "directory": "components/{{packageName}}"
+    "directory": "components/ui-tag"
   },
   "author": "Retable Inc.",
   "license": "ISC",
@@ -40,14 +40,14 @@
     "build": "forge",
     "build:docs": "forge --storybook",
     "build:watch": "forge --watch",
-    "lint": "eslint .",
-    "test": "vitest run"
+    "lint": "eslint ."
   },
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",
     "react": "^18.3.1"
   },
   "devDependencies": {
+    "@tabula/ui-data-type-icon": "workspace:^",
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
