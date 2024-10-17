@@ -382,6 +382,9 @@ importers:
 
   components/ui-multi-selector:
     dependencies:
+      '@tabula/ui-selector':
+        specifier: workspace:^
+        version: link:../ui-selector
       '@tabula/ui-tag':
         specifier: workspace:^
         version: link:../ui-tag
