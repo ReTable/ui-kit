@@ -382,6 +382,9 @@ importers:
 
   components/ui-multi-selector:
     dependencies:
+      '@tabula/ui-tag':
+        specifier: workspace:^
+        version: link:../ui-tag
       clsx:
         specifier: ^2.1.1
         version: 2.1.1

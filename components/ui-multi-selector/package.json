@@ -51,6 +51,7 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
+    "@tabula/ui-tag": "workspace:^",
     "clsx": "^2.1.1"
   }
 }
