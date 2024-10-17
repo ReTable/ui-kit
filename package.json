@@ -19,10 +19,10 @@
   },
   "author": "Retable Inc.",
   "license": "ISC",
-  "packageManager": "pnpm@8.6.5",
+  "packageManager": "pnpm@9.12.1",
   "engines": {
-    "node": "^20.14.0",
-    "pnpm": "^8.6.5"
+    "node": ">20",
+    "pnpm": "^9"
   },
   "scripts": {
     "build": "turbo build",
@@ -55,7 +55,7 @@
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.16",
     "@tabula/eslint-config": "workspace:*",
-    "@tabula/forge": "^4.0.0",
+    "@tabula/forge": "^4.0.2-next.0",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
     "@tabula/vitest-config": "workspace:*",
