@@ -49,11 +49,12 @@ export function UiMultiSelector({
       <div className={styles.wrapper}>
         {items.map((item) => (
           <UiTag
-            key={item.key}
             className={styles.item}
             icon={item.icon}
-            onRemove={item.onRemove}
             isDisabled={readOnly}
+            key={item.key}
+            /* eslint-disable-next-line react/jsx-handler-names */
+            onRemove={item.onRemove}
             size="small"
             variant="contrast"
           >
