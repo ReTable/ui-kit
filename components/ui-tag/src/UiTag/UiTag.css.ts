@@ -159,10 +159,10 @@ export const variants = styleVariants(
           backgroundColor: uiTheme.colors.accentAlpha['60'],
         },
         hover: {
-          backgroundColor: uiTheme.colors.accentAlpha['60'],
+          backgroundColor: uiTheme.colors.accentAlpha['70'],
         },
         active: {
-          backgroundColor: uiTheme.colors.accentAlpha['60'],
+          backgroundColor: uiTheme.colors.accentAlpha['70'],
         },
         disabled: {
           backgroundColor: uiTheme.colors.accentAlpha['60'],
@@ -332,12 +332,12 @@ export const body = style([
             outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
           },
 
-          '&:is(button):hover': {
+          '&:is(button):not(:disabled):hover': {
             backgroundColor: variant.body.hover.backgroundColor,
-            transition: `backgroundColor ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+            transition: `background-color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
           },
 
-          '&:is(button):active': {
+          '&:is(button):not(:disabled):active': {
             backgroundColor: variant.body.active.backgroundColor,
             transition: 'none',
           },
