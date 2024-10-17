@@ -53,6 +53,7 @@
   "dependencies": {
     "@tabula/ui-selector": "workspace:^",
     "@tabula/ui-tag": "workspace:^",
+    "@tabula/use-previous-value": "workspace:^",
     "clsx": "^2.1.1"
   }
 }

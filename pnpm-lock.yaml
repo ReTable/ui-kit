@@ -388,6 +388,9 @@ importers:
       '@tabula/ui-tag':
         specifier: workspace:^
         version: link:../ui-tag
+      '@tabula/use-previous-value':
+        specifier: workspace:^
+        version: link:../../hooks/use-previous-value
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
