@@ -16,7 +16,7 @@ export function Tag({ className, icon, id, label }: Props): ReactNode {
   const { isDisabled, onRemove, size, variant } = useContext();
 
   const handleRemove = useCallback(() => {
-    onRemove?.(id);
+    onRemove(id);
   }, [id, onRemove]);
 
   return (

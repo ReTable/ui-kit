@@ -8,25 +8,25 @@ import { useContext } from '../Context';
 
 type Props = {
   className?: string;
-  onChange: (value: string) => void;
+  onSearch: (value: string) => void;
   placeholder?: string;
   value: string;
 };
 
-export function Search({ className, onChange, placeholder, value }: Props): ReactNode {
+export function Search({ className, onSearch, placeholder, value }: Props): ReactNode {
   const { isDisabled, variant } = useContext();
 
   useEffect(() => {
     if (isDisabled) {
-      onChange('');
+      onSearch('');
     }
-  }, [isDisabled, onChange]);
+  }, [isDisabled, onSearch]);
 
   const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (event) => {
-      onChange(event.target.value);
+      onSearch(event.target.value);
     },
-    [onChange],
+    [onSearch],
   );
 
   return (

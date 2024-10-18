@@ -26,9 +26,9 @@ export default meta;
 // region Story Utilities
 
 type Options = {
-  empty?: string;
+  defaultPlaceholder?: string;
+  emptyPlaceholder?: string;
   isDisabled?: boolean;
-  placeholder?: string;
   size: UiMultiSelectorSize;
   variant: UiMultiSelectorVariant;
 };
@@ -36,8 +36,8 @@ type Options = {
 /* eslint-disable react-hooks/rules-of-hooks, react/hook-use-state */
 export const Default: StoryObj<Options> = {
   args: {
-    empty: 'No columns selected',
-    placeholder: 'Add column...',
+    emptyPlaceholder: 'No columns selected',
+    defaultPlaceholder: 'Add column...',
     size: 'medium',
     variant: 'contrast',
   },
@@ -49,7 +49,7 @@ export const Default: StoryObj<Options> = {
     },
   },
 
-  render({ empty, placeholder, isDisabled, size, variant }) {
+  render({ emptyPlaceholder, defaultPlaceholder, isDisabled, size, variant }) {
     const [value, onSetValue] = useState(
       () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
     );
@@ -74,11 +74,11 @@ export const Default: StoryObj<Options> = {
     return (
       <div style={{ width: '362px', padding: '20px' }}>
         <UiMultiSelector
-          empty={empty}
+          emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}
           onChange={onSetValue}
           options={options}
-          placeholder={placeholder}
+          defaultPlaceholder={defaultPlaceholder}
           size={size}
           value={value}
           variant={variant}
