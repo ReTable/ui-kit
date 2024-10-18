@@ -9,6 +9,7 @@ import {
   UiMultiSelectorOption,
   UiMultiSelectorSize,
   UiMultiSelectorVariant,
+  searchPlaceholder,
 } from '~';
 
 // region Meta
@@ -32,6 +33,7 @@ type Options = {
   size: UiMultiSelectorSize;
   variant: UiMultiSelectorVariant;
   selectAll?: boolean;
+  selectFound?: boolean;
 };
 
 /* eslint-disable react-hooks/rules-of-hooks, react/hook-use-state */
@@ -50,7 +52,15 @@ export const Default: StoryObj<Options> = {
     },
   },
 
-  render({ emptyPlaceholder, defaultPlaceholder, isDisabled, size, variant, selectAll }) {
+  render({
+    emptyPlaceholder,
+    defaultPlaceholder,
+    isDisabled,
+    size,
+    variant,
+    selectAll,
+    selectFound,
+  }) {
     const [value, onSetValue] = useState(
       () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
     );
@@ -81,6 +91,9 @@ export const Default: StoryObj<Options> = {
           onChange={onSetValue}
           options={options}
           selectAll={selectAll == null ? undefined : 'Select all'}
+          selectFound={
+            selectFound == null ? undefined : `Select found containing ${searchPlaceholder}`
+          }
           size={size}
           value={value}
           variant={variant}

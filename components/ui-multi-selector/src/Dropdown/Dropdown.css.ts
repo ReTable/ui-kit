@@ -56,6 +56,38 @@ export const label = style({
   },
 });
 
+export const highlight = style([uiStyles.fonts.sansSerif.bold12]);
+
+export const search = style([
+  uiStyles.fonts.sansSerif.bold12,
+  {
+    '@layer': {
+      [uiLayers.components]: {
+        display: 'inline-block',
+
+        padding: '2px 4px',
+
+        borderRadius: '4px',
+
+        backgroundColor: uiTheme.colors.neutralAlpha['10'],
+      },
+    },
+  },
+]);
+
+export const divider = style({
+  '@layer': {
+    [uiLayers.components]: {
+      width: '100%',
+      height: '1px',
+
+      margin: '4px 0',
+
+      backgroundColor: uiTheme.colors.neutralAlpha['5'],
+    },
+  },
+});
+
 export const item = style([
   uiStyles.fonts.sansSerif.medium12,
   {

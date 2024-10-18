@@ -20,3 +20,5 @@ export type SelectAll =
 
       label: string;
     };
+
+export type SelectFound = SelectAll;

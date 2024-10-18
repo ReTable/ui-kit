@@ -5,36 +5,39 @@ import { clsx } from 'clsx/lite';
 import * as styles from './Dropdown.css';
 
 import { DropdownItem } from './Dropdown.Item';
-import { useItems, useSelectAll } from './hooks';
+import { useItems } from './Dropdown.hooks';
 
 type Props = {
   className?: string;
+
+  search: string;
 };
 
-export function Dropdown({ className }: Props): ReactNode {
-  const selectAll = useSelectAll();
-  const items = useItems();
+export function Dropdown({ className, search }: Props): ReactNode {
+  const items = useItems(search);
 
   const nodes: ReactNode[] = [];
 
   let hasIcons = false;
 
-  if (selectAll != null) {
-    const { id, icon, onClick, label } = selectAll;
+  for (const item of items) {
+    if (item.type === 'divider') {
+      nodes.push(<div className={styles.divider} />);
+
+      continue;
+    }
+
+    const { id, icon, onClick, label } = item;
 
     if (icon != null) {
       hasIcons = true;
     }
 
-    nodes.push(<DropdownItem key={id} onClick={onClick} icon={icon} label={label} />);
-  }
-
-  for (const { icon, id, onClick, label } of items) {
-    if (icon != null) {
-      hasIcons = true;
-    }
-
-    nodes.push(<DropdownItem key={id} onClick={onClick} icon={icon} label={label} />);
+    nodes.push(
+      <DropdownItem key={id} onClick={onClick} icon={icon}>
+        {label}
+      </DropdownItem>,
+    );
   }
 
   return <div className={clsx(styles.root, hasIcons && styles.hasIcons, className)}>{nodes}</div>;

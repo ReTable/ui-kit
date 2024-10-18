@@ -33,7 +33,7 @@ export function Container(): ReactNode {
       {(!isDisabled || isEmpty) && (
         <Search onBlur={hideDropdown} onFocus={showDropdown} onSearch={setSearch} value={search} />
       )}
-      {!isDisabled && <Dropdown className={styles.dropdown} />}
+      {!isDisabled && <Dropdown className={styles.dropdown} search={search} />}
     </div>
   );
 }

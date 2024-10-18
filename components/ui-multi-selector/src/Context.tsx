@@ -6,7 +6,7 @@ import {
   useMemo,
 } from 'react';
 
-import { Option, SelectAll, Size, Variant } from './types';
+import { Option, SelectAll, SelectFound, Size, Variant } from './types';
 
 type Value = {
   defaultPlaceholder?: string;
@@ -21,8 +21,8 @@ type Value = {
   options: Option[];
   value: Set<string>;
 
-  selectAll?: SelectAll;
-  selectFound?: SelectAll;
+  selectAll: SelectAll;
+  selectFound: SelectFound;
 
   variant: Variant;
   size: Size;
@@ -38,6 +38,9 @@ const Context = createContext<Value>({
 
   options: [],
   value: new Set(),
+
+  selectAll: '',
+  selectFound: '',
 
   size: 'small',
   variant: 'contrast',
