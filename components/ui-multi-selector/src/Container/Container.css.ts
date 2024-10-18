@@ -67,12 +67,20 @@ export const root = style({
   },
 });
 
+export const isEmpty = style({});
+
 export const isDisabled = style({
   '@layer': {
     [uiLayers.components]: {
       backgroundColor: variant.disabled.backgroundColor,
 
       cursor: 'default',
+
+      selectors: {
+        [`&:not(${isEmpty})`]: {
+          border: 'none',
+        },
+      },
     },
   },
 });

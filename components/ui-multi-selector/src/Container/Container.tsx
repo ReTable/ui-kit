@@ -16,7 +16,14 @@ export function Container(): ReactNode {
   const [search, setSearch] = useState('');
 
   return (
-    <div className={clsx(styles.root, styles.variants[variant], isDisabled && styles.isDisabled)}>
+    <div
+      className={clsx(
+        styles.root,
+        styles.variants[variant],
+        isDisabled && styles.isDisabled,
+        isEmpty && styles.isEmpty,
+      )}
+    >
       {!isEmpty && <Tags />}
       {(!isDisabled || isEmpty) && <Search onSearch={setSearch} value={search} />}
     </div>
