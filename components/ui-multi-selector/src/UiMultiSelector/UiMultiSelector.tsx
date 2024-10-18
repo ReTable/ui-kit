@@ -1,83 +1,91 @@
-import { ComponentType, ReactNode } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 
-import clsx from 'clsx';
-
-import { UiTag } from '@tabula/ui-tag';
+import { clsx } from 'clsx/lite';
 
 import * as styles from './UiMultiSelector.css';
 
-import { AddControl, Props as AddControlProps } from '../AddControl';
-import { ClearControl } from '../ClearControl';
-
-export type Item = {
-  key: string;
-  icon?: ComponentType<{ className?: string }>;
-  content: string;
-  onRemove: () => void;
-};
+import { Provider } from '../Context';
+import { Search } from '../Search';
+import { Tags } from '../Tags';
+import { Option, Size, Variant } from '../types';
 
 export type Props = {
-  className?: string;
-  items: Item[];
-  placeholder: string;
-  readOnly?: boolean;
-  onClear: () => void;
-} & Pick<AddControlProps, 'config' | 'defaultItem' | 'emptyContent' | 'triggerContent'>;
+  empty?: string;
+  isDisabled?: boolean;
+  onChange: (value: Set<string>) => void;
+  options: Option[];
+  placeholder?: string;
+  size: Size;
+  value: Set<string>;
+  variant: Variant;
+};
 
 export function UiMultiSelector({
-  className,
-  items,
-  config,
-  defaultItem,
+  empty,
+  isDisabled = false,
+  options,
   placeholder,
-  emptyContent,
-  triggerContent,
-  readOnly = false,
-  onClear,
+  size,
+  value,
+  variant,
+  onChange,
 }: Props): ReactNode {
-  const isEmpty = items.length === 0;
-  const showAddControl = config.length > 0 && !readOnly;
+  const selected = useMemo(() => options.filter((it) => value.has(it.id)), [options, value]);
 
-  if (isEmpty && readOnly) {
-    return <div className={styles.placeholder}>{placeholder}</div>;
-  }
+  const [search, setSearch] = useState('');
+
+  const searchPlaceholder = useMemo(() => {
+    if (isDisabled) {
+      const isEmpty = selected.length === 0;
+
+      return isEmpty ? empty : '';
+    }
+
+    return placeholder;
+  }, [empty, isDisabled, placeholder, selected.length]);
+
+  const handleRemove = useCallback(
+    (id: string) => {
+      const next = new Set(value);
+
+      next.delete(id);
+
+      onChange(next);
+    },
+    [onChange, value],
+  );
+
+  const handleClear = useCallback(() => {
+    onChange(new Set());
+  }, [onChange]);
+
+  const isEmpty = selected.length === 0;
 
   return (
-    <div
-      className={clsx(styles.root, isEmpty && styles.empty, readOnly && styles.disabled, className)}
+    <Provider
+      isDisabled={isDisabled}
+      onClear={handleClear}
+      onRemove={handleRemove}
+      size={size}
+      variant={variant}
     >
-      <div className={styles.wrapper}>
-        {items.map((item) => (
-          <UiTag
-            className={styles.item}
-            icon={item.icon}
-            isDisabled={readOnly}
-            key={item.key}
-            /* eslint-disable-next-line react/jsx-handler-names */
-            onRemove={item.onRemove}
-            size="small"
-            variant="contrast"
-          >
-            {item.content}
-          </UiTag>
-        ))}
+      <div
+        className={clsx(
+          styles.root,
+          styles.sizes[size],
+          styles.variants[variant],
+          isDisabled && styles.isDisabled,
+        )}
+      >
+        {!isEmpty && <Tags options={selected} />}
+        {(!isDisabled || isEmpty) && (
+          <Search onChange={setSearch} placeholder={searchPlaceholder} value={search} />
+        )}
       </div>
-      <ClearControl className={styles.clear} onClick={onClear} readOnly={readOnly} />
-      {showAddControl && (
-        <div className={styles.add}>
-          <AddControl
-            config={config}
-            defaultItem={defaultItem}
-            isEmpty={isEmpty}
-            emptyContent={emptyContent}
-            triggerContent={triggerContent}
-          />
-        </div>
-      )}
-    </div>
+    </Provider>
   );
 }
 
 if (import.meta.env.DEV) {
-  UiMultiSelector.displayName = 'ui-multi-selector(UiMultiSelector)';
+  UiMultiSelector.displayName = 'ui-multi-selector(UiNewMultiSelector)';
 }

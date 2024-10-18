@@ -1,1 +1,0 @@
-export { ClearControl } from './ClearControl';

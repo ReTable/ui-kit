@@ -1,10 +1,15 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
 import * as icons from '@tabula/ui-data-type-icon';
 
-import { UiMultiSelector, UiMultiSelectorProps } from '~';
+import {
+  UiMultiSelector,
+  UiMultiSelectorOption,
+  UiMultiSelectorSize,
+  UiMultiSelectorVariant,
+} from '~';
 
 // region Meta
 
@@ -24,73 +29,68 @@ type Options = {
   empty?: string;
   isDisabled?: boolean;
   placeholder?: string;
-  trigger?: string;
+  size: UiMultiSelectorSize;
+  variant: UiMultiSelectorVariant;
 };
 
-/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react-hooks/rules-of-hooks, react/hook-use-state */
 export const Default: StoryObj<Options> = {
-  parameters: {
-    controls: {
-      include: /^(empty|isDisabled|placeholder|trigger)$/,
-      exclude: /.*/,
+  args: {
+    empty: 'No columns selected',
+    placeholder: 'Add column...',
+    size: 'medium',
+    variant: 'contrast',
+  },
+
+  argTypes: {
+    isDisabled: {
+      type: 'boolean',
+      name: 'Is disabled?',
     },
   },
 
-  render({
-    isDisabled,
-    placeholder = 'This is placeholder',
-    trigger = 'Trigger',
-    empty = 'Empty',
-  }) {
-    const [items, setItems] = useState<UiMultiSelectorProps['items']>([]);
+  render({ empty, placeholder, isDisabled, size, variant }) {
+    const [value, onSetValue] = useState(
+      () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
+    );
 
-    const config = useMemo<UiMultiSelectorProps['config']>(
+    const options = useMemo(
       () =>
-        Object.entries(icons).reduce<UiMultiSelectorProps['config']>((result, [key, value]) => {
-          if (typeof value !== 'string') {
+        Object.entries(icons).reduce<UiMultiSelectorOption[]>((result, [name, icon]) => {
+          if (typeof icon !== 'string') {
             result.push({
-              id: key,
+              id: name,
 
-              leftIcon: value,
-              content: key.slice(2, -4),
-
-              onClick: () => {
-                const item = {
-                  key,
-
-                  icon: value,
-                  content: key.slice(2, -4),
-
-                  onRemove: () => {
-                    setItems((current) => current.filter((it) => it.key === key));
-                  },
-                };
-
-                setItems((current) => [...current, item]);
-              },
+              icon: size === 'small' ? undefined : icon,
+              label: name,
             });
           }
 
           return result;
         }, []),
-      [],
+      [size],
     );
-
-    const handleClear = useCallback(() => {
-      setItems([]);
-    }, []);
 
     return (
-      <UiMultiSelector
-        config={config}
-        emptyContent={empty}
-        items={items}
-        onClear={handleClear}
-        placeholder={placeholder}
-        readOnly={isDisabled}
-        triggerContent={trigger}
-      />
+      <div style={{ width: '362px', padding: '20px' }}>
+        <UiMultiSelector
+          empty={empty}
+          isDisabled={isDisabled}
+          onChange={onSetValue}
+          options={options}
+          placeholder={placeholder}
+          size={size}
+          value={value}
+          variant={variant}
+        />
+      </div>
     );
+  },
+
+  parameters: {
+    controls: {
+      exclude: /^(value)$/,
+    },
   },
 };
 /* eslint-enable */
