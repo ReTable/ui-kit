@@ -4,6 +4,7 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './UiNewMultiSelector.css';
 
+import { Clear } from '../Clear';
 import { OptionTag } from '../OptionTag';
 import { Option, Size, Variant } from '../types';
 
@@ -50,6 +51,10 @@ export function UiNewMultiSelector({
     [onChange, value],
   );
 
+  const handleClear = useCallback(() => {
+    onChange(new Set());
+  }, [onChange]);
+
   return (
     <div
       className={clsx(
@@ -69,6 +74,7 @@ export function UiNewMultiSelector({
             variant={variant}
           />
         ))}
+        <Clear className={styles.clear} onClick={handleClear} />
       </div>
       <input
         className={styles.search}
@@ -79,4 +85,8 @@ export function UiNewMultiSelector({
       />
     </div>
   );
+}
+
+if (import.meta.env.DEV) {
+  UiNewMultiSelector.displayName = 'ui-multi-selector(UiNewMultiSelector)';
 }

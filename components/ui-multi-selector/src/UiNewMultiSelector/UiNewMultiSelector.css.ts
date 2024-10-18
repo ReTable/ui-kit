@@ -118,6 +118,7 @@ export const tags = style({
           display: 'none',
         },
 
+        // NOTE: When component is disabled, we should remove paddings around tags.
         [`${isDisabled} &`]: {
           padding: '0',
         },
@@ -147,11 +148,19 @@ export const root = style({
           cursor: 'default',
         },
 
+        // NOTE: When component is disabled, and at least one option is selected, then we hide
+        //       borders.
         [`${isDisabled}&:has(${tags}:not(:empty))`]: {
           border: 'none',
         },
       },
     },
+  },
+});
+
+export const clear = style({
+  '@layer': {
+    [uiLayers.components]: {},
   },
 });
 
@@ -179,10 +188,13 @@ export const search = style([
             color: uiTheme.colors.content.placeholder,
           },
 
+          // NOTE: When have no options are selected then we should set background color
+          //       for an input.
           [`${isDisabled} ${tags}:empty + &`]: {
             backgroundColor: variant.input.disabled.backgroundColor,
           },
 
+          // NOTE: Otherwise, we should hide an input itself.
           [`${isDisabled} ${tags}:not(:empty) + &`]: {
             display: 'none',
           },
