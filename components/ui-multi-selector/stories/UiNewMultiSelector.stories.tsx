@@ -51,7 +51,7 @@ export const Default: StoryObj<Options> = {
 
   render({ empty, placeholder, isDisabled, size, variant }) {
     const [value, onSetValue] = useState(
-      () => new Set<string>(['UiDateIcon', 'UiIntegerIcon', 'UiStringIcon']),
+      () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
     );
 
     const options = useMemo(
@@ -74,7 +74,7 @@ export const Default: StoryObj<Options> = {
     console.log(options, value);
 
     return (
-      <div style={{ width: '352px', padding: '20px' }}>
+      <div style={{ width: '362px', padding: '20px' }}>
         <UiNewMultiSelector
           empty={empty}
           isDisabled={isDisabled}

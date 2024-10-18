@@ -1,6 +1,6 @@
 import { assignVars, createThemeContract, style, styleVariants } from '@vanilla-extract/css';
 
-import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
+import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 // region Theme
 
@@ -11,12 +11,6 @@ const variant = createThemeContract({
     },
     disabled: {
       backgroundColor: null,
-    },
-  },
-
-  input: {
-    disabled: {
-      backgroundColor: 'transparent',
     },
   },
 });
@@ -44,11 +38,6 @@ export const variants = styleVariants(
           backgroundColor: 'transparent',
         },
       },
-      input: {
-        disabled: {
-          backgroundColor: uiTheme.colors.background.controlsDetails,
-        },
-      },
     },
 
     contrast: {
@@ -56,11 +45,6 @@ export const variants = styleVariants(
         default: {
           backgroundColor: 'transparent',
         },
-        disabled: {
-          backgroundColor: 'transparent',
-        },
-      },
-      input: {
         disabled: {
           backgroundColor: 'transparent',
         },
@@ -101,32 +85,6 @@ export const sizes = styleVariants(
 
 // endregion States & Variants
 
-export const tags = style({
-  '@layer': {
-    [uiLayers.components]: {
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'flex-start',
-      alignItems: 'flex-start',
-      gap: size.tags.gap,
-      maxWidth: '100%',
-      padding: '8px',
-
-      selectors: {
-        '&:empty': {
-          display: 'none',
-        },
-
-        // NOTE: When component is disabled, we should remove paddings around tags.
-        [`${isDisabled} &`]: {
-          padding: '0',
-        },
-      },
-    },
-  },
-});
-
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
@@ -147,59 +105,7 @@ export const root = style({
 
           cursor: 'default',
         },
-
-        // NOTE: When component is disabled, and at least one option is selected, then we hide
-        //       borders.
-        [`${isDisabled}&:has(${tags}:not(:empty))`]: {
-          border: 'none',
-        },
       },
     },
   },
 });
-
-export const clear = style({
-  '@layer': {
-    [uiLayers.components]: {},
-  },
-});
-
-export const search = style([
-  uiStyles.fonts.sansSerif.medium12,
-  {
-    '@layer': {
-      [uiLayers.components]: {
-        width: '100%',
-        height: '30px',
-
-        padding: '0 12px',
-
-        border: 'none',
-        background: 'transparent',
-
-        color: uiTheme.colors.content.primary,
-
-        selectors: {
-          '&:focus': {
-            outline: 'none',
-          },
-
-          '&::placeholder': {
-            color: uiTheme.colors.content.placeholder,
-          },
-
-          // NOTE: When have no options are selected then we should set background color
-          //       for an input.
-          [`${isDisabled} ${tags}:empty + &`]: {
-            backgroundColor: variant.input.disabled.backgroundColor,
-          },
-
-          // NOTE: Otherwise, we should hide an input itself.
-          [`${isDisabled} ${tags}:not(:empty) + &`]: {
-            display: 'none',
-          },
-        },
-      },
-    },
-  },
-]);

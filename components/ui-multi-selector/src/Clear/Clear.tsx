@@ -6,15 +6,21 @@ import { ReactComponent as ClearIcon } from './assets/clear.svg';
 
 import * as styles from './Clear.css';
 
+import { useContext } from '../Context';
+
 type Props = {
   className?: string;
-
-  onClick: () => void;
 };
 
-export function Clear({ className, onClick }: Props): ReactNode {
+export function Clear({ className }: Props): ReactNode {
+  const { onClear, size, variant } = useContext();
+
   return (
-    <button className={clsx(styles.root, className)} onClick={onClick} type="button">
+    <button
+      className={clsx(styles.root, styles.sizes[size], styles.variants[variant], className)}
+      onClick={onClear}
+      type="button"
+    >
       <ClearIcon />
     </button>
   );

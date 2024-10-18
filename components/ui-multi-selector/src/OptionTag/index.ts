@@ -1,1 +1,0 @@
-export { OptionTag } from './OptionTag';

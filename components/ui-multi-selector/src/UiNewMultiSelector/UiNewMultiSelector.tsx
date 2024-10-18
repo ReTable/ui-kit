@@ -1,14 +1,13 @@
-import { ReactNode, useCallback, useMemo } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 
 import { clsx } from 'clsx/lite';
 
 import * as styles from './UiNewMultiSelector.css';
 
-import { Clear } from '../Clear';
-import { OptionTag } from '../OptionTag';
+import { Provider } from '../Context';
+import { Search } from '../Search';
+import { Tags } from '../Tags';
 import { Option, Size, Variant } from '../types';
-
-import { useSearch } from './hooks';
 
 export type Props = {
   empty?: string;
@@ -33,12 +32,17 @@ export function UiNewMultiSelector({
 }: Props): ReactNode {
   const selected = useMemo(() => options.filter((it) => value.has(it.id)), [options, value]);
 
-  const { search, onSearch, searchPlaceholder } = useSearch({
-    empty,
-    isDisabled,
-    placeholder,
-    value,
-  });
+  const [search, setSearch] = useState('');
+
+  const searchPlaceholder = useMemo(() => {
+    if (isDisabled) {
+      const isEmpty = selected.length === 0;
+
+      return isEmpty ? empty : '';
+    }
+
+    return placeholder;
+  }, [empty, isDisabled, placeholder, selected.length]);
 
   const handleRemove = useCallback(
     (id: string) => {
@@ -55,35 +59,30 @@ export function UiNewMultiSelector({
     onChange(new Set());
   }, [onChange]);
 
+  const isEmpty = selected.length === 0;
+
   return (
-    <div
-      className={clsx(
-        styles.root,
-        styles.sizes[size],
-        styles.variants[variant],
-        isDisabled && styles.isDisabled,
-      )}
+    <Provider
+      isDisabled={isDisabled}
+      onClear={handleClear}
+      onRemove={handleRemove}
+      size={size}
+      variant={variant}
     >
-      <div className={styles.tags}>
-        {selected.map((it) => (
-          <OptionTag
-            isDisabled={isDisabled}
-            onRemove={handleRemove}
-            option={it}
-            size={size}
-            variant={variant}
-          />
-        ))}
-        <Clear className={styles.clear} onClick={handleClear} />
+      <div
+        className={clsx(
+          styles.root,
+          styles.sizes[size],
+          styles.variants[variant],
+          isDisabled && styles.isDisabled,
+        )}
+      >
+        {!isEmpty && <Tags options={selected} />}
+        {(!isDisabled || isEmpty) && (
+          <Search onChange={setSearch} placeholder={searchPlaceholder} value={search} />
+        )}
       </div>
-      <input
-        className={styles.search}
-        disabled={isDisabled}
-        onChange={onSearch}
-        placeholder={searchPlaceholder}
-        value={search}
-      />
-    </div>
+    </Provider>
   );
 }
 
