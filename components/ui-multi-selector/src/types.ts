@@ -1,7 +1,5 @@
 import { ComponentType } from 'react';
 
-import { UiTagSize, UiTagVariant } from '@tabula/ui-tag';
-
 export type IconComponent = ComponentType<{ className?: string }>;
 
 export type Option = {
@@ -11,6 +9,6 @@ export type Option = {
   label: string;
 };
 
-export type Size = UiTagSize;
+export type Size = 'small' | 'medium';
 
-export type Variant = UiTagVariant;
+export type Variant = 'accent' | 'contrast';

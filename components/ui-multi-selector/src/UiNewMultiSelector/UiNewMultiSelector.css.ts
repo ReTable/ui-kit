@@ -21,6 +21,12 @@ const variant = createThemeContract({
   },
 });
 
+const size = createThemeContract({
+  tags: {
+    gap: null,
+  },
+});
+
 // endregion Themes
 
 // region States & Variants
@@ -70,13 +76,28 @@ export const variants = styleVariants(
   }),
 );
 
-export const sizes = styleVariants({
-  small: {},
+export const sizes = styleVariants(
+  {
+    small: {
+      tags: {
+        gap: '4px',
+      },
+    },
 
-  medium: {},
-
-  large: {},
-});
+    medium: {
+      tags: {
+        gap: '8px',
+      },
+    },
+  },
+  (vars) => ({
+    '@layer': {
+      [uiLayers.components]: {
+        vars: assignVars(size, vars),
+      },
+    },
+  }),
+);
 
 // endregion States & Variants
 
@@ -88,7 +109,7 @@ export const tags = style({
       flexWrap: 'wrap',
       justifyContent: 'flex-start',
       alignItems: 'flex-start',
-      gap: '8px',
+      gap: size.tags.gap,
       maxWidth: '100%',
       padding: '8px',
 
