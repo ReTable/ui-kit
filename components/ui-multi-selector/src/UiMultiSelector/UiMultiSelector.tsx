@@ -17,33 +17,12 @@ export type Props = {
   variant: Variant;
 };
 
-export function UiMultiSelector({
-  defaultPlaceholder,
-  emptyPlaceholder,
-  isDisabled,
-  onChange,
-  options,
-  size,
-  value,
-  variant,
-}: Props): ReactNode {
+export function UiMultiSelector({ onChange, value, ...props }: Props): ReactNode {
   const { onAdd, onRemove, onClear } = useController({ onChange, value });
 
   return (
-    <Provider
-      isDisabled={isDisabled}
-      onAdd={onAdd}
-      onClear={onClear}
-      onRemove={onRemove}
-      size={size}
-      variant={variant}
-    >
-      <Container
-        defaultPlaceholder={defaultPlaceholder}
-        emptyPlaceholder={emptyPlaceholder}
-        options={options}
-        value={value}
-      />
+    <Provider onAdd={onAdd} onClear={onClear} onRemove={onRemove} value={value} {...props}>
+      <Container />
     </Provider>
   );
 }

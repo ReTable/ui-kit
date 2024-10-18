@@ -6,19 +6,26 @@ import {
   useMemo,
 } from 'react';
 
-import { Size, Variant } from './types';
+import { Option, Size, Variant } from './types';
 
 type Value = {
+  defaultPlaceholder?: string;
+  emptyPlaceholder?: string;
+
   isDisabled?: boolean;
 
   onAdd: (ids: string[]) => void;
   onClear: () => void;
   onRemove: (id: string) => void;
 
+  options: Option[];
+  value: Set<string>;
+
   variant: Variant;
   size: Size;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => {};
 
 const Context = createContext<Value>({
@@ -26,34 +33,58 @@ const Context = createContext<Value>({
   onClear: noop,
   onRemove: noop,
 
+  options: [],
+  value: new Set(),
+
   size: 'small',
   variant: 'contrast',
 });
 
 export function Provider({
   children,
+  defaultPlaceholder,
+  emptyPlaceholder,
   isDisabled,
   onAdd,
   onClear,
   onRemove,
+  options,
   size,
+  value,
   variant,
 }: PropsWithChildren<Value>): ReactNode {
-  const value: Value = useMemo(
+  const context: Value = useMemo(
     () => ({
+      emptyPlaceholder,
+      defaultPlaceholder,
+
       isDisabled,
 
       onAdd,
       onClear,
       onRemove,
 
+      value,
+      options,
+
       size,
       variant,
     }),
-    [isDisabled, onAdd, onClear, onRemove, size, variant],
+    [
+      value,
+      isDisabled,
+      options,
+      onAdd,
+      onClear,
+      onRemove,
+      emptyPlaceholder,
+      defaultPlaceholder,
+      size,
+      variant,
+    ],
   );
 
-  return <Context.Provider value={value}>{children}</Context.Provider>;
+  return <Context.Provider value={context}>{children}</Context.Provider>;
 }
 
 export function useContext(): Value {
