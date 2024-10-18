@@ -4,39 +4,38 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './Dropdown.css';
 
-import { useContext } from '../Context';
+import { DropdownItem } from './Dropdown.Item';
+import { useItems, useSelectAll } from './hooks';
 
 type Props = {
   className?: string;
 };
 
 export function Dropdown({ className }: Props): ReactNode {
-  const { onAdd, options, value } = useContext();
+  const selectAll = useSelectAll();
+  const items = useItems();
 
-  const items: ReactNode[] = [];
+  const nodes: ReactNode[] = [];
 
   let hasIcons = false;
 
-  for (const { id, icon: Icon, label } of options) {
-    if (value.has(id)) {
-      continue;
-    }
+  if (selectAll != null) {
+    const { id, icon, onClick, label } = selectAll;
 
-    const handleAdd = () => {
-      onAdd([id]);
-    };
-
-    if (Icon != null) {
+    if (icon != null) {
       hasIcons = true;
     }
 
-    items.push(
-      <button className={styles.item} onClick={handleAdd} type="button">
-        {Icon != null && <Icon className={styles.icon} />}{' '}
-        <span className={styles.label}>{label}</span>
-      </button>,
-    );
+    nodes.push(<DropdownItem key={id} onClick={onClick} icon={icon} label={label} />);
   }
 
-  return <div className={clsx(styles.root, hasIcons && styles.hasIcons, className)}>{items}</div>;
+  for (const { icon, id, onClick, label } of items) {
+    if (icon != null) {
+      hasIcons = true;
+    }
+
+    nodes.push(<DropdownItem key={id} onClick={onClick} icon={icon} label={label} />);
+  }
+
+  return <div className={clsx(styles.root, hasIcons && styles.hasIcons, className)}>{nodes}</div>;
 }

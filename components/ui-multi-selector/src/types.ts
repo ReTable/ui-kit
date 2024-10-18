@@ -12,3 +12,11 @@ export type Option = {
 export type Size = 'small' | 'medium';
 
 export type Variant = 'accent' | 'contrast';
+
+export type SelectAll =
+  | string
+  | {
+      icon?: IconComponent;
+
+      label: string;
+    };

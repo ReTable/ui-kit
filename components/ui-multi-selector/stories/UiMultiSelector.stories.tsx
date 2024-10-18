@@ -31,6 +31,7 @@ type Options = {
   isDisabled?: boolean;
   size: UiMultiSelectorSize;
   variant: UiMultiSelectorVariant;
+  selectAll?: boolean;
 };
 
 /* eslint-disable react-hooks/rules-of-hooks, react/hook-use-state */
@@ -49,7 +50,7 @@ export const Default: StoryObj<Options> = {
     },
   },
 
-  render({ emptyPlaceholder, defaultPlaceholder, isDisabled, size, variant }) {
+  render({ emptyPlaceholder, defaultPlaceholder, isDisabled, size, variant, selectAll }) {
     const [value, onSetValue] = useState(
       () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
     );
@@ -74,11 +75,12 @@ export const Default: StoryObj<Options> = {
     return (
       <div style={{ width: '362px', padding: '20px' }}>
         <UiMultiSelector
+          defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}
           onChange={onSetValue}
           options={options}
-          defaultPlaceholder={defaultPlaceholder}
+          selectAll={selectAll == null ? undefined : 'Select all'}
           size={size}
           value={value}
           variant={variant}

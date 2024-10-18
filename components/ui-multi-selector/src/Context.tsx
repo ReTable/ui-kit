@@ -6,7 +6,7 @@ import {
   useMemo,
 } from 'react';
 
-import { Option, Size, Variant } from './types';
+import { Option, SelectAll, Size, Variant } from './types';
 
 type Value = {
   defaultPlaceholder?: string;
@@ -20,6 +20,9 @@ type Value = {
 
   options: Option[];
   value: Set<string>;
+
+  selectAll?: SelectAll;
+  selectFound?: SelectAll;
 
   variant: Variant;
   size: Size;
@@ -49,6 +52,8 @@ export function Provider({
   onClear,
   onRemove,
   options,
+  selectAll,
+  selectFound,
   size,
   value,
   variant,
@@ -67,18 +72,23 @@ export function Provider({
       value,
       options,
 
+      selectAll,
+      selectFound,
+
       size,
       variant,
     }),
     [
-      value,
+      emptyPlaceholder,
+      defaultPlaceholder,
       isDisabled,
-      options,
       onAdd,
       onClear,
       onRemove,
-      emptyPlaceholder,
-      defaultPlaceholder,
+      value,
+      options,
+      selectAll,
+      selectFound,
       size,
       variant,
     ],

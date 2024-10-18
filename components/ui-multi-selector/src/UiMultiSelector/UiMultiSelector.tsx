@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Container } from '../Container';
 import { Provider } from '../Context';
-import { Option, Size, Variant } from '../types';
+import { Option, SelectAll, Size, Variant } from '../types';
 
 import { useController } from './UiMultiSelector.hooks';
 
@@ -12,6 +12,8 @@ export type Props = {
   isDisabled?: boolean;
   onChange: (value: Set<string>) => void;
   options: Option[];
+  selectAll?: SelectAll;
+  selectFound?: SelectAll;
   size: Size;
   value: Set<string>;
   variant: Variant;
