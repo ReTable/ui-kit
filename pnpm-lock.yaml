@@ -382,18 +382,12 @@ importers:
 
   components/ui-multi-selector:
     dependencies:
-      '@tabula/ui-selector':
-        specifier: workspace:^
-        version: link:../ui-selector
       '@tabula/ui-tag':
         specifier: workspace:^
         version: link:../ui-tag
       '@tabula/use-flag':
         specifier: workspace:^
         version: link:../../hooks/use-flag
-      '@tabula/use-previous-value':
-        specifier: workspace:^
-        version: link:../../hooks/use-previous-value
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
