@@ -18,7 +18,7 @@ export function Container(): ReactNode {
 
   const [search, setSearch] = useState('');
 
-  const [, { on: showDropdown, off: hideDropdown }] = useFlag(true);
+  const [isDropdownVisible, { on: showDropdown, off: hideDropdown }] = useFlag(false);
 
   return (
     <div
@@ -33,7 +33,7 @@ export function Container(): ReactNode {
       {(!isDisabled || isEmpty) && (
         <Search onBlur={hideDropdown} onFocus={showDropdown} onSearch={setSearch} value={search} />
       )}
-      {!isDisabled && <Dropdown className={styles.dropdown} search={search} />}
+      {!isDisabled && isDropdownVisible && <Dropdown className={styles.dropdown} search={search} />}
     </div>
   );
 }
