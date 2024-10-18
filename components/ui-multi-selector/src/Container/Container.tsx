@@ -2,9 +2,12 @@ import { ReactNode, useState } from 'react';
 
 import { clsx } from 'clsx/lite';
 
+import { useFlag } from '@tabula/use-flag';
+
 import * as styles from './Container.css';
 
 import { useContext } from '../Context';
+import { Dropdown } from '../Dropdown';
 import { Search } from '../Search';
 import { Tags } from '../Tags';
 
@@ -14,6 +17,8 @@ export function Container(): ReactNode {
   const isEmpty = value.size === 0;
 
   const [search, setSearch] = useState('');
+
+  const [isDropdownOpen, { on: showDropdown, off: hideDropdown }] = useFlag(true);
 
   return (
     <div
@@ -25,7 +30,10 @@ export function Container(): ReactNode {
       )}
     >
       {!isEmpty && <Tags />}
-      {(!isDisabled || isEmpty) && <Search onSearch={setSearch} value={search} />}
+      {(!isDisabled || isEmpty) && (
+        <Search onBlur={hideDropdown} onFocus={showDropdown} onSearch={setSearch} value={search} />
+      )}
+      {!isDisabled && isDropdownOpen && <Dropdown className={styles.dropdown} />}
     </div>
   );
 }

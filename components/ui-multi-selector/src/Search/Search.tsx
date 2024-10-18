@@ -8,11 +8,13 @@ import { useContext } from '../Context';
 
 type Props = {
   className?: string;
+  onBlur: () => void;
+  onFocus: () => void;
   onSearch: (value: string) => void;
   value: string;
 };
 
-export function Search({ className, onSearch, value }: Props): ReactNode {
+export function Search({ className, onBlur, onFocus, onSearch, value }: Props): ReactNode {
   const {
     emptyPlaceholder,
     defaultPlaceholder,
@@ -46,7 +48,9 @@ export function Search({ className, onSearch, value }: Props): ReactNode {
     <input
       className={clsx(styles.root, styles.variants[variant], className)}
       disabled={isDisabled}
+      onBlur={onBlur}
       onChange={handleChange}
+      onFocus={onFocus}
       placeholder={placeholder}
       value={value}
     />

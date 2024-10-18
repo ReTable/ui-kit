@@ -53,6 +53,8 @@ export const variants = styleVariants(
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'relative',
+
       borderRadius: '6px',
       border: `1px solid ${uiTheme.colors.borderControl.default}`,
 
@@ -62,7 +64,7 @@ export const root = style({
 
       cursor: 'pointer',
 
-      overflow: 'hidden',
+      // overflow: 'hidden',
     },
   },
 });
@@ -81,6 +83,17 @@ export const isDisabled = style({
           border: 'none',
         },
       },
+    },
+  },
+});
+
+export const dropdown = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'absolute',
+      top: 'calc(100% + 4px)',
+      left: '0',
+      width: '100%',
     },
   },
 });
