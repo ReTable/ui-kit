@@ -17,7 +17,7 @@ export function buildItems({ onAdd, options, search, value }: Options): [string[
   const items: Item[] = [];
 
   for (const option of options) {
-    if (value.has(option.id)) {
+    if (value.has(option.value)) {
       continue;
     }
 
@@ -27,19 +27,19 @@ export function buildItems({ onAdd, options, search, value }: Options): [string[
       continue;
     }
 
-    ids.push(option.id);
+    ids.push(option.value);
 
     items.push({
       type: 'item',
 
-      id: `item-${option.id}`,
+      id: `item-${option.value}`,
 
       icon: option.icon,
 
       label: renderParts(parts),
 
       onClick: () => {
-        onAdd([option.id]);
+        onAdd([option.value]);
       },
     });
   }

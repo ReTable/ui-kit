@@ -12,9 +12,15 @@ export function Tags(): ReactNode {
   const { isDisabled, options, size, value } = useContext();
 
   const tags = options.reduce<ReactNode[]>((nodes, it) => {
-    if (value.has(it.id)) {
+    if (value.has(it.value)) {
       nodes.push(
-        <Tag className={styles.tag} icon={it.icon} id={it.id} key={it.id} label={it.label} />,
+        <Tag
+          className={styles.tag}
+          icon={it.icon}
+          key={it.value}
+          label={it.label}
+          value={it.value}
+        />,
       );
     }
 

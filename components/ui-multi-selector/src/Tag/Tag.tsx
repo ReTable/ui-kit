@@ -8,16 +8,16 @@ import { IconComponent } from '../types';
 type Props = {
   className?: string;
   icon?: IconComponent;
-  id: string;
   label: string;
+  value: string;
 };
 
-export function Tag({ className, icon, id, label }: Props): ReactNode {
+export function Tag({ className, icon, label, value }: Props): ReactNode {
   const { isDisabled, onRemove, size, variant } = useContext();
 
   const handleRemove = useCallback(() => {
-    onRemove(id);
-  }, [id, onRemove]);
+    onRemove(value);
+  }, [value, onRemove]);
 
   return (
     <UiTag

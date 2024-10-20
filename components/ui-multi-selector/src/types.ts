@@ -3,10 +3,10 @@ import { ComponentType } from 'react';
 export type IconComponent = ComponentType<{ className?: string }>;
 
 export type Option = {
-  id: string;
-
   icon?: IconComponent;
   label: string;
+
+  value: string;
 };
 
 export type Size = 'small' | 'medium';
