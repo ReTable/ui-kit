@@ -104,7 +104,7 @@ export const Default: StoryObj<Options> = {
 
   parameters: {
     controls: {
-      exclude: /^(selected)$/,
+      exclude: /^(onChange|options|selectAll|selectFound|selected)$/,
     },
   },
 };
