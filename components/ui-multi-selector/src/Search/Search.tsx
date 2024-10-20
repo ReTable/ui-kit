@@ -57,3 +57,7 @@ export const Search = forwardRef<SearchController, Props>(
     );
   },
 );
+
+if (import.meta.env.DEV) {
+  Search.displayName = 'Search';
+}

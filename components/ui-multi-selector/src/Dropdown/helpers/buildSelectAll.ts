@@ -26,5 +26,5 @@ export function buildSelectAll({ onAdd, options, selectAll, selected }: Options)
 
   const { icon, label } = typeof selectAll === 'string' ? { label: selectAll } : selectAll;
 
-  return { type: 'item', id: 'select-all', icon, onClick: handleClick, label };
+  return { type: 'item', key: 'select-all', icon, onClick: handleClick, label };
 }

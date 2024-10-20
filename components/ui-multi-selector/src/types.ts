@@ -34,6 +34,12 @@ export type SearchController = {
   blur: () => void;
 };
 
+export type DropdownController = {
+  goToNext: () => void;
+  goToPrevious: () => void;
+  selectCurrent: () => void;
+};
+
 // endregion Controllers
 
 // region Look & Feel

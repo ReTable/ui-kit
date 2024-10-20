@@ -11,11 +11,15 @@ export type Item =
   | {
       type: 'item';
 
-      id: string;
+      key: string;
 
       icon?: IconComponent;
       label: ReactNode;
 
       onClick: () => void;
     }
-  | { type: 'divider' };
+  | {
+      type: 'divider';
+
+      key: string;
+    };

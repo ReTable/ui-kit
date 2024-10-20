@@ -35,9 +35,9 @@ export function buildItems({ onAdd, options, search, selected }: Options): [stri
     items.push({
       type: 'item',
 
-      id: `item-${value}`,
+      key: `item-${value}`,
 
-      icon: icon,
+      icon,
 
       label: renderParts(parts),
 

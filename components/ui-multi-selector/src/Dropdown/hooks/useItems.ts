@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 
-import { useContext } from '../Context';
+import { useContext } from '../../Context';
 
-import { Item } from './Dropdown.types';
-import { buildItems, buildSelectAll, buildSelectFound } from './helpers';
+import { Item } from '../Dropdown.types';
+import { buildItems, buildSelectAll, buildSelectFound } from '../helpers';
 
 export function useItems(search: string): Item[] {
   const { onAdd, options, selectAll, selectFound, selected } = useContext();
@@ -15,7 +15,7 @@ export function useItems(search: string): Item[] {
       return items;
     }
 
-    items.unshift({ type: 'divider' });
+    items.unshift({ type: 'divider', key: 'divider' });
 
     if (search.length > 0) {
       items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));

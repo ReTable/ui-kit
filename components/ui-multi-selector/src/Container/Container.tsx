@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useEffect, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 import { clsx } from 'clsx/lite';
 
@@ -10,9 +10,12 @@ import { useContext } from '../Context';
 import { Dropdown } from '../Dropdown';
 import { Search } from '../Search';
 import { Tags } from '../Tags';
+import { DropdownController } from '../types';
 
 export function Container(): ReactNode {
   const { emptyPlaceholder, defaultPlaceholder, isDisabled, variant, selected } = useContext();
+
+  const dropdownRef = useRef<DropdownController>(null);
 
   const isEmpty = selected.size === 0;
 
@@ -24,18 +27,18 @@ export function Container(): ReactNode {
     }
   }, [isDisabled]);
 
-  const [isDropdownVisible, { on: showDropdown, off: hideDropdown }] = useFlag(false);
+  const [isDropdownVisible, { on: showDropdown, off: hideDropdown }] = useFlag(true);
 
   const handleArrowDown = useCallback(() => {
-    console.log('arrow down');
+    dropdownRef.current?.goToNext();
   }, []);
 
   const handleArrowUp = useCallback(() => {
-    console.log('arrow up');
+    dropdownRef.current?.goToPrevious();
   }, []);
 
   const handleTab = useCallback(() => {
-    console.log('tab');
+    dropdownRef.current?.selectCurrent();
   }, []);
 
   return (
@@ -63,7 +66,9 @@ export function Container(): ReactNode {
           variant={variant}
         />
       )}
-      {!isDisabled && isDropdownVisible && <Dropdown className={styles.dropdown} search={search} />}
+      {!isDisabled && isDropdownVisible && (
+        <Dropdown className={styles.dropdown} ref={dropdownRef} search={search} />
+      )}
     </div>
   );
 }

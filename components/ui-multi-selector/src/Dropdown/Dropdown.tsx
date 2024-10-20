@@ -1,11 +1,13 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 
 import { clsx } from 'clsx/lite';
 
 import * as styles from './Dropdown.css';
 
+import { DropdownController } from '../types';
+
 import { DropdownItem } from './Dropdown.Item';
-import { useItems } from './Dropdown.hooks';
+import { useController, useItems } from './hooks';
 
 type Props = {
   className?: string;
@@ -13,8 +15,10 @@ type Props = {
   search: string;
 };
 
-export function Dropdown({ className, search }: Props): ReactNode {
+export const Dropdown = forwardRef<DropdownController, Props>(({ className, search }, ref) => {
   const items = useItems(search);
+
+  const rootRef = useController(ref);
 
   const nodes: ReactNode[] = [];
 
@@ -22,23 +26,31 @@ export function Dropdown({ className, search }: Props): ReactNode {
 
   for (const item of items) {
     if (item.type === 'divider') {
-      nodes.push(<div className={styles.divider} />);
+      nodes.push(<div className={styles.divider} key={item.key} />);
 
       continue;
     }
 
-    const { id, icon, onClick, label } = item;
+    const { key, icon, onClick, label } = item;
 
     if (icon != null) {
       hasIcons = true;
     }
 
     nodes.push(
-      <DropdownItem key={id} onClick={onClick} icon={icon}>
+      <DropdownItem key={key} onClick={onClick} icon={icon}>
         {label}
       </DropdownItem>,
     );
   }
 
-  return <div className={clsx(styles.root, hasIcons && styles.hasIcons, className)}>{nodes}</div>;
+  return (
+    <div className={clsx(styles.root, hasIcons && styles.hasIcons, className)} ref={rootRef}>
+      {nodes}
+    </div>
+  );
+});
+
+if (import.meta.env.DEV) {
+  Dropdown.displayName = 'Dropdown';
 }

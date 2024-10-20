@@ -102,7 +102,7 @@ export const item = style([
         width: '100%',
         height: itemHeight,
 
-        padding: '0 12px 0 32px',
+        padding: '0 12px',
 
         border: 'none',
 
@@ -117,6 +117,10 @@ export const item = style([
         selectors: {
           '&:hover': {
             backgroundColor: uiTheme.colors.neutralAlpha['5'],
+          },
+
+          [`${hasIcons} &`]: {
+            paddingLeft: '32px',
           },
 
           [`${hasIcons} &:has(${icon})`]: {

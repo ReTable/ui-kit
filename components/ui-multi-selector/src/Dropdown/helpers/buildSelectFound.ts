@@ -21,7 +21,7 @@ export function buildSelectFound({ onAdd, selectFound, search, values }: Options
   return {
     type: 'item',
     icon,
-    id: 'select-found',
+    key: 'select-found',
     label: renderFound(label, search),
     onClick: handleClick,
   };
