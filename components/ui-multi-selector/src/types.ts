@@ -27,6 +27,15 @@ export type ClearHandler = () => void;
 
 // endregion Handlers
 
+// region Controllers
+
+export type SearchController = {
+  focus: () => void;
+  blur: () => void;
+};
+
+// endregion Controllers
+
 // region Look & Feel
 
 export type IconComponent = ComponentType<{ className?: string }>;

@@ -1,52 +1,59 @@
-import { ChangeEventHandler, ReactNode, useCallback, useEffect, useMemo } from 'react';
+import { forwardRef } from 'react';
 
 import { clsx } from 'clsx/lite';
 
 import * as styles from './Search.css';
 
-import { useContext } from '../Context';
+import { SearchController, Variant } from '../types';
+
+import { useController, useHandlers } from './hooks';
 
 type Props = {
   className?: string;
+  defaultPlaceholder?: string;
+  emptyPlaceholder?: string;
+  isDisabled?: boolean;
+  onArrowDown: () => void;
+  onArrowUp: () => void;
   onBlur: () => void;
   onFocus: () => void;
   onSearch: (value: string) => void;
+  onTab: () => void;
   value: string;
+  variant: Variant;
 };
 
-export function Search({ className, onBlur, onFocus, onSearch, value }: Props): ReactNode {
-  const { emptyPlaceholder, defaultPlaceholder, isDisabled, selected, variant } = useContext();
-
-  useEffect(() => {
-    if (isDisabled) {
-      onSearch('');
-    }
-  }, [isDisabled, onSearch]);
-
-  const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
-    (event) => {
-      onSearch(event.target.value);
+export const Search = forwardRef<SearchController, Props>(
+  (
+    {
+      className,
+      defaultPlaceholder,
+      emptyPlaceholder,
+      isDisabled,
+      onBlur,
+      onFocus,
+      value,
+      variant,
+      ...handlers
     },
-    [onSearch],
-  );
+    ref,
+  ) => {
+    const inputRef = useController(ref);
 
-  const placeholder = useMemo(() => {
-    if (isDisabled) {
-      return selected.size === 0 ? emptyPlaceholder : '';
-    }
+    const { onChange, onKeyDown } = useHandlers(handlers);
 
-    return defaultPlaceholder;
-  }, [defaultPlaceholder, emptyPlaceholder, isDisabled, selected.size]);
-
-  return (
-    <input
-      className={clsx(styles.root, styles.variants[variant], className)}
-      disabled={isDisabled}
-      onBlur={onBlur}
-      onChange={handleChange}
-      onFocus={onFocus}
-      placeholder={placeholder}
-      value={value}
-    />
-  );
-}
+    return (
+      <input
+        className={clsx(styles.root, styles.variants[variant], className)}
+        disabled={isDisabled}
+        onBlur={onBlur}
+        onChange={onChange}
+        onFocus={onFocus}
+        onKeyDown={onKeyDown}
+        placeholder={isDisabled ? emptyPlaceholder : defaultPlaceholder}
+        ref={inputRef}
+        value={value}
+      />
+    );
+  },
+);
