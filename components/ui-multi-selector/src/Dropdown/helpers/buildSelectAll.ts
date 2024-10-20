@@ -12,8 +12,10 @@ type Options = {
 export function buildSelectAll({ onAdd, options, selectAll, selected }: Options): Item {
   const handleClick = () => {
     const ids = options.reduce<string[]>((result, it) => {
-      if (!selected.has(it.value)) {
-        result.push(it.value);
+      const value = typeof it === 'string' ? it : it.value;
+
+      if (!selected.has(value)) {
+        result.push(value);
       }
 
       return result;

@@ -17,29 +17,32 @@ export function buildItems({ onAdd, options, search, selected }: Options): [stri
   const items: Item[] = [];
 
   for (const option of options) {
-    if (selected.has(option.value)) {
+    const { icon, label, value } =
+      typeof option === 'string' ? { label: option, value: option } : option;
+
+    if (selected.has(value)) {
       continue;
     }
 
-    const [isMatches, parts]: [boolean, Part[]] = match(option.label ?? option.value, search);
+    const [isMatches, parts]: [boolean, Part[]] = match(label ?? value, search);
 
     if (!isMatches) {
       continue;
     }
 
-    values.push(option.value);
+    values.push(value);
 
     items.push({
       type: 'item',
 
-      id: `item-${option.value}`,
+      id: `item-${value}`,
 
-      icon: option.icon,
+      icon: icon,
 
       label: renderParts(parts),
 
       onClick: () => {
-        onAdd([option.value]);
+        onAdd([value]);
       },
     });
   }

@@ -2,12 +2,14 @@ import { ComponentType } from 'react';
 
 // region Options & Values
 
-export type Option = {
-  icon?: IconComponent;
-  label?: string;
+export type Option =
+  | string
+  | {
+      icon?: IconComponent;
+      label?: string;
 
-  value: string;
-};
+      value: string;
+    };
 
 export type Selected = Set<string>;
 
