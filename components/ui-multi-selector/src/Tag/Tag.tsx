@@ -8,7 +8,7 @@ import { IconComponent } from '../types';
 type Props = {
   className?: string;
   icon?: IconComponent;
-  label: string;
+  label?: string;
   value: string;
 };
 
@@ -28,7 +28,7 @@ export function Tag({ className, icon, label, value }: Props): ReactNode {
       size={size}
       variant={variant}
     >
-      {label}
+      {label ?? value}
     </UiTag>
   );
 }

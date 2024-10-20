@@ -4,7 +4,7 @@ import { ComponentType } from 'react';
 
 export type Option = {
   icon?: IconComponent;
-  label: string;
+  label?: string;
 
   value: string;
 };

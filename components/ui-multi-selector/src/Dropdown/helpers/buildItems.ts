@@ -21,7 +21,7 @@ export function buildItems({ onAdd, options, search, selected }: Options): [stri
       continue;
     }
 
-    const [isMatches, parts]: [boolean, Part[]] = match(option.label, search);
+    const [isMatches, parts]: [boolean, Part[]] = match(option.label ?? option.value, search);
 
     if (!isMatches) {
       continue;
