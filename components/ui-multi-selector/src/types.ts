@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
 
-export type IconComponent = ComponentType<{ className?: string }>;
+// region Options & Values
 
 export type Option = {
   icon?: IconComponent;
@@ -9,9 +9,25 @@ export type Option = {
   value: string;
 };
 
-export type Size = 'small' | 'medium';
+export type Selected = Set<string>;
 
-export type Variant = 'accent' | 'contrast';
+// endregion Options & Values
+
+// region Handlers
+
+export type ChangeHandler = (selected: Selected) => void;
+
+export type AddHandler = (values: string[]) => void;
+
+export type RemoveHandler = (value: string) => void;
+
+export type ClearHandler = () => void;
+
+// endregion Handlers
+
+// region Look & Feel
+
+export type IconComponent = ComponentType<{ className?: string }>;
 
 export type SelectAll =
   | string
@@ -22,3 +38,9 @@ export type SelectAll =
     };
 
 export type SelectFound = SelectAll;
+
+export type Size = 'small' | 'medium';
+
+export type Variant = 'accent' | 'contrast';
+
+// endregion Look & Feel

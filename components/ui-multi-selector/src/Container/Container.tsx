@@ -12,9 +12,9 @@ import { Search } from '../Search';
 import { Tags } from '../Tags';
 
 export function Container(): ReactNode {
-  const { isDisabled, variant, value } = useContext();
+  const { isDisabled, variant, selected } = useContext();
 
-  const isEmpty = value.size === 0;
+  const isEmpty = selected.size === 0;
 
   const [search, setSearch] = useState('');
 

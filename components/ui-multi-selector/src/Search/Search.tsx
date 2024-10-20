@@ -15,13 +15,7 @@ type Props = {
 };
 
 export function Search({ className, onBlur, onFocus, onSearch, value }: Props): ReactNode {
-  const {
-    emptyPlaceholder,
-    defaultPlaceholder,
-    isDisabled,
-    value: selected,
-    variant,
-  } = useContext();
+  const { emptyPlaceholder, defaultPlaceholder, isDisabled, selected, variant } = useContext();
 
   useEffect(() => {
     if (isDisabled) {

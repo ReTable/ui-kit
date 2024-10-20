@@ -1,19 +1,19 @@
-import { SelectFound } from '../../types';
+import { AddHandler, SelectFound } from '../../types';
 
 import { Item } from '../Dropdown.types';
 
 import { renderFound } from './renderFound';
 
 type Options = {
-  ids: string[];
-  onAdd: (ids: string[]) => void;
+  onAdd: AddHandler;
   search: string;
   selectFound: SelectFound;
+  values: string[];
 };
 
-export function buildSelectFound({ ids, onAdd, selectFound, search }: Options): Item {
+export function buildSelectFound({ onAdd, selectFound, search, values }: Options): Item {
   const handleClick = () => {
-    onAdd(ids);
+    onAdd(values);
   };
 
   const { icon, label } = typeof selectFound === 'string' ? { label: selectFound } : selectFound;

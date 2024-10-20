@@ -1,18 +1,18 @@
-import { Option, SelectAll } from '../../types';
+import { AddHandler, Option, SelectAll, Selected } from '../../types';
 
 import { Item } from '../Dropdown.types';
 
 type Options = {
-  onAdd: (ids: string[]) => void;
+  onAdd: AddHandler;
   options: Option[];
   selectAll: SelectAll;
-  value: Set<string>;
+  selected: Selected;
 };
 
-export function buildSelectAll({ onAdd, options, selectAll, value }: Options): Item {
+export function buildSelectAll({ onAdd, options, selectAll, selected }: Options): Item {
   const handleClick = () => {
     const ids = options.reduce<string[]>((result, it) => {
-      if (!value.has(it.value)) {
+      if (!selected.has(it.value)) {
         result.push(it.value);
       }
 

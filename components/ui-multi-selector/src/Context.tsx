@@ -6,7 +6,17 @@ import {
   useMemo,
 } from 'react';
 
-import { Option, SelectAll, SelectFound, Size, Variant } from './types';
+import {
+  AddHandler,
+  ClearHandler,
+  Option,
+  RemoveHandler,
+  SelectAll,
+  SelectFound,
+  Selected,
+  Size,
+  Variant,
+} from './types';
 
 type Value = {
   defaultPlaceholder?: string;
@@ -14,12 +24,12 @@ type Value = {
 
   isDisabled?: boolean;
 
-  onAdd: (ids: string[]) => void;
-  onClear: () => void;
-  onRemove: (id: string) => void;
+  onAdd: AddHandler;
+  onRemove: RemoveHandler;
+  onClear: ClearHandler;
 
   options: Option[];
-  value: Set<string>;
+  selected: Selected;
 
   selectAll: SelectAll;
   selectFound: SelectFound;
@@ -37,7 +47,7 @@ const Context = createContext<Value>({
   onRemove: noop,
 
   options: [],
-  value: new Set(),
+  selected: new Set(),
 
   selectAll: '',
   selectFound: '',
@@ -57,8 +67,8 @@ export function Provider({
   options,
   selectAll,
   selectFound,
+  selected,
   size,
-  value,
   variant,
 }: PropsWithChildren<Value>): ReactNode {
   const context: Value = useMemo(
@@ -72,8 +82,8 @@ export function Provider({
       onClear,
       onRemove,
 
-      value,
       options,
+      selected,
 
       selectAll,
       selectFound,
@@ -88,7 +98,7 @@ export function Provider({
       onAdd,
       onClear,
       onRemove,
-      value,
+      selected,
       options,
       selectAll,
       selectFound,

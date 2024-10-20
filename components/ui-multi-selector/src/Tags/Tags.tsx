@@ -9,10 +9,10 @@ import { useContext } from '../Context';
 import { Tag } from '../Tag';
 
 export function Tags(): ReactNode {
-  const { isDisabled, options, size, value } = useContext();
+  const { isDisabled, options, selected, size } = useContext();
 
   const tags = options.reduce<ReactNode[]>((nodes, it) => {
-    if (value.has(it.value)) {
+    if (selected.has(it.value)) {
       nodes.push(
         <Tag
           className={styles.tag}

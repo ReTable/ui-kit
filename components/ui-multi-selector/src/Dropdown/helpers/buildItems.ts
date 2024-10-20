@@ -1,4 +1,4 @@
-import { Option } from '../../types';
+import { AddHandler, Option, Selected } from '../../types';
 
 import { Item, Part } from '../Dropdown.types';
 
@@ -6,18 +6,18 @@ import { match } from './match';
 import { renderParts } from './renderParts';
 
 type Options = {
-  onAdd: (ids: string[]) => void;
+  onAdd: AddHandler;
   options: Option[];
   search: string;
-  value: Set<string>;
+  selected: Selected;
 };
 
-export function buildItems({ onAdd, options, search, value }: Options): [string[], Item[]] {
-  const ids: string[] = [];
+export function buildItems({ onAdd, options, search, selected }: Options): [string[], Item[]] {
+  const values: string[] = [];
   const items: Item[] = [];
 
   for (const option of options) {
-    if (value.has(option.value)) {
+    if (selected.has(option.value)) {
       continue;
     }
 
@@ -27,7 +27,7 @@ export function buildItems({ onAdd, options, search, value }: Options): [string[
       continue;
     }
 
-    ids.push(option.value);
+    values.push(option.value);
 
     items.push({
       type: 'item',
@@ -44,5 +44,5 @@ export function buildItems({ onAdd, options, search, value }: Options): [string[
     });
   }
 
-  return [ids, items];
+  return [values, items];
 }

@@ -1,50 +1,52 @@
 import { useCallback } from 'react';
 
+import { AddHandler, ChangeHandler, ClearHandler, RemoveHandler, Selected } from '../types';
+
 type Options = {
-  onChange?: (value: Set<string>) => void;
-  value: Set<string>;
+  onChange?: ChangeHandler;
+  selected: Selected;
 };
 
 type Result = {
-  onAdd: (ids: string[]) => void;
-  onRemove: (id: string) => void;
-  onClear: () => void;
+  onAdd: AddHandler;
+  onRemove: RemoveHandler;
+  onClear: ClearHandler;
 };
 
-export function useController({ onChange, value }: Options): Result {
-  const handleAdd = useCallback(
-    (ids: string[]): void => {
+export function useController({ onChange, selected }: Options): Result {
+  const handleAdd = useCallback<AddHandler>(
+    (values): void => {
       if (onChange == null) {
         return;
       }
 
-      const next = new Set(value);
+      const next = new Set(selected);
 
-      for (const id of ids) {
-        next.add(id);
+      for (const value of values) {
+        next.add(value);
       }
 
       onChange(next);
     },
-    [value, onChange],
+    [selected, onChange],
   );
 
-  const handleRemove = useCallback(
-    (id: string): void => {
+  const handleRemove = useCallback<RemoveHandler>(
+    (value): void => {
       if (onChange == null) {
         return;
       }
 
-      const next = new Set(value);
+      const next = new Set(selected);
 
-      next.delete(id);
+      next.delete(value);
 
       onChange(next);
     },
-    [value, onChange],
+    [selected, onChange],
   );
 
-  const handleClear = useCallback((): void => {
+  const handleClear = useCallback<ClearHandler>((): void => {
     if (onChange == null) {
       return;
     }

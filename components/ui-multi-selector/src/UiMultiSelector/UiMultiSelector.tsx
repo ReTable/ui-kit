@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { Container } from '../Container';
 import { Provider } from '../Context';
-import { Option, SelectAll, SelectFound, Size, Variant } from '../types';
+import { ChangeHandler, Option, SelectAll, SelectFound, Selected, Size, Variant } from '../types';
 
 import { useController } from './UiMultiSelector.hooks';
 
@@ -10,23 +10,23 @@ export type Props = {
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
-  onChange: (value: Set<string>) => void;
+  onChange: ChangeHandler;
   options: Option[];
   selectAll?: SelectAll;
   selectFound?: SelectFound;
   size: Size;
-  value: Set<string>;
+  selected: Selected;
   variant: Variant;
 };
 
 export function UiMultiSelector({
   onChange,
-  value,
   selectAll = 'Select all',
   selectFound = 'Select all containing {search}',
+  selected,
   ...props
 }: Props): ReactNode {
-  const { onAdd, onRemove, onClear } = useController({ onChange, value });
+  const { onAdd, onRemove, onClear } = useController({ onChange, selected });
 
   return (
     <Provider
@@ -35,7 +35,7 @@ export function UiMultiSelector({
       onRemove={onRemove}
       selectAll={selectAll}
       selectFound={selectFound}
-      value={value}
+      selected={selected}
       {...props}
     >
       <Container />

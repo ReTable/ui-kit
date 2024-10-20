@@ -61,7 +61,7 @@ export const Default: StoryObj<Options> = {
     selectAll,
     selectFound,
   }) {
-    const [value, onSetValue] = useState(
+    const [selected, onSetSelected] = useState(
       () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
     );
 
@@ -70,10 +70,10 @@ export const Default: StoryObj<Options> = {
         Object.entries(icons).reduce<UiMultiSelectorOption[]>((result, [name, icon]) => {
           if (typeof icon !== 'string') {
             result.push({
-              id: name,
-
               icon: size === 'small' ? undefined : icon,
               label: name,
+
+              value: name,
             });
           }
 
@@ -88,14 +88,14 @@ export const Default: StoryObj<Options> = {
           defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}
-          onChange={onSetValue}
+          onChange={onSetSelected}
           options={options}
           selectAll={selectAll == null ? undefined : 'Select all'}
           selectFound={
             selectFound == null ? undefined : `Select found containing ${searchPlaceholder}`
           }
+          selected={selected}
           size={size}
-          value={value}
           variant={variant}
         />
       </div>
@@ -104,7 +104,7 @@ export const Default: StoryObj<Options> = {
 
   parameters: {
     controls: {
-      exclude: /^(value)$/,
+      exclude: /^(selected)$/,
     },
   },
 };

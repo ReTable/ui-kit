@@ -6,10 +6,10 @@ import { Item } from './Dropdown.types';
 import { buildItems, buildSelectAll, buildSelectFound } from './helpers';
 
 export function useItems(search: string): Item[] {
-  const { onAdd, options, selectAll, selectFound, value } = useContext();
+  const { onAdd, options, selectAll, selectFound, selected } = useContext();
 
   return useMemo(() => {
-    const [ids, items] = buildItems({ onAdd, options, search, value });
+    const [values, items] = buildItems({ onAdd, options, search, selected });
 
     if (items.length === 0) {
       return items;
@@ -18,11 +18,11 @@ export function useItems(search: string): Item[] {
     items.unshift({ type: 'divider' });
 
     if (search.length > 0) {
-      items.unshift(buildSelectFound({ ids, onAdd, search, selectFound }));
+      items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));
     }
 
-    items.unshift(buildSelectAll({ onAdd, options, selectAll, value }));
+    items.unshift(buildSelectAll({ onAdd, options, selectAll, selected }));
 
     return items;
-  }, [onAdd, options, search, value, selectAll, selectFound]);
+  }, [onAdd, options, search, selected, selectAll, selectFound]);
 }
