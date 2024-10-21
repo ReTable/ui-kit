@@ -1,13 +1,13 @@
 import { Ref, RefObject, useEffect, useImperativeHandle, useRef, useState } from 'react';
 
-import { DropdownController } from '../../types';
+import { DropdownController, Selected } from '../../types';
 
 import { Item } from '../Dropdown.types';
 
 type Options = {
   items: Item[];
-
   search: string;
+  selected: Selected;
 };
 
 type Result = {
@@ -19,7 +19,7 @@ type Result = {
 
 export function useController(
   controllerRef: Ref<DropdownController>,
-  { items, search }: Options,
+  { items, search, selected }: Options,
 ): Result {
   const rootRef = useRef<HTMLDivElement>(null);
   const currentRef = useRef<HTMLButtonElement>(null);
@@ -28,7 +28,7 @@ export function useController(
 
   useEffect(() => {
     setCurrentIndex(0);
-  }, [search]);
+  }, [search, selected]);
 
   useEffect(() => {
     const { current } = currentRef;

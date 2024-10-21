@@ -54,7 +54,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       selected,
     });
 
-    const { currentIndex, currentRef, rootRef } = useController(ref, { items, search });
+    const { currentIndex, currentRef, rootRef } = useController(ref, { items, selected, search });
 
     if (items.length === 0) {
       return null;
