@@ -38,7 +38,12 @@
     "@tabula/dom-utils": "0.1.0",
     "@tabula/portal-root-for": "0.1.0",
     "@tabula/track-id": "0.1.0",
-    "@tabula/tree-utils": "0.1.0"
+    "@tabula/tree-utils": "0.1.0",
+    "@tabula/ui-multi-selector": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "chilly-hornets-explain",
+    "chilly-tables-raise",
+    "neat-comics-refuse"
+  ]
 }
