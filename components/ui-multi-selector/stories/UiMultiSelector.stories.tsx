@@ -102,7 +102,13 @@ export const Default: StoryObj<Options> = {
     );
 
     return (
-      <div style={{ width: '362px', padding: '20px' }}>
+      <div
+        style={{
+          width: '362px',
+          padding: '20px',
+          backgroundColor: variant === 'contrast' ? '#f8f8f8' : 'transparent',
+        }}
+      >
         <UiMultiSelector
           allowsCustomValue={allowsCustomValue}
           completeKey={completeKey}
