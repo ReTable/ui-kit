@@ -66,6 +66,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
 
     const nodes: ReactNode[] = [];
 
+    // NOTE: Detect any rendered item has an icon to align all items by grid independently of icon availability.
     let hasIcons = false;
 
     for (const [idx, item] of items.entries()) {
@@ -88,6 +89,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
         </DropdownItem>,
       );
 
+      // NOTE: We don't append divider as item to list, to avoid complicated navigation logic.
       if (hasDividerAfter) {
         nodes.push(<div className={styles.divider} key={`${item.key}-divider`} />);
       }

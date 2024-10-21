@@ -39,6 +39,10 @@ export function useDropdown(): Result {
 
   const [open, { on: onShowDropdown, off: onHideDropdown }] = useFlag(false);
 
+  // NOTE: Hide dropdown with timeout.
+  //
+  //       We hide dropdown when search input lose its focus. In that case, `blur` event will be fired early, dropdown
+  //       will be hidden, and click by option will not work.
   const handleHideDropdown = useCallback(() => {
     setTimeout(onHideDropdown, 0);
   }, [onHideDropdown]);

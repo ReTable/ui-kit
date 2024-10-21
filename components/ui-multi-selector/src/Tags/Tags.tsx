@@ -32,7 +32,7 @@ export function Tags({
 
   return (
     <div className={clsx(styles.root, isDisabled && styles.isDisabled)}>
-      {/* NOTE: Allows to focus on search input when click on space between tags/clear button */}
+      {/* NOTE: Allows to focus on search input when click on space between tags/clear button. */}
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       {!isDisabled && <label className={styles.label} htmlFor={searchId} />}
 

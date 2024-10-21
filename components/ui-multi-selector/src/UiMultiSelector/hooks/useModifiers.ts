@@ -23,6 +23,7 @@ type Result = {
 };
 
 export function useModifiers({ onChange, onSearch, searchRef, selected }: Options): Result {
+  // NOTE: When a user change selected options, we should reset search, and focus search input again.
   const handleChange = useCallback<ChangeHandler>(
     (next) => {
       onChange(next);

@@ -33,11 +33,19 @@ export function useItems({
 
     const hasSearch = search.length > 0;
 
+    // NOTE: When option `allowsCustomValue` is used, we should build items list in different way.
+    //
+    //       When option is on, we suggest an option to apply current input as a new item.
+    //
+    //       Otherwise, we suggest select all and found options and append divider between select options and regular
+    //       items. We should suggest that options only if any items has been available to use.
     if (allowsCustomValue) {
+      // NOTE: Suggest apply custom value only if input isn't empty.
       if (hasSearch) {
         items.unshift(buildCustomValue({ onAdd, search }));
       }
     } else if (items.length > 0) {
+      // NOTE: Suggest `Select found` option only when search isn't empty.
       if (hasSearch) {
         items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));
       }

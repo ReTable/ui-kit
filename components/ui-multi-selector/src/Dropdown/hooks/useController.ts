@@ -33,11 +33,14 @@ export function useController(
   { items, search, selected }: Options,
 ): Result {
   const rootRef = useRef<HTMLDivElement>(null);
+
+  // NOTE: Used to scroll dropdown to current item when user navigate through keyboard.
   const currentRef = useRef<HTMLButtonElement>(null);
 
+  // NOTE: We detect hover on the dropdown to disable keyboard interactions when item has mouse hover.
+  //
+  //       It needed to avoid conflicts between keyboard navigation state and mouse navigation.
   const isHoveredRef = useRef(false);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleMouseEnter = useCallback(() => {
     isHoveredRef.current = true;
@@ -47,10 +50,16 @@ export function useController(
     isHoveredRef.current = false;
   }, []);
 
+  // NOTE: Index of current selected item when user uses keyboard navigation.
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // NOTE: Reset current index when search has been changed or changed list of selected items (usually it happened when
+  //       a user selected any item.
   useEffect(() => {
     setCurrentIndex(0);
   }, [search, selected]);
 
+  // NOTE: When current index has been changed, we should scroll to the new current item.
   useEffect(() => {
     const { current } = currentRef;
 

@@ -45,12 +45,19 @@ export function useHandlers({
     [onSearch],
   );
 
+  // NOTE: Handle special keys: arrow navigation, blur or completion.
   const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
     (event) => {
+      // NOTE: Ignore any non-special keys.
       if (!SPECIAL_KEYS.has(event.key)) {
         return;
       }
 
+      // NOTE: If possible completion key is pressed, we should don't prevent default behaviour, if that key isn't
+      //       enabled by option.
+      //
+      //       For example, if `Enter` is used for completion, then we shouldn't prevent `Tab` navigation when `Tab`
+      //       is pressed.
       if ((event.key === 'Enter' || event.key === 'Tab') && event.key !== completeKey) {
         return;
       }

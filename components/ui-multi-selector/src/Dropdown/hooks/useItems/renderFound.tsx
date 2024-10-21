@@ -16,6 +16,7 @@ export function renderFound(label: string, search: string): ReactNode {
     return label;
   }
 
+  // NOTE: Replace search input placeholder and highlight it if placeholder is available.
   return parts.map((it, index) =>
     it.isMatches ? (
       <span key={index} className={styles.search}>

@@ -17,6 +17,7 @@ export function useSearch(isDisabled?: boolean): Result {
 
   const [search, setSearch] = useState('');
 
+  // NOTE: Reset search input when control is disabled.
   useEffect(() => {
     if (isDisabled) {
       setSearch('');

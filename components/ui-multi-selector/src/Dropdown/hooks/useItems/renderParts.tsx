@@ -10,6 +10,7 @@ export function renderParts(parts: Part[]): ReactNode {
     return parts[0].substring;
   }
 
+  // NOTE: Render search highlights in option label.
   return parts.map((it, index) =>
     it.isMatches ? (
       <span className={styles.highlight} key={index}>
