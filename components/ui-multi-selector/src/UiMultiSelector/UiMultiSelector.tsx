@@ -117,7 +117,7 @@ export function UiMultiSelector({
         />
       )}
       {!isDisabled && (
-        <FloatingPortal>
+        <FloatingPortal preserveTabOrder={false}>
           <div ref={floatingRef} style={style}>
             {isOpen && (
               <Dropdown

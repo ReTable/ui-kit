@@ -22,6 +22,7 @@ export const DropdownItem = forwardRef<HTMLButtonElement, Props>(
       className={clsx(styles.item, isCurrent && styles.isCurrent)}
       onClick={onClick}
       ref={ref}
+      tabIndex={-1}
       type="button"
     >
       {Icon != null && <Icon className={styles.icon} />}

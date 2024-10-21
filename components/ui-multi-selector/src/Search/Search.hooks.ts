@@ -51,30 +51,30 @@ export function useHandlers({
         return;
       }
 
+      if ((event.key === 'Enter' || event.key === 'Tab') && event.key !== completeKey) {
+        return;
+      }
+
       event.preventDefault();
 
       switch (event.key) {
         case 'ArrowDown': {
+          event.preventDefault();
+
           onArrowDown();
 
           break;
         }
         case 'ArrowUp': {
+          event.preventDefault();
+
           onArrowUp();
 
           break;
         }
+        case 'Enter':
         case 'Tab': {
-          if (completeKey === 'Tab') {
-            onComplete();
-          }
-
-          break;
-        }
-        case 'Enter': {
-          if (completeKey === 'Enter') {
-            onComplete();
-          }
+          onComplete();
 
           break;
         }

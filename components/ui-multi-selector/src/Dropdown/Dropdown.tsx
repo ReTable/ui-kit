@@ -90,7 +90,11 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     }
 
     return (
-      <div className={clsx(styles.root, hasIcons && styles.hasIcons, className)} ref={rootRef}>
+      <div
+        className={clsx(styles.root, hasIcons && styles.hasIcons, className)}
+        ref={rootRef}
+        tabIndex={-1}
+      >
         {nodes}
       </div>
     );
