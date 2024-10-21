@@ -12,6 +12,7 @@ import { ChangeHandler, Option, SelectAll, SelectFound, Selected, Size, Variant 
 import { useDropdown, useModifiers, useSearch } from './hooks';
 
 export type Props = {
+  allowsCustomValue?: boolean;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
@@ -19,12 +20,13 @@ export type Props = {
   options: Option[];
   selectAll?: SelectAll;
   selectFound?: SelectFound;
-  size: Size;
   selected: Selected;
+  size: Size;
   variant: Variant;
 };
 
 export function UiMultiSelector({
+  allowsCustomValue,
   defaultPlaceholder,
   emptyPlaceholder,
   isDisabled,
@@ -56,6 +58,7 @@ export function UiMultiSelector({
     >
       {!isEmpty && (
         <Tags
+          allowsCustomValue={allowsCustomValue}
           isDisabled={isDisabled}
           onClear={onClear}
           onRemove={onRemove}
@@ -82,6 +85,7 @@ export function UiMultiSelector({
       )}
       {!isDisabled && (
         <Dropdown
+          allowsCustomValue={allowsCustomValue}
           className={styles.dropdown}
           onAdd={onAdd}
           options={options}

@@ -4,11 +4,13 @@ import { AddHandler, Option, SelectAll, SelectFound, Selected } from '../../../t
 
 import { Item } from '../../Dropdown.types';
 
+import { buildCustomValue } from './buildCustomValue';
 import { buildItems } from './buildItems';
 import { buildSelectAll } from './buildSelectAll';
 import { buildSelectFound } from './buildSelectFound';
 
 type Options = {
+  allowsCustomValue?: boolean;
   onAdd: AddHandler;
   options: Option[];
   search: string;
@@ -18,6 +20,7 @@ type Options = {
 };
 
 export function useItems({
+  allowsCustomValue,
   onAdd,
   options,
   search,
@@ -28,20 +31,22 @@ export function useItems({
   return useMemo(() => {
     const [values, items] = buildItems({ onAdd, options, search, selected });
 
-    if (items.length === 0) {
-      return items;
-    }
-
     const hasSearch = search.length > 0;
 
-    if (hasSearch) {
-      items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));
+    if (allowsCustomValue) {
+      if (hasSearch) {
+        items.unshift(buildCustomValue({ onAdd, search }));
+      }
+    } else if (items.length > 0) {
+      if (hasSearch) {
+        items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));
+      }
+
+      items.unshift(
+        buildSelectAll({ hasDividerAfter: !hasSearch, onAdd, options, selectAll, selected }),
+      );
     }
 
-    items.unshift(
-      buildSelectAll({ hasDividerAfter: !hasSearch, onAdd, options, selectAll, selected }),
-    );
-
     return items;
-  }, [onAdd, options, search, selected, selectAll, selectFound]);
+  }, [onAdd, options, search, selected, allowsCustomValue, selectAll, selectFound]);
 }

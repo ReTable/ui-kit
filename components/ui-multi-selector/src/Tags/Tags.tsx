@@ -8,7 +8,10 @@ import { Clear } from '../Clear';
 import { Tag } from '../Tag';
 import { ClearHandler, Option, RemoveHandler, Selected, Size, Variant } from '../types';
 
+import { useTags } from './Tags.hooks';
+
 type Props = {
+  allowsCustomValue?: boolean;
   isDisabled?: boolean;
   onClear: ClearHandler;
   onRemove: RemoveHandler;
@@ -19,6 +22,7 @@ type Props = {
 };
 
 export function Tags({
+  allowsCustomValue,
   isDisabled,
   onClear,
   onRemove,
@@ -27,27 +31,25 @@ export function Tags({
   size,
   variant,
 }: Props): ReactNode {
-  const tags = options.reduce<ReactNode[]>((nodes, it) => {
+  const tags = useTags({ allowsCustomValue, options, selected });
+
+  const nodes = tags.map((it) => {
     const { icon, label, value } = typeof it === 'string' ? { value: it } : it;
 
-    if (selected.has(value)) {
-      nodes.push(
-        <Tag
-          className={styles.tag}
-          icon={icon}
-          isDisabled={isDisabled}
-          key={value}
-          label={label}
-          onRemove={onRemove}
-          size={size}
-          value={value}
-          variant={variant}
-        />,
-      );
-    }
-
-    return nodes;
-  }, []);
+    return (
+      <Tag
+        className={styles.tag}
+        icon={icon}
+        isDisabled={isDisabled}
+        key={value}
+        label={label}
+        onRemove={onRemove}
+        size={size}
+        value={value}
+        variant={variant}
+      />
+    );
+  });
 
   return (
     <div className={clsx(styles.root, styles.sizes[size], isDisabled && styles.isDisabled)}>
@@ -55,7 +57,7 @@ export function Tags({
         <Clear className={styles.clear} onClear={onClear} variant={variant} size={size} />
       )}
 
-      {tags}
+      {nodes}
     </div>
   );
 }

@@ -27,6 +27,7 @@ export default meta;
 // region Story Utilities
 
 type Options = {
+  allowsCustomValue?: boolean;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
@@ -46,6 +47,10 @@ export const Default: StoryObj<Options> = {
   },
 
   argTypes: {
+    allowsCustomValue: {
+      type: 'boolean',
+      name: 'Is allows custom value?',
+    },
     isDisabled: {
       type: 'boolean',
       name: 'Is disabled?',
@@ -53,6 +58,7 @@ export const Default: StoryObj<Options> = {
   },
 
   render({
+    allowsCustomValue,
     emptyPlaceholder,
     defaultPlaceholder,
     isDisabled,
@@ -85,6 +91,7 @@ export const Default: StoryObj<Options> = {
     return (
       <div style={{ width: '362px', padding: '20px' }}>
         <UiMultiSelector
+          allowsCustomValue={allowsCustomValue}
           defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}

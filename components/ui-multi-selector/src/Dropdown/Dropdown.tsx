@@ -10,6 +10,7 @@ import { DropdownItem } from './Dropdown.Item';
 import { useController, useItems } from './hooks';
 
 type Props = {
+  allowsCustomValue?: boolean;
   className?: string;
   onAdd: AddHandler;
   options: Option[];
@@ -20,10 +21,25 @@ type Props = {
 };
 
 export const Dropdown = forwardRef<DropdownController, Props>(
-  ({ className, onAdd, options, search, selectAll, selectFound, selected }, ref) => {
-    const items = useItems({ onAdd, options, search, selectAll, selectFound, selected });
+  (
+    { allowsCustomValue, className, onAdd, options, search, selectAll, selectFound, selected },
+    ref,
+  ) => {
+    const items = useItems({
+      allowsCustomValue,
+      onAdd,
+      options,
+      search,
+      selectAll,
+      selectFound,
+      selected,
+    });
 
     const { currentIndex, currentRef, rootRef } = useController(ref, { items, search });
+
+    if (items.length === 0) {
+      return null;
+    }
 
     const nodes: ReactNode[] = [];
 
