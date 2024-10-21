@@ -3,6 +3,8 @@ import { ReactNode } from 'react';
 import { FloatingPortal } from '@floating-ui/react';
 import { clsx } from 'clsx';
 
+import { ReactComponent as ChevronIcon } from './assets/chevron.svg';
+
 import * as shared from '../shared.css';
 import * as styles from './UiMultiSelector.css';
 
@@ -35,6 +37,7 @@ export type Props = {
   selected: Selected;
   size: Size;
   variant: Variant;
+  withDropdownChevron?: boolean;
 };
 
 export function UiMultiSelector({
@@ -50,6 +53,7 @@ export function UiMultiSelector({
   selected,
   size,
   variant,
+  withDropdownChevron,
 }: Props): ReactNode {
   const isEmpty = selected.size === 0;
 
@@ -82,11 +86,13 @@ export function UiMultiSelector({
         styles.root,
         shared.variants[variant],
         shared.sizes[size],
+        withDropdownChevron && shared.hasChevron,
         isDisabled && styles.isDisabled,
         isEmpty && styles.isEmpty,
       )}
       ref={referenceRef}
     >
+      {withDropdownChevron && !isDisabled && <ChevronIcon className={styles.chevron} />}
       {!isEmpty && (
         <Tags
           allowsCustomValue={allowsCustomValue}

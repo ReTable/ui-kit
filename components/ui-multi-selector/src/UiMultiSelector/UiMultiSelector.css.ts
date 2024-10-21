@@ -12,8 +12,6 @@ export const root = style({
       borderRadius: '6px',
       border: `1px solid ${uiTheme.colors.borderControl.default}`,
 
-      color: uiTheme.colors.content.placeholder,
-
       cursor: 'pointer',
 
       overflow: 'hidden',
@@ -58,6 +56,38 @@ export const isDisabled = style({
 
         '&:hover': {
           borderColor: uiTheme.colors.borderControl.default,
+        },
+      },
+    },
+  },
+});
+
+export const chevron = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'absolute',
+
+      color: uiTheme.colors.content.tertiary,
+
+      selectors: {
+        [`${shared.sizes.small} &`]: {
+          top: '10px',
+          right: '8px',
+        },
+
+        [`${shared.sizes.small}${isEmpty} &`]: {
+          top: '8px',
+          right: '12px',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          top: '12px',
+          right: '8px',
+        },
+
+        [`${shared.sizes.medium}${isEmpty} &`]: {
+          top: '8px',
+          right: '12px',
         },
       },
     },

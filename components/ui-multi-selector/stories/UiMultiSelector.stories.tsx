@@ -37,6 +37,7 @@ type Options = {
   variant: UiMultiSelectorVariant;
   selectAll?: boolean;
   selectFound?: boolean;
+  withDropdownChevron?: boolean;
 };
 
 /* eslint-disable react-hooks/rules-of-hooks, react/hook-use-state */
@@ -61,6 +62,10 @@ export const Default: StoryObj<Options> = {
       control: 'boolean',
       name: 'Is disabled?',
     },
+    withDropdownChevron: {
+      control: 'boolean',
+      name: 'Has dropdown chevron?',
+    },
   },
 
   render({
@@ -73,6 +78,7 @@ export const Default: StoryObj<Options> = {
     variant,
     selectAll,
     selectFound,
+    withDropdownChevron,
   }) {
     const [selected, onSetSelected] = useState(
       () => new Set<string>(['UiDateIcon', 'UiStringIcon', 'UiIntegerIcon']),
@@ -112,6 +118,7 @@ export const Default: StoryObj<Options> = {
           selected={selected}
           size={size}
           variant={variant}
+          withDropdownChevron={withDropdownChevron}
         />
       </div>
     );

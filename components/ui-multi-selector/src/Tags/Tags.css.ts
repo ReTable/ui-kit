@@ -89,8 +89,16 @@ export const clear = style({
           margin: '4px 4px 0 4px',
         },
 
+        [`${shared.sizes.small}${shared.hasChevron} &`]: {
+          marginRight: '26px',
+        },
+
         [`${shared.sizes.medium} &`]: {
           margin: '8px 8px 0 8px',
+        },
+
+        [`${shared.sizes.medium}${shared.hasChevron} &`]: {
+          marginRight: '30px',
         },
       },
     },
