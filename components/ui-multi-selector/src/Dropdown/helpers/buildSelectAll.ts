@@ -3,13 +3,20 @@ import { AddHandler, Option, SelectAll, Selected } from '../../types';
 import { Item } from '../Dropdown.types';
 
 type Options = {
+  hasDividerAfter?: boolean;
   onAdd: AddHandler;
   options: Option[];
   selectAll: SelectAll;
   selected: Selected;
 };
 
-export function buildSelectAll({ onAdd, options, selectAll, selected }: Options): Item {
+export function buildSelectAll({
+  hasDividerAfter,
+  onAdd,
+  options,
+  selectAll,
+  selected,
+}: Options): Item {
   const handleClick = () => {
     const ids = options.reduce<string[]>((result, it) => {
       const value = typeof it === 'string' ? it : it.value;
@@ -26,5 +33,14 @@ export function buildSelectAll({ onAdd, options, selectAll, selected }: Options)
 
   const { icon, label } = typeof selectAll === 'string' ? { label: selectAll } : selectAll;
 
-  return { type: 'item', key: 'select-all', icon, onClick: handleClick, label };
+  return {
+    key: 'select-all',
+
+    icon,
+    label,
+
+    onSelect: handleClick,
+
+    hasDividerAfter,
+  };
 }

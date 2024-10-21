@@ -33,15 +33,12 @@ export function buildItems({ onAdd, options, search, selected }: Options): [stri
     values.push(value);
 
     items.push({
-      type: 'item',
-
       key: `item-${value}`,
 
       icon,
-
       label: renderParts(parts),
 
-      onClick: () => {
+      onSelect: () => {
         onAdd([value]);
       },
     });

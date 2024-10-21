@@ -18,30 +18,34 @@ type Props = {
 export const Dropdown = forwardRef<DropdownController, Props>(({ className, search }, ref) => {
   const items = useItems(search);
 
-  const rootRef = useController(ref);
+  const { currentIndex, currentRef, rootRef } = useController(ref, { items, search });
 
   const nodes: ReactNode[] = [];
 
   let hasIcons = false;
 
-  for (const item of items) {
-    if (item.type === 'divider') {
-      nodes.push(<div className={styles.divider} key={item.key} />);
-
-      continue;
-    }
-
-    const { key, icon, onClick, label } = item;
+  for (const [idx, item] of items.entries()) {
+    const { key, icon, onSelect, label, hasDividerAfter } = item;
 
     if (icon != null) {
       hasIcons = true;
     }
 
     nodes.push(
-      <DropdownItem key={key} onClick={onClick} icon={icon}>
+      <DropdownItem
+        isCurrent={idx === currentIndex}
+        key={key}
+        onClick={onSelect}
+        icon={icon}
+        ref={idx === currentIndex ? currentRef : undefined}
+      >
         {label}
       </DropdownItem>,
     );
+
+    if (hasDividerAfter) {
+      nodes.push(<div className={styles.divider} key={`${item.key}-divider`} />);
+    }
   }
 
   return (

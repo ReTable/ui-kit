@@ -27,7 +27,7 @@ export function Container(): ReactNode {
     }
   }, [isDisabled]);
 
-  const [isDropdownVisible, { on: showDropdown, off: hideDropdown }] = useFlag(true);
+  const [, { on: showDropdown, off: hideDropdown }] = useFlag(true);
 
   const handleArrowDown = useCallback(() => {
     dropdownRef.current?.goToNext();
@@ -66,9 +66,7 @@ export function Container(): ReactNode {
           variant={variant}
         />
       )}
-      {!isDisabled && isDropdownVisible && (
-        <Dropdown className={styles.dropdown} ref={dropdownRef} search={search} />
-      )}
+      {!isDisabled && <Dropdown className={styles.dropdown} ref={dropdownRef} search={search} />}
     </div>
   );
 }

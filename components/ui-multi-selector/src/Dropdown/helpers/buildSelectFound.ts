@@ -19,10 +19,13 @@ export function buildSelectFound({ onAdd, selectFound, search, values }: Options
   const { icon, label } = typeof selectFound === 'string' ? { label: selectFound } : selectFound;
 
   return {
-    type: 'item',
-    icon,
     key: 'select-found',
+
+    icon,
     label: renderFound(label, search),
-    onClick: handleClick,
+
+    onSelect: handleClick,
+
+    hasDividerAfter: true,
   };
 }

@@ -15,13 +15,15 @@ export function useItems(search: string): Item[] {
       return items;
     }
 
-    items.unshift({ type: 'divider', key: 'divider' });
+    const hasSearch = search.length > 0;
 
-    if (search.length > 0) {
+    if (hasSearch) {
       items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));
     }
 
-    items.unshift(buildSelectAll({ onAdd, options, selectAll, selected }));
+    items.unshift(
+      buildSelectAll({ hasDividerAfter: !hasSearch, onAdd, options, selectAll, selected }),
+    );
 
     return items;
   }, [onAdd, options, search, selected, selectAll, selectFound]);

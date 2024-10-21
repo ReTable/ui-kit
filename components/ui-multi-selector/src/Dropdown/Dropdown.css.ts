@@ -37,25 +37,6 @@ export const hasIcons = style({
   },
 });
 
-export const icon = style({
-  '@layer': {
-    [uiLayers.components]: {
-      width: '16px',
-      height: '16px',
-    },
-  },
-});
-
-export const label = style({
-  '@layer': {
-    [uiLayers.components]: {
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-    },
-  },
-});
-
 export const highlight = style([uiStyles.fonts.sansSerif.bold12]);
 
 export const search = style([
@@ -88,6 +69,17 @@ export const divider = style({
   },
 });
 
+export const icon = style({
+  '@layer': {
+    [uiLayers.components]: {
+      flex: '0 0 auto',
+
+      width: '16px',
+      height: '16px',
+    },
+  },
+});
+
 export const item = style([
   uiStyles.fonts.sansSerif.medium12,
   {
@@ -112,8 +104,6 @@ export const item = style([
 
         textAlign: 'left',
 
-        transition: `background-color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
-
         selectors: {
           '&:hover': {
             backgroundColor: uiTheme.colors.neutralAlpha['5'],
@@ -129,5 +119,43 @@ export const item = style([
         },
       },
     },
+  },
+]);
+
+export const label = style({
+  '@layer': {
+    [uiLayers.components]: {
+      flex: '1 1 auto',
+      whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+    },
+  },
+});
+
+export const isCurrent = style({
+  '@layer': {
+    [uiLayers.components]: {
+      backgroundColor: uiTheme.colors.neutralAlpha['5'],
+    },
+  },
+});
+
+export const key = style([
+  uiStyles.fonts.sansSerif.regular12,
+  {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+
+    height: '16px',
+
+    padding: '0 12px',
+
+    borderRadius: '4px',
+    border: `1px solid ${uiTheme.colors.neutralAlpha['10']}`,
+
+    color: uiTheme.colors.content.tertiary,
   },
 ]);
