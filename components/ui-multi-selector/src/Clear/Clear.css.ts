@@ -35,10 +35,50 @@ export const root = style({
           backgroundColor: uiTheme.colors.neutralAlpha['5'],
         },
 
+        [`${shared.variants.accent} &:hover`]: {
+          border: 'none',
+
+          backgroundColor: uiTheme.colors.neutralAlpha['7'],
+        },
+
+        [`${shared.variants.accent} &:active`]: {
+          border: 'none',
+
+          backgroundColor: uiTheme.colors.neutralAlpha['10'],
+        },
+
         [`${shared.variants.contrast} &`]: {
           border: `1px solid ${uiTheme.colors.borderControl.default}`,
 
           backgroundColor: 'transparent',
+        },
+
+        [`${shared.variants.contrast} &:hover`]: {
+          border: `1px solid ${uiTheme.colors.borderControl.hover}`,
+
+          backgroundColor: uiTheme.colors.neutralAlpha['7'],
+        },
+
+        [`${shared.variants.contrast} &:active`]: {
+          border: `1px solid ${uiTheme.colors.borderControl.hover}`,
+
+          backgroundColor: uiTheme.colors.neutralAlpha['10'],
+        },
+
+        '&:focus': {
+          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
+        },
+
+        '&:hover': {
+          transition: `all ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+
+          color: uiTheme.colors.content.primary,
+        },
+
+        '&:active': {
+          color: uiTheme.colors.content.primary,
+
+          transition: 'none',
         },
       },
     },
