@@ -26,6 +26,10 @@ export const root = style({
         [`${shared.variants.contrast}&`]: {
           backgroundColor: 'transparent',
         },
+
+        '&:has(input:focus)': {
+          outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
+        },
       },
     },
   },
