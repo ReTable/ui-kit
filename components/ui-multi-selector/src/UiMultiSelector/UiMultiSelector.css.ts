@@ -48,14 +48,3 @@ export const isDisabled = style({
     },
   },
 });
-
-export const dropdown = style({
-  '@layer': {
-    [uiLayers.components]: {
-      position: 'absolute',
-      top: 'calc(100% + 4px)',
-      left: '0',
-      width: '100%',
-    },
-  },
-});

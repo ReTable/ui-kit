@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { FloatingPortal } from '@floating-ui/react';
 import { clsx } from 'clsx';
 
 import * as shared from '../shared.css';
@@ -45,8 +46,19 @@ export function UiMultiSelector({
 
   const [search, onSearch] = useSearch(isDisabled);
 
-  const [dropdownRef, { onShowDropdown, onHideDropdown, onGoNext, onGoPrevious, onSelectCurrent }] =
-    useDropdown();
+  const {
+    dropdownRef,
+    // context,
+    floatingRef,
+    isOpen,
+    onGoNext,
+    onGoPrevious,
+    // onHideDropdown,
+    onSelectCurrent,
+    onShowDropdown,
+    referenceRef,
+    style,
+  } = useDropdown();
 
   const renderTag = useTagRenderer({
     isDisabled,
@@ -64,6 +76,7 @@ export function UiMultiSelector({
         isDisabled && styles.isDisabled,
         isEmpty && styles.isEmpty,
       )}
+      ref={referenceRef}
     >
       {!isEmpty && (
         <Tags
@@ -82,7 +95,7 @@ export function UiMultiSelector({
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
           onArrowUp={onGoPrevious}
-          onBlur={onHideDropdown}
+          onBlur={() => {}}
           onFocus={onShowDropdown}
           onSearch={onSearch}
           onTab={onSelectCurrent}
@@ -90,17 +103,22 @@ export function UiMultiSelector({
         />
       )}
       {!isDisabled && (
-        <Dropdown
-          allowsCustomValue={allowsCustomValue}
-          className={styles.dropdown}
-          onAdd={onAdd}
-          options={options}
-          ref={dropdownRef}
-          search={search}
-          selectAll={selectAll}
-          selectFound={selectFound}
-          selected={selected}
-        />
+        <FloatingPortal>
+          <div ref={floatingRef} style={style}>
+            {isOpen && (
+              <Dropdown
+                allowsCustomValue={allowsCustomValue}
+                onAdd={onAdd}
+                options={options}
+                ref={dropdownRef}
+                search={search}
+                selectAll={selectAll}
+                selectFound={selectFound}
+                selected={selected}
+              />
+            )}
+          </div>
+        </FloatingPortal>
       )}
     </div>
   );
