@@ -44,7 +44,7 @@ export function useModifiers({ onChange, onSearch, searchRef, selected }: Option
 
       handleChange(next);
     },
-    [onChange, selected, onSearch, searchRef],
+    [selected, handleChange],
   );
 
   const handleRemove = useCallback<RemoveHandler>(
@@ -55,12 +55,12 @@ export function useModifiers({ onChange, onSearch, searchRef, selected }: Option
 
       handleChange(next);
     },
-    [onChange, selected, onSearch, searchRef],
+    [selected, handleChange],
   );
 
   const handleClear = useCallback<ClearHandler>((): void => {
     handleChange(new Set());
-  }, [onChange, onSearch, searchRef]);
+  }, [handleChange]);
 
   return { onAdd: handleAdd, onRemove: handleRemove, onClear: handleClear };
 }
