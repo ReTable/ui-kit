@@ -2,19 +2,29 @@ import { ReactNode, useCallback } from 'react';
 
 import { UiTag } from '@tabula/ui-tag';
 
-import { useContext } from '../Context';
-import { IconComponent } from '../types';
+import { IconComponent, RemoveHandler, Size, Variant } from '../types';
 
 type Props = {
   className?: string;
   icon?: IconComponent;
+  isDisabled?: boolean;
   label?: string;
+  onRemove: RemoveHandler;
+  size: Size;
   value: string;
+  variant: Variant;
 };
 
-export function Tag({ className, icon, label, value }: Props): ReactNode {
-  const { isDisabled, onRemove, size, variant } = useContext();
-
+export function Tag({
+  className,
+  icon,
+  isDisabled,
+  label,
+  onRemove,
+  size,
+  value,
+  variant,
+}: Props): ReactNode {
   const handleRemove = useCallback(() => {
     onRemove(value);
   }, [value, onRemove]);

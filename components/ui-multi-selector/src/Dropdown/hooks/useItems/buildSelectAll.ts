@@ -1,6 +1,6 @@
-import { AddHandler, Option, SelectAll, Selected } from '../../types';
+import { AddHandler, Option, SelectAll, Selected } from '../../../types';
 
-import { Item } from '../Dropdown.types';
+import { Item } from '../../Dropdown.types';
 
 type Options = {
   hasDividerAfter?: boolean;

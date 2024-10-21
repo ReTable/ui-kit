@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
-import * as styles from '../Dropdown.css';
+import * as styles from '../../Dropdown.css';
 
-import { searchPlaceholder } from '../../const';
+import { searchPlaceholder } from '../../../const';
 
-import { Part } from '../Dropdown.types';
+import { Part } from '../../Dropdown.types';
 
 import { match } from './match';
 

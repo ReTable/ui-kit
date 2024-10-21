@@ -4,7 +4,7 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './Search.css';
 
-import { SearchController, Variant } from '../types';
+import { SearchController, SearchHandler, Variant } from '../types';
 
 import { useController, useHandlers } from './hooks';
 
@@ -17,7 +17,7 @@ type Props = {
   onArrowUp: () => void;
   onBlur: () => void;
   onFocus: () => void;
-  onSearch: (value: string) => void;
+  onSearch: SearchHandler;
   onTab: () => void;
   value: string;
   variant: Variant;

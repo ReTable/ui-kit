@@ -1,4 +1,4 @@
-import { Part } from '../Dropdown.types';
+import { Part } from '../../Dropdown.types';
 
 export function match(rawTarget: string, rawPattern: string): [boolean, Part[]] {
   if (rawPattern.length === 0) {

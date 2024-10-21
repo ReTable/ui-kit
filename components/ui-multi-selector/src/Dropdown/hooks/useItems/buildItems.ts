@@ -1,6 +1,6 @@
-import { AddHandler, Option, Selected } from '../../types';
+import { AddHandler, Option, Selected } from '../../../types';
 
-import { Item, Part } from '../Dropdown.types';
+import { Item, Part } from '../../Dropdown.types';
 
 import { match } from './match';
 import { renderParts } from './renderParts';

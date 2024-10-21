@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { AddHandler, ChangeHandler, ClearHandler, RemoveHandler, Selected } from '../types';
+import { AddHandler, ChangeHandler, ClearHandler, RemoveHandler, Selected } from '../../types';
 
 type Options = {
   onChange?: ChangeHandler;
@@ -13,7 +13,7 @@ type Result = {
   onClear: ClearHandler;
 };
 
-export function useController({ onChange, selected }: Options): Result {
+export function useModifiers({ onChange, selected }: Options): Result {
   const handleAdd = useCallback<AddHandler>(
     (values): void => {
       if (onChange == null) {

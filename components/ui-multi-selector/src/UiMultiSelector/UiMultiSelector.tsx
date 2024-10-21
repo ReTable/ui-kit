@@ -1,10 +1,15 @@
 import { ReactNode } from 'react';
 
-import { Container } from '../Container';
-import { Provider } from '../Context';
+import { clsx } from 'clsx';
+
+import * as styles from './UiMultiSelector.css';
+
+import { Dropdown } from '../Dropdown';
+import { Search } from '../Search';
+import { Tags } from '../Tags';
 import { ChangeHandler, Option, SelectAll, SelectFound, Selected, Size, Variant } from '../types';
 
-import { useController } from './UiMultiSelector.hooks';
+import { useDropdown, useModifiers, useSearch } from './hooks';
 
 export type Props = {
   defaultPlaceholder?: string;
@@ -20,26 +25,74 @@ export type Props = {
 };
 
 export function UiMultiSelector({
+  defaultPlaceholder,
+  emptyPlaceholder,
+  isDisabled,
   onChange,
+  options,
   selectAll = 'Select all',
   selectFound = 'Select all containing {search}',
   selected,
-  ...props
+  size,
+  variant,
 }: Props): ReactNode {
-  const { onAdd, onRemove, onClear } = useController({ onChange, selected });
+  const isEmpty = selected.size === 0;
+
+  const { onAdd, onRemove, onClear } = useModifiers({ onChange, selected });
+
+  const [search, onSearch] = useSearch(isDisabled);
+
+  const [dropdownRef, { onShowDropdown, onHideDropdown, onGoNext, onGoPrevious, onSelectCurrent }] =
+    useDropdown();
 
   return (
-    <Provider
-      onAdd={onAdd}
-      onClear={onClear}
-      onRemove={onRemove}
-      selectAll={selectAll}
-      selectFound={selectFound}
-      selected={selected}
-      {...props}
+    <div
+      className={clsx(
+        styles.root,
+        styles.variants[variant],
+        isDisabled && styles.isDisabled,
+        isEmpty && styles.isEmpty,
+      )}
     >
-      <Container />
-    </Provider>
+      {!isEmpty && (
+        <Tags
+          isDisabled={isDisabled}
+          onClear={onClear}
+          onRemove={onRemove}
+          options={options}
+          selected={selected}
+          size={size}
+          variant={variant}
+        />
+      )}
+      {(!isDisabled || isEmpty) && (
+        <Search
+          defaultPlaceholder={defaultPlaceholder}
+          emptyPlaceholder={emptyPlaceholder}
+          isDisabled={isDisabled}
+          onArrowDown={onGoNext}
+          onArrowUp={onGoPrevious}
+          onBlur={onHideDropdown}
+          onFocus={onShowDropdown}
+          onSearch={onSearch}
+          onTab={onSelectCurrent}
+          value={search}
+          variant={variant}
+        />
+      )}
+      {!isDisabled && (
+        <Dropdown
+          className={styles.dropdown}
+          onAdd={onAdd}
+          options={options}
+          ref={dropdownRef}
+          search={search}
+          selectAll={selectAll}
+          selectFound={selectFound}
+          selected={selected}
+        />
+      )}
+    </div>
   );
 }
 

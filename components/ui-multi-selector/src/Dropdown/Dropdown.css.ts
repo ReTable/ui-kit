@@ -7,7 +7,9 @@ const itemHeight = '32px';
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
-      maxHeight: `calc(10 * ${itemHeight})`,
+      maxHeight: `calc(10 * ${itemHeight} + 6px)`,
+
+      padding: '6px 0',
 
       borderRadius: '6px',
 

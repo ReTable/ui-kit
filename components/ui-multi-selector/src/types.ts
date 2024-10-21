@@ -25,6 +25,8 @@ export type RemoveHandler = (value: string) => void;
 
 export type ClearHandler = () => void;
 
+export type SearchHandler = (search: string) => void;
+
 // endregion Handlers
 
 // region Controllers

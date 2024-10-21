@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 
-import * as styles from '../Dropdown.css';
+import * as styles from '../../Dropdown.css';
 
-import { Part } from '../Dropdown.types';
+import { Part } from '../../Dropdown.types';
 
 /* eslint-disable react/no-array-index-key */
 export function renderParts(parts: Part[]): ReactNode {
