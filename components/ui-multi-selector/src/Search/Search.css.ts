@@ -34,6 +34,14 @@ export const root = style([
 
           '&::placeholder': {
             color: uiTheme.colors.content.placeholder,
+
+            transition: `color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+          },
+
+          '&:hover::placeholder': {
+            color: uiTheme.colors.content.primary,
+
+            opacity: 1,
           },
         },
       },
