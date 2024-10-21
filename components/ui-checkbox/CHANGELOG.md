@@ -1,6 +1,6 @@
 # @tabula/ui-checkbox
 
-## 5.0.0-next.0
+## 4.1.0-next.0
 
 ### Patch Changes
 

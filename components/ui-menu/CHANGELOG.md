@@ -1,6 +1,6 @@
 # @tabula/ui-menu
 
-## 2.0.0-next.0
+## 1.1.0-next.0
 
 ### Patch Changes
 

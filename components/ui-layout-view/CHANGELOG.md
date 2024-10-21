@@ -1,6 +1,6 @@
 # @tabula/ui-layout-view
 
-## 9.0.0-next.0
+## 8.1.0-next.0
 
 ### Patch Changes
 
