@@ -16,6 +16,7 @@ type Props = {
   onArrowDown: () => void;
   onArrowUp: () => void;
   onBlur: () => void;
+  onEscape: () => void;
   onFocus: () => void;
   onSearch: SearchHandler;
   onTab: () => void;

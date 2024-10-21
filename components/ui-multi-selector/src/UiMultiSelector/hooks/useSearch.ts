@@ -1,8 +1,17 @@
-import { useEffect, useState } from 'react';
+import { Ref, useCallback, useEffect, useRef, useState } from 'react';
 
 import { SearchHandler } from '../../types';
 
-export function useSearch(isDisabled?: boolean): [string, SearchHandler] {
+type Result = {
+  onEscape: () => void;
+  onSearch: SearchHandler;
+  search: string;
+  searchRef: Ref<HTMLInputElement>;
+};
+
+export function useSearch(isDisabled?: boolean): Result {
+  const searchRef = useRef<HTMLInputElement>(null);
+
   const [search, setSearch] = useState('');
 
   useEffect(() => {
@@ -11,5 +20,10 @@ export function useSearch(isDisabled?: boolean): [string, SearchHandler] {
     }
   }, [isDisabled]);
 
-  return [search, setSearch];
+  // NOTE: Remove focus from search input when `Escape` has been pressed.
+  const onEscape = useCallback(() => {
+    searchRef.current?.blur();
+  }, []);
+
+  return { onEscape, onSearch: setSearch, search, searchRef };
 }

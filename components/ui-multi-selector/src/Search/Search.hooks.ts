@@ -10,13 +10,14 @@ type ChangeHandler = ChangeEventHandler<HTMLInputElement>;
 
 // region Constants
 
-const SPECIAL_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Tab']);
+const SPECIAL_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Tab', 'Escape']);
 
 // endregion Constants
 
 type Options = {
   onArrowDown: () => void;
   onArrowUp: () => void;
+  onEscape: () => void;
   onSearch: (value: string) => void;
   onTab: () => void;
 };
@@ -26,7 +27,13 @@ type Result = {
   onKeyDown: KeyboardHandler;
 };
 
-export function useHandlers({ onArrowDown, onArrowUp, onSearch, onTab }: Options): Result {
+export function useHandlers({
+  onArrowDown,
+  onArrowUp,
+  onEscape,
+  onSearch,
+  onTab,
+}: Options): Result {
   const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (event) => {
       onSearch(event.target.value);
@@ -55,6 +62,11 @@ export function useHandlers({ onArrowDown, onArrowUp, onSearch, onTab }: Options
         }
         case 'Tab': {
           onTab();
+
+          break;
+        }
+        case 'Escape': {
+          onEscape();
 
           break;
         }
