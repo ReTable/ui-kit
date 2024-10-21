@@ -84,11 +84,11 @@ export const clear = style({
 
       selectors: {
         [`${shared.sizes.small} &`]: {
-          margin: '4px',
+          margin: '4px 4px 0 4px',
         },
 
         [`${shared.sizes.medium} &`]: {
-          margin: '8px',
+          margin: '8px 8px 0 8px',
         },
       },
     },
