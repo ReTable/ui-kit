@@ -1,7 +1,6 @@
 import { CSSProperties, Ref, RefObject, useCallback, useMemo, useRef } from 'react';
 
 import {
-  FloatingContext,
   autoUpdate,
   flip,
   offset,
@@ -16,8 +15,6 @@ import { DropdownController } from '../../types';
 
 type Result = {
   isOpen: boolean;
-
-  context: FloatingContext;
 
   dropdownRef: RefObject<DropdownController>;
   floatingRef: Ref<HTMLDivElement>;
@@ -88,8 +85,6 @@ export function useDropdown(): Result {
 
   return {
     isOpen,
-
-    context,
 
     dropdownRef,
     floatingRef: refs.setFloating as Ref<HTMLDivElement>,

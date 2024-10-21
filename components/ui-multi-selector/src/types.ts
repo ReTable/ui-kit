@@ -13,6 +13,8 @@ export type Option =
 
 export type Selected = Set<string>;
 
+export type CompleteKey = 'Enter' | 'Tab';
+
 // endregion Options & Values
 
 // region Handlers

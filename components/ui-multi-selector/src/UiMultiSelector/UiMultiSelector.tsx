@@ -9,12 +9,22 @@ import * as styles from './UiMultiSelector.css';
 import { Dropdown } from '../Dropdown';
 import { Search } from '../Search';
 import { Tags } from '../Tags';
-import { ChangeHandler, Option, SelectAll, SelectFound, Selected, Size, Variant } from '../types';
+import {
+  ChangeHandler,
+  CompleteKey,
+  Option,
+  SelectAll,
+  SelectFound,
+  Selected,
+  Size,
+  Variant,
+} from '../types';
 
 import { useDropdown, useModifiers, useSearch, useTagRenderer } from './hooks';
 
 export type Props = {
   allowsCustomValue?: boolean;
+  completeKey?: CompleteKey;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
@@ -29,6 +39,7 @@ export type Props = {
 
 export function UiMultiSelector({
   allowsCustomValue,
+  completeKey = 'Enter',
   defaultPlaceholder,
   emptyPlaceholder,
   isDisabled,
@@ -48,12 +59,10 @@ export function UiMultiSelector({
 
   const {
     dropdownRef,
-    // context,
     floatingRef,
     isOpen,
     onGoNext,
     onGoPrevious,
-    // onHideDropdown,
     onSelectCurrent,
     onShowDropdown,
     referenceRef,
@@ -90,16 +99,17 @@ export function UiMultiSelector({
       )}
       {(!isDisabled || isEmpty) && (
         <Search
+          completeKey={completeKey}
           defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
           onArrowUp={onGoPrevious}
           onBlur={() => {}}
+          onComplete={onSelectCurrent}
           onEscape={onEscape}
           onFocus={onShowDropdown}
           onSearch={onSearch}
-          onTab={onSelectCurrent}
           ref={searchRef}
           value={search}
         />
@@ -110,6 +120,7 @@ export function UiMultiSelector({
             {isOpen && (
               <Dropdown
                 allowsCustomValue={allowsCustomValue}
+                completeKey={completeKey}
                 onAdd={onAdd}
                 options={options}
                 ref={dropdownRef}

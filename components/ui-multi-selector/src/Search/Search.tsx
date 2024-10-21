@@ -4,22 +4,23 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './Search.css';
 
-import { SearchHandler } from '../types';
+import { CompleteKey, SearchHandler } from '../types';
 
 import { useHandlers } from './Search.hooks';
 
 type Props = {
   className?: string;
+  completeKey: CompleteKey;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
   onArrowDown: () => void;
   onArrowUp: () => void;
   onBlur: () => void;
+  onComplete: () => void;
   onEscape: () => void;
   onFocus: () => void;
   onSearch: SearchHandler;
-  onTab: () => void;
   value: string;
 };
 

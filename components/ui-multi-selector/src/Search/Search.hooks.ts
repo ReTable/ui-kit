@@ -1,5 +1,7 @@
 import { ChangeEventHandler, KeyboardEventHandler, useCallback } from 'react';
 
+import { CompleteKey } from '../types';
+
 // region Types
 
 type KeyboardHandler = KeyboardEventHandler<HTMLInputElement>;
@@ -10,16 +12,17 @@ type ChangeHandler = ChangeEventHandler<HTMLInputElement>;
 
 // region Constants
 
-const SPECIAL_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Tab', 'Escape']);
+const SPECIAL_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Enter', 'Escape', 'Tab']);
 
 // endregion Constants
 
 type Options = {
+  completeKey: CompleteKey;
   onArrowDown: () => void;
   onArrowUp: () => void;
+  onComplete: () => void;
   onEscape: () => void;
   onSearch: (value: string) => void;
-  onTab: () => void;
 };
 
 type Result = {
@@ -28,11 +31,12 @@ type Result = {
 };
 
 export function useHandlers({
+  completeKey,
   onArrowDown,
   onArrowUp,
+  onComplete,
   onEscape,
   onSearch,
-  onTab,
 }: Options): Result {
   const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
     (event) => {
@@ -61,7 +65,16 @@ export function useHandlers({
           break;
         }
         case 'Tab': {
-          onTab();
+          if (completeKey === 'Tab') {
+            onComplete();
+          }
+
+          break;
+        }
+        case 'Enter': {
+          if (completeKey === 'Enter') {
+            onComplete();
+          }
 
           break;
         }
@@ -72,7 +85,7 @@ export function useHandlers({
         }
       }
     },
-    [onArrowDown, onArrowUp, onTab],
+    [onArrowDown, onArrowUp, onComplete],
   );
 
   return { onChange: handleChange, onKeyDown: handleKeyDown };

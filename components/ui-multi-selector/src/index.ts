@@ -6,6 +6,7 @@ export type { Props as UiMultiSelectorProps } from './UiMultiSelector';
 
 export type {
   ChangeHandler as UiMultiSelectorChangeHandler,
+  CompleteKey as UiMultiSelectorCompleteKey,
   IconComponent as UiMultiSelectorIconComponentType,
   Option as UiMultiSelectorOption,
   Size as UiMultiSelectorSize,

@@ -6,6 +6,7 @@ import * as icons from '@tabula/ui-data-type-icon';
 
 import {
   UiMultiSelector,
+  UiMultiSelectorCompleteKey,
   UiMultiSelectorOption,
   UiMultiSelectorSize,
   UiMultiSelectorVariant,
@@ -28,6 +29,7 @@ export default meta;
 
 type Options = {
   allowsCustomValue?: boolean;
+  completeKey?: UiMultiSelectorCompleteKey;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
@@ -47,18 +49,23 @@ export const Default: StoryObj<Options> = {
   },
 
   argTypes: {
+    completeKey: {
+      control: 'radio',
+      options: ['Enter', 'Tab'],
+    },
     allowsCustomValue: {
-      type: 'boolean',
+      control: 'boolean',
       name: 'Is allows custom value?',
     },
     isDisabled: {
-      type: 'boolean',
+      control: 'boolean',
       name: 'Is disabled?',
     },
   },
 
   render({
     allowsCustomValue,
+    completeKey,
     emptyPlaceholder,
     defaultPlaceholder,
     isDisabled,
@@ -92,6 +99,7 @@ export const Default: StoryObj<Options> = {
       <div style={{ width: '362px', padding: '20px' }}>
         <UiMultiSelector
           allowsCustomValue={allowsCustomValue}
+          completeKey={completeKey}
           defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}

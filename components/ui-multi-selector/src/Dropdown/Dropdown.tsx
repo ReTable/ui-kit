@@ -4,7 +4,15 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './Dropdown.css';
 
-import { AddHandler, DropdownController, Option, SelectAll, SelectFound, Selected } from '../types';
+import {
+  AddHandler,
+  CompleteKey,
+  DropdownController,
+  Option,
+  SelectAll,
+  SelectFound,
+  Selected,
+} from '../types';
 
 import { DropdownItem } from './Dropdown.Item';
 import { useController, useItems } from './hooks';
@@ -12,6 +20,7 @@ import { useController, useItems } from './hooks';
 type Props = {
   allowsCustomValue?: boolean;
   className?: string;
+  completeKey: CompleteKey;
   onAdd: AddHandler;
   options: Option[];
   search: string;
@@ -22,7 +31,17 @@ type Props = {
 
 export const Dropdown = forwardRef<DropdownController, Props>(
   (
-    { allowsCustomValue, className, onAdd, options, search, selectAll, selectFound, selected },
+    {
+      allowsCustomValue,
+      className,
+      completeKey,
+      onAdd,
+      options,
+      search,
+      selectAll,
+      selectFound,
+      selected,
+    },
     ref,
   ) => {
     const items = useItems({
@@ -54,10 +73,11 @@ export const Dropdown = forwardRef<DropdownController, Props>(
 
       nodes.push(
         <DropdownItem
+          completeKey={completeKey}
+          icon={icon}
           isCurrent={idx === currentIndex}
           key={key}
           onClick={onSelect}
-          icon={icon}
           ref={idx === currentIndex ? currentRef : undefined}
         >
           {label}
