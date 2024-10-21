@@ -55,7 +55,7 @@ export function UiMultiSelector({
 
   const { onAdd, onRemove, onClear } = useModifiers({ onChange, selected });
 
-  const { onEscape, onSearch, searchRef, search } = useSearch(isDisabled);
+  const { onEscape, onSearch, searchId, searchRef, search } = useSearch(isDisabled);
 
   const {
     dropdownRef,
@@ -94,6 +94,7 @@ export function UiMultiSelector({
           onClear={onClear}
           options={options}
           renderTag={renderTag}
+          searchId={searchId}
           selected={selected}
         />
       )}
@@ -102,6 +103,7 @@ export function UiMultiSelector({
           completeKey={completeKey}
           defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
+          id={searchId}
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
           onArrowUp={onGoPrevious}

@@ -80,6 +80,8 @@ export const tag = style({
 export const clear = style({
   '@layer': {
     [uiLayers.components]: {
+      position: 'relative',
+
       float: 'right',
 
       selectors: {
@@ -91,6 +93,22 @@ export const clear = style({
           margin: '8px 8px 0 8px',
         },
       },
+    },
+  },
+});
+
+export const label = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'absolute',
+
+      top: '0',
+      left: '0',
+
+      width: '100%',
+      height: '100%',
+
+      backgroundColor: 'transparent',
     },
   },
 });

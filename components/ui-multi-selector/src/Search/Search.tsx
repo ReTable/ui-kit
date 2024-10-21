@@ -13,6 +13,7 @@ type Props = {
   completeKey: CompleteKey;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
+  id: string;
   isDisabled?: boolean;
   onArrowDown: () => void;
   onArrowUp: () => void;
@@ -30,6 +31,7 @@ export const Search = forwardRef<HTMLInputElement, Props>(
       className,
       defaultPlaceholder,
       emptyPlaceholder,
+      id,
       isDisabled,
       onBlur,
       onFocus,
@@ -44,6 +46,7 @@ export const Search = forwardRef<HTMLInputElement, Props>(
       <input
         className={clsx(styles.root, className)}
         disabled={isDisabled}
+        id={id}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}

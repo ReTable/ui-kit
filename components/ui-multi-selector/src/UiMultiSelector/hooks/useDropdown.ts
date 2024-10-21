@@ -87,8 +87,8 @@ export function useDropdown(): Result {
     isOpen,
 
     dropdownRef,
-    floatingRef: refs.setFloating as Ref<HTMLDivElement>,
-    referenceRef: refs.setReference as Ref<HTMLDivElement>,
+    floatingRef: refs.setFloating,
+    referenceRef: refs.setReference,
 
     style,
 
