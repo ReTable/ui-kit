@@ -319,6 +319,8 @@ export const body = style([
 
         userSelect: 'none',
 
+        cursor: 'default',
+
         overflow: 'hidden',
 
         selectors: {

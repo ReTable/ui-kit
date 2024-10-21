@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" folderName="ui-multi-selector" name="ui-multi-selector:dev:test" type="CompoundRunConfigurationType">
+    <toRun name="ui-multi-selector:build:watch" type="js.build_tools.npm" />
+    <toRun name="ui-multi-selector:test:watch" type="JavaScriptTestRunnerVitest" />
+    <method v="2" />
+  </configuration>
+</component>
