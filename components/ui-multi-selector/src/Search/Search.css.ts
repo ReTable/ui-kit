@@ -38,7 +38,7 @@ export const root = style([
             transition: `color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
           },
 
-          '&:not(:disabled):hover::placeholder': {
+          '&:not(:disabled):not(:focus):hover::placeholder': {
             color: uiTheme.colors.content.primary,
 
             opacity: 1,

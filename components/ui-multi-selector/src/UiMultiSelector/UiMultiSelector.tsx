@@ -57,9 +57,9 @@ export function UiMultiSelector({
 }: Props): ReactNode {
   const isEmpty = selected.size === 0;
 
-  const { onAdd, onRemove, onClear } = useModifiers({ onChange, selected });
-
   const { onEscape, onSearch, searchId, searchRef, search } = useSearch(isDisabled);
+
+  const { onAdd, onRemove, onClear } = useModifiers({ onChange, searchRef, onSearch, selected });
 
   const {
     dropdownRef,

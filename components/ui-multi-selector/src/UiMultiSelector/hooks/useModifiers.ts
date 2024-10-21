@@ -1,9 +1,18 @@
-import { useCallback } from 'react';
+import { RefObject, useCallback } from 'react';
 
-import { AddHandler, ChangeHandler, ClearHandler, RemoveHandler, Selected } from '../../types';
+import {
+  AddHandler,
+  ChangeHandler,
+  ClearHandler,
+  RemoveHandler,
+  SearchHandler,
+  Selected,
+} from '../../types';
 
 type Options = {
-  onChange?: ChangeHandler;
+  onChange: ChangeHandler;
+  onSearch: SearchHandler;
+  searchRef: RefObject<HTMLInputElement>;
   selected: Selected;
 };
 
@@ -13,46 +22,45 @@ type Result = {
   onClear: ClearHandler;
 };
 
-export function useModifiers({ onChange, selected }: Options): Result {
+export function useModifiers({ onChange, onSearch, searchRef, selected }: Options): Result {
+  const handleChange = useCallback<ChangeHandler>(
+    (next) => {
+      onChange(next);
+
+      onSearch('');
+
+      searchRef.current?.focus();
+    },
+    [onChange, onSearch, searchRef],
+  );
+
   const handleAdd = useCallback<AddHandler>(
     (values): void => {
-      if (onChange == null) {
-        return;
-      }
-
       const next = new Set(selected);
 
       for (const value of values) {
         next.add(value);
       }
 
-      onChange(next);
+      handleChange(next);
     },
-    [selected, onChange],
+    [onChange, selected, onSearch, searchRef],
   );
 
   const handleRemove = useCallback<RemoveHandler>(
     (value): void => {
-      if (onChange == null) {
-        return;
-      }
-
       const next = new Set(selected);
 
       next.delete(value);
 
-      onChange(next);
+      handleChange(next);
     },
-    [selected, onChange],
+    [onChange, selected, onSearch, searchRef],
   );
 
   const handleClear = useCallback<ClearHandler>((): void => {
-    if (onChange == null) {
-      return;
-    }
-
-    onChange(new Set());
-  }, [onChange]);
+    handleChange(new Set());
+  }, [onChange, onSearch, searchRef]);
 
   return { onAdd: handleAdd, onRemove: handleRemove, onClear: handleClear };
 }

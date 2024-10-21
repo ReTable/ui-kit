@@ -1,4 +1,4 @@
-import { Ref, useCallback, useEffect, useId, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useId, useRef, useState } from 'react';
 
 import { SearchHandler } from '../../types';
 
@@ -7,7 +7,7 @@ type Result = {
   onSearch: SearchHandler;
   search: string;
   searchId: string;
-  searchRef: Ref<HTMLInputElement>;
+  searchRef: RefObject<HTMLInputElement>;
 };
 
 export function useSearch(isDisabled?: boolean): Result {
