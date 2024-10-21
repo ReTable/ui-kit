@@ -39,6 +39,10 @@ export function useDropdown(): Result {
 
   const [open, { on: onShowDropdown, off: onHideDropdown }] = useFlag(false);
 
+  const handleHideDropdown = useCallback(() => {
+    setTimeout(onHideDropdown, 0);
+  }, [onHideDropdown]);
+
   const handleGoNext = useCallback(() => {
     dropdownRef.current?.goToNext();
   }, []);
@@ -98,7 +102,7 @@ export function useDropdown(): Result {
     style,
 
     onShowDropdown,
-    onHideDropdown,
+    onHideDropdown: handleHideDropdown,
 
     onGoNext: handleGoNext,
     onGoPrevious: handleGoPrevious,
