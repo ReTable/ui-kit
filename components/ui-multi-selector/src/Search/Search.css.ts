@@ -1,45 +1,8 @@
-import { assignVars, createThemeContract, style, styleVariants } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 
-// region Theme
-
-const variant = createThemeContract({
-  disabled: {
-    backgroundColor: null,
-  },
-});
-
-// endregion Theme
-
-// region Variants
-
-export const variants = styleVariants(
-  {
-    accent: {
-      disabled: {
-        backgroundColor: uiTheme.colors.background.controlsDetails,
-      },
-    },
-
-    contrast: {
-      disabled: {
-        backgroundColor: 'transparent',
-      },
-    },
-  },
-  (vars) => ({
-    '@layer': {
-      [uiLayers.components]: {
-        vars: assignVars(variant, vars),
-      },
-    },
-  }),
-);
-
-// endregion Variants
-
-// region Styles
+import * as shared from '../shared.css';
 
 export const root = style([
   uiStyles.fonts.sansSerif.medium12,
@@ -61,8 +24,12 @@ export const root = style([
             outline: 'none',
           },
 
-          '&:disabled': {
-            backgroundColor: variant.disabled.backgroundColor,
+          [`${shared.variants.accent} &:disabled`]: {
+            backgroundColor: uiTheme.colors.background.controlsDetails,
+          },
+
+          [`${shared.variants.contrast} &:disabled`]: {
+            backgroundColor: 'transparent',
           },
 
           '&::placeholder': {
@@ -73,5 +40,3 @@ export const root = style([
     },
   },
 ]);
-
-// endregion Styles

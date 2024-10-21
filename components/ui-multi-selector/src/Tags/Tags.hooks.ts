@@ -10,15 +10,15 @@ type Options = {
 
 export function useTags({ allowsCustomValue, options, selected }: Options): Option[] {
   return useMemo(() => {
-    const optionsMap = options.reduce((map, it) => {
-      if (typeof it === 'string') {
-        map.set(it, it);
-      } else {
-        map.set(it.value, it);
-      }
+    const optionsMap = new Map<string, Option>();
 
-      return map;
-    }, new Map<string, Option>());
+    for (const option of options) {
+      const value = typeof option === 'string' ? option : option.value;
+
+      if (selected.has(value)) {
+        optionsMap.set(value, option);
+      }
+    }
 
     const selectedOptions: Option[] = [];
 
@@ -30,7 +30,7 @@ export function useTags({ allowsCustomValue, options, selected }: Options): Opti
           selectedOptions.push(value);
         }
       } else {
-        selectedOptions.push(value);
+        selectedOptions.push(option);
       }
     }
 

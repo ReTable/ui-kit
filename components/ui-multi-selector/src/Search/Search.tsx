@@ -4,9 +4,9 @@ import { clsx } from 'clsx/lite';
 
 import * as styles from './Search.css';
 
-import { SearchController, SearchHandler, Variant } from '../types';
+import { SearchHandler } from '../types';
 
-import { useController, useHandlers } from './hooks';
+import { useHandlers } from './Search.hooks';
 
 type Props = {
   className?: string;
@@ -20,10 +20,9 @@ type Props = {
   onSearch: SearchHandler;
   onTab: () => void;
   value: string;
-  variant: Variant;
 };
 
-export const Search = forwardRef<SearchController, Props>(
+export const Search = forwardRef<HTMLInputElement, Props>(
   (
     {
       className,
@@ -33,25 +32,22 @@ export const Search = forwardRef<SearchController, Props>(
       onBlur,
       onFocus,
       value,
-      variant,
       ...handlers
     },
     ref,
   ) => {
-    const inputRef = useController(ref);
-
     const { onChange, onKeyDown } = useHandlers(handlers);
 
     return (
       <input
-        className={clsx(styles.root, styles.variants[variant], className)}
+        className={clsx(styles.root, className)}
         disabled={isDisabled}
         onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
         placeholder={isDisabled ? emptyPlaceholder : defaultPlaceholder}
-        ref={inputRef}
+        ref={ref}
         value={value}
       />
     );

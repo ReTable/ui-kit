@@ -1,68 +1,8 @@
-import { assignVars, createThemeContract, style, styleVariants } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
-// region Theme
-
-export const size = createThemeContract({
-  root: {
-    padding: null,
-    gap: null,
-  },
-
-  tag: {
-    margin: null,
-  },
-
-  clear: {
-    margin: null,
-  },
-});
-
-// endregion Theme
-
-// region Variants
-
-export const sizes = styleVariants(
-  {
-    small: {
-      root: {
-        padding: '4px',
-        gap: '4px',
-      },
-      tag: {
-        margin: '4px',
-      },
-      clear: {
-        margin: '4px',
-      },
-    },
-
-    medium: {
-      root: {
-        padding: '0 0 8px 0',
-        gap: '8px',
-      },
-      tag: {
-        margin: '8px',
-      },
-      clear: {
-        margin: '8px',
-      },
-    },
-  },
-  (vars) => ({
-    '@layer': {
-      [uiLayers.components]: {
-        vars: assignVars(size, vars),
-      },
-    },
-  }),
-);
-
-// endregion Variants
-
-// region Styles
+import * as shared from '../shared.css';
 
 export const root = style({
   '@layer': {
@@ -73,9 +13,15 @@ export const root = style({
 
       lineHeight: '0',
 
-      padding: size.root.padding,
-
       selectors: {
+        [`${shared.sizes.small} &`]: {
+          padding: '4px',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          padding: '0 0 8px 0',
+        },
+
         '&::after': {
           content: '',
           display: 'block',
@@ -92,8 +38,17 @@ export const isDisabled = style({
       display: 'flex',
       flexDirection: 'row',
       flexWrap: 'wrap',
-      gap: size.root.gap,
       padding: '0',
+
+      selectors: {
+        [`${shared.sizes.small} &`]: {
+          gap: '4px',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          gap: '8px',
+        },
+      },
     },
   },
 });
@@ -103,10 +58,17 @@ export const tag = style({
     [uiLayers.components]: {
       display: 'inline-block',
 
-      marginTop: size.tag.margin,
-      marginLeft: size.tag.margin,
-
       selectors: {
+        [`${shared.sizes.small} &`]: {
+          marginTop: '4px',
+          marginLeft: '4px',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          marginTop: '8px',
+          marginLeft: '8px',
+        },
+
         [`${isDisabled} &`]: {
           margin: '0',
         },
@@ -120,9 +82,15 @@ export const clear = style({
     [uiLayers.components]: {
       float: 'right',
 
-      margin: size.clear.margin,
+      selectors: {
+        [`${shared.sizes.small} &`]: {
+          margin: '4px',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          margin: '8px',
+        },
+      },
     },
   },
 });
-
-// endregion Styles

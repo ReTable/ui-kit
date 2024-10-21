@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { ComponentType, ReactNode } from 'react';
 
 // region Options & Values
 
@@ -27,14 +27,11 @@ export type ClearHandler = () => void;
 
 export type SearchHandler = (search: string) => void;
 
+export type TagRenderer = (className: string, option: Option) => ReactNode;
+
 // endregion Handlers
 
 // region Controllers
-
-export type SearchController = {
-  focus: () => void;
-  blur: () => void;
-};
 
 export type DropdownController = {
   goToNext: () => void;

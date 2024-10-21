@@ -146,18 +146,22 @@ export const isCurrent = style({
 export const key = style([
   uiStyles.fonts.sansSerif.regular12,
   {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    '@layer': {
+      [uiLayers.components]: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
 
-    height: '16px',
+        height: '16px',
 
-    padding: '0 12px',
+        padding: '0 12px',
 
-    borderRadius: '4px',
-    border: `1px solid ${uiTheme.colors.neutralAlpha['10']}`,
+        borderRadius: '4px',
+        border: `1px solid ${uiTheme.colors.neutralAlpha['10']}`,
 
-    color: uiTheme.colors.content.tertiary,
+        color: uiTheme.colors.content.tertiary,
+      },
+    },
   },
 ]);

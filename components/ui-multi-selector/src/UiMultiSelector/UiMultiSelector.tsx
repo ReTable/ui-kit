@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
+import * as shared from '../shared.css';
 import * as styles from './UiMultiSelector.css';
 
 import { Dropdown } from '../Dropdown';
@@ -9,7 +10,7 @@ import { Search } from '../Search';
 import { Tags } from '../Tags';
 import { ChangeHandler, Option, SelectAll, SelectFound, Selected, Size, Variant } from '../types';
 
-import { useDropdown, useModifiers, useSearch } from './hooks';
+import { useDropdown, useModifiers, useSearch, useTagRenderer } from './hooks';
 
 export type Props = {
   allowsCustomValue?: boolean;
@@ -47,11 +48,19 @@ export function UiMultiSelector({
   const [dropdownRef, { onShowDropdown, onHideDropdown, onGoNext, onGoPrevious, onSelectCurrent }] =
     useDropdown();
 
+  const renderTag = useTagRenderer({
+    isDisabled,
+    onRemove,
+    size,
+    variant,
+  });
+
   return (
     <div
       className={clsx(
         styles.root,
-        styles.variants[variant],
+        shared.variants[variant],
+        shared.sizes[size],
         isDisabled && styles.isDisabled,
         isEmpty && styles.isEmpty,
       )}
@@ -61,11 +70,9 @@ export function UiMultiSelector({
           allowsCustomValue={allowsCustomValue}
           isDisabled={isDisabled}
           onClear={onClear}
-          onRemove={onRemove}
           options={options}
+          renderTag={renderTag}
           selected={selected}
-          size={size}
-          variant={variant}
         />
       )}
       {(!isDisabled || isEmpty) && (
@@ -80,7 +87,6 @@ export function UiMultiSelector({
           onSearch={onSearch}
           onTab={onSelectCurrent}
           value={search}
-          variant={variant}
         />
       )}
       {!isDisabled && (
