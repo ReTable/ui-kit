@@ -33,11 +33,7 @@ export const root = style({
   },
 });
 
-export const hasIcons = style({
-  '@layer': {
-    [uiLayers.components]: {},
-  },
-});
+export const hasIcons = style({});
 
 export const highlight = style([uiStyles.fonts.sansSerif.bold12]);
 
@@ -139,6 +135,12 @@ export const isCurrent = style({
   '@layer': {
     [uiLayers.components]: {
       backgroundColor: uiTheme.colors.neutralAlpha['5'],
+
+      selectors: {
+        [`${root}:hover &:not(:hover)`]: {
+          backgroundColor: 'transparent',
+        },
+      },
     },
   },
 });
@@ -161,6 +163,12 @@ export const key = style([
         border: `1px solid ${uiTheme.colors.neutralAlpha['10']}`,
 
         color: uiTheme.colors.content.tertiary,
+
+        selectors: {
+          [`${root}:hover &`]: {
+            display: 'none',
+          },
+        },
       },
     },
   },

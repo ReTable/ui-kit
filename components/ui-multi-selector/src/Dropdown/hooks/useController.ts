@@ -1,4 +1,12 @@
-import { Ref, RefObject, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import {
+  Ref,
+  RefObject,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 
 import { DropdownController, Selected } from '../../types';
 
@@ -13,6 +21,9 @@ type Options = {
 type Result = {
   currentIndex: number;
 
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+
   rootRef: RefObject<HTMLDivElement>;
   currentRef: RefObject<HTMLButtonElement>;
 };
@@ -24,7 +35,17 @@ export function useController(
   const rootRef = useRef<HTMLDivElement>(null);
   const currentRef = useRef<HTMLButtonElement>(null);
 
+  const isHoveredRef = useRef(false);
+
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleMouseEnter = useCallback(() => {
+    isHoveredRef.current = true;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    isHoveredRef.current = false;
+  }, []);
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -46,7 +67,7 @@ export function useController(
     controllerRef,
     () => ({
       goToPrevious: () => {
-        if (items.length === 0) {
+        if (isHoveredRef.current || items.length === 0) {
           return;
         }
 
@@ -56,7 +77,7 @@ export function useController(
       },
 
       goToNext: () => {
-        if (items.length === 0) {
+        if (isHoveredRef.current || items.length === 0) {
           return;
         }
 
@@ -66,6 +87,10 @@ export function useController(
       },
 
       selectCurrent: () => {
+        if (isHoveredRef.current) {
+          return;
+        }
+
         const item = items.at(currentIndex);
 
         // NOTE: If `items` array is empty, then item will be `undefined` even for index equals to `0`.
@@ -79,5 +104,11 @@ export function useController(
     [currentIndex, items],
   );
 
-  return { currentIndex, rootRef, currentRef };
+  return {
+    currentIndex,
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
+    rootRef,
+    currentRef,
+  };
 }

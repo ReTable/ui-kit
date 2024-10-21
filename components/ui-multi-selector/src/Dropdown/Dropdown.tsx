@@ -54,7 +54,11 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       selected,
     });
 
-    const { currentIndex, currentRef, rootRef } = useController(ref, { items, selected, search });
+    const { currentIndex, currentRef, onMouseEnter, onMouseLeave, rootRef } = useController(ref, {
+      items,
+      selected,
+      search,
+    });
 
     if (items.length === 0) {
       return null;
@@ -92,6 +96,8 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     return (
       <div
         className={clsx(styles.root, hasIcons && styles.hasIcons, className)}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
         ref={rootRef}
         tabIndex={-1}
       >
