@@ -85,7 +85,7 @@ export function useHandlers({
         }
       }
     },
-    [onArrowDown, onArrowUp, onComplete],
+    [completeKey, onArrowDown, onArrowUp, onComplete, onEscape],
   );
 
   return { onChange: handleChange, onKeyDown: handleKeyDown };
