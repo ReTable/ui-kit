@@ -18,6 +18,8 @@ export const root = style({
 
       overflow: 'hidden',
 
+      transition: `border-color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
+
       selectors: {
         [`${shared.variants.accent}&`]: {
           backgroundColor: uiTheme.colors.background.primaryContent,
@@ -27,7 +29,12 @@ export const root = style({
           backgroundColor: 'transparent',
         },
 
+        '&:hover': {
+          borderColor: uiTheme.colors.neutralAlpha['20'],
+        },
+
         '&:has(input:focus)': {
+          borderColor: uiTheme.colors.neutralAlpha['40'],
           outline: `2px solid ${uiTheme.colors.borderControl.focus2}`,
         },
       },
@@ -47,6 +54,10 @@ export const isDisabled = style({
       selectors: {
         [`&:not(${isEmpty})`]: {
           border: 'none',
+        },
+
+        '&:hover': {
+          borderColor: uiTheme.colors.borderControl.default,
         },
       },
     },
