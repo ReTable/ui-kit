@@ -16,7 +16,7 @@ export const root = style({
 
       cursor: 'pointer',
 
-      // overflow: 'hidden',
+      overflow: 'hidden',
 
       selectors: {
         [`${shared.variants.accent}&`]: {
