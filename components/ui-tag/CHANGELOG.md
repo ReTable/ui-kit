@@ -1,5 +1,11 @@
 # @tabula/ui-tag
 
+## 0.1.0-next.1
+
+### Patch Changes
+
+- [#265](https://github.com/ReTable/ui-kit/pull/265) [`6a2f3bd`](https://github.com/ReTable/ui-kit/commit/6a2f3bd3a27db6fe8682b265d01aab8a112c2574) Thanks [@demiazz](https://github.com/demiazz)! - fix styles
+
 ## 0.1.0-next.0
 
 ### Patch Changes
