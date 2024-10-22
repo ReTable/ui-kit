@@ -1,5 +1,16 @@
 # @tabula/ui-multi-selector
 
+## 0.1.0-next.3
+
+### Patch Changes
+
+- [#269](https://github.com/ReTable/ui-kit/pull/269) [`233f186`](https://github.com/ReTable/ui-kit/commit/233f1865f216b3303db14c37ad76a89ec50cd82d) Thanks [@demiazz](https://github.com/demiazz)! - fix tags' styles
+
+- [#269](https://github.com/ReTable/ui-kit/pull/269) [`233f186`](https://github.com/ReTable/ui-kit/commit/233f1865f216b3303db14c37ad76a89ec50cd82d) Thanks [@demiazz](https://github.com/demiazz)! - exclude remove/clear buttons from `Tab` navigation
+
+- Updated dependencies [[`233f186`](https://github.com/ReTable/ui-kit/commit/233f1865f216b3303db14c37ad76a89ec50cd82d)]:
+  - @tabula/ui-tag@0.1.0-next.3
+
 ## 0.1.0-next.2
 
 ### Patch Changes
