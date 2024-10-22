@@ -18,7 +18,9 @@ export type Props = PropsWithChildren<{
   isDisabled?: boolean;
   onClick?: () => void;
   onRemove?: () => void;
+  removeTabIndex?: number;
   size: Size;
+  tabIndex?: number;
   variant: Variant;
 }>;
 
@@ -29,7 +31,9 @@ export function UiTag({
   isDisabled,
   onClick,
   onRemove,
+  removeTabIndex,
   size,
+  tabIndex,
   variant,
 }: Props): ReactNode {
   const title = typeof children === 'string' ? children : '';
@@ -49,6 +53,7 @@ export function UiTag({
           className={styles.main}
           disabled={isDisabled}
           onClick={onClick}
+          tabIndex={tabIndex}
           title={title}
           type="button"
         />
@@ -58,7 +63,12 @@ export function UiTag({
       <span className={styles.label}>{children}</span>
 
       {!isDisabled && onRemove != null && (
-        <button className={styles.remove} onClick={onRemove} type="button">
+        <button
+          className={styles.remove}
+          onClick={onRemove}
+          tabIndex={removeTabIndex}
+          type="button"
+        >
           <RemoveIcon />
         </button>
       )}
