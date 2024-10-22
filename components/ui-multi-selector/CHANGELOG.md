@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 0.1.0-next.2
+
+### Patch Changes
+
+- Updated dependencies [[`361f1eb`](https://github.com/ReTable/ui-kit/commit/361f1eb5cd00b252c135968b8ad30cb4ba414cea), [`361f1eb`](https://github.com/ReTable/ui-kit/commit/361f1eb5cd00b252c135968b8ad30cb4ba414cea)]:
+  - @tabula/ui-tag@0.1.0-next.2
+
 ## 0.1.0-next.1
 
 ### Patch Changes
