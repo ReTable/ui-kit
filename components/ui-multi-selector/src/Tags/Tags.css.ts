@@ -56,7 +56,7 @@ export const isDisabled = style({
 export const tag = style({
   '@layer': {
     [uiLayers.components]: {
-      display: 'inline-block',
+      display: 'inline-flex',
 
       selectors: {
         [`${shared.sizes.small} &`]: {
