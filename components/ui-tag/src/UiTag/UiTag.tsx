@@ -34,30 +34,6 @@ export function UiTag({
 }: Props): ReactNode {
   const title = typeof children === 'string' ? children : '';
 
-  const label = (
-    <>
-      {Icon != null && <Icon className={styles.icon} />}
-      <span className={styles.label}>{children}</span>
-    </>
-  );
-
-  const body =
-    onClick == null ? (
-      <div className={styles.body} title={title}>
-        {label}
-      </div>
-    ) : (
-      <button
-        className={styles.body}
-        disabled={isDisabled}
-        onClick={onClick}
-        title={title}
-        type="button"
-      >
-        {label}
-      </button>
-    );
-
   return (
     <div
       className={clsx(
@@ -68,12 +44,24 @@ export function UiTag({
         className,
       )}
     >
+      {!isDisabled && onClick != null && (
+        <button
+          className={styles.main}
+          disabled={isDisabled}
+          onClick={onClick}
+          title={title}
+          type="button"
+        />
+      )}
+
+      {Icon != null && <Icon className={styles.icon} />}
+      <span className={styles.label}>{children}</span>
+
       {!isDisabled && onRemove != null && (
         <button className={styles.remove} onClick={onRemove} type="button">
           <RemoveIcon />
         </button>
       )}
-      {body}
     </div>
   );
 }
