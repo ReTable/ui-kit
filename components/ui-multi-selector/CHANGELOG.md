@@ -1,5 +1,13 @@
 # @tabula/ui-multi-selector
 
+## 0.1.0-next.4
+
+### Minor Changes
+
+- [#271](https://github.com/ReTable/ui-kit/pull/271) [`4e3e769`](https://github.com/ReTable/ui-kit/commit/4e3e7698a0c0714b5c64160a523f73675b0d1425) Thanks [@demiazz](https://github.com/demiazz)! - add additional type exports
+
+- [#271](https://github.com/ReTable/ui-kit/pull/271) [`4e3e769`](https://github.com/ReTable/ui-kit/commit/4e3e7698a0c0714b5c64160a523f73675b0d1425) Thanks [@demiazz](https://github.com/demiazz)! - add support of an external class name
+
 ## 0.1.0-next.3
 
 ### Patch Changes
