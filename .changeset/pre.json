@@ -42,9 +42,11 @@
     "@tabula/ui-multi-selector": "0.0.0"
   },
   "changesets": [
+    "breezy-cycles-knock",
     "chilly-hornets-explain",
     "chilly-tables-raise",
     "few-shrimps-joke",
-    "neat-comics-refuse"
+    "neat-comics-refuse",
+    "tame-socks-lay"
   ]
 }

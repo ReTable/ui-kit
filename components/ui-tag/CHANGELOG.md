@@ -1,5 +1,15 @@
 # @tabula/ui-tag
 
+## 0.1.0-next.2
+
+### Minor Changes
+
+- [#267](https://github.com/ReTable/ui-kit/pull/267) [`361f1eb`](https://github.com/ReTable/ui-kit/commit/361f1eb5cd00b252c135968b8ad30cb4ba414cea) Thanks [@demiazz](https://github.com/demiazz)! - allow to set `tabindex` for main and remove buttons
+
+### Patch Changes
+
+- [#267](https://github.com/ReTable/ui-kit/pull/267) [`361f1eb`](https://github.com/ReTable/ui-kit/commit/361f1eb5cd00b252c135968b8ad30cb4ba414cea) Thanks [@demiazz](https://github.com/demiazz)! - rewrite markup for easily external styling
+
 ## 0.1.0-next.1
 
 ### Patch Changes
