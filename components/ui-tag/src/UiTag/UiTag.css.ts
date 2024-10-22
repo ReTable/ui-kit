@@ -5,8 +5,11 @@ import { uiLayers, uiStyles, uiTheme } from '@tabula/ui-theme';
 // region Themes
 
 export const size = createThemeContract({
-  body: {
+  root: {
     height: null,
+  },
+
+  body: {
     horizontalPadding: null,
     leftPaddingWhenIcon: null,
     rightPaddingWhenRemove: null,
@@ -16,7 +19,6 @@ export const size = createThemeContract({
 
   remove: {
     position: {
-      top: null,
       right: null,
     },
     focus: {
@@ -71,8 +73,10 @@ export const isDisabled = style({});
 export const sizes = styleVariants(
   {
     small: {
-      body: {
+      root: {
         height: '20px',
+      },
+      body: {
         horizontalPadding: '8px',
         leftPaddingWhenIcon: '4px',
         rightPaddingWhenRemove: '24px',
@@ -81,10 +85,8 @@ export const sizes = styleVariants(
           0 1px 12px 0 ${uiTheme.colors.shadow['4']}
         `,
       },
-
       remove: {
         position: {
-          top: '2px',
           right: '4px',
         },
         focus: {
@@ -92,9 +94,12 @@ export const sizes = styleVariants(
         },
       },
     },
+
     medium: {
-      body: {
+      root: {
         height: '28px',
+      },
+      body: {
         horizontalPadding: '12px',
         leftPaddingWhenIcon: '6px',
         rightPaddingWhenRemove: '28px',
@@ -103,10 +108,8 @@ export const sizes = styleVariants(
           0 1px 12px 0 ${uiTheme.colors.shadow['4']}
         `,
       },
-
       remove: {
         position: {
-          top: '6px',
           right: '4px',
         },
         focus: {
@@ -114,9 +117,12 @@ export const sizes = styleVariants(
         },
       },
     },
+
     large: {
-      body: {
+      root: {
         height: '32px',
+      },
+      body: {
         horizontalPadding: '16px',
         leftPaddingWhenIcon: '12px',
         rightPaddingWhenRemove: '30px',
@@ -126,10 +132,8 @@ export const sizes = styleVariants(
           0 4px 12px 0 ${uiTheme.colors.shadow['6']}
         `,
       },
-
       remove: {
         position: {
-          top: '8px',
           right: '8px',
         },
         focus: {
@@ -245,7 +249,9 @@ export const root = style({
       alignItems: 'center',
 
       width: 'fit-content',
-      height: 'fit-content',
+      height: size.root.height,
+
+      borderRadius: '6px',
 
       color: variant.root.color,
     },
@@ -259,7 +265,7 @@ export const remove = style({
     [uiLayers.components]: {
       position: 'absolute',
 
-      top: size.remove.position.top,
+      top: '50%',
       right: size.remove.position.right,
 
       display: 'flex',
@@ -271,11 +277,13 @@ export const remove = style({
 
       padding: '0',
 
-      background: variant.remove.default.backgroundColor,
+      backgroundColor: variant.remove.default.backgroundColor,
       borderRadius: '2px',
       border: 'none',
 
       color: variant.remove.default.color,
+
+      transform: 'translateY(-50%)',
 
       selectors: {
         '&:focus': {
@@ -308,7 +316,8 @@ export const body = style([
         alignItems: 'center',
         gap: size.body.gap,
 
-        height: size.body.height,
+        width: '100%',
+        height: '100%',
         padding: `0 ${size.body.horizontalPadding}`,
 
         borderRadius: '6px',
@@ -378,8 +387,9 @@ export const label = style({
     [uiLayers.components]: {
       flex: '1 1 0',
       minWidth: '0',
-      textOverflow: 'ellipsis',
+      textAlign: 'left',
       whiteSpace: 'nowrap',
+      textOverflow: 'ellipsis',
       overflow: 'hidden',
     },
   },
