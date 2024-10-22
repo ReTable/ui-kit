@@ -26,6 +26,7 @@ import { useDropdown, useModifiers, useSearch, useTagRenderer } from './hooks';
 
 export type Props = {
   allowsCustomValue?: boolean;
+  className?: string;
   completeKey?: CompleteKey;
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
@@ -42,6 +43,7 @@ export type Props = {
 
 export function UiMultiSelector({
   allowsCustomValue,
+  className,
   completeKey = 'Enter',
   defaultPlaceholder,
   emptyPlaceholder,
@@ -90,6 +92,7 @@ export function UiMultiSelector({
         withDropdownChevron && shared.hasChevron,
         isDisabled && styles.isDisabled,
         isEmpty && styles.isEmpty,
+        className,
       )}
       ref={referenceRef}
     >
