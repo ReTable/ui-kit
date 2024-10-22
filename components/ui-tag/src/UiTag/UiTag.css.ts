@@ -357,11 +357,11 @@ export const body = style([
             cursor: 'default',
           },
 
-          [`${root}:has(${icon}) &`]: {
+          [`&:has(${icon})`]: {
             paddingLeft: size.body.leftPaddingWhenIcon,
           },
 
-          [`${root}:has(${remove}) &`]: {
+          [`${remove} + &`]: {
             paddingRight: size.body.rightPaddingWhenRemove,
           },
 

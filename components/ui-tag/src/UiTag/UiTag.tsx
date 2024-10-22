@@ -68,12 +68,12 @@ export function UiTag({
         className,
       )}
     >
-      {body}
       {!isDisabled && onRemove != null && (
         <button className={styles.remove} onClick={onRemove} type="button">
           <RemoveIcon />
         </button>
       )}
+      {body}
     </div>
   );
 }
