@@ -27,6 +27,7 @@ export function useTagRenderer({ isDisabled, onRemove, size, variant }: Options)
           isDisabled={isDisabled}
           key={typeof option === 'string' ? option : option.value}
           onRemove={handleRemove}
+          removeTabIndex={-1}
           size={size}
           variant={variant}
         >

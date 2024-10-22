@@ -16,7 +16,7 @@ type Props = {
 
 export function Clear({ className, onClear }: Props): ReactNode {
   return (
-    <button className={clsx(styles.root, className)} onClick={onClear} type="button">
+    <button className={clsx(styles.root, className)} onClick={onClear} tabIndex={-1} type="button">
       <ClearIcon />
     </button>
   );
