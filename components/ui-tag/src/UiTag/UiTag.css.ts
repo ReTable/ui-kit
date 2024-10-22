@@ -166,6 +166,8 @@ export const root = style({
       userSelect: 'none',
       cursor: 'default',
 
+      overflow: 'hidden',
+
       selectors: {
         [`&${sizes.small}`]: {
           height: '20px',
