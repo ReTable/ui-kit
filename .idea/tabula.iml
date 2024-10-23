@@ -31,6 +31,9 @@
       <excludeFolder url="file://$MODULE_DIR$/components/ui-theme/typings" />
       <excludeFolder url="file://$MODULE_DIR$/configs/vitest-config/lib" />
       <excludeFolder url="file://$MODULE_DIR$/configs/vitest-config/typings" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-multi-selector/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-multi-selector/node_modules" />
+      <excludeFolder url="file://$MODULE_DIR$/components/ui-multi-selector/typings" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

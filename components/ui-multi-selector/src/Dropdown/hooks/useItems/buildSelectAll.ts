@@ -1,10 +1,10 @@
-import { AddHandler, Option, SelectAll, Selected } from '../../../types';
+import { Option, SelectAll, Selected, UpdateHandler } from '../../../types';
 
 import { Item } from '../../Dropdown.types';
 
 type Options = {
   hasDividerAfter?: boolean;
-  onAdd: AddHandler;
+  onUpdate: UpdateHandler;
   options: Option[];
   selectAll: SelectAll;
   selected: Selected;
@@ -12,7 +12,7 @@ type Options = {
 
 export function buildSelectAll({
   hasDividerAfter,
-  onAdd,
+  onUpdate,
   options,
   selectAll,
   selected,
@@ -28,7 +28,7 @@ export function buildSelectAll({
       return result;
     }, []);
 
-    onAdd(ids);
+    onUpdate('add-all', ids);
   };
 
   const { icon, label } = typeof selectAll === 'string' ? { label: selectAll } : selectAll;

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { AddHandler, Option, SelectAll, SelectFound, Selected } from '../../../types';
+import { Option, SelectAll, SelectFound, Selected, UpdateHandler } from '../../../types';
 
 import { Item } from '../../Dropdown.types';
 
@@ -11,7 +11,7 @@ import { buildSelectFound } from './buildSelectFound';
 
 type Options = {
   allowsCustomValue?: boolean;
-  onAdd: AddHandler;
+  onUpdate: UpdateHandler;
   options: Option[];
   search: string;
   selectAll: SelectAll;
@@ -21,7 +21,7 @@ type Options = {
 
 export function useItems({
   allowsCustomValue,
-  onAdd,
+  onUpdate,
   options,
   search,
   selectAll,
@@ -29,7 +29,7 @@ export function useItems({
   selected,
 }: Options): Item[] {
   return useMemo(() => {
-    const [values, items] = buildItems({ onAdd, options, search, selected });
+    const [values, items] = buildItems({ onUpdate, options, search, selected });
 
     const hasSearch = search.length > 0;
 
@@ -42,19 +42,19 @@ export function useItems({
     if (allowsCustomValue) {
       // NOTE: Suggest apply custom value only if input isn't empty.
       if (hasSearch) {
-        items.unshift(buildCustomValue({ onAdd, search }));
+        items.unshift(buildCustomValue({ onUpdate, search }));
       }
     } else if (items.length > 0) {
       // NOTE: Suggest `Select found` option only when search isn't empty.
       if (hasSearch) {
-        items.unshift(buildSelectFound({ onAdd, search, selectFound, values }));
+        items.unshift(buildSelectFound({ onUpdate, search, selectFound, values }));
       }
 
       items.unshift(
-        buildSelectAll({ hasDividerAfter: !hasSearch, onAdd, options, selectAll, selected }),
+        buildSelectAll({ hasDividerAfter: !hasSearch, onUpdate, options, selectAll, selected }),
       );
     }
 
     return items;
-  }, [onAdd, options, search, selected, allowsCustomValue, selectAll, selectFound]);
+  }, [onUpdate, options, search, selected, allowsCustomValue, selectAll, selectFound]);
 }

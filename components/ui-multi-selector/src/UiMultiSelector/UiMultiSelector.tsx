@@ -22,7 +22,7 @@ import {
   Variant,
 } from '../types';
 
-import { useDropdown, useModifiers, useSearch, useTagRenderer } from './hooks';
+import { useDropdown, useSearch, useTagRenderer, useUpdateHandler } from './hooks';
 
 export type Props = {
   allowsCustomValue?: boolean;
@@ -61,7 +61,12 @@ export function UiMultiSelector({
 
   const { onEscape, onSearch, searchId, searchRef, search } = useSearch(isDisabled);
 
-  const { onAdd, onRemove, onClear } = useModifiers({ onChange, searchRef, onSearch, selected });
+  const onUpdate = useUpdateHandler({
+    onChange,
+    searchRef,
+    onSearch,
+    selected,
+  });
 
   const {
     dropdownRef,
@@ -78,7 +83,7 @@ export function UiMultiSelector({
 
   const renderTag = useTagRenderer({
     isDisabled,
-    onRemove,
+    onUpdate,
     size,
     variant,
   });
@@ -101,7 +106,7 @@ export function UiMultiSelector({
         <Tags
           allowsCustomValue={allowsCustomValue}
           isDisabled={isDisabled}
-          onClear={onClear}
+          onUpdate={onUpdate}
           options={options}
           renderTag={renderTag}
           searchId={searchId}
@@ -133,7 +138,7 @@ export function UiMultiSelector({
               <Dropdown
                 allowsCustomValue={allowsCustomValue}
                 completeKey={completeKey}
-                onAdd={onAdd}
+                onUpdate={onUpdate}
                 options={options}
                 ref={dropdownRef}
                 search={search}

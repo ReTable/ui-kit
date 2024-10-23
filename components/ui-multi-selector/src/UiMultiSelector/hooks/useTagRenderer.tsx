@@ -2,22 +2,22 @@ import { useCallback } from 'react';
 
 import { UiTag } from '@tabula/ui-tag';
 
-import { RemoveHandler, Size, TagRenderer, Variant } from '../../types';
+import { Size, TagRenderer, UpdateHandler, Variant } from '../../types';
 
 type Options = {
   isDisabled?: boolean;
-  onRemove: RemoveHandler;
+  onUpdate: UpdateHandler;
   size: Size;
   variant: Variant;
 };
 
-export function useTagRenderer({ isDisabled, onRemove, size, variant }: Options): TagRenderer {
+export function useTagRenderer({ isDisabled, onUpdate, size, variant }: Options): TagRenderer {
   return useCallback<TagRenderer>(
     (className, option) => {
       const { icon, label, value } = typeof option === 'string' ? { value: option } : option;
 
       const handleRemove = () => {
-        onRemove(value);
+        onUpdate('remove', [value]);
       };
 
       return (
@@ -35,6 +35,6 @@ export function useTagRenderer({ isDisabled, onRemove, size, variant }: Options)
         </UiTag>
       );
     },
-    [onRemove, isDisabled, size, variant],
+    [onUpdate, isDisabled, size, variant],
   );
 }
