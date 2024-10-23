@@ -19,13 +19,15 @@ export type CompleteKey = 'Enter' | 'Tab';
 
 // region Handlers
 
-export type ChangeHandler = (selected: Selected) => void;
+export type AddChangeType = 'add' | 'add-all' | 'add-found' | 'add-custom';
 
-export type AddHandler = (values: string[]) => void;
+export type RemoveChangeType = 'remove' | 'remove-all';
 
-export type RemoveHandler = (value: string) => void;
+export type ChangeType = AddChangeType | RemoveChangeType;
 
-export type ClearHandler = () => void;
+export type ChangeHandler = (selected: Selected, type: ChangeType, difference: Selected) => void;
+
+export type UpdateHandler = (type: ChangeType, values: string[]) => void;
 
 export type SearchHandler = (search: string) => void;
 

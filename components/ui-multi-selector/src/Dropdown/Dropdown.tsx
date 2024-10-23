@@ -5,13 +5,13 @@ import { clsx } from 'clsx/lite';
 import * as styles from './Dropdown.css';
 
 import {
-  AddHandler,
   CompleteKey,
   DropdownController,
   Option,
   SelectAll,
   SelectFound,
   Selected,
+  UpdateHandler,
 } from '../types';
 
 import { DropdownItem } from './Dropdown.Item';
@@ -21,7 +21,7 @@ type Props = {
   allowsCustomValue?: boolean;
   className?: string;
   completeKey: CompleteKey;
-  onAdd: AddHandler;
+  onUpdate: UpdateHandler;
   options: Option[];
   search: string;
   selectAll: SelectAll;
@@ -35,7 +35,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       allowsCustomValue,
       className,
       completeKey,
-      onAdd,
+      onUpdate,
       options,
       search,
       selectAll,
@@ -46,7 +46,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
   ) => {
     const items = useItems({
       allowsCustomValue,
-      onAdd,
+      onUpdate,
       options,
       search,
       selectAll,

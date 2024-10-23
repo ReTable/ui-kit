@@ -1,17 +1,17 @@
 import * as styles from '../../Dropdown.css';
 
-import { AddHandler } from '../../../types';
+import { UpdateHandler } from '../../../types';
 
 import { Item } from '../../Dropdown.types';
 
 type Options = {
-  onAdd: AddHandler;
+  onUpdate: UpdateHandler;
   search: string;
 };
 
-export function buildCustomValue({ onAdd, search }: Options): Item {
+export function buildCustomValue({ onUpdate, search }: Options): Item {
   const handleClick = () => {
-    onAdd([search]);
+    onUpdate('add-custom', [search]);
   };
 
   return {

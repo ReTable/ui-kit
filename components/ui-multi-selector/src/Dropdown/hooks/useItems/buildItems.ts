@@ -1,4 +1,4 @@
-import { AddHandler, Option, Selected } from '../../../types';
+import { Option, Selected, UpdateHandler } from '../../../types';
 
 import { Item, Part } from '../../Dropdown.types';
 
@@ -6,13 +6,13 @@ import { match } from './match';
 import { renderParts } from './renderParts';
 
 type Options = {
-  onAdd: AddHandler;
+  onUpdate: UpdateHandler;
   options: Option[];
   search: string;
   selected: Selected;
 };
 
-export function buildItems({ onAdd, options, search, selected }: Options): [string[], Item[]] {
+export function buildItems({ onUpdate, options, search, selected }: Options): [string[], Item[]] {
   const values: string[] = [];
   const items: Item[] = [];
 
@@ -39,7 +39,7 @@ export function buildItems({ onAdd, options, search, selected }: Options): [stri
       label: renderParts(parts),
 
       onSelect: () => {
-        onAdd([value]);
+        onUpdate('add', [value]);
       },
     });
   }
