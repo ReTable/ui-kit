@@ -1,5 +1,11 @@
 # @tabula/ui-multi-selector
 
+## 0.1.0-next.5
+
+### Minor Changes
+
+- [#273](https://github.com/ReTable/ui-kit/pull/273) [`c4518b6`](https://github.com/ReTable/ui-kit/commit/c4518b69bbb13e2fa7faab05f2aaaed7ef401b10) Thanks [@demiazz](https://github.com/demiazz)! - add change type and difference information to the change handler
+
 ## 0.1.0-next.4
 
 ### Minor Changes
