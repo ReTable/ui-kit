@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-slider",
-  "version": "2.1.0-next.0",
+  "version": "2.1.0",
   "description": "Sliders allow users to quickly select a value within a range. They should be used when the upper and lower bounds to the range are invariable",
   "type": "module",
   "typings": "./typings/index.d.ts",

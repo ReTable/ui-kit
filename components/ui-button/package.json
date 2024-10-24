@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-button",
-  "version": "9.1.0-next.0",
+  "version": "9.1.0",
   "description": "Button components which are used to initialize an action",
   "type": "module",
   "typings": "./typings/index.d.ts",

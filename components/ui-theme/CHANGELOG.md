@@ -1,5 +1,11 @@
 # @tabula/ui-theme
 
+## 3.3.0
+
+### Minor Changes
+
+- [#258](https://github.com/ReTable/ui-kit/pull/258) [`4184f6f`](https://github.com/ReTable/ui-kit/commit/4184f6feba8a0ceb2c8832619e62cf237a283b4a) Thanks [@demiazz](https://github.com/demiazz)! - add `accent-alpha-70` color variable
+
 ## 3.3.0-next.0
 
 ### Minor Changes
