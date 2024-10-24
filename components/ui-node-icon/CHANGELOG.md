@@ -1,6 +1,6 @@
 # @tabula/ui-node-icon
 
-## 12.0.0
+## 11.3.0
 
 ### Patch Changes
 

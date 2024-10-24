@@ -1,6 +1,6 @@
 # @tabula/ui-multi-selector
 
-## 1.0.0
+## 0.1.0
 
 ### Minor Changes
 
@@ -23,7 +23,7 @@
 - [#269](https://github.com/ReTable/ui-kit/pull/269) [`233f186`](https://github.com/ReTable/ui-kit/commit/233f1865f216b3303db14c37ad76a89ec50cd82d) Thanks [@demiazz](https://github.com/demiazz)! - exclude remove/clear buttons from `Tab` navigation
 
 - Updated dependencies [[`361f1eb`](https://github.com/ReTable/ui-kit/commit/361f1eb5cd00b252c135968b8ad30cb4ba414cea), [`ec501f4`](https://github.com/ReTable/ui-kit/commit/ec501f47396f97a989932d298a4f0c4d5152cab1), [`6a2f3bd`](https://github.com/ReTable/ui-kit/commit/6a2f3bd3a27db6fe8682b265d01aab8a112c2574), [`4184f6f`](https://github.com/ReTable/ui-kit/commit/4184f6feba8a0ceb2c8832619e62cf237a283b4a), [`233f186`](https://github.com/ReTable/ui-kit/commit/233f1865f216b3303db14c37ad76a89ec50cd82d), [`361f1eb`](https://github.com/ReTable/ui-kit/commit/361f1eb5cd00b252c135968b8ad30cb4ba414cea)]:
-  - @tabula/ui-tag@1.0.0
+  - @tabula/ui-tag@0.1.0
   - @tabula/ui-theme@3.3.0
 
 ## 0.1.0-next.6

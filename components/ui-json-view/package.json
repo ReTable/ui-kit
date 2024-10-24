@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-json-view",
-  "version": "8.0.0",
+  "version": "7.1.0",
   "description": "Allows to view JSON in interactive way",
   "type": "module",
   "typings": "./typings/index.d.ts",

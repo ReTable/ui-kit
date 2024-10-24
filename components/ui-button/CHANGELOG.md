@@ -1,6 +1,6 @@
 # @tabula/ui-button
 
-## 10.0.0
+## 9.1.0
 
 ### Patch Changes
 
