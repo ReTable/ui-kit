@@ -15,7 +15,7 @@ import {
 } from '../types';
 
 import { DropdownItem } from './Dropdown.Item';
-import { useController, useItems } from './hooks';
+import { useController, useHasIcons, useItems } from './hooks';
 
 type Props = {
   allowsCustomValue?: boolean;
@@ -60,21 +60,16 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       search,
     });
 
+    const hasIcons = useHasIcons({ allowsCustomValue, options, selectAll, selectFound });
+
     if (items.length === 0) {
       return null;
     }
 
     const nodes: ReactNode[] = [];
 
-    // NOTE: Detect any rendered item has an icon to align all items by grid independently of icon availability.
-    let hasIcons = false;
-
     for (const [idx, item] of items.entries()) {
       const { key, icon, onSelect, label, hasDividerAfter } = item;
-
-      if (icon != null) {
-        hasIcons = true;
-      }
 
       nodes.push(
         <DropdownItem

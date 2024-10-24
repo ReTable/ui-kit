@@ -55,9 +55,12 @@ export function useController(
 
   // NOTE: Reset current index when search has been changed or changed list of selected items (usually it happened when
   //       a user selected any item.
+  //
+  //       We detect selected count instead of selected list itself, because in general way, items will be added/removed,
+  //       but selected itself can be changed without adding/removing items and can be provided from outside.
   useEffect(() => {
     setCurrentIndex(0);
-  }, [search, selected]);
+  }, [search, selected.size]);
 
   // NOTE: When current index has been changed, we should scroll to the new current item.
   useEffect(() => {
