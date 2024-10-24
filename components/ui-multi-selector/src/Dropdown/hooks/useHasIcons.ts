@@ -25,5 +25,5 @@ export function useHasIcons({
     }
 
     return (!allowsCustomValue && hasIcon(selectAll)) || hasIcon(selectFound);
-  }, [options, selectAll, selectFound]);
+  }, [options, selectAll, selectFound, allowsCustomValue]);
 }
