@@ -1,5 +1,13 @@
 # @tabula/ui-multi-selector
 
+## 0.1.0-next.6
+
+### Patch Changes
+
+- [#275](https://github.com/ReTable/ui-kit/pull/275) [`0f771e4`](https://github.com/ReTable/ui-kit/commit/0f771e4f381cb601f78fdff76a5297388b431b11) Thanks [@demiazz](https://github.com/demiazz)! - detect icons more precisely
+
+- [#275](https://github.com/ReTable/ui-kit/pull/275) [`0f771e4`](https://github.com/ReTable/ui-kit/commit/0f771e4f381cb601f78fdff76a5297388b431b11) Thanks [@demiazz](https://github.com/demiazz)! - fix resetting selected index
+
 ## 0.1.0-next.5
 
 ### Minor Changes
