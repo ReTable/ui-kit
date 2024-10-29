@@ -91,6 +91,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     }
 
     return (
+      /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */
       <div
         className={clsx(styles.root, hasIcons && styles.hasIcons, className)}
         onMouseEnter={onMouseEnter}
