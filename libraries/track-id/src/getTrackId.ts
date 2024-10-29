@@ -1,7 +1,4 @@
-export function getTrackId(
-  scope?: string | null | undefined,
-  id?: string | false | null,
-): string | undefined {
+export function getTrackId(scope?: string | null, id?: string | false | null): string | undefined {
   if (scope == null || scope === '') {
     return;
   }

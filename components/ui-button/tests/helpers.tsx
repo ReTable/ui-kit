@@ -74,7 +74,7 @@ export function suiteOf(Button: ButtonComponent): void {
   });
 
   for (const element of ['button', 'a', 'div', 'link'] as UiButtonElement[]) {
-    describe(element, () => {
+    describe(`element is "${element}"`, () => {
       it('renders provided element', () => {
         render(<Button as={element}>Button</Button>);
 

@@ -40,7 +40,7 @@ type Options = {
   withDropdownChevron?: boolean;
 };
 
-/* eslint-disable react-hooks/rules-of-hooks, react/hook-use-state */
+/* eslint-disable react/hook-use-state */
 export const Default: StoryObj<Options> = {
   args: {
     emptyPlaceholder: 'No columns selected',
