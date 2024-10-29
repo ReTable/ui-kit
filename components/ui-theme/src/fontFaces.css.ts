@@ -137,7 +137,7 @@ function monospaceFontFaces(
   for (const [rangeName, url] of Object.entries(urls) as Array<[MonospaceUnicodeRange, string]>) {
     const range = MONOSPACE_UNICODE_RANGES[rangeName];
 
-    globalFontFace(`${JSON.stringify(IBM_PLEX_MONO)}`, {
+    globalFontFace(JSON.stringify(IBM_PLEX_MONO), {
       fontStyle: 'normal',
       fontWeight,
       fontDisplay: 'swap',
