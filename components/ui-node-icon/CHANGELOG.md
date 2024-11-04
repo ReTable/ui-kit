@@ -1,5 +1,16 @@
 # @tabula/ui-node-icon
 
+## 11.4.0
+
+### Minor Changes
+
+- [#280](https://github.com/ReTable/ui-kit/pull/280) [`681616a`](https://github.com/ReTable/ui-kit/commit/681616a422435adcff27b043ee1c6003647183bd) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Support enrich style color
+
+### Patch Changes
+
+- Updated dependencies [[`681616a`](https://github.com/ReTable/ui-kit/commit/681616a422435adcff27b043ee1c6003647183bd)]:
+  - @tabula/ui-theme@3.3.1
+
 ## 11.3.0
 
 ### Patch Changes
