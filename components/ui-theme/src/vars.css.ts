@@ -273,6 +273,11 @@ export const tokens = {
         primary: '#b3b3b3',
         secondary: '#ebebeb',
       },
+      enrich: {
+        primary: '#735ed8',
+        secondary: '#a190f5',
+        tertiary: '#d7cffe',
+      },
       group: {
         clean: '#aae5df',
         transformation: '#c2d8ef',
