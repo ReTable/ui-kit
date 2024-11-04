@@ -234,6 +234,11 @@ const overrides = {
     primary: uiTheme.colors.icons.disabled.primary,
     secondary: uiTheme.colors.icons.disabled.secondary,
   }),
+  ...assignVars(uiTheme.colors.icons.enrich, {
+    primary: uiTheme.colors.icons.disabled.primary,
+    secondary: uiTheme.colors.icons.disabled.secondary,
+    tertiary: uiTheme.colors.icons.disabled.secondary,
+  }),
   ...assignVars(uiTheme.colors.icons.group, {
     clean: uiTheme.colors.icons.disabled.secondary,
     transformation: uiTheme.colors.icons.disabled.secondary,
