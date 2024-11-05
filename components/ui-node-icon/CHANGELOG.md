@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 11.5.0
+
+### Minor Changes
+
+- [#282](https://github.com/ReTable/ui-kit/pull/282) [`3c9064e`](https://github.com/ReTable/ui-kit/commit/3c9064e6695e4cac6bf4bc5f39d96c40403d2a44) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Add node icons for new search node
+
 ## 11.4.0
 
 ### Minor Changes
