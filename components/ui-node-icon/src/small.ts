@@ -1,3 +1,19 @@
+import { ReactComponent as UiFolderSourceSIconInner } from './folderSource/folderSource.small.svg';
+import { ReactComponent as UiLocalFileSIconInner } from './localFile/localFile.small.svg';
+import { ReactComponent as UiPostgresSourceSIconInner } from './postgresSource/postgresSource.small.svg';
+import { ReactComponent as UiReportSIconInner } from './report/report.small.svg';
+import { ReactComponent as UiSnowflakeSourceSIconInner } from './snowflakeSource/snowflakeSource.small.svg';
+
+import { icon } from './style.css';
+
+import { createIcon } from './utils';
+
+export const UiFolderSourceSIcon = createIcon(UiFolderSourceSIconInner, icon);
+export const UiLocalFileSIcon = createIcon(UiLocalFileSIconInner, icon);
+export const UiPostgresSourceSIcon = createIcon(UiPostgresSourceSIconInner, icon);
+export const UiReportSIcon = createIcon(UiReportSIconInner, icon);
+export const UiSnowflakeSourceSIcon = createIcon(UiSnowflakeSourceSIconInner, icon);
+
 export { ReactComponent as UiAddGPTColumnSIcon } from './addGPTColumn/addGPTColumn.small.svg';
 export { ReactComponent as UiAddNewColumnSIcon } from './addNewColumn/addNewColumn.small.svg';
 export { ReactComponent as UiApiColumnSIcon } from './apiColumn/apiColumn.small.svg';
@@ -15,23 +31,19 @@ export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.sma
 export { ReactComponent as UiEnrichmentSIcon } from './enrichment/enrichment.small.svg';
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
-export { ReactComponent as UiFolderSourceSIcon } from './folderSource/folderSource.small.svg';
 export { ReactComponent as UiGPTNodeSIcon } from './gptNode/gptNode.small.svg';
 export { ReactComponent as UiGroupBySIcon } from './groupBy/groupBy.small.svg';
 export { ReactComponent as UiInnerJoinSIcon } from './innerJoin/innerJoin.small.svg';
 export { ReactComponent as UiJsonFileSIcon } from './jsonFile/jsonFile.small.svg';
 export { ReactComponent as UiLeftJoinSIcon } from './leftJoin/leftJoin.small.svg';
-export { ReactComponent as UiLocalFileSIcon } from './localFile/localFile.small.svg';
 export { ReactComponent as UiMergeColumnsSIcon } from './mergeColumns/mergeColumns.small.svg';
 export { ReactComponent as UiNestSIcon } from './nest/nest.small.svg';
 export { ReactComponent as UiOuterJoinSIcon } from './outerJoin/outerJoin.small.svg';
 export { ReactComponent as UiOutputSIcon } from './output/output.small.svg';
 export { ReactComponent as UiPivotSIcon } from './pivot/pivot.small.svg';
-export { ReactComponent as UiPostgresSourceSIcon } from './postgresSource/postgresSource.small.svg';
 export { ReactComponent as UiRecipeSIcon } from './recipe/recipe.small.svg';
 export { ReactComponent as UiRemoveDuplicateRowsSIcon } from './removeDuplicateRows/removeDuplicateRows.small.svg';
 export { ReactComponent as UiReplaceSIcon } from './replace/replace.small.svg';
-export { ReactComponent as UiReportSIcon } from './report/report.small.svg';
 export { ReactComponent as UiRightJoinSIcon } from './rightJoin/rightJoin.small.svg';
 export { ReactComponent as UiSnowflakeSourceSIcon } from './snowflakeSource/snowflakeSource.small.svg';
 export { ReactComponent as UiSortByAscendingSIcon } from './sortByAscending/sortByAscending.small.svg';
