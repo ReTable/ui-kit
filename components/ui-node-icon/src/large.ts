@@ -55,6 +55,11 @@ import { ReactComponent as UiRemoveDuplicateRowsLIconInner } from './removeDupli
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
 import { ReactComponent as UiReportLIconInner } from './report/report.large.svg';
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
+import { ReactComponent as UiSearchLIconInner } from './search/search.large.svg';
+import { ReactComponent as UiSearchCompanyLIconInner } from './searchCompany/searchCompany.large.svg';
+import { ReactComponent as UiSearchDeveloperLIconInner } from './searchDeveloper/searchDeveloper.large.svg';
+import { ReactComponent as UiSearchLookalikeCompanyLIconInner } from './searchLookalikeCompany/searchLookalikeCompany.large.svg';
+import { ReactComponent as UiSearchPeopleLIconInner } from './searchPeople/searchPeople.large.svg';
 import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput/snowflakeOutput.large.svg';
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
 import { ReactComponent as UiSortByAscendingLIconInner } from './sortByAscending/sortByAscending.large.svg';
@@ -140,6 +145,11 @@ export const UiRemoveDuplicateRowsLIcon = createIcon(UiRemoveDuplicateRowsLIconI
 export const UiReplaceLIcon = createIcon(UiReplaceLIconInner, icon);
 export const UiReportLIcon = createIcon(UiReportLIconInner, icon);
 export const UiRightJoinLIcon = createIcon(UiRightJoinLIconInner, icon);
+export const UiSearchLIcon = createIcon(UiSearchLIconInner, icon);
+export const UiSearchCompanyLIcon = createIcon(UiSearchCompanyLIconInner, icon);
+export const UiSearchDeveloperLIcon = createIcon(UiSearchDeveloperLIconInner, icon);
+export const UiSearchLookalikeCompanyLIcon = createIcon(UiSearchLookalikeCompanyLIconInner, icon);
+export const UiSearchPeopleLIcon = createIcon(UiSearchPeopleLIconInner, icon);
 export const UiSnowflakeOutputLIcon = createIcon(UiSnowflakeOutputLIconInner, icon);
 export const UiSnowflakeSourceLIcon = createIcon(UiSnowflakeSourceLIconInner, icon);
 export const UiSortByAscendingLIcon = createIcon(UiSortByAscendingLIconInner, icon);
