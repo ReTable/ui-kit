@@ -53,30 +53,6 @@ export const isDisabled = style({
   },
 });
 
-export const tag = style({
-  '@layer': {
-    [uiLayers.components]: {
-      display: 'inline-flex',
-
-      selectors: {
-        [`${shared.sizes.small} &`]: {
-          marginTop: '4px',
-          marginLeft: '4px',
-        },
-
-        [`${shared.sizes.medium} &`]: {
-          marginTop: '8px',
-          marginLeft: '8px',
-        },
-
-        [`${isDisabled} &`]: {
-          margin: '0',
-        },
-      },
-    },
-  },
-});
-
 export const clear = style({
   '@layer': {
     [uiLayers.components]: {
@@ -99,6 +75,46 @@ export const clear = style({
 
         [`${shared.sizes.medium}${shared.hasChevron} &`]: {
           marginRight: '30px',
+        },
+      },
+    },
+  },
+});
+
+export const tag = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'inline-flex',
+
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+
+      selectors: {
+        [`${shared.sizes.small} &`]: {
+          marginTop: '4px',
+          marginLeft: '4px',
+
+          maxWidth: 'calc(100% - 8px)',
+        },
+
+        [`${shared.sizes.small} ${clear} + &`]: {
+          maxWidth: 'calc(100% - 32px)',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          marginTop: '8px',
+          marginLeft: '8px',
+
+          maxWidth: 'calc(100% - 16px)',
+        },
+
+        [`${shared.sizes.medium} ${clear} + &`]: {
+          maxWidth: 'calc(100% - 48px)',
+        },
+
+        [`${isDisabled} &`]: {
+          margin: '0',
         },
       },
     },
