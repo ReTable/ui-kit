@@ -1,5 +1,15 @@
 # @tabula/ui-multi-selector
 
+## 0.2.0
+
+### Minor Changes
+
+- [#286](https://github.com/ReTable/ui-kit/pull/286) [`161c2e6`](https://github.com/ReTable/ui-kit/commit/161c2e6b3e346c54958806d63e9bb99b7f1068b0) Thanks [@demiazz](https://github.com/demiazz)! - add `isInvalid` and `isWarning` properties
+
+### Patch Changes
+
+- [#286](https://github.com/ReTable/ui-kit/pull/286) [`161c2e6`](https://github.com/ReTable/ui-kit/commit/161c2e6b3e346c54958806d63e9bb99b7f1068b0) Thanks [@demiazz](https://github.com/demiazz)! - fix overflow styles
+
 ## 0.1.1
 
 ### Patch Changes
