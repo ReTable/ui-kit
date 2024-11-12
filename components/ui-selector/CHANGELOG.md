@@ -1,5 +1,11 @@
 # @tabula/ui-selector
 
+## 2.0.0
+
+### Major Changes
+
+- [#286](https://github.com/ReTable/ui-kit/pull/286) [`161c2e6`](https://github.com/ReTable/ui-kit/commit/161c2e6b3e346c54958806d63e9bb99b7f1068b0) Thanks [@demiazz](https://github.com/demiazz)! - rename `invalid` and `warning` properties to the `isInvalid` and `isWarning`
+
 ## 1.1.1
 
 ### Patch Changes
