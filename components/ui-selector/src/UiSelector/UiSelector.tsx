@@ -15,8 +15,9 @@ export function UiSelector({
   config: outerConfig,
   defaultItem,
   emptyContent,
-  invalid,
+  isInvalid,
   isVisible: outerVisible,
+  isWarning,
   loading,
   offset,
   onChangeVisible: onChangeOuterVisible,
@@ -28,7 +29,6 @@ export function UiSelector({
   showSearchField,
   triggerClassName,
   triggerContainerClassName,
-  warning,
 }: Props): ReactNode {
   const [searchValue, onChangeSearch, onClearSearch, searchRef] = useSearch();
   const onClickSearch = useCallback<MouseEventHandler<HTMLInputElement>>((event) => {
@@ -55,13 +55,13 @@ export function UiSelector({
     <Trigger
       className={triggerClassName}
       disabled={readOnly}
-      invalid={invalid}
+      isInvalid={isInvalid}
       isVisible={isVisible}
       loading={loading}
       onRenderTrigger={onRenderTrigger}
       placeholder={placeholder}
       showSearchField={showSearchField}
-      warning={warning}
+      isWarning={isWarning}
     />
   );
 

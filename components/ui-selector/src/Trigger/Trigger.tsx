@@ -16,21 +16,21 @@ type Props = Pick<
 > & {
   className?: string;
   disabled?: boolean;
-  invalid?: boolean;
+  isInvalid?: boolean;
   isVisible: boolean;
-  warning?: boolean;
+  isWarning?: boolean;
 };
 
 export function Trigger({
   className,
   disabled,
-  invalid,
+  isInvalid,
   isVisible,
+  isWarning,
   loading,
   onRenderTrigger,
   placeholder,
   showSearchField,
-  warning,
 }: Props): ReactNode {
   const triggerContent = useMemo(() => {
     if (typeof onRenderTrigger === 'function') {
@@ -65,8 +65,8 @@ export function Trigger({
         styles.root,
         className,
         isVisible && styles.states.isVisible,
-        warning && styles.states.isWarning,
-        invalid && styles.states.isInvalid,
+        isWarning && styles.states.isWarning,
+        isInvalid && styles.states.isInvalid,
         disabled && styles.states.isDisabled,
       )}
     >

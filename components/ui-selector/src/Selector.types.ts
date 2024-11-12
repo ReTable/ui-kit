@@ -43,8 +43,9 @@ export type Props = PropsWithChildren<{
   config: Config;
   defaultItem?: ConfigItem;
   emptyContent?: ReactNode;
-  invalid?: boolean;
+  isInvalid?: boolean;
   isVisible?: boolean;
+  isWarning?: boolean;
   loading?: boolean;
   offset?: OffsetOptions;
   onChangeVisible?: ChangeVisibleHandler;
@@ -56,7 +57,6 @@ export type Props = PropsWithChildren<{
   showSearchField?: boolean;
   triggerClassName?: string;
   triggerContainerClassName?: string;
-  warning?: boolean;
 }>;
 
 export { type OffsetOptions as Offset } from '@floating-ui/react';
