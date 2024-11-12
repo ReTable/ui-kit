@@ -33,10 +33,12 @@ type Options = {
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
-  size: UiMultiSelectorSize;
-  variant: UiMultiSelectorVariant;
+  isInvalid?: boolean;
+  isWarning?: boolean;
   selectAll?: boolean;
   selectFound?: boolean;
+  size: UiMultiSelectorSize;
+  variant: UiMultiSelectorVariant;
   withDropdownChevron?: boolean;
 };
 
@@ -50,17 +52,38 @@ export const Default: StoryObj<Options> = {
   },
 
   argTypes: {
-    completeKey: {
-      control: 'radio',
-      options: ['Enter', 'Tab'],
-    },
     allowsCustomValue: {
       control: 'boolean',
       name: 'Is allows custom value?',
     },
+    completeKey: {
+      name: 'Complete key',
+    },
+    defaultPlaceholder: {
+      control: 'text',
+      name: 'Placeholder',
+    },
+    emptyPlaceholder: {
+      control: 'text',
+      name: 'Empty placeholder',
+    },
     isDisabled: {
       control: 'boolean',
       name: 'Is disabled?',
+    },
+    isInvalid: {
+      control: 'boolean',
+      name: 'Is invalid?',
+    },
+    isWarning: {
+      control: 'boolean',
+      name: 'Is warning?',
+    },
+    size: {
+      name: 'Size',
+    },
+    variant: {
+      name: 'Variant',
     },
     withDropdownChevron: {
       control: 'boolean',
@@ -71,13 +94,15 @@ export const Default: StoryObj<Options> = {
   render({
     allowsCustomValue,
     completeKey,
-    emptyPlaceholder,
     defaultPlaceholder,
+    emptyPlaceholder,
     isDisabled,
-    size,
-    variant,
+    isInvalid,
+    isWarning,
     selectAll,
     selectFound,
+    size,
+    variant,
     withDropdownChevron,
   }) {
     const [selected, onSetSelected] = useState(
@@ -115,6 +140,8 @@ export const Default: StoryObj<Options> = {
           defaultPlaceholder={defaultPlaceholder}
           emptyPlaceholder={emptyPlaceholder}
           isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          isWarning={isWarning}
           onChange={onSetSelected}
           options={options}
           selectAll={selectAll == null ? undefined : 'Select all'}
@@ -132,7 +159,7 @@ export const Default: StoryObj<Options> = {
 
   parameters: {
     controls: {
-      exclude: /^(onChange|options|selectAll|selectFound|selected)$/,
+      exclude: /^(className|onChange|options|selectAll|selectFound|selected)$/,
     },
   },
 };

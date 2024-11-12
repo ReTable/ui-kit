@@ -31,6 +31,8 @@ export type Props = {
   defaultPlaceholder?: string;
   emptyPlaceholder?: string;
   isDisabled?: boolean;
+  isInvalid?: boolean;
+  isWarning?: boolean;
   onChange: ChangeHandler;
   options: Option[];
   selectAll?: SelectAll;
@@ -48,6 +50,8 @@ export function UiMultiSelector({
   defaultPlaceholder,
   emptyPlaceholder,
   isDisabled,
+  isInvalid,
+  isWarning,
   onChange,
   options,
   selectAll = 'Select all',
@@ -95,8 +99,10 @@ export function UiMultiSelector({
         shared.variants[variant],
         shared.sizes[size],
         withDropdownChevron && shared.hasChevron,
-        isDisabled && styles.isDisabled,
-        isEmpty && styles.isEmpty,
+        isDisabled && styles.state.isDisabled,
+        isEmpty && styles.state.isEmpty,
+        isInvalid && styles.state.isInvalid,
+        isWarning && styles.state.isWarning,
         className,
       )}
       ref={referenceRef}
