@@ -34,6 +34,12 @@ export function useConfig({
   showSearchField,
   loading,
 }: Options): Config {
+  const isMatch = useMemo(() => {
+    const pattern = searchValue.trim().toLowerCase();
+
+    return (target: string) => target.trim().toLowerCase().includes(pattern);
+  }, [searchValue]);
+
   return useMemo(() => {
     if (loading) {
       return LOADING_CONFIG;
@@ -46,15 +52,10 @@ export function useConfig({
           return acc;
         }
 
-        if (
-          !item.denyFilter &&
-          !item.id.startsWith(searchValue) &&
-          !String(item.content).startsWith(searchValue)
-        ) {
-          return acc;
+        if (item.denyFilter || isMatch(item.id) || isMatch(String(item.content))) {
+          acc.push(item);
         }
 
-        acc.push(item);
         return acc;
       }, []);
     }
@@ -64,5 +65,5 @@ export function useConfig({
     }
 
     return outerConfig;
-  }, [loading, showSearchField, searchValue, defaultItem, outerConfig]);
+  }, [loading, showSearchField, searchValue, defaultItem, outerConfig, isMatch]);
 }
