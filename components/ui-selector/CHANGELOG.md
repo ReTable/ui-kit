@@ -1,5 +1,11 @@
 # @tabula/ui-selector
 
+## 2.0.1
+
+### Patch Changes
+
+- [#288](https://github.com/ReTable/ui-kit/pull/288) [`db16cca`](https://github.com/ReTable/ui-kit/commit/db16cca98a150d64edc922d980b86fa8be95e4c2) Thanks [@demiazz](https://github.com/demiazz)! - use search by substring instead of starting of string
+
 ## 2.0.0
 
 ### Major Changes
