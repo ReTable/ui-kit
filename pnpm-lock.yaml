@@ -58,7 +58,7 @@ importers:
         version: 7.6.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tabula/eslint-config':
         specifier: ^1.0.0
-        version: 1.0.0(@typescript-eslint/parser@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0))
+        version: 1.0.0(@typescript-eslint/parser@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0))
       '@tabula/forge':
         specifier: ^4.0.2
         version: 4.0.2(@types/node@20.17.6)(jiti@1.21.6)(tsx@4.19.2)(typescript@5.6.3)
@@ -120,8 +120,8 @@ importers:
         specifier: ^4.7.8
         version: 4.7.8
       happy-dom:
-        specifier: ^15.11.6
-        version: 15.11.6
+        specifier: ^15.10.2
+        version: 15.10.2
       lefthook:
         specifier: ^1.7.18
         version: 1.8.4
@@ -160,7 +160,7 @@ importers:
         version: 5.4.11(@types/node@20.17.6)(sass-embedded@1.81.0)
       vitest:
         specifier: ^2.0.4
-        version: 2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0)
+        version: 2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0)
 
   components/ui-ai-chat:
     dependencies:
@@ -590,7 +590,7 @@ importers:
     dependencies:
       vitest:
         specifier: ^2.0.4
-        version: 2.1.5(@types/node@20.17.6)(happy-dom@14.12.3)(sass-embedded@1.81.0)
+        version: 2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0)
     optionalDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
@@ -599,8 +599,8 @@ importers:
         specifier: ^16.0.0
         version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       happy-dom:
-        specifier: ^14.12.3
-        version: 14.12.3
+        specifier: ^15.10.2
+        version: 15.10.2
 
   hooks/use-async-state:
     dependencies:
@@ -4853,12 +4853,8 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@14.12.3:
-    resolution: {integrity: sha512-vsYlEs3E9gLwA1Hp+w3qzu+RUDFf4VTT8cyKqVICoZ2k7WM++Qyd2LwzyTi5bqMJFiIC/vNpTDYuxdreENRK/g==}
-    engines: {node: '>=16.0.0'}
-
-  happy-dom@15.11.6:
-    resolution: {integrity: sha512-elX7iUTu+5+3b2+NGQc0L3eWyq9jKhuJJ4GpOMxxT/c2pg9O3L5H3ty2VECX0XXZgRmmRqXyOK8brA2hDI6LsQ==}
+  happy-dom@15.10.2:
+    resolution: {integrity: sha512-NbA5XrSovenJIIcfixCREX3ZnV7yHP4phhbfuxxf4CPn+LZpz/jIM9EqJ2DrPwgVDSMoAKH3pZwQvkbsSiCrUw==}
     engines: {node: '>=18.0.0'}
 
   has-bigints@1.0.2:
@@ -10359,11 +10355,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tabula/eslint-config@1.0.0(@typescript-eslint/parser@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0))':
+  '@tabula/eslint-config@1.0.0(@typescript-eslint/parser@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0))':
     dependencies:
       '@eslint/compat': 1.2.3(eslint@9.13.0(jiti@1.21.6))
       '@eslint/js': 9.15.0
-      '@vitest/eslint-plugin': 1.1.10(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0))
+      '@vitest/eslint-plugin': 1.1.10(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0))
       eslint: 9.13.0(jiti@1.21.6)
       eslint-config-prettier: 9.1.0(eslint@9.13.0(jiti@1.21.6))
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint-plugin-import-x@4.4.2(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))
@@ -10920,13 +10916,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.1.10(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0))':
+  '@vitest/eslint-plugin@1.1.10(@typescript-eslint/utils@8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3))(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)(vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0))':
     dependencies:
       '@typescript-eslint/utils': 8.14.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.6.3)
       eslint: 9.13.0(jiti@1.21.6)
     optionalDependencies:
       typescript: 5.6.3
-      vitest: 2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0)
+      vitest: 2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0)
 
   '@vitest/expect@2.1.5':
     dependencies:
@@ -12795,14 +12791,7 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@14.12.3:
-    dependencies:
-      entities: 4.5.0
-      webidl-conversions: 7.0.0
-      whatwg-mimetype: 3.0.0
-    optional: true
-
-  happy-dom@15.11.6:
+  happy-dom@15.10.2:
     dependencies:
       entities: 4.5.0
       webidl-conversions: 7.0.0
@@ -15356,7 +15345,7 @@ snapshots:
       fsevents: 2.3.3
       sass-embedded: 1.81.0
 
-  vitest@2.1.5(@types/node@20.17.6)(happy-dom@14.12.3)(sass-embedded@1.81.0):
+  vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.10.2)(sass-embedded@1.81.0):
     dependencies:
       '@vitest/expect': 2.1.5
       '@vitest/mocker': 2.1.5(vite@5.4.11(@types/node@20.17.6)(sass-embedded@1.81.0))
@@ -15380,43 +15369,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.17.6
-      happy-dom: 14.12.3
-    transitivePeerDependencies:
-      - less
-      - lightningcss
-      - msw
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-
-  vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0):
-    dependencies:
-      '@vitest/expect': 2.1.5
-      '@vitest/mocker': 2.1.5(vite@5.4.11(@types/node@20.17.6)(sass-embedded@1.81.0))
-      '@vitest/pretty-format': 2.1.5
-      '@vitest/runner': 2.1.5
-      '@vitest/snapshot': 2.1.5
-      '@vitest/spy': 2.1.5
-      '@vitest/utils': 2.1.5
-      chai: 5.1.2
-      debug: 4.3.7
-      expect-type: 1.1.0
-      magic-string: 0.30.12
-      pathe: 1.1.2
-      std-env: 3.8.0
-      tinybench: 2.9.0
-      tinyexec: 0.3.1
-      tinypool: 1.0.2
-      tinyrainbow: 1.2.0
-      vite: 5.4.11(@types/node@20.17.6)(sass-embedded@1.81.0)
-      vite-node: 2.1.5(@types/node@20.17.6)(sass-embedded@1.81.0)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@types/node': 20.17.6
-      happy-dom: 15.11.6
+      happy-dom: 15.10.2
     transitivePeerDependencies:
       - less
       - lightningcss

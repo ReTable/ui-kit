@@ -46,7 +46,7 @@
   "optionalDependencies": {
     "@testing-library/react": "^16.0.0",
     "@testing-library/jest-dom": "^6.4.6",
-    "happy-dom": "^14.12.3"
+    "happy-dom": "^15.10.2"
   },
   "peerDependencies": {
     "vitest": "^2.0.4"
