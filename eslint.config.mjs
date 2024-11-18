@@ -14,33 +14,49 @@ export default defineConfig({
   typescriptBrowser: {
     files: ['{components,hooks,libraries}/*/{src,stories,tests}/**/*.{ts,tsx}'],
 
-    configs: presets.typescript({
-      language: {
-        globals: ['browser'],
-      },
+    configs: [
+      ...presets.typescript({
+        language: {
+          globals: ['browser'],
+        },
 
-      importX: {
-        react: true,
+        importX: {
+          react: true,
+
+          typescript: {
+            alwaysTryTypes: true,
+
+            project: [
+              'components/*/tsconfig.json',
+              'hooks/*/tsconfig.json',
+              'libraries/*/tsconfig.json',
+            ],
+          },
+        },
 
         typescript: {
-          alwaysTryTypes: true,
+          useTyped: true,
 
-          project: [
-            'components/*/tsconfig.json',
-            'hooks/*/tsconfig.json',
-            'libraries/*/tsconfig.json',
+          parserOptions: {
+            projectService: true,
+          },
+        },
+      }),
+      {
+        name: 'overrides',
+
+        rules: {
+          '@typescript-eslint/switch-exhaustiveness-check': [
+            'error',
+            {
+              allowDefaultCaseForExhaustiveSwitch: true,
+              considerDefaultExhaustiveForUnions: true,
+              requireDefaultForNonUnion: false,
+            },
           ],
         },
       },
-
-      typescript: {
-        useTyped: true,
-
-        parserOptions: {
-          projectService: true,
-        },
-      },
-    }),
+    ],
   },
 
   typescriptNode: {
