@@ -590,7 +590,7 @@ importers:
     dependencies:
       vitest:
         specifier: ^2.0.4
-        version: 2.1.5(@types/node@20.17.6)(happy-dom@14.12.3)(sass-embedded@1.81.0)
+        version: 2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0)
     optionalDependencies:
       '@testing-library/jest-dom':
         specifier: ^6.4.6
@@ -599,8 +599,8 @@ importers:
         specifier: ^16.0.0
         version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       happy-dom:
-        specifier: ^14.12.3
-        version: 14.12.3
+        specifier: ^15.11.6
+        version: 15.11.6
 
   hooks/use-async-state:
     dependencies:
@@ -4852,10 +4852,6 @@ packages:
     resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
     engines: {node: '>=0.4.7'}
     hasBin: true
-
-  happy-dom@14.12.3:
-    resolution: {integrity: sha512-vsYlEs3E9gLwA1Hp+w3qzu+RUDFf4VTT8cyKqVICoZ2k7WM++Qyd2LwzyTi5bqMJFiIC/vNpTDYuxdreENRK/g==}
-    engines: {node: '>=16.0.0'}
 
   happy-dom@15.11.6:
     resolution: {integrity: sha512-elX7iUTu+5+3b2+NGQc0L3eWyq9jKhuJJ4GpOMxxT/c2pg9O3L5H3ty2VECX0XXZgRmmRqXyOK8brA2hDI6LsQ==}
@@ -12795,13 +12791,6 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@14.12.3:
-    dependencies:
-      entities: 4.5.0
-      webidl-conversions: 7.0.0
-      whatwg-mimetype: 3.0.0
-    optional: true
-
   happy-dom@15.11.6:
     dependencies:
       entities: 4.5.0
@@ -15355,42 +15344,6 @@ snapshots:
       '@types/node': 20.17.6
       fsevents: 2.3.3
       sass-embedded: 1.81.0
-
-  vitest@2.1.5(@types/node@20.17.6)(happy-dom@14.12.3)(sass-embedded@1.81.0):
-    dependencies:
-      '@vitest/expect': 2.1.5
-      '@vitest/mocker': 2.1.5(vite@5.4.11(@types/node@20.17.6)(sass-embedded@1.81.0))
-      '@vitest/pretty-format': 2.1.5
-      '@vitest/runner': 2.1.5
-      '@vitest/snapshot': 2.1.5
-      '@vitest/spy': 2.1.5
-      '@vitest/utils': 2.1.5
-      chai: 5.1.2
-      debug: 4.3.7
-      expect-type: 1.1.0
-      magic-string: 0.30.12
-      pathe: 1.1.2
-      std-env: 3.8.0
-      tinybench: 2.9.0
-      tinyexec: 0.3.1
-      tinypool: 1.0.2
-      tinyrainbow: 1.2.0
-      vite: 5.4.11(@types/node@20.17.6)(sass-embedded@1.81.0)
-      vite-node: 2.1.5(@types/node@20.17.6)(sass-embedded@1.81.0)
-      why-is-node-running: 2.3.0
-    optionalDependencies:
-      '@types/node': 20.17.6
-      happy-dom: 14.12.3
-    transitivePeerDependencies:
-      - less
-      - lightningcss
-      - msw
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
 
   vitest@2.1.5(@types/node@20.17.6)(happy-dom@15.11.6)(sass-embedded@1.81.0):
     dependencies:
