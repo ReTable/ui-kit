@@ -169,13 +169,15 @@ function verifyHeader(node: Node, { isChecked, isIndeterminate, isDisabled = fal
   }
 
   if (isIndeterminate) {
-    expect(input, `Header should have an input which is indeterminate`).toHaveAttribute(
-      'indeterminate',
-    );
+    expect(
+      (input as HTMLInputElement).indeterminate,
+      `Header should have an input which is indeterminate`,
+    ).toBe(true);
   } else {
-    expect(input, `Header should have an input which isn't indeterminate`).not.toHaveAttribute(
-      'indeterminate',
-    );
+    expect(
+      (input as HTMLInputElement).indeterminate,
+      `Header should have an input which isn't indeterminate`,
+    ).toBe(false);
   }
 }
 
@@ -262,14 +264,14 @@ function verifyBranch(
 
   if (isIndeterminate) {
     expect(
-      input,
+      (input as HTMLInputElement).indeterminate,
       `Branch with id ${id} should have an input which is indeterminate`,
-    ).toHaveAttribute('indeterminate');
+    ).toBe(true);
   } else {
     expect(
-      input,
+      (input as HTMLInputElement).indeterminate,
       `Branch with id ${id} should have an input which isn't indeterminate`,
-    ).not.toHaveAttribute('indeterminate');
+    ).toBe(false);
   }
 
   const content = screen.queryByTestId(`${testId}--checkbox--content`);
