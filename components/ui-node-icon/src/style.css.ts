@@ -137,6 +137,13 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    millionVerifier: {
+      primary: 'primary',
+      gradient: {
+        from: 'from',
+        to: 'to',
+      },
+    },
     peopleDataLabs: 'peopleDataLabs',
     predictLeads: 'predictLeads',
     prospeo: {
@@ -153,6 +160,10 @@ export const enrichments = createGlobalThemeContract(
       secondary: 'secondary',
     },
     upLead: 'upLead',
+    zeroBounce: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     zoomInfo: {
       primary: 'primary',
       secondary: 'secondary',
@@ -200,6 +211,13 @@ createGlobalTheme(':root', enrichments, {
     primary: '#ffffff',
     secondary: '#000000',
   },
+  millionVerifier: {
+    primary: '#0c1516',
+    gradient: {
+      from: '#20cc95',
+      to: '#205ccc',
+    },
+  },
   peopleDataLabs: '#7f35fd',
   predictLeads: '#76508e',
   prospeo: {
@@ -216,6 +234,10 @@ createGlobalTheme(':root', enrichments, {
     secondary: '#478acc',
   },
   upLead: '#5e707d',
+  zeroBounce: {
+    primary: '#000000',
+    secondary: '#f0e711',
+  },
   zoomInfo: {
     primary: '#ffffff',
     secondary: '#f44238',
@@ -341,6 +363,13 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    millionVerifier: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      gradient: {
+        from: uiTheme.colors.icons.disabled.secondary,
+        to: uiTheme.colors.icons.disabled.secondary,
+      },
+    },
     peopleDataLabs: uiTheme.colors.icons.disabled.primary,
     predictLeads: uiTheme.colors.icons.disabled.primary,
     prospeo: {
@@ -357,6 +386,10 @@ const overrides = {
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
     upLead: uiTheme.colors.icons.disabled.primary,
+    zeroBounce: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     zoomInfo: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,

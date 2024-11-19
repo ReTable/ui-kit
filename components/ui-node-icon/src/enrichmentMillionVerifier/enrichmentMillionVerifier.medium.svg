@@ -1,0 +1,11 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3.75 7.5V20.25H7.5V11.25L3.75 7.5Z" fill="var(--tbl--ui-node-icon--enrichment--million-verifier-primary)"/>
+  <path d="M16.5 12V20.25H20.25V8.25L16.5 12Z" fill="var(--tbl--ui-node-icon--enrichment--million-verifier-primary)"/>
+  <path d="M3.75 5.25L12 13.5L24 1.5L12 9L3.75 5.25Z" fill="url(#tbl--ui-node-icon--enrichment--million-verifier-m--gradient)"/>
+  <defs>
+    <linearGradient id="tbl--ui-node-icon--enrichment--million-verifier-m--gradient" x1="10.0337" y1="0.911701" x2="32.2525" y2="16.5447" gradientUnits="userSpaceOnUse">
+      <stop stop-color="var(--tbl--ui-node-icon--enrichment--million-verifier-gradient-from)"/>
+      <stop offset="1" stop-color="var(--tbl--ui-node-icon--enrichment--million-verifier-gradient-to)"/>
+    </linearGradient>
+  </defs>
+</svg>
