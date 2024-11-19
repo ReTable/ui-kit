@@ -18,7 +18,6 @@ import { ReactComponent as UiEnrichmentApolloLIconInner } from './enrichmentApol
 import { ReactComponent as UiEnrichmentClearbitLIconInner } from './enrichmentClearbit/enrichmentClearbit.large.svg';
 import { ReactComponent as UiEnrichmentContactOutLIconInner } from './enrichmentContactOut/enrichmentContactOut.large.svg';
 import { ReactComponent as UiEnrichmentFindymailLIconInner } from './enrichmentFindymail/enrichmentFindymail.large.svg';
-import { ReactComponent as UiEnrichmentFirecrawlLIconInner } from './enrichmentFirecrawl/enrichmentFirecrawl.large.svg';
 import { ReactComponent as UiEnrichmentHunterLIconInner } from './enrichmentHunter/enrichmentHunter.large.svg';
 import { ReactComponent as UiEnrichmentLead411LIconInner } from './enrichmentLead411/enrichmentLead411.large.svg';
 import { ReactComponent as UiEnrichmentLeadMagicLIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.large.svg';
@@ -105,7 +104,6 @@ export const UiEnrichmentApolloLIcon = createIcon(UiEnrichmentApolloLIconInner, 
 export const UiEnrichmentClearbitLIcon = createIcon(UiEnrichmentClearbitLIconInner, icon);
 export const UiEnrichmentContactOutLIcon = createIcon(UiEnrichmentContactOutLIconInner, icon);
 export const UiEnrichmentFindymailLIcon = createIcon(UiEnrichmentFindymailLIconInner, icon);
-export const UiEnrichmentFirecrawlLIcon = createIcon(UiEnrichmentFirecrawlLIconInner, icon);
 export const UiEnrichmentHunterLIcon = createIcon(UiEnrichmentHunterLIconInner, icon);
 export const UiEnrichmentLead411LIcon = createIcon(UiEnrichmentLead411LIconInner, icon);
 export const UiEnrichmentLeadMagicLIcon = createIcon(UiEnrichmentLeadMagicLIconInner, icon);
