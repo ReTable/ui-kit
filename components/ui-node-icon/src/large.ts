@@ -22,12 +22,14 @@ import { ReactComponent as UiEnrichmentHunterLIconInner } from './enrichmentHunt
 import { ReactComponent as UiEnrichmentLead411LIconInner } from './enrichmentLead411/enrichmentLead411.large.svg';
 import { ReactComponent as UiEnrichmentLeadMagicLIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.large.svg';
 import { ReactComponent as UiEnrichmentLeadReachLIconInner } from './enrichmentLeadReach/enrichmentLeadReach.large.svg';
+import { ReactComponent as UiEnrichmentMillionVerifierLIconInner } from './enrichmentMillionVerifier/enrichmentMillionVerifier.large.svg';
 import { ReactComponent as UiEnrichmentPeopleDataLabsLIconInner } from './enrichmentPeopleDataLabs/enrichmentPeopleDataLabs.large.svg';
 import { ReactComponent as UiEnrichmentPredictLeadsLIconInner } from './enrichmentPredictLeads/enrichmentPredictLeads.large.svg';
 import { ReactComponent as UiEnrichmentProspeoLIconInner } from './enrichmentProspeo/enrichmentProspeo.large.svg';
 import { ReactComponent as UiEnrichmentReverseContactLIconInner } from './enrichmentReverseContact/enrichmentReverseContact.large.svg';
 import { ReactComponent as UiEnrichmentSignalHireLIconInner } from './enrichmentSignalHire/enrichmentSignalHire.large.svg';
 import { ReactComponent as UiEnrichmentUpLeadLIconInner } from './enrichmentUpLead/enrichmentUpLead.large.svg';
+import { ReactComponent as UiEnrichmentZeroBounceLIconInner } from './enrichmentZeroBounce/enrichmentZeroBounce.large.svg';
 import { ReactComponent as UiEnrichmentZoomInfoLIconInner } from './enrichmentZoomInfo/enrichmentZoomInfo.large.svg';
 import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
@@ -106,6 +108,10 @@ export const UiEnrichmentHunterLIcon = createIcon(UiEnrichmentHunterLIconInner, 
 export const UiEnrichmentLead411LIcon = createIcon(UiEnrichmentLead411LIconInner, icon);
 export const UiEnrichmentLeadMagicLIcon = createIcon(UiEnrichmentLeadMagicLIconInner, icon);
 export const UiEnrichmentLeadReachLIcon = createIcon(UiEnrichmentLeadReachLIconInner, icon);
+export const UiEnrichmentMillionVerifierLIcon = createIcon(
+  UiEnrichmentMillionVerifierLIconInner,
+  icon,
+);
 export const UiEnrichmentPeopleDataLabsLIcon = createIcon(
   UiEnrichmentPeopleDataLabsLIconInner,
   icon,
@@ -118,6 +124,7 @@ export const UiEnrichmentReverseContactLIcon = createIcon(
 );
 export const UiEnrichmentSignalHireLIcon = createIcon(UiEnrichmentSignalHireLIconInner, icon);
 export const UiEnrichmentUpLeadLIcon = createIcon(UiEnrichmentUpLeadLIconInner, icon);
+export const UiEnrichmentZeroBounceLIcon = createIcon(UiEnrichmentZeroBounceLIconInner, icon);
 export const UiEnrichmentZoomInfoLIcon = createIcon(UiEnrichmentZoomInfoLIconInner, icon);
 export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon);
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon);

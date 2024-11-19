@@ -1,0 +1,14 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M1.33334 3.33333C1.33334 2.22876 2.22877 1.33334 3.33334 1.33334H8.00001V14.6667H3.33334C2.22877 14.6667 1.33334 13.7712 1.33334 12.6667V3.33333Z"
+    fill="var(--tbl--ui-node-icon--enrichment--clearbit-primary)"
+  />
+  <path
+    d="M14.6667 3.33333C14.6667 2.22876 13.7712 1.33334 12.6667 1.33334H7.99999V8H14.6667V3.33333Z"
+    fill="var(--tbl--ui-node-icon--enrichment--clearbit-secondary)"
+  />
+  <path
+    d="M14.6667 12.6667C14.6667 13.7712 13.7712 14.6667 12.6667 14.6667H7.99999V8H14.6667V12.6667Z"
+    fill="var(--tbl--ui-node-icon--enrichment--clearbit-tertiary)"
+  />
+</svg>
