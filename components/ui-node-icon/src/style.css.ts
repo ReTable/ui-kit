@@ -115,6 +115,7 @@ export const enrichments = createGlobalThemeContract(
     contactOut: {
       l: 'l',
       m: 'm',
+      s: 's',
     },
     findymail: {
       primary: 'primary',
@@ -145,6 +146,7 @@ export const enrichments = createGlobalThemeContract(
     reverseContact: {
       l: 'l',
       m: 'm',
+      s: 's',
     },
     signalHire: {
       primary: 'primary',
@@ -176,6 +178,7 @@ createGlobalTheme(':root', enrichments, {
   contactOut: {
     l: '',
     m: '',
+    s: '',
   },
   findymail: {
     primary: '#e3243b',
@@ -206,6 +209,7 @@ createGlobalTheme(':root', enrichments, {
   reverseContact: {
     l: '',
     m: '',
+    s: '',
   },
   signalHire: {
     primary: '#000000',
@@ -315,6 +319,7 @@ const overrides = {
     contactOut: {
       l: 'url(#tbl--ui-node-icon--enrichment--contact-out-l--disabled)',
       m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
+      s: 'url(#tbl--ui-node-icon--enrichment--contact-out-s--disabled)',
     },
     findymail: {
       primary: uiTheme.colors.icons.disabled.primary,
@@ -345,6 +350,7 @@ const overrides = {
     reverseContact: {
       l: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--disabled)',
       m: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--disabled)',
+      s: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--disabled)',
     },
     signalHire: {
       primary: uiTheme.colors.icons.disabled.primary,

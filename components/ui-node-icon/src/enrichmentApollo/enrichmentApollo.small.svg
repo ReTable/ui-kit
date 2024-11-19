@@ -1,0 +1,8 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="1" y="1" width="14" height="14" rx="2" fill="var(--tbl--ui-node-icon--enrichment--apollo-secondary)"/>
+  <path d="M11 5H10L10.5183 6L11 5Z" fill="var(--tbl--ui-node-icon--enrichment--apollo-primary)"/>
+  <path
+    d="M11.84 9.51357L10.9776 8.06034L8.25575 3.5L3.5 11.5H6.04705C6.38749 11.4996 6.72166 11.413 7.01694 11.2489C7.31221 11.0847 7.55813 10.8485 7.73087 10.5634L9.03283 8.35726L8.3097 7.14115L6.73798 9.79862C6.64889 9.94624 6.52175 10.0684 6.36909 10.1532C6.21644 10.2385 6.04371 10.283 5.86763 10.2835H5.6744L8.25659 5.93945L11.5627 11.5H12.5V10.6147L11.8434 9.514H11.84V9.51357Z"
+    fill="var(--tbl--ui-node-icon--enrichment--apollo-primary)"
+  />
+</svg>

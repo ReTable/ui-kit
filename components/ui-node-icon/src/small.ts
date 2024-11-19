@@ -1,3 +1,17 @@
+import { ReactComponent as UiEnrichmentApolloSIconInner } from './enrichmentApollo/enrichmentApollo.small.svg';
+import { ReactComponent as UiEnrichmentClearbitSIconInner } from './enrichmentClearbit/enrichmentClearbit.small.svg';
+import { ReactComponent as UiEnrichmentContactOutSIconInner } from './enrichmentContactOut/enrichmentContactOut.small.svg';
+import { ReactComponent as UiEnrichmentFindymailSIconInner } from './enrichmentFindymail/enrichmentFindymail.small.svg';
+import { ReactComponent as UiEnrichmentHunterSIconInner } from './enrichmentHunter/enrichmentHunter.small.svg';
+import { ReactComponent as UiEnrichmentLead411SIconInner } from './enrichmentLead411/enrichmentLead411.small.svg';
+import { ReactComponent as UiEnrichmentLeadMagicSIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.small.svg';
+import { ReactComponent as UiEnrichmentPeopleDataLabsSIconInner } from './enrichmentPeopleDataLabs/enrichmentPeopleDataLabs.small.svg';
+import { ReactComponent as UiEnrichmentPredictLeadsSIconInner } from './enrichmentPredictLeads/enrichmentPredictLeads.small.svg';
+import { ReactComponent as UiEnrichmentProspeoSIconInner } from './enrichmentProspeo/enrichmentProspeo.small.svg';
+import { ReactComponent as UiEnrichmentReverseContactSIconInner } from './enrichmentReverseContact/enrichmentReverseContact.small.svg';
+import { ReactComponent as UiEnrichmentSignalHireSIconInner } from './enrichmentSignalHire/enrichmentSignalHire.small.svg';
+import { ReactComponent as UiEnrichmentUpLeadSIconInner } from './enrichmentUpLead/enrichmentUpLead.small.svg';
+import { ReactComponent as UiEnrichmentZoomInfoSIconInner } from './enrichmentZoomInfo/enrichmentZoomInfo.small.svg';
 import { ReactComponent as UiFolderSourceSIconInner } from './folderSource/folderSource.small.svg';
 import { ReactComponent as UiLocalFileSIconInner } from './localFile/localFile.small.svg';
 import { ReactComponent as UiPostgresSourceSIconInner } from './postgresSource/postgresSource.small.svg';
@@ -12,6 +26,26 @@ import { icon } from './style.css';
 
 import { createIcon } from './utils';
 
+export const UiEnrichmentApolloSIcon = createIcon(UiEnrichmentApolloSIconInner, icon);
+export const UiEnrichmentClearbitSIcon = createIcon(UiEnrichmentClearbitSIconInner, icon);
+export const UiEnrichmentContactOutSIcon = createIcon(UiEnrichmentContactOutSIconInner, icon);
+export const UiEnrichmentFindymailSIcon = createIcon(UiEnrichmentFindymailSIconInner, icon);
+export const UiEnrichmentHunterSIcon = createIcon(UiEnrichmentHunterSIconInner, icon);
+export const UiEnrichmentLead411SIcon = createIcon(UiEnrichmentLead411SIconInner, icon);
+export const UiEnrichmentLeadMagicSIcon = createIcon(UiEnrichmentLeadMagicSIconInner, icon);
+export const UiEnrichmentPeopleDataLabsSIcon = createIcon(
+  UiEnrichmentPeopleDataLabsSIconInner,
+  icon,
+);
+export const UiEnrichmentPredictLeadsSIcon = createIcon(UiEnrichmentPredictLeadsSIconInner, icon);
+export const UiEnrichmentProspeoSIcon = createIcon(UiEnrichmentProspeoSIconInner, icon);
+export const UiEnrichmentReverseContactSIcon = createIcon(
+  UiEnrichmentReverseContactSIconInner,
+  icon,
+);
+export const UiEnrichmentSignalHireSIcon = createIcon(UiEnrichmentSignalHireSIconInner, icon);
+export const UiEnrichmentUpLeadSIcon = createIcon(UiEnrichmentUpLeadSIconInner, icon);
+export const UiEnrichmentZoomInfoSIcon = createIcon(UiEnrichmentZoomInfoSIconInner, icon);
 export const UiFolderSourceSIcon = createIcon(UiFolderSourceSIconInner, icon);
 export const UiLocalFileSIcon = createIcon(UiLocalFileSIconInner, icon);
 export const UiPostgresSourceSIcon = createIcon(UiPostgresSourceSIconInner, icon);
