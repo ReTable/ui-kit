@@ -17,7 +17,6 @@ type Props = {
   isDisabled?: boolean;
   onArrowDown: () => void;
   onArrowUp: () => void;
-  onBlur: () => void;
   onComplete: () => void;
   onEscape: () => void;
   onFocus: () => void;
@@ -33,7 +32,6 @@ export const Search = forwardRef<HTMLInputElement, Props>(
       emptyPlaceholder,
       id,
       isDisabled,
-      onBlur,
       onFocus,
       value,
       ...handlers
@@ -47,7 +45,6 @@ export const Search = forwardRef<HTMLInputElement, Props>(
         className={clsx(styles.root, className)}
         disabled={isDisabled}
         id={id}
-        onBlur={onBlur}
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}

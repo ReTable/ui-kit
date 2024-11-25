@@ -78,7 +78,6 @@ export function UiMultiSelector({
     isOpen,
     onGoNext,
     onGoPrevious,
-    onHideDropdown,
     onSelectCurrent,
     onShowDropdown,
     referenceRef,
@@ -128,7 +127,6 @@ export function UiMultiSelector({
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
           onArrowUp={onGoPrevious}
-          onBlur={onHideDropdown}
           onComplete={onSelectCurrent}
           onEscape={onEscape}
           onFocus={onShowDropdown}
