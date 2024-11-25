@@ -67,7 +67,6 @@ export function UiMultiSelector({
 
   const onUpdate = useUpdateHandler({
     onChange,
-    searchRef,
     onSearch,
     selected,
   });
@@ -78,11 +77,13 @@ export function UiMultiSelector({
     isOpen,
     onGoNext,
     onGoPrevious,
-    onHideDropdown,
     onSelectCurrent,
     onShowDropdown,
+    onHideDropdown,
     referenceRef,
     style,
+    getFloatingProps,
+    getReferenceProps,
   } = useDropdown();
 
   const renderTag = useTagRenderer({
@@ -106,6 +107,7 @@ export function UiMultiSelector({
         className,
       )}
       ref={referenceRef}
+      {...getReferenceProps()}
     >
       {withDropdownChevron && !isDisabled && <ChevronIcon className={styles.chevron} />}
       {!isEmpty && (
@@ -128,7 +130,7 @@ export function UiMultiSelector({
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
           onArrowUp={onGoPrevious}
-          onBlur={onHideDropdown}
+          onBlurByTab={onHideDropdown}
           onComplete={onSelectCurrent}
           onEscape={onEscape}
           onFocus={onShowDropdown}
@@ -139,7 +141,7 @@ export function UiMultiSelector({
       )}
       {!isDisabled && (
         <FloatingPortal preserveTabOrder={false}>
-          <div ref={floatingRef} style={style}>
+          <div ref={floatingRef} style={style} {...getFloatingProps()}>
             {isOpen && (
               <Dropdown
                 allowsCustomValue={allowsCustomValue}
