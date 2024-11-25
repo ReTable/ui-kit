@@ -6,7 +6,9 @@ import {
   flip,
   offset,
   size,
+  useDismiss,
   useFloating,
+  useInteractions,
   useTransitionStyles,
 } from '@floating-ui/react';
 
@@ -23,6 +25,9 @@ type Result = {
   floatingRef: Ref<HTMLDivElement>;
   referenceRef: Ref<HTMLDivElement>;
 
+  getFloatingProps: () => Record<string, unknown>;
+  getReferenceProps: () => Record<string, unknown>;
+
   style: CSSProperties;
 
   onShowDropdown: () => void;
@@ -37,7 +42,8 @@ type Result = {
 export function useDropdown(): Result {
   const dropdownRef = useRef<DropdownController>(null);
 
-  const [open, { on: onShowDropdown, off: onHideDropdown }] = useFlag(false);
+  const [open, { on: onShowDropdown, off: onHideDropdown, change: onToggleDropdown }] =
+    useFlag(false);
 
   // NOTE: Hide dropdown with timeout.
   //
@@ -66,6 +72,10 @@ export function useDropdown(): Result {
 
     open,
 
+    onOpenChange(state: boolean) {
+      onToggleDropdown(state);
+    },
+
     middleware: [
       offset({ mainAxis: 4 }),
       flip(),
@@ -87,6 +97,13 @@ export function useDropdown(): Result {
     },
   });
 
+  const dismiss = useDismiss(context, {
+    escapeKey: true,
+    outsidePress: true,
+  });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
+
   const { isMounted: isOpen, styles: transitionStyles } = useTransitionStyles(context);
 
   const style = useMemo(
@@ -102,6 +119,9 @@ export function useDropdown(): Result {
     dropdownRef,
     floatingRef: refs.setFloating,
     referenceRef: refs.setReference,
+
+    getReferenceProps,
+    getFloatingProps,
 
     style,
 
