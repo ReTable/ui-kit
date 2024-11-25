@@ -1,20 +1,14 @@
-import { RefObject, useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { ChangeHandler, SearchHandler, Selected, UpdateHandler } from '../../types';
 
 type Options = {
   onChange: ChangeHandler;
   onSearch: SearchHandler;
-  searchRef: RefObject<HTMLInputElement>;
   selected: Selected;
 };
 
-export function useUpdateHandler({
-  onChange,
-  onSearch,
-  searchRef,
-  selected,
-}: Options): UpdateHandler {
+export function useUpdateHandler({ onChange, onSearch, selected }: Options): UpdateHandler {
   return useCallback<UpdateHandler>(
     (type, values) => {
       const next: Selected = new Set(selected);
@@ -60,9 +54,7 @@ export function useUpdateHandler({
       onChange(next, type, difference);
 
       onSearch('');
-
-      searchRef.current?.focus();
     },
-    [selected, onChange, onSearch, searchRef],
+    [selected, onChange, onSearch],
   );
 }

@@ -67,7 +67,6 @@ export function UiMultiSelector({
 
   const onUpdate = useUpdateHandler({
     onChange,
-    searchRef,
     onSearch,
     selected,
   });
