@@ -1,5 +1,11 @@
 # @tabula/ui-multi-selector
 
+## 0.2.1-next.0
+
+### Patch Changes
+
+- [#296](https://github.com/ReTable/ui-kit/pull/296) [`1c8e0b5`](https://github.com/ReTable/ui-kit/commit/1c8e0b54cbfb856c873677412ac73a73e3e560dd) Thanks [@demiazz](https://github.com/demiazz)! - fixes focus management
+
 ## 0.2.0
 
 ### Minor Changes
