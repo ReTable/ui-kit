@@ -79,6 +79,7 @@ export function UiMultiSelector({
     onGoPrevious,
     onSelectCurrent,
     onShowDropdown,
+    onHideDropdown,
     referenceRef,
     style,
     getFloatingProps,
@@ -129,6 +130,7 @@ export function UiMultiSelector({
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
           onArrowUp={onGoPrevious}
+          onBlurByTab={onHideDropdown}
           onComplete={onSelectCurrent}
           onEscape={onEscape}
           onFocus={onShowDropdown}

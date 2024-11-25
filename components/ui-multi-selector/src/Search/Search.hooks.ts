@@ -10,16 +10,11 @@ type ChangeHandler = ChangeEventHandler<HTMLInputElement>;
 
 // endregion Types
 
-// region Constants
-
-const SPECIAL_KEYS = new Set(['ArrowDown', 'ArrowUp', 'Enter', 'Escape', 'Tab']);
-
-// endregion Constants
-
 type Options = {
   completeKey: CompleteKey;
   onArrowDown: () => void;
   onArrowUp: () => void;
+  onBlurByTab: () => void;
   onComplete: () => void;
   onEscape: () => void;
   onSearch: (value: string) => void;
@@ -34,6 +29,7 @@ export function useHandlers({
   completeKey,
   onArrowDown,
   onArrowUp,
+  onBlurByTab,
   onComplete,
   onEscape,
   onSearch,
@@ -48,17 +44,35 @@ export function useHandlers({
   // NOTE: Handle special keys: arrow navigation, blur or completion.
   const handleKeyDown = useCallback<KeyboardEventHandler<HTMLInputElement>>(
     (event) => {
-      // NOTE: Ignore any non-special keys.
-      if (!SPECIAL_KEYS.has(event.key)) {
+      // NOTE: We can handle the `Tab` in two ways depends on the `completeKey` option:
+      //         - if `completeKey` is `Tab`, then we activate completion and cancel default behavior;
+      //         - otherwise, we don't block default behavior, but close the dropdown (we close dropdown on focus loose
+      //           ONLY when move to the previous/next taggable element, not by click on dropdown/tags/etc.).
+      if (event.key === 'Tab') {
+        if (completeKey === 'Tab') {
+          event.preventDefault();
+
+          onComplete();
+        } else {
+          onBlurByTab();
+        }
+
         return;
       }
 
-      // NOTE: If possible completion key is pressed, we should don't prevent default behaviour, if that key isn't
-      //       enabled by option.
-      //
-      //       For example, if `Enter` is used for completion, then we shouldn't prevent `Tab` navigation when `Tab`
-      //       is pressed.
-      if ((event.key === 'Enter' || event.key === 'Tab') && event.key !== completeKey) {
+      // NOTE: Handle then `Enter` key only if `completeKey` is `Enter`.
+      if (event.key === 'Enter') {
+        if (completeKey === 'Enter') {
+          event.preventDefault();
+
+          onComplete();
+        }
+
+        return;
+      }
+
+      // NOTE: Skip any non-special keys.
+      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key === 'Escape') {
         return;
       }
 
@@ -66,22 +80,12 @@ export function useHandlers({
 
       switch (event.key) {
         case 'ArrowDown': {
-          event.preventDefault();
-
           onArrowDown();
 
           break;
         }
         case 'ArrowUp': {
-          event.preventDefault();
-
           onArrowUp();
-
-          break;
-        }
-        case 'Enter':
-        case 'Tab': {
-          onComplete();
 
           break;
         }

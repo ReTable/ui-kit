@@ -17,6 +17,7 @@ type Props = {
   isDisabled?: boolean;
   onArrowDown: () => void;
   onArrowUp: () => void;
+  onBlurByTab: () => void;
   onComplete: () => void;
   onEscape: () => void;
   onFocus: () => void;
