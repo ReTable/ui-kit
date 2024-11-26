@@ -1,5 +1,13 @@
 # @tabula/ui-multi-selector
 
+## 0.2.1-next.1
+
+### Patch Changes
+
+- [#298](https://github.com/ReTable/ui-kit/pull/298) [`6f7d8eb`](https://github.com/ReTable/ui-kit/commit/6f7d8ebf1511139d1082922c0c07d3b13f49afb1) Thanks [@demiazz](https://github.com/demiazz)! - fix typo in keydown handler
+
+- [#300](https://github.com/ReTable/ui-kit/pull/300) [`225c04d`](https://github.com/ReTable/ui-kit/commit/225c04d9dee2e09c1a171940b5065aa6c8bd8b70) Thanks [@demiazz](https://github.com/demiazz)! - fix `useCallback` deps
+
 ## 0.2.1-next.0
 
 ### Patch Changes

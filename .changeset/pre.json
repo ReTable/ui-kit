@@ -41,6 +41,8 @@
     "@tabula/tree-utils": "0.1.0"
   },
   "changesets": [
+    "purple-schools-dream",
+    "thin-eyes-sparkle",
     "unlucky-sloths-travel"
   ]
 }
