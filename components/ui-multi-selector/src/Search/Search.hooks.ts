@@ -96,7 +96,7 @@ export function useHandlers({
         }
       }
     },
-    [completeKey, onArrowDown, onArrowUp, onComplete, onEscape],
+    [completeKey, onArrowDown, onArrowUp, onBlurByTab, onComplete, onEscape],
   );
 
   return { onChange: handleChange, onKeyDown: handleKeyDown };
