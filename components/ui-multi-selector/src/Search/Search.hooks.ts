@@ -72,7 +72,7 @@ export function useHandlers({
       }
 
       // NOTE: Skip any non-special keys.
-      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key === 'Escape') {
+      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp' && event.key !== 'Escape') {
         return;
       }
 
