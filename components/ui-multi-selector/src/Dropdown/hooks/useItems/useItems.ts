@@ -29,7 +29,7 @@ export function useItems({
   selected,
 }: Options): Item[] {
   return useMemo(() => {
-    const [values, items] = buildItems({ onUpdate, options, search, selected });
+    const [values, items] = buildItems({ allowsCustomValue, onUpdate, options, search, selected });
 
     const hasSearch = search.length > 0;
 

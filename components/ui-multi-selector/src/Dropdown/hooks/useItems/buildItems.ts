@@ -6,15 +6,28 @@ import { match } from './match';
 import { renderParts } from './renderParts';
 
 type Options = {
+  allowsCustomValue?: boolean;
   onUpdate: UpdateHandler;
   options: Option[];
   search: string;
   selected: Selected;
 };
 
-export function buildItems({ onUpdate, options, search, selected }: Options): [string[], Item[]] {
+export function buildItems({
+  allowsCustomValue,
+  onUpdate,
+  options,
+  search,
+  selected,
+}: Options): [string[], Item[]] {
   const values: string[] = [];
   const items: Item[] = [];
+
+  // NOTE: If custom values are allowed and search is empty, then just don't
+  //       suggest any items.
+  if (allowsCustomValue && search.length === 0) {
+    return [values, items];
+  }
 
   for (const option of options) {
     const { icon, label, value } =
