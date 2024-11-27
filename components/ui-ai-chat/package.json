@@ -48,13 +48,13 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@types/dompurify": "^3.0.5",
+    "@types/dompurify": "^3.2.0",
     "@types/react-transition-group": "catalog:"
   },
   "dependencies": {
     "@tabula/ui-button": "workspace:^",
     "clsx": "catalog:",
-    "dompurify": "^3.1.6",
+    "dompurify": "^3.2.1",
     "js-xxhash": "^4.0.0",
     "marked": "^14.1.2",
     "react-textarea-autosize": "^8.5.3",
