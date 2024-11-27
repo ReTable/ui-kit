@@ -4,6 +4,12 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    clsx:
+      specifier: ^2.1.1
+      version: 2.1.1
+
 importers:
 
   .:
@@ -168,7 +174,7 @@ importers:
         specifier: workspace:^
         version: link:../ui-button
       clsx:
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.1
       dompurify:
         specifier: ^3.1.6
@@ -214,7 +220,7 @@ importers:
   components/ui-button:
     dependencies:
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -227,7 +233,7 @@ importers:
   components/ui-checkbox:
     dependencies:
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -252,7 +258,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.2
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -280,7 +286,7 @@ importers:
         specifier: workspace:^
         version: link:../ui-data-type-icon
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       date-fns:
         specifier: ^3.6.0
@@ -317,7 +323,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.2
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       jsonpath:
         specifier: ^1.1.1
@@ -342,7 +348,7 @@ importers:
   components/ui-layout-view:
     dependencies:
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -370,7 +376,7 @@ importers:
         specifier: workspace:^
         version: link:../../hooks/use-flag
       clsx:
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -392,7 +398,7 @@ importers:
         specifier: workspace:^
         version: link:../../hooks/use-flag
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -408,7 +414,7 @@ importers:
   components/ui-node-icon:
     dependencies:
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -442,7 +448,7 @@ importers:
         specifier: workspace:^
         version: link:../../hooks/use-previous-value
       clsx:
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -467,7 +473,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.2
       clsx:
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -480,7 +486,7 @@ importers:
   components/ui-status-badge:
     dependencies:
       clsx:
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -493,7 +499,7 @@ importers:
   components/ui-switch:
     dependencies:
       clsx:
-        specifier: ^2.1.0
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -506,7 +512,7 @@ importers:
   components/ui-tag:
     dependencies:
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       react:
         specifier: ^18.3.1
@@ -529,7 +535,7 @@ importers:
         specifier: ^5.4.4
         version: 5.4.4
       clsx:
-        specifier: ^2.1.1
+        specifier: 'catalog:'
         version: 2.1.1
       ora:
         specifier: ^8.0.1

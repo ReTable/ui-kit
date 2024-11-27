@@ -58,6 +58,6 @@
     "@tabula/use-async-state": "workspace:^",
     "@tabula/use-close-on-outside-events": "workspace:^",
     "@tabula/use-previous-value": "workspace:^",
-    "clsx": "^2.1.0"
+    "clsx": "catalog:"
   }
 }

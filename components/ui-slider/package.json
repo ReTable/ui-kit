@@ -51,6 +51,6 @@
   },
   "dependencies": {
     "@vanilla-extract/dynamic": "^2.1.1",
-    "clsx": "^2.1.0"
+    "clsx": "catalog:"
   }
 }

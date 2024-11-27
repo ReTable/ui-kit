@@ -3,3 +3,6 @@ packages:
   - 'configs/*'
   - 'hooks/*'
   - 'libraries/*'
+
+catalog:
+  clsx: ^2.1.1

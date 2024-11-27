@@ -50,6 +50,6 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "clsx": "^2.1.1"
+    "clsx": "catalog:"
   }
 }

@@ -54,6 +54,6 @@
     "@floating-ui/react": "^0.26.23",
     "@tabula/ui-tag": "workspace:^",
     "@tabula/use-flag": "workspace:^",
-    "clsx": "^2.1.1"
+    "clsx": "catalog:"
   }
 }
