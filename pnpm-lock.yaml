@@ -15,6 +15,9 @@ catalogs:
     '@types/react-dom':
       specifier: ^18.3.1
       version: 18.3.1
+    '@types/react-transition-group':
+      specifier: ^4.4.11
+      version: 4.4.11
     '@vanilla-extract/css':
       specifier: ^1.16.1
       version: 1.16.1
@@ -33,6 +36,9 @@ catalogs:
     react-dom:
       specifier: ^18.3.1
       version: 18.3.1
+    react-transition-group:
+      specifier: ^4.4.5
+      version: 4.4.5
     typescript:
       specifier: ^5.7.2
       version: 5.7.2
@@ -219,7 +225,7 @@ importers:
         specifier: ^8.5.3
         version: 8.5.5(@types/react@18.3.12)(react@18.3.1)
       react-transition-group:
-        specifier: ^4.4.5
+        specifier: 'catalog:'
         version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@tabula/ui-theme':
@@ -229,7 +235,7 @@ importers:
         specifier: ^3.0.5
         version: 3.0.5
       '@types/react-transition-group':
-        specifier: ^4.4.11
+        specifier: 'catalog:'
         version: 4.4.11
 
   components/ui-analytics:
@@ -322,14 +328,14 @@ importers:
         specifier: 'catalog:'
         version: 18.3.1
       react-transition-group:
-        specifier: ^4.4.5
+        specifier: 'catalog:'
         version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@tabula/ui-theme':
         specifier: workspace:^
         version: link:../ui-theme
       '@types/react-transition-group':
-        specifier: ^4.4.10
+        specifier: 'catalog:'
         version: 4.4.11
 
   components/ui-icon:
@@ -381,14 +387,14 @@ importers:
         specifier: 'catalog:'
         version: 18.3.1
       react-transition-group:
-        specifier: ^4.4.5
+        specifier: 'catalog:'
         version: 4.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@tabula/ui-theme':
         specifier: workspace:^
         version: link:../ui-theme
       '@types/react-transition-group':
-        specifier: ^4.4.10
+        specifier: 'catalog:'
         version: 4.4.11
 
   components/ui-menu:
