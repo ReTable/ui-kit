@@ -1,5 +1,14 @@
 # @tabula/ui-node-icon
 
+## 11.7.0
+
+### Minor Changes
+
+- [#306](https://github.com/ReTable/ui-kit/pull/306) [`ef98790`](https://github.com/ReTable/ui-kit/commit/ef987900aa23f2d791a8b3b5881c06d7acdee245) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - More enrichment icons
+
+  - add icons for: Bouncer, DiscoLike, Firecrawl
+  - update icons of: ReverseContact
+
 ## 11.6.0
 
 ### Minor Changes
