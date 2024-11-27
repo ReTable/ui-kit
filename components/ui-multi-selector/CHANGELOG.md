@@ -1,5 +1,11 @@
 # @tabula/ui-multi-selector
 
+## 0.2.1-next.2
+
+### Patch Changes
+
+- [#301](https://github.com/ReTable/ui-kit/pull/301) [`b77b617`](https://github.com/ReTable/ui-kit/commit/b77b617a0071ac48075333193e6768515ef9105f) Thanks [@demiazz](https://github.com/demiazz)! - don't show any suggestions on empty search if custom values are allowed
+
 ## 0.2.1-next.1
 
 ### Patch Changes
