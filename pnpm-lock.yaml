@@ -6,6 +6,9 @@ settings:
 
 catalogs:
   default:
+    '@floating-ui/react':
+      specifier: ^0.26.28
+      version: 0.26.28
     '@types/react':
       specifier: ^18.3.12
       version: 18.3.12
@@ -391,7 +394,7 @@ importers:
   components/ui-menu:
     dependencies:
       '@floating-ui/react':
-        specifier: ^0.26.23
+        specifier: 'catalog:'
         version: 0.26.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tabula/dom-utils':
         specifier: workspace:^
@@ -413,7 +416,7 @@ importers:
   components/ui-multi-selector:
     dependencies:
       '@floating-ui/react':
-        specifier: ^0.26.23
+        specifier: 'catalog:'
         version: 0.26.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tabula/ui-tag':
         specifier: workspace:^
@@ -451,7 +454,7 @@ importers:
   components/ui-selector:
     dependencies:
       '@floating-ui/react':
-        specifier: ^0.26.23
+        specifier: 'catalog:'
         version: 0.26.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tabula/dom-utils':
         specifier: workspace:^

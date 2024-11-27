@@ -51,7 +51,7 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.23",
+    "@floating-ui/react": "catalog:",
     "@tabula/dom-utils": "workspace:^",
     "@tabula/portal-root-for": "workspace:^",
     "@tabula/ui-menu": "workspace:^",
