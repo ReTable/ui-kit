@@ -19,7 +19,7 @@
   },
   "author": "Retable Inc.",
   "license": "ISC",
-  "packageManager": "pnpm@9.12.1",
+  "packageManager": "pnpm@9.14.2",
   "engines": {
     "node": ">20",
     "pnpm": "^9"
