@@ -44,11 +44,11 @@
     "build": "forge"
   },
   "optionalDependencies": {
-    "@testing-library/react": "^16.0.0",
-    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/jest-dom": "^6.6.3",
     "happy-dom": "^15.11.6"
   },
   "peerDependencies": {
-    "vitest": "^2.0.4"
+    "vitest": "^2.1.6"
   }
 }
