@@ -57,7 +57,7 @@
     "dompurify": "^3.2.1",
     "js-xxhash": "^4.0.0",
     "marked": "^14.1.2",
-    "react-textarea-autosize": "^8.5.3",
+    "react-textarea-autosize": "^8.5.5",
     "react-transition-group": "catalog:"
   }
 }
