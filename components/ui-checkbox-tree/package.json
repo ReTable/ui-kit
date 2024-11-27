@@ -49,13 +49,13 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@vanilla-extract/css-utils": "^0.1.4"
+    "@vanilla-extract/css-utils": "catalog:"
   },
   "dependencies": {
     "@tabula/tree-utils": "workspace:^",
     "@tabula/ui-checkbox": "workspace:^",
     "@tabula/ui-tree": "workspace:^",
-    "@vanilla-extract/dynamic": "^2.1.1",
+    "@vanilla-extract/dynamic": "catalog:",
     "clsx": "catalog:"
   }
 }

@@ -50,7 +50,7 @@
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "@vanilla-extract/dynamic": "^2.1.1",
+    "@vanilla-extract/dynamic": "catalog:",
     "clsx": "catalog:"
   }
 }
