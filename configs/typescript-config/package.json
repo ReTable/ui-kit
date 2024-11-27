@@ -28,7 +28,7 @@
     "types"
   ],
   "peerDependencies": {
-    "typescript": "^5.5.3"
+    "typescript": "catalog:"
   },
   "optionalDependencies": {
     "@types/react": "catalog:"

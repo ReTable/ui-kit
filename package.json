@@ -86,7 +86,7 @@
     "storybook": "^7.6.16",
     "tsx": "^4.19.1",
     "turbo": "^2.0.9",
-    "typescript": "^5.6.3",
+    "typescript": "catalog:",
     "vite": "^5.4.9",
     "vitest": "^2.0.4"
   }
