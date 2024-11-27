@@ -78,7 +78,7 @@
     "happy-dom": "catalog:",
     "lefthook": "^1.7.18",
     "plop": "^4.0.1",
-    "prettier": "^3.4.1",
+    "prettier": "catalog:",
     "prop-types": "^15.8.1",
     "react": "catalog:",
     "react-dom": "catalog:",

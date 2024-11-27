@@ -19,6 +19,7 @@ catalog:
   '@vanilla-extract/dynamic': ^2.1.2
   clsx: ^2.1.1
   happy-dom: ^15.11.6
+  prettier: ^3.4.1
   react: ^18.3.1
   react-dom: ^18.3.1
   react-test-renderer: ^18.3.1
