@@ -161,9 +161,24 @@ export const enrichments = createGlobalThemeContract(
       secondary: 'secondary',
     },
     reverseContact: {
-      l: 'l',
-      m: 'm',
-      s: 's',
+      lGradient: {
+        one: 'one',
+        two: 'two',
+        three: 'three',
+        four: 'four',
+      },
+      mGradient: {
+        one: 'one',
+        two: 'two',
+        three: 'three',
+        four: 'four',
+      },
+      sGradient: {
+        one: 'one',
+        two: 'two',
+        three: 'three',
+        four: 'four',
+      },
     },
     signalHire: {
       primary: 'primary',
@@ -245,9 +260,24 @@ createGlobalTheme(':root', enrichments, {
     secondary: '#ffffff',
   },
   reverseContact: {
-    l: '',
-    m: '',
-    s: '',
+    lGradient: {
+      one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-1)',
+      two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-2)',
+      three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-3)',
+      four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-4)',
+    },
+    mGradient: {
+      one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-1)',
+      two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-2)',
+      three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-3)',
+      four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-4)',
+    },
+    sGradient: {
+      one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-1)',
+      two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-2)',
+      three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-3)',
+      four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-4)',
+    },
   },
   signalHire: {
     primary: '#000000',
@@ -407,9 +437,24 @@ const overrides = {
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
     reverseContact: {
-      l: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--disabled)',
-      m: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--disabled)',
-      s: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--disabled)',
+      lGradient: {
+        one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+        two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+        three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+        four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+      },
+      mGradient: {
+        one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+        two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+        three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+        four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+      },
+      sGradient: {
+        one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+        two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+        three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+        four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+      },
     },
     signalHire: {
       primary: uiTheme.colors.icons.disabled.primary,
