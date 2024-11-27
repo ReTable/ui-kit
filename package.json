@@ -70,7 +70,7 @@
     "@vanilla-extract/css": "catalog:",
     "@vanilla-extract/css-utils": "catalog:",
     "@vanilla-extract/dynamic": "catalog:",
-    "@vanilla-extract/vite-plugin": "^4.0.16",
+    "@vanilla-extract/vite-plugin": "^4.0.18",
     "change-case": "^5.4.4",
     "eslint": "9.13.0",
     "execa": "^9.3.0",
@@ -87,7 +87,7 @@
     "tsx": "^4.19.1",
     "turbo": "^2.0.9",
     "typescript": "catalog:",
-    "vite": "^5.4.9",
+    "vite": "^5.4.11",
     "vitest": "^2.1.6"
   }
 }

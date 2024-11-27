@@ -150,8 +150,8 @@ importers:
         specifier: 'catalog:'
         version: 2.1.2
       '@vanilla-extract/vite-plugin':
-        specifier: ^4.0.16
-        version: 4.0.17(@types/node@22.10.0)(sass-embedded@1.81.0)(vite@5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0))
+        specifier: ^4.0.18
+        version: 4.0.18(@types/node@22.10.0)(sass-embedded@1.81.0)(vite@5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0))
       change-case:
         specifier: ^5.4.4
         version: 5.4.4
@@ -201,7 +201,7 @@ importers:
         specifier: 'catalog:'
         version: 5.7.2
       vite:
-        specifier: ^5.4.9
+        specifier: ^5.4.11
         version: 5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0)
       vitest:
         specifier: ^2.1.6
@@ -3379,11 +3379,14 @@ packages:
   '@vanilla-extract/integration@7.1.10':
     resolution: {integrity: sha512-EXe8l0u51ta2H78kksf7gJENkdYnvDW9c+18FUvKfxtjHmpc4KthXnUTuALt5k9wbAjfFakIR4IsqzvOP43cDQ==}
 
+  '@vanilla-extract/integration@7.1.11':
+    resolution: {integrity: sha512-IGRaLrpkjyVHTHDZQBQvFBl399yRfSMJoVI2KaocEZB33aP+H4Qup83od2hc6R5IxGWdvbiiCOJCYsnmFiy85Q==}
+
   '@vanilla-extract/private@1.0.6':
     resolution: {integrity: sha512-ytsG/JLweEjw7DBuZ/0JCN4WAQgM9erfSTdS1NQY778hFQSZ6cfCDEZZ0sgVm4k54uNz6ImKB33AYvSR//fjxw==}
 
-  '@vanilla-extract/vite-plugin@4.0.17':
-    resolution: {integrity: sha512-qyAEmBcwih7E3lMrcFZX1Ph81TQos1FFyxOu5JmNmu/F/g7HkcCXFV897pNKFmXgED/TzuyrFVcIRimg5pPc9A==}
+  '@vanilla-extract/vite-plugin@4.0.18':
+    resolution: {integrity: sha512-j5vJVbvW33THGXG3ZI+nfgeYCknlBEWTJVphZWSAGmLO4XO4690m/iQQg+3gUtla3wvU8eyA2qmJNa05Wa7mVA==}
     peerDependencies:
       vite: ^4.0.3 || ^5.0.0
 
@@ -10976,11 +10979,37 @@ snapshots:
       - supports-color
       - terser
 
+  '@vanilla-extract/integration@7.1.11(@types/node@22.10.0)(sass-embedded@1.81.0)':
+    dependencies:
+      '@babel/core': 7.26.0
+      '@babel/plugin-syntax-typescript': 7.25.9(@babel/core@7.26.0)
+      '@vanilla-extract/babel-plugin-debug-ids': 1.1.0
+      '@vanilla-extract/css': 1.16.1
+      dedent: 1.5.3
+      esbuild: 0.23.1
+      eval: 0.1.8
+      find-up: 5.0.0
+      javascript-stringify: 2.1.0
+      mlly: 1.7.3
+      vite: 5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0)
+      vite-node: 1.6.0(@types/node@22.10.0)(sass-embedded@1.81.0)
+    transitivePeerDependencies:
+      - '@types/node'
+      - babel-plugin-macros
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+
   '@vanilla-extract/private@1.0.6': {}
 
-  '@vanilla-extract/vite-plugin@4.0.17(@types/node@22.10.0)(sass-embedded@1.81.0)(vite@5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0))':
+  '@vanilla-extract/vite-plugin@4.0.18(@types/node@22.10.0)(sass-embedded@1.81.0)(vite@5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0))':
     dependencies:
-      '@vanilla-extract/integration': 7.1.10(@types/node@22.10.0)(sass-embedded@1.81.0)
+      '@vanilla-extract/integration': 7.1.11(@types/node@22.10.0)(sass-embedded@1.81.0)
       vite: 5.4.11(@types/node@22.10.0)(sass-embedded@1.81.0)
     transitivePeerDependencies:
       - '@types/node'
