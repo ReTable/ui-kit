@@ -1,0 +1,10 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="var(--tbl--ui-node-icon--enrichment--firecrawl-s)">
+    <text fill="currentColor" text-anchor="middle" x="50%" y="50%" dy=".5em" font-size="16px">🔥</text>
+  </g>
+  <defs>
+    <filter id="tbl--ui-node-icon--enrichment--firecrawl-s--disabled">
+      <feColorMatrix type="saturate" values="0.01" />
+    </filter>
+  </defs>
+</svg>

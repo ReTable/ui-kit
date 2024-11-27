@@ -107,6 +107,10 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    bouncer: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     clearbit: {
       primary: 'primary',
       secondary: 'secondary',
@@ -117,9 +121,15 @@ export const enrichments = createGlobalThemeContract(
       m: 'm',
       s: 's',
     },
+    discoLike: 'discoLike',
     findymail: {
       primary: 'primary',
       secondary: 'secondary',
+    },
+    firecrawl: {
+      l: 'l',
+      m: 'm',
+      s: 's',
     },
     hunter: {
       primary: 'primary',
@@ -181,6 +191,10 @@ createGlobalTheme(':root', enrichments, {
     primary: '#010202',
     secondary: '#fcc02b',
   },
+  bouncer: {
+    primary: '#2a2964',
+    secondary: '#1Aac78',
+  },
   clearbit: {
     primary: '#1ba2fe',
     secondary: '#5ebafd',
@@ -191,9 +205,15 @@ createGlobalTheme(':root', enrichments, {
     m: '',
     s: '',
   },
+  discoLike: '#000',
   findymail: {
     primary: '#e3243b',
     secondary: '#000000',
+  },
+  firecrawl: {
+    l: '',
+    m: '',
+    s: '',
   },
   hunter: {
     primary: '#fa5320',
@@ -333,6 +353,10 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    bouncer: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     clearbit: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: '#d9d9d9',
@@ -343,9 +367,15 @@ const overrides = {
       m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
       s: 'url(#tbl--ui-node-icon--enrichment--contact-out-s--disabled)',
     },
+    discoLike: uiTheme.colors.icons.disabled.primary,
     findymail: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.primary,
+    },
+    firecrawl: {
+      l: 'url(#tbl--ui-node-icon--enrichment--firecrawl-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment--firecrawl-m--disabled)',
+      s: 'url(#tbl--ui-node-icon--enrichment--firecrawl-s--disabled)',
     },
     hunter: {
       primary: uiTheme.colors.icons.disabled.primary,

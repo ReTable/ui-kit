@@ -1,7 +1,10 @@
 import { ReactComponent as UiEnrichmentApolloSIconInner } from './enrichmentApollo/enrichmentApollo.small.svg';
+import { ReactComponent as UiEnrichmentBouncerSIconInner } from './enrichmentBouncer/enrichmentBouncer.small.svg';
 import { ReactComponent as UiEnrichmentClearbitSIconInner } from './enrichmentClearbit/enrichmentClearbit.small.svg';
 import { ReactComponent as UiEnrichmentContactOutSIconInner } from './enrichmentContactOut/enrichmentContactOut.small.svg';
+import { ReactComponent as UiEnrichmentDiscoLikeSIconInner } from './enrichmentDiscoLike/enrichmentDiscoLike.small.svg';
 import { ReactComponent as UiEnrichmentFindymailSIconInner } from './enrichmentFindymail/enrichmentFindymail.small.svg';
+import { ReactComponent as UiEnrichmentFirecrawlSIconInner } from './enrichmentFirecrawl/enrichmentFirecrawl.small.svg';
 import { ReactComponent as UiEnrichmentHunterSIconInner } from './enrichmentHunter/enrichmentHunter.small.svg';
 import { ReactComponent as UiEnrichmentLead411SIconInner } from './enrichmentLead411/enrichmentLead411.small.svg';
 import { ReactComponent as UiEnrichmentLeadMagicSIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.small.svg';
@@ -29,9 +32,12 @@ import { icon } from './style.css';
 import { createIcon } from './utils';
 
 export const UiEnrichmentApolloSIcon = createIcon(UiEnrichmentApolloSIconInner, icon);
+export const UiEnrichmentBouncerSIcon = createIcon(UiEnrichmentBouncerSIconInner, icon);
 export const UiEnrichmentClearbitSIcon = createIcon(UiEnrichmentClearbitSIconInner, icon);
 export const UiEnrichmentContactOutSIcon = createIcon(UiEnrichmentContactOutSIconInner, icon);
+export const UiEnrichmentDiscoLikeSIcon = createIcon(UiEnrichmentDiscoLikeSIconInner, icon);
 export const UiEnrichmentFindymailSIcon = createIcon(UiEnrichmentFindymailSIconInner, icon);
+export const UiEnrichmentFirecrawlSIcon = createIcon(UiEnrichmentFirecrawlSIconInner, icon);
 export const UiEnrichmentHunterSIcon = createIcon(UiEnrichmentHunterSIconInner, icon);
 export const UiEnrichmentLead411SIcon = createIcon(UiEnrichmentLead411SIconInner, icon);
 export const UiEnrichmentLeadMagicSIcon = createIcon(UiEnrichmentLeadMagicSIconInner, icon);
