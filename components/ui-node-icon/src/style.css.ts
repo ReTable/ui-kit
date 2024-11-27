@@ -107,6 +107,10 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    bouncer: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     clearbit: {
       primary: 'primary',
       secondary: 'secondary',
@@ -117,9 +121,15 @@ export const enrichments = createGlobalThemeContract(
       m: 'm',
       s: 's',
     },
+    discoLike: 'discoLike',
     findymail: {
       primary: 'primary',
       secondary: 'secondary',
+    },
+    firecrawl: {
+      l: 'l',
+      m: 'm',
+      s: 's',
     },
     hunter: {
       primary: 'primary',
@@ -151,9 +161,24 @@ export const enrichments = createGlobalThemeContract(
       secondary: 'secondary',
     },
     reverseContact: {
-      l: 'l',
-      m: 'm',
-      s: 's',
+      lGradient: {
+        one: 'one',
+        two: 'two',
+        three: 'three',
+        four: 'four',
+      },
+      mGradient: {
+        one: 'one',
+        two: 'two',
+        three: 'three',
+        four: 'four',
+      },
+      sGradient: {
+        one: 'one',
+        two: 'two',
+        three: 'three',
+        four: 'four',
+      },
     },
     signalHire: {
       primary: 'primary',
@@ -181,6 +206,10 @@ createGlobalTheme(':root', enrichments, {
     primary: '#010202',
     secondary: '#fcc02b',
   },
+  bouncer: {
+    primary: '#2a2964',
+    secondary: '#1Aac78',
+  },
   clearbit: {
     primary: '#1ba2fe',
     secondary: '#5ebafd',
@@ -191,9 +220,15 @@ createGlobalTheme(':root', enrichments, {
     m: '',
     s: '',
   },
+  discoLike: '#000',
   findymail: {
     primary: '#e3243b',
     secondary: '#000000',
+  },
+  firecrawl: {
+    l: '',
+    m: '',
+    s: '',
   },
   hunter: {
     primary: '#fa5320',
@@ -225,9 +260,24 @@ createGlobalTheme(':root', enrichments, {
     secondary: '#ffffff',
   },
   reverseContact: {
-    l: '',
-    m: '',
-    s: '',
+    lGradient: {
+      one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-1)',
+      two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-2)',
+      three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-3)',
+      four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-4)',
+    },
+    mGradient: {
+      one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-1)',
+      two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-2)',
+      three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-3)',
+      four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-4)',
+    },
+    sGradient: {
+      one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-1)',
+      two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-2)',
+      three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-3)',
+      four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-4)',
+    },
   },
   signalHire: {
     primary: '#000000',
@@ -333,6 +383,10 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    bouncer: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     clearbit: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: '#d9d9d9',
@@ -343,9 +397,15 @@ const overrides = {
       m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
       s: 'url(#tbl--ui-node-icon--enrichment--contact-out-s--disabled)',
     },
+    discoLike: uiTheme.colors.icons.disabled.primary,
     findymail: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.primary,
+    },
+    firecrawl: {
+      l: 'url(#tbl--ui-node-icon--enrichment--firecrawl-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment--firecrawl-m--disabled)',
+      s: 'url(#tbl--ui-node-icon--enrichment--firecrawl-s--disabled)',
     },
     hunter: {
       primary: uiTheme.colors.icons.disabled.primary,
@@ -377,9 +437,24 @@ const overrides = {
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
     reverseContact: {
-      l: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--disabled)',
-      m: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--disabled)',
-      s: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--disabled)',
+      lGradient: {
+        one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+        two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+        three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+        four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-l--gradient-disabled)',
+      },
+      mGradient: {
+        one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+        two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+        three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+        four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-m--gradient-disabled)',
+      },
+      sGradient: {
+        one: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+        two: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+        three: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+        four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
+      },
     },
     signalHire: {
       primary: uiTheme.colors.icons.disabled.primary,
