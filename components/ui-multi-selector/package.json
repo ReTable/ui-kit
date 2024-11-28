@@ -44,16 +44,16 @@
   },
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "react": "^18.3.1"
+    "react": "catalog:"
   },
   "devDependencies": {
     "@tabula/ui-data-type-icon": "workspace:^",
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.23",
+    "@floating-ui/react": "catalog:",
     "@tabula/ui-tag": "workspace:^",
     "@tabula/use-flag": "workspace:^",
-    "clsx": "^2.1.1"
+    "clsx": "catalog:"
   }
 }

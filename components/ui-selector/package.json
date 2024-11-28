@@ -44,20 +44,20 @@
   },
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^"
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.23",
+    "@floating-ui/react": "catalog:",
     "@tabula/dom-utils": "workspace:^",
     "@tabula/portal-root-for": "workspace:^",
     "@tabula/ui-menu": "workspace:^",
     "@tabula/use-async-state": "workspace:^",
     "@tabula/use-close-on-outside-events": "workspace:^",
     "@tabula/use-previous-value": "workspace:^",
-    "clsx": "^2.1.0"
+    "clsx": "catalog:"
   }
 }

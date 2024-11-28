@@ -44,17 +44,17 @@
   },
   "peerDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "react": "^18.3.1"
+    "react": "catalog:"
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@types/react-transition-group": "^4.4.10"
+    "@types/react-transition-group": "catalog:"
   },
   "dependencies": {
     "@tabula/ui-button": "workspace:^",
     "@tabula/ui-data-type-icon": "workspace:^",
-    "clsx": "^2.1.1",
+    "clsx": "catalog:",
     "date-fns": "^3.6.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "catalog:"
   }
 }

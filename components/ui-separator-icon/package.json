@@ -44,6 +44,6 @@
     "build:watch": "forge --watch"
   },
   "peerDependencies": {
-    "react": "^18.3.1"
+    "react": "catalog:"
   }
 }
