@@ -11,6 +11,8 @@ concurrency:
 jobs:
   quality:
     name: Quality
+    with:
+      token: ${{ secrets.PRIVATE_GITHUB_TOKEN }}
 
     runs-on: ubuntu-latest
 
