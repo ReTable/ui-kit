@@ -1,5 +1,11 @@
 # @tabula/ui-multi-selector
 
+## 0.3.0
+
+### Minor Changes
+
+- [#308](https://github.com/ReTable/ui-kit/pull/308) [`eb90512`](https://github.com/ReTable/ui-kit/commit/eb905121839bcbab1a13a6fab62110908a3d10a9) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Support maxSelectedLimit prop
+
 ## 0.2.1
 
 ### Patch Changes
