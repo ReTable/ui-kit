@@ -33,6 +33,7 @@ export type Props = {
   isDisabled?: boolean;
   isInvalid?: boolean;
   isWarning?: boolean;
+  maxSelectedLimit?: number;
   onChange: ChangeHandler;
   options: Option[];
   selectAll?: SelectAll;
@@ -52,6 +53,7 @@ export function UiMultiSelector({
   isDisabled,
   isInvalid,
   isWarning,
+  maxSelectedLimit,
   onChange,
   options,
   selectAll = 'Select all',
@@ -61,11 +63,10 @@ export function UiMultiSelector({
   variant,
   withDropdownChevron,
 }: Props): ReactNode {
-  const isEmpty = selected.size === 0;
-
   const { onEscape, onSearch, searchId, searchRef, search } = useSearch(isDisabled);
 
   const onUpdate = useUpdateHandler({
+    maxSelectedLimit,
     onChange,
     onSearch,
     selected,
@@ -92,6 +93,11 @@ export function UiMultiSelector({
     size,
     variant,
   });
+
+  const isEmpty = selected.size === 0;
+  const isFilled =
+    (maxSelectedLimit != null && selected.size >= maxSelectedLimit) ||
+    (!allowsCustomValue && selected.size === options.length);
 
   return (
     <div
@@ -121,7 +127,7 @@ export function UiMultiSelector({
           selected={selected}
         />
       )}
-      {(!isDisabled || isEmpty) && (
+      {!isFilled && (
         <Search
           completeKey={completeKey}
           defaultPlaceholder={defaultPlaceholder}
@@ -139,7 +145,7 @@ export function UiMultiSelector({
           value={search}
         />
       )}
-      {!isDisabled && (
+      {!isDisabled && !isFilled && (
         <FloatingPortal preserveTabOrder={false}>
           <div ref={floatingRef} style={style} {...getFloatingProps()}>
             {isOpen && (
