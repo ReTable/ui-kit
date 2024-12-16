@@ -35,6 +35,7 @@ type Options = {
   isDisabled?: boolean;
   isInvalid?: boolean;
   isWarning?: boolean;
+  maxSelectedLimit?: number;
   selectAll?: boolean;
   selectFound?: boolean;
   size: UiMultiSelectorSize;
@@ -79,6 +80,10 @@ export const Default: StoryObj<Options> = {
       control: 'boolean',
       name: 'Is warning?',
     },
+    maxSelectedLimit: {
+      control: 'number',
+      name: 'Maximum count of selected items',
+    },
     size: {
       name: 'Size',
     },
@@ -99,6 +104,7 @@ export const Default: StoryObj<Options> = {
     isDisabled,
     isInvalid,
     isWarning,
+    maxSelectedLimit,
     selectAll,
     selectFound,
     size,
@@ -142,6 +148,7 @@ export const Default: StoryObj<Options> = {
           isDisabled={isDisabled}
           isInvalid={isInvalid}
           isWarning={isWarning}
+          maxSelectedLimit={maxSelectedLimit}
           onChange={onSetSelected}
           options={options}
           selectAll={selectAll == null ? undefined : 'Select all'}
