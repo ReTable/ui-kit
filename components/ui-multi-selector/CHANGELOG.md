@@ -1,5 +1,14 @@
 # @tabula/ui-multi-selector
 
+## 0.3.1
+
+### Patch Changes
+
+- [#313](https://github.com/ReTable/ui-kit/pull/313) [`71276de`](https://github.com/ReTable/ui-kit/commit/71276def7671d0be58cf9abdf07f1863ab6ac9bf) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - UiMenu and UiMultiSelector changes
+
+  - feat(ui-menu): allow to provide all button props for menu item
+  - fix(ui-multi-selector): options have to be not empty for filled condition
+
 ## 0.3.0
 
 ### Minor Changes
