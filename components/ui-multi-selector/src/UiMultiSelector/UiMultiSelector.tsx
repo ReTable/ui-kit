@@ -97,7 +97,7 @@ export function UiMultiSelector({
   const isEmpty = selected.size === 0;
   const isFilled =
     (maxSelectedLimit != null && selected.size >= maxSelectedLimit) ||
-    (!allowsCustomValue && selected.size === options.length);
+    (!allowsCustomValue && options.length > 0 && selected.size === options.length);
 
   return (
     <div
