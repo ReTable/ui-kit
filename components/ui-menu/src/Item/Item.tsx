@@ -8,7 +8,7 @@ import * as styles from './Item.css';
 
 import { ItemIcon } from '../ItemIcon';
 
-import { ClickHandler, ItemProps, SelectItemHandler } from './Item.types';
+import { ItemProps, SelectItemHandler } from './Item.types';
 
 type Props = ItemProps & {
   id: string;
@@ -20,12 +20,10 @@ export function Item({
   className,
   content,
   contentClassName,
-  disabled,
   htmlTitle,
   id,
   leftIcon,
   onClick,
-  onMouseDown,
   onSelect,
   preventDefault = true,
   rightIcon,
@@ -35,8 +33,9 @@ export function Item({
   title,
   trackData,
   trackId,
+  ...props
 }: Props): ReactNode {
-  const clickHandler = useCallback<ClickHandler>(
+  const clickHandler = useCallback<NonNullable<ItemProps['onClick']>>(
     (event) => {
       stopEvent(event);
 
@@ -70,14 +69,13 @@ export function Item({
         className,
       )}
       type="button"
-      disabled={disabled}
       onClick={clickHandler}
-      onMouseDown={onMouseDown}
       data-track-id={trackId}
       data-track-data={trackData}
       data-stop-propagation={stopPropagation}
       data-prevent-default={preventDefault}
       title={innerHtmlTitle}
+      {...props}
     >
       <ItemIcon className={styles.leftIcon} icon={leftIcon} skipIcon={skipLeftIcon} />
       <span className={clsx(styles.content, contentClassName)}>
