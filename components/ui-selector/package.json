@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-selector",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Selector allow users to choose a single option from a collapsible list of options when space is limited",
   "type": "module",
   "typings": "./typings/index.d.ts",

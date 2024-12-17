@@ -1,5 +1,12 @@
 # @tabula/ui-selector
 
+## 2.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`71276de`](https://github.com/ReTable/ui-kit/commit/71276def7671d0be58cf9abdf07f1863ab6ac9bf)]:
+  - @tabula/ui-menu@1.2.0
+
 ## 2.0.1
 
 ### Patch Changes
