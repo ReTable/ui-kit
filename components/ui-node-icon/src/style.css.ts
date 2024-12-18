@@ -12,29 +12,6 @@ import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 export const gradients = createGlobalThemeContract(
   {
-    addGPTColumn: {
-      l: {
-        primary: 'primary',
-        secondary: 'secondary',
-      },
-      m: {
-        primary: 'primary',
-        secondary: 'secondary',
-      },
-    },
-    gptNode: {
-      l: {
-        primary: 'primary',
-        secondary: 'secondary',
-      },
-      m: {
-        primary: {
-          ['1']: 'primary-1',
-          ['2']: 'primary-2',
-        },
-        secondary: 'secondary',
-      },
-    },
     tabulaDrive: {
       l: {
         primary: {
@@ -58,29 +35,6 @@ export const gradients = createGlobalThemeContract(
 );
 
 createGlobalTheme(':root', gradients, {
-  addGPTColumn: {
-    l: {
-      primary: 'url(#tbl--ui-node-icon--add-gpt-column-l--primary)',
-      secondary: 'url(#tbl--ui-node-icon--add-gpt-column-l--secondary)',
-    },
-    m: {
-      primary: 'url(#tbl--ui-node-icon--add-gpt-column-m--primary)',
-      secondary: 'url(#tbl--ui-node-icon--add-gpt-column-m--secondary)',
-    },
-  },
-  gptNode: {
-    l: {
-      primary: 'url(#tbl--ui-node-icon--gpt-node-l--primary)',
-      secondary: 'url(#tbl--ui-node-icon--gpt-node-l--secondary)',
-    },
-    m: {
-      primary: {
-        ['1']: 'url(#tbl--ui-node-icon--gpt-node-m--primary-1)',
-        ['2']: 'url(#tbl--ui-node-icon--gpt-node-m--primary-2)',
-      },
-      secondary: 'url(#tbl--ui-node-icon--gpt-node-m--secondary)',
-    },
-  },
   tabulaDrive: {
     l: {
       primary: {
@@ -340,29 +294,6 @@ const overrides = {
     tertiary: uiTheme.colors.icons.disabled.secondary,
   }),
   ...assignVars(gradients, {
-    addGPTColumn: {
-      l: {
-        primary: uiTheme.colors.icons.disabled.primary,
-        secondary: uiTheme.colors.icons.disabled.secondary,
-      },
-      m: {
-        primary: uiTheme.colors.icons.disabled.primary,
-        secondary: uiTheme.colors.icons.disabled.secondary,
-      },
-    },
-    gptNode: {
-      l: {
-        primary: uiTheme.colors.icons.disabled.primary,
-        secondary: uiTheme.colors.icons.disabled.secondary,
-      },
-      m: {
-        primary: {
-          ['1']: uiTheme.colors.icons.disabled.primary,
-          ['2']: uiTheme.colors.icons.disabled.primary,
-        },
-        secondary: uiTheme.colors.icons.disabled.secondary,
-      },
-    },
     tabulaDrive: {
       l: {
         primary: {
