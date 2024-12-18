@@ -34,6 +34,7 @@ import { ReactComponent as UiEnrichmentSignalHireLIconInner } from './enrichment
 import { ReactComponent as UiEnrichmentUpLeadLIconInner } from './enrichmentUpLead/enrichmentUpLead.large.svg';
 import { ReactComponent as UiEnrichmentZeroBounceLIconInner } from './enrichmentZeroBounce/enrichmentZeroBounce.large.svg';
 import { ReactComponent as UiEnrichmentZoomInfoLIconInner } from './enrichmentZoomInfo/enrichmentZoomInfo.large.svg';
+import { ReactComponent as UiExcludeListLIconInner } from './excludeList/excludeList.large.svg';
 import { ReactComponent as UiExtractLIconInner } from './extract/extract.large.svg';
 import { ReactComponent as UiFilterLIconInner } from './filter/filter.large.svg';
 import { ReactComponent as UiFolderSourceLIconInner } from './folderSource/folderSource.large.svg';
@@ -60,6 +61,7 @@ import { ReactComponent as UiRemoveDuplicateRowsLIconInner } from './removeDupli
 import { ReactComponent as UiReplaceLIconInner } from './replace/replace.large.svg';
 import { ReactComponent as UiReportLIconInner } from './report/report.large.svg';
 import { ReactComponent as UiRightJoinLIconInner } from './rightJoin/rightJoin.large.svg';
+import { ReactComponent as UiScrapeLIconInner } from './scrape/scrape.large.svg';
 import { ReactComponent as UiSearchLIconInner } from './search/search.large.svg';
 import { ReactComponent as UiSearchCompanyLIconInner } from './searchCompany/searchCompany.large.svg';
 import { ReactComponent as UiSearchDeveloperLIconInner } from './searchDeveloper/searchDeveloper.large.svg';
@@ -79,6 +81,7 @@ import { ReactComponent as UiTransposeLIconInner } from './transpose/transpose.l
 import { ReactComponent as UiUnionLIconInner } from './union/union.large.svg';
 import { ReactComponent as UiUnnestLIconInner } from './unnest/unnest.large.svg';
 import { ReactComponent as UiUnpivotLIconInner } from './unpivot/unpivot.large.svg';
+import { ReactComponent as UiVerifyEmailLIconInner } from './verifyEmail/verifyEmail.large.svg';
 import { ReactComponent as UiWinFuncLIconInner } from './winFunc/winFunc.large.svg';
 import { ReactComponent as UiXlsFileLIconInner } from './xlsFile/xlsFile.large.svg';
 import { ReactComponent as UiXlsOutputLIconInner } from './xlsOutput/xlsOutput.large.svg';
@@ -132,6 +135,7 @@ export const UiEnrichmentSignalHireLIcon = createIcon(UiEnrichmentSignalHireLIco
 export const UiEnrichmentUpLeadLIcon = createIcon(UiEnrichmentUpLeadLIconInner, icon);
 export const UiEnrichmentZeroBounceLIcon = createIcon(UiEnrichmentZeroBounceLIconInner, icon);
 export const UiEnrichmentZoomInfoLIcon = createIcon(UiEnrichmentZoomInfoLIconInner, icon);
+export const UiExcludeListLIcon = createIcon(UiExcludeListLIconInner, icon);
 export const UiExtractLIcon = createIcon(UiExtractLIconInner, icon);
 export const UiFilterLIcon = createIcon(UiFilterLIconInner, icon);
 export const UiFolderSourceLIcon = createIcon(UiFolderSourceLIconInner, icon);
@@ -158,6 +162,7 @@ export const UiRemoveDuplicateRowsLIcon = createIcon(UiRemoveDuplicateRowsLIconI
 export const UiReplaceLIcon = createIcon(UiReplaceLIconInner, icon);
 export const UiReportLIcon = createIcon(UiReportLIconInner, icon);
 export const UiRightJoinLIcon = createIcon(UiRightJoinLIconInner, icon);
+export const UiScrapeLIcon = createIcon(UiScrapeLIconInner, icon);
 export const UiSearchLIcon = createIcon(UiSearchLIconInner, icon);
 export const UiSearchCompanyLIcon = createIcon(UiSearchCompanyLIconInner, icon);
 export const UiSearchDeveloperLIcon = createIcon(UiSearchDeveloperLIconInner, icon);
@@ -177,6 +182,7 @@ export const UiTransposeLIcon = createIcon(UiTransposeLIconInner, icon);
 export const UiUnionLIcon = createIcon(UiUnionLIconInner, icon);
 export const UiUnnestLIcon = createIcon(UiUnnestLIconInner, icon);
 export const UiUnpivotLIcon = createIcon(UiUnpivotLIconInner, icon);
+export const UiVerifyEmailLIcon = createIcon(UiVerifyEmailLIconInner, icon);
 export const UiWinFuncLIcon = createIcon(UiWinFuncLIconInner, icon);
 export const UiXlsFileLIcon = createIcon(UiXlsFileLIconInner, icon);
 export const UiXlsOutputLIcon = createIcon(UiXlsOutputLIconInner, icon);

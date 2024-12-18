@@ -34,6 +34,7 @@ import { ReactComponent as UiEnrichmentSignalHireMIconInner } from './enrichment
 import { ReactComponent as UiEnrichmentUpLeadMIconInner } from './enrichmentUpLead/enrichmentUpLead.medium.svg';
 import { ReactComponent as UiEnrichmentZeroBounceMIconInner } from './enrichmentZeroBounce/enrichmentZeroBounce.medium.svg';
 import { ReactComponent as UiEnrichmentZoomInfoMIconInner } from './enrichmentZoomInfo/enrichmentZoomInfo.medium.svg';
+import { ReactComponent as UiExcludeListMIconInner } from './excludeList/excludeList.medium.svg';
 import { ReactComponent as UiExtractMIconInner } from './extract/extract.medium.svg';
 import { ReactComponent as UiFilterMIconInner } from './filter/filter.medium.svg';
 import { ReactComponent as UiFolderSourceMIconInner } from './folderSource/folderSource.medium.svg';
@@ -61,6 +62,7 @@ import { ReactComponent as UiRemoveDuplicateRowsMIconInner } from './removeDupli
 import { ReactComponent as UiReplaceMIconInner } from './replace/replace.medium.svg';
 import { ReactComponent as UiReportMIconInner } from './report/report.medium.svg';
 import { ReactComponent as UiRightJoinMIconInner } from './rightJoin/rightJoin.medium.svg';
+import { ReactComponent as UiScrapeMIconInner } from './scrape/scrape.medium.svg';
 import { ReactComponent as UiSearchMIconInner } from './search/search.medium.svg';
 import { ReactComponent as UiSearchCompanyMIconInner } from './searchCompany/searchCompany.medium.svg';
 import { ReactComponent as UiSearchDeveloperMIconInner } from './searchDeveloper/searchDeveloper.medium.svg';
@@ -80,6 +82,7 @@ import { ReactComponent as UiTransposeMIconInner } from './transpose/transpose.m
 import { ReactComponent as UiUnionMIconInner } from './union/union.medium.svg';
 import { ReactComponent as UiUnnestMIconInner } from './unnest/unnest.medium.svg';
 import { ReactComponent as UiUnpivotMIconInner } from './unpivot/unpivot.medium.svg';
+import { ReactComponent as UiVerifyEmailMIconInner } from './verifyEmail/verifyEmail.medium.svg';
 import { ReactComponent as UiWinFuncMIconInner } from './winFunc/winFunc.medium.svg';
 import { ReactComponent as UiXlsFileMIconInner } from './xlsFile/xlsFile.medium.svg';
 import { ReactComponent as UiXlsOutputMIconInner } from './xlsOutput/xlsOutput.medium.svg';
@@ -133,6 +136,7 @@ export const UiEnrichmentSignalHireMIcon = createIcon(UiEnrichmentSignalHireMIco
 export const UiEnrichmentUpLeadMIcon = createIcon(UiEnrichmentUpLeadMIconInner, icon);
 export const UiEnrichmentZeroBounceMIcon = createIcon(UiEnrichmentZeroBounceMIconInner, icon);
 export const UiEnrichmentZoomInfoMIcon = createIcon(UiEnrichmentZoomInfoMIconInner, icon);
+export const UiExcludeListMIcon = createIcon(UiExcludeListMIconInner, icon);
 export const UiExtractMIcon = createIcon(UiExtractMIconInner, icon);
 export const UiFilterMIcon = createIcon(UiFilterMIconInner, icon);
 export const UiFolderSourceMIcon = createIcon(UiFolderSourceMIconInner, icon);
@@ -160,6 +164,7 @@ export const UiRemoveDuplicateRowsMIcon = createIcon(UiRemoveDuplicateRowsMIconI
 export const UiReplaceMIcon = createIcon(UiReplaceMIconInner, icon);
 export const UiReportMIcon = createIcon(UiReportMIconInner, icon);
 export const UiRightJoinMIcon = createIcon(UiRightJoinMIconInner, icon);
+export const UiScrapeMIcon = createIcon(UiScrapeMIconInner, icon);
 export const UiSearchMIcon = createIcon(UiSearchMIconInner, icon);
 export const UiSearchCompanyMIcon = createIcon(UiSearchCompanyMIconInner, icon);
 export const UiSearchDeveloperMIcon = createIcon(UiSearchDeveloperMIconInner, icon);
@@ -179,6 +184,7 @@ export const UiTransposeMIcon = createIcon(UiTransposeMIconInner, icon);
 export const UiUnionMIcon = createIcon(UiUnionMIconInner, icon);
 export const UiUnnestMIcon = createIcon(UiUnnestMIconInner, icon);
 export const UiUnpivotMIcon = createIcon(UiUnpivotMIconInner, icon);
+export const UiVerifyEmailMIcon = createIcon(UiVerifyEmailMIconInner, icon);
 export const UiWinFuncMIcon = createIcon(UiWinFuncMIconInner, icon);
 export const UiXlsFileMIcon = createIcon(UiXlsFileMIconInner, icon);
 export const UiXlsOutputMIcon = createIcon(UiXlsOutputMIconInner, icon);

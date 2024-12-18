@@ -84,6 +84,7 @@ export { ReactComponent as UiCrossJoinSIcon } from './crossJoin/crossJoin.small.
 export { ReactComponent as UiCsvFileSIcon } from './csvFile/csvFile.small.svg';
 export { ReactComponent as UiEditColumnSIcon } from './editColumn/editColumn.small.svg';
 export { ReactComponent as UiEnrichmentSIcon } from './enrichment/enrichment.small.svg';
+export { ReactComponent as UiExcludeListSIcon } from './excludeList/excludeList.small.svg';
 export { ReactComponent as UiExtractSIcon } from './extract/extract.small.svg';
 export { ReactComponent as UiFilterSIcon } from './filter/filter.small.svg';
 export { ReactComponent as UiGPTNodeSIcon } from './gptNode/gptNode.small.svg';
