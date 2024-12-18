@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 11.8.1
+
+### Patch Changes
+
+- [#317](https://github.com/ReTable/ui-kit/pull/317) [`aa37733`](https://github.com/ReTable/ui-kit/commit/aa3773397d9f2909be64c16d25244b32107cc12f) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Use new colors for GptNode icons
+
 ## 11.8.0
 
 ### Minor Changes
