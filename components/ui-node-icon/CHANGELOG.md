@@ -1,5 +1,11 @@
 # @tabula/ui-node-icon
 
+## 11.8.0
+
+### Minor Changes
+
+- [#315](https://github.com/ReTable/ui-kit/pull/315) [`6726725`](https://github.com/ReTable/ui-kit/commit/6726725974ca98293f692a8fa4e3cc021ac74e59) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Add node icons: ExcludeList, Scrape, VerifyEmail
+
 ## 11.7.0
 
 ### Minor Changes
