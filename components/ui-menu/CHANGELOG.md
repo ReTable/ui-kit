@@ -1,5 +1,11 @@
 # @tabula/ui-menu
 
+## 1.2.1
+
+### Patch Changes
+
+- [#319](https://github.com/ReTable/ui-kit/pull/319) [`e8b1b10`](https://github.com/ReTable/ui-kit/commit/e8b1b10e0a42a7579a490e5d037aa4114c52182d) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix menu item typings
+
 ## 1.2.0
 
 ### Minor Changes
