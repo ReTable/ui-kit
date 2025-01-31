@@ -1,5 +1,11 @@
 # @tabula/ui-json-view
 
+## 7.2.0
+
+### Minor Changes
+
+- [#322](https://github.com/ReTable/ui-kit/pull/322) [`b12cd8a`](https://github.com/ReTable/ui-kit/commit/b12cd8aa7f9e8bb4dfb3dbed64a9c1256c8e5523) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Allow to hide built in actions
+
 ## 7.1.1
 
 ### Patch Changes
