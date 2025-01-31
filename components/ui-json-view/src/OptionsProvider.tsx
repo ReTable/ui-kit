@@ -19,6 +19,8 @@ const noop = () => {};
 const defaultValue: Value = {
   actions: {},
 
+  isCopyPathAllowed: true,
+  isCopyValueAllowed: true,
   isInteractive: false,
   showDataTypes: false,
   showObjectSize: false,
@@ -36,6 +38,8 @@ const Context = createContext<Value>(defaultValue);
 export const OptionsProvider: FC<PropsWithChildren<Partial<Value>>> = ({
   actions = defaultValue.actions,
   children,
+  isCopyPathAllowed = defaultValue.isCopyPathAllowed,
+  isCopyValueAllowed = defaultValue.isCopyValueAllowed,
   isInteractive = defaultValue.isInteractive,
   onAction = defaultValue.onAction,
   onToggle = defaultValue.onToggle,
@@ -48,6 +52,8 @@ export const OptionsProvider: FC<PropsWithChildren<Partial<Value>>> = ({
   const value = useMemo<Value>(
     () => ({
       actions,
+      isCopyPathAllowed,
+      isCopyValueAllowed,
       isInteractive,
       onAction,
       onToggle,
@@ -59,6 +65,8 @@ export const OptionsProvider: FC<PropsWithChildren<Partial<Value>>> = ({
     }),
     [
       actions,
+      isCopyPathAllowed,
+      isCopyValueAllowed,
       isInteractive,
       onAction,
       onToggle,

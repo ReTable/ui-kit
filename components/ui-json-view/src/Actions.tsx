@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { Action } from './Action';
 import { Copy } from './Copy';
@@ -21,17 +21,47 @@ function valueToClipboard(jsonPath: string, query: QueryFn): string {
 }
 
 export const Actions: FC<Props> = ({ className, jsonPath }) => {
-  const { actions, isInteractive } = useOptions();
+  const { actions, isCopyPathAllowed, isCopyValueAllowed, isInteractive } = useOptions();
 
   if (!isInteractive) {
     return null;
   }
 
-  const controls = Object.entries(actions).map(([name, action]) => {
+  const body: ReactNode[] = [];
+
+  if (isCopyValueAllowed) {
+    body.push(
+      <Copy
+        className={className}
+        defaultLabel="Copy"
+        jsonPath={jsonPath}
+        key="copy-value"
+        successLabel="Copied!"
+        toClipboard={valueToClipboard}
+        trackId="copy-json"
+      />,
+    );
+  }
+
+  if (isCopyPathAllowed) {
+    body.push(
+      <Copy
+        className={className}
+        defaultLabel="Copy JSONPath"
+        jsonPath={jsonPath}
+        key="copy-path"
+        successLabel="Copied!"
+        toClipboard={jsonPathToClipboard}
+        trackId="copy-json-path"
+      />,
+    );
+  }
+
+  for (const [name, action] of Object.entries(actions)) {
     const [actionFn, trackId] =
       typeof action === 'function' ? [action, undefined] : [action.action, action.trackId];
 
-    return (
+    body.push(
       <Action
         className={className}
         action={actionFn}
@@ -40,29 +70,9 @@ export const Actions: FC<Props> = ({ className, jsonPath }) => {
         trackId={trackId}
       >
         {name}
-      </Action>
+      </Action>,
     );
-  });
+  }
 
-  return (
-    <>
-      <Copy
-        className={className}
-        defaultLabel="Copy"
-        jsonPath={jsonPath}
-        successLabel="Copied!"
-        toClipboard={valueToClipboard}
-        trackId="copy-json"
-      />
-      <Copy
-        className={className}
-        defaultLabel="Copy JSONPath"
-        jsonPath={jsonPath}
-        successLabel="Copied!"
-        toClipboard={jsonPathToClipboard}
-        trackId="copy-json-path"
-      />
-      {controls}
-    </>
-  );
+  return body;
 };
