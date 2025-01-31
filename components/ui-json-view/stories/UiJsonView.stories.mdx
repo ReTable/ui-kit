@@ -39,11 +39,31 @@ You can look at examples how `UiJsonView` shows possible JSON values in interact
 
 ## Options
 
+### `isCopyPathAllowed`
+
+The `isCopyPathAllowed` option shows `Copy JSONPath` button for arrays/objects.
+
+It is `true` by default.
+
+<Canvas>
+  <UiJsonView isCopyPathAllowed={false} isInteractive source={samples.isInteractive} />
+</Canvas>
+
+### `isCopyValueAllowed`
+
+The `isCopyValueAllowed` option shows `Copy` button for arrays/objects.
+
+It is `true` by default
+
+<Canvas>
+  <UiJsonView isCopyValueAllowed={false} isInteractive source={samples.isInteractive} />
+</Canvas>
+
 ### `isInteractive`
 
 The `isInteractive` option enables expand/collapse controls for arrays/objects.
 
-Also, it enables `Copy` and `Copy JSONPath` buttons on each line instead of closing and placeholder lines.
+Also, it enables action buttons on each line instead of closing and placeholder lines.
 
 That buttons are visible when line is hovered.
 

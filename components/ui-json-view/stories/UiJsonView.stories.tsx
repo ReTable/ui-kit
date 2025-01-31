@@ -25,6 +25,14 @@ export default {
   title: 'UiJsonView',
 
   argTypes: {
+    isCopyPathAllowed: {
+      control: 'boolean',
+      name: 'Is copy path allowed?',
+    },
+    isCopyValueAllowed: {
+      control: 'boolean',
+      name: 'Is copy value allowed?',
+    },
     isInteractive: {
       control: 'boolean',
       name: 'Is interactive?',
@@ -114,6 +122,8 @@ type Props = {
   collapsedType: CollapsedType;
   containerHeight: number;
   containerWidth: number;
+  isCopyPathAllowed: boolean;
+  isCopyValueAllowed: boolean;
   isInteractive: boolean;
   isVirtual: boolean;
   shortStringAfterLength?: number;

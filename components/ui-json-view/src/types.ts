@@ -124,6 +124,14 @@ export type JsonViewOptions = {
    */
   actions: Actions;
   /**
+   * Shows button, that copy json path to value
+   */
+  isCopyPathAllowed?: boolean;
+  /**
+   * Shows button, that copy value to clipboard
+   */
+  isCopyValueAllowed?: boolean;
+  /**
    * Enables expand/collapse controls for arrays and objects, and enables action buttons for each line instead of
    * closing and placeholder lines.
    */

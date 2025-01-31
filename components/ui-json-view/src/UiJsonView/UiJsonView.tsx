@@ -46,6 +46,8 @@ export const UiJsonView: FC<Props> = ({
   actions,
   className = '',
   collapsed,
+  isCopyPathAllowed,
+  isCopyValueAllowed,
   isInteractive,
   isVirtual,
   limit,
@@ -85,6 +87,8 @@ export const UiJsonView: FC<Props> = ({
     <UiAnalytics trackId={trackId}>
       <OptionsProvider
         actions={actions}
+        isCopyPathAllowed={isCopyPathAllowed}
+        isCopyValueAllowed={isCopyValueAllowed}
         isInteractive={allowInteractions}
         onAction={onAction}
         onToggle={onToggle}
