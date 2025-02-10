@@ -99,6 +99,9 @@ export function UiMultiSelector({
     (maxSelectedLimit != null && selected.size >= maxSelectedLimit) ||
     (!allowsCustomValue && options.length > 0 && selected.size === options.length);
 
+  const isPopupVisible = !isDisabled && !isFilled;
+  const isSearchVisible = isPopupVisible || (isDisabled && isEmpty);
+
   return (
     <div
       className={clsx(
@@ -127,7 +130,7 @@ export function UiMultiSelector({
           selected={selected}
         />
       )}
-      {!isFilled && (
+      {isSearchVisible && (
         <Search
           completeKey={completeKey}
           defaultPlaceholder={defaultPlaceholder}
@@ -145,7 +148,7 @@ export function UiMultiSelector({
           value={search}
         />
       )}
-      {!isDisabled && !isFilled && (
+      {isPopupVisible && (
         <FloatingPortal preserveTabOrder={false}>
           <div ref={floatingRef} style={style} {...getFloatingProps()}>
             {isOpen && (
