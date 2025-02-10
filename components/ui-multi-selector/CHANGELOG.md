@@ -1,5 +1,11 @@
 # @tabula/ui-multi-selector
 
+## 0.3.2
+
+### Patch Changes
+
+- [#324](https://github.com/ReTable/ui-kit/pull/324) [`b10ca7d`](https://github.com/ReTable/ui-kit/commit/b10ca7d32d4c0c3fe14effb406237a7efd354dc0) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix showing search placeholder
+
 ## 0.3.1
 
 ### Patch Changes
