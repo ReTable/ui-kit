@@ -1,20 +1,21 @@
 import jp from 'jsonpath';
 
 import {
+  ComplexType,
   JsonPrimitiveValue,
   JsonValue,
   LineKind,
   OpenLine,
+  PrimitiveType,
   Property,
   ValueLine,
-  ValueType,
 } from '../../../types';
 
 import { Item, JsonPath, LineItem, ValueItem } from './types';
 
 // region Value Line
 
-function typedValueOf(value: JsonPrimitiveValue): [ValueType, string] {
+function typedValueOf(value: JsonPrimitiveValue): [PrimitiveType, string] {
   if (value == null) {
     return ['null', 'null'];
   }
@@ -74,6 +75,7 @@ type OpenItemFromOptions = {
   path: string;
   property?: Property;
   size: number;
+  type: ComplexType;
 };
 
 export function openItemFrom({
@@ -84,6 +86,7 @@ export function openItemFrom({
   path,
   property,
   size,
+  type,
 }: OpenItemFromOptions): LineItem {
   const line: OpenLine = {
     kind: LineKind.Open,
@@ -96,6 +99,7 @@ export function openItemFrom({
     closeSymbol,
 
     size,
+    type,
   };
 
   if (property != null) {

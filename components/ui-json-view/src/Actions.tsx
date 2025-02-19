@@ -3,11 +3,12 @@ import { FC, ReactNode } from 'react';
 import { Action } from './Action';
 import { Copy } from './Copy';
 import { useOptions } from './OptionsProvider';
-import { QueryFn } from './types';
+import { QueryFn, ValueType } from './types';
 
 type Props = {
   className?: string;
   jsonPath: string;
+  type: ValueType;
 };
 
 function jsonPathToClipboard(jsonPath: string) {
@@ -20,7 +21,7 @@ function valueToClipboard(jsonPath: string, query: QueryFn): string {
   return JSON.stringify(value, null, 4);
 }
 
-export const Actions: FC<Props> = ({ className, jsonPath }) => {
+export const Actions: FC<Props> = ({ className, jsonPath, type }) => {
   const { actions, isCopyPathAllowed, isCopyValueAllowed, isInteractive } = useOptions();
 
   if (!isInteractive) {
@@ -58,8 +59,20 @@ export const Actions: FC<Props> = ({ className, jsonPath }) => {
   }
 
   for (const [name, action] of Object.entries(actions)) {
-    const [actionFn, trackId] =
-      typeof action === 'function' ? [action, undefined] : [action.action, action.trackId];
+    if (typeof action === 'function') {
+      body.push(
+        <Action className={className} action={action} key={name} jsonPath={jsonPath}>
+          {name}
+        </Action>,
+      );
+      continue;
+    }
+
+    const { action: actionFn, isVisible, trackId } = action;
+
+    if (isVisible != null && !isVisible(jsonPath, type)) {
+      continue;
+    }
 
     body.push(
       <Action
