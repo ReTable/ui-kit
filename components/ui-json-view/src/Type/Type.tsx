@@ -3,10 +3,10 @@ import { FC } from 'react';
 import { root } from './Type.css';
 
 import { useOptions } from '../OptionsProvider';
-import { ValueType } from '../types';
+import { PrimitiveType } from '../types';
 
 type Props = {
-  type: ValueType;
+  type: PrimitiveType;
 };
 
 export const Type: FC<Props> = ({ type }) => {

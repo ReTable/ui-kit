@@ -1,4 +1,3 @@
-import { childrenOf } from './childrenOf';
 import { isPrimitiveValue } from './isPrimitiveValue';
 import {
   closeItemFrom,
@@ -7,6 +6,7 @@ import {
   valueItemFrom,
   valueLineItemFrom,
 } from './itemFrom';
+import { metaOf } from './metaOf';
 import { Item, ValueItem } from './types';
 
 export function enqueueItemsFrom(parent: ValueItem): void {
@@ -30,10 +30,8 @@ export function enqueueItemsFrom(parent: ValueItem): void {
     return;
   }
 
-  const [openSymbol, closeSymbol] = Array.isArray(source) ? ['[', ']'] : ['{', '}'];
-
   // Step 2: Get a unified children of source value, because it can be an array or an object.
-  const [children, size] = childrenOf(source);
+  const { children, openSymbol, closeSymbol, size, type } = metaOf(source);
 
   // Step 3: Create an open item.
   const open = openItemFrom({
@@ -47,6 +45,7 @@ export function enqueueItemsFrom(parent: ValueItem): void {
     closeSymbol,
 
     size,
+    type,
   });
 
   // Step 4: Create a close item.
