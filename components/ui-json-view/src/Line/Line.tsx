@@ -33,12 +33,12 @@ export const Line = memo<Props>(function Line({ line, style }) {
           <Property property={property} />
           <Type type={type} />
           {type === 'string' ? <StringValue>{value}</StringValue> : value}
-          <Actions className={controls.action} jsonPath={jsonPath} />
+          <Actions className={controls.action} jsonPath={jsonPath} type={type} />
         </div>
       );
     }
     case LineKind.Open: {
-      const { closeSymbol, isCollapsed, jsonPath, openSymbol, path, property, size } = line;
+      const { closeSymbol, isCollapsed, jsonPath, openSymbol, path, property, size, type } = line;
 
       return (
         <div className={clsx(variants.boundary, positionClassName)} style={rootStyle}>
@@ -54,7 +54,7 @@ export const Line = memo<Props>(function Line({ line, style }) {
             openSymbol
           )}
           <Size size={size} />
-          <Actions className={controls.action} jsonPath={jsonPath} />
+          <Actions className={controls.action} jsonPath={jsonPath} type={type} />
         </div>
       );
     }
