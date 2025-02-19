@@ -1,5 +1,11 @@
 # @tabula/ui-json-view
 
+## 7.3.0
+
+### Minor Changes
+
+- [#328](https://github.com/ReTable/ui-kit/pull/328) [`d6867e2`](https://github.com/ReTable/ui-kit/commit/d6867e2e59347f720cbd33523214f5bf2c667b01) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Support isVisible method on user action config
+
 ## 7.2.0
 
 ### Minor Changes
