@@ -21,7 +21,9 @@ export type JsonValue = JsonArray | JsonObject | JsonPrimitiveValue;
 //       If parent value is an object, then key will be a key.
 export type Property = number | string;
 
-export type ValueType = 'bool' | 'null' | 'int' | 'float' | 'string';
+export type PrimitiveType = 'bool' | 'null' | 'int' | 'float' | 'string';
+export type ComplexType = 'array' | 'object';
+export type ValueType = PrimitiveType | ComplexType;
 
 export enum LineKind {
   Value,
@@ -53,7 +55,7 @@ export type ValueLine = BaseLine<LineKind.Value> & {
 
   property?: Property;
 
-  type: ValueType;
+  type: PrimitiveType;
   value: string;
 };
 
@@ -67,6 +69,7 @@ export type OpenLine = BaseLine<LineKind.Open> & {
 
   // NOTE: Number of items in an array or properties in an object.
   size: number;
+  type: ComplexType;
 
   isCollapsed?: boolean;
 };
