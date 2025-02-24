@@ -111,11 +111,13 @@ export type QueryFn = (jsonPath: string) => Readonly<JsonValue>;
 
 export type ActionFn = (jsonPath: string, query: QueryFn) => void;
 
+export type VisibleFn = (jsonPath: string, type: ValueType) => boolean;
+
 export type Action =
   | ActionFn
   | {
       action: ActionFn;
-      isVisible?: (jsonPath: string, type: ValueType) => boolean;
+      isVisible?: VisibleFn;
       trackId?: string;
     };
 

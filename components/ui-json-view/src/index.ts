@@ -1,3 +1,3 @@
 export { UiJsonView } from './UiJsonView';
 
-export type { ActionFn, Actions } from './types';
+export type { ActionFn, Actions, VisibleFn } from './types';
