@@ -1,5 +1,11 @@
 # @tabula/ui-json-view
 
+## 7.3.1
+
+### Patch Changes
+
+- [#330](https://github.com/ReTable/ui-kit/pull/330) [`681fe2b`](https://github.com/ReTable/ui-kit/commit/681fe2bee1f504389f42b131449e087e03c9fd74) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Export types
+
 ## 7.3.0
 
 ### Minor Changes
