@@ -17,6 +17,7 @@ import { ReactComponent as UiEnrichmentMIconInner } from './enrichment/enrichmen
 import { ReactComponent as UiEnrichmentApolloMIconInner } from './enrichmentApollo/enrichmentApollo.medium.svg';
 import { ReactComponent as UiEnrichmentBouncerMIconInner } from './enrichmentBouncer/enrichmentBouncer.medium.svg';
 import { ReactComponent as UiEnrichmentClearbitMIconInner } from './enrichmentClearbit/enrichmentClearbit.medium.svg';
+import { ReactComponent as UiEnrichmentCompaniesMIconInner } from './enrichmentCompanies/enrichmentCompanies.medium.svg';
 import { ReactComponent as UiEnrichmentContactOutMIconInner } from './enrichmentContactOut/enrichmentContactOut.medium.svg';
 import { ReactComponent as UiEnrichmentDiscoLikeMIconInner } from './enrichmentDiscoLike/enrichmentDiscoLike.medium.svg';
 import { ReactComponent as UiEnrichmentFindymailMIconInner } from './enrichmentFindymail/enrichmentFindymail.medium.svg';
@@ -26,6 +27,7 @@ import { ReactComponent as UiEnrichmentLead411MIconInner } from './enrichmentLea
 import { ReactComponent as UiEnrichmentLeadMagicMIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.medium.svg';
 import { ReactComponent as UiEnrichmentLeadReachMIconInner } from './enrichmentLeadReach/enrichmentLeadReach.medium.svg';
 import { ReactComponent as UiEnrichmentMillionVerifierMIconInner } from './enrichmentMillionVerifier/enrichmentMillionVerifier.medium.svg';
+import { ReactComponent as UiEnrichmentPeopleMIconInner } from './enrichmentPeople/enrichmentPeople.medium.svg';
 import { ReactComponent as UiEnrichmentPeopleDataLabsMIconInner } from './enrichmentPeopleDataLabs/enrichmentPeopleDataLabs.medium.svg';
 import { ReactComponent as UiEnrichmentPredictLeadsMIconInner } from './enrichmentPredictLeads/enrichmentPredictLeads.medium.svg';
 import { ReactComponent as UiEnrichmentProspeoMIconInner } from './enrichmentProspeo/enrichmentProspeo.medium.svg';
@@ -107,6 +109,8 @@ export const UiCsvFileMIcon = createIcon(UiCsvFileMIconInner, icon);
 export const UiCsvOutputMIcon = createIcon(UiCsvOutputMIconInner, icon);
 export const UiEditColumnMIcon = createIcon(UiEditColumnMIconInner, icon);
 export const UiEnrichmentMIcon = createIcon(UiEnrichmentMIconInner, icon);
+export const UiEnrichmentCompaniesMIcon = createIcon(UiEnrichmentCompaniesMIconInner, icon);
+export const UiEnrichmentPeopleMIcon = createIcon(UiEnrichmentPeopleMIconInner, icon);
 export const UiEnrichmentApolloMIcon = createIcon(UiEnrichmentApolloMIconInner, icon);
 export const UiEnrichmentBouncerMIcon = createIcon(UiEnrichmentBouncerMIconInner, icon);
 export const UiEnrichmentClearbitMIcon = createIcon(UiEnrichmentClearbitMIconInner, icon);
