@@ -1,3 +1,4 @@
+import { ReactComponent as UiEnrichmentAnymailFinderSIconInner } from './enrichmentAnymailFinder/enrichmentAnymailFinder.small.svg';
 import { ReactComponent as UiEnrichmentApolloSIconInner } from './enrichmentApollo/enrichmentApollo.small.svg';
 import { ReactComponent as UiEnrichmentBouncerSIconInner } from './enrichmentBouncer/enrichmentBouncer.small.svg';
 import { ReactComponent as UiEnrichmentClearbitSIconInner } from './enrichmentClearbit/enrichmentClearbit.small.svg';
@@ -9,11 +10,16 @@ import { ReactComponent as UiEnrichmentHunterSIconInner } from './enrichmentHunt
 import { ReactComponent as UiEnrichmentLead411SIconInner } from './enrichmentLead411/enrichmentLead411.small.svg';
 import { ReactComponent as UiEnrichmentLeadMagicSIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.small.svg';
 import { ReactComponent as UiEnrichmentMillionVerifierSIconInner } from './enrichmentMillionVerifier/enrichmentMillionVerifier.small.svg';
+import { ReactComponent as UiEnrichmentMuraenaSIconInner } from './enrichmentMuraena/enrichmentMuraena.small.svg';
+import { ReactComponent as UiEnrichmentNubelaSIconInner } from './enrichmentNubela/enrichmentNubela.small.svg';
+import { ReactComponent as UiEnrichmentOceanSIconInner } from './enrichmentOcean/enrichmentOcean.small.svg';
 import { ReactComponent as UiEnrichmentPeopleDataLabsSIconInner } from './enrichmentPeopleDataLabs/enrichmentPeopleDataLabs.small.svg';
 import { ReactComponent as UiEnrichmentPredictLeadsSIconInner } from './enrichmentPredictLeads/enrichmentPredictLeads.small.svg';
+import { ReactComponent as UiEnrichmentProgaiSIconInner } from './enrichmentProgai/enrichmentProgai.small.svg';
 import { ReactComponent as UiEnrichmentProspeoSIconInner } from './enrichmentProspeo/enrichmentProspeo.small.svg';
 import { ReactComponent as UiEnrichmentReverseContactSIconInner } from './enrichmentReverseContact/enrichmentReverseContact.small.svg';
 import { ReactComponent as UiEnrichmentSignalHireSIconInner } from './enrichmentSignalHire/enrichmentSignalHire.small.svg';
+import { ReactComponent as UiEnrichmentTheirStackSIconInner } from './enrichmentTheirStack/enrichmentTheirStack.small.svg';
 import { ReactComponent as UiEnrichmentUpLeadSIconInner } from './enrichmentUpLead/enrichmentUpLead.small.svg';
 import { ReactComponent as UiEnrichmentZeroBounceSIconInner } from './enrichmentZeroBounce/enrichmentZeroBounce.small.svg';
 import { ReactComponent as UiEnrichmentZoomInfoSIconInner } from './enrichmentZoomInfo/enrichmentZoomInfo.small.svg';
@@ -31,6 +37,7 @@ import { icon } from './style.css';
 
 import { createIcon } from './utils';
 
+export const UiEnrichmentAnymailFinderSIcon = createIcon(UiEnrichmentAnymailFinderSIconInner, icon);
 export const UiEnrichmentApolloSIcon = createIcon(UiEnrichmentApolloSIconInner, icon);
 export const UiEnrichmentBouncerSIcon = createIcon(UiEnrichmentBouncerSIconInner, icon);
 export const UiEnrichmentClearbitSIcon = createIcon(UiEnrichmentClearbitSIconInner, icon);
@@ -45,17 +52,22 @@ export const UiEnrichmentMillionVerifierSIcon = createIcon(
   UiEnrichmentMillionVerifierSIconInner,
   icon,
 );
+export const UiEnrichmentMuraenaSIcon = createIcon(UiEnrichmentMuraenaSIconInner, icon);
+export const UiEnrichmentNubelaSIcon = createIcon(UiEnrichmentNubelaSIconInner, icon);
+export const UiEnrichmentOceanSIcon = createIcon(UiEnrichmentOceanSIconInner, icon);
 export const UiEnrichmentPeopleDataLabsSIcon = createIcon(
   UiEnrichmentPeopleDataLabsSIconInner,
   icon,
 );
 export const UiEnrichmentPredictLeadsSIcon = createIcon(UiEnrichmentPredictLeadsSIconInner, icon);
+export const UiEnrichmentProgaiSIcon = createIcon(UiEnrichmentProgaiSIconInner, icon);
 export const UiEnrichmentProspeoSIcon = createIcon(UiEnrichmentProspeoSIconInner, icon);
 export const UiEnrichmentReverseContactSIcon = createIcon(
   UiEnrichmentReverseContactSIconInner,
   icon,
 );
 export const UiEnrichmentSignalHireSIcon = createIcon(UiEnrichmentSignalHireSIconInner, icon);
+export const UiEnrichmentTheirStackSIcon = createIcon(UiEnrichmentTheirStackSIconInner, icon);
 export const UiEnrichmentUpLeadSIcon = createIcon(UiEnrichmentUpLeadSIconInner, icon);
 export const UiEnrichmentZeroBounceSIcon = createIcon(UiEnrichmentZeroBounceSIconInner, icon);
 export const UiEnrichmentZoomInfoSIcon = createIcon(UiEnrichmentZoomInfoSIconInner, icon);

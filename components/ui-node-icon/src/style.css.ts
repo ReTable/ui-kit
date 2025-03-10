@@ -57,6 +57,7 @@ createGlobalTheme(':root', gradients, {
 
 export const enrichments = createGlobalThemeContract(
   {
+    anymailFinder: 'anymailFinder',
     apollo: {
       primary: 'primary',
       secondary: 'secondary',
@@ -108,8 +109,12 @@ export const enrichments = createGlobalThemeContract(
         to: 'to',
       },
     },
+    muraena: 'muraena',
+    nubela: 'nubela',
+    ocean: 'ocean',
     peopleDataLabs: 'peopleDataLabs',
     predictLeads: 'predictLeads',
+    progai: 'progai',
     prospeo: {
       primary: 'primary',
       secondary: 'secondary',
@@ -138,6 +143,7 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    theirStack: 'theirStack',
     upLead: 'upLead',
     zeroBounce: {
       primary: 'primary',
@@ -156,6 +162,7 @@ export const enrichments = createGlobalThemeContract(
 );
 
 createGlobalTheme(':root', enrichments, {
+  anymailFinder: '#000000',
   apollo: {
     primary: '#010202',
     secondary: '#fcc02b',
@@ -207,8 +214,12 @@ createGlobalTheme(':root', enrichments, {
       to: '#205ccc',
     },
   },
+  muraena: '#110f60',
+  nubela: '#2c6ee8',
+  ocean: '#3d60e1',
   peopleDataLabs: '#7f35fd',
   predictLeads: '#76508e',
+  progai: '#000000',
   prospeo: {
     primary: '#f44238',
     secondary: '#ffffff',
@@ -237,6 +248,7 @@ createGlobalTheme(':root', enrichments, {
     primary: '#000000',
     secondary: '#478acc',
   },
+  theirStack: '#000000',
   upLead: '#5e707d',
   zeroBounce: {
     primary: '#000000',
@@ -310,6 +322,7 @@ const overrides = {
     },
   }),
   ...assignVars(enrichments, {
+    anymailFinder: uiTheme.colors.icons.disabled.primary,
     apollo: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
@@ -361,8 +374,12 @@ const overrides = {
         to: uiTheme.colors.icons.disabled.secondary,
       },
     },
+    muraena: uiTheme.colors.icons.disabled.primary,
+    nubela: uiTheme.colors.icons.disabled.primary,
+    ocean: uiTheme.colors.icons.disabled.primary,
     peopleDataLabs: uiTheme.colors.icons.disabled.primary,
     predictLeads: uiTheme.colors.icons.disabled.primary,
+    progai: uiTheme.colors.icons.disabled.primary,
     prospeo: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
@@ -391,6 +408,7 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    theirStack: uiTheme.colors.icons.disabled.primary,
     upLead: uiTheme.colors.icons.disabled.primary,
     zeroBounce: {
       primary: uiTheme.colors.icons.disabled.primary,
