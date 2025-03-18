@@ -74,6 +74,7 @@ import { ReactComponent as UiSearchLIconInner } from './search/search.large.svg'
 import { ReactComponent as UiSearchCompanyLIconInner } from './searchCompany/searchCompany.large.svg';
 import { ReactComponent as UiSearchDeveloperLIconInner } from './searchDeveloper/searchDeveloper.large.svg';
 import { ReactComponent as UiSearchLookalikeCompanyLIconInner } from './searchLookalikeCompany/searchLookalikeCompany.large.svg';
+import { ReactComponent as UiSearchLookalikePeopleLIconInner } from './searchLookalikePeople/searchLookalikePeople.large.svg';
 import { ReactComponent as UiSearchPeopleLIconInner } from './searchPeople/searchPeople.large.svg';
 import { ReactComponent as UiSnowflakeOutputLIconInner } from './snowflakeOutput/snowflakeOutput.large.svg';
 import { ReactComponent as UiSnowflakeSourceLIconInner } from './snowflakeSource/snowflakeSource.large.svg';
@@ -183,6 +184,7 @@ export const UiSearchLIcon = createIcon(UiSearchLIconInner, icon);
 export const UiSearchCompanyLIcon = createIcon(UiSearchCompanyLIconInner, icon);
 export const UiSearchDeveloperLIcon = createIcon(UiSearchDeveloperLIconInner, icon);
 export const UiSearchLookalikeCompanyLIcon = createIcon(UiSearchLookalikeCompanyLIconInner, icon);
+export const UiSearchLookalikePeopleLIcon = createIcon(UiSearchLookalikePeopleLIconInner, icon);
 export const UiSearchPeopleLIcon = createIcon(UiSearchPeopleLIconInner, icon);
 export const UiSnowflakeOutputLIcon = createIcon(UiSnowflakeOutputLIconInner, icon);
 export const UiSnowflakeSourceLIcon = createIcon(UiSnowflakeSourceLIconInner, icon);

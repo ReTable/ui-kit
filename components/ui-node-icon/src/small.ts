@@ -30,6 +30,7 @@ import { ReactComponent as UiReportSIconInner } from './report/report.small.svg'
 import { ReactComponent as UiSearchCompanySIconInner } from './searchCompany/searchCompany.small.svg';
 import { ReactComponent as UiSearchDeveloperSIconInner } from './searchDeveloper/searchDeveloper.small.svg';
 import { ReactComponent as UiSearchLookalikeCompanySIconInner } from './searchLookalikeCompany/searchLookalikeCompany.small.svg';
+import { ReactComponent as UiSearchLookalikePeopleSIconInner } from './searchLookalikePeople/searchLookalikePeople.small.svg';
 import { ReactComponent as UiSearchPeopleSIconInner } from './searchPeople/searchPeople.small.svg';
 import { ReactComponent as UiSnowflakeSourceSIconInner } from './snowflakeSource/snowflakeSource.small.svg';
 
@@ -78,6 +79,7 @@ export const UiReportSIcon = createIcon(UiReportSIconInner, icon);
 export const UiSearchCompanySIcon = createIcon(UiSearchCompanySIconInner, icon);
 export const UiSearchDeveloperSIcon = createIcon(UiSearchDeveloperSIconInner, icon);
 export const UiSearchLookalikeCompanySIcon = createIcon(UiSearchLookalikeCompanySIconInner, icon);
+export const UiSearchLookalikePeopleSIcon = createIcon(UiSearchLookalikePeopleSIconInner, icon);
 export const UiSearchPeopleSIcon = createIcon(UiSearchPeopleSIconInner, icon);
 export const UiSnowflakeSourceSIcon = createIcon(UiSnowflakeSourceSIconInner, icon);
 
