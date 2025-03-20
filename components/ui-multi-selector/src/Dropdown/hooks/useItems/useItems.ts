@@ -44,7 +44,7 @@ export function useItems({
       if (hasSearch) {
         items.unshift(buildCustomValue({ onUpdate, search }));
       }
-    } else if (items.length > 0) {
+    } else if (items.length > 1) {
       // NOTE: Suggest `Select found` option only when search isn't empty.
       if (hasSearch) {
         items.unshift(buildSelectFound({ onUpdate, search, selectFound, values }));
