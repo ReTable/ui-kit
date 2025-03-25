@@ -10,6 +10,7 @@
   "access": "public",
   "baseBranch": "main",
   "commit": false,
+  "prettier": false,
   "updateInternalDependencies": "patch",
   "bumpVersionsWithWorkspaceProtocolOnly": true,
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
