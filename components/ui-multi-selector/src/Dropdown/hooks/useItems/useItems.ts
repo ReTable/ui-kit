@@ -11,6 +11,7 @@ import { buildSelectFound } from './buildSelectFound';
 
 type Options = {
   allowsCustomValue?: boolean;
+  maxSelectedLimit?: number;
   onUpdate: UpdateHandler;
   options: Option[];
   search: string;
@@ -21,6 +22,7 @@ type Options = {
 
 export function useItems({
   allowsCustomValue,
+  maxSelectedLimit,
   onUpdate,
   options,
   search,
@@ -44,7 +46,11 @@ export function useItems({
       if (hasSearch) {
         items.unshift(buildCustomValue({ onUpdate, search }));
       }
-    } else if (items.length > 1) {
+      return items;
+    }
+
+    const isSatisfiesSelectedLimits = maxSelectedLimit == null || maxSelectedLimit > 1;
+    if (isSatisfiesSelectedLimits && items.length > 1) {
       // NOTE: Suggest `Select found` option only when search isn't empty.
       if (hasSearch) {
         items.unshift(buildSelectFound({ onUpdate, search, selectFound, values }));
@@ -56,5 +62,14 @@ export function useItems({
     }
 
     return items;
-  }, [onUpdate, options, search, selected, allowsCustomValue, selectAll, selectFound]);
+  }, [
+    allowsCustomValue,
+    onUpdate,
+    options,
+    search,
+    selected,
+    maxSelectedLimit,
+    selectAll,
+    selectFound,
+  ]);
 }

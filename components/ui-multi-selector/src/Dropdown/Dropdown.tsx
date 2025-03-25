@@ -21,6 +21,7 @@ type Props = {
   allowsCustomValue?: boolean;
   className?: string;
   completeKey: CompleteKey;
+  maxSelectedLimit?: number;
   onUpdate: UpdateHandler;
   options: Option[];
   search: string;
@@ -35,6 +36,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       allowsCustomValue,
       className,
       completeKey,
+      maxSelectedLimit,
       onUpdate,
       options,
       search,
@@ -46,6 +48,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
   ) => {
     const items = useItems({
       allowsCustomValue,
+      maxSelectedLimit,
       onUpdate,
       options,
       search,

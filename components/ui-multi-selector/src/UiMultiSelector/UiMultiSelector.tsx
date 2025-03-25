@@ -155,6 +155,7 @@ export function UiMultiSelector({
               <Dropdown
                 allowsCustomValue={allowsCustomValue}
                 completeKey={completeKey}
+                maxSelectedLimit={maxSelectedLimit}
                 onUpdate={onUpdate}
                 options={options}
                 ref={dropdownRef}
