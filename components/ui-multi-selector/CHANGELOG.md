@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 0.3.4
+### Patch Changes
+
+
+
+- [#338](https://github.com/ReTable/ui-kit/pull/338) [`e3a7ebd`](https://github.com/ReTable/ui-kit/commit/e3a7ebd0b232274bd210d96a85679017af68c519) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Hide select all/found depends on maxSelectedLimit
+
 ## 0.3.2
 
 ### Patch Changes
