@@ -3,7 +3,9 @@ import { ReactComponent as UiEnrichmentApolloSIconInner } from './enrichmentApol
 import { ReactComponent as UiEnrichmentBouncerSIconInner } from './enrichmentBouncer/enrichmentBouncer.small.svg';
 import { ReactComponent as UiEnrichmentClearbitSIconInner } from './enrichmentClearbit/enrichmentClearbit.small.svg';
 import { ReactComponent as UiEnrichmentContactOutSIconInner } from './enrichmentContactOut/enrichmentContactOut.small.svg';
+import { ReactComponent as UiEnrichmentDebounceSIconInner } from './enrichmentDebounce/enrichmentDebounce.small.svg';
 import { ReactComponent as UiEnrichmentDiscoLikeSIconInner } from './enrichmentDiscoLike/enrichmentDiscoLike.small.svg';
+import { ReactComponent as UiEnrichmentEnrichleySIconInner } from './enrichmentEnrichley/enrichmentEnrichley.small.svg';
 import { ReactComponent as UiEnrichmentFindymailSIconInner } from './enrichmentFindymail/enrichmentFindymail.small.svg';
 import { ReactComponent as UiEnrichmentFirecrawlSIconInner } from './enrichmentFirecrawl/enrichmentFirecrawl.small.svg';
 import { ReactComponent as UiEnrichmentHunterSIconInner } from './enrichmentHunter/enrichmentHunter.small.svg';
@@ -11,6 +13,7 @@ import { ReactComponent as UiEnrichmentLead411SIconInner } from './enrichmentLea
 import { ReactComponent as UiEnrichmentLeadMagicSIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.small.svg';
 import { ReactComponent as UiEnrichmentMillionVerifierSIconInner } from './enrichmentMillionVerifier/enrichmentMillionVerifier.small.svg';
 import { ReactComponent as UiEnrichmentMuraenaSIconInner } from './enrichmentMuraena/enrichmentMuraena.small.svg';
+import { ReactComponent as UiEnrichmentNeverBounceSIconInner } from './enrichmentNeverBounce/enrichmentNeverBounce.small.svg';
 import { ReactComponent as UiEnrichmentNubelaSIconInner } from './enrichmentNubela/enrichmentNubela.small.svg';
 import { ReactComponent as UiEnrichmentOceanSIconInner } from './enrichmentOcean/enrichmentOcean.small.svg';
 import { ReactComponent as UiEnrichmentPeopleDataLabsSIconInner } from './enrichmentPeopleDataLabs/enrichmentPeopleDataLabs.small.svg';
@@ -43,7 +46,9 @@ export const UiEnrichmentApolloSIcon = createIcon(UiEnrichmentApolloSIconInner, 
 export const UiEnrichmentBouncerSIcon = createIcon(UiEnrichmentBouncerSIconInner, icon);
 export const UiEnrichmentClearbitSIcon = createIcon(UiEnrichmentClearbitSIconInner, icon);
 export const UiEnrichmentContactOutSIcon = createIcon(UiEnrichmentContactOutSIconInner, icon);
+export const UiEnrichmentDebounceSIcon = createIcon(UiEnrichmentDebounceSIconInner, icon);
 export const UiEnrichmentDiscoLikeSIcon = createIcon(UiEnrichmentDiscoLikeSIconInner, icon);
+export const UiEnrichmentEnrichleySIcon = createIcon(UiEnrichmentEnrichleySIconInner, icon);
 export const UiEnrichmentFindymailSIcon = createIcon(UiEnrichmentFindymailSIconInner, icon);
 export const UiEnrichmentFirecrawlSIcon = createIcon(UiEnrichmentFirecrawlSIconInner, icon);
 export const UiEnrichmentHunterSIcon = createIcon(UiEnrichmentHunterSIconInner, icon);
@@ -54,6 +59,7 @@ export const UiEnrichmentMillionVerifierSIcon = createIcon(
   icon,
 );
 export const UiEnrichmentMuraenaSIcon = createIcon(UiEnrichmentMuraenaSIconInner, icon);
+export const UiEnrichmentNeverBounceSIcon = createIcon(UiEnrichmentNeverBounceSIconInner, icon);
 export const UiEnrichmentNubelaSIcon = createIcon(UiEnrichmentNubelaSIconInner, icon);
 export const UiEnrichmentOceanSIcon = createIcon(UiEnrichmentOceanSIconInner, icon);
 export const UiEnrichmentPeopleDataLabsSIcon = createIcon(

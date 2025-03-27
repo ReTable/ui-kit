@@ -76,7 +76,12 @@ export const enrichments = createGlobalThemeContract(
       m: 'm',
       s: 's',
     },
+    debounce: 'debounce',
     discoLike: 'discoLike',
+    enrichley: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     findymail: {
       primary: 'primary',
       secondary: 'secondary',
@@ -110,6 +115,11 @@ export const enrichments = createGlobalThemeContract(
       },
     },
     muraena: 'muraena',
+    neverBounce: {
+      from: 'from',
+      middle: 'middle',
+      to: 'to',
+    },
     nubela: 'nubela',
     ocean: 'ocean',
     peopleDataLabs: 'peopleDataLabs',
@@ -181,7 +191,12 @@ createGlobalTheme(':root', enrichments, {
     m: '',
     s: '',
   },
+  debounce: '#346cF7',
   discoLike: '#000',
+  enrichley: {
+    primary: '#1a6233',
+    secondary: '#18cf95',
+  },
   findymail: {
     primary: '#e3243b',
     secondary: '#000000',
@@ -215,6 +230,11 @@ createGlobalTheme(':root', enrichments, {
     },
   },
   muraena: '#110f60',
+  neverBounce: {
+    from: '#064af4',
+    middle: '#06abdc',
+    to: '#04e79e',
+  },
   nubela: '#2c6ee8',
   ocean: '#3d60e1',
   peopleDataLabs: '#7f35fd',
@@ -341,7 +361,12 @@ const overrides = {
       m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
       s: 'url(#tbl--ui-node-icon--enrichment--contact-out-s--disabled)',
     },
+    debounce: uiTheme.colors.icons.disabled.primary,
     discoLike: uiTheme.colors.icons.disabled.primary,
+    enrichley: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     findymail: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.primary,
@@ -375,6 +400,11 @@ const overrides = {
       },
     },
     muraena: uiTheme.colors.icons.disabled.primary,
+    neverBounce: {
+      from: uiTheme.colors.icons.disabled.primary,
+      middle: '#d9d9d9',
+      to: uiTheme.colors.icons.disabled.secondary,
+    },
     nubela: uiTheme.colors.icons.disabled.primary,
     ocean: uiTheme.colors.icons.disabled.primary,
     peopleDataLabs: uiTheme.colors.icons.disabled.primary,
