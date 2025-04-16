@@ -66,6 +66,11 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    cleanify: {
+      primary: 'primary',
+      secondary: 'secondary',
+      tertiary: 'tTertiary',
+    },
     clearbit: {
       primary: 'primary',
       secondary: 'secondary',
@@ -78,6 +83,12 @@ export const enrichments = createGlobalThemeContract(
     },
     debounce: 'debounce',
     discoLike: 'discoLike',
+    emailable: {
+      l: 'l',
+      m: 'm',
+      s: 's',
+    },
+    emailListVerify: 'emailListVerify',
     enrichley: {
       primary: 'primary',
       secondary: 'secondary',
@@ -90,6 +101,10 @@ export const enrichments = createGlobalThemeContract(
       l: 'l',
       m: 'm',
       s: 's',
+    },
+    heyBounce: {
+      primary: 'primary',
+      secondary: 'secondary',
     },
     hunter: {
       primary: 'primary',
@@ -104,6 +119,10 @@ export const enrichments = createGlobalThemeContract(
       secondary: 'secondary',
     },
     leadReach: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    mails: {
       primary: 'primary',
       secondary: 'secondary',
     },
@@ -181,6 +200,11 @@ createGlobalTheme(':root', enrichments, {
     primary: '#2a2964',
     secondary: '#1Aac78',
   },
+  cleanify: {
+    primary: '#61b49c',
+    secondary: '#8ad5bc',
+    tertiary: '#f0825e',
+  },
   clearbit: {
     primary: '#1ba2fe',
     secondary: '#5ebafd',
@@ -193,6 +217,12 @@ createGlobalTheme(':root', enrichments, {
   },
   debounce: '#346cF7',
   discoLike: '#000',
+  emailable: {
+    l: '',
+    m: '',
+    s: '',
+  },
+  emailListVerify: '#16bac4',
   enrichley: {
     primary: '#1a6233',
     secondary: '#18cf95',
@@ -205,6 +235,10 @@ createGlobalTheme(':root', enrichments, {
     l: '',
     m: '',
     s: '',
+  },
+  heyBounce: {
+    primary: '#333333',
+    secondary: '#ebb624',
   },
   hunter: {
     primary: '#fa5320',
@@ -221,6 +255,10 @@ createGlobalTheme(':root', enrichments, {
   leadReach: {
     primary: '#ffffff',
     secondary: '#000000',
+  },
+  mails: {
+    primary: '#000000',
+    secondary: '#7859a9',
   },
   millionVerifier: {
     primary: '#0c1516',
@@ -351,6 +389,11 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    cleanify: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+      tertiary: uiTheme.colors.icons.disabled.primary,
+    },
     clearbit: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: '#d9d9d9',
@@ -363,6 +406,12 @@ const overrides = {
     },
     debounce: uiTheme.colors.icons.disabled.primary,
     discoLike: uiTheme.colors.icons.disabled.primary,
+    emailable: {
+      l: 'url(#tbl--ui-node-icon--enrichment--emailable-l--disabled)',
+      m: 'url(#tbl--ui-node-icon--enrichment--emailable-m--disabled)',
+      s: 'url(#tbl--ui-node-icon--enrichment--emailable-s--disabled)',
+    },
+    emailListVerify: uiTheme.colors.icons.disabled.primary,
     enrichley: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
@@ -375,6 +424,10 @@ const overrides = {
       l: 'url(#tbl--ui-node-icon--enrichment--firecrawl-l--disabled)',
       m: 'url(#tbl--ui-node-icon--enrichment--firecrawl-m--disabled)',
       s: 'url(#tbl--ui-node-icon--enrichment--firecrawl-s--disabled)',
+    },
+    heyBounce: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
     },
     hunter: {
       primary: uiTheme.colors.icons.disabled.primary,
@@ -389,6 +442,10 @@ const overrides = {
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
     leadReach: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    mails: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },

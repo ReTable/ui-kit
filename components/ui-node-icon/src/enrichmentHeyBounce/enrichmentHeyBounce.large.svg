@@ -1,0 +1,25 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="14" fill="var(--tbl--ui-node-icon--enrichment--hey-bounce-secondary)"/>
+  <path
+    d="M24.5 19.598C25.428 19.062 26 18.072 26 17V16C26 8.302 17.667 3.491 11 7.34C4.33301 11.189 4.33301 20.811 11 24.66C14.468 26.663 18.796 26.403 22 24"
+    stroke="var(--tbl--ui-node-icon--enrichment--hey-bounce-primary)"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M16.0001 20.518C18.4953 20.518 20.5181 18.4952 20.5181 16C20.5181 13.5048 18.4953 11.482 16.0001 11.482C13.5048 11.482 11.4821 13.5048 11.4821 16C11.4821 18.4952 13.5048 20.518 16.0001 20.518Z"
+    stroke="var(--tbl--ui-node-icon--enrichment--hey-bounce-primary)"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M20.126 18.02C19.495 18.991 24.192 20.444 24.875 19.335"
+    stroke="var(--tbl--ui-node-icon--enrichment--hey-bounce-primary)"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
+

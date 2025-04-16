@@ -17,18 +17,23 @@ import { ReactComponent as UiEnrichmentMIconInner } from './enrichment/enrichmen
 import { ReactComponent as UiEnrichmentAnymailFinderMIconInner } from './enrichmentAnymailFinder/enrichmentAnymailFinder.medium.svg';
 import { ReactComponent as UiEnrichmentApolloMIconInner } from './enrichmentApollo/enrichmentApollo.medium.svg';
 import { ReactComponent as UiEnrichmentBouncerMIconInner } from './enrichmentBouncer/enrichmentBouncer.medium.svg';
+import { ReactComponent as UiEnrichmentCleanifyMIconInner } from './enrichmentCleanify/enrichmentCleanify.medium.svg';
 import { ReactComponent as UiEnrichmentClearbitMIconInner } from './enrichmentClearbit/enrichmentClearbit.medium.svg';
 import { ReactComponent as UiEnrichmentCompaniesMIconInner } from './enrichmentCompanies/enrichmentCompanies.medium.svg';
 import { ReactComponent as UiEnrichmentContactOutMIconInner } from './enrichmentContactOut/enrichmentContactOut.medium.svg';
 import { ReactComponent as UiEnrichmentDebounceMIconInner } from './enrichmentDebounce/enrichmentDebounce.medium.svg';
 import { ReactComponent as UiEnrichmentDiscoLikeMIconInner } from './enrichmentDiscoLike/enrichmentDiscoLike.medium.svg';
+import { ReactComponent as UiEnrichmentEmailListVerifyMIconInner } from './enrichmentEmailListVerify/enrichmentEmailListVerify.medium.svg';
+import { ReactComponent as UiEnrichmentEmailableMIconInner } from './enrichmentEmailable/enrichmentEmailable.medium.svg';
 import { ReactComponent as UiEnrichmentEnrichleyMIconInner } from './enrichmentEnrichley/enrichmentEnrichley.medium.svg';
 import { ReactComponent as UiEnrichmentFindymailMIconInner } from './enrichmentFindymail/enrichmentFindymail.medium.svg';
 import { ReactComponent as UiEnrichmentFirecrawlMIconInner } from './enrichmentFirecrawl/enrichmentFirecrawl.medium.svg';
+import { ReactComponent as UiEnrichmentHeyBounceMIconInner } from './enrichmentHeyBounce/enrichmentHeyBounce.medium.svg';
 import { ReactComponent as UiEnrichmentHunterMIconInner } from './enrichmentHunter/enrichmentHunter.medium.svg';
 import { ReactComponent as UiEnrichmentLead411MIconInner } from './enrichmentLead411/enrichmentLead411.medium.svg';
 import { ReactComponent as UiEnrichmentLeadMagicMIconInner } from './enrichmentLeadMagic/enrichmentLeadMagic.medium.svg';
 import { ReactComponent as UiEnrichmentLeadReachMIconInner } from './enrichmentLeadReach/enrichmentLeadReach.medium.svg';
+import { ReactComponent as UiEnrichmentMailsMIconInner } from './enrichmentMails/enrichmentMails.medium.svg';
 import { ReactComponent as UiEnrichmentMillionVerifierMIconInner } from './enrichmentMillionVerifier/enrichmentMillionVerifier.medium.svg';
 import { ReactComponent as UiEnrichmentMuraenaMIconInner } from './enrichmentMuraena/enrichmentMuraena.medium.svg';
 import { ReactComponent as UiEnrichmentNeverBounceMIconInner } from './enrichmentNeverBounce/enrichmentNeverBounce.medium.svg';
@@ -124,17 +129,25 @@ export const UiEnrichmentPeopleMIcon = createIcon(UiEnrichmentPeopleMIconInner, 
 export const UiEnrichmentAnymailFinderMIcon = createIcon(UiEnrichmentAnymailFinderMIconInner, icon);
 export const UiEnrichmentApolloMIcon = createIcon(UiEnrichmentApolloMIconInner, icon);
 export const UiEnrichmentBouncerMIcon = createIcon(UiEnrichmentBouncerMIconInner, icon);
+export const UiEnrichmentCleanifyMIcon = createIcon(UiEnrichmentCleanifyMIconInner, icon);
 export const UiEnrichmentClearbitMIcon = createIcon(UiEnrichmentClearbitMIconInner, icon);
 export const UiEnrichmentContactOutMIcon = createIcon(UiEnrichmentContactOutMIconInner, icon);
 export const UiEnrichmentDebounceMIcon = createIcon(UiEnrichmentDebounceMIconInner, icon);
 export const UiEnrichmentDiscoLikeMIcon = createIcon(UiEnrichmentDiscoLikeMIconInner, icon);
+export const UiEnrichmentEmailableMIcon = createIcon(UiEnrichmentEmailableMIconInner, icon);
+export const UiEnrichmentEmailListVerifyMIcon = createIcon(
+  UiEnrichmentEmailListVerifyMIconInner,
+  icon,
+);
 export const UiEnrichmentEnrichleyMIcon = createIcon(UiEnrichmentEnrichleyMIconInner, icon);
 export const UiEnrichmentFindymailMIcon = createIcon(UiEnrichmentFindymailMIconInner, icon);
 export const UiEnrichmentFirecrawlMIcon = createIcon(UiEnrichmentFirecrawlMIconInner, icon);
+export const UiEnrichmentHeyBounceMIcon = createIcon(UiEnrichmentHeyBounceMIconInner, icon);
 export const UiEnrichmentHunterMIcon = createIcon(UiEnrichmentHunterMIconInner, icon);
 export const UiEnrichmentLead411MIcon = createIcon(UiEnrichmentLead411MIconInner, icon);
 export const UiEnrichmentLeadMagicMIcon = createIcon(UiEnrichmentLeadMagicMIconInner, icon);
 export const UiEnrichmentLeadReachMIcon = createIcon(UiEnrichmentLeadReachMIconInner, icon);
+export const UiEnrichmentMailsMIcon = createIcon(UiEnrichmentMailsMIconInner, icon);
 export const UiEnrichmentMillionVerifierMIcon = createIcon(
   UiEnrichmentMillionVerifierMIconInner,
   icon,
