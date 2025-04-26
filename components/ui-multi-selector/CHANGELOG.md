@@ -1,5 +1,16 @@
 # @tabula/ui-multi-selector
 
+## 1.0.0-next.0
+### Major Changes
+
+
+
+- [#348](https://github.com/ReTable/ui-kit/pull/348) [`d8f4587`](https://github.com/ReTable/ui-kit/commit/d8f45879c0c202e963db8c052f34a5120efdbbca) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Improve ui-multi-selector behaviour
+  
+  * build `SelectAll` and `SelectFound` types to one `BatchAction` type
+  * support `addFound` prop
+  * better search field behaviour
+
 ## 0.3.4
 ### Patch Changes
 
