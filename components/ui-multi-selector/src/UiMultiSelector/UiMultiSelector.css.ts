@@ -13,6 +13,8 @@ const border = createThemeContract({
 export const state = styleVariants({
   isEmpty: {},
 
+  isPopupShowed: {},
+
   isWarning: {},
 
   isInvalid: {},
@@ -88,6 +90,38 @@ export const root = style({
             hover: uiTheme.colors.borderControl.errorFocus,
             focus: uiTheme.colors.borderControl.errorFocus,
           }),
+        },
+      },
+    },
+  },
+});
+
+export const label = style({
+  '@layer': {
+    [uiLayers.components]: {
+      position: 'absolute',
+      top: '0',
+      left: '0',
+      zIndex: '0',
+
+      width: '100%',
+      height: '100%',
+
+      backgroundColor: 'transparent',
+      cursor: 'text',
+    },
+  },
+});
+
+export const search = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'block',
+      transition: 'height 0ms',
+
+      selectors: {
+        [`${root}:not(${state.isEmpty}, ${state.isPopupShowed}) &:placeholder-shown:not(:focus)`]: {
+          height: '0',
         },
       },
     },

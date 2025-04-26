@@ -7,24 +7,22 @@ import { renderFound } from './renderFound';
 type Options = {
   addFound: BatchAction;
   onUpdate: UpdateHandler;
-  search: string;
+  values: string[];
 };
 
-export function buildCustomValue({ addFound, onUpdate, search }: Options): Item {
+export function buildBulkCustomValue({ addFound, onUpdate, values }: Options): Item {
   const handleClick = () => {
-    onUpdate('add-custom', [search]);
+    onUpdate('add-custom', values);
   };
 
   const { icon, label } = typeof addFound === 'string' ? { label: addFound } : addFound;
 
   return {
-    key: 'custom-value',
+    key: 'bulk-custom-value',
 
     icon,
-    label: renderFound(label, [search]),
+    label: renderFound(label, values),
 
     onSelect: handleClick,
-
-    hasDividerAfter: true,
   };
 }

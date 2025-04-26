@@ -11,8 +11,6 @@ import { useHandlers } from './Search.hooks';
 type Props = {
   className?: string;
   completeKey: CompleteKey;
-  defaultPlaceholder?: string;
-  emptyPlaceholder?: string;
   id: string;
   isDisabled?: boolean;
   onArrowDown: () => void;
@@ -22,23 +20,12 @@ type Props = {
   onEscape: () => void;
   onFocus: () => void;
   onSearch: SearchHandler;
+  placeholder?: string;
   value: string;
 };
 
 export const Search = forwardRef<HTMLInputElement, Props>(
-  (
-    {
-      className,
-      defaultPlaceholder,
-      emptyPlaceholder,
-      id,
-      isDisabled,
-      onFocus,
-      value,
-      ...handlers
-    },
-    ref,
-  ) => {
+  ({ className, id, isDisabled, onFocus, placeholder, value, ...handlers }, ref) => {
     const { onChange, onKeyDown } = useHandlers(handlers);
 
     return (
@@ -49,7 +36,7 @@ export const Search = forwardRef<HTMLInputElement, Props>(
         onChange={onChange}
         onFocus={onFocus}
         onKeyDown={onKeyDown}
-        placeholder={isDisabled ? emptyPlaceholder : defaultPlaceholder}
+        placeholder={placeholder}
         ref={ref}
         value={value}
       />

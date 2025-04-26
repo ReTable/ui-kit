@@ -15,7 +15,6 @@ type Props = {
   onUpdate: UpdateHandler;
   options: Option[];
   renderTag: TagRenderer;
-  searchId: string;
   selected: Selected;
 };
 
@@ -25,17 +24,12 @@ export function Tags({
   onUpdate,
   options,
   renderTag,
-  searchId,
   selected,
 }: Props): ReactNode {
   const tags = useTags({ allowsCustomValue, options, selected });
 
   return (
     <div className={clsx(styles.root, isDisabled && styles.isDisabled)}>
-      {/* NOTE: Allows to focus on search input when click on space between tags/clear button. */}
-      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-      {!isDisabled && <label className={styles.label} htmlFor={searchId} />}
-
       {!isDisabled && tags.length > 0 && <Clear className={styles.clear} onUpdate={onUpdate} />}
 
       {tags.map((it) => renderTag(styles.tag, it))}

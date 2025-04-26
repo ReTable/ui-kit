@@ -9,7 +9,7 @@ import { Part } from '../../Dropdown.types';
 import { match } from './match';
 
 /* eslint-disable react/no-array-index-key */
-export function renderFound(label: string, search: string): ReactNode {
+export function renderFound(label: string, values: string[]): ReactNode {
   const [isMatches, parts]: [boolean, Part[]] = match(label, searchPlaceholder);
 
   if (!isMatches) {
@@ -17,14 +17,24 @@ export function renderFound(label: string, search: string): ReactNode {
   }
 
   // NOTE: Replace search input placeholder and highlight it if placeholder is available.
-  return parts.map((it, index) =>
-    it.isMatches ? (
-      <span key={index} className={styles.search}>
-        {search}
-      </span>
-    ) : (
-      it.substring
-    ),
-  );
+  return parts.map((it, index) => {
+    if (!it.isMatches) {
+      return it.substring;
+    }
+
+    const found = values.reduce<ReactNode[]>((acc, value, valueIndex) => {
+      if (acc.length > 0) {
+        acc.push(<span key={`separator-${valueIndex}`}>,&nbsp;</span>);
+      }
+
+      acc.push(
+        <span key={`value-${valueIndex}`} className={styles.search}>
+          {value}
+        </span>,
+      );
+      return acc;
+    }, []);
+    return <span key={index}>{found}</span>;
+  });
 }
 /* eslint-enable */

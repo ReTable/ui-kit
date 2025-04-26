@@ -11,20 +11,12 @@ import * as styles from './UiMultiSelector.css';
 import { Dropdown } from '../Dropdown';
 import { Search } from '../Search';
 import { Tags } from '../Tags';
-import {
-  ChangeHandler,
-  CompleteKey,
-  Option,
-  SelectAll,
-  SelectFound,
-  Selected,
-  Size,
-  Variant,
-} from '../types';
+import { BatchAction, ChangeHandler, CompleteKey, Option, Selected, Size, Variant } from '../types';
 
 import { useDropdown, useSearch, useTagRenderer, useUpdateHandler } from './hooks';
 
 export type Props = {
+  addFound?: BatchAction;
   allowsCustomValue?: boolean;
   className?: string;
   completeKey?: CompleteKey;
@@ -36,8 +28,8 @@ export type Props = {
   maxSelectedLimit?: number;
   onChange: ChangeHandler;
   options: Option[];
-  selectAll?: SelectAll;
-  selectFound?: SelectFound;
+  selectAll?: BatchAction;
+  selectFound?: BatchAction;
   selected: Selected;
   size: Size;
   variant: Variant;
@@ -45,6 +37,7 @@ export type Props = {
 };
 
 export function UiMultiSelector({
+  addFound = 'Add {search}',
   allowsCustomValue,
   className,
   completeKey = 'Enter',
@@ -102,6 +95,8 @@ export function UiMultiSelector({
   const isPopupVisible = !isDisabled && !isFilled;
   const isSearchVisible = isPopupVisible || (isDisabled && isEmpty);
 
+  const searchPlaceholder = isDisabled ? emptyPlaceholder : defaultPlaceholder;
+
   return (
     <div
       className={clsx(
@@ -111,6 +106,7 @@ export function UiMultiSelector({
         withDropdownChevron && shared.hasChevron,
         isDisabled && styles.state.isDisabled,
         isEmpty && styles.state.isEmpty,
+        isPopupVisible && isOpen && styles.state.isPopupShowed,
         isInvalid && styles.state.isInvalid,
         isWarning && styles.state.isWarning,
         className,
@@ -119,6 +115,11 @@ export function UiMultiSelector({
       {...getReferenceProps()}
     >
       {withDropdownChevron && !isDisabled && <ChevronIcon className={styles.chevron} />}
+
+      {/* NOTE: Allows to focus on search input when click on space between tags/clear button. */}
+      {isSearchVisible && (
+        <label className={styles.label} aria-label={searchPlaceholder} htmlFor={searchId} />
+      )}
       {!isEmpty && (
         <Tags
           allowsCustomValue={allowsCustomValue}
@@ -126,15 +127,13 @@ export function UiMultiSelector({
           onUpdate={onUpdate}
           options={options}
           renderTag={renderTag}
-          searchId={searchId}
           selected={selected}
         />
       )}
       {isSearchVisible && (
         <Search
+          className={styles.search}
           completeKey={completeKey}
-          defaultPlaceholder={defaultPlaceholder}
-          emptyPlaceholder={emptyPlaceholder}
           id={searchId}
           isDisabled={isDisabled}
           onArrowDown={onGoNext}
@@ -144,6 +143,7 @@ export function UiMultiSelector({
           onEscape={onEscape}
           onFocus={onShowDropdown}
           onSearch={onSearch}
+          placeholder={searchPlaceholder}
           ref={searchRef}
           value={search}
         />
@@ -153,6 +153,7 @@ export function UiMultiSelector({
           <div ref={floatingRef} style={style} {...getFloatingProps()}>
             {isOpen && (
               <Dropdown
+                addFound={addFound}
                 allowsCustomValue={allowsCustomValue}
                 completeKey={completeKey}
                 maxSelectedLimit={maxSelectedLimit}

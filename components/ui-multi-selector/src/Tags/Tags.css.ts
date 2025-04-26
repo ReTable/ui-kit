@@ -7,8 +7,6 @@ import * as shared from '../shared.css';
 export const root = style({
   '@layer': {
     [uiLayers.components]: {
-      position: 'relative',
-
       maxWidth: '100%',
 
       lineHeight: '0',
@@ -57,7 +55,6 @@ export const clear = style({
   '@layer': {
     [uiLayers.components]: {
       position: 'relative',
-
       float: 'right',
 
       selectors: {
@@ -117,22 +114,6 @@ export const tag = style({
           margin: '0',
         },
       },
-    },
-  },
-});
-
-export const label = style({
-  '@layer': {
-    [uiLayers.components]: {
-      position: 'absolute',
-
-      top: '0',
-      left: '0',
-
-      width: '100%',
-      height: '100%',
-
-      backgroundColor: 'transparent',
     },
   },
 });
