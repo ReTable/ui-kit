@@ -1,12 +1,13 @@
 import { useMemo } from 'react';
 
-import { IconComponent, Option, SelectAll, SelectFound } from '../../types';
+import { BatchAction, IconComponent, Option } from '../../types';
 
 type Options = {
-  options: Option[];
-  selectAll: SelectAll;
-  selectFound: SelectFound;
+  addFound: BatchAction;
   allowsCustomValue?: boolean;
+  options: Option[];
+  selectAll: BatchAction;
+  selectFound: BatchAction;
 };
 
 function hasIcon<Item extends string | { icon?: IconComponent }>(item: Item): boolean {
@@ -14,6 +15,7 @@ function hasIcon<Item extends string | { icon?: IconComponent }>(item: Item): bo
 }
 
 export function useHasIcons({
+  addFound,
   allowsCustomValue,
   options,
   selectAll,
@@ -24,6 +26,6 @@ export function useHasIcons({
       return true;
     }
 
-    return (!allowsCustomValue && hasIcon(selectAll)) || hasIcon(selectFound);
-  }, [options, selectAll, selectFound, allowsCustomValue]);
+    return (!allowsCustomValue && hasIcon(selectAll)) || hasIcon(addFound) || hasIcon(selectFound);
+  }, [addFound, allowsCustomValue, options, selectAll, selectFound]);
 }

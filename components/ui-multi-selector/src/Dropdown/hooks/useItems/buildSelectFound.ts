@@ -1,4 +1,4 @@
-import { SelectFound, UpdateHandler } from '../../../types';
+import { BatchAction, UpdateHandler } from '../../../types';
 
 import { Item } from '../../Dropdown.types';
 
@@ -7,7 +7,7 @@ import { renderFound } from './renderFound';
 type Options = {
   onUpdate: UpdateHandler;
   search: string;
-  selectFound: SelectFound;
+  selectFound: BatchAction;
   values: string[];
 };
 
@@ -22,7 +22,7 @@ export function buildSelectFound({ onUpdate, selectFound, search, values }: Opti
     key: 'select-found',
 
     icon,
-    label: renderFound(label, search),
+    label: renderFound(label, [search]),
 
     onSelect: handleClick,
 

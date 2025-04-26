@@ -5,11 +5,10 @@ import { clsx } from 'clsx/lite';
 import * as styles from './Dropdown.css';
 
 import {
+  BatchAction,
   CompleteKey,
   DropdownController,
   Option,
-  SelectAll,
-  SelectFound,
   Selected,
   UpdateHandler,
 } from '../types';
@@ -18,6 +17,7 @@ import { DropdownItem } from './Dropdown.Item';
 import { useController, useHasIcons, useItems } from './hooks';
 
 type Props = {
+  addFound: BatchAction;
   allowsCustomValue?: boolean;
   className?: string;
   completeKey: CompleteKey;
@@ -25,14 +25,15 @@ type Props = {
   onUpdate: UpdateHandler;
   options: Option[];
   search: string;
-  selectAll: SelectAll;
-  selectFound: SelectFound;
+  selectAll: BatchAction;
+  selectFound: BatchAction;
   selected: Selected;
 };
 
 export const Dropdown = forwardRef<DropdownController, Props>(
   (
     {
+      addFound,
       allowsCustomValue,
       className,
       completeKey,
@@ -47,6 +48,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     ref,
   ) => {
     const items = useItems({
+      addFound,
       allowsCustomValue,
       maxSelectedLimit,
       onUpdate,
@@ -63,7 +65,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       search,
     });
 
-    const hasIcons = useHasIcons({ allowsCustomValue, options, selectAll, selectFound });
+    const hasIcons = useHasIcons({ addFound, allowsCustomValue, options, selectAll, selectFound });
 
     if (items.length === 0) {
       return null;

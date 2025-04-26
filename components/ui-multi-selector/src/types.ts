@@ -49,15 +49,13 @@ export type DropdownController = {
 
 export type IconComponent = ComponentType<{ className?: string }>;
 
-export type SelectAll =
+export type BatchAction =
   | string
   | {
       icon?: IconComponent;
 
       label: string;
     };
-
-export type SelectFound = SelectAll;
 
 export type Size = 'small' | 'medium';
 

@@ -11,20 +11,12 @@ import * as styles from './UiMultiSelector.css';
 import { Dropdown } from '../Dropdown';
 import { Search } from '../Search';
 import { Tags } from '../Tags';
-import {
-  ChangeHandler,
-  CompleteKey,
-  Option,
-  SelectAll,
-  SelectFound,
-  Selected,
-  Size,
-  Variant,
-} from '../types';
+import { BatchAction, ChangeHandler, CompleteKey, Option, Selected, Size, Variant } from '../types';
 
 import { useDropdown, useSearch, useTagRenderer, useUpdateHandler } from './hooks';
 
 export type Props = {
+  addFound?: BatchAction;
   allowsCustomValue?: boolean;
   className?: string;
   completeKey?: CompleteKey;
@@ -36,8 +28,8 @@ export type Props = {
   maxSelectedLimit?: number;
   onChange: ChangeHandler;
   options: Option[];
-  selectAll?: SelectAll;
-  selectFound?: SelectFound;
+  selectAll?: BatchAction;
+  selectFound?: BatchAction;
   selected: Selected;
   size: Size;
   variant: Variant;
@@ -45,6 +37,7 @@ export type Props = {
 };
 
 export function UiMultiSelector({
+  addFound = 'Add {search}',
   allowsCustomValue,
   className,
   completeKey = 'Enter',
@@ -160,6 +153,7 @@ export function UiMultiSelector({
           <div ref={floatingRef} style={style} {...getFloatingProps()}>
             {isOpen && (
               <Dropdown
+                addFound={addFound}
                 allowsCustomValue={allowsCustomValue}
                 completeKey={completeKey}
                 maxSelectedLimit={maxSelectedLimit}

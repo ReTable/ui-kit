@@ -1,4 +1,4 @@
-import { Option, SelectAll, Selected, UpdateHandler } from '../../../types';
+import { BatchAction, Option, Selected, UpdateHandler } from '../../../types';
 
 import { Item } from '../../Dropdown.types';
 
@@ -6,7 +6,7 @@ type Options = {
   hasDividerAfter?: boolean;
   onUpdate: UpdateHandler;
   options: Option[];
-  selectAll: SelectAll;
+  selectAll: BatchAction;
   selected: Selected;
 };
 

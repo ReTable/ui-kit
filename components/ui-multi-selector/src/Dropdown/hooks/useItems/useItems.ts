@@ -1,26 +1,29 @@
 import { useMemo } from 'react';
 
-import { Option, SelectAll, SelectFound, Selected, UpdateHandler } from '../../../types';
+import { BatchAction, Option, Selected, UpdateHandler } from '../../../types';
 
 import { Item } from '../../Dropdown.types';
 
+import { buildBulkCustomValue } from './buildBulkCustomValue';
 import { buildCustomValue } from './buildCustomValue';
 import { buildItems } from './buildItems';
 import { buildSelectAll } from './buildSelectAll';
 import { buildSelectFound } from './buildSelectFound';
 
 type Options = {
+  addFound: BatchAction;
   allowsCustomValue?: boolean;
   maxSelectedLimit?: number;
   onUpdate: UpdateHandler;
   options: Option[];
   search: string;
-  selectAll: SelectAll;
-  selectFound: SelectFound;
+  selectAll: BatchAction;
+  selectFound: BatchAction;
   selected: Selected;
 };
 
 export function useItems({
+  addFound,
   allowsCustomValue,
   maxSelectedLimit,
   onUpdate,
@@ -44,7 +47,19 @@ export function useItems({
     if (allowsCustomValue) {
       // NOTE: Suggest apply custom value only if input isn't empty.
       if (hasSearch) {
-        items.unshift(buildCustomValue({ onUpdate, search }));
+        items.unshift(buildCustomValue({ addFound, onUpdate, search }));
+
+        const fromSearchValues = search.split(/,\s|,/).filter((it) => it.trim().length > 0);
+        // NOTE: Suggest apply custom values batch of search split by comma
+        if (fromSearchValues.length > 1) {
+          items.unshift(
+            buildBulkCustomValue({
+              addFound,
+              onUpdate,
+              values: fromSearchValues,
+            }),
+          );
+        }
       }
       return items;
     }
@@ -63,12 +78,13 @@ export function useItems({
 
     return items;
   }, [
+    addFound,
     allowsCustomValue,
+    maxSelectedLimit,
     onUpdate,
     options,
     search,
     selected,
-    maxSelectedLimit,
     selectAll,
     selectFound,
   ]);
