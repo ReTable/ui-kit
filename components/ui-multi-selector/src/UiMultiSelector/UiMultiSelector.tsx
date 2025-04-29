@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 
 import { FloatingPortal } from '@floating-ui/react';
 import { clsx } from 'clsx';
@@ -21,7 +21,7 @@ export type Props = {
   className?: string;
   completeKey?: CompleteKey;
   defaultPlaceholder?: string;
-  emptyPlaceholder?: string;
+  disabledPlaceholder?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
   isWarning?: boolean;
@@ -42,7 +42,7 @@ export function UiMultiSelector({
   className,
   completeKey = 'Enter',
   defaultPlaceholder,
-  emptyPlaceholder,
+  disabledPlaceholder,
   isDisabled,
   isInvalid,
   isWarning,
@@ -95,7 +95,17 @@ export function UiMultiSelector({
   const isPopupVisible = !isDisabled && !isFilled;
   const isSearchVisible = isPopupVisible || (isDisabled && isEmpty);
 
-  const searchPlaceholder = isDisabled ? emptyPlaceholder : defaultPlaceholder;
+  const searchPlaceholder = useMemo(() => {
+    if (isDisabled) {
+      return disabledPlaceholder;
+    }
+
+    if (!isEmpty) {
+      return;
+    }
+
+    return defaultPlaceholder;
+  }, [defaultPlaceholder, disabledPlaceholder, isDisabled, isEmpty]);
 
   return (
     <div
@@ -132,7 +142,7 @@ export function UiMultiSelector({
       )}
       {isSearchVisible && (
         <Search
-          className={styles.search}
+          className={clsx(styles.search, search === '' && styles.state.isEmptySearch)}
           completeKey={completeKey}
           id={searchId}
           isDisabled={isDisabled}

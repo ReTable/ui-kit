@@ -13,6 +13,8 @@ const border = createThemeContract({
 export const state = styleVariants({
   isEmpty: {},
 
+  isEmptySearch: {},
+
   isPopupShowed: {},
 
   isWarning: {},
@@ -120,9 +122,10 @@ export const search = style({
       transition: 'height 0ms',
 
       selectors: {
-        [`${root}:not(${state.isEmpty}, ${state.isPopupShowed}) &:placeholder-shown:not(:focus)`]: {
-          height: '0',
-        },
+        [`${root}:not(${state.isEmpty}, ${state.isPopupShowed}) &${state.isEmptySearch}:not(:focus)`]:
+          {
+            height: '0',
+          },
       },
     },
   },

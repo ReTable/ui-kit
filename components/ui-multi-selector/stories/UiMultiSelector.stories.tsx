@@ -31,7 +31,7 @@ type Options = {
   allowsCustomValue?: boolean;
   completeKey?: UiMultiSelectorCompleteKey;
   defaultPlaceholder?: string;
-  emptyPlaceholder?: string;
+  disabledPlaceholder?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
   isWarning?: boolean;
@@ -46,8 +46,8 @@ type Options = {
 /* eslint-disable react/hook-use-state */
 export const Default: StoryObj<Options> = {
   args: {
-    emptyPlaceholder: 'No columns selected',
     defaultPlaceholder: 'Add column...',
+    disabledPlaceholder: 'No columns selected',
     size: 'medium',
     variant: 'contrast',
   },
@@ -64,7 +64,7 @@ export const Default: StoryObj<Options> = {
       control: 'text',
       name: 'Placeholder',
     },
-    emptyPlaceholder: {
+    disabledPlaceholder: {
       control: 'text',
       name: 'Empty placeholder',
     },
@@ -100,7 +100,7 @@ export const Default: StoryObj<Options> = {
     allowsCustomValue,
     completeKey,
     defaultPlaceholder,
-    emptyPlaceholder,
+    disabledPlaceholder,
     isDisabled,
     isInvalid,
     isWarning,
@@ -144,7 +144,7 @@ export const Default: StoryObj<Options> = {
           allowsCustomValue={allowsCustomValue}
           completeKey={completeKey}
           defaultPlaceholder={defaultPlaceholder}
-          emptyPlaceholder={emptyPlaceholder}
+          disabledPlaceholder={disabledPlaceholder}
           isDisabled={isDisabled}
           isInvalid={isInvalid}
           isWarning={isWarning}
