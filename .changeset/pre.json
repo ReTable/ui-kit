@@ -1,5 +1,5 @@
 {
-  "mode": "pre",
+  "mode": "exit",
   "tag": "next",
   "initialVersions": {
     "@tabula/ui-ai-chat": "2.1.1",
@@ -40,7 +40,5 @@
     "@tabula/track-id": "0.1.0",
     "@tabula/tree-utils": "0.1.0"
   },
-  "changesets": [
-    "large-roses-laugh"
-  ]
+  "changesets": ["large-roses-laugh"]
 }
