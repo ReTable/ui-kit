@@ -1,5 +1,12 @@
 # @tabula/ui-node-icon
 
+## 11.13.0
+### Minor Changes
+
+
+
+- [#352](https://github.com/ReTable/ui-kit/pull/352) [`c954446`](https://github.com/ReTable/ui-kit/commit/c9544461787df4d587ebf65fe44d075234706d7e) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Add icons of 4 new enrichment providers
+
 ## 11.12.0
 ### Minor Changes
 
