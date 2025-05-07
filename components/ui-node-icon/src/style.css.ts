@@ -76,6 +76,10 @@ export const enrichments = createGlobalThemeContract(
       secondary: 'secondary',
       tertiary: 'tTertiary',
     },
+    companyEnrich: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     contactOut: {
       l: 'l',
       m: 'm',
@@ -110,6 +114,7 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    kickbox: 'kickbox',
     lead411: {
       primary: 'primary',
       secondary: 'secondary',
@@ -172,6 +177,10 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    theCompaniesApi: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     theirStack: 'theirStack',
     upLead: 'upLead',
     zeroBounce: {
@@ -210,6 +219,10 @@ createGlobalTheme(':root', enrichments, {
     secondary: '#5ebafd',
     tertiary: '#d2e9fc',
   },
+  companyEnrich: {
+    primary: '#086cd9',
+    secondary: '#ffffff',
+  },
   contactOut: {
     l: '',
     m: '',
@@ -244,6 +257,7 @@ createGlobalTheme(':root', enrichments, {
     primary: '#fa5320',
     secondary: '#ffffff',
   },
+  kickbox: '#cbdb29',
   lead411: {
     primary: '#5e5e5e',
     secondary: '#5183b0',
@@ -305,6 +319,10 @@ createGlobalTheme(':root', enrichments, {
   signalHire: {
     primary: '#000000',
     secondary: '#478acc',
+  },
+  theCompaniesApi: {
+    primary: '#2d3748',
+    secondary: '#4c51bf',
   },
   theirStack: '#000000',
   upLead: '#5e707d',
@@ -399,6 +417,10 @@ const overrides = {
       secondary: '#d9d9d9',
       tertiary: uiTheme.colors.icons.disabled.secondary,
     },
+    companyEnrich: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     contactOut: {
       l: 'url(#tbl--ui-node-icon--enrichment--contact-out-l--disabled)',
       m: 'url(#tbl--ui-node-icon--enrichment--contact-out-m--disabled)',
@@ -433,6 +455,7 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    kickbox: uiTheme.colors.icons.disabled.primary,
     lead411: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
@@ -492,6 +515,10 @@ const overrides = {
       },
     },
     signalHire: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    theCompaniesApi: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
