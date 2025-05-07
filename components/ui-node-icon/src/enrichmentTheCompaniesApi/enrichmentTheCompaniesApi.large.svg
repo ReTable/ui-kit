@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M18.1281 10.9278L18.2952 4L13.0306 17.9381L22.181 11.6701L27.2367 16.6185L22.0557 20.165L20.6351 19.0103L19.7158 22.1856L21.9303 23.9588L32 17.0721L22.5988 7.71134L18.1281 10.9278Z"
+    fill="var(--tbl--ui-node-icon--enrichment--the-companies-api-secondary)"
+  />
+  <path
+    d="M11.9861 8.04121L14.6184 10.1855L13.4485 13.0721L11.819 11.835L6.67967 15.3402L11.7354 20.3299L20.5515 14.4742L16.9165 28L16.2061 20.9897L11.3593 24.2061L2 14.9278L11.9861 8.04121Z"
+    fill="var(--tbl--ui-node-icon--enrichment--the-companies-api-primary)"
+  />
+</svg>
+
