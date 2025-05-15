@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
 
 import { clsx } from 'clsx/lite';
 
@@ -9,17 +9,18 @@ import { Option, Selected, TagRenderer, UpdateHandler } from '../types';
 
 import { useTags } from './Tags.hooks';
 
-type Props = {
+type Props = PropsWithChildren<{
   allowsCustomValue?: boolean;
   isDisabled?: boolean;
   onUpdate: UpdateHandler;
   options: Option[];
   renderTag: TagRenderer;
   selected: Selected;
-};
+}>;
 
 export function Tags({
   allowsCustomValue,
+  children,
   isDisabled,
   onUpdate,
   options,
@@ -32,7 +33,11 @@ export function Tags({
     <div className={clsx(styles.root, isDisabled && styles.isDisabled)}>
       {!isDisabled && tags.length > 0 && <Clear className={styles.clear} onUpdate={onUpdate} />}
 
-      {tags.map((it) => renderTag(styles.tag, it))}
+      <div className={styles.list}>
+        {tags.map((it) => renderTag(styles.tag, it))}
+
+        {children}
+      </div>
     </div>
   );
 }

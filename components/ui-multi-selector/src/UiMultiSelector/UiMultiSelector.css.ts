@@ -15,8 +15,6 @@ export const state = styleVariants({
 
   isEmptySearch: {},
 
-  isPopupShowed: {},
-
   isWarning: {},
 
   isInvalid: {},
@@ -118,14 +116,24 @@ export const label = style({
 export const search = style({
   '@layer': {
     [uiLayers.components]: {
-      display: 'block',
-      transition: 'height 0ms',
+      display: 'inline-block',
 
       selectors: {
-        [`${root}:not(${state.isEmpty}, ${state.isPopupShowed}) &${state.isEmptySearch}:not(:focus)`]:
-          {
-            height: '0',
-          },
+        [`${state.isEmpty}${shared.sizes.small} &`]: {
+          height: '22px',
+        },
+
+        [`${state.isEmpty}${shared.sizes.medium} &`]: {
+          height: '14px',
+        },
+
+        [`${root}:not(${state.isEmpty}) &${state.isEmptySearch}:not(:focus)`]: {
+          position: 'absolute',
+          right: '0',
+          bottom: 0,
+          zIndex: 0,
+          opacity: '0',
+        },
       },
     },
   },
@@ -140,13 +148,8 @@ export const chevron = style({
 
       selectors: {
         [`${shared.sizes.small} &`]: {
-          top: '10px',
+          top: '6px',
           right: '8px',
-        },
-
-        [`${shared.sizes.small}${state.isEmpty} &`]: {
-          top: '8px',
-          right: '12px',
         },
 
         [`${shared.sizes.medium} &`]: {
@@ -154,8 +157,8 @@ export const chevron = style({
           right: '8px',
         },
 
-        [`${shared.sizes.medium}${state.isEmpty} &`]: {
-          top: '8px',
+        [`${state.isEmpty} &`]: {
+          top: '7px',
           right: '12px',
         },
       },

@@ -9,14 +9,12 @@ export const root = style([
   {
     '@layer': {
       [uiLayers.components]: {
-        width: '100%',
-        height: '30px',
-
-        padding: '0 12px',
+        padding: '0 4px',
+        height: '28px',
+        maxWidth: '100%',
 
         border: 'none',
         background: 'transparent',
-
         color: uiTheme.colors.content.primary,
 
         selectors: {
