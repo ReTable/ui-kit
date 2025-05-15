@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import { clsx } from 'clsx/lite';
 
@@ -28,6 +28,14 @@ export const Search = forwardRef<HTMLInputElement, Props>(
   ({ className, id, isDisabled, onFocus, placeholder, value, ...handlers }, ref) => {
     const { onChange, onKeyDown } = useHandlers(handlers);
 
+    const size = useMemo(() => {
+      if (placeholder != null) {
+        return;
+      }
+
+      return Math.max(1, value.length);
+    }, [placeholder, value.length]);
+
     return (
       <input
         className={clsx(styles.root, className)}
@@ -38,6 +46,7 @@ export const Search = forwardRef<HTMLInputElement, Props>(
         onKeyDown={onKeyDown}
         placeholder={placeholder}
         ref={ref}
+        size={size}
         value={value}
       />
     );

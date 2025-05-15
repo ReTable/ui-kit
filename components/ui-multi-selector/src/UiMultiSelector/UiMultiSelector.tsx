@@ -116,7 +116,6 @@ export function UiMultiSelector({
         withDropdownChevron && shared.hasChevron,
         isDisabled && styles.state.isDisabled,
         isEmpty && styles.state.isEmpty,
-        isPopupVisible && isOpen && styles.state.isPopupShowed,
         isInvalid && styles.state.isInvalid,
         isWarning && styles.state.isWarning,
         className,
@@ -130,34 +129,33 @@ export function UiMultiSelector({
       {isSearchVisible && (
         <label className={styles.label} aria-label={searchPlaceholder} htmlFor={searchId} />
       )}
-      {!isEmpty && (
-        <Tags
-          allowsCustomValue={allowsCustomValue}
-          isDisabled={isDisabled}
-          onUpdate={onUpdate}
-          options={options}
-          renderTag={renderTag}
-          selected={selected}
-        />
-      )}
-      {isSearchVisible && (
-        <Search
-          className={clsx(styles.search, search === '' && styles.state.isEmptySearch)}
-          completeKey={completeKey}
-          id={searchId}
-          isDisabled={isDisabled}
-          onArrowDown={onGoNext}
-          onArrowUp={onGoPrevious}
-          onBlurByTab={onHideDropdown}
-          onComplete={onSelectCurrent}
-          onEscape={onEscape}
-          onFocus={onShowDropdown}
-          onSearch={onSearch}
-          placeholder={searchPlaceholder}
-          ref={searchRef}
-          value={search}
-        />
-      )}
+      <Tags
+        allowsCustomValue={allowsCustomValue}
+        isDisabled={isDisabled}
+        onUpdate={onUpdate}
+        options={options}
+        renderTag={renderTag}
+        selected={selected}
+      >
+        {isSearchVisible && (
+          <Search
+            className={clsx(styles.search, search === '' && styles.state.isEmptySearch)}
+            completeKey={completeKey}
+            id={searchId}
+            isDisabled={isDisabled}
+            onArrowDown={onGoNext}
+            onArrowUp={onGoPrevious}
+            onBlurByTab={onHideDropdown}
+            onComplete={onSelectCurrent}
+            onEscape={onEscape}
+            onFocus={onShowDropdown}
+            onSearch={onSearch}
+            placeholder={searchPlaceholder}
+            ref={searchRef}
+            value={search}
+          />
+        )}
+      </Tags>
       {isPopupVisible && (
         <FloatingPortal preserveTabOrder={false}>
           <div ref={floatingRef} style={style} {...getFloatingProps()}>

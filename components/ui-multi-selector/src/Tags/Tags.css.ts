@@ -8,7 +8,6 @@ export const root = style({
   '@layer': {
     [uiLayers.components]: {
       maxWidth: '100%',
-
       lineHeight: '0',
 
       selectors: {
@@ -17,7 +16,7 @@ export const root = style({
         },
 
         [`${shared.sizes.medium} &`]: {
-          padding: '0 0 8px 0',
+          padding: '8px',
         },
 
         '&::after': {
@@ -59,7 +58,7 @@ export const clear = style({
 
       selectors: {
         [`${shared.sizes.small} &`]: {
-          margin: '4px 4px 0 4px',
+          margin: '0 4px',
         },
 
         [`${shared.sizes.small}${shared.hasChevron} &`]: {
@@ -67,11 +66,30 @@ export const clear = style({
         },
 
         [`${shared.sizes.medium} &`]: {
-          margin: '8px 8px 0 8px',
+          margin: '0 8px',
         },
 
         [`${shared.sizes.medium}${shared.hasChevron} &`]: {
           marginRight: '30px',
+        },
+      },
+    },
+  },
+});
+
+export const list = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'flex',
+      flexWrap: 'wrap',
+
+      selectors: {
+        [`${shared.sizes.small} &`]: {
+          gap: '4px',
+        },
+
+        [`${shared.sizes.medium} &`]: {
+          gap: '8px',
         },
       },
     },
@@ -89,9 +107,6 @@ export const tag = style({
 
       selectors: {
         [`${shared.sizes.small} &`]: {
-          marginTop: '4px',
-          marginLeft: '4px',
-
           maxWidth: 'calc(100% - 8px)',
         },
 
@@ -100,9 +115,6 @@ export const tag = style({
         },
 
         [`${shared.sizes.medium} &`]: {
-          marginTop: '8px',
-          marginLeft: '8px',
-
           maxWidth: 'calc(100% - 16px)',
         },
 
