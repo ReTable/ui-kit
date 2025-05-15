@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 1.0.1
+### Patch Changes
+
+
+
+- [#355](https://github.com/ReTable/ui-kit/pull/355) [`978ca3a`](https://github.com/ReTable/ui-kit/commit/978ca3afc748213f0191daf9216c707c67a40672) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Improve UX of search input
+
 ## 1.0.0
 ### Major Changes
 
