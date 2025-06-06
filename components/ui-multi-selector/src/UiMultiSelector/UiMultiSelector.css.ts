@@ -149,11 +149,11 @@ export const chevron = style({
       selectors: {
         [`${shared.sizes.small} &`]: {
           top: '6px',
-          right: '8px',
+          right: '4px',
         },
 
         [`${shared.sizes.medium} &`]: {
-          top: '12px',
+          top: '14px',
           right: '8px',
         },
 
