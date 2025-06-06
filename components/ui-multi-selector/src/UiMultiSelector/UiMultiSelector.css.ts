@@ -61,19 +61,19 @@ export const root = style({
         },
 
         [`${state.isDisabled}&`]: {
-          backgroundColor: 'transparent',
-
-          borderColor: border.default,
+          backgroundColor: uiTheme.colors.neutral['50'],
+          borderColor: uiTheme.colors.neutralAlpha['7'],
 
           cursor: 'default',
         },
 
-        [`${state.isDisabled}&:not(${state.isEmpty})`]: {
-          border: 'none',
+        [`${state.isDisabled}&:hover`]: {
+          borderColor: uiTheme.colors.neutralAlpha['7'],
         },
 
-        [`${state.isDisabled}&:hover`]: {
-          borderColor: border.default,
+        [`${state.isDisabled}&:not(${state.isEmpty})`]: {
+          border: 'none',
+          backgroundColor: 'transparent',
         },
 
         [`${state.isWarning}&`]: {
