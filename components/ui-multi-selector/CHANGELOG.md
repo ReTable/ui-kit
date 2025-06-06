@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 1.0.2
+### Patch Changes
+
+
+
+- [#357](https://github.com/ReTable/ui-kit/pull/357) [`3f039e9`](https://github.com/ReTable/ui-kit/commit/3f039e9b99bb649fb5b44bfe6d498f4cad7c13fc) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix disabled state ui issues
+
 ## 1.0.1
 ### Patch Changes
 
