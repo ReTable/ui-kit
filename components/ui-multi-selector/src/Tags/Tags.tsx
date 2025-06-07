@@ -30,8 +30,14 @@ export function Tags({
   const tags = useTags({ allowsCustomValue, options, selected });
 
   return (
-    <div className={clsx(styles.root, isDisabled && styles.state.isDisabled)}>
-      {!isDisabled && tags.length > 0 && <Clear className={styles.clear} onUpdate={onUpdate} />}
+    <div
+      className={clsx(
+        styles.root,
+        isDisabled && styles.state.isDisabled,
+        tags.length === 0 && styles.state.isEmpty,
+      )}
+    >
+      <Clear className={styles.clear} onUpdate={onUpdate} />
 
       <div className={styles.list}>
         {tags.map((it) => renderTag(styles.tag, it))}
