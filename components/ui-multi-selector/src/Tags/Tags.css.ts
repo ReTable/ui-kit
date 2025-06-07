@@ -5,6 +5,7 @@ import { uiLayers } from '@tabula/ui-theme';
 import * as shared from '../shared.css';
 
 export const state = styleVariants({
+  isEmpty: {},
   isDisabled: {},
 });
 
@@ -23,7 +24,7 @@ export const root = style({
           padding: '8px',
         },
 
-        [`${state.isDisabled}&`]: {
+        [`${state.isDisabled}:not(${state.isEmpty})&`]: {
           padding: '0',
         },
       },
@@ -37,6 +38,10 @@ export const clear = style({
       position: 'absolute',
 
       selectors: {
+        [`:is(${state.isDisabled}, ${state.isEmpty}) &`]: {
+          display: 'none',
+        },
+
         [`${shared.sizes.small} &`]: {
           top: '4px',
           right: '4px',
