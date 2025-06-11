@@ -1,5 +1,12 @@
 # @tabula/ui-selector
 
+## 2.0.4
+### Patch Changes
+
+
+
+- [#361](https://github.com/ReTable/ui-kit/pull/361) [`a77bc78`](https://github.com/ReTable/ui-kit/commit/a77bc782228f3e3231290f158922a9ee7f5d20a5) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix packages after updating eslint-config
+
 ## 2.0.3
 
 ### Patch Changes
