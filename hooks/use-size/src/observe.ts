@@ -45,9 +45,7 @@ function onResize(entries: ResizeObserverEntry[]) {
 let observer: ResizeObserver | null = null;
 
 function getObserver(): ResizeObserver {
-  if (observer == null) {
-    observer = new ResizeObserver(onResize);
-  }
+  observer ??= new ResizeObserver(onResize);
 
   return observer;
 }

@@ -52,7 +52,7 @@ export function useConfig({
           return acc;
         }
 
-        if (item.denyFilter || isMatch(item.id) || isMatch(String(item.content))) {
+        if (item.denyFilter || isMatch(item.id) || isMatch(JSON.stringify(item.content))) {
           acc.push(item);
         }
 
