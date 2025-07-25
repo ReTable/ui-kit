@@ -1,5 +1,12 @@
 # @tabula/ui-ai-chat
 
+## 2.1.2
+### Patch Changes
+
+
+
+- [#363](https://github.com/ReTable/ui-kit/pull/363) [`c80c99e`](https://github.com/ReTable/ui-kit/commit/c80c99e0264f0d4f3bf55904d1482b84cd1e9c90) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Pre wrap white spaces of prompt
+
 ## 2.1.1
 
 ### Patch Changes
