@@ -17,6 +17,7 @@ export const view = style([
         borderRadius: '12px',
         backgroundColor: uiTheme.colors.background.controlsDetails,
         color: uiTheme.colors.content.primary,
+        whiteSpace: 'pre-wrap',
       },
     },
   },
