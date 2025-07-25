@@ -1,8 +1,13 @@
-import { style } from '@vanilla-extract/css';
+import { style, styleVariants } from '@vanilla-extract/css';
 
 import { uiLayers } from '@tabula/ui-theme';
 
 import * as shared from '../shared.css';
+
+export const state = styleVariants({
+  isEmpty: {},
+  isDisabled: {},
+});
 
 export const root = style({
   '@layer': {
@@ -19,31 +24,8 @@ export const root = style({
           padding: '8px',
         },
 
-        '&::after': {
-          content: '',
-          display: 'block',
-          clear: 'both',
-        },
-      },
-    },
-  },
-});
-
-export const isDisabled = style({
-  '@layer': {
-    [uiLayers.components]: {
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      padding: '0',
-
-      selectors: {
-        [`${shared.sizes.small} &`]: {
-          gap: '4px',
-        },
-
-        [`${shared.sizes.medium} &`]: {
-          gap: '8px',
+        [`${state.isDisabled}:not(${state.isEmpty})&`]: {
+          padding: '0',
         },
       },
     },
@@ -53,24 +35,29 @@ export const isDisabled = style({
 export const clear = style({
   '@layer': {
     [uiLayers.components]: {
-      position: 'relative',
-      float: 'right',
+      position: 'absolute',
 
       selectors: {
+        [`:is(${state.isDisabled}, ${state.isEmpty}) &`]: {
+          display: 'none',
+        },
+
         [`${shared.sizes.small} &`]: {
-          margin: '0 4px',
+          top: '4px',
+          right: '4px',
         },
 
         [`${shared.sizes.small}${shared.hasChevron} &`]: {
-          marginRight: '26px',
+          right: '24px',
         },
 
         [`${shared.sizes.medium} &`]: {
-          margin: '0 8px',
+          top: '10px',
+          right: '8px',
         },
 
         [`${shared.sizes.medium}${shared.hasChevron} &`]: {
-          marginRight: '30px',
+          right: '32px',
         },
       },
     },
@@ -91,6 +78,22 @@ export const list = style({
         [`${shared.sizes.medium} &`]: {
           gap: '8px',
         },
+
+        [`${shared.sizes.small} ${clear} + &`]: {
+          maxWidth: 'calc(100% - 24px)',
+        },
+
+        [`${shared.sizes.small}${shared.hasChevron} ${clear} + &`]: {
+          maxWidth: 'calc(100% - 44px)',
+        },
+
+        [`${shared.sizes.medium} ${clear} + &`]: {
+          maxWidth: 'calc(100% - 32px)',
+        },
+
+        [`${shared.sizes.medium}${shared.hasChevron} ${clear} + &`]: {
+          maxWidth: 'calc(100% - 56px)',
+        },
       },
     },
   },
@@ -100,32 +103,11 @@ export const tag = style({
   '@layer': {
     [uiLayers.components]: {
       display: 'inline-flex',
+      maxWidth: '100%',
 
       textOverflow: 'ellipsis',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
-
-      selectors: {
-        [`${shared.sizes.small} &`]: {
-          maxWidth: 'calc(100% - 8px)',
-        },
-
-        [`${shared.sizes.small} ${clear} + &`]: {
-          maxWidth: 'calc(100% - 32px)',
-        },
-
-        [`${shared.sizes.medium} &`]: {
-          maxWidth: 'calc(100% - 16px)',
-        },
-
-        [`${shared.sizes.medium} ${clear} + &`]: {
-          maxWidth: 'calc(100% - 48px)',
-        },
-
-        [`${isDisabled} &`]: {
-          margin: '0',
-        },
-      },
     },
   },
 });

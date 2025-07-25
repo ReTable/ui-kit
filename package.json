@@ -54,7 +54,7 @@
     "@storybook/react-vite": "^7.6.16",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.6.16",
-    "@tabula/eslint-config": "^1.0.0",
+    "@tabula/eslint-config": "^1.1.0",
     "@tabula/forge": "^4.0.2",
     "@tabula/prettier-config": "workspace:*",
     "@tabula/typescript-config": "workspace:*",
