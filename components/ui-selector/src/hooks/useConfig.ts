@@ -2,11 +2,11 @@ import { useMemo } from 'react';
 
 import * as styles from '../skeleton.css';
 
-import { Config, ConfigItem } from '../Selector.types';
+import { Config, DefaultItem } from '../Selector.types';
 
 type Options = {
   outerConfig: Config;
-  defaultItem?: ConfigItem;
+  defaultItem?: DefaultItem;
   searchValue: string;
   showSearchField?: boolean;
   loading?: boolean;
@@ -46,24 +46,35 @@ export function useConfig({
     }
 
     if (showSearchField && searchValue !== '') {
-      return outerConfig.reduce((acc: Config, item) => {
-        if ('divider' in item || 'menuTitle' in item) {
-          acc.push(item);
+      return outerConfig
+        .reduce((acc: Config, item) => {
+          if ('divider' in item || 'menuTitle' in item) {
+            return acc;
+          }
+
+          const { denyFilter, searchKeys, ...restItem } = item;
+          if (denyFilter || searchKeys?.some((key) => isMatch(key)) || isMatch(item.id)) {
+            acc.push(restItem);
+          }
+
           return acc;
-        }
-
-        if (item.denyFilter || isMatch(item.id) || isMatch(JSON.stringify(item.content))) {
-          acc.push(item);
-        }
-
-        return acc;
-      }, []);
+        }, [])
+        .sort((left, right) => left.id.localeCompare(right.id));
     }
+
+    const menuConfig: Config = outerConfig.map((item) => {
+      if ('divider' in item || 'menuTitle' in item) {
+        return item;
+      }
+
+      const { denyFilter, searchKeys, ...restItem } = item;
+      return restItem;
+    });
 
     if (defaultItem != null) {
-      return [defaultItem, { id: 'default-item-divider', divider: true }, ...outerConfig];
+      menuConfig.unshift(defaultItem, { id: 'default-item-divider', divider: true });
     }
 
-    return outerConfig;
+    return menuConfig;
   }, [loading, showSearchField, searchValue, defaultItem, outerConfig, isMatch]);
 }

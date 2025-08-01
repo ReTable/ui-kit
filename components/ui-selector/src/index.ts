@@ -2,6 +2,7 @@ export type {
   ChangeVisibleHandler,
   Config,
   ConfigItem,
+  DefaultItem,
   Divider,
   ItemConfigGetter,
   Offset,
