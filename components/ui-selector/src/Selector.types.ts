@@ -19,9 +19,11 @@ export type TriggerRenderer = () => ReactNode;
 
 export type Item = UiMenuItem & {
   denyFilter?: boolean;
+  searchKeys?: string[];
 };
 export type Divider = UiMenuDivider;
 export type Title = UiMenuTitle;
+export type DefaultItem = UiMenuItem;
 
 export type ConfigItem = Item | Divider | Title;
 export type Config = ConfigItem[];
@@ -41,7 +43,7 @@ export type ItemConfigGetter<T> = (options: ItemConfigGetterOptions<T>) => Item 
 
 export type Props = PropsWithChildren<{
   config: Config;
-  defaultItem?: ConfigItem;
+  defaultItem?: DefaultItem;
   emptyContent?: ReactNode;
   isInvalid?: boolean;
   isVisible?: boolean;
