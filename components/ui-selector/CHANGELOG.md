@@ -1,5 +1,12 @@
 # @tabula/ui-selector
 
+## 3.0.0
+### Major Changes
+
+
+
+- [#364](https://github.com/ReTable/ui-kit/pull/364) [`2d8cfb2`](https://github.com/ReTable/ui-kit/commit/2d8cfb28df7f09f9fd63cbd001e04f416c1d9d54) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Use searchKeys field instead of trying match by name
+
 ## 2.0.4
 ### Patch Changes
 
