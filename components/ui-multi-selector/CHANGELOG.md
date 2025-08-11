@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 1.0.4
+### Patch Changes
+
+
+
+- [#366](https://github.com/ReTable/ui-kit/pull/366) [`b92c4a2`](https://github.com/ReTable/ui-kit/commit/b92c4a2cd71a715964312840d2e23c6ed1b300c9) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Provide items value to html-title
+
 ## 1.0.3
 ### Patch Changes
 
