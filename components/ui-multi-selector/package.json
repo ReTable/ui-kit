@@ -1,6 +1,6 @@
 {
   "name": "@tabula/ui-multi-selector",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A MultiSelector allows users to select one or more items from a list of choices, or suggest own item.",
   "type": "module",
   "typings": "./typings/index.d.ts",
