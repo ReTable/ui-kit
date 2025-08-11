@@ -50,6 +50,7 @@ export function buildItems({
 
       icon,
       label: renderParts(parts),
+      title: label,
 
       onSelect: () => {
         onUpdate('add', [value]);

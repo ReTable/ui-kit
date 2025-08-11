@@ -12,6 +12,7 @@ export type Item = {
 
   icon?: IconComponent;
   label: ReactNode;
+  title?: string;
 
   onSelect: () => void;
 

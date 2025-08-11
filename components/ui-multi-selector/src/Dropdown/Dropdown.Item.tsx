@@ -10,6 +10,7 @@ type Props = PropsWithChildren<{
   completeKey: CompleteKey;
 
   icon?: IconComponent;
+  title?: string;
 
   isCurrent?: boolean;
 
@@ -17,12 +18,13 @@ type Props = PropsWithChildren<{
 }>;
 
 export const DropdownItem = forwardRef<HTMLButtonElement, Props>(
-  ({ children, completeKey, icon: Icon, isCurrent, onClick }, ref) => (
+  ({ children, completeKey, icon: Icon, isCurrent, onClick, title }, ref) => (
     <button
       className={clsx(styles.item, isCurrent && styles.isCurrent)}
       onClick={onClick}
       ref={ref}
       tabIndex={-1}
+      title={title}
       type="button"
     >
       {Icon != null && <Icon className={styles.icon} />}
