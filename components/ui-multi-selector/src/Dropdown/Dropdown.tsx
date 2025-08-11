@@ -74,7 +74,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     const nodes: ReactNode[] = [];
 
     for (const [idx, item] of items.entries()) {
-      const { key, icon, onSelect, label, hasDividerAfter } = item;
+      const { key, icon, onSelect, label, title, hasDividerAfter } = item;
 
       nodes.push(
         <DropdownItem
@@ -84,6 +84,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
           key={key}
           onClick={onSelect}
           ref={idx === currentIndex ? currentRef : undefined}
+          title={title}
         >
           {label}
         </DropdownItem>,
