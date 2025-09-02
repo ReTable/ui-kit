@@ -1,5 +1,12 @@
 # @tabula/ui-selector
 
+## 3.1.0
+### Minor Changes
+
+
+
+- [#368](https://github.com/ReTable/ui-kit/pull/368) [`24c6eef`](https://github.com/ReTable/ui-kit/commit/24c6eef908c3fe1d9857965d0380c364a6f51c70) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Add popupClassName to style it on usage
+
 ## 3.0.0
 ### Major Changes
 
