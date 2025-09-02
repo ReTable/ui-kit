@@ -53,6 +53,7 @@ export type Props = PropsWithChildren<{
   onChangeVisible?: ChangeVisibleHandler;
   onRenderTrigger?: TriggerRenderer;
   placeholder?: string;
+  popupClassName?: string;
   readOnly?: boolean;
   searchClassName?: string;
   showSearchClear?: boolean;
