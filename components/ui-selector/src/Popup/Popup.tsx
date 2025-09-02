@@ -9,6 +9,7 @@ import { UiMenu, UiMenuProps } from '@tabula/ui-menu';
 import * as styles from './Popup.css';
 
 type Props = Pick<UiMenuProps, 'config' | 'emptyContent'> & {
+  className?: string;
   isVisible: boolean;
   onClick: MouseEventHandler;
   setRef: (node: HTMLElement | null) => void;
@@ -18,6 +19,7 @@ type Props = Pick<UiMenuProps, 'config' | 'emptyContent'> & {
 const portalRoot = portalRootFor({ id: 'ui-selector' });
 
 export function Popup({
+  className,
   config,
   emptyContent,
   isVisible,
@@ -28,7 +30,7 @@ export function Popup({
   return createPortal(
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
-      className={clsx(styles.root, isVisible && styles.isVisible)}
+      className={clsx(styles.root, isVisible && styles.isVisible, className)}
       onClick={onClick}
       ref={setRef}
       style={style}

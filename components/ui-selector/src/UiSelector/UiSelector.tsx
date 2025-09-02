@@ -23,6 +23,7 @@ export function UiSelector({
   onChangeVisible: onChangeOuterVisible,
   onRenderTrigger,
   placeholder,
+  popupClassName,
   readOnly,
   searchClassName,
   showSearchClear,
@@ -91,6 +92,7 @@ export function UiSelector({
         )}
       </div>
       <Popup
+        className={popupClassName}
         config={config}
         emptyContent={emptyContent}
         isVisible={isVisible}
