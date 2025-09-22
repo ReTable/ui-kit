@@ -20,6 +20,18 @@ export const gradients = createGlobalThemeContract(
       l: 'l',
       m: 'm',
     },
+    enrichmentAll: {
+      l: 'l',
+      m: 'm',
+    },
+    enrichmentCompanies: {
+      l: 'l',
+      m: 'm',
+    },
+    enrichmentPeople: {
+      l: 'l',
+      m: 'm',
+    },
     gptNode: {
       l: 'l',
       m: 'm',
@@ -90,6 +102,18 @@ createGlobalTheme(':root', gradients, {
   apiSearch: {
     l: 'url(#tbl--ui-node-icon--api-search-l)',
     m: 'url(#tbl--ui-node-icon--api-search-m)',
+  },
+  enrichmentAll: {
+    l: 'url(#tbl--ui-node-icon--enrichment-all-l)',
+    m: 'url(#tbl--ui-node-icon--enrichment-all-m)',
+  },
+  enrichmentCompanies: {
+    l: 'url(#tbl--ui-node-icon--enrichment-companies-l)',
+    m: 'url(#tbl--ui-node-icon--enrichment-companies-m)',
+  },
+  enrichmentPeople: {
+    l: 'url(#tbl--ui-node-icon--enrichment-people-l)',
+    m: 'url(#tbl--ui-node-icon--enrichment-people-m)',
   },
   gptNode: {
     l: 'url(#tbl--ui-node-icon--gpt-node-l)',
@@ -483,6 +507,18 @@ const overrides = {
       m: uiTheme.colors.icons.disabled.primary,
     },
     apiSearch: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    enrichmentAll: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    enrichmentCompanies: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    enrichmentPeople: {
       l: uiTheme.colors.icons.disabled.primary,
       m: uiTheme.colors.icons.disabled.primary,
     },
