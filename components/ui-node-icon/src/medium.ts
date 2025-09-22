@@ -85,6 +85,8 @@ import { ReactComponent as UiScrapeMIconInner } from './scrape/scrape.medium.svg
 import { ReactComponent as UiSearchMIconInner } from './search/search.medium.svg';
 import { ReactComponent as UiSearchCompanyMIconInner } from './searchCompany/searchCompany.medium.svg';
 import { ReactComponent as UiSearchDeveloperMIconInner } from './searchDeveloper/searchDeveloper.medium.svg';
+import { ReactComponent as UiSearchJobsMIconInner } from './searchJobs/searchJobs.medium.svg';
+import { ReactComponent as UiSearchLocalBusinessesMIconInner } from './searchLocalBusinesses/searchLocalBusinesses.medium.svg';
 import { ReactComponent as UiSearchLookalikeCompanyMIconInner } from './searchLookalikeCompany/searchLookalikeCompany.medium.svg';
 import { ReactComponent as UiSearchLookalikePeopleMIconInner } from './searchLookalikePeople/searchLookalikePeople.medium.svg';
 import { ReactComponent as UiSearchPeopleMIconInner } from './searchPeople/searchPeople.medium.svg';
@@ -213,6 +215,8 @@ export const UiScrapeMIcon = createIcon(UiScrapeMIconInner, icon);
 export const UiSearchMIcon = createIcon(UiSearchMIconInner, icon);
 export const UiSearchCompanyMIcon = createIcon(UiSearchCompanyMIconInner, icon);
 export const UiSearchDeveloperMIcon = createIcon(UiSearchDeveloperMIconInner, icon);
+export const UiSearchJobsMIcon = createIcon(UiSearchJobsMIconInner, icon);
+export const UiSearchLocalBusinessesMIcon = createIcon(UiSearchLocalBusinessesMIconInner, icon);
 export const UiSearchLookalikeCompanyMIcon = createIcon(UiSearchLookalikeCompanyMIconInner, icon);
 export const UiSearchLookalikePeopleMIcon = createIcon(UiSearchLookalikePeopleMIconInner, icon);
 export const UiSearchPeopleMIcon = createIcon(UiSearchPeopleMIconInner, icon);
