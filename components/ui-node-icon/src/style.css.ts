@@ -12,6 +12,50 @@ import { uiLayers, uiTheme } from '@tabula/ui-theme';
 
 export const gradients = createGlobalThemeContract(
   {
+    addGptColumn: {
+      l: 'l',
+      m: 'm',
+    },
+    apiSearch: {
+      l: 'l',
+      m: 'm',
+    },
+    gptNode: {
+      l: 'l',
+      m: 'm',
+    },
+    scrape: {
+      l: 'l',
+      m: 'm',
+    },
+    searchCompany: {
+      l: 'l',
+      m: 'm',
+    },
+    searchDeveloper: {
+      l: 'l',
+      m: 'm',
+    },
+    searchJobs: {
+      l: 'l',
+      m: 'm',
+    },
+    searchLocalBusinesses: {
+      l: 'l',
+      m: 'm',
+    },
+    searchLookalikeCompany: {
+      l: 'l',
+      m: 'm',
+    },
+    searchLookalikePeople: {
+      l: 'l',
+      m: 'm',
+    },
+    searchPeople: {
+      l: 'l',
+      m: 'm',
+    },
     tabulaDrive: {
       l: {
         primary: {
@@ -26,6 +70,10 @@ export const gradients = createGlobalThemeContract(
         },
       },
     },
+    verifyEmail: {
+      l: 'l',
+      m: 'm',
+    },
   },
   (_, path) => {
     const gradientName = path.map((it) => kebabCase(it)).join('-');
@@ -35,6 +83,50 @@ export const gradients = createGlobalThemeContract(
 );
 
 createGlobalTheme(':root', gradients, {
+  addGptColumn: {
+    l: 'url(#tbl--ui-node-icon--add-gpt-column-l)',
+    m: 'url(#tbl--ui-node-icon--add-gpt-column-m)',
+  },
+  apiSearch: {
+    l: 'url(#tbl--ui-node-icon--api-search-l)',
+    m: 'url(#tbl--ui-node-icon--api-search-m)',
+  },
+  gptNode: {
+    l: 'url(#tbl--ui-node-icon--gpt-node-l)',
+    m: 'url(#tbl--ui-node-icon--gpt-node-m)',
+  },
+  scrape: {
+    l: 'url(#tbl--ui-node-icon--scrape-l)',
+    m: 'url(#tbl--ui-node-icon--scrape-m)',
+  },
+  searchCompany: {
+    l: 'url(#tbl--ui-node-icon--search-company-l)',
+    m: 'url(#tbl--ui-node-icon--search-company-m)',
+  },
+  searchDeveloper: {
+    l: 'url(#tbl--ui-node-icon--search-developer-l)',
+    m: 'url(#tbl--ui-node-icon--search-developer-m)',
+  },
+  searchJobs: {
+    l: 'url(#tbl--ui-node-icon--search-jobs-l)',
+    m: 'url(#tbl--ui-node-icon--search-jobs-m)',
+  },
+  searchLocalBusinesses: {
+    l: 'url(#tbl--ui-node-icon--search-local-businesses-l)',
+    m: 'url(#tbl--ui-node-icon--search-local-businesses-m)',
+  },
+  searchLookalikeCompany: {
+    l: 'url(#tbl--ui-node-icon--search-lookalike-company-l)',
+    m: 'url(#tbl--ui-node-icon--search-lookalike-company-m)',
+  },
+  searchLookalikePeople: {
+    l: 'url(#tbl--ui-node-icon--search-lookalike-people-l)',
+    m: 'url(#tbl--ui-node-icon--search-lookalike-people-m)',
+  },
+  searchPeople: {
+    l: 'url(#tbl--ui-node-icon--search-people-l)',
+    m: 'url(#tbl--ui-node-icon--search-people-m)',
+  },
   tabulaDrive: {
     l: {
       primary: {
@@ -48,6 +140,10 @@ createGlobalTheme(':root', gradients, {
         ['2']: 'url(#tbl--ui-node-icon--tabula-drive-m--primary-2)',
       },
     },
+  },
+  verifyEmail: {
+    l: 'url(#tbl--ui-node-icon--verify-email-l)',
+    m: 'url(#tbl--ui-node-icon--verify-email-m)',
   },
 });
 
@@ -382,6 +478,50 @@ const overrides = {
     tertiary: uiTheme.colors.icons.disabled.secondary,
   }),
   ...assignVars(gradients, {
+    addGptColumn: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    apiSearch: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    gptNode: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    scrape: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchCompany: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchDeveloper: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchJobs: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchLocalBusinesses: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchLookalikeCompany: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchLookalikePeople: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
+    searchPeople: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
+    },
     tabulaDrive: {
       l: {
         primary: {
@@ -395,6 +535,10 @@ const overrides = {
           ['2']: uiTheme.colors.icons.disabled.primary,
         },
       },
+    },
+    verifyEmail: {
+      l: uiTheme.colors.icons.disabled.primary,
+      m: uiTheme.colors.icons.disabled.primary,
     },
   }),
   ...assignVars(enrichments, {
