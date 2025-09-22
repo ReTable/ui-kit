@@ -38,11 +38,6 @@ import { ReactComponent as UiFolderSourceSIconInner } from './folderSource/folde
 import { ReactComponent as UiLocalFileSIconInner } from './localFile/localFile.small.svg';
 import { ReactComponent as UiPostgresSourceSIconInner } from './postgresSource/postgresSource.small.svg';
 import { ReactComponent as UiReportSIconInner } from './report/report.small.svg';
-import { ReactComponent as UiSearchCompanySIconInner } from './searchCompany/searchCompany.small.svg';
-import { ReactComponent as UiSearchDeveloperSIconInner } from './searchDeveloper/searchDeveloper.small.svg';
-import { ReactComponent as UiSearchLookalikeCompanySIconInner } from './searchLookalikeCompany/searchLookalikeCompany.small.svg';
-import { ReactComponent as UiSearchLookalikePeopleSIconInner } from './searchLookalikePeople/searchLookalikePeople.small.svg';
-import { ReactComponent as UiSearchPeopleSIconInner } from './searchPeople/searchPeople.small.svg';
 import { ReactComponent as UiSnowflakeSourceSIconInner } from './snowflakeSource/snowflakeSource.small.svg';
 
 import { icon } from './style.css';
@@ -104,11 +99,6 @@ export const UiFolderSourceSIcon = createIcon(UiFolderSourceSIconInner, icon);
 export const UiLocalFileSIcon = createIcon(UiLocalFileSIconInner, icon);
 export const UiPostgresSourceSIcon = createIcon(UiPostgresSourceSIconInner, icon);
 export const UiReportSIcon = createIcon(UiReportSIconInner, icon);
-export const UiSearchCompanySIcon = createIcon(UiSearchCompanySIconInner, icon);
-export const UiSearchDeveloperSIcon = createIcon(UiSearchDeveloperSIconInner, icon);
-export const UiSearchLookalikeCompanySIcon = createIcon(UiSearchLookalikeCompanySIconInner, icon);
-export const UiSearchLookalikePeopleSIcon = createIcon(UiSearchLookalikePeopleSIconInner, icon);
-export const UiSearchPeopleSIcon = createIcon(UiSearchPeopleSIconInner, icon);
 export const UiSnowflakeSourceSIcon = createIcon(UiSnowflakeSourceSIconInner, icon);
 
 export { ReactComponent as UiAddGPTColumnSIcon } from './addGPTColumn/addGPTColumn.small.svg';
