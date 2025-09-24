@@ -275,7 +275,7 @@ export const tokens = {
       },
       enrich: {
         primary: '#735ed8',
-        secondary: '#a190f5',
+        secondary: '#ada0ec',
         tertiary: '#d7cffe',
       },
       group: {

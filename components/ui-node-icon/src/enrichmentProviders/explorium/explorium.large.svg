@@ -1,0 +1,14 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M26.4812 16.248L20.2136 22.5723L14.4441 16.751C15.9808 16.7034 17.4983 16.3757 18.9207 15.7812C20.4628 15.1366 21.8643 14.191 23.0447 13L23.1531 12.8906L26.4812 16.248ZM13.3181 15.4561L0.973389 3H13.3181V15.4561Z"
+    fill="var(--tbl--ui-node-icon--enrichment--explorium-primary)"
+  />
+  <path
+    d="M28.0271 8L31.0271 11H28.0271V8Z"
+    fill="var(--tbl--ui-node-icon--enrichment--explorium-tertiary)"
+  />
+  <path
+    d="M19.7449 23.2529L14.0496 29V17.5059L19.7449 23.2529ZM22.5232 12.2881C21.4112 13.41 20.0912 14.3 18.6384 14.9072C17.1855 15.5145 15.628 15.8271 14.0554 15.8271V3.74316L22.5232 12.2881ZM26.9519 15.4561L21.4246 9.87793L23.0828 8.01953H26.9519V15.4561Z"
+    fill="var(--tbl--ui-node-icon--enrichment--explorium-secondary)"
+  />
+</svg>

@@ -1,0 +1,16 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="16" cy="26.1818" rx="8" ry="2.90909" fill="var(--tbl--colors--icons--enrich--tertiary)"/>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M16 3C20.9706 3 25 7.16346 25 12.2988C24.9998 17.2639 20.7932 23.2992 16.4473 25.7598C16.1695 25.917 15.8305 25.917 15.5527 25.7598C11.2068 23.2992 7.00023 17.2639 7 12.2988C7 7.16346 11.0294 3 16 3ZM16 9C14.3431 9 13 10.3431 13 12C13 13.6569 14.3431 15 16 15C17.6569 15 19 13.6569 19 12C19 10.3431 17.6569 9 16 9Z"
+    fill="var(--tbl--ui-node-icon--search-local-businesses-l)"
+  />
+
+  <defs>
+    <linearGradient id="tbl--ui-node-icon--search-local-businesses-l" x1="16" y1="3" x2="16" y2="25.8777" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A190F5"/>
+      <stop offset="1" stop-color="#816BE6"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,30 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M17.0525 12.3125L23.9999 10.125L17.0525 13.5625V12.3125Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-five)"
+  />
+  <path
+    d="M6.94727 12.3125L-0.000102997 10.125L6.94727 13.5625V12.3125Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-five)"
+  />
+  <path
+    d="M12 17V4.5L17.6842 13.25L12 17Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-four)"
+  />
+  <path
+    d="M12 17V4.5L6.31579 13.25L12 17Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-three)"
+  />
+  <path
+    d="M12 15.125L5.05263 19.5L0 10.125L12 15.125Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-two)"
+  />
+  <path
+    d="M12 15.125L18.3158 19.5L24 10.125L12 15.125Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-two)"
+  />
+  <path
+    d="M5.05273 19.5L12.0001 15.125L18.3159 19.5H5.05273Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-one)"
+  />
+</svg>

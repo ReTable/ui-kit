@@ -1,0 +1,30 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M11.3682 8.20833L15.9997 6.75L11.3682 9.04167V8.20833Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-five)"
+  />
+  <path
+    d="M4.63135 8.20833L-0.000231266 6.75L4.63135 9.04167V8.20833Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-five)"
+  />
+  <path
+    d="M8 11.3333V3L11.7895 8.83333L8 11.3333Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-four)"
+  />
+  <path
+    d="M8 11.3333V3L4.21053 8.83333L8 11.3333Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-three)"
+  />
+  <path
+    d="M8 10.0833L3.36842 13L0 6.75L8 10.0833Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-two)"
+  />
+  <path
+    d="M8 10.0833L12.2105 13L16 6.75L8 10.0833Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-two)"
+  />
+  <path
+    d="M3.36841 13L7.99999 10.0833L12.2105 13H3.36841Z"
+    fill="var(--tbl--ui-node-icon--enrichment--captain-verify-one)"
+  />
+</svg>
