@@ -182,19 +182,41 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    bounceBan: {
+      one: 'one',
+      two: 'two',
+      three: 'three',
+      four: 'four',
+    },
     bouncer: {
       primary: 'primary',
       secondary: 'secondary',
     },
+    bouncify: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
+    buildWith: 'buildWith',
+    captainVerify: {
+      one: 'one',
+      two: 'two',
+      three: 'three',
+      four: 'four',
+      five: 'five',
+    },
     cleanify: {
       primary: 'primary',
       secondary: 'secondary',
-      tertiary: 'tTertiary',
+      tertiary: 'tertiary',
     },
     clearbit: {
       primary: 'primary',
       secondary: 'secondary',
-      tertiary: 'tTertiary',
+      tertiary: 'tertiary',
+    },
+    clearout: {
+      primary: 'primary',
+      secondary: 'secondary',
     },
     companyEnrich: {
       primary: 'primary',
@@ -216,6 +238,11 @@ export const enrichments = createGlobalThemeContract(
     enrichley: {
       primary: 'primary',
       secondary: 'secondary',
+    },
+    explorium: {
+      primary: 'primary',
+      secondary: 'secondary',
+      tertiary: 'tertiary',
     },
     findymail: {
       primary: 'primary',
@@ -247,6 +274,7 @@ export const enrichments = createGlobalThemeContract(
       primary: 'primary',
       secondary: 'secondary',
     },
+    mailChecker: 'mailChecker',
     mails: {
       primary: 'primary',
       secondary: 'secondary',
@@ -267,6 +295,10 @@ export const enrichments = createGlobalThemeContract(
     nubela: 'nubela',
     ocean: 'ocean',
     peopleDataLabs: 'peopleDataLabs',
+    perplexity: {
+      primary: 'primary',
+      secondary: 'secondary',
+    },
     predictLeads: 'predictLeads',
     progai: 'progai',
     prospeo: {
@@ -293,6 +325,7 @@ export const enrichments = createGlobalThemeContract(
         four: 'four',
       },
     },
+    serper: 'serper',
     signalHire: {
       primary: 'primary',
       secondary: 'secondary',
@@ -325,9 +358,27 @@ createGlobalTheme(':root', enrichments, {
     primary: '#010202',
     secondary: '#fcc02b',
   },
+  bounceBan: {
+    one: '#fbbc04',
+    two: '#34a853',
+    three: '#ee6155',
+    four: '#005eff',
+  },
   bouncer: {
     primary: '#2a2964',
     secondary: '#1Aac78',
+  },
+  bouncify: {
+    primary: '#ffffff',
+    secondary: '#0052b8',
+  },
+  buildWith: '#094303',
+  captainVerify: {
+    one: '#39897b',
+    two: '#4da792',
+    three: '#5fbaa2',
+    four: '#479d8d',
+    five: '#278374',
   },
   cleanify: {
     primary: '#61b49c',
@@ -338,6 +389,10 @@ createGlobalTheme(':root', enrichments, {
     primary: '#1ba2fe',
     secondary: '#5ebafd',
     tertiary: '#d2e9fc',
+  },
+  clearout: {
+    primary: '#ffffff',
+    secondary: '#eda945',
   },
   companyEnrich: {
     primary: '#086cd9',
@@ -359,6 +414,11 @@ createGlobalTheme(':root', enrichments, {
   enrichley: {
     primary: '#1a6233',
     secondary: '#18cf95',
+  },
+  explorium: {
+    primary: '#54b092',
+    secondary: '#62cca9',
+    tertiary: '#f8aa60',
   },
   findymail: {
     primary: '#e3243b',
@@ -390,6 +450,7 @@ createGlobalTheme(':root', enrichments, {
     primary: '#ffffff',
     secondary: '#000000',
   },
+  mailChecker: '#118f96',
   mails: {
     primary: '#000000',
     secondary: '#7859a9',
@@ -410,6 +471,10 @@ createGlobalTheme(':root', enrichments, {
   nubela: '#2c6ee8',
   ocean: '#3d60e1',
   peopleDataLabs: '#7f35fd',
+  perplexity: {
+    primary: '#ffffff',
+    secondary: '#1f7984',
+  },
   predictLeads: '#76508e',
   progai: '#000000',
   prospeo: {
@@ -436,6 +501,7 @@ createGlobalTheme(':root', enrichments, {
       four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-4)',
     },
   },
+  serper: '#90cdf4',
   signalHire: {
     primary: '#000000',
     secondary: '#478acc',
@@ -583,9 +649,27 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    bounceBan: {
+      one: uiTheme.colors.icons.disabled.primary,
+      two: uiTheme.colors.icons.disabled.primary,
+      three: uiTheme.colors.icons.disabled.primary,
+      four: uiTheme.colors.icons.disabled.primary,
+    },
     bouncer: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    bouncify: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    buildWith: uiTheme.colors.icons.disabled.primary,
+    captainVerify: {
+      one: uiTheme.colors.icons.disabled.primary,
+      two: uiTheme.colors.icons.disabled.secondary,
+      three: uiTheme.colors.icons.disabled.secondary,
+      four: uiTheme.colors.icons.disabled.secondary,
+      five: uiTheme.colors.icons.disabled.secondary,
     },
     cleanify: {
       primary: uiTheme.colors.icons.disabled.primary,
@@ -596,6 +680,10 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: '#d9d9d9',
       tertiary: uiTheme.colors.icons.disabled.secondary,
+    },
+    clearout: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
     },
     companyEnrich: {
       primary: uiTheme.colors.icons.disabled.primary,
@@ -617,6 +705,11 @@ const overrides = {
     enrichley: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
+    },
+    explorium: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.primary,
+      tertiary: uiTheme.colors.icons.disabled.primary,
     },
     findymail: {
       primary: uiTheme.colors.icons.disabled.primary,
@@ -648,6 +741,7 @@ const overrides = {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
     },
+    mailChecker: uiTheme.colors.icons.disabled.primary,
     mails: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
@@ -668,6 +762,10 @@ const overrides = {
     nubela: uiTheme.colors.icons.disabled.primary,
     ocean: uiTheme.colors.icons.disabled.primary,
     peopleDataLabs: uiTheme.colors.icons.disabled.primary,
+    perplexity: {
+      primary: uiTheme.colors.icons.disabled.primary,
+      secondary: uiTheme.colors.icons.disabled.secondary,
+    },
     predictLeads: uiTheme.colors.icons.disabled.primary,
     progai: uiTheme.colors.icons.disabled.primary,
     prospeo: {
@@ -694,6 +792,7 @@ const overrides = {
         four: 'url(#tbl--ui-node-icon--enrichment--reverse-contact-s--gradient-disabled)',
       },
     },
+    serper: uiTheme.colors.icons.disabled.primary,
     signalHire: {
       primary: uiTheme.colors.icons.disabled.primary,
       secondary: uiTheme.colors.icons.disabled.secondary,
