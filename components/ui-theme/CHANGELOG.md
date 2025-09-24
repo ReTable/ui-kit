@@ -1,5 +1,12 @@
 # @tabula/ui-theme
 
+## 3.3.2
+### Patch Changes
+
+
+
+- [#371](https://github.com/ReTable/ui-kit/pull/371) [`cd15712`](https://github.com/ReTable/ui-kit/commit/cd157123a6b2865f0e78bae8a4a2329ff2c10f0d) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Update enrichment/search icons
+
 ## 3.3.1
 
 ### Patch Changes
