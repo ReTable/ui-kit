@@ -29,15 +29,11 @@ export function Tags({
 }: Props): ReactNode {
   const tags = useTags({ allowsCustomValue, options, selected });
 
+  const isNotEmpty = tags.length > 0;
+
   return (
-    <div
-      className={clsx(
-        styles.root,
-        isDisabled && styles.state.isDisabled,
-        tags.length === 0 && styles.state.isEmpty,
-      )}
-    >
-      <Clear className={styles.clear} onUpdate={onUpdate} />
+    <div className={clsx(styles.root, isDisabled && isNotEmpty && styles.state.noPaddings)}>
+      {isNotEmpty && !isDisabled && <Clear className={styles.clear} onUpdate={onUpdate} />}
 
       <div className={styles.list}>
         {tags.map((it) => renderTag(styles.tag, it))}
