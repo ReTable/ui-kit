@@ -21,6 +21,7 @@ type Props = {
   allowsCustomValue?: boolean;
   className?: string;
   completeKey: CompleteKey;
+  isPending: boolean;
   maxSelectedLimit?: number;
   onUpdate: UpdateHandler;
   options: Option[];
@@ -37,6 +38,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
       allowsCustomValue,
       className,
       completeKey,
+      isPending,
       maxSelectedLimit,
       onUpdate,
       options,
@@ -50,6 +52,7 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     const items = useItems({
       addFound,
       allowsCustomValue,
+      isPending,
       maxSelectedLimit,
       onUpdate,
       options,
@@ -74,6 +77,11 @@ export const Dropdown = forwardRef<DropdownController, Props>(
     const nodes: ReactNode[] = [];
 
     for (const [idx, item] of items.entries()) {
+      if ('skeleton' in item) {
+        nodes.push(<div key={item.key} className={styles.skeleton} />);
+        continue;
+      }
+
       const { key, icon, onSelect, label, title, hasDividerAfter } = item;
 
       nodes.push(

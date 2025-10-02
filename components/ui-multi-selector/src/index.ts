@@ -11,6 +11,7 @@ export type {
   CompleteKey as UiMultiSelectorCompleteKey,
   IconComponent as UiMultiSelectorIconComponentType,
   Option as UiMultiSelectorOption,
+  SearchHandler as UiMultiSelectorAutocompleteHandler,
   Selected as UiMultiSelectorSelected,
   Size as UiMultiSelectorSize,
   Variant as UiMultiSelectorVariant,

@@ -10,24 +10,34 @@ type Result = {
   searchRef: RefObject<HTMLInputElement>;
 };
 
-export function useSearch(isDisabled?: boolean): Result {
+export function useSearch(isDisabled?: boolean, onAutocomplete?: SearchHandler): Result {
   const searchId = useId();
-
   const searchRef = useRef<HTMLInputElement>(null);
 
   const [search, setSearch] = useState('');
 
+  const handleSearch = useCallback<SearchHandler>(
+    (value) => {
+      setSearch(value);
+
+      if (onAutocomplete != null) {
+        onAutocomplete(value);
+      }
+    },
+    [onAutocomplete],
+  );
+
   // NOTE: Reset search input when control is disabled.
   useEffect(() => {
     if (isDisabled) {
-      setSearch('');
+      handleSearch('');
     }
-  }, [isDisabled]);
+  }, [handleSearch, isDisabled]);
 
   // NOTE: Remove focus from search input when `Escape` has been pressed.
   const onEscape = useCallback(() => {
     searchRef.current?.blur();
   }, []);
 
-  return { onEscape, onSearch: setSearch, search, searchId, searchRef };
+  return { onEscape, onSearch: handleSearch, search, searchId, searchRef };
 }

@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 
+import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 
 import * as icons from '@tabula/ui-data-type-icon';
@@ -27,6 +28,8 @@ export default meta;
 
 // region Story Utilities
 
+const onAutocomplete = action('on-autocomplete');
+
 type Options = {
   allowsCustomValue?: boolean;
   completeKey?: UiMultiSelectorCompleteKey;
@@ -34,6 +37,7 @@ type Options = {
   disabledPlaceholder?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
+  isPending?: boolean;
   isWarning?: boolean;
   maxSelectedLimit?: number;
   selectAll?: boolean;
@@ -76,6 +80,10 @@ export const Default: StoryObj<Options> = {
       control: 'boolean',
       name: 'Is invalid?',
     },
+    isPending: {
+      control: 'boolean',
+      name: 'Is pending?',
+    },
     isWarning: {
       control: 'boolean',
       name: 'Is warning?',
@@ -103,6 +111,7 @@ export const Default: StoryObj<Options> = {
     disabledPlaceholder,
     isDisabled,
     isInvalid,
+    isPending,
     isWarning,
     maxSelectedLimit,
     selectAll,
@@ -147,8 +156,10 @@ export const Default: StoryObj<Options> = {
           disabledPlaceholder={disabledPlaceholder}
           isDisabled={isDisabled}
           isInvalid={isInvalid}
+          isPending={isPending}
           isWarning={isWarning}
           maxSelectedLimit={maxSelectedLimit}
+          onAutocomplete={onAutocomplete}
           onChange={onSetSelected}
           options={options}
           selectAll={selectAll == null ? undefined : 'Select all'}
@@ -166,7 +177,7 @@ export const Default: StoryObj<Options> = {
 
   parameters: {
     controls: {
-      exclude: /^(className|onChange|options|selectAll|selectFound|selected)$/,
+      exclude: /^(className|onAutocomplete|onChange|options|selectAll|selectFound|selected)$/,
     },
   },
 };
