@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 1.1.1
+### Patch Changes
+
+
+
+- [#376](https://github.com/ReTable/ui-kit/pull/376) [`e1b214f`](https://github.com/ReTable/ui-kit/commit/e1b214f4b5ac59a9d26602f674684f56b34a421a) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix empty state
+
 ## 1.1.0
 ### Minor Changes
 
