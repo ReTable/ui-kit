@@ -119,6 +119,10 @@ export const search = style({
       display: 'inline-block',
 
       selectors: {
+        [`${state.isEmpty} &`]: {
+          width: '100%',
+        },
+
         [`${state.isEmpty}${shared.sizes.small} &`]: {
           height: '22px',
         },

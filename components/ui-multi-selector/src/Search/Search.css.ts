@@ -36,6 +36,10 @@ export const root = style([
             transition: `color ${uiTheme.duration.fast['1']} ${uiTheme.easing.standard.productive}`,
           },
 
+          '&:placeholder-shown': {
+            textOverflow: 'ellipsis',
+          },
+
           '&:not(:disabled):not(:focus):hover::placeholder': {
             color: uiTheme.colors.content.primary,
 
