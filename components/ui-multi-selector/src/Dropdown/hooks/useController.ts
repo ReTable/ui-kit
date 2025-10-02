@@ -106,7 +106,7 @@ export function useController(
         const item = items.at(currentIndex);
 
         // NOTE: If `items` array is empty, then item will be `undefined` even for index equals to `0`.
-        if (item == null) {
+        if (item == null || 'skeleton' in item) {
           return;
         }
 

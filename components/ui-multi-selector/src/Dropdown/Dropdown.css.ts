@@ -78,6 +78,36 @@ export const icon = style({
   },
 });
 
+export const skeleton = style({
+  '@layer': {
+    [uiLayers.components]: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0 12px',
+      height: itemHeight,
+
+      selectors: {
+        '&::after': {
+          content: '',
+          height: '16px',
+          borderRadius: '4px',
+          backgroundColor: uiTheme.colors.neutralAlpha['10'],
+        },
+
+        ['&:nth-child(1)::after']: {
+          width: '60%',
+        },
+        ['&:nth-child(2)::after']: {
+          width: '80%',
+        },
+        ['&:nth-child(3)::after']: {
+          width: '45%',
+        },
+      },
+    },
+  },
+});
+
 export const item = style([
   uiStyles.fonts.sansSerif.medium12,
   {

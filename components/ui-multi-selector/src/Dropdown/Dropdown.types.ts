@@ -7,14 +7,19 @@ export type Part = {
   substring: string;
 };
 
-export type Item = {
-  key: string;
+export type Item =
+  | {
+      key: string;
 
-  icon?: IconComponent;
-  label: ReactNode;
-  title?: string;
+      icon?: IconComponent;
+      label: ReactNode;
+      title?: string;
 
-  onSelect: () => void;
+      onSelect: () => void;
 
-  hasDividerAfter?: boolean;
-};
+      hasDividerAfter?: boolean;
+    }
+  | {
+      key: string;
+      skeleton: true;
+    };

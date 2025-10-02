@@ -10,9 +10,16 @@ import { buildItems } from './buildItems';
 import { buildSelectAll } from './buildSelectAll';
 import { buildSelectFound } from './buildSelectFound';
 
+const PENDING_ITEMS: Item[] = [
+  { key: 'pending-1', skeleton: true },
+  { key: 'pending-2', skeleton: true },
+  { key: 'pending-3', skeleton: true },
+];
+
 type Options = {
   addFound: BatchAction;
   allowsCustomValue?: boolean;
+  isPending: boolean;
   maxSelectedLimit?: number;
   onUpdate: UpdateHandler;
   options: Option[];
@@ -25,6 +32,7 @@ type Options = {
 export function useItems({
   addFound,
   allowsCustomValue,
+  isPending,
   maxSelectedLimit,
   onUpdate,
   options,
@@ -34,6 +42,10 @@ export function useItems({
   selected,
 }: Options): Item[] {
   return useMemo(() => {
+    if (isPending) {
+      return PENDING_ITEMS;
+    }
+
     const [values, items] = buildItems({ allowsCustomValue, onUpdate, options, search, selected });
 
     const hasSearch = search.length > 0;
@@ -80,6 +92,7 @@ export function useItems({
   }, [
     addFound,
     allowsCustomValue,
+    isPending,
     maxSelectedLimit,
     onUpdate,
     options,

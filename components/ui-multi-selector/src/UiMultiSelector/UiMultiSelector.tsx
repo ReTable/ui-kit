@@ -4,6 +4,7 @@ import { FloatingPortal } from '@floating-ui/react';
 import { clsx } from 'clsx';
 
 import { ReactComponent as ChevronIcon } from './assets/chevron.svg';
+import { ReactComponent as RunningIcon } from './assets/running.svg';
 
 import * as shared from '../shared.css';
 import * as styles from './UiMultiSelector.css';
@@ -11,7 +12,16 @@ import * as styles from './UiMultiSelector.css';
 import { Dropdown } from '../Dropdown';
 import { Search } from '../Search';
 import { Tags } from '../Tags';
-import { BatchAction, ChangeHandler, CompleteKey, Option, Selected, Size, Variant } from '../types';
+import {
+  BatchAction,
+  ChangeHandler,
+  CompleteKey,
+  Option,
+  SearchHandler,
+  Selected,
+  Size,
+  Variant,
+} from '../types';
 
 import { useDropdown, useSearch, useTagRenderer, useUpdateHandler } from './hooks';
 
@@ -24,8 +34,10 @@ export type Props = {
   disabledPlaceholder?: string;
   isDisabled?: boolean;
   isInvalid?: boolean;
+  isPending?: boolean;
   isWarning?: boolean;
   maxSelectedLimit?: number;
+  onAutocomplete?: SearchHandler;
   onChange: ChangeHandler;
   options: Option[];
   selectAll?: BatchAction;
@@ -45,8 +57,10 @@ export function UiMultiSelector({
   disabledPlaceholder,
   isDisabled,
   isInvalid,
+  isPending = false,
   isWarning,
   maxSelectedLimit,
+  onAutocomplete,
   onChange,
   options,
   selectAll = 'Select all',
@@ -56,7 +70,7 @@ export function UiMultiSelector({
   variant,
   withDropdownChevron,
 }: Props): ReactNode {
-  const { onEscape, onSearch, searchId, searchRef, search } = useSearch(isDisabled);
+  const { onEscape, onSearch, searchId, searchRef, search } = useSearch(isDisabled, onAutocomplete);
 
   const onUpdate = useUpdateHandler({
     maxSelectedLimit,
@@ -95,6 +109,8 @@ export function UiMultiSelector({
   const isPopupVisible = !isDisabled && !isFilled;
   const isSearchVisible = isPopupVisible || (isDisabled && isEmpty);
 
+  const DropdownChevron = isPending ? RunningIcon : ChevronIcon;
+
   const searchPlaceholder = useMemo(() => {
     if (isDisabled) {
       return disabledPlaceholder;
@@ -123,7 +139,7 @@ export function UiMultiSelector({
       ref={referenceRef}
       {...getReferenceProps()}
     >
-      {withDropdownChevron && !isDisabled && <ChevronIcon className={styles.chevron} />}
+      {withDropdownChevron && !isDisabled && <DropdownChevron className={styles.chevron} />}
 
       {/* NOTE: Allows to focus on search input when click on space between tags/clear button. */}
       {isSearchVisible && (
@@ -164,6 +180,7 @@ export function UiMultiSelector({
                 addFound={addFound}
                 allowsCustomValue={allowsCustomValue}
                 completeKey={completeKey}
+                isPending={isPending}
                 maxSelectedLimit={maxSelectedLimit}
                 onUpdate={onUpdate}
                 options={options}
