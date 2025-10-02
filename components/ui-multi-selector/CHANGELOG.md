@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 1.1.0
+### Minor Changes
+
+
+
+- [#373](https://github.com/ReTable/ui-kit/pull/373) [`6c567f4`](https://github.com/ReTable/ui-kit/commit/6c567f413298a151816de272bb9787120aa2177a) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Support autocomplete with external data
+
 ## 1.0.5
 ### Patch Changes
 
