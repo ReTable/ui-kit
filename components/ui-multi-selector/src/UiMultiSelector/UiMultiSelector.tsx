@@ -102,9 +102,11 @@ export function UiMultiSelector({
   });
 
   const isEmpty = selected.size === 0;
+
+  const definedValueOnly = !allowsCustomValue && onAutocomplete == null;
   const isFilled =
     (maxSelectedLimit != null && selected.size >= maxSelectedLimit) ||
-    (!allowsCustomValue && options.length > 0 && selected.size === options.length);
+    (definedValueOnly && options.length > 0 && selected.size === options.length);
 
   const isPopupVisible = !isDisabled && !isFilled;
   const isSearchVisible = isPopupVisible || (isDisabled && isEmpty);
