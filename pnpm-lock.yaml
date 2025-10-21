@@ -46,8 +46,8 @@ catalogs:
       specifier: ^2.1.1
       version: 2.1.1
     happy-dom:
-      specifier: ^15.11.6
-      version: 15.11.6
+      specifier: ^20.0.2
+      version: 20.0.7
     prettier:
       specifier: ^3.4.1
       version: 3.4.1
@@ -124,7 +124,7 @@ importers:
         version: 7.6.20(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tabula/eslint-config':
         specifier: ^1.1.0
-        version: 1.1.0(@typescript-eslint/utils@8.34.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0))
+        version: 1.1.0(@typescript-eslint/utils@8.34.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0))
       '@tabula/forge':
         specifier: ^4.0.2
         version: 4.0.2(@types/node@22.10.0)(jiti@1.21.6)(tsx@4.19.2)(typescript@5.7.2)
@@ -187,7 +187,7 @@ importers:
         version: 4.7.8
       happy-dom:
         specifier: 'catalog:'
-        version: 15.11.6
+        version: 20.0.7
       lefthook:
         specifier: ^1.7.18
         version: 1.8.4
@@ -226,7 +226,7 @@ importers:
         version: 6.3.6(@types/node@22.10.0)(jiti@1.21.6)(sass-embedded@1.81.0)(tsx@4.19.2)
       vitest:
         specifier: 'catalog:'
-        version: 2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0)
+        version: 2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0)
 
   components/ui-ai-chat:
     dependencies:
@@ -653,7 +653,7 @@ importers:
     dependencies:
       vitest:
         specifier: 'catalog:'
-        version: 2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0)
+        version: 2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0)
     optionalDependencies:
       '@testing-library/jest-dom':
         specifier: 'catalog:'
@@ -663,7 +663,7 @@ importers:
         version: 16.0.1(@testing-library/dom@10.4.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       happy-dom:
         specifier: 'catalog:'
-        version: 15.11.6
+        version: 20.0.7
 
   hooks/use-async-state:
     dependencies:
@@ -3425,6 +3425,9 @@ packages:
   '@types/node@18.19.66':
     resolution: {integrity: sha512-14HmtUdGxFUalGRfLLn9Gc1oNWvWh5zNbsyOLo5JV6WARSeN1QcEBKRnZm9QqNfrutgsl/hY4eJW63aZ44aBCg==}
 
+  '@types/node@20.19.23':
+    resolution: {integrity: sha512-yIdlVVVHXpmqRhtyovZAcSy0MiPcYWGkoO4CGe/+jpP0hmNuihm4XhHbADpK++MsiLHP5MVlv+bcgdF99kSiFQ==}
+
   '@types/node@22.10.0':
     resolution: {integrity: sha512-XC70cRZVElFHfIUB40FgZOBbgJYFKKMa5nb9lxcwYstFG/Mi+/Y0bGS+rs6Dmhmkpq4pnNiLiuZAbc02YCOnmA==}
 
@@ -3481,6 +3484,9 @@ packages:
 
   '@types/uuid@9.0.8':
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
+
+  '@types/whatwg-mimetype@3.0.2':
+    resolution: {integrity: sha512-c2AKvDT8ToxLIOUlN51gTiHXflsfIFisS4pO7pDPoKouJCESkhZnEy623gwP9laCy5lnLDAw1vAzu2vM2YLOrA==}
 
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
@@ -5319,9 +5325,9 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
-  happy-dom@15.11.6:
-    resolution: {integrity: sha512-elX7iUTu+5+3b2+NGQc0L3eWyq9jKhuJJ4GpOMxxT/c2pg9O3L5H3ty2VECX0XXZgRmmRqXyOK8brA2hDI6LsQ==}
-    engines: {node: '>=18.0.0'}
+  happy-dom@20.0.7:
+    resolution: {integrity: sha512-CywLfzmYxP5OYpuAG0usFY0CpxJtwYR+w8Mms5J8W29Y2Pzf6rbfQS2M523tRZTb0oLA+URopPtnAQX2fupHZQ==}
+    engines: {node: '>=20.0.0'}
 
   has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
@@ -7903,6 +7909,9 @@ packages:
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
+  undici-types@6.21.0:
+    resolution: {integrity: sha512-iwDZqg0QAGrg9Rav5H4n0M64c3mkR59cJ6wQp+7C4nI0gsmExaedaYLNO44eT4AtBBwjbTiGPMlt2Md0T9H9JQ==}
+
   unicode-canonical-property-names-ecmascript@2.0.1:
     resolution: {integrity: sha512-dA8WbNeb2a6oQzAQ55YlT5vQAWGV9WXOsi3SskE3bcCdM0P4SDd+24zS/OCacdRq5BkdsRj9q3Pg6YyQoxIGqg==}
     engines: {node: '>=4'}
@@ -8187,10 +8196,6 @@ packages:
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-
-  webidl-conversions@7.0.0:
-    resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
-    engines: {node: '>=12'}
 
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
@@ -11172,11 +11177,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@tabula/eslint-config@1.1.0(@typescript-eslint/utils@8.34.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0))':
+  '@tabula/eslint-config@1.1.0(@typescript-eslint/utils@8.34.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0))':
     dependencies:
       '@eslint/compat': 1.2.9(eslint@9.13.0(jiti@1.21.6))
       '@eslint/js': 9.28.0
-      '@vitest/eslint-plugin': 1.2.2(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0))
+      '@vitest/eslint-plugin': 1.2.2(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0))
       eslint: 9.13.0(jiti@1.21.6)
       eslint-config-prettier: 10.1.5(eslint@9.13.0(jiti@1.21.6))
       eslint-import-resolver-typescript: 4.4.3(eslint-plugin-import-x@4.15.1(@typescript-eslint/utils@8.34.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2))(eslint-import-resolver-node@0.3.9)(eslint@9.13.0(jiti@1.21.6)))(eslint@9.13.0(jiti@1.21.6))
@@ -11441,6 +11446,10 @@ snapshots:
     dependencies:
       undici-types: 5.26.5
 
+  '@types/node@20.19.23':
+    dependencies:
+      undici-types: 6.21.0
+
   '@types/node@22.10.0':
     dependencies:
       undici-types: 6.20.0
@@ -11501,6 +11510,8 @@ snapshots:
   '@types/unist@2.0.11': {}
 
   '@types/uuid@9.0.8': {}
+
+  '@types/whatwg-mimetype@3.0.2': {}
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -11797,13 +11808,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/eslint-plugin@1.2.2(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0))':
+  '@vitest/eslint-plugin@1.2.2(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)(vitest@2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0))':
     dependencies:
       '@typescript-eslint/utils': 8.34.0(eslint@9.13.0(jiti@1.21.6))(typescript@5.7.2)
       eslint: 9.13.0(jiti@1.21.6)
     optionalDependencies:
       typescript: 5.7.2
-      vitest: 2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0)
+      vitest: 2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -13891,10 +13902,10 @@ snapshots:
     optionalDependencies:
       uglify-js: 3.19.3
 
-  happy-dom@15.11.6:
+  happy-dom@20.0.7:
     dependencies:
-      entities: 4.5.0
-      webidl-conversions: 7.0.0
+      '@types/node': 20.19.23
+      '@types/whatwg-mimetype': 3.0.2
       whatwg-mimetype: 3.0.0
 
   has-bigints@1.0.2: {}
@@ -16512,6 +16523,8 @@ snapshots:
 
   undici-types@6.20.0: {}
 
+  undici-types@6.21.0: {}
+
   unicode-canonical-property-names-ecmascript@2.0.1: {}
 
   unicode-match-property-ecmascript@2.0.0:
@@ -16733,7 +16746,7 @@ snapshots:
       sass-embedded: 1.81.0
       tsx: 4.19.2
 
-  vitest@2.1.9(@types/node@22.10.0)(happy-dom@15.11.6)(sass-embedded@1.81.0):
+  vitest@2.1.9(@types/node@22.10.0)(happy-dom@20.0.7)(sass-embedded@1.81.0):
     dependencies:
       '@vitest/expect': 2.1.9
       '@vitest/mocker': 2.1.9(vite@5.4.19(@types/node@22.10.0)(sass-embedded@1.81.0))
@@ -16757,7 +16770,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.10.0
-      happy-dom: 15.11.6
+      happy-dom: 20.0.7
     transitivePeerDependencies:
       - less
       - lightningcss
@@ -16783,8 +16796,6 @@ snapshots:
       defaults: 1.0.4
 
   webidl-conversions@3.0.1: {}
-
-  webidl-conversions@7.0.0: {}
 
   webpack-virtual-modules@0.6.2: {}
 
