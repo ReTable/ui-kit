@@ -1,5 +1,12 @@
 # @tabula/ui-multi-selector
 
+## 1.1.2
+### Patch Changes
+
+
+
+- [#381](https://github.com/ReTable/ui-kit/pull/381) [`c70776b`](https://github.com/ReTable/ui-kit/commit/c70776b4cf9483fcdef35a58f1e9ec0d490739cf) Thanks [@amikhaylov-retable](https://github.com/amikhaylov-retable)! - Fix filled state for selector with autocomplete
+
 ## 1.1.1
 ### Patch Changes
 
