@@ -21,7 +21,7 @@ type Result = {
 
   context: FloatingContext;
 
-  dropdownRef: RefObject<DropdownController>;
+  dropdownRef: RefObject<DropdownController | null>;
   floatingRef: Ref<HTMLDivElement>;
   referenceRef: Ref<HTMLDivElement>;
 

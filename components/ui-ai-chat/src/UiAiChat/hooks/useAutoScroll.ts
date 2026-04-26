@@ -20,7 +20,7 @@ function shouldToScroll(previous: Request | null, current: Request | null): bool
 
 export function useAutoScroll(
   conversation: Request[],
-  conversationRef: RefObject<InternalConversationController>,
+  conversationRef: RefObject<InternalConversationController | null>,
 ): void {
   const lastRef = useRef<Request | null>(null);
 

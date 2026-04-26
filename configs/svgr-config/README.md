@@ -20,7 +20,7 @@ You can use [npm](https://npmjs.com) or [yarn](https://yarnpkg.com) too.
 
 ## Usage
 
-Add the `.svgrrc.js` file to the root:
+Add the `.svgrrc.mjs` file to the root:
 
 ```javascript
 import { defineConfig } from '@tabula/svgr-config';

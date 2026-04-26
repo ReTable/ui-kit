@@ -1,9 +1,9 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { Table } from './Table';
-import { UseTrackId } from './UseTrackId';
+import * as Stories from './useTrackId.stories';
 
-<Meta title="Docs/useTrackId" />
+<Meta of={Stories} />
 
 # useTrackId
 
@@ -43,6 +43,4 @@ Helps generate track id for analytics purposes.
 
 ## Demo
 
-<Canvas>
-  <UseTrackId scope="parent" />
-</Canvas>
+<Canvas of={Stories.Default} />

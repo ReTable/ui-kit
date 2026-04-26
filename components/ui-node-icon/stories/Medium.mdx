@@ -1,31 +1,39 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/addon-docs/blocks';
 
-import { UiInnerJoinLIcon } from '~';
+import { UiInnerJoinMIcon } from '~';
 
-<Meta title="Large/Docs" />
+import * as Stories from './Medium.stories';
+
+<Meta of={Stories} />
 
 # Import
 
 You can import a single icon the following way:
 
-<Source code={`
-import { UiInnerJoinLIcon } from '@tabula/ui-node-icon';
-`} language="ts"/>
+<Source
+  code={`
+import { UiInnerJoinMIcon } from '@tabula/ui-node-icon';
+`}
+  language="ts"
+/>
 
 Or you can import all icons another way:
 
-<Source code={`
+<Source
+  code={`
 import { UiNodeMIcons } from '@tabula/ui-node-icon';
 
-const ComponentWithIcon = () => <UiNodeMIcons.UiInnerJoinLIcon />;
-`} language="tsx"/>
+const ComponentWithIcon = () => <UiNodeMIcons.UiInnerJoinMIcon />;
+`}
+  language="tsx"
+/>
 
 # Default
 
 Data types icons has `24x24` size by default.
 
 <Canvas layout="centered">
-  <UiInnerJoinLIcon />
+  <UiInnerJoinMIcon />
 </Canvas>
 
 # Styling
@@ -38,7 +46,7 @@ All data types icons inherit `currentColor` property.
 
 <Canvas layout="centered">
   <div style={{ color: 'blue' }}>
-    <UiInnerJoinLIcon />
+    <UiInnerJoinMIcon />
   </div>
 </Canvas>
 
@@ -50,14 +58,14 @@ You can provide `className` property.
   <div>
     <style>
       {`
-        .ui-inner-join-icon {
-          width: 32px;
-          height: 32px;
-        }
-      `}
+              .ui-inner-join-icon {
+                width: 32px;
+                height: 32px;
+              }
+            `}
     </style>
 
-    <UiInnerJoinLIcon className='ui-inner-join-icon' />
+    <UiInnerJoinMIcon className="ui-inner-join-icon" />
   </div>
 </Canvas>
 
@@ -66,7 +74,7 @@ You can provide `className` property.
 You can provide `style` property.
 
 <Canvas layout="centered">
-  <UiInnerJoinLIcon style={{ width: '32px', height: '32px' }} />
+  <UiInnerJoinMIcon style={{ width: '32px', height: '32px' }} />
 </Canvas>
 
 # Disabled State
@@ -81,20 +89,20 @@ For example, if an icon located inside disabled control, then an icon will have 
   <div>
     <style>
       {`
-        .disabled-button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 64px;
-          height: 64px;
-          background: transparent;
-          border-width: 1px;
-        }
-      `}
+              .disabled-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                background: transparent;
+                border-width: 1px;
+              }
+            `}
     </style>
 
     <button className="disabled-button" disabled type="button">
-      <UiInnerJoinLIcon />
+      <UiInnerJoinMIcon />
     </button>
   </div>
 </Canvas>
@@ -104,5 +112,5 @@ For example, if an icon located inside disabled control, then an icon will have 
 Alternative way is using of `isDisabled` property.
 
 <Canvas layout="centered">
-  <UiInnerJoinLIcon isDisabled />
+  <UiInnerJoinMIcon isDisabled />
 </Canvas>

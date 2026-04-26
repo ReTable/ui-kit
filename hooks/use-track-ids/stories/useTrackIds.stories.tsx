@@ -17,6 +17,10 @@ export default {
 type Story = StoryObj<typeof UseTrackIds>;
 
 export const Default: Story = {
+  args: {
+    scope: 'parent',
+  },
+
   render({ scope }) {
     return <UseTrackIds scope={scope} />;
   },

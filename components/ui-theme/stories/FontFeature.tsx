@@ -7,13 +7,18 @@ import * as styles from './FontFeature.css';
 export type Sample = { before?: string; after?: string };
 
 type Props = {
-  defaultSettings: string[];
+  defaultSettings?: string[];
   family: 'sans-serif' | 'monospace';
   samples: Sample[];
   settings: string | string[];
 };
 
-export function FontFeature({ defaultSettings = [], family, samples, settings }: Props): ReactNode {
+export function FontFeature({
+  defaultSettings = [],
+  family,
+  samples,
+  settings,
+}: Props): ReactNode {
   const fontFeatureSettings =
     typeof settings === 'string'
       ? JSON.stringify(settings)

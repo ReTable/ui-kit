@@ -1,8 +1,10 @@
-import {Canvas, Meta, Source} from '@storybook/blocks';
+import {Canvas, Meta, Source} from '@storybook/addon-docs/blocks';
 
 import { UiStringIcon } from '~';
 
-<Meta title="Docs" />
+import * as Stories from './UiDataTypeIcon.stories';
+
+<Meta of={Stories} />
 
 # Component
 
@@ -12,9 +14,12 @@ We provide icons as React components.
 
 <br />
 
-<Source code={`
+<Source
+  code={`
 import { UiStringIcon } from '@tabula/ui-data-type-icon';
-`} language="ts"/>
+`}
+  language="ts"
+/>
 
 <br />
 
@@ -22,7 +27,7 @@ import { UiStringIcon } from '@tabula/ui-data-type-icon';
 
 Data types icons has `16x16` size by default.
 
-<Canvas  layout="centered">
+<Canvas layout="centered">
   <UiStringIcon />
 </Canvas>
 
@@ -48,14 +53,14 @@ You can provide `className` property.
   <div>
     <style>
       {`
-        .ui-string-icon {
-          width: 32px;
-          height: 32px;
-        }
-      `}
+              .ui-string-icon {
+                width: 32px;
+                height: 32px;
+              }
+            `}
     </style>
 
-    <UiStringIcon className='ui-string-icon' />
+    <UiStringIcon className="ui-string-icon" />
   </div>
 </Canvas>
 
@@ -75,9 +80,12 @@ Also, we provide icons as static images.
 
 <br />
 
-<Source code={`
+<Source
+  code={`
 import { uiStringIconUrl } from "@tabula/ui-data-type-icon";
-`} language="ts"/>
+`}
+  language="ts"
+/>
 
 <br />
 
@@ -85,8 +93,11 @@ import { uiStringIconUrl } from "@tabula/ui-data-type-icon";
 
 If you use a Vite bundler, you can use icons in your styles like this:
 
-<Source code={`
+<Source
+  code={`
 .awesome-component {
   background-image: url('@tabula/ui-data-type-icon/string.svg');
 }
-`} language="css"/>
+`}
+  language="css"
+/>

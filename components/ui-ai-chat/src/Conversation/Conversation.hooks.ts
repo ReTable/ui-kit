@@ -2,7 +2,9 @@ import { Ref, RefObject, useImperativeHandle, useRef } from 'react';
 
 import { InternalConversationController } from '../types';
 
-export function useController(ref: Ref<InternalConversationController>): RefObject<HTMLDivElement> {
+export function useController(
+  ref: Ref<InternalConversationController>,
+): RefObject<HTMLDivElement | null> {
   const conversationRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(

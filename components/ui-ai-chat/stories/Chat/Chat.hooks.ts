@@ -12,9 +12,7 @@ function answerWithTable(noRows = false): string {
   const colsCount = randNumber({ min: 1, max: 10 });
   const rowsCount = noRows ? 0 : randNumber({ min: 5, max: 20 });
 
-  const buffer: string[] = [`${randParagraph()}\n\n`];
-
-  buffer.push('|');
+  const buffer: string[] = [`${randParagraph()}\n\n`, '|'];
 
   for (let c = 0; c < colsCount; c += 1) {
     buffer.push(` ${randWord()} |`);

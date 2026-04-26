@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 type RendererProps = {
   showDataTypes: boolean;
@@ -14,7 +14,7 @@ type Props = {
   objectSize?: boolean;
 };
 
-export const Options: FC<Props> = ({ children, dataTypes, objectSize }) => {
+export function Options({ children, dataTypes, objectSize }: Props): ReactNode {
   const [showDataTypes, setShowDataTypes] = useState(false);
   const [showObjectSize, setShowObjectSize] = useState(false);
 
@@ -32,4 +32,4 @@ export const Options: FC<Props> = ({ children, dataTypes, objectSize }) => {
   }
 
   return children(props);
-};
+}

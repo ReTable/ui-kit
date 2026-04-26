@@ -6,7 +6,7 @@
   "compilerOptions": {
     /* Modules */
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
 
     /* Interop Constraints */

@@ -1,10 +1,8 @@
-import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Controls, Canvas, Meta } from '@storybook/addon-docs/blocks';
 
-import { UiDatePicker } from '~';
+import * as Stories from './UiDatePicker.stories';
 
-import { DateStory, DateTimeStory, TimeStory } from './UiDatePicker.stories';
-
-<Meta title="UiDatePicker/Docs" />
+<Meta of={Stories} />
 
 # UiDatePicker
 
@@ -14,24 +12,18 @@ The `UiDatePicker` allows to select date, time or both date and time depends on 
 
 If you provide the `date` value to the `type` property, then only date selection will be available.
 
-<Canvas>
-  <DateStory.render />
-</Canvas>
+<Canvas of={Stories.DateStory} />
 
 ## Time
 
 If you provide the `time` value to the `type` property, then only time selection will be available.
 
-<Canvas>
-  <TimeStory.render />
-</Canvas>
+<Canvas of={Stories.TimeStory} />
 
 ## Date & Time
 
 If you provide the `datetime` value to the `type` property, then date and time selection will be available.
 
-<Canvas>
-  <DateTimeStory.render />
-</Canvas>
+<Canvas of={Stories.DateTimeStory} />
 
-<ArgsTable of={UiDatePicker} />
+<Controls of={Stories.DateStory} />

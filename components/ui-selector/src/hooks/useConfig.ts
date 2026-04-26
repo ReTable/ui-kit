@@ -59,7 +59,7 @@ export function useConfig({
 
           return acc;
         }, [])
-        .sort((left, right) => left.id.localeCompare(right.id));
+        .toSorted((left, right) => left.id.localeCompare(right.id));
     }
 
     const menuConfig: Config = outerConfig.map((item) => {

@@ -1,7 +1,10 @@
 {
   "$schema": "https://github.com/ReTable/forge/blob/main/schemas/forgerc.json",
   "target": "node",
-  "entries": ["index", "browserSetup"],
+  "entries": [
+    "index",
+    "browserSetup"
+  ],
   "check": true,
   "typings": true,
   "build": {
@@ -9,5 +12,6 @@
   },
   "watch": {
     "production": false
-  }
+  },
+  "postBuild": "node ../../scripts/convert-forge-output-to-mjs.mjs"
 }

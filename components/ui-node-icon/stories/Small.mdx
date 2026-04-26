@@ -1,24 +1,32 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/addon-docs/blocks';
 
 import { UiInnerJoinSIcon, UiPostgresSourceSIcon } from '~';
 
-<Meta title="Small/Docs" />
+import * as Stories from './Small.stories';
+
+<Meta of={Stories} />
 
 # Import
 
 You can import a single icon the following way:
 
-<Source code={`
+<Source
+  code={`
 import { UiInnerJoinSIcon } from '@tabula/ui-node-icon';
-`} language="ts"/>
+`}
+  language="ts"
+/>
 
 Or you can import all icons another way:
 
-<Source code={`
+<Source
+  code={`
 import { UiNodeSIcons } from '@tabula/ui-node-icon';
 
 const ComponentWithIcon = () => <UiNodeSIcons.UiInnerJoinSIcon />;
-`} language="tsx"/>
+`}
+  language="tsx"
+/>
 
 # Default
 
@@ -60,14 +68,14 @@ You can provide `className` property.
   <div>
     <style>
       {`
-        .ui-inner-join-icon {
-          width: 32px;
-          height: 32px;
-        }
-      `}
+              .ui-inner-join-icon {
+                width: 32px;
+                height: 32px;
+              }
+            `}
     </style>
 
-    <UiInnerJoinSIcon className='ui-inner-join-icon' />
+    <UiInnerJoinSIcon className="ui-inner-join-icon" />
   </div>
 </Canvas>
 

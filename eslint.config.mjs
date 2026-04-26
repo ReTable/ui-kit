@@ -1,8 +1,11 @@
+import { fixupConfigRules } from '@eslint/compat';
 import { configs, defineConfig, presets } from '@tabula/eslint-config';
+
+const reactConfigs = fixupConfigRules(presets.react());
 
 export default defineConfig({
   build: {
-    ignores: ['**/lib/**', '**/typings/**', 'eslint.config.mjs', 'plopfile.js'],
+    ignores: ['**/lib/**', '**/typings/**', 'docs/**', 'eslint.config.mjs', 'plopfile.mjs'],
   },
 
   javascript: {
@@ -88,13 +91,24 @@ export default defineConfig({
   react: {
     files: ['{components,hooks}/*/{src,stories,tests}/**/*.tsx'],
 
-    configs: presets.react(),
+    configs: reactConfigs,
   },
 
   reactHooks: {
     files: ['{components,hooks}/*/{src,tests}/**/*.{ts,tsx}'],
 
-    configs: configs.reactHooks(),
+    configs: [
+      ...configs.reactHooks(),
+      {
+        name: 'compiler-rules-overrides',
+
+        rules: {
+          'react-hooks/preserve-manual-memoization': 'off',
+          'react-hooks/refs': 'off',
+          'react-hooks/set-state-in-effect': 'off',
+        },
+      },
+    ],
   },
 
   testingLibrary: {

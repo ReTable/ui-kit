@@ -1,15 +1,15 @@
 {
   "name": "@tabula/ui-date-picker",
-  "version": "7.1.2",
+  "version": "7.1.3-next.0",
   "description": "Allows to pick a date, time or date and time together",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "module": "./lib/index.js",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "module": "./lib/index.mjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -48,13 +48,16 @@
   },
   "devDependencies": {
     "@tabula/ui-theme": "workspace:^",
-    "@types/react-transition-group": "catalog:"
+    "@types/react": "catalog:",
+    "@types/react-transition-group": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "dependencies": {
     "@tabula/ui-button": "workspace:^",
     "@tabula/ui-data-type-icon": "workspace:^",
     "clsx": "catalog:",
-    "date-fns": "^3.6.0",
+    "date-fns": "^4.1.0",
     "react-transition-group": "catalog:"
   }
 }

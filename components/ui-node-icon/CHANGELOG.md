@@ -1,5 +1,15 @@
 # @tabula/ui-node-icon
 
+## 12.0.1-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/ui-theme@3.3.3-next.0
+
 ## 12.0.0
 ### Major Changes
 

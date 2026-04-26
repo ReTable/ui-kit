@@ -20,6 +20,10 @@ export default {
 type Story = StoryObj<typeof UiAnalytics>;
 
 export const Default: Story = {
+  args: {
+    trackId: 'parent',
+  },
+
   render({ trackId }) {
     return (
       <UiAnalytics trackId={trackId}>

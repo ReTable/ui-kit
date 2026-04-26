@@ -27,7 +27,7 @@ const Template: FC<Props> = ({ type }) => {
   }, []);
 
   const handleUpdate = useCallback(() => {
-    setId((current) => (current += 1));
+    setId((current) => current + 1);
   }, []);
 
   return (

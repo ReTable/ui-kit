@@ -1,5 +1,3 @@
-import { CSSProperties } from 'react';
-
 import { StyleRule } from '@vanilla-extract/css';
 
 import { layers } from './layers.css';
@@ -15,7 +13,7 @@ export const styles = {
         [layers.components]: {
           font,
           letterSpacing,
-          textTransform: textTransform as CSSProperties['textTransform'],
+          textTransform: textTransform,
         },
       },
     }),

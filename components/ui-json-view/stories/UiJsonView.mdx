@@ -1,13 +1,14 @@
-import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Controls, Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { UiJsonView } from '~';
 
 import { Container } from './Container';
 import { Inspect } from './Inspect';
 import { Options } from './Options';
+import * as Stories from './UiJsonView.stories';
 import { samples } from './samples';
 
-<Meta title="UiJsonView/Docs" />
+<Meta of={Stories} />
 
 # UiJsonView
 
@@ -94,42 +95,42 @@ You can provide handlers to allow toggle `showDataTypes` and `showObjectSize` op
 <Canvas>
   <Options dataTypes>
     {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
-      <UiJsonView
-        onToggleDataTypes={onToggleDataTypes}
-        onToggleObjectSize={onToggleObjectSize}
-        showDataTypes={showDataTypes}
-        showObjectSize={showObjectSize}
-        source={samples.showObjectSize}
-      />
-    )}
+          <UiJsonView
+            onToggleDataTypes={onToggleDataTypes}
+            onToggleObjectSize={onToggleObjectSize}
+            showDataTypes={showDataTypes}
+            showObjectSize={showObjectSize}
+            source={samples.showObjectSize}
+          />
+        )}
   </Options>
 </Canvas>
 
 <Canvas>
   <Options objectSize>
     {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
-      <UiJsonView
-        onToggleDataTypes={onToggleDataTypes}
-        onToggleObjectSize={onToggleObjectSize}
-        showDataTypes={showDataTypes}
-        showObjectSize={showObjectSize}
-        source={samples.showObjectSize}
-      />
-    )}
+          <UiJsonView
+            onToggleDataTypes={onToggleDataTypes}
+            onToggleObjectSize={onToggleObjectSize}
+            showDataTypes={showDataTypes}
+            showObjectSize={showObjectSize}
+            source={samples.showObjectSize}
+          />
+        )}
   </Options>
 </Canvas>
 
 <Canvas>
   <Options dataTypes objectSize>
     {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
-      <UiJsonView
-        onToggleDataTypes={onToggleDataTypes}
-        onToggleObjectSize={onToggleObjectSize}
-        showDataTypes={showDataTypes}
-        showObjectSize={showObjectSize}
-        source={samples.showObjectSize}
-      />
-    )}
+          <UiJsonView
+            onToggleDataTypes={onToggleDataTypes}
+            onToggleObjectSize={onToggleObjectSize}
+            showDataTypes={showDataTypes}
+            showObjectSize={showObjectSize}
+            source={samples.showObjectSize}
+          />
+        )}
   </Options>
 </Canvas>
 
@@ -192,18 +193,18 @@ But it's possible to control data types and object size visibility, and toggle t
 <Canvas>
   <Options dataTypes objectSize>
     {({ onToggleDataTypes, onToggleObjectSize, showDataTypes, showObjectSize }) => (
-      <UiJsonView
-        collapsed
-        isInteractive
-        limit={6}
-        onToggleDataTypes={onToggleDataTypes}
-        onToggleObjectSize={onToggleObjectSize}
-        shortStringAfterLength={25}
-        showDataTypes={showDataTypes}
-        showObjectSize={showObjectSize}
-        source={samples.limit}
-      />
-    )}
+          <UiJsonView
+            collapsed
+            isInteractive
+            limit={6}
+            onToggleDataTypes={onToggleDataTypes}
+            onToggleObjectSize={onToggleObjectSize}
+            shortStringAfterLength={25}
+            showDataTypes={showDataTypes}
+            showObjectSize={showObjectSize}
+            source={samples.limit}
+          />
+        )}
   </Options>
 </Canvas>
 
@@ -233,11 +234,11 @@ For example, here we provide `Inspect` action, which will open an inspection win
 <Canvas>
   <Inspect>
     {({ actions }) => {
-      return <UiJsonView actions={actions} isInteractive source={samples.showObjectSize} />;
-    }}
+          return <UiJsonView actions={actions} isInteractive source={samples.showObjectSize} />;
+        }}
   </Inspect>
 </Canvas>
 
 ## Properties
 
-<ArgsTable of={UiJsonView} />
+<Controls of={Stories.ComplexObject} />

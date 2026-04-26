@@ -5,7 +5,7 @@ import jp from 'jsonpath';
 import { JsonValue, OnActionFn, QueryFn } from '../../types';
 
 export function useActionHandler(value: JsonValue, isValid: boolean): OnActionFn {
-  return useMemo(() => {
+  return useMemo<OnActionFn>(() => {
     if (!isValid) {
       return () => null;
     }

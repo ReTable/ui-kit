@@ -36,7 +36,7 @@ export function Tags({
       {isNotEmpty && !isDisabled && <Clear className={styles.clear} onUpdate={onUpdate} />}
 
       <div className={styles.list}>
-        {tags.map((it) => renderTag(styles.tag, it))}
+        {tags.map((it): ReactNode => renderTag(styles.tag, it))}
 
         {children}
       </div>

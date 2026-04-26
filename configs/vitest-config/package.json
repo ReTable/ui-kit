@@ -1,19 +1,19 @@
 {
   "name": "@tabula/vitest-config",
-  "version": "0.3.0",
+  "version": "0.3.1-next.0",
   "description": "Configuration for the Vitest",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./browserSetup": {
       "types": "./typings/browserSetup.d.ts",
-      "import": "./lib/browserSetup.js",
-      "default": "./lib/browserSetup.js"
+      "import": "./lib/browserSetup.mjs",
+      "default": "./lib/browserSetup.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -44,8 +44,10 @@
     "build": "forge"
   },
   "optionalDependencies": {
-    "@testing-library/react": "catalog:",
     "@testing-library/jest-dom": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "happy-dom": "catalog:"
   },
   "peerDependencies": {

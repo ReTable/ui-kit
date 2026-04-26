@@ -10,5 +10,6 @@
   "watch": {
     "production": false,
     "storybook": true
-  }
+  },
+  "postBuild": "node ../../scripts/convert-forge-output-to-mjs.mjs"
 }

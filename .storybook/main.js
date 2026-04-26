@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -24,7 +24,7 @@ function searchStories(workspace) {
       //
       //       If directory have no `package.json`, then just ignore it.
       try {
-        packageJson = require(join(packageDir, 'package.json'));
+        packageJson = JSON.parse(readFileSync(join(packageDir, 'package.json'), 'utf8'));
       } catch {
         continue;
       }
@@ -34,7 +34,7 @@ function searchStories(workspace) {
       stories.push({
         directory: packageDir,
         titlePrefix: `${workspace}/${name}@${packageJson.version}`,
-        files: 'stories/**/*.@(mdx|stories.@(mdx|ts|tsx))',
+        files: 'stories/**/*.@(mdx|stories.@(ts|tsx))',
       });
     }
 
@@ -56,7 +56,7 @@ const alias = {
 
     const [ns, pkgName] = relative(ROOT_DIR, importer).split(sep);
 
-    const resolvedTarget = target === '' ? 'lib/index.js' : `lib${target}.js`;
+    const resolvedTarget = target === '' ? 'lib/index.mjs' : `lib${target}.mjs`;
 
     return join(ROOT_DIR, ns, pkgName, resolvedTarget);
   },
@@ -64,8 +64,7 @@ const alias = {
 
 export default {
   addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
+    '@storybook/addon-docs',
     '@storybook/addon-links',
   ],
 

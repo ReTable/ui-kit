@@ -1,11 +1,9 @@
-import { Canvas, Meta } from '@storybook/blocks';
-
-import { UiAnalytics } from '~';
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { Table } from './Table';
-import { UseUiTrackId } from './UseUiTrackId';
+import * as Stories from './useUiTrackId.stories';
 
-<Meta title="useUiTrackId/Docs" />
+<Meta of={Stories} />
 
 # useUiTrackId
 
@@ -45,8 +43,4 @@ This hook allows to fetch track id from context.
 
 ## Demo
 
-<Canvas>
-  <UiAnalytics trackId="parent">
-    <UseUiTrackId />
-  </UiAnalytics>
-</Canvas>
+<Canvas of={Stories.Default} />

@@ -1,5 +1,15 @@
 # @tabula/ui-layout-view
 
+## 8.1.3-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/ui-theme@3.3.3-next.0
+
 ## 8.1.2
 ### Patch Changes
 

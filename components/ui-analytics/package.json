@@ -1,15 +1,15 @@
 {
   "name": "@tabula/ui-analytics",
-  "version": "0.3.2",
+  "version": "0.3.3-next.0",
   "description": "Allows to provide tracking ids to components",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "module": "./lib/index.js",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "module": "./lib/index.mjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -50,5 +50,8 @@
   "dependencies": {
     "@tabula/use-track-id": "workspace:^",
     "@tabula/use-track-ids": "workspace:^"
+  },
+  "devDependencies": {
+    "react": "catalog:"
   }
 }

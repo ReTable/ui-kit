@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useRef, useState } from 'react';
+import { FC, RefObject, useRef, useState } from 'react';
 
 import { clsx } from 'clsx/lite';
 
@@ -28,7 +28,7 @@ export const Copy: FC<Props> = ({
 }) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const timerRef: MutableRefObject<number | null> = useRef(null);
+  const timerRef: RefObject<number | null> = useRef(null);
 
   const action: ActionFn = (_, query) => {
     navigator.clipboard
