@@ -1,5 +1,10 @@
 # @tabula/prettier-config
 
+## 0.1.8
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 0.1.8-next.0
 ### Patch Changes
 

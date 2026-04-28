@@ -1,5 +1,10 @@
 # @tabula/ui-status-badge
 
+## 1.1.3
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 1.1.3-next.0
 ### Patch Changes
 

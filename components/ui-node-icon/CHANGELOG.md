@@ -1,5 +1,10 @@
 # @tabula/ui-node-icon
 
+## 12.0.1
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 12.0.1-next.0
 ### Patch Changes
 

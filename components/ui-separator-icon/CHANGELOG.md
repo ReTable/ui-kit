@@ -1,5 +1,10 @@
 # @tabula/ui-separator-icon
 
+## 0.2.4
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 0.2.4-next.0
 ### Patch Changes
 

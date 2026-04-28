@@ -1,5 +1,14 @@
 # @tabula/ui-checkbox-tree
 
+## 4.1.3
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/tree-utils@0.1.1
+  - @tabula/ui-checkbox@4.1.3
+  - @tabula/ui-tree@0.1.3
+
 ## 4.1.3-next.0
 ### Patch Changes
 

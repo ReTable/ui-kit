@@ -1,5 +1,12 @@
 # @tabula/ui-ai-chat
 
+## 2.1.4
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/ui-button@9.1.3
+
 ## 2.1.4-next.0
 ### Patch Changes
 
