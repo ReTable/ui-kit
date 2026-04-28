@@ -1,17 +1,17 @@
-import { Canvas, Meta } from '@storybook/blocks';
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { Table } from './Table';
-import { UseTrackIds } from './UseTrackIds';
+import * as Stories from './useUiTrackIds.stories';
 
-<Meta title="Docs/useTrackIds" />
+<Meta of={Stories} />
 
-# useTrackId
+# useUiTrackIds
 
-Helps generate track id for analytics purposes.
+This hook allows to fetch track id from context and build ids map.
 
 ## Type
 
-`function useTrackIds(scope: string | null | undefined, ids: Record<string, string | false | null | undefined>): Record<string, string | undefined>`
+`function useUiTrackId(ids: Record<string, string | null | false>): Record<string, string> | Record<string, null>`
 
 ## Usage
 
@@ -69,6 +69,4 @@ Helps generate track id for analytics purposes.
 
 ## Demo
 
-<Canvas>
-  <UseTrackIds scope="parent" />
-</Canvas>
+<Canvas of={Stories.Default} />

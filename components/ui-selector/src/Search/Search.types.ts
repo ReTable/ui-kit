@@ -3,7 +3,7 @@ import {
   ForwardedRef,
   MouseEvent,
   MouseEventHandler,
-  MutableRefObject,
+  RefObject,
 } from 'react';
 
 export type ChangeValueHandler = ChangeEventHandler<HTMLInputElement>;
@@ -13,7 +13,7 @@ export type ClearValueHandler = (
 ) => void;
 
 export type InputElement = HTMLInputElement | null;
-export type InputRef = MutableRefObject<InputElement>;
+export type InputRef = RefObject<InputElement>;
 
 export type RequiredProps = {
   onChange: ChangeValueHandler;

@@ -4,12 +4,12 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["src/**", ".forgerc", "tsconfig.json", "tsconfig.forge.json"],
+      "inputs": ["src/**", ".forgerc*", "tsconfig.json", "tsconfig.forge.json"],
       "outputs": ["lib/**", "typings/**"]
     },
     "build:docs": {
       "dependsOn": ["^build:docs"],
-      "inputs": ["src/**", ".forgerc", "tsconfig.json", "tsconfig.forge.json"],
+      "inputs": ["src/**", ".forgerc*", "tsconfig.json", "tsconfig.forge.json"],
       "outputs": ["lib/**", "typings/**"]
     },
     "build:watch": {

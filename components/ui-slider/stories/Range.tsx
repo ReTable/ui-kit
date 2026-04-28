@@ -3,7 +3,7 @@ import { ReactNode, useState } from 'react';
 import { UiSlider, UiSliderProps } from '~';
 
 type Props = Omit<UiSliderProps, 'className' | 'id' | 'name' | 'onChange' | 'value'> & {
-  initialValue: number;
+  initialValue?: number;
 };
 
 export function Range({ initialValue = 0, ...props }: Props): ReactNode {

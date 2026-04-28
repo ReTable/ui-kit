@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { StoryObj } from '@storybook/react';
 
 import { Actions, UiJsonView } from '~';

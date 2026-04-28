@@ -1,14 +1,14 @@
 {
   "name": "@tabula/svgr-config",
-  "version": "0.3.2",
+  "version": "0.3.3-next.0",
   "description": "Configuration for the SVGR with ability to change name and display name of components",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -46,6 +46,6 @@
     "@svgr/plugin-jsx": "^8.1.0"
   },
   "dependencies": {
-    "@babel/types": "^7.24.9"
+    "@babel/types": "^7.29.0"
   }
 }

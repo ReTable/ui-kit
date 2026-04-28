@@ -1,4 +1,4 @@
-import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 
 import { defineConfig } from 'vitest/config';
 
@@ -12,7 +12,7 @@ export const node = defineConfig({
   },
 });
 
-const { resolve } = createRequire(import.meta.url);
+const browserSetup = fileURLToPath(import.meta.resolve('@tabula/vitest-config/browserSetup'));
 
 export const browser = defineConfig({
   esbuild: {
@@ -22,7 +22,7 @@ export const browser = defineConfig({
   test: {
     environment: 'happy-dom',
 
-    setupFiles: resolve('@tabula/vitest-config/browserSetup'),
+    setupFiles: browserSetup,
 
     include,
   },

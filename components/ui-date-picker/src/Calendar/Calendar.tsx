@@ -1,4 +1,4 @@
-import { FC, useCallback, useState } from 'react';
+import { FC, useCallback, useRef, useState } from 'react';
 
 import { clsx } from 'clsx/lite';
 import { add, format, setYear, sub } from 'date-fns';
@@ -28,6 +28,7 @@ export const Calendar: FC<Props> = ({ className, selected, onSelect }) => {
   const [shown, setShown] = useState(selected ?? new Date());
 
   const [isYearsVisible, setIsYearsVisible] = useState(false);
+  const yearsRef = useRef<HTMLDivElement>(null);
 
   const days = useDaysOfMonth(shown, selected);
 
@@ -57,7 +58,15 @@ export const Calendar: FC<Props> = ({ className, selected, onSelect }) => {
     setIsYearsVisible(false);
   }, []);
 
-  const handleEndListener = useCallback((node: HTMLElement, done: () => void) => {
+  const handleEndListener = useCallback((done: () => void) => {
+    const node = yearsRef.current;
+
+    if (node == null) {
+      done();
+
+      return;
+    }
+
     node.addEventListener('transitionend', done, false);
   }, []);
 
@@ -86,11 +95,13 @@ export const Calendar: FC<Props> = ({ className, selected, onSelect }) => {
           classNames={styles.yearsTransitions}
           in={isYearsVisible}
           mountOnEnter
+          nodeRef={yearsRef}
           unmountOnExit
         >
           <List
             className={styles.years}
             from={1900}
+            ref={yearsRef}
             to={2100}
             onSelect={handleSelectYear}
             selected={shown.getFullYear()}

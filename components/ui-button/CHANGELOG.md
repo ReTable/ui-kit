@@ -1,5 +1,15 @@
 # @tabula/ui-button
 
+## 9.1.3-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/ui-theme@3.3.3-next.0
+
 ## 9.1.2
 ### Patch Changes
 

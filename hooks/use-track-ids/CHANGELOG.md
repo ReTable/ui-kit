@@ -1,5 +1,15 @@
 # @tabula/use-track-ids
 
+## 0.1.2-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/track-id@0.1.1-next.0
+
 ## 0.1.1
 
 ### Patch Changes

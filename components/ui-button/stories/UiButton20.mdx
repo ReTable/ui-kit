@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Controls, Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { UiButton20 } from '~';
 
@@ -6,8 +6,9 @@ import { contractBackground } from './style.css';
 
 import { AddIcon } from './AddIcon';
 import { Link } from './Link';
+import * as Stories from './UiButton20.stories';
 
-<Meta title="UiButton20/Docs" />
+<Meta of={Stories} />
 
 # UiButton20
 
@@ -140,4 +141,4 @@ For example, you can provide `data-*` attribute for analytics purposes:
 
 ## Properties
 
-<ArgsTable of={UiButton20} />
+<Controls of={Stories.Contract} />

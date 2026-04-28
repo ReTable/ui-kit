@@ -1,6 +1,6 @@
 import { FC, useMemo, useState } from 'react';
 
-import { Heading, OptionsControl } from '@storybook/blocks';
+import { Heading, OptionsControl } from '@storybook/addon-docs/blocks';
 import { capitalCase } from 'change-case';
 
 import { colorSample, filter, list } from './styles.css';

@@ -1,8 +1,8 @@
 import {
-  FC,
   MouseEventHandler,
   PropsWithChildren,
   ReactNode,
+  forwardRef,
   useCallback,
   useEffect,
   useMemo,
@@ -28,7 +28,10 @@ export type Props = PropsWithChildren<{
   onSelect: (value: number) => void;
 }>;
 
-export const List: FC<Props> = ({ className, from, labelOf, onSelect, selected, to }) => {
+export const List = forwardRef<HTMLDivElement, Props>(function List(
+  { className, from, labelOf, onSelect, selected, to },
+  forwardedRef,
+) {
   const selectedRef = useRef<HTMLButtonElement>(null);
 
   const handleClick = useCallback<MouseEventHandler>(
@@ -78,5 +81,9 @@ export const List: FC<Props> = ({ className, from, labelOf, onSelect, selected, 
     });
   }, []);
 
-  return <div className={clsx(styles.root, className)}>{items}</div>;
-};
+  return (
+    <div className={clsx(styles.root, className)} ref={forwardedRef}>
+      {items}
+    </div>
+  );
+});

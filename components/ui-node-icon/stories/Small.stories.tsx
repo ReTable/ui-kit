@@ -10,7 +10,7 @@ import { icon, iconContainer, root } from './styles.css';
 
 type Args = {
   currentColor: string;
-  search: string;
+  search?: string;
 };
 
 // endregion

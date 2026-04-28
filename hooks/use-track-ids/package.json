@@ -1,15 +1,15 @@
 {
   "name": "@tabula/use-track-ids",
-  "version": "0.1.1",
+  "version": "0.1.2-next.0",
   "description": "Helps generate track ids for analytics purposes",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "module": "./lib/index.js",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "module": "./lib/index.mjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -48,5 +48,8 @@
   },
   "dependencies": {
     "@tabula/track-id": "workspace:^"
+  },
+  "devDependencies": {
+    "react": "catalog:"
   }
 }

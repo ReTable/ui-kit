@@ -1,5 +1,15 @@
 # @tabula/use-side-effect
 
+## 0.1.1-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/use-previous-value@0.1.1-next.0
+
 ## 0.1.0
 
 ### Minor Changes

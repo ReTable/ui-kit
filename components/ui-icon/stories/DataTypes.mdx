@@ -1,14 +1,19 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/addon-docs/blocks';
 
 import { UiStringIcon } from '~/dataTypes';
 
-<Meta title="Data Types/Docs" />
+import * as Stories from './DataTypes.stories';
+
+<Meta of={Stories} />
 
 # Import
 
-<Source code={`
+<Source
+  code={`
 import { UiStringIcon } from '@tabula/ui-icon/dataTypes';
-`} language="ts"/>
+`}
+  language="ts"
+/>
 
 # Default
 
@@ -40,14 +45,14 @@ You can provide `className` property.
   <div>
     <style>
       {`
-        .ui-string-icon {
-          width: 32px;
-          height: 32px;
-        }
-      `}
+              .ui-string-icon {
+                width: 32px;
+                height: 32px;
+              }
+            `}
     </style>
 
-    <UiStringIcon className='ui-string-icon' />
+    <UiStringIcon className="ui-string-icon" />
   </div>
 </Canvas>
 

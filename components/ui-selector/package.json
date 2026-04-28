@@ -1,15 +1,15 @@
 {
   "name": "@tabula/ui-selector",
-  "version": "3.1.1",
+  "version": "3.1.2-next.0",
   "description": "Selector allow users to choose a single option from a collapsible list of options when space is limited",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "module": "./lib/index.js",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "module": "./lib/index.mjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -48,7 +48,9 @@
     "react-dom": "catalog:"
   },
   "devDependencies": {
-    "@tabula/ui-theme": "workspace:^"
+    "@tabula/ui-theme": "workspace:^",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "dependencies": {
     "@floating-ui/react": "catalog:",

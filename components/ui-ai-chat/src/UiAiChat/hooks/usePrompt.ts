@@ -7,7 +7,7 @@ type Options = {
 
   onSend: (prompt: string) => void;
 
-  promptInputRef: RefObject<PromptInputController>;
+  promptInputRef: RefObject<PromptInputController | null>;
 };
 
 type Result = {

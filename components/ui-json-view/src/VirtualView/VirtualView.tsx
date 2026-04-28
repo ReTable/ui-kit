@@ -1,7 +1,7 @@
-import { ComponentType, useCallback } from 'react';
+import { ReactElement, useCallback, useMemo } from 'react';
 
 import { clsx } from 'clsx/lite';
-import { ListChildComponentProps, VariableSizeList } from 'react-window';
+import { List, RowComponentProps } from 'react-window';
 
 import { useSize } from '@tabula/use-size';
 
@@ -12,24 +12,26 @@ import { Line } from '../Line';
 import { Options } from '../Options';
 import { Line as LineType, ViewComponentType } from '../types';
 
-function itemKey(index: number, lines: LineType[]) {
-  return lines[index].path;
-}
+type RowProps = {
+  lines: LineType[];
+};
 
-const lineRenderer: ComponentType<ListChildComponentProps<LineType[]>> = ({
+function lineRenderer({
   index,
-  data,
+  lines,
   style,
-}) => {
-  const line = data[index];
+}: RowComponentProps<RowProps>): ReactElement {
+  const line = lines[index];
 
   return <Line line={line} style={style} />;
-};
+}
 
 export const VirtualView: ViewComponentType = ({ className, lines }) => {
   const [ref, { height }] = useSize();
 
-  const itemSize = useCallback(
+  const rowProps = useMemo<RowProps>(() => ({ lines }), [lines]);
+
+  const rowHeight = useCallback(
     (index: number) => {
       const { isFirst, isLast } = lines[index];
 
@@ -50,18 +52,15 @@ export const VirtualView: ViewComponentType = ({ className, lines }) => {
 
   return (
     <div className={clsx(className, root)} ref={ref}>
-      <VariableSizeList<LineType[]>
+      <List<RowProps>
         className={list}
-        height={height}
-        itemCount={lines.length}
-        itemData={lines}
-        itemKey={itemKey}
-        itemSize={itemSize}
+        rowComponent={lineRenderer}
+        rowCount={lines.length}
+        rowHeight={rowHeight}
+        rowProps={rowProps}
         overscanCount={Math.floor(height / itemHeight / 4)}
-        width="100%"
-      >
-        {lineRenderer}
-      </VariableSizeList>
+        style={{ height, width: '100%' }}
+      />
       <Options className={options} />
     </div>
   );

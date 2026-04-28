@@ -32,7 +32,7 @@ export function Trigger({
   placeholder,
   showSearchField,
 }: Props): ReactNode {
-  const triggerContent = useMemo(() => {
+  const triggerContent = useMemo((): ReactNode => {
     if (typeof onRenderTrigger === 'function') {
       const renderedTrigger = onRenderTrigger();
       if (renderedTrigger) {

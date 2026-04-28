@@ -24,8 +24,8 @@ type Result = {
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 
-  rootRef: RefObject<HTMLDivElement>;
-  currentRef: RefObject<HTMLButtonElement>;
+  rootRef: RefObject<HTMLDivElement | null>;
+  currentRef: RefObject<HTMLButtonElement | null>;
 };
 
 export function useController(

@@ -1,6 +1,6 @@
 {
   "name": "@tabula/prettier-config",
-  "version": "0.1.7",
+  "version": "0.1.8-next.0",
   "description": "Configuration for the Prettier",
   "exports": {
     ".": {
@@ -29,7 +29,7 @@
   "author": "Retable Inc.",
   "license": "ISC",
   "dependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.3.0"
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2"
   },
   "peerDependencies": {
     "prettier": "catalog:"

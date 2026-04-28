@@ -1,14 +1,19 @@
-import { Canvas, Meta, Source } from '@storybook/blocks';
+import { Canvas, Meta, Source } from '@storybook/addon-docs/blocks';
 
 import { UiTabIcon } from '~/separators';
 
-<Meta title="Separators/Docs" />
+import * as Stories from './Separators.stories';
+
+<Meta of={Stories} />
 
 # Import
 
-<Source code={`
+<Source
+  code={`
 import { UiTabIcon } from '@tabula/ui-icon/separators';
-`} language="ts"/>
+`}
+  language="ts"
+/>
 
 # Default
 
@@ -40,14 +45,14 @@ You can provide `className` property.
   <div>
     <style>
       {`
-        .ui-comma-icon {
-          width: 32px;
-          height: 32px;
-        }
-      `}
+              .ui-comma-icon {
+                width: 32px;
+                height: 32px;
+              }
+            `}
     </style>
 
-    <UiTabIcon className='ui-comma-icon' />
+    <UiTabIcon className="ui-comma-icon" />
   </div>
 </Canvas>
 

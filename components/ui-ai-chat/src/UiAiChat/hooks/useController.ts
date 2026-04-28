@@ -5,8 +5,8 @@ import { Controller, ConversationController, PromptInputController } from '../..
 type Options = {
   ref: Ref<Controller>;
 
-  conversationRef: RefObject<ConversationController>;
-  promptInputRef: RefObject<PromptInputController>;
+  conversationRef: RefObject<ConversationController | null>;
+  promptInputRef: RefObject<PromptInputController | null>;
 };
 
 export function useController({ ref, conversationRef, promptInputRef }: Options): void {

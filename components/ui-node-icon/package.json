@@ -1,15 +1,15 @@
 {
   "name": "@tabula/ui-node-icon",
-  "version": "12.0.0",
+  "version": "12.0.1-next.0",
   "description": "Icons for nodes",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "module": "./lib/index.js",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "module": "./lib/index.mjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -48,7 +48,8 @@
     "react": "catalog:"
   },
   "devDependencies": {
-    "@tabula/ui-theme": "workspace:^"
+    "@tabula/ui-theme": "workspace:^",
+    "react": "catalog:"
   },
   "dependencies": {
     "clsx": "catalog:"

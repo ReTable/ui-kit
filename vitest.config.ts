@@ -21,7 +21,7 @@ const alias: Alias = {
 
     const [ns, pkgName] = relative(rootDir, importer).split(sep);
 
-    const resolvedTarget = target === '' ? 'lib/index.js' : `lib${target}.js`;
+    const resolvedTarget = target === '' ? 'lib/index.mjs' : `lib${target}.mjs`;
 
     return join(rootDir, ns, pkgName, resolvedTarget);
   },

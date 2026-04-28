@@ -1,5 +1,15 @@
 # @tabula/ui-tree
 
+## 0.1.3-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/tree-utils@0.1.1-next.0
+
 ## 0.1.2
 
 ### Patch Changes

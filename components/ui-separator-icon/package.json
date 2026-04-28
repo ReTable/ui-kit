@@ -1,15 +1,15 @@
 {
   "name": "@tabula/ui-separator-icon",
-  "version": "0.2.3",
+  "version": "0.2.4-next.0",
   "description": "Icons for separators",
   "type": "module",
   "typings": "./typings/index.d.ts",
   "exports": {
     ".": {
       "types": "./typings/index.d.ts",
-      "module": "./lib/index.js",
-      "import": "./lib/index.js",
-      "default": "./lib/index.js"
+      "module": "./lib/index.mjs",
+      "import": "./lib/index.mjs",
+      "default": "./lib/index.mjs"
     },
     "./*.svg": "./lib/*.svg",
     "./package.json": "./package.json"
@@ -44,6 +44,9 @@
     "build:watch": "forge --watch"
   },
   "peerDependencies": {
+    "react": "catalog:"
+  },
+  "devDependencies": {
     "react": "catalog:"
   }
 }

@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import { RangeControl } from '@storybook/blocks';
+import { RangeControl } from '@storybook/addon-docs/blocks';
 
 import { animation, label, motion, motions, root } from './EasingsPreview.css';
 

@@ -1,5 +1,12 @@
 # @tabula/track-id
 
+## 0.1.1-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
 ## 0.1.0
 
 ### Minor Changes

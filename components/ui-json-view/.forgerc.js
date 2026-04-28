@@ -3,6 +3,7 @@ export default {
   entry: 'index',
   check: true,
   typings: true,
+  postBuild: 'node ../../scripts/convert-forge-output-to-mjs.mjs',
   svgrComponentName(name) {
     return `${name.slice(3)}Icon`;
   },

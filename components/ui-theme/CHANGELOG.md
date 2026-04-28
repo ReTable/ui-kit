@@ -1,5 +1,12 @@
 # @tabula/ui-theme
 
+## 3.3.3-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
 ## 3.3.2
 ### Patch Changes
 

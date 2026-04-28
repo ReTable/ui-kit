@@ -9,5 +9,6 @@
   },
   "watch": {
     "production": false
-  }
+  },
+  "postBuild": "node ../../scripts/convert-forge-output-to-mjs.mjs"
 }

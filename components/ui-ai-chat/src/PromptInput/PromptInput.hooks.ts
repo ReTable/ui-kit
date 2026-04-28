@@ -2,7 +2,9 @@ import { Ref, RefObject, useImperativeHandle, useRef } from 'react';
 
 import { PromptInputController } from '../types';
 
-export function useController(ref: Ref<PromptInputController>): RefObject<HTMLTextAreaElement> {
+export function useController(
+  ref: Ref<PromptInputController>,
+): RefObject<HTMLTextAreaElement | null> {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useImperativeHandle(

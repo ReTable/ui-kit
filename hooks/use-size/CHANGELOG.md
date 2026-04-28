@@ -1,5 +1,12 @@
 # @tabula/use-size
 
+## 0.2.3-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
 ## 0.2.2
 ### Patch Changes
 

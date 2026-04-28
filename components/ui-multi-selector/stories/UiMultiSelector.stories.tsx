@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 import { Meta, StoryObj } from '@storybook/react';
 
 import * as icons from '@tabula/ui-data-type-icon';

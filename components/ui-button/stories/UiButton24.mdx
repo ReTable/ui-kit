@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Controls, Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { UiButton24 } from '~';
 
@@ -6,8 +6,9 @@ import { darkBackground } from './style.css';
 
 import { AddIcon } from './AddIcon';
 import { Link } from './Link';
+import * as Stories from './UiButton24.stories';
 
-<Meta title="UiButton24/Docs" />
+<Meta of={Stories} />
 
 # UiButton24
 
@@ -76,6 +77,7 @@ There are 9 appearance variants, which you can use:
   <UiButton24 variant="test">Test</UiButton24>
   <UiButton24 variant="ai">Ai</UiButton24>
 </Canvas>
+
 <Canvas className={darkBackground}>
   <UiButton24 variant="secondaryHeader">Secondary Header</UiButton24>
 </Canvas>
@@ -150,4 +152,4 @@ For example, you can provide `data-*` attribute for analytics purposes:
 
 ## Properties
 
-<ArgsTable of={UiButton24} />
+<Controls of={Stories.Primary} />

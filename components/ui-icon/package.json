@@ -1,20 +1,20 @@
 {
   "name": "@tabula/ui-icon",
-  "version": "8.0.4",
+  "version": "8.0.5-next.0",
   "description": "Sets of various icons",
   "type": "module",
   "exports": {
     "./dataTypes": {
       "types": "./typings/dataTypes.d.ts",
-      "module": "./lib/dataTypes.js",
-      "import": "./lib/dataTypes.js",
-      "default": "./lib/dataTypes.js"
+      "module": "./lib/dataTypes.mjs",
+      "import": "./lib/dataTypes.mjs",
+      "default": "./lib/dataTypes.mjs"
     },
     "./separators": {
       "types": "./typings/separators.d.ts",
-      "module": "./lib/separators.js",
-      "import": "./lib/separators.js",
-      "default": "./lib/separators.js"
+      "module": "./lib/separators.mjs",
+      "import": "./lib/separators.mjs",
+      "default": "./lib/separators.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -47,6 +47,9 @@
     "build:watch": "forge --watch"
   },
   "peerDependencies": {
+    "react": "catalog:"
+  },
+  "devDependencies": {
     "react": "catalog:"
   }
 }

@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Meta } from '@storybook/blocks';
+import { Controls, Canvas, Meta } from '@storybook/addon-docs/blocks';
 
 import { UiButton40 } from '~';
 
@@ -6,8 +6,9 @@ import { darkBackground } from './style.css';
 
 import { AddIcon } from './AddIcon';
 import { Link } from './Link';
+import * as Stories from './UiButton40.stories';
 
-<Meta title="UiButton40/Docs" />
+<Meta of={Stories} />
 
 # UiButton40
 
@@ -72,6 +73,7 @@ There are 5 appearance variants, which you can use:
   <UiButton40 variant="secondaryBlue">Secondary Blue</UiButton40>
   <UiButton40 variant="secondaryFilled">Secondary Filled</UiButton40>
 </Canvas>
+
 <Canvas className={darkBackground}>
   <UiButton40 variant="secondaryDark">Secondary Dark</UiButton40>
 </Canvas>
@@ -146,4 +148,4 @@ For example, you can provide `data-*` attribute for analytics purposes:
 
 ## Properties
 
-<ArgsTable of={UiButton40} />
+<Controls of={Stories.Primary} />

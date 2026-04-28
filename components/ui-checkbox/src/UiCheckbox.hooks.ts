@@ -5,9 +5,9 @@ type Options = {
   onChange?: (isChecked: boolean) => void;
 };
 
-type Result = [RefObject<HTMLInputElement>, ChangeEventHandler<HTMLInputElement>];
+type Result = [RefObject<HTMLInputElement | null>, ChangeEventHandler<HTMLInputElement>];
 
-function setIndeterminate(ref: RefObject<HTMLInputElement>, isIndeterminate: boolean) {
+function setIndeterminate(ref: RefObject<HTMLInputElement | null>, isIndeterminate: boolean) {
   if (ref.current != null) {
     ref.current.indeterminate = isIndeterminate;
   }

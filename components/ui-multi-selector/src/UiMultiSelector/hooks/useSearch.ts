@@ -7,7 +7,7 @@ type Result = {
   onSearch: SearchHandler;
   search: string;
   searchId: string;
-  searchRef: RefObject<HTMLInputElement>;
+  searchRef: RefObject<HTMLInputElement | null>;
 };
 
 export function useSearch(isDisabled?: boolean, onAutocomplete?: SearchHandler): Result {

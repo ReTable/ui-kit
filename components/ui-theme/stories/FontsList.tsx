@@ -1,6 +1,6 @@
-import { CSSProperties, FC, useMemo, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 
-import { Heading, OptionsControl } from '@storybook/blocks';
+import { Heading, OptionsControl } from '@storybook/addon-docs/blocks';
 
 import { filter, fontSample, list } from './styles.css';
 
@@ -112,7 +112,7 @@ const Font: FC<FontProps> = ({ font, sourceType }) => {
 
   return (
     <>
-      <div className={fontSample} style={font.css as CSSProperties}>
+      <div className={fontSample} style={font.css}>
         {font.name}
       </div>
       <div>

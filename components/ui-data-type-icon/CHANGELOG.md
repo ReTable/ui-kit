@@ -1,5 +1,12 @@
 # @tabula/ui-data-type-icon
 
+## 0.2.4-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
 ## 0.2.3
 
 ### Patch Changes

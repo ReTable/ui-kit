@@ -1,5 +1,17 @@
 # @tabula/ui-menu
 
+## 1.2.3-next.0
+### Patch Changes
+
+
+
+- Publish next prerelease packages for validation.
+
+- Updated dependencies []:
+  - @tabula/dom-utils@0.1.1-next.0
+  - @tabula/ui-theme@3.3.3-next.0
+  - @tabula/use-flag@0.1.1-next.0
+
 ## 1.2.2
 ### Patch Changes
 
