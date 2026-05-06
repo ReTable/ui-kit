@@ -26,6 +26,9 @@
         "eslint": "^10.0.0",
         "typescript": "^6.0.0"
       }
+    },
+    "patchedDependencies": {
+      "@tabula/forge": "patches/@tabula__forge.patch"
     }
   },
   "engines": {
@@ -74,8 +77,8 @@
     "@vanilla-extract/dynamic": "catalog:",
     "@vanilla-extract/vite-plugin": "^5.2.2",
     "change-case": "^5.4.4",
-    "eslint": "^10.2.1",
     "esbuild": "^0.28.0",
+    "eslint": "^10.2.1",
     "execa": "^9.6.1",
     "handlebars": "^4.7.9",
     "happy-dom": "catalog:",

@@ -64,6 +64,11 @@ catalogs:
       specifier: ^4.1.5
       version: 4.1.5
 
+patchedDependencies:
+  '@tabula/forge':
+    hash: d777bad36076a034e5af764d7ed950497556d0a761e7cdd17721b41528055f2b
+    path: patches/@tabula__forge.patch
+
 importers:
 
   .:
@@ -106,7 +111,7 @@ importers:
         version: 1.1.1(@typescript-eslint/eslint-plugin@8.59.0(@typescript-eslint/parser@8.59.0(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(@typescript-eslint/utils@8.59.0(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3))(eslint-import-resolver-node@0.3.9)(eslint@10.2.1(jiti@2.6.1))(typescript@6.0.3)(vitest@4.1.5(@types/node@24.12.2)(happy-dom@20.9.0)(vite@8.0.10(@types/node@24.12.2)(esbuild@0.28.0)(jiti@2.6.1)(sass-embedded@1.99.0)(sass@1.99.0)(tsx@4.21.0)))
       '@tabula/forge':
         specifier: ^4.0.2
-        version: 4.0.2(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.3)
+        version: 4.0.2(patch_hash=d777bad36076a034e5af764d7ed950497556d0a761e7cdd17721b41528055f2b)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.3)
       '@tabula/prettier-config':
         specifier: workspace:*
         version: link:configs/prettier-config
@@ -7150,7 +7155,7 @@ snapshots:
       - supports-color
       - vitest
 
-  '@tabula/forge@4.0.2(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.3)':
+  '@tabula/forge@4.0.2(patch_hash=d777bad36076a034e5af764d7ed950497556d0a761e7cdd17721b41528055f2b)(jiti@2.6.1)(tsx@4.21.0)(typescript@6.0.3)':
     dependencies:
       '@babel/core': 7.29.0
       '@babel/types': 7.29.0

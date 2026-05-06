@@ -1,0 +1,28 @@
+diff --git a/lib/index.js b/lib/index.js
+index ebed270fae36eddde3d18d4960935659ce21d0de..200fe40c5c462ec34d20dea706109562bd165b83 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -174,8 +174,21 @@ function renderDocs(docs) {
+   return docs.map((doc) => {
+     const { expression, ...storybook2 } = doc;
+     const instance = expression?.getName() ?? doc.displayName;
+-    return `${instance}.__docgenInfo = ${JSON.stringify(storybook2, null, 2)};`;
+-  }).join("\n");
++    const cache = new Set();
++    const safeStringify = JSON.stringify(storybook2, (key, value) => {
++      if (typeof value === "object" && value !== null) {
++        if (cache.has(value)) {
++          return "[Circular]";
++        }
++        if (value.constructor && (value.constructor.name === "SourceFileObject" || value.constructor.name === "NodeObject")) {
++          return "[TSNode]";
++        }
++        cache.add(value);
++      }
++      return value;
++    }, 2);
++    return `${instance}.__docgenInfo = ${safeStringify};`;
++  }).join("\\n");
+ }
+ 
+ // src/plugins/reactDocgenPlugin/reactDocgenPlugin.ts
