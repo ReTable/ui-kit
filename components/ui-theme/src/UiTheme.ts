@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, createContext, useContext } from 'react';
+import { createElement, FC, PropsWithChildren, createContext, useContext } from 'react';
 
 import { layers } from './layers.css';
 import { vars } from './theme.css';
@@ -10,9 +10,9 @@ const uiTheme = {
 
 const Context = createContext(uiTheme);
 
-export const UiTheme: FC<PropsWithChildren> = ({ children }) => (
-  <Context.Provider value={uiTheme}>{children}</Context.Provider>
-);
+export const UiTheme: FC<PropsWithChildren> = ({ children }) => {
+  return createElement(Context.Provider, { value: uiTheme }, children);
+};
 
 if (import.meta.env.DEV) {
   UiTheme.displayName = 'ui-theme(UiTheme)';
