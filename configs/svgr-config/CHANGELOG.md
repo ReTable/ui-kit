@@ -1,5 +1,10 @@
 # @tabula/svgr-config
 
+## 0.3.3
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 0.3.3-next.0
 ### Patch Changes
 

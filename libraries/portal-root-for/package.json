@@ -1,6 +1,6 @@
 {
   "name": "@tabula/portal-root-for",
-  "version": "0.1.1-next.0",
+  "version": "0.1.1",
   "description": "Allows to get or create portal root",
   "type": "module",
   "typings": "./typings/index.d.ts",

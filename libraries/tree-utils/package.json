@@ -1,6 +1,6 @@
 {
   "name": "@tabula/tree-utils",
-  "version": "0.1.1-next.0",
+  "version": "0.1.1",
   "description": "Utilities for working with simple tree representation",
   "type": "module",
   "typings": "./typings/index.d.ts",

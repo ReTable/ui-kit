@@ -1,5 +1,10 @@
 # @tabula/dom-utils
 
+## 0.1.1
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 0.1.1-next.0
 ### Patch Changes
 

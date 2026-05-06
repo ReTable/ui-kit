@@ -1,5 +1,13 @@
 # @tabula/ui-json-view
 
+## 7.3.4
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/ui-analytics@0.3.3
+  - @tabula/use-size@0.2.3
+
 ## 7.3.4-next.0
 ### Patch Changes
 

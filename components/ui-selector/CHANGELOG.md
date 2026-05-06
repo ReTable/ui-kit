@@ -1,5 +1,17 @@
 # @tabula/ui-selector
 
+## 3.1.2
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/dom-utils@0.1.1
+  - @tabula/portal-root-for@0.1.1
+  - @tabula/ui-menu@1.2.3
+  - @tabula/use-async-state@0.1.1
+  - @tabula/use-close-on-outside-events@0.1.1
+  - @tabula/use-previous-value@0.1.1
+
 ## 3.1.2-next.0
 ### Patch Changes
 

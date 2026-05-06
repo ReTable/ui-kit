@@ -1,5 +1,13 @@
 # @tabula/ui-analytics
 
+## 0.3.3
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/use-track-id@0.1.2
+  - @tabula/use-track-ids@0.1.2
+
 ## 0.3.3-next.0
 ### Patch Changes
 

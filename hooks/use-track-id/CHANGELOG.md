@@ -1,5 +1,12 @@
 # @tabula/use-track-id
 
+## 0.1.2
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/track-id@0.1.1
+
 ## 0.1.2-next.0
 ### Patch Changes
 

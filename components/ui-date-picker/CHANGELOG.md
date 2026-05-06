@@ -1,5 +1,13 @@
 # @tabula/ui-date-picker
 
+## 7.1.3
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/ui-button@9.1.3
+  - @tabula/ui-data-type-icon@0.2.4
+
 ## 7.1.3-next.0
 ### Patch Changes
 

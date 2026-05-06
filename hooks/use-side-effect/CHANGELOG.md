@@ -1,5 +1,12 @@
 # @tabula/use-side-effect
 
+## 0.1.1
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+- Updated dependencies [d138c5e]
+  - @tabula/use-previous-value@0.1.1
+
 ## 0.1.1-next.0
 ### Patch Changes
 

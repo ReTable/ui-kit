@@ -1,5 +1,10 @@
 # @tabula/ui-icon
 
+## 8.0.5
+### Patch Changes
+
+- d138c5e: Publish next prerelease packages for validation.
+
 ## 8.0.5-next.0
 ### Patch Changes
 
